@@ -4,6 +4,8 @@ Derived Source Data and frozen build code for the approved 2026-09-30 version of
 
 This repository is the figure/statistics source-data deliverable, not the separate raw-data analysis repository. Raw calcium recordings, videos, acquisition processing, registration and map/decoder fitting are upstream and are not rerun here. Finished composite figures and workbooks are not included as build inputs.
 
+The GitHub repository is named `maze-lifelong-memory`. This is its initial source-data snapshot. After paper acceptance, the author plans to replace its main contents with the full repository beginning from raw data, while keeping this snapshot identifiable in Git history.
+
 ## Reproduce
 
 On the tested Windows environment, clone this repository, then run from its root using a new output directory:

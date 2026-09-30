@@ -25,3 +25,7 @@ Git stores the frozen files without line-ending conversion. Future scientific or
 The source worktree did not provide a repository-wide licence to carry into this snapshot. No new licence, DOI, manuscript citation or public-access claim is invented here. Preserve existing notices in individual files. The author must select appropriate code/data licences and supply the manuscript citation before public release. Creating a private GitHub repository does not resolve these publication metadata fields.
 
 The separate raw-data/minimal-analysis repository is not included or modified by this preparation.
+
+## Repository lifecycle
+
+The author selected the GitHub name `maze-lifelong-memory`. Its initial contents are this verified source-data snapshot. After paper acceptance, the author intends to replace the main contents with the complete repository starting from raw data. That future replacement is not performed here; this source-data snapshot remains identifiable by its Git commit history. Keep its frozen manifests and executed validation associated with this snapshot rather than treating them as validation of the future raw-data pipeline.
