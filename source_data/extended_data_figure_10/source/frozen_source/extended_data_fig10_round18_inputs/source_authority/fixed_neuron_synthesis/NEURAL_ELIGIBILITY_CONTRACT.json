@@ -1,0 +1,71 @@
+{
+  "schema": "ed10_fixed_neuron_neural_eligibility/v1",
+  "status": "LOCKED_BY_AUTHOR_DIRECTIVE",
+  "effective_date": "2026-08-09",
+  "scope": "All neural inputs and downstream results in the current ED10 fixed-neuron correlation synthesis",
+  "behavior_only_animals": [
+    {
+      "animal": "840",
+      "reason_class": "author_declared_behavior_only",
+      "reason": "Behavior may be used, but no neural session or neural-derived row from animal 840 may enter this analysis."
+    },
+    {
+      "animal": "841",
+      "reason_class": "author_declared_behavior_only",
+      "reason": "Behavior may be used, but no neural session or neural-derived row from animal 841 may enter this analysis."
+    }
+  ],
+  "neural_excluded_sessions": [
+    {"session": "1636-6day1", "reason_class": "different_experiment"},
+    {"session": "1636-6day2", "reason_class": "different_experiment"},
+    {"session": "1637-6day1", "reason_class": "different_experiment"},
+    {"session": "1637-6day2", "reason_class": "different_experiment"},
+    {"session": "1639-6day1", "reason_class": "different_experiment"},
+    {"session": "1639-6day2", "reason_class": "different_experiment"},
+    {"session": "325-6day1", "reason_class": "different_experiment"},
+    {"session": "325-6day2", "reason_class": "different_experiment"},
+    {"session": "347-6day1", "reason_class": "different_experiment"},
+    {"session": "347-6day2", "reason_class": "different_experiment"},
+    {"session": "434-6day1", "reason_class": "maintained_ltm_neural_exclusion"},
+    {"session": "434-6day2", "reason_class": "maintained_ltm_neural_exclusion"},
+    {"session": "488-9day1", "reason_class": "bad_neural_recording_quality"},
+    {"session": "488-9day2", "reason_class": "bad_neural_recording_quality"},
+    {"session": "579-6day1", "reason_class": "sick_animal_bad_neural_quality"},
+    {"session": "579-6day2", "reason_class": "sick_animal_bad_neural_quality"},
+    {"session": "579-9day1", "reason_class": "maintained_ltm_neural_exclusion"},
+    {"session": "579-9day2", "reason_class": "maintained_ltm_neural_exclusion"},
+    {"session": "418-12day1", "reason_class": "no_neural_recording"},
+    {"session": "418-12day2", "reason_class": "no_neural_recording"},
+    {"session": "451-12day1", "reason_class": "no_neural_recording"},
+    {"session": "451-12day2", "reason_class": "no_neural_recording"},
+    {"session": "862-9day1", "reason_class": "medicated_session"},
+    {"session": "862-9day2", "reason_class": "medicated_session"}
+  ],
+  "clarified_allowed_neural_intervals": [
+    {
+      "pair": "488Rday1->488-3day1",
+      "reason": "This is not the excluded 488-9-month session."
+    },
+    {
+      "pair": "488-3day1->488-6day1",
+      "reason": "This is not the excluded 488-9-month session."
+    },
+    {
+      "pair": "579RLday1->579-3day1",
+      "reason": "This precedes the sick 579-6-month session and does not touch it."
+    }
+  ],
+  "authority_sources": [
+    "author directive on 2026-08-09",
+    "docs/extended_data_supplement_v2_rebuild_2026-08-05/ed08_reward_proximal_controls/revision_round4_2026-08-09/ED08_NEURAL_EXCLUSION_CONTRACT.json",
+    "docs/extended_data_supplement_v2_rebuild_2026-08-05/EXCLUDED_SESSION_CONTRACT.json",
+    "src/ca_analysis/linearized_pf_utils.py::EXCLUDED_SESSIONS"
+  ],
+  "required_policy": {
+    "apply_before_neural_qc": true,
+    "forbid_behavior_only_animals_in_neural_rows": true,
+    "forbid_neural_excluded_sessions": true,
+    "scan_all_identifier_bearing_outputs": true,
+    "forbid_models_and_multiplicity_families": true
+  }
+}

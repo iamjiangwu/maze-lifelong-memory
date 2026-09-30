@@ -1,0 +1,7 @@
+window_minutes,group,group_label,n_sessions,n_sessions_already_at_32_unique,fraction_sessions_already_at_32_unique,median_unique_terminal_nodes_by_window,median_n32_maze_minutes_among_reached,predictor_outcome_temporality
+20,naive,Naive,23,14,0.6086956521739131,32.0,15.878666666666668,partly_contemporaneous_if_count_above_zero
+20,LTM,Return,58,56,0.9655172413793104,53.0,7.262666666666667,partly_contemporaneous_if_count_above_zero
+20,experienced,Second day,74,59,0.7972972972972973,40.0,9.666666666666666,partly_contemporaneous_if_count_above_zero
+30,naive,Naive,23,20,0.8695652173913043,45.0,15.878666666666668,partly_contemporaneous_if_count_above_zero
+30,LTM,Return,58,56,0.9655172413793104,56.0,7.262666666666667,partly_contemporaneous_if_count_above_zero
+30,experienced,Second day,74,66,0.8918918918918919,45.0,9.666666666666666,partly_contemporaneous_if_count_above_zero

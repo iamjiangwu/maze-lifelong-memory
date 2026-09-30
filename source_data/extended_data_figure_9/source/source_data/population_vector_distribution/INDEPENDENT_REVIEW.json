@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "reviewer": "promotion_audit",
+  "scope": "Standalone distribution analogue and visual layout",
+  "checks": [
+    "Same100bins, density normalization, x range and alpha as current Figure2d",
+    "248 supported pair-level values and2480000 cached null values",
+    "Common-level support and equal observation weighting correct",
+    "600dpi labels clear without overlap or clipping",
+    "No new permutations or inference"
+  ]
+}

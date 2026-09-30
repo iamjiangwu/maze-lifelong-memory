@@ -1,0 +1,174 @@
+{
+  "rule_version": "2026-09-27-uniform-port-grid-v4",
+  "sources": [
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/source_code/render_main_figs_v3_publication.py",
+      "frozen": "reference_record/source_code/render_main_figs_v3_publication.py",
+      "sha256": "383fd7cc330627e93f49bc89698c017e5dbb0f1c8e10c962653b30929840d18d",
+      "bytes": 394332
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/source_code/figure_panels.py",
+      "frozen": "reference_record/source_code/figure_panels.py",
+      "sha256": "4de4a5e473c7761d0a56027c76af63ede5390db11871631359057257cb8a8a48",
+      "bytes": 315943
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/source_code/render_figure4_day_source_comparison.py",
+      "frozen": "reference_record/source_code/render_figure4_day_source_comparison.py",
+      "sha256": "07b0f73efc819139f005ff875d5b247c31ebf18c9744d5cf8777c333522a6f45",
+      "bytes": 46877
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/source_code/render_main_figure4_panel_f_ed10_k166.py",
+      "frozen": "reference_record/source_code/render_main_figure4_panel_f_ed10_k166.py",
+      "sha256": "c1bc3540c02f35f7cb4f421655a8ac8df1b297a0c3e49cbaa6dea66e2b564829",
+      "bytes": 5867
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/plot_ready/panel_c_example_map_rows.csv",
+      "frozen": "reference_record/plot_ready/panel_c_example_map_rows.csv",
+      "sha256": "715698e89c4c7d9d99e62f32e0c9420013bc361a7d304a41a1aeb9e940e21797",
+      "bytes": 17799
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/plot_ready/panel_d_native_reference_rows.csv",
+      "frozen": "reference_record/plot_ready/panel_d_native_reference_rows.csv",
+      "sha256": "62ba8e28e864ae13c19d6e2f6a804287d08aff6f5c6b6bbd30206112edc30f8e",
+      "bytes": 45631
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/plot_ready/panel_f_matched_pair_means.csv",
+      "frozen": "reference_record/plot_ready/panel_f_matched_pair_means.csv",
+      "sha256": "0dedf2715de4f553f24a119e01b8f2b639758f189c2c332e30a7cd34988732c3",
+      "bytes": 7857
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/plot_ready/figure4_day_source_statistics.csv",
+      "frozen": "reference_record/plot_ready/figure4_day_source_statistics.csv",
+      "sha256": "0ee27d32e50e9ac2713aa0659c3a84bec4301ff785adbd5bb644f3afae5b2300",
+      "bytes": 2183
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_pair_summary.csv",
+      "frozen": "reference_record/source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_pair_summary.csv",
+      "sha256": "cf185b5e888711015710d6d1adfcd6e178af9d9d024b0c1bd9cb5538ec770bab",
+      "bytes": 8025
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_statistics.json",
+      "frozen": "reference_record/source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_statistics.json",
+      "sha256": "622b6c3cdc837f70e097b99d954d116a3f59f0c371e4ae00f7c72abb20f5d68f",
+      "bytes": 1625
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/illustration_data/spatial_decoder_example.json",
+      "frozen": "reference_record/illustration_data/spatial_decoder_example.json",
+      "sha256": "37da8d1d19ea80b57927445a5a9b56c7d55638d8966ebae18a94753c3e9cf07a",
+      "bytes": 1244
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic/illustration_data/spatial_decoder_example.npz",
+      "frozen": "reference_record/illustration_data/spatial_decoder_example.npz",
+      "sha256": "7749286b146276b1108c36162fb6163d6f7c6e445ed8f8ae1a0eb10b66950520",
+      "bytes": 66383
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/rebuild_current_main_figures.py",
+      "frozen": "source_code/rebuild_current_main_figures.py",
+      "sha256": "ca0bca0fa58ba94635e2693a61bf0d8e74a10b1508dc728c88c3e5efa1d22f26",
+      "bytes": 80520
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/docs/figure_version_records/SOURCE_REBUILD_MAIN_RUNTIME.zip",
+      "frozen": "source_code/SOURCE_REBUILD_MAIN_RUNTIME.zip",
+      "sha256": "8d090bedca223b402e757cf5f52e0dd82c7346797e3c6096580364e1023c3286",
+      "bytes": 862374
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/scripts/build_figure4_standardized_pv.py",
+      "frozen": "source_code/build_figure4_standardized_pv.py",
+      "sha256": "fb7f1de8dd4c89d0f2409c01f7609efbac8c5d5edca0269209388e7ae59e590d",
+      "bytes": 26892
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/output/figures/figure4_palette_options_2026-09-25/PALETTE_SELECTION.json",
+      "frozen": "provenance/PALETTE_SELECTION.json",
+      "sha256": "988a9b75fc338445baddc7cf900bdaaf22293ec4c021b3d35d227b6655598df8",
+      "bytes": 1018
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/candidate_panels.py",
+      "sha256": "b4c2cca1ecec92e5a83ac089145036c2849726341b0ac5bae8e9ff487bda322e",
+      "bytes": 21376
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/route_common.py",
+      "sha256": "f05de37110a29314be45a1e8cde341a15499956ba090044788fc2c5c7dff1c6b",
+      "bytes": 4568
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_profiles_primary.csv",
+      "sha256": "395d495acc6a8c4efe0d5dd02f6f3cb9b6e74a7acaac72cb57b0a727e02ff10e",
+      "bytes": 487752
+    },
+    {
+      "source": "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_comparison_primary_numbers.csv",
+      "sha256": "330dd3eb0b7dc6345758da742f8b2d0d71c4f46d035403ab9a8a92b00ebde042",
+      "bytes": 27221
+    }
+  ],
+  "maps": {
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/1616bday1.npz": "27bc641abc261c9ecb54cde8c891407cc2d41111c65e1a0617db3df9278f53ec",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/1616b-3day1.npz": "4000046d96342ebbff4abf8b3e35d80b34aff9c03d26ff8d24305387e55dacd8",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/418-3day1.npz": "6ecfb6f0e76828873f35f695591cb44002513fefad8816b92ebd5b9d349f0753",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/418-6day1.npz": "35477401632ad5dfa2c0392e684525646105112fcdc1f4846bd2bc823cadb73b",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/418-9day1.npz": "6d9b0126fc78fa7d9c8b353a42fdabe96b86442e6671bb75ebda6fbe784c8a00",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/418RRday1.npz": "e890e0fe859808fdfab814c539125fae563dc2fe02e8330aefb8003d0a2ea533",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/422-3day1.npz": "8d46d87de4d5fc59c04cb98e83ced41f44390831d30a08e5e10cb1a5cb763a19",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/422-6day1.npz": "356bb2f7c6ebe28117b652fb7b55e74c9b982a3ce53aa0ba3a7c32a2e8d6b62f",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/422RRday1.npz": "2d5feb1db923e54423586fed33bad4546ec40b7f9ce6cc1560a0aa0a3626313e",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/451-3day1.npz": "12e3e77603faeb252eb6cda1c29e45efc46ee5a4cc26764b7bf6ffc402b2b84f",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/451-6day1.npz": "d4a04dc802bbf7c479b5268adf797a6b51ececf681d2e31de18721c246f9c6f7",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/451-9day1.npz": "87e8797f8243718713ee494b682b4675e2045e14e1aa5392ac630a6a7b6585ae",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/451Rday1.npz": "3ccb2d32b26ebea06afa8bb805b7838f03980d4bc2e612a520c922c615c79916",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/468-3day1.npz": "bf083fcce5328c79278a5c5b18955b4957cfbea9a813d2727c5ae63a64aba9bb",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/468-6day1.npz": "6e78ac94cc6099414c5daaee6072d01e5ac3523c8b62af7403bd9b4b738e7016",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/468-9day1.npz": "de10be25c9418e1319d40d4dd7b3887170fbcdd7763b1b8c971899288d707418",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/468-12day1.npz": "4ef90e1744d27507bca16b75f0d3daec88fbc85a15984586e624da185e9d7233",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/488-3day1.npz": "0f3bc8d3527d03f44fac8bca8fec89fe0fe92fc470d9814635dfcda6c7d07662",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/488-6day1.npz": "7cc1817b4b242f31ea74617c8b5483eb202236ae24d4e1807843812131c1a1db",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/488Rday1.npz": "cb975932e59c9a3c0a8826a8d32d936ccb2cf19c753d1f5100de3769de9ff056",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/489-3day1.npz": "b03b903366d62afceea3a3e31f00572aa2e70957584fabe09a0ce38adca7d226",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/489-6day1.npz": "38f11755767fbf122d12b38f459837a50f009179edeb5dd8e63f10c6cae0cf59",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/489Lday1.npz": "aab3f2d78891895a63e1e774615b7a79c626fb0c409911d2cb1e95574bf0594d",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/579RLday1.npz": "91a72eb10e080d01ebf969f9a6225f6b0865bc733146065176596b62f4007cac",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/579-3day1.npz": "fd079f489fcfc31a0565b8cc9b0efed4bf105fe9c0ec1d709d5a3b1ab9768c98",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/837-3day1.npz": "206e6e92b55b5379bad3eb7ff9d7f4312dc16c737e4913c9b934694223607dc5",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/837-6day1.npz": "216e9e99d4d9326a0f536ea099f90b3a4cbe5783db7746500a98a8677b75b9fe",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/837-9day1.npz": "4902572fda5efeacd35c2e9c54f3c09d83a4709463cd95973c5585c2e28cadb5",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/837-12day1.npz": "4d0367c7b7572dc2424646df9d9c9192e3e6500156ff9d588d33932727c4f016",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/838-3day1.npz": "1c463dd02c2b3a179f512fc5e1fecdf3c973386a488616c11672f7bd265a162f",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/838-6day1.npz": "ee05c2294b4338373801df905bd0128db821b2b0094d55e514c08d445d7f903a",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/838-9day1.npz": "07154443a646338b9599579f3e5f1cbe6181a109968f8551ace64c8332380917",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/838-12day1.npz": "e52022a2665eef63abd8b854505f2461dde24781e0bf198213860df7ddfd236f",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/839-3day1.npz": "6d588274185728cab201577f303c5c315fcbc189a1222873c89ea9aca3654682",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/839-6day1.npz": "14e84a546aab7edc20d0b2da69b59d3af1ff575c862f150195c35810381b5e2f",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/839-9day1.npz": "48020ae92e2c3ef11bf36beeb9dffa601206df892d6cada23bc38a19a4380fb0",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/839-12day1.npz": "60f0e563866ea87b5c81a78ce4635f78bc8d74e08bae5c5afea1afb2a5ab8e28",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/842-3day1.npz": "fd38f8d702734ae912fc9a185bf626bb98038ce0e37eef1988c91341803d2438",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/842-6day1.npz": "c2e7ca116a830fc5e916b590ed61d4771abe7e81cb29f1ef06ee785c666d8a30",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/842-9day1.npz": "cff047d15a688fcb5add30bba57f1955e720b3535fdad24e3588ea8d064801c1",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/862-3day1.npz": "c742955e13bae35fba28edcca2b447681577716ec7905c76e2f23992c99ff7a4",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/862-6day1.npz": "8583248bc785546a16318fb0327f74bd7340b2b99e536cc33d6a8e0ca3b5250b",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/434RRday1.npz": "fb3ce7379dc50f62a5d2f1185f2a1c2a21af67c446d89a9f9986fb0f6891490a",
+    "D:/combineddata/github_clean_repo/output/analysis/route_density_vs_pv_explained_2026-09-24/signal_maps_primary/434-3day1.npz": "d8617ca8dc1b97b4ddf2b4a705cd6774aa0ee98da67f2e824013790338dae9db"
+  },
+  "heatmap_parity": "Exact array equality with current candidate_panels.heat_data for both directions",
+  "heatmap_support": "All displayed selected maps are finite in all 22 spatial bins",
+  "display_scaling": "Each neuron/session map divided by its own peak; colour saturation at 0.6",
+  "pv_scaling": "Each neuron/session map mean-subtracted and divided by SD across 22 equally weighted positions",
+  "null": "100 within-pair neuron-ID shuffles, from the saved primary analysis",
+  "aggregation": "Recording pairs averaged within animal, then animals equally weighted; 95% t intervals",
+  "grid": "22 equal 3.8 cm bins along 83.6 cm home-port path; bin 0 home, bin 21 port"
+}

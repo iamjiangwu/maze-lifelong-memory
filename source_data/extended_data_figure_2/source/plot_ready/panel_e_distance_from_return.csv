@@ -1,0 +1,5 @@
+window_minutes,metric,policy_label,return_mean,naive_mean,second_day_mean,abs_naive_minus_return,abs_second_day_minus_return,support,group_mean_weighting
+30,Bf,$P_{SF}$,0.7463111007317086,0.7334840456443511,0.7411017995067896,0.012827055087357486,0.005209301224919027,natural primary-policy support,session weighted
+30,Ba,$P_{SA}$,0.7256022690883819,0.6120452153106727,0.6753032248611036,0.1135570537777092,0.05029904422727827,natural primary-policy support,session weighted
+30,Lf,$P_{BF}$,0.8863224803576466,0.8029463382996771,0.8463022244496909,0.0833761420579695,0.04002025590795566,natural primary-policy support,session weighted
+30,Lo,$P_{BS}$,0.6301817526419904,0.5377814152660069,0.6538363383635488,0.09240033737598352,0.02365458572155843,natural primary-policy support,session weighted

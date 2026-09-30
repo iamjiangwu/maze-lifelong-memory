@@ -1,0 +1,441 @@
+{
+  "pass": true,
+  "passed": 17,
+  "total": 17,
+  "checks": {
+    "matched_registry_has_153_sessions": {
+      "pass": true,
+      "detail": 153
+    },
+    "matched_registry_group_counts": {
+      "pass": true,
+      "detail": [
+        {
+          "month": 0,
+          "day": "day1",
+          "n_sessions": 23,
+          "n_animals": 23,
+          "expected_n": 23,
+          "count_match": true
+        },
+        {
+          "month": 0,
+          "day": "day2",
+          "n_sessions": 18,
+          "n_animals": 18,
+          "expected_n": 18,
+          "count_match": true
+        },
+        {
+          "month": 3,
+          "day": "day1",
+          "n_sessions": 17,
+          "n_animals": 17,
+          "expected_n": 17,
+          "count_match": true
+        },
+        {
+          "month": 3,
+          "day": "day2",
+          "n_sessions": 17,
+          "n_animals": 17,
+          "expected_n": 17,
+          "count_match": true
+        },
+        {
+          "month": 6,
+          "day": "day1",
+          "n_sessions": 17,
+          "n_animals": 17,
+          "expected_n": 17,
+          "count_match": true
+        },
+        {
+          "month": 6,
+          "day": "day2",
+          "n_sessions": 17,
+          "n_animals": 17,
+          "expected_n": 17,
+          "count_match": true
+        },
+        {
+          "month": 9,
+          "day": "day1",
+          "n_sessions": 12,
+          "n_animals": 12,
+          "expected_n": 12,
+          "count_match": true
+        },
+        {
+          "month": 9,
+          "day": "day2",
+          "n_sessions": 12,
+          "n_animals": 12,
+          "expected_n": 12,
+          "count_match": true
+        },
+        {
+          "month": 12,
+          "day": "day1",
+          "n_sessions": 10,
+          "n_animals": 10,
+          "expected_n": 10,
+          "count_match": true
+        },
+        {
+          "month": 12,
+          "day": "day2",
+          "n_sessions": 10,
+          "n_animals": 10,
+          "expected_n": 10,
+          "count_match": true
+        }
+      ]
+    },
+    "matched_registry_source_rows_all_load_ok": {
+      "pass": true,
+      "detail": {
+        "true": 153
+      }
+    },
+    "raw_recompute_has_no_failures": {
+      "pass": true,
+      "detail": 0
+    },
+    "one_source_qc_row_per_session": {
+      "pass": true,
+      "detail": 153
+    },
+    "complete_session_mode_window_grid": {
+      "pass": true,
+      "detail": 918
+    },
+    "bin_level_conversion_exported": {
+      "pass": true,
+      "detail": 10122
+    },
+    "all_matched_sessions_have_first60_mode_support": {
+      "pass": true,
+      "detail": {
+        "finite": 306,
+        "rows": 306
+      }
+    },
+    "complete_exact_group_grid": {
+      "pass": true,
+      "detail": 60
+    },
+    "twelve_month_registry_is_10_plus_10": {
+      "pass": true,
+      "detail": {
+        "day1": 10,
+        "day2": 10
+      }
+    },
+    "historical_panel_h_12mo_gap_is_12_recordings": {
+      "pass": true,
+      "detail": {
+        "missing_from_current_panel_h": 12,
+        "shared": 8,
+        "extra_in_current_panel_h": 0
+      }
+    },
+    "all_figure_exports_exist": {
+      "pass": true,
+      "detail": [
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first_30_min.png",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first_30_min.svg",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first_30_min.pdf",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first_30_min.tiff",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_whole_session.png",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_whole_session.svg",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_whole_session.pdf",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_whole_session.tiff",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first30_vs_whole.png",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first30_vs_whole.svg",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first30_vs_whole.pdf",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first30_vs_whole.tiff",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_all_windows.png",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_all_windows.svg",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_all_windows.pdf",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_all_windows.tiff",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first30_vs_whole_reward_context_strict.png",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first30_vs_whole_reward_context_strict.svg",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first30_vs_whole_reward_context_strict.pdf",
+        "docs/figure_version_candidates/ed01_panel_h_matched153_window_sensitivity_2026-08-15/ed01_panel_h_matched153_first30_vs_whole_reward_context_strict.tiff"
+      ]
+    },
+    "every_grid_uses_one_common_y_scale": {
+      "pass": true,
+      "detail": {
+        "matched153_first_30_min": {
+          "ymax": 14.0,
+          "yticks": [
+            0.0,
+            2.0,
+            4.0,
+            6.0,
+            8.0,
+            10.0,
+            12.0,
+            14.0
+          ],
+          "ylimits": [
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ]
+          ]
+        },
+        "matched153_whole_session": {
+          "ymax": 14.0,
+          "yticks": [
+            0.0,
+            2.0,
+            4.0,
+            6.0,
+            8.0,
+            10.0,
+            12.0,
+            14.0
+          ],
+          "ylimits": [
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ]
+          ]
+        },
+        "matched153_first30_vs_whole": {
+          "ymax": 14.0,
+          "yticks": [
+            0.0,
+            2.0,
+            4.0,
+            6.0,
+            8.0,
+            10.0,
+            12.0,
+            14.0
+          ],
+          "ylimits": [
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ]
+          ]
+        },
+        "matched153_all_windows": {
+          "ymax": 14.0,
+          "yticks": [
+            0.0,
+            2.0,
+            4.0,
+            6.0,
+            8.0,
+            10.0,
+            12.0,
+            14.0
+          ],
+          "ylimits": [
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ]
+          ]
+        },
+        "matched153_first30_vs_whole_reward_context_strict": {
+          "ymax": 14.0,
+          "yticks": [
+            0.0,
+            2.0,
+            4.0,
+            6.0,
+            8.0,
+            10.0,
+            12.0,
+            14.0
+          ],
+          "ylimits": [
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ],
+            [
+              0.0,
+              14.0
+            ]
+          ]
+        }
+      }
+    },
+    "png_previews_have_publication_resolution": {
+      "pass": true,
+      "detail": {
+        "ed01_panel_h_matched153_first_30_min.png": [
+          2713,
+          1737
+        ],
+        "ed01_panel_h_matched153_whole_session.png": [
+          2713,
+          1737
+        ],
+        "ed01_panel_h_matched153_first30_vs_whole.png": [
+          2777,
+          3060
+        ],
+        "ed01_panel_h_matched153_all_windows.png": [
+          2718,
+          4236
+        ],
+        "ed01_panel_h_matched153_first30_vs_whole_reward_context_strict.png": [
+          2777,
+          3060
+        ]
+      }
+    },
+    "tiff_exports_are_600dpi_lzw": {
+      "pass": true,
+      "detail": {
+        "ed01_panel_h_matched153_first_30_min.tiff": {
+          "size": [
+            2713,
+            1737
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ],
+          "compression": "tiff_lzw"
+        },
+        "ed01_panel_h_matched153_whole_session.tiff": {
+          "size": [
+            2713,
+            1737
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ],
+          "compression": "tiff_lzw"
+        },
+        "ed01_panel_h_matched153_first30_vs_whole.tiff": {
+          "size": [
+            2777,
+            3060
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ],
+          "compression": "tiff_lzw"
+        },
+        "ed01_panel_h_matched153_all_windows.tiff": {
+          "size": [
+            2718,
+            4236
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ],
+          "compression": "tiff_lzw"
+        },
+        "ed01_panel_h_matched153_first30_vs_whole_reward_context_strict.tiff": {
+          "size": [
+            2777,
+            3060
+          ],
+          "dpi": [
+            600.0,
+            600.0
+          ],
+          "compression": "tiff_lzw"
+        }
+      }
+    },
+    "pdf_exports_contain_no_raster_images": {
+      "pass": true,
+      "detail": {
+        "ed01_panel_h_matched153_first_30_min.pdf": 0,
+        "ed01_panel_h_matched153_whole_session.pdf": 0,
+        "ed01_panel_h_matched153_first30_vs_whole.pdf": 0,
+        "ed01_panel_h_matched153_all_windows.pdf": 0,
+        "ed01_panel_h_matched153_first30_vs_whole_reward_context_strict.pdf": 0
+      }
+    },
+    "svg_exports_have_editable_text_and_no_images": {
+      "pass": true,
+      "detail": {
+        "ed01_panel_h_matched153_first_30_min.svg": {
+          "editable_text": true,
+          "has_image": false
+        },
+        "ed01_panel_h_matched153_whole_session.svg": {
+          "editable_text": true,
+          "has_image": false
+        },
+        "ed01_panel_h_matched153_first30_vs_whole.svg": {
+          "editable_text": true,
+          "has_image": false
+        },
+        "ed01_panel_h_matched153_all_windows.svg": {
+          "editable_text": true,
+          "has_image": false
+        },
+        "ed01_panel_h_matched153_first30_vs_whole_reward_context_strict.svg": {
+          "editable_text": true,
+          "has_image": false
+        }
+      }
+    }
+  }
+}

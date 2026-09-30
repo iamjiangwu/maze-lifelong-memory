@@ -1,0 +1,5 @@
+condition,condition_label,mean_route_fraction_correct,cluster_se,cluster_ci95_low,cluster_ci95_high,n_sessions,n_animals,n_clusters_total,df_cluster,model
+naive,Naive day,0.608695652173913,0.046518600399555556,0.5139403639289619,0.703450940418864,23,23,33,32,four_level_session_ols_cr1_mouse_clustered_small_g_t
+return,Return day,0.6904761904761902,0.021387365885220878,0.6469115517758027,0.7340408291765778,56,17,33,32,four_level_session_ols_cr1_mouse_clustered_small_g_t
+experienced_day2,Second day,0.8288288288288288,0.019315871018821252,0.7894836870926172,0.8681739705650404,74,24,33,32,four_level_session_ols_cr1_mouse_clustered_small_g_t
+latent_day2,Latent day 2,0.6666666666666666,0.0657602171317284,0.5327174877178729,0.8006158456154604,9,9,33,32,four_level_session_ols_cr1_mouse_clustered_small_g_t

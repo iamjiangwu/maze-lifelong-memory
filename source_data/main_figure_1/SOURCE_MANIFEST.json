@@ -1,0 +1,195 @@
+{
+  "artifact_id": "main_figure_1",
+  "panels": 10,
+  "source_boundary": "Derived behavior-session points, route scores and plotted trajectories; fixed maze illustration.",
+  "files": [
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/ed04_route_group_stats_current_plus_new12.csv",
+      "sha256": "1ba772b5378c680ab15c3d449d12e124d3ebad72f11a1b45cee329c1a3a7cbd4",
+      "bytes": 813,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/ed04_route_stats_current_plus_new12.csv",
+      "sha256": "ad75680b5396d3dcdeb85ec483a2010d7de14fbe6e69e3ed5d2acddc460be8ee",
+      "bytes": 2571,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/ed04_session_route_current_plus_new12.csv",
+      "sha256": "c9294187bbac8b5cfb3573ab7db8108c81d47fd90accc07cb7dd0b8589a234a4",
+      "bytes": 11756,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/exploration_first_chunk_current_plus_new_points.csv",
+      "sha256": "8f1c58caeb971f6731b7e59ae9247fe15792bfebce956095e8c7e47d6d3fb1f1",
+      "bytes": 8940,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/figure1_alignment_audit.csv",
+      "sha256": "fc612e95a07e134fb279ac5982bda995ea28155c33b46c8a1289203e4cee7be5",
+      "bytes": 1254,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/figure1_endnode_timelines.csv",
+      "sha256": "9334595e69366eafb7c4bb5e55202e6686b25ddbd600b32d61bf262858c9436c",
+      "bytes": 160718,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/figure1_panel_a_decision_points.csv",
+      "sha256": "8e9445d7f26851fd1bd71b1e74986a9f6c50880a7fd7d7534aeac06361340365",
+      "bytes": 672,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/long_bout_group_clustered_contrasts_current_plus_new12.csv",
+      "sha256": "6bd7f1b1983d10038d21035238ea8dd95ce78465bc4acbf5760446f09ba7c611",
+      "bytes": 1181,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/long_bout_group_points_current_plus_new12.csv",
+      "sha256": "97cd7d7936c22c0b1de924c8d3ce42feb27f9820dae2197d75db0c0cfb381762",
+      "bytes": 7844,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/long_bout_group_summary_current_plus_new12.csv",
+      "sha256": "378eb1e38cdf0f24f6b90f55f2bfc6b45f71af19a25143368b216eae54751ef8",
+      "bytes": 372,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/reward_acquisition_day1_month_clustered_contrasts_current_plus_new12.csv",
+      "sha256": "0af3d54ee224d64a5d963f7825719aa986a04fea0b9f3c560ea2e0aceba0cfa8",
+      "bytes": 1961,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/reward_acquisition_day1_month_points_current_plus_new12.csv",
+      "sha256": "d1d49925dad7194f0667dd5fd6939392fba6077b30504fad530a55ba154d06b2",
+      "bytes": 5563,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/plot_ready/reward_acquisition_day1_month_summary_current_plus_new12.csv",
+      "sha256": "7242c673a8eb6b69011db94c9ed76bf6aedbb1711de4f979b589ca5529d5c9e4",
+      "bytes": 604,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_code/build_figure1_layout_alternatives.py",
+      "sha256": "108f1c0db7c219153c05632b1c2e7f4436910d2b9bd7b551008738bbd38d19cb",
+      "bytes": 42660,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_code/figure1_complete_timeline_source.py",
+      "sha256": "cdf42f67d44772ebe3a11041ba477afbb966cfb8cea0bc6370e5d408fad7b8d0",
+      "bytes": 7907,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_code/figure_panels.py",
+      "sha256": "4de4a5e473c7761d0a56027c76af63ede5390db11871631359057257cb8a8a48",
+      "bytes": 315943,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_code/preview_figure1_assembly.py",
+      "sha256": "5cb0a625fda8835286833bc83fc8fe6755f0af97b410c6a021329a844fa3a24d",
+      "bytes": 50268,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_code/rebuild_figure1.py",
+      "sha256": "095cde38dad15c86074087b0afac0da47c74471d3fe553fb5bceb78c581c0f9c",
+      "bytes": 10910,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_code/source_runtime.py",
+      "sha256": "a3a7e0a58eea5e14b45e034a625b721507dfb26a71ed5b91da9325353a4f412e",
+      "bytes": 80351,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_code/trajectory_panel.py",
+      "sha256": "d7a512632d97afc3d4b6222b62da9036c3d87cfedf00796780f9a173c6454203",
+      "bytes": 4276,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_code/validate_figure1_layout_alternatives.py",
+      "sha256": "b0b63ffd668491815549f654f7c47ce402ea3dbb58f9b822d65d653d8d459eb1",
+      "bytes": 10206,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_data/maze_3d_original.png",
+      "sha256": "498803864ab731c5ed3ec7d3772022e2b8823b5d1fca8d20e10bee8b2b2d7dff",
+      "bytes": 10557699,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_data/SOURCE_REBUILD_MAIN_RUNTIME.zip",
+      "sha256": "8d090bedca223b402e757cf5f52e0dd82c7346797e3c6096580364e1023c3286",
+      "bytes": 862374,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_data/TIMELINE_SOURCE_PARITY.json",
+      "sha256": "21577f0f21b38a21a79d6b13de57a193a256c36137e181236a05d9d7c99110df",
+      "bytes": 4116,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_data/TRAJECTORY_CODE_PROVENANCE.json",
+      "sha256": "15e9ea153f4ad4faa49b9950a7a5b02c786bdd1813328f0ca8d0b740c15d3525",
+      "bytes": 1502,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/source_data/trajectory_examples.csv.gz",
+      "sha256": "193a6c4e4200d3303ec63050b20dbbbdfa35dad8b162e263f91a023894248e1b",
+      "bytes": 2509548,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/frozen_source/SOURCE_INPUTS.csv",
+      "sha256": "f072ba816d74ad352b6692039a729b96c63d87cbbf2add05f29e964950a94b08",
+      "bytes": 3154,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/reference_source/figure_panels.py",
+      "sha256": "5697d9ffa63edd7e228c57807e84d9117d9cdf3414fbe634e80c11e235e59835",
+      "bytes": 321721,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/reference_source/preview_figure3_assembly.py",
+      "sha256": "453e69706c14700e6305d6cd710eb8b1f976ca26f72d3046ef4a1ba6ee4f8e4d",
+      "bytes": 42940,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/source_code/build_figure1_binary_tree_preview.py",
+      "sha256": "e6e2ea73141bbac928a2678bac25d1c8c3edab26ff26a956cb196a301eb01daf",
+      "bytes": 16126,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_1/source/source_code/build_figure1_ij_spacing.py",
+      "sha256": "7373cfec3f2a5d692b0ab2ecf718ba6759d056e42f96aa9fad3de63b66e43455",
+      "bytes": 12015,
+      "role": "source_or_code"
+    }
+  ],
+  "accepted_outputs_role": "comparison only; never copied into execution stage",
+  "reproduction_command": "python -B reproduce.py --artifact main_figure_1 --output-dir <fresh-directory>"
+}

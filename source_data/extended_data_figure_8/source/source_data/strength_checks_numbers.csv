@@ -1,0 +1,20 @@
+check,item,port,elsewhere,advantage,lo,hi,n_mice,n_positive,p_exact,n_pairs,n_cells,q_BH
+cross-direction,cross direction across gap,0.16717235733406788,0.020767768721458357,0.14640458861260955,0.06182241571633974,0.23098676150887937,13,11.0,0.003173828125,27.0,5378.0,
+cross-direction,"cross direction across gap, shuffle",-0.0026689388964818406,0.0003551125300662403,-0.003024051426548081,-0.006052977726342568,4.874873246405939e-06,13,4.0,0.05126953125,27.0,5378.0,
+cross-direction,cross direction within day,0.4026112213888259,0.07292297154854106,0.32968824984028483,0.23626771745328567,0.423108782227284,13,12.0,0.00048828125,27.0,5378.0,
+cross-direction,same direction across gap: home to reward,0.23463072106808466,0.09969736197373448,0.13493335909435017,0.07388820546422484,0.1959785127244755,13,12.0,0.00048828125,27.0,5378.0,
+cross-direction,same direction across gap: reward to home,0.21634437361594944,0.11369849399252718,0.10264587962342223,0.024040581811021797,0.18125117743582264,13,10.0,0.013427734375,27.0,5378.0,
+port rank,home_to_reward: port is the most preserved of 22 positions,,,6.0,,,13,,,,,
+port rank,home_to_reward: port is among the 3 most preserved of 22 positions,,,10.0,,,13,,,,,
+port rank,home_to_reward: mean rank of the port,2.0,,2.4615384615384617,,,13,,,,,
+home end,home_to_reward: home bin minus bins 1-20,,,0.03757446692387719,-0.0044340128391190045,0.07958294668687338,13,9.0,0.0751953125,,,0.090234375
+home end,home_to_reward: port bin minus bins 1-20,,,0.1427134501354261,0.09680768698736511,0.1886192132834871,13,13.0,0.000244140625,,,0.000732421875
+home end,home_to_reward: port end minus home end,,,0.1051389832115489,0.07588000119073998,0.1343979652323578,13,13.0,0.000244140625,,,0.000732421875
+port rank,reward_to_home: port is the most preserved of 22 positions,,,5.0,,,14,,,,,
+port rank,reward_to_home: port is among the 3 most preserved of 22 positions,,,8.0,,,14,,,,,
+port rank,reward_to_home: mean rank of the port,3.0,,5.214285714285714,,,14,,,,,
+home end,reward_to_home: home bin minus bins 1-20,,,-0.0057750151598248345,-0.06502907019063121,0.05347903987098155,14,6.0,0.8463134765625,,,0.8463134765625
+home end,reward_to_home: port bin minus bins 1-20,,,0.10786097769210368,0.04397060271853652,0.17175135266567082,14,11.0,0.0029296875,,,0.005859375
+home end,reward_to_home: port end minus home end,,,0.1136359928519285,0.04154288079136044,0.18572910491249656,14,12.0,0.0047607421875,,,0.00714111328125
+leave one animal out,home_to_reward: smallest advantage and largest p after dropping one animal,,,0.12748544043402074,,,12,,0.00048828125,,,
+leave one animal out,reward_to_home: smallest advantage and largest p after dropping one animal,,,0.0913414335842811,,,13,,0.004638671875,,,

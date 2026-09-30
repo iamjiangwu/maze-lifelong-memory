@@ -1,0 +1,11 @@
+{
+  "schema": "source-release-statistical-inputs/v1",
+  "source": "docs/ed02_matched_naive_reconstruction_1616_2026-08-20/source_tables/matched_counterfactual_session_rows.csv",
+  "sha256": "393649084f4c4beea7ac108ebf56ae181d05ae6a07c81d1bfd44a2c10ff874c2",
+  "bytes": 71271,
+  "unit": "one matched Return-session/same-animal Naive-session pair; precomputed simulator effects",
+  "purpose": "regenerate ED2d,h animal-cluster bootstrap intervals",
+  "raw_acquisition_files_included": false,
+  "bootstrap_seed": 20360820,
+  "bootstrap_repeats": 2000
+}

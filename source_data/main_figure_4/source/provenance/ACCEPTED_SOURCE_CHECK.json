@@ -1,0 +1,219 @@
+{
+  "status": "PASS",
+  "artifact": "main_figure_4",
+  "figure_number": 4,
+  "pointer": "docs/figure_version_records/CURRENT_MAIN_FIGURES.md",
+  "selected_record": "docs/figure_version_records/main_figure4_2026-09-07_round9_numeric_schematic",
+  "record_validation_status": "PASS",
+  "scientific_source_kinds": [
+    "record-frozen native decoder/map/reward-control/behavior row tables",
+    "record-frozen within-pair neuron-ID shuffle rows and clustered test",
+    "VOR-root frozen linearized place-field arrays for both route directions"
+  ],
+  "fixed_assets": [],
+  "forbidden_source_trees": [
+    "figure_version_records_archive",
+    "figure_version_candidates",
+    "parent_record_history",
+    "parent_record_snapshot",
+    "round11_parent_snapshot",
+    "desktop",
+    "ltm-figs"
+  ],
+  "master_exports_as_sources": "forbidden",
+  "checked_source_file_count": 27,
+  "checked_sources": [
+    {
+      "path": "illustration_data/spatial_decoder_example.json",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "37da8d1d19ea80b57927445a5a9b56c7d55638d8966ebae18a94753c3e9cf07a",
+      "bytes": 1244
+    },
+    {
+      "path": "illustration_data/spatial_decoder_example.npz",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "7749286b146276b1108c36162fb6163d6f7c6e445ed8f8ae1a0eb10b66950520",
+      "bytes": 66383
+    },
+    {
+      "path": "plot_ready/ANALYSIS_VALIDATION.json",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "3617d5bd3f02906a84cfce87d0741958e80e5aca4f118d1fbb5f21b6a7eac166",
+      "bytes": 1117
+    },
+    {
+      "path": "plot_ready/MANIFEST.json",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "4d25d4c095028640d5c1a165bdc37c52345d57c68bd18df03863539fe0fe8737",
+      "bytes": 2231
+    },
+    {
+      "path": "plot_ready/figure4_day_source_statistics.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "0ee27d32e50e9ac2713aa0659c3a84bec4301ff785adbd5bb644f3afae5b2300",
+      "bytes": 2183
+    },
+    {
+      "path": "plot_ready/figure4_panel_c_d1_source_rows.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "a25f684a47284d05eb6779a9d3d384a2beea4fa0382634c18c7aa5c2381fafb8",
+      "bytes": 9693
+    },
+    {
+      "path": "plot_ready/pair_support_audit.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "b9c5d7cadfcb91f000158b0344fd47d1812c2ac7811e6b719d95b927fefa891e",
+      "bytes": 7066
+    },
+    {
+      "path": "plot_ready/panel_b_native_pair_rows.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "6662ab9053707730963edf96cbb05b417f3d9ff487a235e9ae4277ee7afb5ae0",
+      "bytes": 8839
+    },
+    {
+      "path": "plot_ready/panel_c_example_map_rows.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "715698e89c4c7d9d99e62f32e0c9420013bc361a7d304a41a1aeb9e940e21797",
+      "bytes": 17799
+    },
+    {
+      "path": "plot_ready/panel_d_native_reference_rows.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "62ba8e28e864ae13c19d6e2f6a804287d08aff6f5c6b6bbd30206112edc30f8e",
+      "bytes": 45631
+    },
+    {
+      "path": "plot_ready/panel_f_matched_pair_means.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "0dedf2715de4f553f24a119e01b8f2b639758f189c2c332e30a7cd34988732c3",
+      "bytes": 7857
+    },
+    {
+      "path": "source_code/figure_panels.py",
+      "path_base": "record",
+      "kind": "code",
+      "sha256": "4de4a5e473c7761d0a56027c76af63ede5390db11871631359057257cb8a8a48",
+      "bytes": 315943
+    },
+    {
+      "path": "source_code/render_figure4_day_source_comparison.py",
+      "path_base": "record",
+      "kind": "code",
+      "sha256": "07b0f73efc819139f005ff875d5b247c31ebf18c9744d5cf8777c333522a6f45",
+      "bytes": 46877
+    },
+    {
+      "path": "source_code/render_main_figs_v3_publication.py",
+      "path_base": "record",
+      "kind": "code",
+      "sha256": "383fd7cc330627e93f49bc89698c017e5dbb0f1c8e10c962653b30929840d18d",
+      "bytes": 394332
+    },
+    {
+      "path": "source_code/render_main_figure4_panel_f_ed10_k166.py",
+      "path_base": "record",
+      "kind": "code",
+      "sha256": "c1bc3540c02f35f7cb4f421655a8ac8df1b297a0c3e49cbaa6dea66e2b564829",
+      "bytes": 5867
+    },
+    {
+      "path": "source_data/neuron_id_shuffle/ANALYSIS_VALIDATION.json",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "ecfaba35a02802b6c28963be42b5786da4009ec61017152170dd51a9a2c34f28",
+      "bytes": 417
+    },
+    {
+      "path": "source_data/neuron_id_shuffle/MANIFEST.json",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "ab78d5692473dc4892ef57461dbbc1d25602ac58990fdf2b2a61714b1df21c37",
+      "bytes": 1762
+    },
+    {
+      "path": "source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_pair_summary.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "cf185b5e888711015710d6d1adfcd6e178af9d9d024b0c1bd9cb5538ec770bab",
+      "bytes": 8025
+    },
+    {
+      "path": "source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_statistics.json",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "622b6c3cdc837f70e097b99d954d116a3f59f0c371e4ae00f7c72abb20f5d68f",
+      "bytes": 1625
+    },
+    {
+      "path": "source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_support_audit.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "f96c88c90120178c8eb8fdab2cde3899a52b3e5d549a30bf1124df4bed3ec13e",
+      "bytes": 23223
+    },
+    {
+      "path": "source_data/panel_f_ed10_k166/ED10_CURRENT_FIXED_NEURON_PAIR_ROWS.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "b6c6ce1c2ab1bb4c3576f281258ae99eaf8fefbf77fa0f78ee625ad422eb351d",
+      "bytes": 22156
+    },
+    {
+      "path": "source_data/panel_f_ed10_k166/MAIN_FIGURE4F_PLOT_ROWS.csv",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "0dedf2715de4f553f24a119e01b8f2b639758f189c2c332e30a7cd34988732c3",
+      "bytes": 7857
+    },
+    {
+      "path": "source_data/panel_f_ed10_k166/MAIN_FIGURE4F_STATISTICS.json",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "9eef45b47aab759744d1731ae664d051d714379c2d5e8d25f279270a4bdaadb4",
+      "bytes": 380
+    },
+    {
+      "path": "source_data/panel_f_ed10_k166/SOURCE_MANIFEST.json",
+      "path_base": "record",
+      "kind": "input",
+      "sha256": "6fba7ebef1e56a752faa5dba40cd320b97c514ca44ab9e5a8a378fddea7a6ef9",
+      "bytes": 1038
+    },
+    {
+      "path": "SOURCE_REBUILD_MAIN_RUNTIME.zip",
+      "path_base": "vor_root",
+      "kind": "code",
+      "role": "isolated source-rebuild runtime",
+      "sha256": "8d090bedca223b402e757cf5f52e0dd82c7346797e3c6096580364e1023c3286",
+      "bytes": 862374
+    },
+    {
+      "path": "SOURCE_REBUILD_MAIN_FIGURE4_PANEL_E_LINEAR_PF.zip",
+      "path_base": "vor_root",
+      "kind": "input",
+      "role": "quantitative_input",
+      "sha256": "af168bec8fe7cb23dc1289ffa796ef03bd3a104d48f8b6547d81a5182071c5ab",
+      "bytes": 2084418
+    },
+    {
+      "path": "SOURCE_REBUILD_MAIN_FIGURE4_PANEL_E_LINEAR_PF_MANIFEST.json",
+      "path_base": "vor_root",
+      "kind": "input",
+      "role": "quantitative_input_source_tree_manifest",
+      "sha256": "4b334e3a51bca23e00c7146e8558ee166bf613a31741a594ddaf16910d432950",
+      "bytes": 88000
+    }
+  ]
+}

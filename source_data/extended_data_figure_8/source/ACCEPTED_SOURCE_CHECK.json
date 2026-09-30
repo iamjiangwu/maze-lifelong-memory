@@ -1,0 +1,40 @@
+{
+  "schema": "extended-data-source-rebuild-check/v1",
+  "status": "PASS",
+  "artifact": "extended_data_figure_8",
+  "record": "extended_data_fig08_2026-09-09_round25_linearized_place_map_axes",
+  "source_records": [
+    "extended_data_fig08_2026-09-09_round25_linearized_place_map_axes"
+  ],
+  "source_sidecars": [
+    "SOURCE_REBUILD_ED_MAIN4_PANEL_C.zip"
+  ],
+  "scientific_input_files": 467,
+  "checks": {
+    "pointer_selects_contract_record": true,
+    "record_hash_ledger_exists": true,
+    "all_scientific_inputs_exist": true,
+    "all_scientific_inputs_in_hash_ledger": true,
+    "all_scientific_input_hashes_match": true,
+    "all_scientific_inputs_record_local": true,
+    "no_forbidden_input_roots": true,
+    "accepted_master_not_an_input": true,
+    "main_figure4_source_bundle_pointer_selected": true,
+    "main_figure4_source_bundle_hash_matches": true,
+    "main_figure4_source_bundle_members_match": true,
+    "shared_runtime_is_vor_local": true,
+    "shared_runtime_tree_hash_matches": true,
+    "code_sidecars_are_vor_local_and_hash_match": true
+  },
+  "missing_ledger_entries": [],
+  "hash_failures": [],
+  "forbidden_hits": [],
+  "master_inputs": [],
+  "code_sidecars": [],
+  "code_sidecar_failures": [],
+  "shared_runtime": {
+    "path": "SOURCE_REBUILD_ED_RUNTIME.zip",
+    "files": 82,
+    "sha256": "ef1fdd9a90564a28f1f866fbb3eadae5c671676bbedeaf7e8343be510352a143"
+  }
+}

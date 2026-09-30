@@ -1,0 +1,1099 @@
+{
+  "axes": [
+    {
+      "aspect_width_over_height": 3.60915512009058,
+      "column": -1,
+      "crop_height_pt": 97.808504,
+      "crop_width_pt": 353.006063,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.20092133114215283,
+      "height_in": 1.4835413082846487,
+      "key": "top_example_row",
+      "metric": "",
+      "panel_letter": "a",
+      "ppt_source_src_rect": "{\"l\": 3053, \"r\": 1}",
+      "rendered_height": 97.808504,
+      "rendered_width": 353.006063,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": -1,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 97.808504,
+      "slot_pt": "[0.0, 0.0, 353.006063, 97.808504]",
+      "slot_width_pt": 353.006063,
+      "slot_x_pt": 0.0,
+      "slot_y_pt": 0.0,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_a_top_example_row.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_a_top_example_row.svg",
+      "source_viewbox_height_pt": 97.808504,
+      "source_viewbox_width_pt": 353.006063,
+      "src_rect": "{}",
+      "width": 1.0,
+      "width_in": 5.354330708661418,
+      "x0": 0.0,
+      "y0": 0.7990786688578471,
+      "y0_top_origin": 0.0
+    },
+    {
+      "aspect_width_over_height": 2.212675653846154,
+      "column": 0,
+      "crop_height_pt": 52.0,
+      "crop_width_pt": 115.059134,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.1068200493015612,
+      "height_in": 0.7887263875419435,
+      "key": "moving_windows_to_whole_day2_schematic",
+      "metric": "",
+      "panel_letter": "b",
+      "ppt_source_src_rect": "{}",
+      "rendered_height": 52.0,
+      "rendered_width": 115.059134,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": -2,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 52.0,
+      "slot_pt": "[1.945354, 100.228898, 115.059134, 52.0]",
+      "slot_width_pt": 115.059134,
+      "slot_x_pt": 1.945354,
+      "slot_y_pt": 100.228898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_b_moving_windows_to_whole_day2_schematic.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_b_moving_windows_to_whole_day2_schematic.svg",
+      "source_viewbox_height_pt": 52.0,
+      "source_viewbox_width_pt": 115.059134,
+      "src_rect": "{}",
+      "width": 0.32594095699710407,
+      "width_in": 1.7451956752600848,
+      "x0": 0.005510823195124555,
+      "y0": 0.687286569433032,
+      "y0_top_origin": 0.20589338126540674
+    },
+    {
+      "aspect_width_over_height": 2.212675653846154,
+      "column": 1,
+      "crop_height_pt": 52.0,
+      "crop_width_pt": 115.059134,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.1068200493015612,
+      "height_in": 0.7887263875419435,
+      "key": "first30_across_experience_schematic",
+      "metric": "",
+      "panel_letter": "c",
+      "ppt_source_src_rect": "{}",
+      "rendered_height": 52.0,
+      "rendered_width": 115.059134,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": -2,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 52.0,
+      "slot_pt": "[112.409606, 100.228898, 115.059134, 52.0]",
+      "slot_width_pt": 115.059134,
+      "slot_x_pt": 112.409606,
+      "slot_y_pt": 100.228898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_c_first30_across_experience_schematic.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_c_first30_across_experience_schematic.svg",
+      "source_viewbox_height_pt": 52.0,
+      "source_viewbox_width_pt": 115.059134,
+      "src_rect": "{}",
+      "width": 0.32594095699710407,
+      "width_in": 1.7451956752600848,
+      "x0": 0.3184353408683522,
+      "y0": 0.687286569433032,
+      "y0_top_origin": 0.20589338126540674
+    },
+    {
+      "aspect_width_over_height": 2.212675653846154,
+      "column": 2,
+      "crop_height_pt": 52.0,
+      "crop_width_pt": 115.059134,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.1068200493015612,
+      "height_in": 0.7887263875419435,
+      "key": "long_gap_day1_schematic",
+      "metric": "",
+      "panel_letter": "d",
+      "ppt_source_src_rect": "{}",
+      "rendered_height": 52.0,
+      "rendered_width": 115.059134,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": -2,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 52.0,
+      "slot_pt": "[234.165827, 100.228898, 115.059134, 52.0]",
+      "slot_width_pt": 115.059134,
+      "slot_x_pt": 234.165827,
+      "slot_y_pt": 100.228898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_d_long_gap_day1_schematic.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_d_long_gap_day1_schematic.svg",
+      "source_viewbox_height_pt": 52.0,
+      "source_viewbox_width_pt": 115.059134,
+      "src_rect": "{}",
+      "width": 0.32594095699710407,
+      "width_in": 1.7451956752600848,
+      "x0": 0.6633478898632968,
+      "y0": 0.687286569433032,
+      "y0_top_origin": 0.20589338126540674
+    },
+    {
+      "aspect_width_over_height": 1.1195481179438127,
+      "column": 0,
+      "crop_height_pt": 102.772835,
+      "crop_width_pt": 115.059134,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.2111192173377157,
+      "height_in": 1.5588393632114272,
+      "key": "day2_template_place_map_correlation",
+      "metric": "place_map_correlation",
+      "panel_letter": "e",
+      "ppt_source_src_rect": "{\"t\": 15640}",
+      "rendered_height": 102.772835,
+      "rendered_width": 115.059134,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 0,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 102.772835,
+      "slot_pt": "[1.945354, 157.728898, 115.059134, 102.772835]",
+      "slot_width_pt": 115.059134,
+      "slot_x_pt": 1.945354,
+      "slot_y_pt": 157.728898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_e_day2_template_place_map_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_e_day2_template_place_map_correlation.svg",
+      "source_viewbox_height_pt": 102.772835,
+      "source_viewbox_width_pt": 115.059134,
+      "src_rect": "{}",
+      "width": 0.32594095699710407,
+      "width_in": 1.7451956752600848,
+      "x0": 0.005510823195124555,
+      "y0": 0.46486907764995894,
+      "y0_top_origin": 0.32401170501232535
+    },
+    {
+      "aspect_width_over_height": 1.1195481179438127,
+      "column": 1,
+      "crop_height_pt": 102.772835,
+      "crop_width_pt": 115.059134,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.2111192173377157,
+      "height_in": 1.5588393632114272,
+      "key": "day2_template_first30_place_map_correlation",
+      "metric": "place_map_correlation",
+      "panel_letter": "f",
+      "ppt_source_src_rect": "{\"t\": 15640}",
+      "rendered_height": 102.772835,
+      "rendered_width": 115.059134,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 0,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 102.772835,
+      "slot_pt": "[112.409606, 157.728898, 115.059134, 102.772835]",
+      "slot_width_pt": 115.059134,
+      "slot_x_pt": 112.409606,
+      "slot_y_pt": 157.728898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_f_day2_template_first30_place_map_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_f_day2_template_first30_place_map_correlation.svg",
+      "source_viewbox_height_pt": 102.772835,
+      "source_viewbox_width_pt": 115.059134,
+      "src_rect": "{}",
+      "width": 0.32594095699710407,
+      "width_in": 1.7451956752600848,
+      "x0": 0.3184353408683522,
+      "y0": 0.46486907764995894,
+      "y0_top_origin": 0.32401170501232535
+    },
+    {
+      "aspect_width_over_height": 1.1195481179438127,
+      "column": 2,
+      "crop_height_pt": 102.772835,
+      "crop_width_pt": 115.059134,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.2111192173377157,
+      "height_in": 1.5588393632114272,
+      "key": "long_gap_place_map_correlation",
+      "metric": "place_map_correlation",
+      "panel_letter": "g",
+      "ppt_source_src_rect": "{\"t\": 15640}",
+      "rendered_height": 102.772835,
+      "rendered_width": 115.059134,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 0,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 102.772835,
+      "slot_pt": "[234.165827, 157.728898, 115.059134, 102.772835]",
+      "slot_width_pt": 115.059134,
+      "slot_x_pt": 234.165827,
+      "slot_y_pt": 157.728898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_g_long_gap_place_map_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_g_long_gap_place_map_correlation.svg",
+      "source_viewbox_height_pt": 102.772835,
+      "source_viewbox_width_pt": 115.059134,
+      "src_rect": "{}",
+      "width": 0.32594095699710407,
+      "width_in": 1.7451956752600848,
+      "x0": 0.6633478898632968,
+      "y0": 0.46486907764995894,
+      "y0_top_origin": 0.32401170501232535
+    },
+    {
+      "aspect_width_over_height": 1.1195477611305618,
+      "column": 0,
+      "crop_height_pt": 104.41252,
+      "crop_width_pt": 116.894803,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.2144875102711586,
+      "height_in": 1.5837098021875178,
+      "key": "day2_template_pv_correlation",
+      "metric": "pv_correlation",
+      "panel_letter": "h",
+      "ppt_source_src_rect": "{\"t\": 15640}",
+      "rendered_height": 104.41252,
+      "rendered_width": 116.894803,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 1,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 104.41252,
+      "slot_pt": "[1.0274799999999997, 268.128898, 116.894803, 104.41252]",
+      "slot_width_pt": 116.894803,
+      "slot_x_pt": 1.0274799999999997,
+      "slot_y_pt": 268.128898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_h_day2_template_pv_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_h_day2_template_pv_correlation.svg",
+      "source_viewbox_height_pt": 104.41252,
+      "source_viewbox_width_pt": 116.894803,
+      "src_rect": "{}",
+      "width": 0.33114106314938846,
+      "width_in": 1.7730387633195603,
+      "x0": 0.0029106582228872364,
+      "y0": 0.23471360312243225,
+      "y0_top_origin": 0.5507988866064092
+    },
+    {
+      "aspect_width_over_height": 1.1195477611305618,
+      "column": 1,
+      "crop_height_pt": 104.41252,
+      "crop_width_pt": 116.894803,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.2144875102711586,
+      "height_in": 1.5837098021875178,
+      "key": "day2_template_first30_pv_correlation",
+      "metric": "pv_correlation",
+      "panel_letter": "i",
+      "ppt_source_src_rect": "{\"t\": 15640}",
+      "rendered_height": 104.41252,
+      "rendered_width": 116.894803,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 1,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 104.41252,
+      "slot_pt": "[112.409606, 268.128898, 116.894803, 104.41252]",
+      "slot_width_pt": 116.894803,
+      "slot_x_pt": 112.409606,
+      "slot_y_pt": 268.128898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_i_day2_template_first30_pv_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_i_day2_template_first30_pv_correlation.svg",
+      "source_viewbox_height_pt": 104.41252,
+      "source_viewbox_width_pt": 116.894803,
+      "src_rect": "{}",
+      "width": 0.33114106314938846,
+      "width_in": 1.7730387633195603,
+      "x0": 0.3184353408683522,
+      "y0": 0.23471360312243225,
+      "y0_top_origin": 0.5507988866064092
+    },
+    {
+      "aspect_width_over_height": 1.1195477611305618,
+      "column": 2,
+      "crop_height_pt": 104.41252,
+      "crop_width_pt": 116.894803,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.2144875102711586,
+      "height_in": 1.5837098021875178,
+      "key": "long_gap_pv_correlation",
+      "metric": "pv_correlation",
+      "panel_letter": "j",
+      "ppt_source_src_rect": "{\"t\": 15640}",
+      "rendered_height": 104.41252,
+      "rendered_width": 116.894803,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 1,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 104.41252,
+      "slot_pt": "[234.165827, 268.128898, 116.894803, 104.41252]",
+      "slot_width_pt": 116.894803,
+      "slot_x_pt": 234.165827,
+      "slot_y_pt": 268.128898,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_j_long_gap_pv_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_j_long_gap_pv_correlation.svg",
+      "source_viewbox_height_pt": 104.41252,
+      "source_viewbox_width_pt": 116.894803,
+      "src_rect": "{}",
+      "width": 0.33114106314938846,
+      "width_in": 1.7730387633195603,
+      "x0": 0.6633478898632968,
+      "y0": 0.23471360312243225,
+      "y0_top_origin": 0.5507988866064092
+    },
+    {
+      "aspect_width_over_height": 1.1122228558791165,
+      "column": 0,
+      "crop_height_pt": 105.460157,
+      "crop_width_pt": 117.295197,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.21663959942481512,
+      "height_in": 1.5996001665426194,
+      "key": "day2_template_ensemble_rate_correlation",
+      "metric": "ensemble_rate_correlation",
+      "panel_letter": "k",
+      "ppt_source_src_rect": "{\"t\": 15555}",
+      "rendered_height": 105.460157,
+      "rendered_width": 117.295197,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 2,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 105.460157,
+      "slot_pt": "[0.627087, 380.32889800000004, 117.295197, 105.460157]",
+      "slot_width_pt": 117.295197,
+      "slot_x_pt": 0.627087,
+      "slot_y_pt": 380.32889800000004,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_k_day2_template_ensemble_rate_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_k_day2_template_ensemble_rate_correlation.svg",
+      "source_viewbox_height_pt": 105.460157,
+      "source_viewbox_width_pt": 117.295197,
+      "src_rect": "{}",
+      "width": 0.33227530429130336,
+      "width_in": 1.7791118654967426,
+      "x0": 0.0017764199137848802,
+      "y0": 0.0020767152834839323,
+      "y0_top_origin": 0.781283685291701
+    },
+    {
+      "aspect_width_over_height": 1.1122228558791165,
+      "column": 1,
+      "crop_height_pt": 105.460157,
+      "crop_width_pt": 117.295197,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.21663959942481512,
+      "height_in": 1.5996001665426194,
+      "key": "day2_template_first30_ensemble_rate_correlation",
+      "metric": "ensemble_rate_correlation",
+      "panel_letter": "l",
+      "ppt_source_src_rect": "{\"t\": 15368}",
+      "rendered_height": 105.460157,
+      "rendered_width": 117.295197,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 2,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 105.460157,
+      "slot_pt": "[112.009213, 380.32889800000004, 117.295197, 105.460157]",
+      "slot_width_pt": 117.295197,
+      "slot_x_pt": 112.009213,
+      "slot_y_pt": 380.32889800000004,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_l_day2_template_first30_ensemble_rate_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_l_day2_template_first30_ensemble_rate_correlation.svg",
+      "source_viewbox_height_pt": 105.460157,
+      "source_viewbox_width_pt": 117.295197,
+      "src_rect": "{}",
+      "width": 0.33227530429130336,
+      "width_in": 1.7791118654967426,
+      "x0": 0.3173011025592498,
+      "y0": 0.0020767152834839323,
+      "y0_top_origin": 0.781283685291701
+    },
+    {
+      "aspect_width_over_height": 1.1122228558791165,
+      "column": 2,
+      "crop_height_pt": 105.460157,
+      "crop_width_pt": 117.295197,
+      "crop_x_pt": 0.0,
+      "crop_y_pt": 0.0,
+      "height": 0.21663959942481512,
+      "height_in": 1.5996001665426194,
+      "key": "long_gap_ensemble_rate_correlation",
+      "metric": "ensemble_rate_correlation",
+      "panel_letter": "m",
+      "ppt_source_src_rect": "{\"t\": 15647}",
+      "rendered_height": 105.460157,
+      "rendered_width": 117.295197,
+      "required_scale_ratio_deviation": 0.0,
+      "required_scale_x": 1.0,
+      "required_scale_y": 1.0,
+      "row": 2,
+      "scale": 1.0,
+      "scale_x": 1.0,
+      "scale_y": 1.0,
+      "slot_height_pt": 105.460157,
+      "slot_pt": "[234.165827, 380.32889800000004, 117.295197, 105.460157]",
+      "slot_width_pt": 117.295197,
+      "slot_x_pt": 234.165827,
+      "slot_y_pt": 380.32889800000004,
+      "source_png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_m_long_gap_ensemble_rate_correlation.png",
+      "source_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_m_long_gap_ensemble_rate_correlation.svg",
+      "source_viewbox_height_pt": 105.460157,
+      "source_viewbox_width_pt": 117.295197,
+      "src_rect": "{}",
+      "width": 0.33227530429130336,
+      "width_in": 1.7791118654967426,
+      "x0": 0.6633478898632968,
+      "y0": 0.0020767152834839323,
+      "y0_top_origin": 0.781283685291701
+    }
+  ],
+  "data_counts": {
+    "day2_template_first30_rows": 177,
+    "day2_template_rows": 2638,
+    "long_gap_rows": 111
+  },
+  "figure": "figure3",
+  "layout_mode": "schematic_row_source_panel_svg",
+  "layout_reference": {
+    "content_bbox_pt": [
+      2.41,
+      2.271102,
+      353.006063,
+      486.8
+    ],
+    "export_height_mm": 187.54578728014653,
+    "export_width_mm": 136.0,
+    "first_column_legend_overlays": [
+      "e",
+      "h",
+      "k"
+    ],
+    "note": "Original PowerPoint geometry anchors the panels; every source panel is rendered at the exact destination aspect ratio and assembled with isotropic scaling only.",
+    "panel_label_anchor": "top_left_inside_slot",
+    "panels": [
+      {
+        "column": -1,
+        "key": "top_example_row",
+        "metric": "",
+        "panel_letter": "a",
+        "row": -1,
+        "slot_pt": [
+          2.41,
+          2.271102,
+          353.006063,
+          97.808504
+        ],
+        "source_png": "figure3_panel_a_top_example_row.png",
+        "source_svg": "figure3_panel_a_top_example_row.svg",
+        "src_rect": {
+          "l": 3053,
+          "r": 1
+        },
+        "visual_role": "four source-rendered example maps: Day i, Day i+1, Day i+90, Day i+91"
+      },
+      {
+        "column": 0,
+        "key": "moving_windows_to_whole_day2_schematic",
+        "metric": "",
+        "panel_letter": "b",
+        "row": -2,
+        "schematic": "moving_windows",
+        "slot_pt": [
+          4.355354,
+          102.5,
+          115.059134,
+          52.0
+        ],
+        "source_png": "figure3_panel_b_moving_windows_to_whole_day2_schematic.png",
+        "source_svg": "figure3_panel_b_moving_windows_to_whole_day2_schematic.svg",
+        "src_rect": {},
+        "visual_role": "moving 30-min Day-1 windows compared with the whole Day-2 template"
+      },
+      {
+        "column": 1,
+        "key": "first30_across_experience_schematic",
+        "metric": "",
+        "panel_letter": "c",
+        "row": -2,
+        "schematic": "first30_experience",
+        "slot_pt": [
+          114.819606,
+          102.5,
+          115.059134,
+          52.0
+        ],
+        "source_png": "figure3_panel_c_first30_across_experience_schematic.png",
+        "source_svg": "figure3_panel_c_first30_across_experience_schematic.svg",
+        "src_rect": {},
+        "visual_role": "first 30 min compared with the whole next day across experience levels"
+      },
+      {
+        "column": 2,
+        "key": "long_gap_day1_schematic",
+        "metric": "",
+        "panel_letter": "d",
+        "row": -2,
+        "schematic": "long_gap_day1",
+        "slot_pt": [
+          236.575827,
+          102.5,
+          115.059134,
+          52.0
+        ],
+        "source_png": "figure3_panel_d_long_gap_day1_schematic.png",
+        "source_svg": "figure3_panel_d_long_gap_day1_schematic.svg",
+        "src_rect": {},
+        "visual_role": "successive Day-1 sessions compared across approximately 90-day gaps"
+      },
+      {
+        "column": 0,
+        "key": "day2_template_place_map_correlation",
+        "metric": "place_map_correlation",
+        "panel_letter": "e",
+        "row": 0,
+        "slot_pt": [
+          4.355354,
+          160.0,
+          115.059134,
+          102.772835
+        ],
+        "source_png": "figure3_panel_e_day2_template_place_map_correlation.png",
+        "source_svg": "figure3_panel_e_day2_template_place_map_correlation.svg",
+        "src_rect": {
+          "t": 15640
+        },
+        "visual_role": "Day1 windows to Day2 template curve over time in maze"
+      },
+      {
+        "column": 1,
+        "key": "day2_template_first30_place_map_correlation",
+        "metric": "place_map_correlation",
+        "panel_letter": "f",
+        "row": 0,
+        "slot_pt": [
+          114.819606,
+          160.0,
+          115.059134,
+          102.772835
+        ],
+        "source_png": "figure3_panel_f_day2_template_first30_place_map_correlation.png",
+        "source_svg": "figure3_panel_f_day2_template_first30_place_map_correlation.svg",
+        "src_rect": {
+          "t": 15640
+        },
+        "visual_role": "Experience scatter from Day2-template source family, first 30 min maze-time window"
+      },
+      {
+        "column": 2,
+        "key": "long_gap_place_map_correlation",
+        "metric": "place_map_correlation",
+        "panel_letter": "g",
+        "row": 0,
+        "slot_pt": [
+          236.575827,
+          160.0,
+          115.059134,
+          102.772835
+        ],
+        "source_png": "figure3_panel_g_long_gap_place_map_correlation.png",
+        "source_svg": "figure3_panel_g_long_gap_place_map_correlation.svg",
+        "src_rect": {
+          "t": 15640
+        },
+        "visual_role": "Long-gap experience trend scatter with source trend fit"
+      },
+      {
+        "column": 0,
+        "key": "day2_template_pv_correlation",
+        "metric": "pv_correlation",
+        "panel_letter": "h",
+        "row": 1,
+        "slot_pt": [
+          3.43748,
+          270.4,
+          116.894803,
+          104.41252
+        ],
+        "source_png": "figure3_panel_h_day2_template_pv_correlation.png",
+        "source_svg": "figure3_panel_h_day2_template_pv_correlation.svg",
+        "src_rect": {
+          "t": 15640
+        },
+        "visual_role": "Day1 windows to Day2 template curve over time in maze"
+      },
+      {
+        "column": 1,
+        "key": "day2_template_first30_pv_correlation",
+        "metric": "pv_correlation",
+        "panel_letter": "i",
+        "row": 1,
+        "slot_pt": [
+          114.819606,
+          270.4,
+          116.894803,
+          104.41252
+        ],
+        "source_png": "figure3_panel_i_day2_template_first30_pv_correlation.png",
+        "source_svg": "figure3_panel_i_day2_template_first30_pv_correlation.svg",
+        "src_rect": {
+          "t": 15640
+        },
+        "visual_role": "Experience scatter from Day2-template source family, first 30 min maze-time window"
+      },
+      {
+        "column": 2,
+        "key": "long_gap_pv_correlation",
+        "metric": "pv_correlation",
+        "panel_letter": "j",
+        "row": 1,
+        "slot_pt": [
+          236.575827,
+          270.4,
+          116.894803,
+          104.41252
+        ],
+        "source_png": "figure3_panel_j_long_gap_pv_correlation.png",
+        "source_svg": "figure3_panel_j_long_gap_pv_correlation.svg",
+        "src_rect": {
+          "t": 15640
+        },
+        "visual_role": "Long-gap experience trend scatter with source trend fit"
+      },
+      {
+        "column": 0,
+        "key": "day2_template_ensemble_rate_correlation",
+        "metric": "ensemble_rate_correlation",
+        "panel_letter": "k",
+        "row": 2,
+        "slot_pt": [
+          3.037087,
+          382.6,
+          117.295197,
+          105.460157
+        ],
+        "source_png": "figure3_panel_k_day2_template_ensemble_rate_correlation.png",
+        "source_svg": "figure3_panel_k_day2_template_ensemble_rate_correlation.svg",
+        "src_rect": {
+          "t": 15555
+        },
+        "visual_role": "Day1 windows to Day2 template curve over time in maze"
+      },
+      {
+        "column": 1,
+        "key": "day2_template_first30_ensemble_rate_correlation",
+        "metric": "ensemble_rate_correlation",
+        "panel_letter": "l",
+        "row": 2,
+        "slot_pt": [
+          114.419213,
+          382.6,
+          117.295197,
+          105.460157
+        ],
+        "source_png": "figure3_panel_l_day2_template_first30_ensemble_rate_correlation.png",
+        "source_svg": "figure3_panel_l_day2_template_first30_ensemble_rate_correlation.svg",
+        "src_rect": {
+          "t": 15368
+        },
+        "visual_role": "Experience scatter from Day2-template source family, first 30 min maze-time window"
+      },
+      {
+        "column": 2,
+        "key": "long_gap_ensemble_rate_correlation",
+        "metric": "ensemble_rate_correlation",
+        "panel_letter": "m",
+        "row": 2,
+        "slot_pt": [
+          236.575827,
+          382.6,
+          117.295197,
+          105.460157
+        ],
+        "source_png": "figure3_panel_m_long_gap_ensemble_rate_correlation.png",
+        "source_svg": "figure3_panel_m_long_gap_ensemble_rate_correlation.svg",
+        "src_rect": {
+          "t": 15647
+        },
+        "visual_role": "Long-gap experience trend scatter with source trend fit"
+      }
+    ],
+    "pptx": "C:\\Users\\jiangwu\\Desktop\\ltm-figs\\main-figs-v4-f3.pptx",
+    "row_headers": [],
+    "row_label_mode": "metric-specific first-column y-axis labels; no colored row bands",
+    "schematic_panels": [
+      "b",
+      "c",
+      "d"
+    ],
+    "source_panel_dir": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels"
+  },
+  "outputs": {
+    "html_export_wrapper": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_source_publication.html",
+    "pdf": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_source_publication.pdf",
+    "png": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_source_publication.png",
+    "svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_source_publication.svg"
+  },
+  "panel_geometry": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_axes_geometry.csv",
+  "panel_verification": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_panel_verification.csv",
+  "renderer": "render_main_figs_v3_publication.render_figure3",
+  "source_alignment": {
+    "check": "middle-column per-animal group means equal left-column curve means at 30 min maze-time",
+    "max_abs_delta": 1.1102230246251565e-16,
+    "path": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_day2_template_first30_alignment.csv"
+  },
+  "sources": [
+    {
+      "note": "source-rendered square-boundary panel assembled isotropically on its exact destination aspect ratio; no PPT/PDF media used as source",
+      "panel": "figure3_top_example",
+      "pick": {
+        "pair_key": "451-3day1->451-6day1",
+        "row_idx": 161
+      },
+      "renderer": "render_main_figs_v3_publication._draw_day12_arrow_example",
+      "source_panel_svg": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_individual_panels\\figure3_panel_a_top_example_row.svg",
+      "source_path": "docs/example_neuron_candidates/saved_picks/451-3day1_to_451-6day1__row0161_A190_B267.npz"
+    },
+    {
+      "anticipated_result_curve": false,
+      "panel": "figure3_moving_windows_to_whole_day2_schematic",
+      "panel_letter": "b",
+      "renderer": "render_main_figs_v3_publication._render_figure3_analysis_schematic",
+      "source": "user-provided Python schematic grammar; maintained compact renderer-native adaptation",
+      "visual_role": "moving 30-min Day-1 windows compared with the whole Day-2 template"
+    },
+    {
+      "anticipated_result_curve": false,
+      "panel": "figure3_first30_across_experience_schematic",
+      "panel_letter": "c",
+      "renderer": "render_main_figs_v3_publication._render_figure3_analysis_schematic",
+      "source": "user-provided Python schematic grammar; maintained compact renderer-native adaptation",
+      "visual_role": "first 30 min compared with the whole next day across experience levels"
+    },
+    {
+      "anticipated_result_curve": false,
+      "panel": "figure3_long_gap_day1_schematic",
+      "panel_letter": "d",
+      "renderer": "render_main_figs_v3_publication._render_figure3_analysis_schematic",
+      "source": "user-provided Python schematic grammar; maintained compact renderer-native adaptation",
+      "visual_role": "successive Day-1 sessions compared across approximately 90-day gaps"
+    },
+    {
+      "filters": {
+        "excluded_metrics": [
+          "level_map_correlation"
+        ],
+        "metrics": [
+          "place_map_correlation",
+          "pv_correlation",
+          "ensemble_rate_correlation"
+        ],
+        "support_policy_by_metric": {
+          "ensemble_rate_correlation": "not_applicable",
+          "place_map_correlation": "scaled_nonoverlap",
+          "pv_correlation": "scaled_nonoverlap"
+        },
+        "window_size": 30.0,
+        "window_type": "maze_time"
+      },
+      "panel": "figure3_day2_template_curves",
+      "renderer": "render_main_figs_v3_publication._draw_day2_template_curve",
+      "source_manifest": "docs/coverage5min_window_reanalysis_2026-08-05/figure3_authority/SOURCE_MANIFEST.json",
+      "source_path": "docs/coverage5min_window_reanalysis_2026-08-05/figure3_authority/day2_template_group_curve_summary.csv",
+      "support_run_audit": "D:\\combineddata\\github_clean_repo\\docs\\main_figs_v3_no_manual_mask_render_2026-08-07\\figure3_day2_template_support_runs.csv"
+    },
+    {
+      "filters": {
+        "excluded_metrics": [
+          "level_map_correlation"
+        ],
+        "metrics": [
+          "place_map_correlation",
+          "pv_correlation",
+          "ensemble_rate_correlation"
+        ],
+        "support_policy_by_metric": {
+          "ensemble_rate_correlation": "not_applicable",
+          "place_map_correlation": "scaled_nonoverlap",
+          "pv_correlation": "scaled_nonoverlap"
+        },
+        "value_column": "first_value",
+        "variant": "coverage5min_current59",
+        "window_size": 30.0,
+        "window_type": "maze_time"
+      },
+      "panel": "figure3_day2_template_first30_experience",
+      "plot_ready_points_authority": "docs/coverage5min_window_reanalysis_2026-08-05/figure3_authority/combined_first30_points_all_metrics.csv",
+      "renderer": "render_main_figs_v3_publication._draw_experience_scatter",
+      "source_paths": {
+        "original_fallback_naive": "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference/original_fallback_naive/animal_metric_summary.csv",
+        "sorted_1616_as_0_3_6mo": "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference/sorted_1616/animal_metric_summary.csv",
+        "sorted_non1616_plus_12mo": "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference/sorted_non1616/animal_metric_summary.csv"
+      },
+      "statistics": "OLS slope with CR1 covariance clustered by animal; primary two-sided P uses Student t(G-1); BH correction spans the four Main-Figure representation metrics",
+      "stats_path": "docs/coverage5min_window_reanalysis_2026-08-05/figure3_authority/combined_first30_stats_all_metrics.csv"
+    },
+    {
+      "corrected_842_six_metric_audit": "docs/sorted_data_full_figure_rerun_2026-06-11/figure2_main3_ed12_source_repair_842_2026-08-03/main3_ed12j_corrected_842_six_metric_source_audit.csv",
+      "filters": {
+        "excluded_metrics": [
+          "level_map_correlation"
+        ],
+        "metrics": [
+          "place_map_correlation",
+          "pv_correlation",
+          "ensemble_rate_correlation"
+        ]
+      },
+      "level_pair_audit": "docs/sorted_data_full_figure_rerun_2026-06-11/figure2_main3_ed12_source_repair_842_2026-08-03/main3_ed12j_level_patch_audit.csv",
+      "panel": "figure3_long_gap_experience_trends",
+      "renderer": "render_main_figs_v3_publication._draw_experience_scatter",
+      "source_path": "docs/sorted_data_full_figure_rerun_2026-06-11/main3_long_gap_no_manual_mask_2026-08-07/main3_experience_trend_points_no_manual_mask.csv",
+      "source_repair_manifest": "docs/sorted_data_full_figure_rerun_2026-06-11/figure2_main3_ed12_source_repair_842_2026-08-03/SOURCE_REPAIR_MANIFEST.json",
+      "stats_path": "docs/sorted_data_full_figure_rerun_2026-06-11/main3_long_gap_no_manual_mask_2026-08-07/main3_experience_trend_clustered_stats_no_manual_mask.csv"
+    }
+  ],
+  "style": {
+    "annotation_fontsize": 5.4,
+    "axis_label_fontsize": 6.0,
+    "axis_linewidth": 0.65,
+    "base_fontsize": 6.0,
+    "data_linewidth": 1.25,
+    "day2_group_colors": {
+      "ensemble_rate_correlation": {
+        "12mo": "#2c3a3f",
+        "3mo": "#7d9198",
+        "6mo": "#637980",
+        "9mo": "#4a5e65",
+        "naive": "#9fb0b5"
+      },
+      "level_map_correlation": {
+        "12mo": "#4e4a75",
+        "3mo": "#a19cc3",
+        "6mo": "#8a85b2",
+        "9mo": "#6f6b99",
+        "naive": "#bdb9d6"
+      },
+      "place_map_correlation": {
+        "12mo": "#78312f",
+        "3mo": "#cb817d",
+        "6mo": "#bf6965",
+        "9mo": "#a84e4b",
+        "naive": "#d89c98"
+      },
+      "pv_correlation": {
+        "12mo": "#8a4a1f",
+        "3mo": "#e8a76f",
+        "6mo": "#e29957",
+        "9mo": "#bd7137",
+        "naive": "#edbd8f"
+      }
+    },
+    "day2_template_xlim_max": 185.0,
+    "day2_template_xlim_min": 25.0,
+    "dpi": 300,
+    "facecolor": "white",
+    "figure2_canvas_size": [
+      7.1,
+      6.18
+    ],
+    "figure2_export_width_mm": 180.0,
+    "figure2_lower_slot": [
+      0.02,
+      2.3,
+      7.05,
+      3.84
+    ],
+    "figure2_marker_scale": 1.0,
+    "figure2_panel_a_slot": [
+      0.06,
+      0.04,
+      1.7,
+      2.24
+    ],
+    "figure2_panel_b_slot": [
+      1.72,
+      0.03,
+      5.34,
+      2.26
+    ],
+    "figure2_pv_distribution_xlabel_x": null,
+    "figure3_export_width_mm": 136.0,
+    "figure3_lower_bounds": [
+      0.145,
+      0.895,
+      0.07,
+      0.724
+    ],
+    "figure3_lower_hspace": 0.44,
+    "figure3_lower_wspace": 0.32,
+    "figure3_metric_y_limits": {
+      "ensemble_rate_correlation": [
+        0.0,
+        0.9
+      ],
+      "level_map_correlation": [
+        0.0,
+        0.9
+      ],
+      "place_map_correlation": [
+        0.0,
+        0.65
+      ],
+      "pv_correlation": [
+        0.0,
+        0.75
+      ]
+    },
+    "figure3_metric_y_ticks": {
+      "ensemble_rate_correlation": [
+        0.2,
+        0.4,
+        0.6,
+        0.8
+      ],
+      "level_map_correlation": [
+        0.2,
+        0.4,
+        0.6,
+        0.8
+      ],
+      "place_map_correlation": [
+        0.0,
+        0.2,
+        0.4,
+        0.6
+      ],
+      "pv_correlation": [
+        0.0,
+        0.2,
+        0.4,
+        0.6
+      ]
+    },
+    "figure3_top_bounds": [
+      0.145,
+      0.895,
+      0.785,
+      0.965
+    ],
+    "figure4_canvas_size": [
+      7.5,
+      4.0
+    ],
+    "figure4_export_width_mm": 180.0,
+    "figure4_panel_a_slot": [
+      0.056,
+      0.127,
+      3.822,
+      1.646
+    ],
+    "figure4_panel_b_slot": [
+      3.878,
+      0.0,
+      0.749,
+      2.089
+    ],
+    "figure4_panel_c_slot": [
+      4.76,
+      0.205,
+      2.005,
+      1.49
+    ],
+    "figure4_panel_d_slot": [
+      6.55,
+      0.0,
+      0.749,
+      2.089
+    ],
+    "figure4_panel_e_slot": [
+      -0.03,
+      1.724,
+      4.899,
+      2.126
+    ],
+    "figure4_panel_f_slot": [
+      4.72,
+      1.773,
+      2.65,
+      2.226
+    ],
+    "figure_size": [
+      5.35,
+      7.25
+    ],
+    "fit_linewidth": 1.1,
+    "font_family": "Arial",
+    "grid_alpha": 0.26,
+    "grid_linewidth": 0.35,
+    "legend_fontsize": 4.9,
+    "low_support_alpha": 0.24,
+    "low_support_linewidth": 0.65,
+    "max_blank_bottom_fraction": 0.12,
+    "max_blank_right_fraction": 0.12,
+    "max_lower_panel_aspect": 0.95,
+    "metric_colors": {
+      "ensemble_rate_correlation": "#4a5e65",
+      "level_map_correlation": "#7976a2",
+      "place_map_correlation": "#B95A58",
+      "pv_correlation": "#e29957"
+    },
+    "panel_letter_fontsize": 10.5,
+    "panel_letter_weight": "bold",
+    "point_alpha": 0.72,
+    "point_size": 15.0,
+    "sem_alpha": 0.07,
+    "show_grid": false,
+    "tick_fontsize": 5.4,
+    "tick_length": 1.8,
+    "tick_width": 0.55,
+    "title_fontsize": 6.2
+  }
+}

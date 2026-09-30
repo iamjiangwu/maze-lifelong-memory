@@ -1,0 +1,59 @@
+{
+  "created_utc": "2026-08-21T03:24:04.020462+00:00",
+  "d1v1": {
+    "bh4_adjusted_p": 1.5754841589554758e-05,
+    "ci95": [
+      0.0949884197821155,
+      0.1751822360538087
+    ],
+    "inside_minus_outside": 0.1350853279179621,
+    "inside_r": 0.4976818427937508,
+    "outside_r": 0.3625965148757885,
+    "raw_p": 6.197040371302975e-06
+  },
+  "definition": "all calcium-valid outside frames; matched calcium-valid in-maze frames; no position or speed filter",
+  "desktop_modified": true,
+  "desktop_export": {
+    "path": "C:\\Users\\jiangwu\\Desktop\\ltm-figs\\ed05_version_record_600dpi.png",
+    "sha256": "786ac084530f57d84c9044d97eafeaf30bef684b1d7a354ea482565170195fc1",
+    "source_hash_matches": true,
+    "scope": "top-level final PNG only"
+  },
+  "n_animals": 14,
+  "n_d1v1_pairs": 36,
+  "n_pair_rows": 144,
+  "n_unique_sessions": 100,
+  "parent_record": "extended_data_fig05_2026-08-16_round16_bh3",
+  "raster_audit": {
+    "allowed_panel_e_box_exclusive": [
+      2200,
+      3300,
+      3012,
+      4165
+    ],
+    "changed_pixels": 118436,
+    "changes_confined_to_panel_e": true,
+    "difference_bbox_exclusive": [
+      2397,
+      3495,
+      2967,
+      4043
+    ],
+    "new_shape": [
+      4165,
+      3012,
+      3
+    ],
+    "old_shape": [
+      4165,
+      3012,
+      3
+    ],
+    "outside_panel_e_changed_pixels": 0
+  },
+  "record": "extended_data_fig05_2026-08-20_round17_context_only_all_outside",
+  "review_powerpoint_status": "inherited historical review artifact; publication exports are current authority",
+  "schema": "ed05-context-only-all-outside-promotion/v1",
+  "status": "PASS",
+  "technical_in_maze_draws": 20
+}

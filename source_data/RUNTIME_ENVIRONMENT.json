@@ -1,0 +1,23 @@
+{
+  "python": "3.10.9 | packaged by Anaconda, Inc. | (main, Mar  1 2023, 18:18:15) [MSC v.1916 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "packages": {
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scipy": "1.10.0",
+    "matplotlib": "3.7.0",
+    "Pillow": "9.4.0",
+    "PyMuPDF": "1.27.2.3",
+    "statsmodels": "0.13.5",
+    "openpyxl": "3.1.5",
+    "h5py": "3.15.1",
+    "reportlab": "5.0.1",
+    "numba": "0.56.4"
+  },
+  "export_requirements": [
+    "Windows Microsoft Edge for native SVG/PDF export",
+    "Arial font",
+    "Node.js and @oai/artifact-tool for the XLSX builders (Codex bundled runtime on this host)"
+  ],
+  "data_dependency": "None outside this release; no network required for execution"
+}

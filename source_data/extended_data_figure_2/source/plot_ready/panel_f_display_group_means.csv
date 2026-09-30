@@ -1,0 +1,4 @@
+panel,model,group,n_session_rows,n_mice,observed_mean,simulated_mean,x_column,y_column,marker_area_pt2,alpha
+f,four_bias,naive,23,23,0.1223757161377497,0.28385272472256284,real_half_cover_eff,four_own_half_cover_eff,11,1.0
+f,four_bias,LTM,58,18,0.36293844135423814,0.4157071425892679,real_half_cover_eff,four_own_half_cover_eff,11,1.0
+f,four_bias,experienced,74,24,0.3832426852493206,0.4046629104540912,real_half_cover_eff,four_own_half_cover_eff,11,1.0

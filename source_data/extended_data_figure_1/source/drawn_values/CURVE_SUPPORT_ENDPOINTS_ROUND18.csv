@@ -1,0 +1,19 @@
+axis,group_key,group_label,n_sessions,minimum_required_for_80pct,n_observed_at_endpoint,support_fraction_at_endpoint,n_terminal_carried_at_endpoint,endpoint,endpoint_unit,grid_step,last_plotted_bin_center,n_metric_contributors_at_last_bin,metric_contributor_fraction_at_last_bin,support_basis
+time_in_maze,0mo,Naive night,23,19,19,0.8260869565217391,4,199.16666666666666,min,0.16666666666666666,,,,
+time_in_maze,3mo,3 mo return,17,14,14,0.8235294117647058,3,151.16666666666666,min,0.16666666666666666,,,,
+time_in_maze,6mo,6 mo return,17,14,14,0.8235294117647058,3,145.83333333333334,min,0.16666666666666666,,,,
+time_in_maze,9mo,9 mo return,12,10,10,0.8333333333333334,2,143.0,min,0.16666666666666666,,,,
+time_in_maze,12mo,12 mo return,10,8,8,0.8,2,113.0,min,0.16666666666666666,,,,
+time_in_maze,experienced_day2,Second night,74,60,60,0.8108108108108109,14,126.5,min,0.16666666666666666,,,,
+maze_tile_transitions,naive_0mo,Naive day,23,19,19,0.8260869565217391,4,14900.0,transitions,50.0,,,,
+maze_tile_transitions,return_3mo,3 mo return,17,14,14,0.8235294117647058,3,14500.0,transitions,50.0,,,,
+maze_tile_transitions,return_6mo,6 mo return,17,14,14,0.8235294117647058,3,14150.0,transitions,50.0,,,,
+maze_tile_transitions,return_9mo,9 mo return,12,10,10,0.8333333333333334,2,16750.0,transitions,50.0,,,,
+maze_tile_transitions,return_12mo,12 mo return,10,8,8,0.8,2,11050.0,transitions,50.0,,,,
+maze_tile_transitions,experienced_day2,Second day,74,60,60,0.8108108108108109,14,11050.0,transitions,50.0,,,,
+exploration_efficiency_time,experienced_day2,Second day,73,59,62,0.8493150684931506,0,120.0,min,10.0,115.0,17.0,0.2328767123287671,recording opportunity; no terminal carry-forward
+exploration_efficiency_time,naive,Naive day,23,19,21,0.9130434782608695,0,190.0,min,10.0,185.0,7.0,0.30434782608695654,recording opportunity; no terminal carry-forward
+exploration_efficiency_time,return,Return day,56,45,46,0.8214285714285714,0,130.0,min,10.0,125.0,19.0,0.3392857142857143,recording opportunity; no terminal carry-forward
+exploration_efficiency_transitions,experienced_day2,Second day,73,59,60,0.821917808219178,0,11000.0,transitions,1000.0,10500.0,20.0,0.273972602739726,recording opportunity; no terminal carry-forward
+exploration_efficiency_transitions,naive,Naive day,23,19,19,0.8260869565217391,0,14000.0,transitions,1000.0,13500.0,9.0,0.391304347826087,recording opportunity; no terminal carry-forward
+exploration_efficiency_transitions,return,Return day,56,45,48,0.8571428571428571,0,12000.0,transitions,1000.0,11500.0,24.0,0.42857142857142855,recording opportunity; no terminal carry-forward

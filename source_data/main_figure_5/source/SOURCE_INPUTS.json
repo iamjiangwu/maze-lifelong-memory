@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "base_record": "main_figure5_2026-09-25_round10_black_stars",
+  "base_review": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25",
+  "revision": "Only panel c title changed to Level population vector correlation; native fontsize8pt retained.",
+  "sources": {
+    "source_code/preview_figure3_assembly.py": {
+      "sha256": "453e69706c14700e6305d6cd710eb8b1f976ca26f72d3046ef4a1ba6ee4f8e4d",
+      "bytes": 42940,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\preview_figure3_assembly.py"
+    },
+    "source_code/figure_panels.py": {
+      "sha256": "5697d9ffa63edd7e228c57807e84d9117d9cdf3414fbe634e80c11e235e59835",
+      "bytes": 321721,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\figure_panels.py"
+    },
+    "source_code/level_heatmap_utils.py": {
+      "sha256": "582608d6d49f8417117a1a57fc117b3c2dc3aed37fa125a5e6321256a9d90b9f",
+      "bytes": 4460,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\level_heatmap_utils.py"
+    },
+    "source_code/render_main_figs_v3_publication.py": {
+      "sha256": "a7a324dc5cc24c3e239f4477f63352ab450253f491378b4c469e757514af8784",
+      "bytes": 384629,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\render_main_figs_v3_publication.py"
+    },
+    "source_code/frozen_main_rebuild_runtime.py": {
+      "sha256": "ca0bca0fa58ba94635e2693a61bf0d8e74a10b1508dc728c88c3e5efa1d22f26",
+      "bytes": 80520,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\frozen_main_rebuild_runtime.py"
+    },
+    "source_data/SOURCE_REBUILD_MAIN_RUNTIME.zip": {
+      "sha256": "8d090bedca223b402e757cf5f52e0dd82c7346797e3c6096580364e1023c3286",
+      "bytes": 862374,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\SOURCE_REBUILD_MAIN_RUNTIME.zip"
+    },
+    "source_data/figure5_bundle/figure5_pair_scope_audit.csv": {
+      "sha256": "2b0f7b9f4467c9a3164c25eb61b604238270f3e6b029ced3e2fe63b3adfdcc22",
+      "bytes": 6026,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5_bundle\\figure5_pair_scope_audit.csv"
+    },
+    "source_data/figure5_bundle/plot_data_cell228_level.npz": {
+      "sha256": "9a222da8654d6b0ad439080901c646ecebceec55569057491dcfdfd430a1e1cb",
+      "bytes": 69980,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5_bundle\\plot_data_cell228_level.npz"
+    },
+    "source_data/figure5_bundle/level_map_vs_exploration_efficiency_primary_clean_rows.csv": {
+      "sha256": "8dc1b92b3d648eb2cd37af257e71f28d3e3085f1a9dee5d7874f175d156b96ed",
+      "bytes": 21376,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5_bundle\\level_map_vs_exploration_efficiency_primary_clean_rows.csv"
+    },
+    "source_data/figure5_bundle/level_map_vs_exploration_efficiency_primary_clean_stats.json": {
+      "sha256": "6a86848a9023d2cbc395fdd4713cab7e2636e0d2d50d40a72ac45a340c16d253",
+      "bytes": 1461,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5_bundle\\level_map_vs_exploration_efficiency_primary_clean_stats.json"
+    },
+    "source_data/level_vectors_tree_depth7_corrected36_d1v1.csv": {
+      "sha256": "7dde368f1d87d4355c74565948eda5b19f93610c639d750400abf5014ca55dff",
+      "bytes": 7662144,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\level_vectors_tree_depth7_corrected36_d1v1.csv"
+    },
+    "source_data/figure5b_historical_hierarchical_refined_order.npy": {
+      "sha256": "c7b3467afb3f04a22a96f006780ad4aad5336239323e0375090ade89469bd1d4",
+      "bytes": 135336,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5b_historical_hierarchical_refined_order.npy"
+    },
+    "source_data/level_pv/level_pv_matrix.csv": {
+      "sha256": "b4bec935e48f263a75ae199ba952782037663fe58166472d45ea5740e3939c71",
+      "bytes": 1012,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\level_pv\\level_pv_matrix.csv"
+    },
+    "source_data/level_pv/level_pv_pair_matrices.csv": {
+      "sha256": "c79be58285ac2d7762cc1f6ab63a37f1ddf2b3603db1d13051e7c4197eef46c3",
+      "bytes": 190987,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\level_pv\\level_pv_pair_matrices.csv"
+    },
+    "source_code/rebuild_figure5.py": {
+      "sha256": "b4d7ebed133f0bd92ec3d503d9b1f8aafc47b7e308d41462376526dd71431c27",
+      "bytes": 17788,
+      "source": "D:\\combineddata\\github_clean_repo\\scripts\\build_figure5_ed9_panel_exchange.py"
+    }
+  },
+  "scientific_inputs": "Frozen numerical and Python sources only; no accepted or review artwork used as rendering input.",
+  "raw_analysis_runs": 0
+}

@@ -1,0 +1,27 @@
+{
+  "artifact_id": "supplementary_table_1",
+  "panels": 0,
+  "source_boundary": "Final analysis-to-panel-to-mouse membership rows and notes; mouse counts are reconstructed from ID lists.",
+  "files": [
+    {
+      "path": "supplementary_table_1/source/source_code/build_pdf.py",
+      "sha256": "9bd61af95859511da6a8a26116b3006e9f72c5cf3232468b5629247721f07e8e",
+      "bytes": 4808,
+      "role": "source_or_code"
+    },
+    {
+      "path": "supplementary_table_1/source/source_code/build_workbook.mjs",
+      "sha256": "f191905d0ff280e8bfd60a398264715906bdea93fcbfce87a4615d5e4b5019cf",
+      "bytes": 4159,
+      "role": "source_or_code"
+    },
+    {
+      "path": "supplementary_table_1/source/source_data/current_rows.json",
+      "sha256": "7a1a5e6d8f7db082887669c9363d332ce292c935bd69f0f46a4d16cb1ce8c189",
+      "bytes": 13852,
+      "role": "source_or_code"
+    }
+  ],
+  "accepted_outputs_role": "comparison only; never copied into execution stage",
+  "reproduction_command": "python -B reproduce.py --artifact supplementary_table_1 --output-dir <fresh-directory>"
+}

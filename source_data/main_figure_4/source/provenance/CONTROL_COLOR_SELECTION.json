@@ -1,0 +1,9 @@
+{
+  "status": "AUTHOR_SELECTED",
+  "color": "#C4C4C4",
+  "description": "Lighter gray controls",
+  "user_selection": "User selected the lighter gray full-figure version",
+  "scope": "Neuron-ID shuffle in b/e, matched spatial controls in c/d; orange data and cividis maps retained",
+  "boundaries": "Identical white under-outline on the orange reward and gray control squares in c",
+  "significance": "Panel f stars black"
+}

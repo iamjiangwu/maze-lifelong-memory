@@ -1,0 +1,4 @@
+representation,display_label,mean,sem,n_pairs
+horizontal_dumbbell8,Horizontal 8-bin,0.090770225409547101,0.022885089033539443,36
+level_code,Level code,0.24793240470775338,0.01912964547676451,36
+vertical_dumbbell8,Vertical 8-bin,0.076699420603459176,0.017397250069033209,36

@@ -1,0 +1,537 @@
+#!/usr/bin/env python3
+"""Complete ED8: accepted a-c and finalized v4 standardized route PV controls.
+
+First build freezes authoritative numerical inputs. Subsequent builds, including
+the bundled copy, read only the frozen source_data directory (no raw recordings).
+"""
+from __future__ import annotations
+import argparse
+import ast
+import hashlib
+import importlib.util
+import itertools
+import json
+import re
+from pathlib import Path
+import shutil
+import sys
+import xml.etree.ElementTree as ET
+sys.dont_write_bytecode = True
+import fitz
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+from matplotlib.patches import Rectangle, Polygon
+from matplotlib.path import Path as MplPath
+from matplotlib.patches import PathPatch
+import numpy as np
+import pandas as pd
+from scipy import stats
+from PIL import Image
+
+HERE = Path(__file__).resolve()
+BUNDLED = HERE.parent.name == 'source_code'
+ROOT = HERE.parents[1] if not BUNDLED else None
+DEFAULT_OUT = HERE.parents[1] if BUNDLED else ROOT / 'output/figures/ed8_standardized_pv_2026-09-27'
+S = ROOT / 'output/analysis/route_density_vs_pv_explained_2026-09-24' if ROOT else None
+RECORD_NAME = 'extended_data_fig08_2026-09-09_round25_linearized_place_map_axes'
+COL = dict(approach='#E29957', departure='#B96B2C', neutral='#C4C4C4', mid='#C4C4C4',
+           rewarded='#E29957', timeout='#B96B2C', node2='#5B8E7D', node3='#9C8060',
+           day1='#E29957', day2='#E29957', decoder='#E29957', home='#587785')
+CANVAS = (7.5, 6.04)
+PANELS = {
+    'a': (.15,.10,2.15,1.95), 'b': (2.40,.10,2.75,1.95), 'c': (5.30,.10,2.05,1.95),
+    'd': (.15,1.94,2.36,2.00),
+    'e': (2.61,1.94,1.55,2.00), 'f': (4.26,1.94,1.55,2.00), 'i': (5.91,1.94,1.44,2.00),
+    'g': (.15,3.81,1.90,2.08), 'h': (2.15,3.81,2.97,2.08), 'j': (5.22,3.81,2.13,2.08),
+}
+DISPLAY = dict(a='a',b='b',c='c',d='d',e='e',f='f',i='g',g='h',h='i',j='j')
+ROUTE_FILES = ['signal_comparison_primary_pairs.csv','signal_comparison_primary_numbers.csv',
+               'replication_day2_pairs.csv','replication_day2_numbers.csv',
+               'strength_checks_profiles.csv','strength_checks_numbers.csv',
+               'candidate_paired_display_values.csv','candidate_paired_display_summary.csv',
+               'manuscript_proposed.tex']
+
+def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def load(name,p):
+    spec=importlib.util.spec_from_file_location(name,p); m=importlib.util.module_from_spec(spec)
+    sys.modules[name]=m; spec.loader.exec_module(m); return m
+def ci(v):
+    v=np.asarray(v,float); v=v[np.isfinite(v)]
+    assert len(v)>1
+    m=float(v.mean()); h=float(stats.sem(v)*stats.t.ppf(.975,len(v)-1))
+    return m,m-h,m+h
+def exact(v):
+    v=np.asarray(v,float); assert np.isfinite(v).all()
+    signs=np.asarray(list(itertools.product([-1.,1.],repeat=len(v))))
+    return float(np.mean(np.abs(signs@v)>=abs(v.sum())-1e-12))
+def bh(p):
+    p=np.asarray(p,float); order=np.argsort(p)
+    q=np.minimum.accumulate((p[order]*len(p)/np.arange(1,len(p)+1))[::-1])[::-1]
+    out=np.empty_like(p); out[order]=np.minimum(q,1); return out
+def stars(p): return '***' if p<.001 else '**' if p<.01 else '*' if p<.05 else 'n.s.'
+def configure():
+    plt.rcParams.update({'font.family':'Arial','font.size':6.,'axes.labelsize':6.,'axes.titlesize':6.2,
+        'xtick.labelsize':5.4,'ytick.labelsize':5.4,'legend.fontsize':4.9,'axes.linewidth':.6,
+        'legend.frameon':False,
+        'xtick.major.width':.5,'ytick.major.width':.5,'xtick.major.size':2.,'ytick.major.size':2.,
+        'axes.grid':False,'axes.spines.top':False,'axes.spines.right':False,
+        'pdf.fonttype':42,'svg.fonttype':'none','svg.hashsalt':'ed8-standardized-pv-v4',
+        'savefig.facecolor':'white','savefig.bbox':None})
+
+def freeze(out):
+    sd=out/'source_data'; sd.mkdir(parents=True,exist_ok=True)
+    manifest=out/'INPUT_MANIFEST.json'
+    if manifest.exists():
+        rows=json.loads(manifest.read_text())['files']
+        assert all(sha(out/r['frozen'])==r['sha256'] for r in rows), 'Frozen input drift'
+        return
+    assert ROOT is not None, 'Bundle lacks frozen inputs'
+    record=ROOT/'docs/figure_version_records'/RECORD_NAME
+    rows=[]
+    def copy(src,name):
+        dest=sd/name; shutil.copy2(src,dest)
+        rows.append(dict(original=str(src),frozen=str(dest.relative_to(out)),sha256=sha(dest)))
+    for name in ROUTE_FILES: copy(S/name,name)
+    for key,name in [('h','ed08_panel_h_map.csv'),('c','ed08_panel_c_pair_values.csv'),
+                     ('routes','ed08_panel_a_routes.csv'),('stats','ed08_expanded_statistics.csv')]:
+        copy(record/'plot_ready'/name,f'accepted_{key}.csv')
+    copy(record/'source_data/ED08_PANEL_B_ALL_ELIGIBLE_MOUSE_VALUES.csv','accepted_b.csv')
+    z=np.load(S/'signal_maps_primary/1616b-3day1.npz',allow_pickle=False)
+    info=json.loads(str(z['info'])); assert info['rule_version']=='2026-09-27-uniform-port-grid-v4'
+    (sd/'route_geometry_and_rule.json').write_text(json.dumps(info,indent=2))
+    rows.append(dict(original=str(S/'signal_maps_primary/1616b-3day1.npz')+'::info',
+                     frozen='source_data/route_geometry_and_rule.json',sha256=sha(sd/'route_geometry_and_rule.json')))
+    # Extract canonical maze geometry from a fresh accepted-source render, never
+    # from an accepted composite or a raster. This bootstrap is not used again.
+    rebuild=load('ed8_v4_accepted_rebuild',ROOT/'docs/figure_version_records/rebuild_current_extended_data_figures.py')
+    check=rebuild.check_artifact('extended_data_figure_8')
+    assert rebuild.record_root('extended_data_figure_8').name==RECORD_NAME
+    (out/'ACCEPTED_SOURCE_CHECK.json').write_text(json.dumps(check,indent=2))
+    with rebuild.frozen_stage(record) as stage:
+        ed8=rebuild.stage_ed8_chain(record,stage)
+        parent=rebuild.load_module(ed8/'revision_round10_2026-08-11/render_ed08_round10.py','ed8_v4_geometry_source')
+        r=parent.r; r.configure_style(); base=r.load_base_renderer(); data=r.read_data(base)
+        fig=plt.figure(figsize=(2.8,2.25)); axs=parent.r9.r8.draw_a(fig,data,base)
+        line=axs[0].lines[0]
+        pd.DataFrame({'x':line.get_xdata(),'y':line.get_ydata()}).to_csv(sd/'accepted_maze_wall.csv',index=False)
+        np.testing.assert_allclose(np.asarray(axs[0].images[0].get_array().filled(np.nan)),
+            map_grid(pd.read_csv(sd/'accepted_h.csv')),equal_nan=True)
+        plt.close('all')
+    rows.append(dict(original='canonical wall vertices from accepted source-only renderer',
+                     frozen='source_data/accepted_maze_wall.csv',sha256=sha(sd/'accepted_maze_wall.csv')))
+    refs=out/'source_code/accepted_reference'; refs.mkdir(parents=True,exist_ok=True)
+    for name in ['render_ed08_round3.py','render_ed08_round4.py','render_ed08_round5.py',
+                 'render_ed08_round6.py','render_ed08_round7.py','render_ed08_round8.py']:
+        shutil.copy2(record/'source_code'/name,refs/name)
+    primitive_source=record/'source_code/figure_panels.py'; primitive_text=primitive_source.read_text(encoding='utf-8')
+    segments=[]
+    for node in ast.parse(primitive_text).body:
+        if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='GRAY_BLOCKS' for t in node.targets):
+            segments.append(ast.get_source_segment(primitive_text,node))
+        if isinstance(node,ast.FunctionDef) and node.name in ['_draw_house_icon','_draw_water_drop_icon']:
+            segments.append(ast.get_source_segment(primitive_text,node))
+    assert len(segments)==3
+    primitive_dest=sd/'accepted_schematic_primitives.py'
+    primitive_dest.write_text('"""Exact accepted schematic geometry/icon primitives; source attribution in INPUT_MANIFEST."""\nimport matplotlib.patches as patches\nfrom matplotlib.path import Path as MplPath\n\n'+'\n\n'.join(segments)+'\n',encoding='utf-8')
+    rows.append(dict(original=str(primitive_source)+'::GRAY_BLOCKS,_draw_house_icon,_draw_water_drop_icon',
+        frozen='source_data/accepted_schematic_primitives.py',sha256=sha(primitive_dest),original_file_sha256=sha(primitive_source)))
+    manifest.write_text(json.dumps(dict(schema='ed8-standardized-pv-frozen-inputs/v1',
+        rule_version=info['rule_version'],accepted_record=RECORD_NAME,files=rows),indent=2))
+
+def map_grid(frame):
+    grid=np.full((15,15),np.nan)
+    keep=frame.display_all_mice.astype(str).str.lower().eq('true')
+    for row in frame[keep].itertuples(): grid[int(row.by),int(row.bx)]=row.display_decoding_error
+    return grid
+
+def read(out):
+    sd=out/'source_data'
+    data={k:pd.read_csv(sd/f'accepted_{k}.csv',dtype={'animal':str}) for k in ['h','c','routes','stats','b','maze_wall']}
+    data['schematic_primitives']=load('ed8_frozen_schematic_primitives',sd/'accepted_schematic_primitives.py')
+    pair=pd.read_csv(sd/'signal_comparison_primary_pairs.csv',dtype={'animal':str})
+    num=pd.read_csv(sd/'signal_comparison_primary_numbers.csv')
+    pair=pair[pair.signal.eq('S')&pair.norm.eq('normalized')].copy()
+    num=num[num.signal.eq('S')&num.norm.eq('normalized')].copy()
+    animal=pair.groupby(['panel','group','animal'],as_index=False).mean(numeric_only=True)
+    animal['advantage']=animal.port-animal.away
+    rep=pd.read_csv(sd/'replication_day2_pairs.csv',dtype={'animal':str})
+    rep=rep[rep.signal.eq('S')&rep.comparison.eq('replication: Day i+1 vs Day i+91')]
+    rep=rep.groupby(['group','animal'],as_index=False)[['port','away']].mean()
+    rep['advantage']=rep.port-rep.away
+    rn=pd.read_csv(sd/'replication_day2_numbers.csv')
+    rn=rn[rn.signal.eq('S')&rn.comparison.eq('replication: Day i+1 vs Day i+91')]
+    xp=pd.read_csv(sd/'strength_checks_profiles.csv',dtype={'animal':str})
+    xp=xp.groupby(['measure','animal','bin'],as_index=False).pv.mean()
+    xn=pd.read_csv(sd/'strength_checks_numbers.csv'); xn=xn[xn.check.eq('cross-direction')]
+    return data,pair,num,animal,rep,rn,xp,xn
+
+def verify(out,pair,num,animal,rep,rn,xp,xn):
+    records=[]
+    def one(panel,group,v,row,family):
+        v=np.asarray(v,float); v=v[np.isfinite(v)]; m,lo,hi=ci(v); p=exact(v)
+        expected=row['mean'] if 'mean' in row.index else row.advantage
+        np.testing.assert_allclose([m,lo,hi,p],[expected,row.lo,row.hi,row.p_exact],rtol=0,atol=2e-13)
+        assert len(v)==int(row.n_mice)
+        records.append(dict(panel=panel,group=group,n_mice=len(v),mean=m,lo=lo,hi=hi,
+                            p_exact=p,adjusted_p=row.q_BH,family=family))
+    for row in num[num.p_exact.notna()].itertuples(index=False):
+        row=pd.Series(row._asdict())
+        if row['group']=='rewarded minus timeout':
+            w=animal[animal.panel.eq('i')].pivot(index='animal',columns='group',values='advantage')
+            one('i','rewarded minus timeout',w.rewarded-w.timeout,row,'single')
+        elif row['group']=='reward_to_home minus home_to_reward':
+            w=animal[animal.panel.eq('main')].pivot(index='animal',columns='group',values='advantage').dropna()
+            one('main',row['group'],w.reward_to_home-w.home_to_reward,row,'single')
+        elif row['item']=='port minus elsewhere':
+            g=animal[animal.panel.eq(row.panel)&animal.group.eq(row['group'])]
+            one(row.panel,row['group'],g.advantage,row,str(row.family))
+    for family in ['fig4e','ed8efh','ed8i_types']:
+        rows=[r for r in records if r['family']==family]
+        if rows: np.testing.assert_allclose(bh([r['p_exact'] for r in rows]),[r['adjusted_p'] for r in rows],atol=2e-13,rtol=0)
+    for _,row in rn.iterrows(): one('d_second_day',row['group'],rep[rep.group.eq(row['group'])].advantage,row,'second_day')
+    rr=[r for r in records if r['panel']=='d_second_day']
+    np.testing.assert_allclose(bh([r['p_exact'] for r in rr]),[r['adjusted_p'] for r in rr],atol=2e-13,rtol=0)
+    measure='cross direction across gap'
+    x=xp[xp.measure.eq(measure)].pivot(index='animal',columns='bin',values='pv')
+    row=xn[xn.item.eq(measure)].iloc[0]
+    one('j',measure,x[21]-x.loc[:,range(21)].mean(axis=1),row,'single')
+    displayed=animal[np.isfinite(animal[['port','away']]).all(axis=1)].copy()
+    assert displayed.query("panel=='e'").groupby('group').size().to_dict()=={'home_to_reward':13,'reward_to_home':13}
+    excluded=animal.loc[~np.isfinite(animal[['port','away']]).all(axis=1)]
+    assert len(excluded)==1 and excluded.iloc[0].animal=='434' and excluded.iloc[0].panel=='e'
+    ref=pd.read_csv(out/'source_data/candidate_paired_display_summary.csv')
+    summary=displayed[displayed.panel.isin(['e','f','h'])].groupby(['panel','group']).agg(n_mice=('animal','size'),away=('away','mean'),port=('port','mean')).reset_index()
+    for r in summary.itertuples():
+        v=ref[ref.panel.eq(r.panel)&ref.group.eq(r.group)].iloc[0]
+        np.testing.assert_allclose([r.n_mice,r.away,r.port],[v.n_mice,v.first_mean,v.second_mean],atol=2e-13,rtol=0)
+    animal.to_csv(out/'route_animal_values.csv',index=False)
+    displayed.to_csv(out/'route_paired_display_values.csv',index=False)
+    rep.to_csv(out/'replication_animal_values.csv',index=False)
+    first=animal[animal.panel.eq('main')].pivot(index='animal',columns='group',values='advantage')
+    order=first.mean(axis=1).sort_values().index
+    second=rep.pivot(index='animal',columns='group',values='advantage').reindex(order)
+    daypairs=first.reindex(order).add_prefix('day_i_vs_i90__').join(second.add_prefix('day_i1_vs_i91__'))
+    daypairs.insert(0,'display_order_bottom_to_top',np.arange(len(daypairs)))
+    daypairs.reset_index().to_csv(out/'animal_daypair_display.csv',index=False)
+    xp.to_csv(out/'cross_direction_animal_profiles.csv',index=False)
+    pd.DataFrame(records).to_csv(out/'route_statistics_verified.csv',index=False)
+    return displayed,records
+
+def figpanel(letter):
+    fig=plt.figure(figsize=PANELS[letter][2:],facecolor='white')
+    fig.text(.01,1-.12/PANELS[letter][3],DISPLAY[letter],fontsize=8,fontweight='bold',va='top')
+    return fig
+def axis(fig,l,b,w,h):
+    fw,fh=fig.get_size_inches(); return fig.add_axes([l/fw,b/fh,w/fw,h/fh])
+def clean(ax): ax.tick_params(direction='out',pad=1.2); ax.grid(False)
+def bracket(ax,x0,x1,y,p,h=None):
+    h=np.diff(ax.get_ylim())[0]*.023 if h is None else h
+    ax.plot([x0,x0,x1,x1],[y-h,y,y,y-h],color='#202020',lw=.6,clip_on=False)
+    ax.text((x0+x1)/2,y+h*.2,stars(p),ha='center',va='bottom',fontsize=5.4,fontweight='bold' if p<.05 else 'normal')
+def draw_pair(ax,frame,a,b,positions,colors,markers=('s','o')):
+    assert np.isfinite(frame[[a,b]]).all().all()
+    for row in frame.itertuples(): ax.plot(positions,[getattr(row,a),getattr(row,b)],color='#CFCFCF',lw=.5,zorder=1)
+    for x,col,color,marker in zip(positions,[a,b],colors,markers):
+        ax.scatter(np.full(len(frame),x),frame[col],s=5,color=color,alpha=.45,lw=0,zorder=2)
+        m,lo,hi=ci(frame[col]); ax.errorbar(x,m,yerr=[[m-lo],[hi-m]],fmt=marker,ms=4.2,color='black',
+            mfc=color,mew=.6,lw=.8,capsize=1.6,zorder=3)
+
+def drop(ax,x,y,size):
+    vertices=np.asarray([(0,-1),(-.9,.05),(-.65,.9),(0,.9),(.65,.9),(.9,.05),(0,-1)])*size+[x,y]
+    codes=[MplPath.MOVETO]+[MplPath.CURVE4]*6
+    ax.add_patch(PathPatch(MplPath(vertices,codes),fc='#36A3FF',ec='none',clip_on=False,zorder=10))
+
+def draw_accepted(data):
+    figs={}
+    fig=figs['a']=figpanel('a'); ax=axis(fig,.47,.25,1.51,1.51); cax=axis(fig,.25,.25,.065,1.51)
+    cmap=plt.get_cmap('cividis').copy(); cmap.set_bad('white')
+    im=ax.imshow(np.ma.masked_invalid(map_grid(data['h'])),origin='lower',extent=(-.5,14.5,-.5,14.5),
+        interpolation='none',cmap=cmap,vmin=1,vmax=14,alpha=.95,zorder=1)
+    wall=data['maze_wall']; ax.plot(wall.x,wall.y,color='black',lw=.85,solid_capstyle='projecting',zorder=3)
+    for column,color,zorder in [('is_matched_control',COL['neutral'],7),('is_reward_proximal_proxy',COL['decoder'],8)]:
+        for row in data['h'][data['h'][column].astype(str).str.lower().eq('true')].itertuples():
+            ax.add_patch(Rectangle((row.bx-.55,row.by-.55),1.1,1.1,fill=False,ec='white',lw=2.05,zorder=zorder-.1))
+            ax.add_patch(Rectangle((row.bx-.55,row.by-.55),1.1,1.1,fill=False,ec=color,lw=1.45,zorder=zorder))
+    ax.set(xlim=(-.5,14.5),ylim=(14.5,-.5),aspect='equal'); ax.axis('off')
+    reward=data['h'][data['h'].is_reward_proximal_proxy.astype(str).str.lower().eq('true')].iloc[0]
+    drop(ax,15.25,float(reward.by),.42)
+    cb=fig.colorbar(im,cax=cax); cb.set_ticks([2,6,10,14]); cb.set_label('Decoding error (bins)',fontsize=6.2,labelpad=1)
+    cb.ax.tick_params(labelsize=5.3,width=.55,length=1.8,pad=1); cb.ax.yaxis.set_ticks_position('left'); cb.ax.yaxis.set_label_position('left'); cb.outline.set_linewidth(.55)
+    fig=figs['b']=figpanel('b'); ax=axis(fig,.40,.30,2.25,1.35)
+    order=[('d1v1','frame_balanced',0,'Day i\nequal frames'),('d1v1','visit_balanced',1,'Day i\nequal visits'),
+           ('d2v1','frame_balanced',2.25,'Day i+1\nequal frames'),('d2v1','visit_balanced',3.25,'Day i+1\nequal visits')]
+    st=data['stats'].set_index(['panel_role','subestimand'])
+    for variant,method,x,_ in order:
+        g=data['b'][data['b'].variant.eq(variant)&data['b'].resample_method.eq(method)]
+        draw_pair(ax,g,'reward_proxy_error','matched_control_error',[x-.11,x+.11],[COL['decoder'],COL['neutral']],('o','s'))
+        bracket(ax,x-.11,x+.11,10.25,float(st.loc[('B',f'{variant}:{method}'),'p_value']),.18)
+    ax.set(xlim=(-.55,3.8),ylim=(0,13.1),ylabel='Decoding error (bins)')
+    ax.set_xticks([r[2] for r in order],[r[3] for r in order]); clean(ax)
+    fig.text((.40+2.25/2)/2.75,.98,'Uniform-prior decoding error',fontsize=6.7,fontweight='bold',va='top',ha='center')
+    ax.legend(handles=[Line2D([],[],marker=m,ls='',mfc=c,mec='black',ms=4,label=t) for m,c,t in [('o',COL['decoder'],'Reward'),('s',COL['neutral'],'Matched control')]],
+        loc='upper center',bbox_to_anchor=(.5,1.08),ncol=2,columnspacing=.75,handletextpad=.3)
+    for tick in ax.get_xticklabels(): tick.set_horizontalalignment('center')
+    fig=figs['c']=figpanel('c'); axes=[]
+    for k,(variant,title,color) in enumerate([('d1v1','Day i',COL['day1']),('d2v1','Day i+1',COL['day2'])]):
+        ax=axis(fig,.33+k*.84,.25,.72,1.15); axes.append(ax)
+        g=data['c'][data['c'].pair_variant.eq(variant)]
+        matched=g[['reward_target_to_reward_source_r','control_targets_to_own_control_source_mean_r']].to_numpy()
+        cross=g[['reward_target_to_control_source_mean_r','control_targets_to_reward_source_mean_r']].to_numpy()
+        for vals,filled in [(matched,True),(cross,False)]:
+            color=COL['decoder'] if filled else COL['neutral']
+            for row in vals: ax.plot([0,1],row,color=color,alpha=.20 if filled else .16,lw=.45,ls='-' if filled else '--',zorder=1)
+            ax.scatter(np.tile([0,1],len(g)),vals.ravel(),s=6,color=color if filled else 'white',edgecolor='none' if filled else color,lw=.35,alpha=.28 if filled else .55,zorder=2)
+            for x in (0,1):
+                m,lo,hi=ci(vals[:,x]); ax.errorbar(x+(-.035 if filled else .035),m,yerr=[[m-lo],[hi-m]],fmt='o',ms=3.7,mfc=color if filled else 'white',mec=color,mew=.65,ecolor=color,lw=.65,capsize=1.4,zorder=5)
+        ax.set_title(title,color='black',pad=2,fontweight='bold'); ax.set(xlim=(-.3,1.3),ylim=(-.1,.74))
+        ax.set_xticks([0,1],['Reward\ntarget','Control\ntargets']); ax.tick_params(axis='x',labelsize=4.7)
+        if not k: ax.set_ylabel('PV correlation',labelpad=1.5)
+        else: ax.tick_params(labelleft=False)
+        bracket(ax,-.035,1.035,.655,float(st.loc[('C',variant),'p_value']),.015); clean(ax)
+    fig.legend(handles=[Line2D([],[],marker='o',ls='',color=edge,mfc=fill,ms=3,label=lab) for edge,fill,lab in [(COL['decoder'],COL['decoder'],'Matched source'),(COL['neutral'],'white','Cross-location')]],
+        loc='upper center',bbox_to_anchor=(.57,.91),ncol=1,fontsize=4.8,handletextpad=.3,labelspacing=.25,frameon=False)
+    return figs
+
+def draw_route(animal,rep,xp,records,data):
+    figs={}; tests={(r['panel'],r['group']):r for r in records}
+    dirs=[('home_to_reward',COL['approach'],'Home to reward'),('reward_to_home',COL['departure'],'Reward to home')]
+    main=animal[animal.panel.eq('main')].pivot(index='animal',columns='group',values='advantage'); main=main.loc[main.mean(axis=1).sort_values().index]
+    second=rep.pivot(index='animal',columns='group',values='advantage').reindex(main.index)
+    assert main.notna().sum().to_dict()==second.notna().sum().to_dict()
+    y=np.arange(len(main))
+    fig=figs['d']=figpanel('d')
+    for column,(frame,title) in enumerate([(main,'Day i → i + 90'),(second,'Day i + 1 → i + 91')]):
+        ax=axis(fig,.38+column*1.02,.40,.82,1.20)
+        for group,color,_ in dirs:
+            mk,off=('D',.17) if group=='home_to_reward' else ('s',-.17)
+            ax.scatter(frame[group],y+off,marker=mk,s=10,color=color,lw=0,zorder=2)
+            ax.axvline(frame[group].mean(),color=color,lw=.8)
+        ax.set_yticks(y,main.index)
+        ax.set(ylim=(-.7,len(main)-.3),xlim=(-.13,.52),ylabel='Animal ID' if column==0 else '')
+        ax.set_xticks([0,.2,.4]); clean(ax); ax.tick_params(labelsize=6.)
+        ax.yaxis.label.set_fontsize(6.)
+        if column: ax.tick_params(labelleft=False)
+        ax.set_title(title,fontsize=6.,pad=2,fontweight='bold')
+    fig.legend(handles=[Line2D([],[],marker=mk,ls='',color=c,mfc=c,ms=3.1,label=lab) for mk,c,lab in [
+        ('D',COL['approach'],'Toward port'),('s',COL['departure'],'Away from port')]],
+        loc='upper center',bbox_to_anchor=(.57,.99),ncol=2,fontsize=6.,handletextpad=.25,columnspacing=.6,borderaxespad=.2,frameon=False)
+    fig.text(.55,.025,'Port − elsewhere\n(Standardized PV correlation)',ha='center',va='bottom',fontsize=6.)
+    def block(fig,panel,groups,rect,ylabel,ylim,star_y,title):
+        ax=axis(fig,*rect); ax.set(ylim=ylim,xlim=(-.65,3.65),ylabel=ylabel)
+        for k,(group,color,label) in enumerate(groups):
+            g=animal[animal.panel.eq(panel)&animal.group.eq(group)]
+            draw_pair(ax,g,'away','port',[2*k,2*k+1],[COL['neutral'],color])
+            bracket(ax,2*k,2*k+1,star_y,tests[panel,group]['adjusted_p'])
+            ax.text(2*k+.5,-.18 if '\n' in label else -.23,label,transform=ax.get_xaxis_transform(),ha='center',va='top',fontsize=4.7)
+        ax.set_xticks([0,1,2,3],['Else-\nwhere','Reward','Else-\nwhere','Reward']); ax.tick_params(axis='x',labelsize=4.6)
+        ax.set_title(title,fontsize=6.2,fontweight='bold',pad=4); ax.yaxis.label.set_fontsize(5.6); clean(ax)
+        return ax
+    short=[(g,c,'Toward\nreward' if g=='home_to_reward' else 'Away from\nreward') for g,c,_ in dirs]
+    fig=figs['e']=figpanel('e'); block(fig,'e',short,(.40,.43,1.09,1.20),
+        'Standardized PV correlation\n(across-gap / within-day)',(-.35,.85),.77,'Reliability-adjusted')
+    fig=figs['f']=figpanel('f'); block(fig,'f',short,(.39,.43,1.10,1.20),'Standardized PV correlation',(-.12,.62),.56,'Equal frame control')
+    fig=figs['g']=figpanel('g'); ax=axis(fig,.06,.25,1.78,1.58)
+    primitives=data['schematic_primitives']
+    for x,y,w,h in primitives.GRAY_BLOCKS:
+        ax.add_patch(Rectangle((x,y),w,h,fc='#D9D9D9',ec='#D9D9D9',lw=.1,zorder=1))
+    wall=data['maze_wall']; ax.plot(wall.x,wall.y,color='#111111',lw=.85,zorder=3)
+    handles=[]
+    for run,label,color in [('home_to_water','Home',COL['home']),('2_to_water','Node 2',COL['node2']),('3_to_water','Node 3',COL['node3'])]:
+        g=data['routes'][data['routes'].run_label.eq(run)].sort_values('route_order'); x=g.display_x.to_numpy(); y=g.display_y.to_numpy()
+        ax.plot(x,y,color=color,lw=1.55,solid_capstyle='round',zorder=6)
+        ax.scatter(x[0],y[0],s=27,color=color,edgecolor='white',lw=.55,zorder=7)
+        handles.append(Line2D([],[],color=color,lw=1.55,marker='o',mfc=color,mec='white',ms=5,label=label))
+    primitives._draw_house_icon(ax,dict(xy=(-1.30,7.),size=.78,facecolor='#111111',door_color='white',zorder=9))
+    primitives._draw_water_drop_icon(ax,dict(xy=(15.18,6.12),size=.75,facecolor='#36A3FF',edgecolor='#0866B2',highlight_color='#C9ECFF',linewidth=.75,zorder=9))
+    ax.set(xlim=(-1.90,16.25),ylim=(15.35,-.75),aspect='equal'); ax.axis('off')
+    ax.legend(handles=handles,loc='upper center',bbox_to_anchor=(.50,-.02),ncol=3,columnspacing=.55,handlelength=1.4,handletextpad=.25,fontsize=4.8)
+    fig=figs['h']=figpanel('h')
+    for k,node in enumerate((2,3)):
+        groups=[(f'node{node}_to_reward',COL['approach'],'Toward\nreward'),(f'reward_to_node{node}',COL['departure'],'Away from\nreward')]
+        ax=block(fig,'h',groups,(.37+k*1.30,.40,1.14,1.30),'Standardized PV correlation' if k==0 else '',(-.12,.62),.56,f'Node {node}')
+        ax.title.set_color(COL[f'node{node}'])
+        if k: ax.tick_params(labelleft=False)
+    fig=figs['i']=figpanel('i'); ax=axis(fig,.40,.43,.98,1.20)
+    w=animal[animal.panel.eq('i')].pivot(index='animal',columns='group',values='advantage').reset_index()
+    draw_pair(ax,w,'rewarded','timeout',[0,1],[COL['rewarded'],COL['timeout']],('o','s'))
+    ax.set(xlim=(-.5,1.5),ylim=(-.3,.7),ylabel='Port − elsewhere\n(Standardized PV correlation)')
+    ax.set_xticks([0,1],['Rewarded','Timeout']); ax.yaxis.label.set_fontsize(5.5); clean(ax)
+    ax.set_title('Reward delivery',fontsize=6.2,fontweight='bold',pad=4)
+    bracket(ax,0,1,.62,tests['i','rewarded minus timeout']['p_exact'])
+    fig=figs['j']=figpanel('j'); ax=axis(fig,.38,.38,1.65,1.08)
+    for measure,color,ls,lw,label in [('same direction across gap: home to reward',COL['approach'],'-',.9,'Toward vs toward'),
+        ('same direction across gap: reward to home',COL['departure'],'--',.9,'Away vs away'),
+        ('cross direction across gap','black','-',1.2,'Toward vs away'),('cross direction across gap, shuffle',COL['mid'],':',.9,'Neuron ID shuffle')]:
+        g=xp[xp.measure.eq(measure)]; prof=np.asarray([ci(g[g.bin.eq(k)].pv) for k in range(22)])
+        if measure=='cross direction across gap':
+            ax.fill_between(range(22),prof[:,1],prof[:,2],color='black',alpha=.12,lw=0)
+            cross_port_mean=prof[21,0]
+        ax.plot(range(22),prof[:,0],color=color,ls=ls,lw=lw,label=label)
+    ax.set(xlim=(-.5,22.5),ylim=(-.08,.45),ylabel='Standardized PV correlation',xlabel='Position along route')
+    ax.set_xticks([0,21],['Home','Reward']); ax.yaxis.label.set_fontsize(5.6); clean(ax)
+    fig.text(.57,.96,'Approach vs departure',fontsize=6.2,fontweight='bold',ha='center',va='top')
+    ax.legend(loc='lower left',bbox_to_anchor=(-.02,1.00),ncol=2,fontsize=4.9,frameon=False,handlelength=1.2,columnspacing=.5,handletextpad=.35)
+    ax.text(21.35,cross_port_mean,stars(tests['j','cross direction across gap']['p_exact']),fontsize=5.6,fontweight='bold',va='center')
+    return figs
+
+def bounds(fig,letter):
+    fig.canvas.draw(); ren=fig.canvas.get_renderer(); failures=[]
+    for t in fig.findobj(match=matplotlib.text.Text):
+        if not t.get_visible() or not t.get_text().strip(): continue
+        b=t.get_window_extent(ren)
+        if b.x0< -1 or b.y0< -1 or b.x1>fig.bbox.width+1 or b.y1>fig.bbox.height+1:
+            failures.append(dict(panel=letter,text=t.get_text(),bbox=list(b.bounds)))
+    return failures
+def compose(out):
+    doc=fitz.open(); page=doc.new_page(width=CANVAS[0]*72,height=CANVAS[1]*72)
+    ns='http://www.w3.org/2000/svg'; ET.register_namespace('',ns)
+    root=ET.Element(f'{{{ns}}}svg',width=f'{CANVAS[0]*72}pt',height=f'{CANVAS[1]*72}pt',viewBox=f'0 0 {CANVAS[0]*72} {CANVAS[1]*72}')
+    for letter,(x,y,w,h) in PANELS.items():
+        p=out/'individual_panels'/f'ed8_panel_{DISPLAY[letter]}'
+        with fitz.open(p.with_suffix('.pdf')) as src: page.show_pdf_page(fitz.Rect(x*72,y*72,(x+w)*72,(y+h)*72),src,0)
+        xml=p.with_suffix('.svg').read_text(); tree=ET.fromstring(xml)
+        ids={el.attrib['id']:f'{letter}_{el.attrib["id"]}' for el in tree.iter() if 'id' in el.attrib}
+        for old,new in sorted(ids.items(),key=lambda kv:-len(kv[0])): xml=xml.replace(f'="{old}"',f'="{new}"').replace(f'#{old}',f'#{new}')
+        tree=ET.fromstring(xml); group=ET.SubElement(root,f'{{{ns}}}g',transform=f'translate({x*72} {y*72})')
+        for child in tree:
+            if child.tag not in [f'{{{ns}}}metadata']: group.append(child)
+    stem=out/'ed8_standardized_pv'; doc.set_metadata({'title':'Extended Data Figure 8: standardized route PV controls','creationDate':'','modDate':''})
+    doc.save(stem.with_suffix('.pdf'),garbage=4,deflate=True); doc.close()
+    ET.ElementTree(root).write(stem.with_suffix('.svg'),encoding='utf-8',xml_declaration=True)
+    with fitz.open(stem.with_suffix('.pdf')) as pdf:
+        for dpi in [300,600]:
+            pix=pdf[0].get_pixmap(dpi=dpi,alpha=False); im=Image.frombytes('RGB',[pix.width,pix.height],pix.samples)
+            im.save(out/f'ed8_standardized_pv_{dpi}dpi.png',dpi=(dpi,dpi))
+            if dpi==600: im.save(out/'ed8_standardized_pv_600dpi.tiff',dpi=(dpi,dpi),compression='tiff_lzw')
+
+def documentation(out,pair,records):
+    prefix=(out/'source_data/manuscript_proposed.tex').read_text(encoding='utf-8').split(r'\saveimageanchor{fig:ed08}',1)[1].split(r'\textbf{d,}',1)[0]
+    prefix=prefix.split(r'\captionof{extendeddatafigure}{',1)[1]
+    prefix=prefix.replace('population vector correlation','PV correlation').replace('Population vector correlation','PV correlation')
+    prefix=prefix.replace('gray outlines mark', 'light gray outlines mark')
+    prefix=prefix.replace('Small points and connecting lines are animal means;',
+        'One-sided exact sign-flip tests across mice were corrected by Benjamini-Hochberg across these four comparisons. Small points and connecting lines are animal means;')
+    prefix=prefix.replace('Confidence intervals and two sided tests used standard errors clustered by animal. Large symbols and error bars show means and intervals.',
+        'Intervals for the differences and two sided tests used standard errors clustered by animal. Small points and connectors show session pairs; large symbols and error bars show pair means and descriptive 95\\% Student-t intervals.')
+    route=r'''\textbf{d,} Port-minus-elsewhere standardized PV correlation in individual mice on the first day of each visit (filled symbols; Day i versus Day i+90) and the second day (open symbols; Day i+1 versus Day i+91). Orange diamonds, runs toward the port; blue squares, runs away. Solid and dotted vertical lines show the corresponding means; the dashed gray line marks zero (13 mice toward, 14 away).
+\textbf{e,} Reliability-adjusted standardized PV correlation at the port and elsewhere: across-gap correlation between half-session maps divided by within-day correlation between odd- and even-run maps. All four half-session maps are standardized on their common observed positions. The numerator and denominator are averaged within animal before division; the denominator is the geometric mean of the two sessions' correlations. Both locations use the same 13 mice in each direction. This is a ratio of correlations, not a fraction retained.
+\textbf{f,} Standardized PV correlation with equal numbers of retained frames across route bins within each session, using 100 sampling draws (13 mice toward, 14 away).
+\textbf{g,} The home, node-2 and node-3 routes analyzed in both directions; the legend identifies each starting route, with matching heading colors in \textbf{h}. The physical partition is identical in the two directions: 22 bins of 3.8 cm on the home route; 19 bins from node 2 and 15 from node 3, with a 1.9 cm junction bin and all other bins, including the port, 3.8 cm. Every bin requires at least 0.2 s of retained samples.
+\textbf{h,} Standardized PV correlation at the port and elsewhere on node-2 and node-3 routes, in both directions (14 mice for each comparison); the Day-i source session was required to have rewarded experience.
+\textbf{i,} Port-minus-elsewhere standardized PV correlation on approaches followed by rewarded or timeout visits (25 session pairs, 12 mice). Rewarded visits had water delivery within 3 s of entry into node 94; timeout visits did not. The moving-frame window is not clipped to water delivery.
+\textbf{j,} Standardized PV correlation across positions on pairs analyzed in both directions (27 pairs, 13 mice): toward versus toward (orange), away versus away (blue), and toward versus away (black). The cross-direction comparison averages the two cross-day direction pairings; the same matched neurons are used for every curve. The dotted gray line is the neuron-ID shuffle; the band is a 95% interval across mice. Positions run home to port in every curve.
+PV, population vector. Route maps in \textbf{d-f} and \textbf{h-j} use deconvolved activity (S), standardized separately for each neuron and recording by subtracting its mean across observed route bins and dividing by its population standard deviation across those bins. Moving port frames are retained for at most 0.5 s after node-94 entry or before exit, bounded by the visit and stopped at a gap greater than 0.4 s between moving frames; nose direction resolves frames claimed by both directions (Methods). Panel \textbf{c} retains its unstandardized C-map analysis. In \textbf{e}, \textbf{f}, \textbf{h} and \textbf{i}, small points show animal values and lines pair the same mouse; large symbols and error bars show means and 95% Student-t intervals. Pairs are averaged within mouse before inference. Two-sided exact sign-flip tests across mice; Benjamini-Hochberg correction over the eight port-versus-elsewhere comparisons in \textbf{e}, \textbf{f} and \textbf{h}. The rewarded-versus-timeout comparison in \textbf{i} and cross-direction contrast in \textbf{j} are separate single tests. *p < 0.05, **p < 0.01, ***p < 0.001; n.s., not significant.'''
+    route=route.replace('Two-sided exact sign-flip tests across mice;', 'For route panels \\textbf{d-f} and \\textbf{h-j}, two-sided exact sign-flip tests across mice;')
+    route=route.replace('Orange diamonds, runs toward the port; blue squares, runs away.', 'Light orange diamonds, runs toward the port; dark orange squares, runs away.')
+    route=route.replace('toward versus toward (orange), away versus away (blue)', 'toward versus toward (light orange, solid), away versus away (dark orange, dashed)')
+    route=route.replace('95%','95\\%').replace('*p < 0.05, **p < 0.01, ***p < 0.001',r'$*p < 0.05$, $**p < 0.01$, $***p < 0.001$')
+    route=route.replace('dotted gray line',f'dotted {"dark" if COL["mid"]=="#454545" else "light"} gray line')
+    chunks=re.split(r'(?=\\textbf\{[d-j],\})',route)
+    sections={re.match(r'\\textbf\{([d-j]),\}',chunk).group(1):chunk for chunk in chunks if chunk.startswith('\\textbf{')}
+    sections['d']=r'\textbf{d,} Port-minus-elsewhere standardized PV correlation in individual mice: first day of each visit (left, Day i versus Day i+90) and second day (right, Day i+1 versus Day i+91), using independent recordings. Both axes share the same mouse order, limits and direction symbols. Light orange diamonds, runs toward the port; dark orange squares, runs away. Vertical colored lines show the corresponding means (13 mice toward, 14 away in each comparison).'+ '\n'
+    route=''.join(sections[key] for key in ['d','e','f','i','g','h','j'])
+    def relabel(match):
+        token=match.group(1)
+        if token=='d-f': return r'\textbf{d-g}'
+        if token=='h-j': return r'\textbf{i-j}'
+        if token.rstrip(',') in DISPLAY:
+            return r'\textbf{'+DISPLAY[token.rstrip(',')]+(',' if token.endswith(',') else '')+'}'
+        return match.group(0)
+    route=re.sub(r'\\textbf\{([^}]+)\}',relabel,route)
+    route=route.replace(r'In \textbf{e}, \textbf{f}, \textbf{i} and \textbf{g}',r'In \textbf{e}, \textbf{f}, \textbf{g} and \textbf{i}')
+    def reward_terms(text):
+        text=text.replace('water port','WATER_PORT_PLACEHOLDER')
+        text=re.sub(r'\bPort\b','Reward',text); text=re.sub(r'\bport\b','reward',text)
+        return text.replace('WATER_PORT_PLACEHOLDER','water port')
+    prefix=reward_terms(prefix); route=reward_terms(route)
+    (out/'CAPTION.md').write_text('# Extended Data Figure 8 caption\n\nDraft for author review; manuscript not edited. Panels a–c preserve their accepted scientific definitions.\n\n```latex\n'+prefix+route+'\n```\n',encoding='utf-8')
+    (out/'README.md').write_text('''# Complete ED8: finalized standardized route PV
+
+This source-built three-row figure preserves accepted panels a–c, uses the approved cividis scale in a, and replaces the route panels with the finalized v4 S-map analysis. Panel c remains unstandardized C. No density or speed-control panel is included. Panel h restores the previous source-native route schematic with black walls, gray corridors, home/water icons and a starting-node legend. Observed values use orange #E29957 and darker orange #B96B2C, with direction also distinguished by marker or line style. Starting routes retain the previous schematic codes: Home #587785, Node 2 #5B8E7D and Node 3 #9C8060, matched by i's headings. The primary control/shuffle gray is #C4C4C4; both orange and gray heatmap outlines have a matching white under-outline, with map centers unfilled. The water symbol remains blue as in Figure 4. Explicit zero guidelines are omitted; the measured neuron-ID shuffle in j remains visible. Visible analysis terminology uses Reward, aligned with Figure 4; numerical source columns retain port.
+
+Final rows are a/b/c, d/e/f/g, and h/i/j. Panel d contains side-by-side first-/second-day comparisons with identical mouse order and axis limits, explicit day-pair titles, filled direction symbols and shared 6-point labels/legend. animal_daypair_display.csv contains both day-pair columns and their shared order. PANEL_CROSSWALK.csv maps original analysis keys to display letters: original i (reward delivery) is g, g (schematic) is h, and h (node controls) is i. Numerical CSVs retain original analysis keys; individual panel filenames and the caption use final display letters. Panel b's title and legend are centered over its plotting area.
+
+## Rebuild without raw recordings
+
+From this folder: `python source_code/build_ed8_standardized_pv.py --output-dir .`
+To verify a fresh output directory: `python source_code/build_ed8_standardized_pv.py --output-dir PATH --inputs-from .`
+
+The user-selected lighter gray is the default. An optional dark-gray rendering uses `--control-gray dark` in a separate output folder with the same frozen inputs.
+
+Only Python, NumPy, pandas, scipy, Matplotlib, Pillow and PyMuPDF are needed. The builder reads the frozen CSV/JSON source data and checks INPUT_MANIFEST.json. No accepted composite or raw neural/behavior file is a rebuild input. The original accepted renderer chain was used once to export canonical maze-wall vertices from its source; reference producer scripts are retained for provenance.
+
+## Validation and statistical scope
+
+route_animal_values.csv preserves all source animal values, including the undefined departure reward ratio for mouse 434. route_paired_display_values.csv uses identical animals for both paired means: reliability panel e contains 13 mice in each direction. route_statistics_verified.csv independently recomputes current route estimates, intervals, exact sign-flip tests and correction families. Panel d's second-day replication and j's profiles are rebuilt from their frozen pair/bin rows. Accepted b/c inference is preserved from accepted source tables; descriptive plotted values are calculated anew.
+
+The four route families are Figure4e/d (two directions), replication/d (two directions), e/f/i (eight contrasts), and g reward-versus-elsewhere (two visit types, not displayed as separate stars). The g rewarded-minus-timeout and j cross-direction contrast are single tests. Error bars are 95% Student-t intervals across animals for route panels. Panel c retains accepted pair-level points and intervals, with published mouse-clustered inference. Accepted b uses one-sided exact mouse sign-flip tests with BH4; route tests are two-sided.
+
+## Files
+
+PDF and SVG contain all ten panels; PNGs are 300 and 600 dpi and TIFF is 600 dpi LZW. Individual PDF/SVG/PNG panels are in individual_panels. CAPTION.md defines normalization, sampling, pairing, windows and each interval. DISPLAY_VALIDATION.json and VISUAL_QA.md document the actual rendered result. Transparent vector margins permit compact placement without masking neighboring labels. This folder is a candidate build; global records, manuscript and Desktop exports are managed separately.
+''',encoding='utf-8')
+
+def main():
+    p=argparse.ArgumentParser(); p.add_argument('--output-dir',type=Path,default=DEFAULT_OUT); p.add_argument('--inputs-from',type=Path)
+    p.add_argument('--control-gray',choices=['dark','light'],default='light')
+    args=p.parse_args(); out=args.output_dir.resolve(); out.mkdir(parents=True,exist_ok=True)
+    COL['neutral']=COL['mid']='#454545' if args.control_gray=='dark' else '#C4C4C4'
+    if args.inputs_from:
+        source=args.inputs_from.resolve()
+        for name in ['source_data','INPUT_MANIFEST.json','ACCEPTED_SOURCE_CHECK.json']:
+            src=source/name; dest=out/name
+            if src.is_dir(): shutil.copytree(src,dest,dirs_exist_ok=True)
+            else: shutil.copy2(src,dest)
+    freeze(out); configure(); data,pair,num,animal,rep,rn,xp,xn=read(out)
+    displayed,records=verify(out,pair,num,animal,rep,rn,xp,xn)
+    figs=draw_accepted(data); figs.update(draw_route(displayed,rep,xp,records,data))
+    # Visible terminology follows Figure 4; numerical port columns stay intact.
+    for fig in figs.values():
+        for label in fig.findobj(match=matplotlib.text.Text):
+            value=re.sub(r'\bPort\b','Reward',label.get_text())
+            label.set_text(re.sub(r'\bport\b','reward',value))
+    da=figs['d'].axes
+    assert len(da)==2 and da[0].get_xlim()==da[1].get_xlim() and da[0].get_ylim()==da[1].get_ylim()
+    assert not any(t.get_visible() for t in da[1].get_yticklabels())
+    assert len(figs['d'].legends)==1
+    daypair_layout=dict(status='PASS',xlim=list(da[0].get_xlim()),ylim=list(da[0].get_ylim()),
+        shared_mouse_order=[t.get_text() for t in da[0].get_yticklabels()],titles=[ax.get_title() for ax in da],
+        common_xlabel=[t.get_text() for t in figs['d'].texts if 'Reward − elsewhere' in t.get_text()],
+        legend_count=len(figs['d'].legends),right_visible_mouse_labels=0,
+        axes_width_inches=[ax.get_position().width*PANELS['d'][2] for ax in da])
+    (out/'DAYPAIR_LAYOUT_VALIDATION.json').write_text(json.dumps(daypair_layout,indent=2))
+    pd.DataFrame([dict(panel=DISPLAY[k],source_panel=k,**dict(zip(['x','top','width','height'],v))) for k,v in PANELS.items()]).to_csv(out/'layout_inches.csv',index=False)
+    roles=dict(a='accepted decoding map',b='accepted balanced decoding',c='accepted unstandardized maze PV',
+               d='first-/second-day comparisons with shared axes and ordering',e='reliability-adjusted',
+               f='equal frames',i='rewarded versus timeout',g='restored route schematic',h='node routes',j='cross direction')
+    pd.DataFrame([dict(source_panel=k,display_panel=DISPLAY[k],role=roles[k]) for k in PANELS]).to_csv(out/'PANEL_CROSSWALK.csv',index=False)
+    paneldir=out/'individual_panels'; paneldir.mkdir(exist_ok=True); failures=[]
+    # Preserve obsolete letters from temporary layouts outside current panels.
+    for p in paneldir.glob('ed8_panel_*'):
+        if p.suffix in ['.pdf','.svg','.png'] and p.stem.removeprefix('ed8_panel_') not in DISPLAY.values():
+            archive=out/'history/superseded_display_letters'; archive.mkdir(parents=True,exist_ok=True)
+            target=archive/p.name
+            if target.exists(): target=archive/(p.stem+'_'+sha(p)[:12]+p.suffix)
+            shutil.move(str(p),str(target))
+    for letter in PANELS:
+        fig=figs[letter]; failures+=bounds(fig,letter)
+        for fmt in ['pdf','svg','png']: fig.savefig(paneldir/f'ed8_panel_{DISPLAY[letter]}.{fmt}',dpi=300,bbox_inches=None,transparent=fmt!='png')
+        plt.close(fig)
+    (out/'TEXT_BOUNDS.json').write_text(json.dumps(failures,indent=2))
+    compose(out); documentation(out,pair,records)
+    (out/'source_code').mkdir(exist_ok=True)
+    if HERE!=(out/'source_code'/HERE.name): shutil.copy2(HERE,out/'source_code'/HERE.name)
+    with fitz.open(out/'ed8_standardized_pv.pdf') as pdf:
+        text=pdf[0].get_text(); assert 'Standardized PV correlation' in text and 'Reliability-adjusted' in text
+        assert 'Near port fraction' not in text and 'Population vector correlation' not in text
+        image_count=len(pdf[0].get_images()); pages=len(pdf)
+    receipt=dict(status='RENDERED_AWAITING_VISUAL_QA' if not failures else 'TEXT_BOUNDS_FAILED',
+        panel_count=len(PANELS),pdf_pages=pages,canvas_inches=CANVAS,native_font='Arial',route_rule_version='2026-09-27-uniform-port-grid-v4',
+        route_statistic_checks=len(records),paired_reliability_mice={'toward':13,'away':13},reliability_display_panel=DISPLAY['e'],text_bounds_failures=failures,
+        control_gray=COL['mid'],palette=COL,source_sha256=sha(HERE),pdf_image_count=image_count,outputs={p.name:sha(p) for p in out.glob('ed8_standardized_pv*') if p.is_file()})
+    (out/'DISPLAY_VALIDATION.json').write_text(json.dumps(receipt,indent=2))
+    print(json.dumps(receipt,indent=2)); assert not failures
+
+if __name__=='__main__': main()

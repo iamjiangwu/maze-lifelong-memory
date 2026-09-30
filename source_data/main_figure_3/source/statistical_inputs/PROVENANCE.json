@@ -1,0 +1,30 @@
+{
+  "schema": "main3-descriptive-curve-inputs/v1",
+  "sources": [
+    {
+      "source": "docs\\coverage5min_window_reanalysis_2026-08-05\\fixed_reference\\sorted_non1616\\window_convergence_curves.csv",
+      "sha256": "913639fa780ce5d67d42bac386ca1f35d50a6396079a3cbf71ae727d7f872cef",
+      "source_rows": 189702,
+      "retained_rows": 19638
+    },
+    {
+      "source": "docs\\coverage5min_window_reanalysis_2026-08-05\\fixed_reference\\original_fallback_naive\\window_convergence_curves.csv",
+      "sha256": "001ce64cc362b673dbda841384ae62142cd0ce76ed06ea0661467e19a4a78b95",
+      "source_rows": 36639,
+      "retained_rows": 3831
+    },
+    {
+      "source": "docs\\coverage5min_window_reanalysis_2026-08-05\\fixed_reference\\sorted_1616\\window_convergence_curves.csv",
+      "sha256": "39f72ecc7b0d8ce481a4221abb83766fb24b69a03d1054ff92b4294db5531a1b",
+      "source_rows": 16335,
+      "retained_rows": 1725
+    }
+  ],
+  "output": {
+    "path": "day2_template_window_values.csv.gz",
+    "sha256": "f02c873cb0b91e86e38fd75d71dca3e4462471025cf78df0c9c450d29bfd2e97",
+    "bytes": 392640
+  },
+  "selection": "three displayed metrics only: place/PV/rate; maze_time 30-min windows, primary scaled_nonoverlap/not_applicable support; preserves finite/missing values; no raw acquisition",
+  "producer_math": "scripts/export_fixed_reference_window_convergence.py:_aggregate_curves; scripts/summarize_coverage5min_figure3_sources.py:_combine_group_curves"
+}

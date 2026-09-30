@@ -1,0 +1,7 @@
+paper_depth,tree_depth,parent_node,reward_child,sibling_child,left_child,right_child,reward_side,previous_reward_side,required_transition_type
+1,0,0,1,2,1,2,left,,start
+2,1,1,4,3,3,4,right,left,alternate_required
+3,2,4,10,9,9,10,right,right,repeat_required
+4,3,10,22,21,22,21,left,right,alternate_required
+5,4,22,46,45,45,46,right,left,alternate_required
+6,5,46,94,93,94,93,left,right,alternate_required

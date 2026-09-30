@@ -1,0 +1,171 @@
+{
+  "artifact_id": "main_figure_4",
+  "panels": 6,
+  "source_boundary": "Displayed decoder/maps and per-pair errors; per-animal route profiles; fixed-K reward-decoder/behavior pair rows.",
+  "files": [
+    {
+      "path": "main_figure_4/source/INPUT_HASHES.json",
+      "sha256": "76626328fc2c20247602f69977002e7ea887bde548db781bf7693db30243dc6d",
+      "bytes": 3252,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/plot_ready/panel_e_animal_profiles.csv",
+      "sha256": "e28ec7227262677ccc74994e2a2ce5d3455a0cfb70ad4030eefeeee76afe75a6",
+      "bytes": 37621,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/plot_ready/panel_e_curve.csv",
+      "sha256": "e4193dc0adfa198997ac8c3583892e7a5174a7d33275000f4bf67398e2f5bbce",
+      "bytes": 4627,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/plot_ready/panel_e_heatmaps.npz",
+      "sha256": "f6c6388be1f39841161b56a5c278e65862e116fcfa2d1c43472cfb66abfa59a6",
+      "bytes": 1277780,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/plot_ready/panel_e_neuron_membership.csv",
+      "sha256": "947f76b89bc7eba03232cee9411eb5e54ba24f9e66744be521fc4c4d4cf3f7d5",
+      "bytes": 892697,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/plot_ready/panel_e_pair_counts.csv",
+      "sha256": "19fae895c4fde27ee0af63bc9494bf97343b7a690e9cc22cfe8c12ad3b9759b2",
+      "bytes": 2297,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/plot_ready/panel_e_pair_profiles.csv",
+      "sha256": "7689bad101150c0942f43244152ca87ed6ecadcdd15cbff901fe241c4e3742ef",
+      "bytes": 122175,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/plot_ready/panel_e_statistics.csv",
+      "sha256": "44e82cef09b378433a3457d8c1e813d83925fea743f9c4592a9f06703ecf5a5a",
+      "bytes": 1300,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/provenance/ACCEPTED_SOURCE_CHECK.json",
+      "sha256": "64b3bf81c570c84da0c1632448658d1d4355091ee87731a08b828ded0d79633c",
+      "bytes": 7628,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/provenance/CONTROL_COLOR_SELECTION.json",
+      "sha256": "ee6b0a2b70a4525b3707c2419a7799ba67ad9744458ec127a607a858ba769e9d",
+      "bytes": 433,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/provenance/PALETTE_SELECTION.json",
+      "sha256": "988a9b75fc338445baddc7cf900bdaaf22293ec4c021b3d35d227b6655598df8",
+      "bytes": 1018,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/provenance/SOURCE_PROVENANCE.json",
+      "sha256": "0deb1f54f23c01cbf2cd1ef028dd573ce42788b42d5b3c32d1ae3c5f3b7a4c99",
+      "bytes": 16511,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/illustration_data/spatial_decoder_example.json",
+      "sha256": "37da8d1d19ea80b57927445a5a9b56c7d55638d8966ebae18a94753c3e9cf07a",
+      "bytes": 1244,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/illustration_data/spatial_decoder_example.npz",
+      "sha256": "7749286b146276b1108c36162fb6163d6f7c6e445ed8f8ae1a0eb10b66950520",
+      "bytes": 66383,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/plot_ready/figure4_day_source_statistics.csv",
+      "sha256": "0ee27d32e50e9ac2713aa0659c3a84bec4301ff785adbd5bb644f3afae5b2300",
+      "bytes": 2183,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/plot_ready/panel_c_example_map_rows.csv",
+      "sha256": "715698e89c4c7d9d99e62f32e0c9420013bc361a7d304a41a1aeb9e940e21797",
+      "bytes": 17799,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/plot_ready/panel_d_native_reference_rows.csv",
+      "sha256": "62ba8e28e864ae13c19d6e2f6a804287d08aff6f5c6b6bbd30206112edc30f8e",
+      "bytes": 45631,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/plot_ready/panel_f_matched_pair_means.csv",
+      "sha256": "0dedf2715de4f553f24a119e01b8f2b639758f189c2c332e30a7cd34988732c3",
+      "bytes": 7857,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/source_code/figure_panels.py",
+      "sha256": "4de4a5e473c7761d0a56027c76af63ede5390db11871631359057257cb8a8a48",
+      "bytes": 315943,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/source_code/render_figure4_day_source_comparison.py",
+      "sha256": "07b0f73efc819139f005ff875d5b247c31ebf18c9744d5cf8777c333522a6f45",
+      "bytes": 46877,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/source_code/render_main_figs_v3_publication.py",
+      "sha256": "383fd7cc330627e93f49bc89698c017e5dbb0f1c8e10c962653b30929840d18d",
+      "bytes": 394332,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/source_code/render_main_figure4_panel_f_ed10_k166.py",
+      "sha256": "c1bc3540c02f35f7cb4f421655a8ac8df1b297a0c3e49cbaa6dea66e2b564829",
+      "bytes": 5867,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_pair_summary.csv",
+      "sha256": "cf185b5e888711015710d6d1adfcd6e178af9d9d024b0c1bd9cb5538ec770bab",
+      "bytes": 8025,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/reference_record/source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_statistics.json",
+      "sha256": "622b6c3cdc837f70e097b99d954d116a3f59f0c371e4ae00f7c72abb20f5d68f",
+      "bytes": 1625,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/source_code/build_figure4_standardized_pv.py",
+      "sha256": "e7cfc619ccaa6126a3a88db48efbda88e5d44160b4edcff90b08dd457c8273bb",
+      "bytes": 28232,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/source_code/rebuild_current_main_figures.py",
+      "sha256": "ca0bca0fa58ba94635e2693a61bf0d8e74a10b1508dc728c88c3e5efa1d22f26",
+      "bytes": 80520,
+      "role": "source_or_code"
+    },
+    {
+      "path": "main_figure_4/source/source_code/SOURCE_REBUILD_MAIN_RUNTIME.zip",
+      "sha256": "8d090bedca223b402e757cf5f52e0dd82c7346797e3c6096580364e1023c3286",
+      "bytes": 862374,
+      "role": "source_or_code"
+    }
+  ],
+  "accepted_outputs_role": "comparison only; never copied into execution stage",
+  "reproduction_command": "python -B reproduce.py --artifact main_figure_4 --output-dir <fresh-directory>"
+}

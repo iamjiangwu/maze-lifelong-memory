@@ -1,0 +1,24 @@
+{
+  "alternative": "Data decoding accuracy > Shuffle decoding accuracy",
+  "cluster_ols": {
+    "df": 13,
+    "estimate": 0.1408908975396557,
+    "p_greater": 9.188368982748133e-07,
+    "p_two_sided": 1.8376737965496266e-06,
+    "se": 0.01729932814912708,
+    "t": 8.144298803116525
+  },
+  "decoder_refit": false,
+  "level_definition": [
+    "tree_depth7"
+  ],
+  "mean_data": 0.3836750692419984,
+  "mean_delta_data_minus_shuffle": 0.14089089753965572,
+  "mean_shuffle": 0.24278417170234265,
+  "n_animals": 14,
+  "n_pairs": 36,
+  "n_shuffles_per_pair": 200,
+  "shuffle_baseline": "mean of 200 within-pair permutations of Day i source level-tuning vectors relative to Day i+90 activity columns",
+  "source": "validated within-pair neuron ID shuffle rerun",
+  "test": "paired registered-neuron versus neuron-ID-shuffle tree-depth decoding accuracy"
+}

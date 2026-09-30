@@ -1,0 +1,93 @@
+{
+  "schema": "ed8-standardized-pv-frozen-inputs/v1",
+  "rule_version": "2026-09-27-uniform-port-grid-v4",
+  "accepted_record": "extended_data_fig08_2026-09-09_round25_linearized_place_map_axes",
+  "files": [
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\signal_comparison_primary_pairs.csv",
+      "frozen": "source_data\\signal_comparison_primary_pairs.csv",
+      "sha256": "829dc573706275321bf68ea431516a4a35a1b45970ecdf567ff79ac16aaa7e5a"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\signal_comparison_primary_numbers.csv",
+      "frozen": "source_data\\signal_comparison_primary_numbers.csv",
+      "sha256": "330dd3eb0b7dc6345758da742f8b2d0d71c4f46d035403ab9a8a92b00ebde042"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\replication_day2_pairs.csv",
+      "frozen": "source_data\\replication_day2_pairs.csv",
+      "sha256": "6d9fa6d55d406ad0b55f67436086bb62bb8ecb05cabe16e54ed4e3e4e2e68885"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\replication_day2_numbers.csv",
+      "frozen": "source_data\\replication_day2_numbers.csv",
+      "sha256": "d114951a683ee1f673da73804219b7629cc36b544ce0740bca2a115f2dd1ce42"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\strength_checks_profiles.csv",
+      "frozen": "source_data\\strength_checks_profiles.csv",
+      "sha256": "79a9820f8af38540794c8b653b5fd954dc61114116cb902e8a84fa3464c1508d"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\strength_checks_numbers.csv",
+      "frozen": "source_data\\strength_checks_numbers.csv",
+      "sha256": "2fe966d6eaa178b17cd9cf0870004a387712239d56472af2547c8ead30021ed5"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\candidate_paired_display_values.csv",
+      "frozen": "source_data\\candidate_paired_display_values.csv",
+      "sha256": "a18b23a6c590f6b1b48fb2185acb00f7f6aced48a5e47f499af2b788b4f755c9"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\candidate_paired_display_summary.csv",
+      "frozen": "source_data\\candidate_paired_display_summary.csv",
+      "sha256": "6587848317a0665e89848d4e1f33208d62694f1ee11880ecf5073a36980be9e2"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\manuscript_proposed.tex",
+      "frozen": "source_data\\manuscript_proposed.tex",
+      "sha256": "101ea647c508c09a6be8be895ffcb2e5905c66f44c8ef1b867562ed51822e949"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\plot_ready\\ed08_panel_h_map.csv",
+      "frozen": "source_data\\accepted_h.csv",
+      "sha256": "5e019a01bb7efb1e1f42b2fdbeca82cf837d31ac26cbe8422f1acc16bfc32d3c"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\plot_ready\\ed08_panel_c_pair_values.csv",
+      "frozen": "source_data\\accepted_c.csv",
+      "sha256": "f27a31ef3ae5beb8955dc125d5584afe1e73967e7dde7abe11408218302c7ef1"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\plot_ready\\ed08_panel_a_routes.csv",
+      "frozen": "source_data\\accepted_routes.csv",
+      "sha256": "36f1ad0db4c7ed4a2dd66042c3255dd53ba3a344f6b5723ed03319e60acd8004"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\plot_ready\\ed08_expanded_statistics.csv",
+      "frozen": "source_data\\accepted_stats.csv",
+      "sha256": "a6421a0c3add49b8c7bf96d6c7f1b8e1b7a99b68ff9cb07afec329062d7507aa"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\source_data\\ED08_PANEL_B_ALL_ELIGIBLE_MOUSE_VALUES.csv",
+      "frozen": "source_data\\accepted_b.csv",
+      "sha256": "625176e275686adde6aa7f51e5c7d728a9f3fb0eab449afb6dba197692000acc"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\signal_maps_primary\\1616b-3day1.npz::info",
+      "frozen": "source_data/route_geometry_and_rule.json",
+      "sha256": "d341b8fd5aec63f260dc2b0f1f65c85ac04ac221d1a17d8cb8e7396beb73f99c"
+    },
+    {
+      "original": "canonical wall vertices from accepted source-only renderer",
+      "frozen": "source_data/accepted_maze_wall.csv",
+      "sha256": "32147931069cd1b0c12f3503416477a10db6ecc6826c90be5e1e24308e81f704"
+    },
+    {
+      "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\source_code\\figure_panels.py::GRAY_BLOCKS,_draw_house_icon,_draw_water_drop_icon",
+      "frozen": "source_data/accepted_schematic_primitives.py",
+      "sha256": "6a5843c827b2163557ae1c4dd6982761916a63171a890e02812e824b0121ab1b",
+      "original_file_sha256": "4de4a5e473c7761d0a56027c76af63ede5390db11871631359057257cb8a8a48"
+    }
+  ]
+}

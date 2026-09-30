@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "approved_axis_text_and_stars_retained": true,
+    "fresh_public_source_rebuild": true,
+    "numerical_tables_unchanged": true,
+    "row_swap_only_svg_parity": true,
+    "scientific_sources_unchanged": true,
+    "source_panel_mapping_updated": true,
+    "zero_pixel_changes_outside_swapped_rows": true
+  },
+  "figure": "main_figure_2",
+  "parent": "main_figure2_2026-09-25_round12_temporal_labels_black_stars",
+  "record": "docs/figure_version_records/main_figure2_2026-09-25_round13_population_vector_first",
+  "review_round": 13,
+  "schema": "figure2-row-swap-record/v1",
+  "status": "PASS"
+}

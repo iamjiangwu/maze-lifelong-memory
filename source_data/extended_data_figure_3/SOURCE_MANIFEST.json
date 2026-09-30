@@ -1,0 +1,153 @@
+{
+  "artifact_id": "extended_data_figure_3",
+  "panels": 6,
+  "source_boundary": "Session reward-route fluency and route fractions, with animal IDs and behavioral strata.",
+  "files": [
+    {
+      "path": "extended_data_figure_3/source/plot_ready/ed04_depth_small_multiples_current_plus_new12.csv",
+      "sha256": "34c932a42c2b858d0b9522e74b50b517b4b381507999e19eb9910071ad71ea96",
+      "bytes": 5304,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/plot_ready/ed04_route_definition_current_plus_new12.csv",
+      "sha256": "5366b0593602c18fd7eb252ac09fa842da1253eabf819e85eb453db416161121",
+      "bytes": 411,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/plot_ready/ed04_route_events_current_plus_new12.csv",
+      "sha256": "828140d3616f20b0e1a35d9f2d4030647d2af1f646681705f620272598d0f4e8",
+      "bytes": 253972,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/plot_ready/ed04_route_group_stats_current_plus_new12.csv",
+      "sha256": "1ba772b5378c680ab15c3d449d12e124d3ebad72f11a1b45cee329c1a3a7cbd4",
+      "bytes": 813,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/plot_ready/ed04_route_stats_current_plus_new12.csv",
+      "sha256": "ad75680b5396d3dcdeb85ec483a2010d7de14fbe6e69e3ed5d2acddc460be8ee",
+      "bytes": 2571,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/plot_ready/ed04_session_route_current_plus_new12.csv",
+      "sha256": "c9294187bbac8b5cfb3573ab7db8108c81d47fd90accc07cb7dd0b8589a234a4",
+      "bytes": 11756,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/plot_ready/fluency_plot_rows.csv",
+      "sha256": "6c04a55b0b493b1696d06cd31ef244d3c7ef8c5eba9cf170b93e3c3e6475f48a",
+      "bytes": 60900,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/plot_ready/fluency_statistics.csv",
+      "sha256": "1be39e97b91de51352e6fdce7f9e78bb2d11dc6d6c6d9af1c55faedb090d5830",
+      "bytes": 3304,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/RECORD_HASHES.csv",
+      "sha256": "1b98f9cd9616d2ea143c40ce7d11885f6c75f820993a1f608e44f2596847b816",
+      "bytes": 6966,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/export_turn_sequence_retention.py",
+      "sha256": "6d266752ec31eb354cc7e7b5a4df4980727cd207dcf6a9b56824a68c46c25d38",
+      "bytes": 113238,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/package_ed03_ed10_approved_display_successors.py",
+      "sha256": "87d5e07fa4d3d245215add0dae3d1bd4b637b482ba3428ac84092b802087732a",
+      "bytes": 21656,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/package_ed03_latent_day_label_successor.py",
+      "sha256": "0361a4952b71dd275d00d919ec803bc5db4c741f0fb7a5c6bb47cbffbe918a54",
+      "bytes": 13424,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/preview_figure1_assembly.py",
+      "sha256": "403db8e5579385722e95aedb7a7774907528c21feed15b790d83f4d4c6eedf78",
+      "bytes": 48994,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/promote_af23_direct_entry_figure_records.py",
+      "sha256": "ee785c1aaeec4a3edd9482bec538d01a2452c2330af3e93bba32f7bc6cde303b",
+      "bytes": 43625,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/promote_ed03_version_record.py",
+      "sha256": "93995538de40ea6c09e38def54627ae0178f5ad2abf547e8b7ed98cc432f8de1",
+      "bytes": 8385,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/promote_full_figure_audit_records.py",
+      "sha256": "bc3bc45d66d02ab598d52f5a76e5ec4396e5ede768cdf80c7c83b65982f5c206",
+      "bytes": 24203,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/rebuild_af23_first_route_outputs.py",
+      "sha256": "70ddc0304604c913931f36542bfe7d8f445dc2186c56cda0822adbb30b475bb4",
+      "bytes": 3312,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/render_ed02_ed04_current_panels.py",
+      "sha256": "ee82a72c62f77ac376e087c7b75bfba49f32850564c534971ea9f050fb607bb5",
+      "bytes": 87162,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/render_ed03_reward_path_fluency_assembly.py",
+      "sha256": "bb2b6f46a2f0297b33195f1e3e93fbf5620b2a12c342f4ca1edf895b0adb745c",
+      "bytes": 33749,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/render_ed04_fluency_story_current.py",
+      "sha256": "46ff0c7d772ce8fea95a4570a17b72b244f72f35c872055b4ab6224070bbebe8",
+      "bytes": 37669,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/render_main_figs_v3_publication.py",
+      "sha256": "1dc4ce218d76389f5e6c0741c5d11e13d247a295bdffc02ae46d5be47f705753",
+      "bytes": 384255,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/test_turn_sequence_direct_entry_reconstruction.py",
+      "sha256": "06b2d3e484b0d4990f70d5495e3c129de5462ca07942b974c0b84628d03d4c1f",
+      "bytes": 5754,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/validate_af23_direct_entry_reconstruction.py",
+      "sha256": "6edd538b1a3087b9241010d83fad2b152e2f89244b445551278125f5bc0c1a24",
+      "bytes": 11209,
+      "role": "source_or_code"
+    },
+    {
+      "path": "extended_data_figure_3/source/source_code/validate_current_figure_records.py",
+      "sha256": "a027dff28f4d6fd06e2f310efbeea5eb2141925f5a83c85e1231b0a952a5aca5",
+      "bytes": 31496,
+      "role": "source_or_code"
+    }
+  ],
+  "accepted_outputs_role": "comparison only; never copied into execution stage",
+  "reproduction_command": "python -B reproduce.py --artifact extended_data_figure_3 --output-dir <fresh-directory>"
+}

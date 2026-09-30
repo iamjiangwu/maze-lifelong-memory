@@ -1,0 +1,28 @@
+{
+  "figure": "Extended Data Figure 4 (merged numbering; slide 5)",
+  "sources_resolve_under": "extended_data_fig_05 (old numbering)",
+  "generated_from": "raw CellReg outputs under the footprint root",
+  "footprint_root": "F:\\footprint-new",
+  "scope_csv": "docs\\main_figs_v3_source_render_2026-06-24\\figure_scope_exclusions_2026-06-29\\figure2_distribution_shuffle_36_no_1616_short\\current_panel_base_pairs_36_no_1616_short.csv",
+  "scope": "final sorted 36-pair scaffold, short 1616 pair excluded",
+  "n_session_pairs": 36,
+  "n_animals": 14,
+  "n_directed_candidate_pairs": 119444,
+  "n_registered_pairs_before_activity_gate": 21412,
+  "cimap_match_status_counts": {
+    "exact_raw": 33,
+    "exact_after_zero_reinsertion": 3
+  },
+  "registered_pairs_per_session_pair": {
+    "min": 151,
+    "median": 595,
+    "max": 1119
+  },
+  "directed_candidates_per_session_pair": {
+    "min": 702,
+    "median": 3473,
+    "max": 10990
+  },
+  "excluded_by_design": "the Main Figure 2 similarity cross-check and activity gate are not applied here; this figure is about neuron matching, and the gate belongs to the Figure 2 denominator, which the Methods describe",
+  "pooling_note": "distributions pool directed technical observations; each registered cell contributes about 5.6 candidate pairings inside the search radius, so session pairs with more cells contribute more counts"
+}

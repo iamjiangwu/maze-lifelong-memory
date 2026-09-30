@@ -1,0 +1,514 @@
+{
+  "schema": "ed9_level_population_vector_shuffle/v1",
+  "status": "PASS",
+  "outputs": {
+    "frozen/analyze_mm_level_population_vectors.py": {
+      "sha256": "b38d9983abe46b17fdad84be66845a0f83a1529d4a5bf32a6f21ba85003c26f5",
+      "bytes": 36064
+    },
+    "frozen/figure5_matrix_reference.csv": {
+      "sha256": "b4bec935e48f263a75ae199ba952782037663fe58166472d45ea5740e3939c71",
+      "bytes": 1012
+    },
+    "frozen/frozen_source_selection.csv": {
+      "sha256": "e54a7b96d5b7b1cfc73e1016f48e0dc2127cc89ea8258096b78a7976ab103be7",
+      "bytes": 10169
+    },
+    "frozen/global_clustered_inference.csv": {
+      "sha256": "2b0ab1e9fa332c1a16a889e0696fad343c0dc206e22475b3326eb63221afde2d",
+      "bytes": 542
+    },
+    "frozen/independent_numeric_validation.json": {
+      "sha256": "087e91af183ddbc07e74626b00af97fd5d66efb4707b70121ce53c7870a8e48b",
+      "bytes": 446
+    },
+    "frozen/inherited_session_alignment_audit.csv": {
+      "sha256": "2dd788feceecf1ec570d83ce87ada80061037978c741ac00ac21b9f25a8a349c",
+      "bytes": 13500
+    },
+    "frozen/intermediates/01_418RRday1_to_418-3day1.npz": {
+      "sha256": "e5b76a0d1c03f0fbc55a34edadaa633a9ce3ac8292eab037c86a3bf4e78284fc",
+      "bytes": 356579
+    },
+    "frozen/intermediates/02_422RRday1_to_422-3day1.npz": {
+      "sha256": "f846ee61f020e77f6ddfe29c74d816718b99601a2441a22f02d8a461efb5749a",
+      "bytes": 337202
+    },
+    "frozen/intermediates/03_434RRday1_to_434-3day1.npz": {
+      "sha256": "63fc33b92eb9344144a8449feea803a3191ac2ebb06dfe2f64769708f25d5913",
+      "bytes": 352004
+    },
+    "frozen/intermediates/04_451Rday1_to_451-3day1.npz": {
+      "sha256": "e79c8be51e71b56ae979cbfa494d28d24a1ea0e72b5c07fb0bbeda173e54b838",
+      "bytes": 357997
+    },
+    "frozen/intermediates/05_468Lday1_to_468-3day1.npz": {
+      "sha256": "9dcdfb040ed0ce062c7540de0a54c491be3ad94d55b5d3c6ba590e71a1b2f21d",
+      "bytes": 297998
+    },
+    "frozen/intermediates/06_488Rday1_to_488-3day1.npz": {
+      "sha256": "5ed19140e35f9157012244fa4485b4bc174bfda1b2554533458fa007e4a3ca82",
+      "bytes": 306127
+    },
+    "frozen/intermediates/07_489Lday1_to_489-3day1.npz": {
+      "sha256": "67d0cfd11c033b66bef6bb0d48ce7a0f325f0b97de338800d454c0a0ad0aadcd",
+      "bytes": 298880
+    },
+    "frozen/intermediates/08_579RLday1_to_579-3day1.npz": {
+      "sha256": "583a68eeabb95b94fa364859e144edc94f1e95ad7e44d3c8057b06249d625c35",
+      "bytes": 367159
+    },
+    "frozen/intermediates/09_837day1_to_837-3day1.npz": {
+      "sha256": "07a480f2cf7e6d821f890ff9fe3ccef6581cbf6b03d30abd357a3d31ffd39169",
+      "bytes": 385645
+    },
+    "frozen/intermediates/10_838day1_to_838-3day1.npz": {
+      "sha256": "456330f17ee62e71c40f7c0faa03315baf62b019486293cfbe9c93456807ec00",
+      "bytes": 406757
+    },
+    "frozen/intermediates/11_839day1_to_839-3day1.npz": {
+      "sha256": "9d94307be079f01af70a7219c3e739d7d838024c57b5d543f638cdeab4add8f8",
+      "bytes": 339332
+    },
+    "frozen/intermediates/12_842day1_to_842-3day1.npz": {
+      "sha256": "d24ec8c444514900f7d3589fd1d7f5eb75d91e52738fb9ed6fd04d329fd9fe47",
+      "bytes": 279121
+    },
+    "frozen/intermediates/13_862day1_to_862-3day1.npz": {
+      "sha256": "07a84a38dc80ad101cfc994bfda5450b83ed5e7ca5df2a37a149a197c15c58c5",
+      "bytes": 307904
+    },
+    "frozen/intermediates/14_1616bday1_to_1616b-3day1.npz": {
+      "sha256": "7a219b796e138668ac6202bf189f352ba0b3eb12c7127c2988254be27a9f74c6",
+      "bytes": 470487
+    },
+    "frozen/intermediates/15_418-3day1_to_418-6day1.npz": {
+      "sha256": "2f84e011a0a6262d7e8c5c086ab92dbe1e9a1033952772d3b85174c5c7f73ef8",
+      "bytes": 375143
+    },
+    "frozen/intermediates/16_422-3day1_to_422-6day1.npz": {
+      "sha256": "88be7851fe8216c2a7b3a895a8d9d2a2fe35124bd673622c45d6d4711bbb274c",
+      "bytes": 306536
+    },
+    "frozen/intermediates/17_451-3day1_to_451-6day1.npz": {
+      "sha256": "60f19c462b0a016178b276073c2d46728a3b6ffc54a3b813e3562c5fbd051d10",
+      "bytes": 360006
+    },
+    "frozen/intermediates/18_468-3day1_to_468-6day1.npz": {
+      "sha256": "2caab3bc297d6bc519afc711cc2a8b330a38f9faa1e5c390b7611302c9624e95",
+      "bytes": 311498
+    },
+    "frozen/intermediates/19_488-3day1_to_488-6day1.npz": {
+      "sha256": "86d36b75fad24fba364f7f45017082b30b5f2c22b7a49cff05d585554066af40",
+      "bytes": 308846
+    },
+    "frozen/intermediates/20_489-3day1_to_489-6day1.npz": {
+      "sha256": "addb8162822ec8cb6f147428bc72771a6f774ec52289f65468b8487bb4b17f14",
+      "bytes": 304794
+    },
+    "frozen/intermediates/21_837-3day1_to_837-6day1.npz": {
+      "sha256": "86a7567ea5659cef05a0b5500821dda9b021aa9b24283d418fde14c9c9d0aa3e",
+      "bytes": 415702
+    },
+    "frozen/intermediates/22_838-3day1_to_838-6day1.npz": {
+      "sha256": "394853dc80f66ec1478768b31a130ac41623674c87cc349bd67a69902b49492a",
+      "bytes": 468469
+    },
+    "frozen/intermediates/23_839-3day1_to_839-6day1.npz": {
+      "sha256": "8f7ad1c5cf112a546893f17a10db880cb24ebbd8b6b745b0aca5a321dffe7587",
+      "bytes": 402451
+    },
+    "frozen/intermediates/24_842-3day1_to_842-6day1.npz": {
+      "sha256": "1217961183bd67515cdbcf5fb827fe12440f4ddb6ba08b200b873a790fdfb50d",
+      "bytes": 352536
+    },
+    "frozen/intermediates/25_862-3day1_to_862-6day1.npz": {
+      "sha256": "a7f084d445be887d78eb8052e3b57840bf6dcb8fa9a29d2f1d5106ac625ce963",
+      "bytes": 323850
+    },
+    "frozen/intermediates/26_418-6day1_to_418-9day1.npz": {
+      "sha256": "2fd95124b8941d852d17823fc52d8249f30edd65a4e1c6a430fb7767f1328707",
+      "bytes": 357070
+    },
+    "frozen/intermediates/27_451-6day1_to_451-9day1.npz": {
+      "sha256": "e5684daeec77c739494bbb975a82c91d01423506c46c6de463dd5f6dabc86130",
+      "bytes": 365443
+    },
+    "frozen/intermediates/28_468-6day1_to_468-9day1.npz": {
+      "sha256": "e0f6488485548813a9a7540aaff33326c2b81180deda31a11b45b2659bf52ea9",
+      "bytes": 302777
+    },
+    "frozen/intermediates/29_837-6day1_to_837-9day1.npz": {
+      "sha256": "f052c0df07a04fa2eef6ad5190423be57232cbe4fc266a00a8cb111e5ad67bb6",
+      "bytes": 425072
+    },
+    "frozen/intermediates/30_838-6day1_to_838-9day1.npz": {
+      "sha256": "2718fc10a64daf2ae164a957a456d49fe11528cfd61f564dd8b7a367dbcfeb77",
+      "bytes": 419851
+    },
+    "frozen/intermediates/31_839-6day1_to_839-9day1.npz": {
+      "sha256": "3e3a9b7eca73fe84dc2b2f597df3bff57a9c9fd32cc209c3e8a95b972d5d8718",
+      "bytes": 445278
+    },
+    "frozen/intermediates/32_842-6day1_to_842-9day1.npz": {
+      "sha256": "d1ceebd8ed853cae885beceb9aa00f5c360775cca69e88d59420270132ab34a9",
+      "bytes": 361390
+    },
+    "frozen/intermediates/33_468-9day1_to_468-12day1.npz": {
+      "sha256": "aa965bff6e2399590a3f00725b26d18a44bf8a2cf0c4b4c0f543084d43eba544",
+      "bytes": 307178
+    },
+    "frozen/intermediates/34_837-9day1_to_837-12day1.npz": {
+      "sha256": "cd55a18ea1b321297631a79d873ed28645c62451ea9cad7e246bee9707fd49e2",
+      "bytes": 387556
+    },
+    "frozen/intermediates/35_838-9day1_to_838-12day1.npz": {
+      "sha256": "baeb54d41ebf7030d42374bc9280dbe769f4f850914b32303815d40d2e6a3ef9",
+      "bytes": 438056
+    },
+    "frozen/intermediates/36_839-9day1_to_839-12day1.npz": {
+      "sha256": "edf7e022c323fdddec8a6d09efaf0506cda3c171e603ac1a5b356a871ba49056",
+      "bytes": 373647
+    },
+    "frozen/MANIFEST.json": {
+      "sha256": "eb452a8fdc3540df90c2d0e66df42fef8fe5adf29a923133c4ffb9a41b9cce3d",
+      "bytes": 45186
+    },
+    "frozen/matrix_pair_support.csv": {
+      "sha256": "b68b589b8974ab92df9032ab4f76faeb7dbcca87e8402787d124730d722289f5",
+      "bytes": 195
+    },
+    "frozen/mean_cross_depth_matrix.csv": {
+      "sha256": "b4bec935e48f263a75ae199ba952782037663fe58166472d45ea5740e3939c71",
+      "bytes": 1012
+    },
+    "frozen/pair_by_depth.csv": {
+      "sha256": "ea1b34233353915b8729a9216325f5a46c80e9ce7e6dfcd0899730ca9894ca60",
+      "bytes": 49262
+    },
+    "frozen/pair_depth_cross_similarity_matrices.csv": {
+      "sha256": "c79be58285ac2d7762cc1f6ab63a37f1ddf2b3603db1d13051e7c4197eef46c3",
+      "bytes": 190987
+    },
+    "frozen/pair_summary.csv": {
+      "sha256": "3380dc8e06bfcaeccd4f8aa049f8b784a508ec5962a5ce852cbe8b1070b00957",
+      "bytes": 6594
+    },
+    "frozen/raw_C_reconstruction_audit.csv": {
+      "sha256": "db731fd6f2ef734379372d2bcdff78657f9253d3cb27a9fadd100e9550cfe4b6",
+      "bytes": 739
+    },
+    "frozen/raw_validation_depth_exposure.csv": {
+      "sha256": "e480aa02df82fd58c915c41fe2d5b575ce4cc1ad3263be455b3f35604c307511",
+      "bytes": 1585
+    },
+    "frozen/registered_neuron_depth_maps.csv": {
+      "sha256": "17ba229d9ea69d6234a866649bda1ac364c3e9abd15b963c737f84063f218e9d",
+      "bytes": 5658429
+    },
+    "frozen/source_support_and_registration_audit.csv": {
+      "sha256": "d203b7a0b6289f943afa9b6a85c2acabea847e8266a24874945720b12db90b76",
+      "bytes": 18701
+    },
+    "histogram_80bins.csv": {
+      "sha256": "71cfd86527cf7113cac3a97c44dd698ca06692f2e779111f7f7273e38f1a66d2",
+      "bytes": 4991
+    },
+    "level_masks.csv": {
+      "sha256": "4eb69d60e7c1545609930d828431720d66485dc4b9bc401d8283560eabc0b4c4",
+      "bytes": 37874
+    },
+    "null_draws.csv": {
+      "sha256": "f250683a828e86d9827a3f3d2713b1cfb609675a25e35c399e37cbd4149293cd",
+      "bytes": 278086
+    },
+    "pair_null_draws.csv.gz": {
+      "sha256": "97c7ca515ed37c904f4fbbff13f6b12e736b4f6a3c1003d2ca7b3865d67b3d5f",
+      "bytes": 4579165
+    },
+    "pair_summary.csv": {
+      "sha256": "c307d0a6b5b6c3af83aa67adc1aa5126529e781a65cd5c8e034bfe99e779a034",
+      "bytes": 14478
+    },
+    "README.md": {
+      "sha256": "dda01827cb79623bed7a346305229792eff85d0fa5d24648b3194a134802491e",
+      "bytes": 1528
+    },
+    "source_code/prepare_shuffle.py": {
+      "sha256": "da8dade456e97f5eb56653be5c10c718442d99268953a34e53bfad5b4e1ee776",
+      "bytes": 17230
+    },
+    "summary.json": {
+      "sha256": "f648bc075ad5a8ce6dc0f7b3e5ad7206d77810292e4b604b5322bce46664c6c6",
+      "bytes": 4114
+    }
+  },
+  "source_inventory": {
+    "frozen/pair_summary.csv": {
+      "sha256": "3380dc8e06bfcaeccd4f8aa049f8b784a508ec5962a5ce852cbe8b1070b00957",
+      "bytes": 6594,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\pair_summary.csv"
+    },
+    "frozen/pair_by_depth.csv": {
+      "sha256": "ea1b34233353915b8729a9216325f5a46c80e9ce7e6dfcd0899730ca9894ca60",
+      "bytes": 49262,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\pair_by_depth.csv"
+    },
+    "frozen/pair_depth_cross_similarity_matrices.csv": {
+      "sha256": "c79be58285ac2d7762cc1f6ab63a37f1ddf2b3603db1d13051e7c4197eef46c3",
+      "bytes": 190987,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\pair_depth_cross_similarity_matrices.csv"
+    },
+    "frozen/mean_cross_depth_matrix.csv": {
+      "sha256": "b4bec935e48f263a75ae199ba952782037663fe58166472d45ea5740e3939c71",
+      "bytes": 1012,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\mean_cross_depth_matrix.csv"
+    },
+    "frozen/matrix_pair_support.csv": {
+      "sha256": "b68b589b8974ab92df9032ab4f76faeb7dbcca87e8402787d124730d722289f5",
+      "bytes": 195,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\matrix_pair_support.csv"
+    },
+    "frozen/registered_neuron_depth_maps.csv": {
+      "sha256": "17ba229d9ea69d6234a866649bda1ac364c3e9abd15b963c737f84063f218e9d",
+      "bytes": 5658429,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\registered_neuron_depth_maps.csv"
+    },
+    "frozen/source_support_and_registration_audit.csv": {
+      "sha256": "d203b7a0b6289f943afa9b6a85c2acabea847e8266a24874945720b12db90b76",
+      "bytes": 18701,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\source_support_and_registration_audit.csv"
+    },
+    "frozen/global_clustered_inference.csv": {
+      "sha256": "2b0ab1e9fa332c1a16a889e0696fad343c0dc206e22475b3326eb63221afde2d",
+      "bytes": 542,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\global_clustered_inference.csv"
+    },
+    "frozen/frozen_source_selection.csv": {
+      "sha256": "e54a7b96d5b7b1cfc73e1016f48e0dc2127cc89ea8258096b78a7976ab103be7",
+      "bytes": 10169,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\frozen_source_selection.csv"
+    },
+    "frozen/inherited_session_alignment_audit.csv": {
+      "sha256": "2dd788feceecf1ec570d83ce87ada80061037978c741ac00ac21b9f25a8a349c",
+      "bytes": 13500,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\inherited_session_alignment_audit.csv"
+    },
+    "frozen/independent_numeric_validation.json": {
+      "sha256": "087e91af183ddbc07e74626b00af97fd5d66efb4707b70121ce53c7870a8e48b",
+      "bytes": 446,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\independent_numeric_validation.json"
+    },
+    "frozen/raw_C_reconstruction_audit.csv": {
+      "sha256": "db731fd6f2ef734379372d2bcdff78657f9253d3cb27a9fadd100e9550cfe4b6",
+      "bytes": 739,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\raw_C_reconstruction_audit.csv"
+    },
+    "frozen/raw_validation_depth_exposure.csv": {
+      "sha256": "e480aa02df82fd58c915c41fe2d5b575ce4cc1ad3263be455b3f35604c307511",
+      "bytes": 1585,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\raw_validation_depth_exposure.csv"
+    },
+    "frozen/MANIFEST.json": {
+      "sha256": "eb452a8fdc3540df90c2d0e66df42fef8fe5adf29a923133c4ffb9a41b9cce3d",
+      "bytes": 45186,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\MANIFEST.json"
+    },
+    "frozen/intermediates/01_418RRday1_to_418-3day1.npz": {
+      "sha256": "e5b76a0d1c03f0fbc55a34edadaa633a9ce3ac8292eab037c86a3bf4e78284fc",
+      "bytes": 356579,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\01_418RRday1_to_418-3day1.npz"
+    },
+    "frozen/intermediates/02_422RRday1_to_422-3day1.npz": {
+      "sha256": "f846ee61f020e77f6ddfe29c74d816718b99601a2441a22f02d8a461efb5749a",
+      "bytes": 337202,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\02_422RRday1_to_422-3day1.npz"
+    },
+    "frozen/intermediates/03_434RRday1_to_434-3day1.npz": {
+      "sha256": "63fc33b92eb9344144a8449feea803a3191ac2ebb06dfe2f64769708f25d5913",
+      "bytes": 352004,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\03_434RRday1_to_434-3day1.npz"
+    },
+    "frozen/intermediates/04_451Rday1_to_451-3day1.npz": {
+      "sha256": "e79c8be51e71b56ae979cbfa494d28d24a1ea0e72b5c07fb0bbeda173e54b838",
+      "bytes": 357997,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\04_451Rday1_to_451-3day1.npz"
+    },
+    "frozen/intermediates/05_468Lday1_to_468-3day1.npz": {
+      "sha256": "9dcdfb040ed0ce062c7540de0a54c491be3ad94d55b5d3c6ba590e71a1b2f21d",
+      "bytes": 297998,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\05_468Lday1_to_468-3day1.npz"
+    },
+    "frozen/intermediates/06_488Rday1_to_488-3day1.npz": {
+      "sha256": "5ed19140e35f9157012244fa4485b4bc174bfda1b2554533458fa007e4a3ca82",
+      "bytes": 306127,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\06_488Rday1_to_488-3day1.npz"
+    },
+    "frozen/intermediates/07_489Lday1_to_489-3day1.npz": {
+      "sha256": "67d0cfd11c033b66bef6bb0d48ce7a0f325f0b97de338800d454c0a0ad0aadcd",
+      "bytes": 298880,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\07_489Lday1_to_489-3day1.npz"
+    },
+    "frozen/intermediates/08_579RLday1_to_579-3day1.npz": {
+      "sha256": "583a68eeabb95b94fa364859e144edc94f1e95ad7e44d3c8057b06249d625c35",
+      "bytes": 367159,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\08_579RLday1_to_579-3day1.npz"
+    },
+    "frozen/intermediates/09_837day1_to_837-3day1.npz": {
+      "sha256": "07a480f2cf7e6d821f890ff9fe3ccef6581cbf6b03d30abd357a3d31ffd39169",
+      "bytes": 385645,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\09_837day1_to_837-3day1.npz"
+    },
+    "frozen/intermediates/10_838day1_to_838-3day1.npz": {
+      "sha256": "456330f17ee62e71c40f7c0faa03315baf62b019486293cfbe9c93456807ec00",
+      "bytes": 406757,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\10_838day1_to_838-3day1.npz"
+    },
+    "frozen/intermediates/11_839day1_to_839-3day1.npz": {
+      "sha256": "9d94307be079f01af70a7219c3e739d7d838024c57b5d543f638cdeab4add8f8",
+      "bytes": 339332,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\11_839day1_to_839-3day1.npz"
+    },
+    "frozen/intermediates/12_842day1_to_842-3day1.npz": {
+      "sha256": "d24ec8c444514900f7d3589fd1d7f5eb75d91e52738fb9ed6fd04d329fd9fe47",
+      "bytes": 279121,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\12_842day1_to_842-3day1.npz"
+    },
+    "frozen/intermediates/13_862day1_to_862-3day1.npz": {
+      "sha256": "07a84a38dc80ad101cfc994bfda5450b83ed5e7ca5df2a37a149a197c15c58c5",
+      "bytes": 307904,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\13_862day1_to_862-3day1.npz"
+    },
+    "frozen/intermediates/14_1616bday1_to_1616b-3day1.npz": {
+      "sha256": "7a219b796e138668ac6202bf189f352ba0b3eb12c7127c2988254be27a9f74c6",
+      "bytes": 470487,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\14_1616bday1_to_1616b-3day1.npz"
+    },
+    "frozen/intermediates/15_418-3day1_to_418-6day1.npz": {
+      "sha256": "2f84e011a0a6262d7e8c5c086ab92dbe1e9a1033952772d3b85174c5c7f73ef8",
+      "bytes": 375143,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\15_418-3day1_to_418-6day1.npz"
+    },
+    "frozen/intermediates/16_422-3day1_to_422-6day1.npz": {
+      "sha256": "88be7851fe8216c2a7b3a895a8d9d2a2fe35124bd673622c45d6d4711bbb274c",
+      "bytes": 306536,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\16_422-3day1_to_422-6day1.npz"
+    },
+    "frozen/intermediates/17_451-3day1_to_451-6day1.npz": {
+      "sha256": "60f19c462b0a016178b276073c2d46728a3b6ffc54a3b813e3562c5fbd051d10",
+      "bytes": 360006,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\17_451-3day1_to_451-6day1.npz"
+    },
+    "frozen/intermediates/18_468-3day1_to_468-6day1.npz": {
+      "sha256": "2caab3bc297d6bc519afc711cc2a8b330a38f9faa1e5c390b7611302c9624e95",
+      "bytes": 311498,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\18_468-3day1_to_468-6day1.npz"
+    },
+    "frozen/intermediates/19_488-3day1_to_488-6day1.npz": {
+      "sha256": "86d36b75fad24fba364f7f45017082b30b5f2c22b7a49cff05d585554066af40",
+      "bytes": 308846,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\19_488-3day1_to_488-6day1.npz"
+    },
+    "frozen/intermediates/20_489-3day1_to_489-6day1.npz": {
+      "sha256": "addb8162822ec8cb6f147428bc72771a6f774ec52289f65468b8487bb4b17f14",
+      "bytes": 304794,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\20_489-3day1_to_489-6day1.npz"
+    },
+    "frozen/intermediates/21_837-3day1_to_837-6day1.npz": {
+      "sha256": "86a7567ea5659cef05a0b5500821dda9b021aa9b24283d418fde14c9c9d0aa3e",
+      "bytes": 415702,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\21_837-3day1_to_837-6day1.npz"
+    },
+    "frozen/intermediates/22_838-3day1_to_838-6day1.npz": {
+      "sha256": "394853dc80f66ec1478768b31a130ac41623674c87cc349bd67a69902b49492a",
+      "bytes": 468469,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\22_838-3day1_to_838-6day1.npz"
+    },
+    "frozen/intermediates/23_839-3day1_to_839-6day1.npz": {
+      "sha256": "8f7ad1c5cf112a546893f17a10db880cb24ebbd8b6b745b0aca5a321dffe7587",
+      "bytes": 402451,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\23_839-3day1_to_839-6day1.npz"
+    },
+    "frozen/intermediates/24_842-3day1_to_842-6day1.npz": {
+      "sha256": "1217961183bd67515cdbcf5fb827fe12440f4ddb6ba08b200b873a790fdfb50d",
+      "bytes": 352536,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\24_842-3day1_to_842-6day1.npz"
+    },
+    "frozen/intermediates/25_862-3day1_to_862-6day1.npz": {
+      "sha256": "a7f084d445be887d78eb8052e3b57840bf6dcb8fa9a29d2f1d5106ac625ce963",
+      "bytes": 323850,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\25_862-3day1_to_862-6day1.npz"
+    },
+    "frozen/intermediates/26_418-6day1_to_418-9day1.npz": {
+      "sha256": "2fd95124b8941d852d17823fc52d8249f30edd65a4e1c6a430fb7767f1328707",
+      "bytes": 357070,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\26_418-6day1_to_418-9day1.npz"
+    },
+    "frozen/intermediates/27_451-6day1_to_451-9day1.npz": {
+      "sha256": "e5684daeec77c739494bbb975a82c91d01423506c46c6de463dd5f6dabc86130",
+      "bytes": 365443,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\27_451-6day1_to_451-9day1.npz"
+    },
+    "frozen/intermediates/28_468-6day1_to_468-9day1.npz": {
+      "sha256": "e0f6488485548813a9a7540aaff33326c2b81180deda31a11b45b2659bf52ea9",
+      "bytes": 302777,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\28_468-6day1_to_468-9day1.npz"
+    },
+    "frozen/intermediates/29_837-6day1_to_837-9day1.npz": {
+      "sha256": "f052c0df07a04fa2eef6ad5190423be57232cbe4fc266a00a8cb111e5ad67bb6",
+      "bytes": 425072,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\29_837-6day1_to_837-9day1.npz"
+    },
+    "frozen/intermediates/30_838-6day1_to_838-9day1.npz": {
+      "sha256": "2718fc10a64daf2ae164a957a456d49fe11528cfd61f564dd8b7a367dbcfeb77",
+      "bytes": 419851,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\30_838-6day1_to_838-9day1.npz"
+    },
+    "frozen/intermediates/31_839-6day1_to_839-9day1.npz": {
+      "sha256": "3e3a9b7eca73fe84dc2b2f597df3bff57a9c9fd32cc209c3e8a95b972d5d8718",
+      "bytes": 445278,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\31_839-6day1_to_839-9day1.npz"
+    },
+    "frozen/intermediates/32_842-6day1_to_842-9day1.npz": {
+      "sha256": "d1ceebd8ed853cae885beceb9aa00f5c360775cca69e88d59420270132ab34a9",
+      "bytes": 361390,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\32_842-6day1_to_842-9day1.npz"
+    },
+    "frozen/intermediates/33_468-9day1_to_468-12day1.npz": {
+      "sha256": "aa965bff6e2399590a3f00725b26d18a44bf8a2cf0c4b4c0f543084d43eba544",
+      "bytes": 307178,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\33_468-9day1_to_468-12day1.npz"
+    },
+    "frozen/intermediates/34_837-9day1_to_837-12day1.npz": {
+      "sha256": "cd55a18ea1b321297631a79d873ed28645c62451ea9cad7e246bee9707fd49e2",
+      "bytes": 387556,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\34_837-9day1_to_837-12day1.npz"
+    },
+    "frozen/intermediates/35_838-9day1_to_838-12day1.npz": {
+      "sha256": "baeb54d41ebf7030d42374bc9280dbe769f4f850914b32303815d40d2e6a3ef9",
+      "bytes": 438056,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\35_838-9day1_to_838-12day1.npz"
+    },
+    "frozen/intermediates/36_839-9day1_to_839-12day1.npz": {
+      "sha256": "edf7e022c323fdddec8a6d09efaf0506cda3c171e603ac1a5b356a871ba49056",
+      "bytes": 373647,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\analysis\\mm_proposed_panels_2026-09-24\\level_pv\\intermediates\\36_839-9day1_to_839-12day1.npz"
+    },
+    "frozen/analyze_mm_level_population_vectors.py": {
+      "sha256": "b38d9983abe46b17fdad84be66845a0f83a1529d4a5bf32a6f21ba85003c26f5",
+      "bytes": 36064,
+      "source": "D:\\combineddata\\github_clean_repo\\scripts\\analyze_mm_level_population_vectors.py"
+    },
+    "frozen/figure5_matrix_reference.csv": {
+      "sha256": "b4bec935e48f263a75ae199ba952782037663fe58166472d45ea5740e3939c71",
+      "bytes": 1012,
+      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\level_pv\\level_pv_matrix.csv"
+    }
+  },
+  "source_analysis_manifest_sha256": "eb452a8fdc3540df90c2d0e66df42fef8fe5adf29a923133c4ffb9a41b9cce3d",
+  "upstream_intermediate_hash_limitation": "Original manifest does not include intermediate NPZ hashes; numerical maps/IDs/masks and matrices verified against hashed exported tables, null means verified within float32 quantization; all NPZ inputs hashed here.",
+  "inherited_tests_unchanged": true,
+  "figure5_matrix_sha256": "b4bec935e48f263a75ae199ba952782037663fe58166472d45ea5740e3939c71",
+  "new_raw_analysis_runs": 0,
+  "new_permutations": 0
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "source-release-statistical-inputs/v1",
+  "sources": [
+    {
+      "path": "docs/sorted_data_full_figure_rerun_2026-06-11/figure4d_same_stage_support_matched_sorted_target164_no_manual_mask_2026-08-07/panel_same_stage_correlations.csv",
+      "sha256": "0c92d3c3e8aa18b4c30c80546b2338721b08a3e0fe80f1969e9d28a11b2d373f",
+      "bytes": 4938
+    },
+    {
+      "path": "docs/sorted_data_full_figure_rerun_2026-06-11/figure4d_same_stage_support_matched_sorted_target164_no_manual_mask_2026-08-07/panel_same_stage_shuffle.csv",
+      "sha256": "3cd2755ace06eafd1f9a5fdc699148e7d3e3fd45f72668c0d2de3c9d8b2b7fcc",
+      "bytes": 13684
+    },
+    {
+      "path": "docs/sorted_data_full_figure_rerun_2026-06-11/figure2_main3_ed12_source_repair_842_2026-08-03/figure2_long_gap_pair_rows_corrected_842_common.csv",
+      "sha256": "03497b45deef0a780c006c5f2498257b40a06e8fe85d6988c4a31e336c517add",
+      "bytes": 98749
+    }
+  ],
+  "output": {
+    "path": "level_gap_pair_values.csv",
+    "sha256": "efc7793a7534a1658d4312b53a8c89a84b16effdccd4309e5c4eca458c4d348c"
+  },
+  "transformation": "Select nondescription-only Day1-Day2 experience stages 0-3, exact animal/stage join to shuffle means; select level metric from all-lag long-gap rows. No values recomputed upstream.",
+  "unit": "one retained recording pair; equal pair weighting; Student t(N-1) CI",
+  "raw_acquisition_files_included": false
+}

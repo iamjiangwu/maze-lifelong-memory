@@ -1,0 +1,268 @@
+{
+  "schema": "ed9_first30_ordinary_level_source/v1",
+  "status": "PASS",
+  "created_utc": "2026-09-26T05:38:36.461167+00:00",
+  "current_main3_record": "docs/figure_version_records/main_figure3_2026-09-25_round12_smaller_panel_m_ns",
+  "new_panel": "m",
+  "existing_long_gap_panel_moves_to": "n",
+  "metric": "level_map_correlation",
+  "display_name": "Level map correlation",
+  "representation": "ordinary main-text Level code, seven binary-tree run levels; internal source identifier tree_depth7",
+  "not_geometric8": true,
+  "definition": "For each recording cycle, neuron-wise Pearson correlation across common occupied levels between the first 30 min of Day i maze time and the full Day i+1 session template, averaged across finite neurons. Each plotted row is one animal-cycle value.",
+  "signal_source": "C",
+  "timebase": "First window [0,1800] seconds in maze time; occupancy from retained selected rows x DT, not elapsed gap-inclusive time.",
+  "support_policy": "scaled_nonoverlap; target occupancy threshold 5 s/level divided by floor(session span/window length); full-session template threshold 5 s/level; minimum 4 common levels and minimum 300 s retained selected duration. Actual first windows retain 6 or 7 common levels.",
+  "cohort": {
+    "rows": 59,
+    "animals": 22,
+    "experience_index": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "experience_groups": [
+      "naive",
+      "3mo",
+      "6mo",
+      "9mo",
+      "12mo"
+    ],
+    "rows_per_group": [
+      22,
+      14,
+      12,
+      7,
+      4
+    ],
+    "source_bundles": [
+      {
+        "cohort": "sorted_non1616",
+        "rows": 48,
+        "level_definition": "tree_depth7",
+        "level_col": "tree_depth",
+        "n_levels": 7,
+        "signal_source": "C",
+        "neural_source_counts": {
+          "sorted": 48
+        }
+      },
+      {
+        "cohort": "original_fallback_naive",
+        "rows": 8,
+        "level_definition": "tree_depth7",
+        "level_col": "tree_depth",
+        "n_levels": 7,
+        "signal_source": "C",
+        "neural_source_counts": {
+          "original_fallback": 8
+        }
+      },
+      {
+        "cohort": "sorted_1616",
+        "rows": 3,
+        "level_definition": "tree_depth7",
+        "level_col": "tree_depth",
+        "n_levels": 7,
+        "signal_source": "C",
+        "neural_source_counts": {
+          "sorted": 3
+        }
+      }
+    ],
+    "matching": "Adjacent-day joint-deconvolution identity, as inherited from maintained Figure3 source; original fallback 8 naive cycles remains explicitly labeled."
+  },
+  "inference": "OLS first30 value ~ experience_index; CR1 covariance clustered by animal; primary two-sided Student t(21) slope test; BH adjustment across the four Main-Figure representation metrics, retaining current saved adjusted p.",
+  "bh4_family": [
+    {
+      "metric": "place_map_correlation",
+      "p_two_sided": 2.700264379695043e-07,
+      "q_bh_two_sided": 5.400528759390086e-07
+    },
+    {
+      "metric": "pv_correlation",
+      "p_two_sided": 8.731256672189476e-05,
+      "q_bh_two_sided": 0.0001164167556291
+    },
+    {
+      "metric": "ensemble_rate_correlation",
+      "p_two_sided": 0.0016435584080281,
+      "q_bh_two_sided": 0.0016435584080281
+    },
+    {
+      "metric": "level_map_correlation",
+      "p_two_sided": 2.040355457965424e-09,
+      "q_bh_two_sided": 8.161421831861697e-09
+    }
+  ],
+  "level_statistics": {
+    "metric": "level_map_correlation",
+    "n_rows": 59,
+    "n_animals": 22,
+    "n_experience_levels": 5,
+    "intercept": 0.2391457421912496,
+    "slope": 0.0620327061792,
+    "slope_se": 0.0062216440032161,
+    "slope_t": 9.97046860076434,
+    "p_two_sided": 2.040355457965424e-09,
+    "p_two_sided_asymptotic": 2.0525810834881036e-23,
+    "cluster_df": 21,
+    "pearson_r": 0.7410012515750837,
+    "pearson_p_pair_naive": 1.941697682201295e-11,
+    "r2_pair_naive": 0.5490828548358405,
+    "test": "OLS first 30-min correlation ~ experience index with CR1 covariance clustered by animal; primary two-sided P uses Student t(G-1); the asymptotic cluster P is reported separately.",
+    "q_bh_two_sided": 8.161421831861697e-09,
+    "q_bh_two_sided_asymptotic": 8.210324333952413e-23,
+    "q_bh4_family": "four Main-Figure representation metrics"
+  },
+  "group_means": [
+    {
+      "experience_index": 0,
+      "experience_group": "naive",
+      "n": 22,
+      "mean": 0.23085011195135977,
+      "sem": 0.013524842376633026
+    },
+    {
+      "experience_index": 1,
+      "experience_group": "3mo",
+      "n": 14,
+      "mean": 0.31551752754147,
+      "sem": 0.022477939255253356
+    },
+    {
+      "experience_index": 2,
+      "experience_group": "6mo",
+      "n": 12,
+      "mean": 0.37323459685571087,
+      "sem": 0.025203801064929216
+    },
+    {
+      "experience_index": 3,
+      "experience_group": "9mo",
+      "n": 7,
+      "mean": 0.40913122081199027,
+      "sem": 0.01686651643658528
+    },
+    {
+      "experience_index": 4,
+      "experience_group": "12mo",
+      "n": 4,
+      "mean": 0.48084254906519314,
+      "sem": 0.036664582891154734
+    }
+  ],
+  "audit": {
+    "saved_level_upstream_summary_max_abs_difference": 0.0,
+    "saved_level_first_window_max_abs_difference": 0.0,
+    "all_metric_saved_statistics_max_abs_difference": 8.881784197001252e-16,
+    "ed9_round40_H1_firstpoint_group_mean_max_abs_difference": 5.551115123125783e-17,
+    "all59_first_windows_begin_at_zero_and_end1800": true,
+    "all59_first_windows_coverage_and_support_pass": true,
+    "current_main3_input_hashes_match_authority_manifest": true,
+    "tree_source_hashes_match_authority_manifest": [
+      "D:\\combineddata\\github_clean_repo\\docs\\coverage5min_window_reanalysis_2026-08-05\\fixed_reference_tree_depth7\\sorted_non1616\\animal_metric_summary.csv",
+      "D:\\combineddata\\github_clean_repo\\docs\\coverage5min_window_reanalysis_2026-08-05\\fixed_reference_tree_depth7\\original_fallback_naive\\animal_metric_summary.csv",
+      "D:\\combineddata\\github_clean_repo\\docs\\coverage5min_window_reanalysis_2026-08-05\\fixed_reference_tree_depth7\\sorted_1616\\animal_metric_summary.csv"
+    ],
+    "round40_I_first30_files": [],
+    "round40_H1_parity": "First-window means agree; no I first30 points or stats in Round40 parity folder.",
+    "no_geometric8_rows_in_output": true,
+    "source_bundle_note": "geometric8_* prefixes in the all-metric source identify legacy bundles for the other three metrics only. All exported Level rows use tree_depth7_* bundles.",
+    "new_raw_analysis_runs": 0
+  },
+  "sources": {
+    "docs/figure_version_records/main_figure3_2026-09-25_round12_smaller_panel_m_ns/source_data/first30/combined_first30_points_all_metrics.csv": {
+      "sha256": "4f9848193d758e65fd11c7a2fb1b82574fad010a4096b86af30a16095294bdb9",
+      "bytes": 34599
+    },
+    "docs/figure_version_records/main_figure3_2026-09-25_round12_smaller_panel_m_ns/source_data/first30/combined_first30_stats_all_metrics.csv": {
+      "sha256": "fcb6a87f37e5d0b97b978bb3c2713efe4403bc84b17892a47a6a6d3716be8af3",
+      "bytes": 2152
+    },
+    "docs/figure_version_records/main_figure3_2026-09-25_round12_smaller_panel_m_ns/source_data/first30/SOURCE_MANIFEST.json": {
+      "sha256": "51bcf45181cfb2c11c103952a25a487333f2ec257d7f7400bc099ef160f4d3fd",
+      "bytes": 5783
+    },
+    "scripts/summarize_coverage5min_figure3_sources.py": {
+      "sha256": "0e18022c7a19a06c2565a3c66343a5d7805fdaa3cc0922bd42fc4ca1a6930f0c",
+      "bytes": 21648
+    },
+    "scripts/export_fixed_reference_window_convergence.py": {
+      "sha256": "ab50b89625ff58e370c172fc9c121a6f9220f82a241dfac5a58dc9b990e9ae56",
+      "bytes": 116819
+    },
+    "scripts/analysis_common.py": {
+      "sha256": "541d48828784910afd63501801264a1d855429bafbcc133876ea115d642122a3",
+      "bytes": 17716
+    },
+    "src/ca_analysis/spatial.py": {
+      "sha256": "197f00905514536817af04acd6756f6192999df0eb2850ce18730ae781c34156",
+      "bytes": 87080
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/sorted_non1616/run_manifest.json": {
+      "sha256": "69ef913a904717b7fb15fd1624fb01e61d32abb3207beac8ef06b930328ee4aa",
+      "bytes": 2935
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/sorted_non1616/animal_metric_summary.csv": {
+      "sha256": "406309ee1b20b6ed325b9a69d98e9601cb1ff29af5821985b44b0439aec4b100",
+      "bytes": 13866
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/sorted_non1616/window_convergence_curves.csv": {
+      "sha256": "288f8694759304d5a040889a23cd9b542f86de76bf4e3c062d4c93572ad2ee76",
+      "bytes": 5429747
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/sorted_non1616/pair_manifest_used.csv": {
+      "sha256": "aae8b05192367f35235beeabf9d215a0a2c9f142f2a83c948ca5200d9fe25e1e",
+      "bytes": 14045
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/original_fallback_naive/run_manifest.json": {
+      "sha256": "2b345f0eaf32884960a965819ce8cb53288b67971a1a88e84cb649c740531f75",
+      "bytes": 2955
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/original_fallback_naive/animal_metric_summary.csv": {
+      "sha256": "9167e89b93f3242e66472de36a8dde9ac88744dbe1eb5bfd360c31c27b2cf05b",
+      "bytes": 2591
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/original_fallback_naive/window_convergence_curves.csv": {
+      "sha256": "8c7f80f55aa8db7db95f7df81a25f77a9d5d6030e8ee6cdefb2e2984364d54d9",
+      "bytes": 1096341
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/original_fallback_naive/pair_manifest_used.csv": {
+      "sha256": "a4c5f9b0594a9a1b1774001d0b233f4c85627b9f09fc5c7694fe32070c47c69a",
+      "bytes": 3009
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/sorted_1616/run_manifest.json": {
+      "sha256": "353bd2d6c180c8a30f68c5e4421768ff6c42edbfd25e2308e801553db495e25c",
+      "bytes": 2937
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/sorted_1616/animal_metric_summary.csv": {
+      "sha256": "0f9ec379f5029dbc040110cafefd66df182e9a9e51ab2d560358daa5561e2784",
+      "bytes": 1166
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/sorted_1616/window_convergence_curves.csv": {
+      "sha256": "abe3e27657fb05b524be0c00aaa60c51ae29065aee9f36fd49f5b97a06decd32",
+      "bytes": 483379
+    },
+    "docs/coverage5min_window_reanalysis_2026-08-05/fixed_reference_tree_depth7/sorted_1616/pair_manifest_used.csv": {
+      "sha256": "133562d5bcb3f3b9c752a4fc43533c2a51850e19f12e23054e089a8a913b69ba",
+      "bytes": 1203
+    },
+    "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/fig2_fig3_parity_round33/H1_MAIN3_MATCHED59_PLOT_READY.csv": {
+      "sha256": "2d1343fe600447f4a4a27e21f925b3a586141a2ff7a8321dacf0c9c15eec3e6c",
+      "bytes": 192153
+    }
+  },
+  "outputs": {
+    "first30_points.csv": {
+      "sha256": "5503448391e74dacaed35b292782494f9b28388ee2ffd4943d3687e301c3a3d0",
+      "bytes": 8912
+    },
+    "first30_stats.csv": {
+      "sha256": "33bd91356dbc6276dacf511bf4660e502b5f90a3594489527dd10a5532859422",
+      "bytes": 709
+    }
+  }
+}

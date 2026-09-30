@@ -1,0 +1,4 @@
+panel,model,group,n_session_rows,n_mice,observed_mean,simulated_mean,x_column,y_column,marker_area_pt2,alpha
+i,depth_stratified,naive,22,22,0.1259779448423693,0.15846945924791808,real_half_cover_eff,depth_own_half_cover_eff,11,1.0
+i,depth_stratified,LTM,58,18,0.36293844135423814,0.39299615392336956,real_half_cover_eff,depth_own_half_cover_eff,11,1.0
+i,depth_stratified,experienced,74,24,0.3832426852493206,0.43691650292264556,real_half_cover_eff,depth_own_half_cover_eff,11,1.0

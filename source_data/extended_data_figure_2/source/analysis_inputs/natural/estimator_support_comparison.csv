@@ -1,0 +1,13 @@
+window_minutes,estimator,group,group_label,n_all_sessions,n_four_policy_supported,n_depth_supported,n_four_calibration_rows_with_target,n_depth_calibration_rows_with_target,n_mice
+20,equal_junction,LTM,Return,58,58,58,58,58,18
+20,equal_junction,experienced,Second day,74,74,74,71,71,24
+20,equal_junction,naive,Naive,23,23,19,23,23,23
+30,equal_junction,LTM,Return,58,58,58,58,58,18
+30,equal_junction,experienced,Second day,74,74,74,71,71,24
+30,equal_junction,naive,Naive,23,23,22,23,23,23
+20,event_pooled,LTM,Return,58,58,58,58,58,18
+20,event_pooled,experienced,Second day,74,74,74,71,71,24
+20,event_pooled,naive,Naive,23,23,19,23,19,23
+30,event_pooled,LTM,Return,58,58,58,58,58,18
+30,event_pooled,experienced,Second day,74,74,74,71,71,24
+30,event_pooled,naive,Naive,23,23,22,23,22,23

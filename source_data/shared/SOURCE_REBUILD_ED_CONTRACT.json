@@ -1,0 +1,134 @@
+{
+  "schema": "extended-data-source-rebuild-contract/v1",
+  "pointer": "CURRENT_EXTENDED_DATA_FIGURES.md",
+  "shared_runtime": {
+    "path": "SOURCE_REBUILD_ED_RUNTIME.zip",
+    "python_files": 82,
+    "sha256": "ef1fdd9a90564a28f1f866fbb3eadae5c671676bbedeaf7e8343be510352a143"
+  },
+  "policy": {
+    "record_selection": "Resolve the accepted record only through the current pointer.",
+    "quantitative_source": "Quantitative panels must be rendered from record-local maintained-derived tables or arrays by record-frozen Python source code.",
+    "forbidden_reads": [
+      "docs/figure_version_records_archive_2026-08-09",
+      "docs/figure_version_candidates",
+      "C:/Users/jiangwu/Desktop",
+      "D:/neuralData",
+      "D:/neuralData_sort",
+      "F:/",
+      "G:/"
+    ],
+    "master_composite": "The accepted master SVG, PDF, PNG, or TIFF is validation authority only and is never a quantitative renderer input.",
+    "fixed_asset_policy": "Only an explicitly listed illustrative schematic or field-of-view image may be fixed."
+  },
+  "artifacts": {
+    "extended_data_figure_1": {
+      "record": "extended_data_fig01_2026-09-25_round24_trim_right_margin",
+      "renderer": "source_code/render_extended_data_figure1_round4.py",
+      "source_stage": "record-local numerical sources with frozen native panel removal/relettering; retired trajectory inputs retained only for renderer compatibility",
+      "fixed_assets": []
+    },
+    "extended_data_figure_2": {
+      "record": "extended_data_fig02_2026-09-25_round30_display_refinements",
+      "renderer": "source_code/render_ed02_slide3_upright_policy_round18.py",
+      "source_stage": "record-local policy/calibration sources and 18 plot-ready tables; native display means and units; unchanged cohort/inference",
+      "fixed_assets": [
+        "four-policy maze schematic drawn by frozen renderer"
+      ],
+      "code_sidecars": [
+        {
+          "path": "SOURCE_REBUILD_ED2_ROUND23_BASE_RENDERER.py",
+          "bytes": 73895,
+          "sha256": "1dcdbfa435d9d73d72749f2d18940dadfb195a2681deda6d958143851219d810",
+          "provenance": "byte-identical copy of docs/figure_version_records_archive_2026-08-09/extended_data_fig02_2026-08-12_round23_preceding_turn/source_code/render_ed03_fixed_time_30min_full_story.py",
+          "purpose": "frozen Round 23 base-renderer code required by the current ED2 adapter chain; contains rendering logic only and is not a scientific-data input"
+        }
+      ]
+    },
+    "extended_data_figure_3": {
+      "record": "extended_data_fig03_2026-08-13_round3_latent_day_labels",
+      "renderer": "source_code/render_ed03_reward_path_fluency_assembly.py",
+      "source_stage": "record-local fluency, first-visit route, depth, and source-statistics tables",
+      "fixed_assets": [
+        "first-visit maze definition drawn by frozen renderer"
+      ]
+    },
+    "extended_data_figure_4": {
+      "record": "extended_data_fig04_2026-08-12_round4_cycle_labels",
+      "renderer": "source_code/render_ed04_registration_quality_assembly.py",
+      "source_stage": "record-local raw-CellReg-derived candidate, registered-pair, and physical-FOV tables",
+      "fixed_assets": [
+        "embedded_sources/ed05_four_session_418_local_correlation_paper.png",
+        "embedded_sources/ed05_four_session_418_coregistration_paper.png"
+      ]
+    },
+    "extended_data_figure_5": {
+      "record": "extended_data_fig05_2026-09-25_round21_descending_examples",
+      "renderer": "source_code/render_ed05_example_place_maps_assembly.py",
+      "source_stage": "record-local normalized 45x45 current-neuron map NPZ and 15x15 correlations plus equal-weighted corrected-36 session-pair day-combination tables, animal-clustered inference, and unchanged context-control tables",
+      "fixed_assets": []
+    },
+    "extended_data_figure_6": {
+      "record": "extended_data_fig06_2026-08-16_round7_available_curve_all59",
+      "renderer": "source_code/render_ed06_within_session_convergence_assembly.py",
+      "source_stage": "record-local five-minute-gate fixed-window, pivot, support-mask, and reference tables",
+      "fixed_assets": [
+        "analysis-cycle schematic drawn by frozen renderer"
+      ]
+    },
+    "extended_data_figure_7": {
+      "record": "extended_data_fig07_2026-08-18_round17_mouse841_age_metadata",
+      "renderer": "source_code/render_ed07_slide9_age_controls_display.py",
+      "source_stage": "record-local 59-cycle first-window and clean36 long-gap plot/model tables",
+      "fixed_assets": []
+    },
+    "extended_data_figure_8": {
+      "record": "extended_data_fig08_2026-09-09_round25_linearized_place_map_axes",
+      "renderer": "source_code/render_ed08_cohort_transparency_round15.py",
+      "source_stage": "record-local current panel-b location support and all quantitative source tables; panels e/i share linearized place-map correlation wording",
+      "fixed_assets": [
+        "route-coordinate schematic drawn by frozen renderer"
+      ],
+      "source_bundle": {
+        "path": "SOURCE_REBUILD_ED_MAIN4_PANEL_C.zip",
+        "bytes": 20400,
+        "sha256": "5b0e4044fc0c24bf65dc732383b2f0a644fcea44bc6cfc8fb38e4d7703466e73",
+        "pointer": "CURRENT_MAIN_FIGURES.md",
+        "artifact": "main_figure_4",
+        "source_record": "main_figure4_2026-09-07_round9_numeric_schematic",
+        "files": {
+          "main4_panel_c/plot_ready/panel_c_example_map_rows.csv": {
+            "bytes": 17799,
+            "sha256": "715698e89c4c7d9d99e62f32e0c9420013bc361a7d304a41a1aeb9e940e21797"
+          },
+          "main4_panel_c/plot_ready/figure4_panel_c_d1_source_rows.csv": {
+            "bytes": 9693,
+            "sha256": "a25f684a47284d05eb6779a9d3d384a2beea4fa0382634c18c7aa5c2381fafb8"
+          },
+          "main4_panel_c/source_code/render_figure4_day_source_comparison.py": {
+            "bytes": 46877,
+            "sha256": "07b0f73efc819139f005ff875d5b247c31ebf18c9744d5cf8777c333522a6f45"
+          }
+        },
+        "purpose": "regenerate the quantitative Main Figure 4c D1 map used only as ED8 visual grammar authority; accepted Main Figure 4 and copied ED8 artwork are not read"
+      }
+    },
+    "extended_data_figure_9": {
+      "record": "extended_data_fig09_2026-09-08_round40_panel_c_count_axis",
+      "renderer": "source_code/build_ed09_boundary_smoothed_panel_c_round34.py",
+      "source_stage": "record-local full role tables, actual seven-level maze-depth panel-k curves, and unchanged boundary-smoothed panel-c null draws; panel h uses record-local neuron-ID-shuffle threshold estimates and CR1/BH7 inference",
+      "fixed_assets": [
+        "individual_panels/ED9_A1_tree_schematic.svg"
+      ],
+      "panel_c_smoothing_alpha": 0.35,
+      "panel_h_null": "neuron_id",
+      "panel_f_activity_gate": "S >=0.1/min in both sessions"
+    },
+    "extended_data_figure_10": {
+      "record": "extended_data_fig10_2026-09-25_round18_smaller_ns",
+      "renderer": "source_code/render_ed10_slide12_powerpoint_matched.py",
+      "source_stage": "record-local Pearson-rate fixed-neuron synthesis, mouse-clustered CR1/BH3 multiplicity audit, and clean36 level-policy bridge tables",
+      "fixed_assets": []
+    }
+  }
+}
