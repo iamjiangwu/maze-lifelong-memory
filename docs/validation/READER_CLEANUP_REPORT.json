@@ -1,0 +1,171 @@
+{
+  "status": "PASS",
+  "original_source_paths": 970,
+  "retained_frozen_files": 793,
+  "original_snapshot_reconstruction": "byte-identical",
+  "reader_layout_tests": 8,
+  "representative_artifact_builds": [
+    {
+      "artifact": "main_figure_2",
+      "status": "PASS",
+      "comparisons": {
+        "main_figure_2_source_rebuild.pdf": {
+          "reference_sha256": "50baea83391350b4b81d1bd259052c281d729d8e4dd73f17b7f5633a60d60082",
+          "rebuilt_sha256": "ca1de9525b21a6196e501fae2fa3b03bdb05e3dd4a186a9312d5afb159c61673",
+          "byte_identical": false,
+          "pages_identical": true,
+          "text_identical": true,
+          "rendered_pages_identical": true,
+          "pass": true
+        },
+        "main_figure_2_source_rebuild.svg": {
+          "reference_sha256": "851866f7161ecd66e699daf54e688627ce495ce1846f01d0116cfe65f6fb4c04",
+          "rebuilt_sha256": "8838f7d47b3eb791f83a6884e0dfbcec422cd5f7da3bdb07e4d4b5d06a166c91",
+          "byte_identical": false,
+          "pass": true,
+          "comparison": "Hash recorded; complete geometry checked through PNG/PDF"
+        },
+        "main_figure_2_source_rebuild_600dpi.png": {
+          "reference_sha256": "fdcd51adad8b103a387feef90669cc386ae7ae91f97af0ec22ebfea332544467",
+          "rebuilt_sha256": "fdcd51adad8b103a387feef90669cc386ae7ae91f97af0ec22ebfea332544467",
+          "byte_identical": true,
+          "pixels_identical": true,
+          "reference_size": [
+            4250,
+            4934
+          ],
+          "rebuilt_size": [
+            4250,
+            4934
+          ],
+          "pass": true
+        },
+        "main_figure_2_source_rebuild_600dpi.tiff": {
+          "reference_sha256": "9f60bbd4545f95db20e7545f706f447c85254b514e178fbce74a552128c8c2e9",
+          "rebuilt_sha256": "9f60bbd4545f95db20e7545f706f447c85254b514e178fbce74a552128c8c2e9",
+          "byte_identical": true,
+          "pixels_identical": true,
+          "reference_size": [
+            4250,
+            4934
+          ],
+          "rebuilt_size": [
+            4250,
+            4934
+          ],
+          "pass": true
+        }
+      }
+    },
+    {
+      "artifact": "extended_data_figure_10",
+      "status": "PASS",
+      "comparisons": {
+        "ed10_absolute_heatmap.pdf": {
+          "reference_sha256": "deaefb5fd0abeb7a0e0bf4a0c7e6c91b7391fbc3a1b52e757441075bf2627753",
+          "rebuilt_sha256": "d9b39cbc810aee03a957de3026538d9f8fd8553d6193aa1c65eeac39a3cbed12",
+          "byte_identical": false,
+          "pages_identical": true,
+          "text_identical": true,
+          "rendered_pages_identical": true,
+          "pass": true
+        },
+        "ed10_absolute_heatmap.svg": {
+          "reference_sha256": "deb39ff8dc17d9f18c6f50933953d9ec49ec08ead40face9a97bec26a4608b9b",
+          "rebuilt_sha256": "5d5a716879951dcfa59ba15bc4d11c1a8232ae6fa9ea33781697b8d0e408986d",
+          "byte_identical": false,
+          "pass": true,
+          "comparison": "Hash recorded; complete geometry checked through PNG/PDF"
+        },
+        "ed10_absolute_heatmap_600dpi.png": {
+          "reference_sha256": "2808e3d25d9eefc473020726ede2c87d723adb32757dae6571efa0f0b4866cf1",
+          "rebuilt_sha256": "2808e3d25d9eefc473020726ede2c87d723adb32757dae6571efa0f0b4866cf1",
+          "byte_identical": true,
+          "pixels_identical": true,
+          "reference_size": [
+            4500,
+            4500
+          ],
+          "rebuilt_size": [
+            4500,
+            4500
+          ],
+          "pass": true
+        },
+        "ed10_absolute_heatmap_600dpi.tiff": {
+          "reference_sha256": "62d65ea57efce6b56ec5d3d85ad9d0046c46b1dc3c1cbd425613c356567b9c84",
+          "rebuilt_sha256": "62d65ea57efce6b56ec5d3d85ad9d0046c46b1dc3c1cbd425613c356567b9c84",
+          "byte_identical": true,
+          "pixels_identical": true,
+          "reference_size": [
+            4500,
+            4500
+          ],
+          "rebuilt_size": [
+            4500,
+            4500
+          ],
+          "pass": true
+        }
+      }
+    },
+    {
+      "artifact": "supplementary_table_1",
+      "status": "PASS",
+      "comparisons": {
+        "Supplementary_Table_S1_Mouse_Cohorts_by_Analysis.pdf": {
+          "reference_sha256": "745892a101de77a792dc54874b0939a6b79bc222fd4ad98ce170e0c394cefd04",
+          "rebuilt_sha256": "745892a101de77a792dc54874b0939a6b79bc222fd4ad98ce170e0c394cefd04",
+          "byte_identical": true,
+          "pages_identical": true,
+          "text_identical": true,
+          "rendered_pages_identical": true,
+          "pass": true
+        },
+        "Supplementary_Table_S1_Mouse_Cohorts_by_Analysis.xlsx": {
+          "reference_sha256": "7b9136a1183e30b22ab24defa2b37f2784003965255c53e82885ceb5d7a08c56",
+          "rebuilt_sha256": "afa09a661ebbd7e855124e15ec9e55a8f2f5291e7d11273bcf35265210bb402f",
+          "byte_identical": false,
+          "sheets_identical": true,
+          "cell_or_merge_differences": [],
+          "volatile_provenance_differences": [],
+          "pass": true
+        }
+      }
+    },
+    {
+      "artifact": "supplementary_table_2",
+      "status": "PASS",
+      "comparisons": {
+        "Supplementary_Table_2_Long_Gap_Intervals.pdf": {
+          "reference_sha256": "1010429ebbf4069cfaca444f4d5ed76d09fbf8fa36f70970f090597c67dc69eb",
+          "rebuilt_sha256": "53444fd6b7da9002a72adad21f5dbd32f8c6933b90f8b39897ab81939716d02f",
+          "byte_identical": false,
+          "pages_identical": true,
+          "text_identical": true,
+          "rendered_pages_identical": true,
+          "pass": true
+        },
+        "Supplementary_Table_2_Long_Gap_Intervals.xlsx": {
+          "reference_sha256": "a6952f7a2378aeb3a33c97abe9d167331fc9edea21b4e3b5e7864b1fda91b0d5",
+          "rebuilt_sha256": "01402ef2afa2d6bc44d4ac94e5ce2d1139cc82fa484004cffd2a21100f28cc29",
+          "byte_identical": false,
+          "sheets_identical": true,
+          "cell_or_merge_differences": [],
+          "volatile_provenance_differences": [
+            {
+              "sheet": "Summary and provenance",
+              "cell": "C34",
+              "reason": "Digest of regenerated ledger manifest includes build-location provenance",
+              "verified_against_regenerated_manifest": true
+            }
+          ],
+          "pass": true
+        }
+      }
+    }
+  ],
+  "statistical_replay": "PASS",
+  "statistical_analysis_groups": 53,
+  "scope": "Repository organization/documentation/entry points only; no original numerical data or estimators edited"
+}

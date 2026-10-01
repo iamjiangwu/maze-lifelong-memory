@@ -1,8 +1,13 @@
 # Source files are hash-bound. Never normalize their line endings on clone.
-source_data/** -text
+figures/** -text
+tables/** -text
+reproduction/** -text
+/requirements.txt -text
 docs/validation/** -text
 # Repository-facing documentation can use normal text handling.
 /README.md text eol=lf
+/reproduce.py text eol=lf
+/reproduce.ps1 text eol=lf
 /docs/PROVENANCE.md text eol=lf
 /.gitignore text eol=lf
 /.gitattributes text eol=lf

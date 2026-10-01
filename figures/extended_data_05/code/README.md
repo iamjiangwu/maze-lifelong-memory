@@ -1,0 +1,69 @@
+# Extended Data Figure 5: build code
+
+Run [../build.py](../build.py) to build this artifact. These frozen helpers are executed through the repository's source-only launcher, not individually. Shared helpers are listed explicitly below. The original import/file layout is restored in a temporary directory; no scientific calculation is edited.
+
+| Code file | Original module location |
+|---|---|
+| [build_ed05_current_gallery_round19.py](build_ed05_current_gallery_round19.py) | `extended_data_figure_5/source/source_code/build_ed05_current_gallery_round19.py` |
+| [build_ed05_descending_examples_round21.py](build_ed05_descending_examples_round21.py) | `extended_data_figure_5/source/source_code/build_ed05_descending_examples_round21.py` |
+| [build_ed05_gallery_provenance.py](build_ed05_gallery_provenance.py) | `extended_data_figure_5/source/source_code/build_ed05_gallery_provenance.py` |
+| [build_ed05_session_pair_round20.py](build_ed05_session_pair_round20.py) | `extended_data_figure_5/source/source_code/build_ed05_session_pair_round20.py` |
+| [build_ed06_example_place_map_candidates_v3.py](build_ed06_example_place_map_candidates_v3.py) | `extended_data_figure_5/source/source_code/build_ed06_example_place_map_candidates_v3.py` |
+| [build_ed06_example_place_map_shortlist_32.py](build_ed06_example_place_map_shortlist_32.py) | `extended_data_figure_5/source/source_code/build_ed06_example_place_map_shortlist_32.py` |
+| [compare_equal_time_context_sampling_policies.py](compare_equal_time_context_sampling_policies.py) | `extended_data_figure_5/source/source_code/compare_equal_time_context_sampling_policies.py` |
+| [ed_supplement_common.py](ed_supplement_common.py) | `extended_data_figure_5/source/source_code/ed_supplement_common.py` |
+| [equal_time_home_cage_rate_control.py](equal_time_home_cage_rate_control.py) | `extended_data_figure_5/source/source_code/equal_time_home_cage_rate_control.py` |
+| [prepare_ed05_context_only_all_outside_sources.py](prepare_ed05_context_only_all_outside_sources.py) | `extended_data_figure_5/source/source_code/prepare_ed05_context_only_all_outside_sources.py` |
+| [promote_ed05_bh3_round16.py](promote_ed05_bh3_round16.py) | `extended_data_figure_5/source/source_code/promote_ed05_bh3_round16.py` |
+| [promote_ed05_bh9_round15.py](promote_ed05_bh9_round15.py) | `extended_data_figure_5/source/source_code/promote_ed05_bh9_round15.py` |
+| [promote_ed05_context_only_all_outside_round17.py](promote_ed05_context_only_all_outside_round17.py) | `extended_data_figure_5/source/source_code/promote_ed05_context_only_all_outside_round17.py` |
+| [promote_ed05_current_gallery_round19.py](promote_ed05_current_gallery_round19.py) | `extended_data_figure_5/source/source_code/promote_ed05_current_gallery_round19.py` |
+| [promote_ed05_panel_a_15x15_labels_round18.py](promote_ed05_panel_a_15x15_labels_round18.py) | `extended_data_figure_5/source/source_code/promote_ed05_panel_a_15x15_labels_round18.py` |
+| [promote_ed05_session_pair_round20.py](promote_ed05_session_pair_round20.py) | `extended_data_figure_5/source/source_code/promote_ed05_session_pair_round20.py` |
+| [rebuild_ed5_pv_first.py](rebuild_ed5_pv_first.py) | `extended_data_figure_5/source/source_code/rebuild_ed5_pv_first.py` |
+| [recompute_caption_bh_from_maxt.py](recompute_caption_bh_from_maxt.py) | `extended_data_figure_5/source/source_code/recompute_caption_bh_from_maxt.py` |
+| [recompute_ed05_pair_weighted_day_combinations.py](recompute_ed05_pair_weighted_day_combinations.py) | `extended_data_figure_5/source/source_code/recompute_ed05_pair_weighted_day_combinations.py` |
+| [render_ed05_bh3_round16.py](render_ed05_bh3_round16.py) | `extended_data_figure_5/source/source_code/render_ed05_bh3_round16.py` |
+| [render_ed05_bh9_round15.py](render_ed05_bh9_round15.py) | `extended_data_figure_5/source/source_code/render_ed05_bh9_round15.py` |
+| [render_ed05_context_only_all_outside_round17.py](render_ed05_context_only_all_outside_round17.py) | `extended_data_figure_5/source/source_code/render_ed05_context_only_all_outside_round17.py` |
+| [render_ed05_example_place_maps_assembly.py](render_ed05_example_place_maps_assembly.py) | `extended_data_figure_5/source/source_code/render_ed05_example_place_maps_assembly.py` |
+| [render_ed05_panel_a_15x15_labels_round18.py](render_ed05_panel_a_15x15_labels_round18.py) | `extended_data_figure_5/source/source_code/render_ed05_panel_a_15x15_labels_round18.py` |
+| [summarize_equal_time_context_fairness.py](summarize_equal_time_context_fairness.py) | `extended_data_figure_5/source/source_code/summarize_equal_time_context_fairness.py` |
+| [test_ed05_example_place_maps_assembly.py](test_ed05_example_place_maps_assembly.py) | `extended_data_figure_5/source/source_code/test_ed05_example_place_maps_assembly.py` |
+| [test_ed05_panel_a_15x15_labels.py](test_ed05_panel_a_15x15_labels.py) | `extended_data_figure_5/source/source_code/test_ed05_panel_a_15x15_labels.py` |
+| [validate_figure_caption_collection.py](validate_figure_caption_collection.py) | `extended_data_figure_5/source/source_code/validate_figure_caption_collection.py` |
+| [validate_panel_swap.py](validate_panel_swap.py) | `extended_data_figure_5/source/source_code/validate_panel_swap.py` |
+| [audit_ed06_ed10_embedded_image_dpi.py](../../../reproduction/library/audit_ed06_ed10_embedded_image_dpi.py) | `extended_data_figure_5/source/source_code/audit_ed06_ed10_embedded_image_dpi.py` |
+| [build_main_figure5b_historical_order_candidate.py](../../../reproduction/library/build_main_figure5b_historical_order_candidate.py) | `extended_data_figure_5/source/source_code/build_main_figure5b_historical_order_candidate.py` |
+| [build_main_figure_refinement_round2_native_panel_candidates.py](../../../reproduction/library/build_main_figure_refinement_round2_native_panel_candidates.py) | `extended_data_figure_5/source/source_code/build_main_figure_refinement_round2_native_panel_candidates.py` |
+| [export_current_version_records_to_desktop.py](../../../reproduction/library/export_current_version_records_to_desktop.py) | `extended_data_figure_5/source/source_code/export_current_version_records_to_desktop.py` |
+| [export_ed02_round21_refinement_figure.py](../../../reproduction/library/export_ed02_round21_refinement_figure.py) | `extended_data_figure_5/source/source_code/export_ed02_round21_refinement_figure.py` |
+| [export_ed02_round23_refinement_figure.py](../../../reproduction/library/export_ed02_round23_refinement_figure.py) | `extended_data_figure_5/source/source_code/export_ed02_round23_refinement_figure.py` |
+| [jw_utils.py](../../../reproduction/library/jw_utils.py) | `extended_data_figure_5/source/source_code/jw_utils.py` |
+| [preview_figure1_assembly.py](../../../reproduction/library/preview_figure1_assembly.py) | `extended_data_figure_5/source/source_code/preview_figure1_assembly.py` |
+| [preview_figure3_assembly.py](../../../reproduction/library/preview_figure3_assembly.py) | `extended_data_figure_5/source/source_code/preview_figure3_assembly.py` |
+| [promote_all_figure_refinement_round2_records.py](../../../reproduction/library/promote_all_figure_refinement_round2_records.py) | `extended_data_figure_5/source/source_code/promote_all_figure_refinement_round2_records.py` |
+| [promote_ed01_ed02_ed05_followup_2026_08_12.py](../../../reproduction/library/promote_ed01_ed02_ed05_followup_2026_08_12.py) | `extended_data_figure_5/source/source_code/promote_ed01_ed02_ed05_followup_2026_08_12.py` |
+| [promote_figure_resolution_geometry_2026_08_12.py](../../../reproduction/library/promote_figure_resolution_geometry_2026_08_12.py) | `extended_data_figure_5/source/source_code/promote_figure_resolution_geometry_2026_08_12.py` |
+| [promote_full_figure_audit_records.py](../../../reproduction/library/promote_full_figure_audit_records.py) | `extended_data_figure_5/source/source_code/promote_full_figure_audit_records.py` |
+| [render_ed02_slide3_refinement_round21.py](../../../reproduction/library/render_ed02_slide3_refinement_round21.py) | `extended_data_figure_5/source/source_code/render_ed02_slide3_refinement_round21.py` |
+| [render_ed02_slide3_upright_policy_round18.py](../../../reproduction/library/render_ed02_slide3_upright_policy_round18.py) | `extended_data_figure_5/source/source_code/render_ed02_slide3_upright_policy_round18.py` |
+| [render_ed04_registration_quality_assembly__553747b6ce.py](../../../reproduction/library/render_ed04_registration_quality_assembly__553747b6ce.py) | `extended_data_figure_5/source/source_code/render_ed04_registration_quality_assembly.py` |
+| [render_ed05_full_maps_round14.py](../../../reproduction/library/render_ed05_full_maps_round14.py) | `extended_data_figure_5/source/source_code/render_ed05_full_maps_round14.py` |
+| [render_ed06_within_session_convergence_assembly.py](../../../reproduction/library/render_ed06_within_session_convergence_assembly.py) | `extended_data_figure_5/source/source_code/render_ed06_within_session_convergence_assembly.py` |
+| [render_ed07_slide9_powerpoint_matched.py](../../../reproduction/library/render_ed07_slide9_powerpoint_matched.py) | `extended_data_figure_5/source/source_code/render_ed07_slide9_powerpoint_matched.py` |
+| [render_ed08_refinement_round2.py](../../../reproduction/library/render_ed08_refinement_round2.py) | `extended_data_figure_5/source/source_code/render_ed08_refinement_round2.py` |
+| [render_ed09_panel_b_margin_panel_f_star_candidate.py](../../../reproduction/library/render_ed09_panel_b_margin_panel_f_star_candidate.py) | `extended_data_figure_5/source/source_code/render_ed09_panel_b_margin_panel_f_star_candidate.py` |
+| [render_ed09_refinement_round2.py](../../../reproduction/library/render_ed09_refinement_round2.py) | `extended_data_figure_5/source/source_code/render_ed09_refinement_round2.py` |
+| [render_ed10_slide12_powerpoint_matched.py](../../../reproduction/library/render_ed10_slide12_powerpoint_matched.py) | `extended_data_figure_5/source/source_code/render_ed10_slide12_powerpoint_matched.py` |
+| [render_extended_data_figure1_collision_round13.py](../../../reproduction/library/render_extended_data_figure1_collision_round13.py) | `extended_data_figure_5/source/source_code/render_extended_data_figure1_collision_round13.py` |
+| [render_extended_data_figure1_geometry_round12.py](../../../reproduction/library/render_extended_data_figure1_geometry_round12.py) | `extended_data_figure_5/source/source_code/render_extended_data_figure1_geometry_round12.py` |
+| [render_extended_data_figure1_refinement_round11.py](../../../reproduction/library/render_extended_data_figure1_refinement_round11.py) | `extended_data_figure_5/source/source_code/render_extended_data_figure1_refinement_round11.py` |
+| [render_extended_data_figure1_round4.py](../../../reproduction/library/render_extended_data_figure1_round4.py) | `extended_data_figure_5/source/source_code/render_extended_data_figure1_round4.py` |
+| [render_main_figs_v3_publication__a7a324dc5c.py](../../../reproduction/library/render_main_figs_v3_publication__a7a324dc5c.py) | `extended_data_figure_5/source/source_code/render_main_figs_v3_publication.py` |
+| [validate_all_figure_refinement_round2_records.py](../../../reproduction/library/validate_all_figure_refinement_round2_records.py) | `extended_data_figure_5/source/source_code/validate_all_figure_refinement_round2_records.py` |
+| [validate_current_figure_records.py](../../../reproduction/library/validate_current_figure_records.py) | `extended_data_figure_5/source/source_code/validate_current_figure_records.py` |
+| [validate_ed01_ed02_ed05_followup_2026_08_12.py](../../../reproduction/library/validate_ed01_ed02_ed05_followup_2026_08_12.py) | `extended_data_figure_5/source/source_code/validate_ed01_ed02_ed05_followup_2026_08_12.py` |
+| [validate_ed01_ed05_resolution_geometry_candidates.py](../../../reproduction/library/validate_ed01_ed05_resolution_geometry_candidates.py) | `extended_data_figure_5/source/source_code/validate_ed01_ed05_resolution_geometry_candidates.py` |
+| [validate_ed09_panel_b_margin_panel_f_star_candidate.py](../../../reproduction/library/validate_ed09_panel_b_margin_panel_f_star_candidate.py) | `extended_data_figure_5/source/source_code/validate_ed09_panel_b_margin_panel_f_star_candidate.py` |
+| [validate_main_figure3_embedded_dpi_candidate.py](../../../reproduction/library/validate_main_figure3_embedded_dpi_candidate.py) | `extended_data_figure_5/source/source_code/validate_main_figure3_embedded_dpi_candidate.py` |

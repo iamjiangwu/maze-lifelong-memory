@@ -1,0 +1,2 @@
+file,format,columns_or_shape,sha256,snapshot_paths
+current_rows.json,.json,,7a1a5e6d8f7db082887669c9363d332ce292c935bd69f0f46a4d16cb1ce8c189,supplementary_table_1/source/source_data/current_rows.json

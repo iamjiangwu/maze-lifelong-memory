@@ -1,0 +1,55 @@
+# Figure 2: data files
+
+These are the original derived observations, numerical summaries and example assets. No values were recalculated or rounded during reorganization. [index.csv](index.csv) records columns/array formats, checksums and original source paths. Session/animal identifiers in filenames are retained.
+
+| File | Format |
+|---|---|
+| [418-3day1_to_418-6day1__row0062_A83_B794.npz](418-3day1_to_418-6day1__row0062_A83_B794.npz) | .npz |
+| [422-3_corr.fig](422-3_corr.fig) | .fig |
+| [422_corr.fig](422_corr.fig) | .fig |
+| [451-6day1_to_451-9day1__row0305_A402_B408.npz](451-6day1_to_451-9day1__row0305_A402_B408.npz) | .npz |
+| [837-6day1_to_837-9day1__row0175_A187_B131.npz](837-6day1_to_837-9day1__row0175_A187_B131.npz) | .npz |
+| [837-6day1_to_837-9day1__row0588_A674_B683.npz](837-6day1_to_837-9day1__row0588_A674_B683.npz) | .npz |
+| [842_allZeroFootprints_03_0.mat](842_allZeroFootprints_03_0.mat) | .mat |
+| [842_cell_to_index_map_03_zero_reinserted.mat](842_cell_to_index_map_03_zero_reinserted.mat) | .mat |
+| [PROVENANCE.json](PROVENANCE.json) | .json |
+| [RECORD_HASHES.csv](RECORD_HASHES.csv) | .csv |
+| [RECORD_VALIDATION.json](RECORD_VALIDATION.json) | .json |
+| [SOURCE_MANIFEST.json](SOURCE_MANIFEST.json) | .json |
+| [adjacent_day_ensemble_rate_pair_nulls.npz](adjacent_day_ensemble_rate_pair_nulls.npz) | .npz |
+| [adjacent_day_ensemble_rate_pair_values.csv](adjacent_day_ensemble_rate_pair_values.csv) | .csv |
+| [canonical_ensemble_rate_all_gap_pair_nulls.npz](canonical_ensemble_rate_all_gap_pair_nulls.npz) | .npz |
+| [canonical_ensemble_rate_all_gap_pair_values.csv](canonical_ensemble_rate_all_gap_pair_values.csv) | .csv |
+| [consecutive_gap_clean_long_gap_22_chain_scope.csv](consecutive_gap_clean_long_gap_22_chain_scope.csv) | .csv |
+| [consecutive_gap_clean_long_gap_corrected_points.csv](consecutive_gap_clean_long_gap_corrected_points.csv) | .csv |
+| [consecutive_gap_clean_long_gap_corrected_stats.csv](consecutive_gap_clean_long_gap_corrected_stats.csv) | .csv |
+| [consecutive_gap_clean_long_gap_manifest.json](consecutive_gap_clean_long_gap_manifest.json) | .json |
+| [consecutive_gap_sorted_triplet_input_audit.csv](consecutive_gap_sorted_triplet_input_audit.csv) | .csv |
+| [consecutive_gap_unrestricted_adjacent_23_chain_scope.csv](consecutive_gap_unrestricted_adjacent_23_chain_scope.csv) | .csv |
+| [current_panel_base_pairs_corrected_36_no_1616_short.csv](current_panel_base_pairs_corrected_36_no_1616_short.csv) | .csv |
+| [displayed_estimand_bh4.csv](displayed_estimand_bh4.csv) | .csv |
+| [displayed_recurrence_bh4.csv](displayed_recurrence_bh4.csv) | .csv |
+| [distribution_vs_gap_3month_parity.csv](distribution_vs_gap_3month_parity.csv) | .csv |
+| [ensemble_rate_pair_nulls_audit.npz](ensemble_rate_pair_nulls_audit.npz) | .npz |
+| [ensemble_rate_pair_values.csv](ensemble_rate_pair_values.csv) | .csv |
+| [figure2_ed12_consecutive_old_vs_new_replication_audit.csv](figure2_ed12_consecutive_old_vs_new_replication_audit.csv) | .csv |
+| [figure2_panel_c_place_distribution_corrected_842_no_presort_exclusions_36_no_1616_short.npz](figure2_panel_c_place_distribution_corrected_842_no_presort_exclusions_36_no_1616_short.npz) | .npz |
+| [figure2_panel_d_place_shuffle_mean_corrected_842_no_presort_exclusions_36_no_1616_short.npz](figure2_panel_d_place_shuffle_mean_corrected_842_no_presort_exclusions_36_no_1616_short.npz) | .npz |
+| [figure2_panel_e_pv_distribution_corrected_842_no_presort_exclusions_36_no_1616_short.npz](figure2_panel_e_pv_distribution_corrected_842_no_presort_exclusions_36_no_1616_short.npz) | .npz |
+| [figure2_panel_f_pv_shuffle_mean_corrected_842_no_presort_exclusions_36_no_1616_short.npz](figure2_panel_f_pv_shuffle_mean_corrected_842_no_presort_exclusions_36_no_1616_short.npz) | .npz |
+| [figure2_panel_g_rate_distribution_corrected_842_no_presort_exclusions_36_no_1616_short.npz](figure2_panel_g_rate_distribution_corrected_842_no_presort_exclusions_36_no_1616_short.npz) | .npz |
+| [figure2_panel_h_rate_shuffle_mean_corrected_842_no_presort_exclusions_36_no_1616_short.npz](figure2_panel_h_rate_shuffle_mean_corrected_842_no_presort_exclusions_36_no_1616_short.npz) | .npz |
+| [gap_curve_old_vs_canonical.csv](gap_curve_old_vs_canonical.csv) | .csv |
+| [gap_with_day1_day2_curve_data.csv](gap_with_day1_day2_curve_data.csv) | .csv |
+| [long_gap_pair_rows.csv](long_gap_pair_rows.csv) | .csv |
+| [map_coordinate_audit.csv](map_coordinate_audit.csv) | .csv |
+| [metric_summary.csv](metric_summary.csv) | .csv |
+| [pair_input_audit.csv](pair_input_audit.csv) | .csv |
+| [pair_metric_summary.csv](pair_metric_summary.csv) | .csv |
+| [pair_support_audit.csv](pair_support_audit.csv) | .csv |
+| [provenance_manifest.json](provenance_manifest.json) | .json |
+| [registration_pair_source_and_count_audit.csv](registration_pair_source_and_count_audit.csv) | .csv |
+| [same_stage_correlations.csv](same_stage_correlations.csv) | .csv |
+| [same_stage_shuffle.csv](same_stage_shuffle.csv) | .csv |
+| [session_pair_rate_consecutive_gap_points_canonical.csv](session_pair_rate_consecutive_gap_points_canonical.csv) | .csv |
+| [session_pair_rate_consecutive_gap_stats_canonical.csv](session_pair_rate_consecutive_gap_stats_canonical.csv) | .csv |

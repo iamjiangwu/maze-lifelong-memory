@@ -1,9 +1,7 @@
 # Generated outputs must remain outside the frozen Source Data inventory.
 /rebuilt/
 /rebuild-output/
-/source_data/rebuilt/
-/source_data/rebuild-output/
-/source_data/.rebuild/
+/outputs/
 __pycache__/
 *.py[cod]
 .pytest_cache/
