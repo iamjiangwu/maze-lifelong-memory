@@ -1,33 +1,17 @@
-# Find and read the Source Data
+# Source Data
 
-Start from a figure or table linked on the [repository home page](../README.md). Each has the same structure:
+Each figure or table has a `data/` folder with the inputs used by its current builder and statistical analysis. [DATA_CATALOG.csv](DATA_CATALOG.csv) lists files across the repository; each `data/index.csv` records columns or array formats and checksums.
 
-```text
-figure_02/
-  README.md       what is shown and how to rebuild it
-  build.py        runnable entry point
-  data/           derived observations, summaries and examples
-    README.md     linked file list
-    index.csv     columns/formats, checksums and original source paths
-  code/           frozen figure-specific helpers and shared-code links
-```
+The package includes derived observations, plotted summaries, example maps and saved shuffle or simulation values—not raw recordings. Individual neuron, session-pair or animal values are retained where required to recalculate uncertainty and tests. Figure 3, for example, includes per-animal/pair window values as well as its average curves and s.e.m.
 
-The data files are physically in these folders, not just linked to an old nested archive. Repeated byte-identical helper/input copies are combined only when the retained file has the same SHA256. All original source paths can still be reconstructed.
-
-## File formats
-
-| Format | What to inspect |
+| Format | Contents |
 |---|---|
-| CSV / compressed CSV | Per-unit observations, plotted summaries, null values or supporting audit tables; use the column names and the associated builder to identify the unit |
-| NPZ / NPY | Numerical arrays, example maps and saved simulation/shuffle containers; the builder documents field access |
-| JSON | Structured numerical values or supporting metadata/configuration |
-| MAT / FIG | Original example-map containers read by the frozen renderer |
-| PNG / SVG / TIFF / PDF | Fixed example or illustrative assets, not the finished composite output used as a rendering shortcut |
+| CSV / CSV.gz | Measurements, summaries, null draws and simulation results |
+| NPZ / NPY | Numerical arrays and example maps |
+| JSON | Structured measurements or settings |
+| MAT / FIG | Example-map containers |
+| PNG / SVG / TIFF / PDF | Fixed illustrations or example assets |
 
-[DATA_CATALOG.csv](DATA_CATALOG.csv) is the cross-figure file/column index. The individual `data/index.csv` files also retain original filenames and checksums. These are column/format inventories, not a replacement for the unit definitions in the analysis code. Do not interpret missing/blank values as zeros or merge different averaging units because two columns have similar names.
+Reader-facing filenames identify current inputs, not analysis rounds. The technical relocation map restores the build code’s expected names only during execution. Unused historical inputs and local validation reports are not part of the current package.
 
-## Observations versus results
-
-Some inputs are per-neuron, per-session-pair or per-mouse observations; others are frozen plot summaries or saved null/simulator draws. The [statistical replay](STATISTICS.md) recalculates the recorded analysis groups from their per-unit-derived inputs. It preserves their inclusion rules, clustering units and correction families; it does not refit upstream maps or decoders.
-
-Session and animal IDs are retained. Source filenames containing an older figure number or round label are historical identifiers, not new figure assignments: the containing figure guide and build entry point determine their current use.
+Animal/session IDs and numerical values are unchanged. Some internal column names are retained for compatibility: `policy` means junction turning biases, `lb0` means first long bout time, and `rate` denotes ensemble rate measurements. Statistical units and correction families are defined by the associated analysis, not inferred from similar column names. [Statistics guide](STATISTICS.md).

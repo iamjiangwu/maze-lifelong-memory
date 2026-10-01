@@ -1,5 +1,0 @@
-window_minutes,helper,row_key,policy_label
-30,render_grid_route_choice_schematic,stem_to_branch,$P_{SA}$
-30,render_grid_route_choice_schematic,stem_forward,$P_{SF}$
-30,render_grid_route_choice_schematic,branch_to_stem,$P_{BS}$
-30,render_grid_route_choice_schematic,branch_forward,$P_{BF}$

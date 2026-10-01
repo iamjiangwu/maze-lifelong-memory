@@ -1,14 +1,12 @@
-# Extended Data Figure 4: data files
+# Extended Data Figure 4: data
 
-These are the original derived observations, numerical summaries and example assets. No values were recalculated or rounded during reorganization. [index.csv](index.csv) records columns/array formats, checksums and original source paths. Session/animal identifiers in filenames are retained.
+Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
 
 | File | Format |
 |---|---|
-| [ED04_SOURCE_SUMMARY.json](ED04_SOURCE_SUMMARY.json) | .json |
-| [RECORD_HASHES.csv](RECORD_HASHES.csv) | .csv |
-| [ed04_candidate_features_directed_long.csv](ed04_candidate_features_directed_long.csv) | .csv |
-| [ed04_pair_source_audit.csv](ed04_pair_source_audit.csv) | .csv |
-| [ed04_registered_pair_features_long.csv](ed04_registered_pair_features_long.csv) | .csv |
-| [ed05_four_session_418_coregistration_paper.png](ed05_four_session_418_coregistration_paper.png) | .png |
-| [ed05_four_session_418_local_correlation_paper.png](ed05_four_session_418_local_correlation_paper.png) | .png |
+| [candidate_features_directed_long.csv](candidate_features_directed_long.csv) | .csv |
+| [four_session_418_coregistration_paper.png](four_session_418_coregistration_paper.png) | .png |
+| [four_session_418_local_correlation_paper.png](four_session_418_local_correlation_paper.png) | .png |
 | [physical_fov_exact_36_source.csv](physical_fov_exact_36_source.csv) | .csv |
+| [registered_pair_features_long.csv](registered_pair_features_long.csv) | .csv |
+| [source_summary.json](source_summary.json) | .json |

@@ -3,11 +3,25 @@ figures/** -text
 tables/** -text
 reproduction/** -text
 /requirements.txt -text
-docs/validation/** -text
 # Repository-facing documentation can use normal text handling.
 /README.md text eol=lf
 /reproduce.py text eol=lf
 /reproduce.ps1 text eol=lf
 /docs/PROVENANCE.md text eol=lf
+/docs/*.md text eol=lf
+/docs/DATA_CATALOG.csv text eol=lf
+/LICENSE text eol=lf
+/DATA_LICENSE.md text eol=lf
+/tests/*.py text eol=lf
+/figures/*/README.md text eol=lf
+/figures/*/data/README.md text eol=lf
+/figures/*/data/index.csv text eol=lf
+/figures/*/code/README.md text eol=lf
+/tables/*/README.md text eol=lf
+/tables/*/data/README.md text eol=lf
+/tables/*/data/index.csv text eol=lf
+/tables/*/code/README.md text eol=lf
+/reproduction/README.md text eol=lf
+/reproduction/layout.json text eol=lf
 /.gitignore text eol=lf
 /.gitattributes text eol=lf

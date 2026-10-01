@@ -1,6 +1,6 @@
-# Supplementary Table 1: data files
+# Supplementary Table 1: data
 
-These are the original derived observations, numerical summaries and example assets. No values were recalculated or rounded during reorganization. [index.csv](index.csv) records columns/array formats, checksums and original source paths. Session/animal identifiers in filenames are retained.
+Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
 
 | File | Format |
 |---|---|

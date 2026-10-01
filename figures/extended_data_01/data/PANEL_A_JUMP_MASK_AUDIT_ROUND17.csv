@@ -1,8 +1,0 @@
-nickname,bout_idx,n_points,source_drawn_segments,corrected_drawn_segments,segments_removed_by_round6_rule,source_max_drawn_step_grid,corrected_max_drawn_step_grid,max_step_per_frame_grid,n_jump_islands_removed,n_jump_island_points_removed,tracking_rule
-434RRday1,0,18570,18539,18341,198,1.070363832909199,0.6257922090734227,0.63,14,200,"retain source mask, split nonconsecutive frames and steps above 0.63 grid units per frame, and omit repeated-fast-edge islands"
-434RRday1,1,5369,5358,5319,39,1.1368242410002882,0.5800666027031379,0.63,5,43,"retain source mask, split nonconsecutive frames and steps above 0.63 grid units per frame, and omit repeated-fast-edge islands"
-434-3day1,0,692,691,685,6,0.3611390846082679,0.3611390846082679,0.63,0,0,"retain source mask, split nonconsecutive frames and steps above 0.63 grid units per frame, and omit repeated-fast-edge islands"
-434-3day1,1,8337,8333,8316,17,0.7273499396270466,0.59412720055872,0.63,3,14,"retain source mask, split nonconsecutive frames and steps above 0.63 grid units per frame, and omit repeated-fast-edge islands"
-434RRday2,0,564,563,563,0,0.43925425174721194,0.43925425174721194,0.63,0,0,"retain source mask, split nonconsecutive frames and steps above 0.63 grid units per frame, and omit repeated-fast-edge islands"
-434-6day1,0,9461,9456,9445,11,0.8537236146779597,0.6295096424546388,0.63,2,3,"retain source mask, split nonconsecutive frames and steps above 0.63 grid units per frame, and omit repeated-fast-edge islands"
-434-6day1,1,1963,1962,1958,4,0.6365955067428288,0.6028569256011762,0.63,0,0,"retain source mask, split nonconsecutive frames and steps above 0.63 grid units per frame, and omit repeated-fast-edge islands"

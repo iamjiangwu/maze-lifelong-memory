@@ -1,7 +1,0 @@
-month_group_key,month_group_label,whole_group_n,current_fixed_subset_n,dropped_n,retained_fraction,minimum_required_for_80pct,group_80pct_window_tiles,global_current_window_tiles,minimum_nose_tiles_max,median_nose_tiles_max
-naive_0mo,Naive day,23,20,3,0.8695652173913043,19,14909.0,11050.0,10808.0,20169.0
-return_3mo,3 mo return,17,17,0,1.0,14,14502.0,11050.0,11741.0,16977.0
-return_6mo,6 mo return,17,16,1,0.9411764705882353,14,14185.0,11050.0,10169.0,16012.0
-return_9mo,9 mo return,12,10,2,0.8333333333333334,10,16774.0,11050.0,6963.0,20582.0
-return_12mo,12 mo return,10,8,2,0.8,8,11056.0,11050.0,7475.0,13190.0
-experienced_day2,Second day,74,60,14,0.8108108108108109,60,11050.0,11050.0,5229.0,14527.5

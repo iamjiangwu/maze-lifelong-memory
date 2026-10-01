@@ -1,15 +1,14 @@
 # Technical reproduction layer
 
-Most readers can use the root [README](../README.md) and the individual figure/table folders.
+Use the root [README](../README.md) to find figures and tables, or [reproduction instructions](../docs/REPRODUCING.md) to run them.
 
-This directory holds the frozen shared build machinery and the relocation map:
+This directory contains the shared build machinery and source mapping:
 
-- `layout.json`: every original snapshot path, its current repository path and unchanged SHA256.
-- `snapshot/RELEASE_MANIFEST.json`: the original sealed release inventory. Historical reference-artwork entries are retained as provenance; references are not distributed or used as inputs.
-- `snapshot/reproduce.py` and `snapshot/recompute_statistics.py`: unchanged verified rendering/statistics engine.
-- `snapshot/shared/` and `library/`: shared frozen helpers. Figure-specific helpers are under each figure's `code/`.
-- `snapshot/artifact_manifests/` and `snapshot/artifact_notes/`: original artifact records and notes.
+- `layout.json` maps each retained original input path to its current repository path and unchanged SHA256.
+- `snapshot/RELEASE_MANIFEST.json` preserves the original sealed inventory and all 17 artifact configurations.
+- `snapshot/reproduce.py`, `snapshot/recompute_statistics.py` and `snapshot/shared/` contain the frozen rendering and statistics engines.
+- `library/` contains shared helper modules; figure-specific helpers are in each figure's `code/` folder.
 
-The original notes/guide describe the **old snapshot layout** and are preserved byte-for-byte as archival material. Use [docs/REPRODUCING.md](../docs/REPRODUCING.md) for the current repository commands. The original snapshot is also retained by the `source-data-2026-09-30` Git tag.
+The root launcher authenticates the original manifest and checks every retained input against it. It restores the retained paths in a temporary directory and writes a temporary release inventory for those files. Explicitly inspected checksum lists also omit entries for files no longer distributed; their retained entries and scientific settings remain unchanged. The engines then run using this temporary source layout.
 
-The root launcher checks full original-manifest coverage, validates all retained hashes, reconstructs the original relative paths in a temporary directory and calls the unchanged engine in source-only mode. This keeps readable navigation separate from the mathematical implementation. No original numerical value, estimator or correction family was changed by the reorganization.
+The repository's original manifest and numerical inputs are preserved. Generated outputs go to the selected output directory. The original source-data snapshot remains recoverable through the `source-data-2026-09-30` Git tag.

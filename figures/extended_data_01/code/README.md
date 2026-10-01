@@ -1,76 +1,8 @@
-# Extended Data Figure 1: build code
+# Extended Data Figure 1: code
 
-Run [../build.py](../build.py) to build this artifact. These frozen helpers are executed through the repository's source-only launcher, not individually. Shared helpers are listed explicitly below. The original import/file layout is restored in a temporary directory; no scientific calculation is edited.
+Run [../build.py](../build.py) from the repository root. Shared helpers are linked below.
 
-| Code file | Original module location |
-|---|---|
-| [analyze_ed01_canonical_animal_clusters.py](analyze_ed01_canonical_animal_clusters.py) | `extended_data_figure_1/source/source_code/analyze_ed01_canonical_animal_clusters.py` |
-| [analyze_ed01_group_specific_80_support.py](analyze_ed01_group_specific_80_support.py) | `extended_data_figure_1/source/source_code/analyze_ed01_group_specific_80_support.py` |
-| [analyze_ed01_panel_h_matched_behavior_cohort.py](analyze_ed01_panel_h_matched_behavior_cohort.py) | `extended_data_figure_1/source/source_code/analyze_ed01_panel_h_matched_behavior_cohort.py` |
-| [analyze_ed01_panel_h_window_sensitivity.py](analyze_ed01_panel_h_window_sensitivity.py) | `extended_data_figure_1/source/source_code/analyze_ed01_panel_h_window_sensitivity.py` |
-| [assemble_ed01_supplement_v2_bundle.py](assemble_ed01_supplement_v2_bundle.py) | `extended_data_figure_1/source/source_code/assemble_ed01_supplement_v2_bundle.py` |
-| [audit_ed01_panel_d_whole_group.py](audit_ed01_panel_d_whole_group.py) | `extended_data_figure_1/source/source_code/audit_ed01_panel_d_whole_group.py` |
-| [audit_ed01_shared_axis_scales.py](audit_ed01_shared_axis_scales.py) | `extended_data_figure_1/source/source_code/audit_ed01_shared_axis_scales.py` |
-| [audit_manuscript_panel_cohorts.py](audit_manuscript_panel_cohorts.py) | `extended_data_figure_1/source/source_code/audit_manuscript_panel_cohorts.py` |
-| [audit_speed_cap_60_vs_80_figures.py](audit_speed_cap_60_vs_80_figures.py) | `extended_data_figure_1/source/source_code/audit_speed_cap_60_vs_80_figures.py` |
-| [prepare_ed01_review_record_2026_09_25.py](prepare_ed01_review_record_2026_09_25.py) | `extended_data_figure_1/source/source_code/prepare_ed01_review_record_2026_09_25.py` |
-| [prepare_ed01_right_margin_record_2026_09_25.py](prepare_ed01_right_margin_record_2026_09_25.py) | `extended_data_figure_1/source/source_code/prepare_ed01_right_margin_record_2026_09_25.py` |
-| [promote_ed01_canonical_animal_round19.py](promote_ed01_canonical_animal_round19.py) | `extended_data_figure_1/source/source_code/promote_ed01_canonical_animal_round19.py` |
-| [promote_ed01_canonical_animal_round20.py](promote_ed01_canonical_animal_round20.py) | `extended_data_figure_1/source/source_code/promote_ed01_canonical_animal_round20.py` |
-| [promote_ed01_group80_round18.py](promote_ed01_group80_round18.py) | `extended_data_figure_1/source/source_code/promote_ed01_group80_round18.py` |
-| [promote_ed01_version_record.py](promote_ed01_version_record.py) | `extended_data_figure_1/source/source_code/promote_ed01_version_record.py` |
-| [promote_ed01_whole_group_round16.py](promote_ed01_whole_group_round16.py) | `extended_data_figure_1/source/source_code/promote_ed01_whole_group_round16.py` |
-| [promote_ed01_whole_group_round17.py](promote_ed01_whole_group_round17.py) | `extended_data_figure_1/source/source_code/promote_ed01_whole_group_round17.py` |
-| [promote_figure_resolution_geometry_2026_08_12.py](promote_figure_resolution_geometry_2026_08_12.py) | `extended_data_figure_1/source/source_code/promote_figure_resolution_geometry_2026_08_12.py` |
-| [promote_speed_cap60_ed01_ed10_2026_08_19.py](promote_speed_cap60_ed01_ed10_2026_08_19.py) | `extended_data_figure_1/source/source_code/promote_speed_cap60_ed01_ed10_2026_08_19.py` |
-| [render_ed01_ed02_gap_closure.py](render_ed01_ed02_gap_closure.py) | `extended_data_figure_1/source/source_code/render_ed01_ed02_gap_closure.py` |
-| [render_ed01_no_trajectories_source.py](render_ed01_no_trajectories_source.py) | `extended_data_figure_1/source/source_code/render_ed01_no_trajectories_source.py` |
-| [render_extended_data_figure1_round4.py](render_extended_data_figure1_round4.py) | `extended_data_figure_1/source/source_code/render_extended_data_figure1_round4.py` |
-| [render_extended_data_figure1_whole_group_round16.py](render_extended_data_figure1_whole_group_round16.py) | `extended_data_figure_1/source/source_code/render_extended_data_figure1_whole_group_round16.py` |
-| [render_extended_data_figure1_whole_group_round17.py](render_extended_data_figure1_whole_group_round17.py) | `extended_data_figure_1/source/source_code/render_extended_data_figure1_whole_group_round17.py` |
-| [render_grs2026_first_maze_trial_trajectories.py](render_grs2026_first_maze_trial_trajectories.py) | `extended_data_figure_1/source/source_code/render_grs2026_first_maze_trial_trajectories.py` |
-| [render_speed_cap60_successor_candidates.py](render_speed_cap60_successor_candidates.py) | `extended_data_figure_1/source/source_code/render_speed_cap60_successor_candidates.py` |
-| [sync_ed01_round16_to_desktop.py](sync_ed01_round16_to_desktop.py) | `extended_data_figure_1/source/source_code/sync_ed01_round16_to_desktop.py` |
-| [sync_ed01_round17_to_desktop.py](sync_ed01_round17_to_desktop.py) | `extended_data_figure_1/source/source_code/sync_ed01_round17_to_desktop.py` |
-| [sync_ed01_round18_to_desktop.py](sync_ed01_round18_to_desktop.py) | `extended_data_figure_1/source/source_code/sync_ed01_round18_to_desktop.py` |
-| [test_extended_data_figure1_round4.py](test_extended_data_figure1_round4.py) | `extended_data_figure_1/source/source_code/test_extended_data_figure1_round4.py` |
-| [validate_all_figure_refinement_round2_records.py](validate_all_figure_refinement_round2_records.py) | `extended_data_figure_1/source/source_code/validate_all_figure_refinement_round2_records.py` |
-| [validate_current_figure_records.py](validate_current_figure_records.py) | `extended_data_figure_1/source/source_code/validate_current_figure_records.py` |
-| [validate_desktop_version_record_layout.py](validate_desktop_version_record_layout.py) | `extended_data_figure_1/source/source_code/validate_desktop_version_record_layout.py` |
-| [validate_ed01_round15_successor.py](validate_ed01_round15_successor.py) | `extended_data_figure_1/source/source_code/validate_ed01_round15_successor.py` |
-| [validate_ed01_whole_group_round16.py](validate_ed01_whole_group_round16.py) | `extended_data_figure_1/source/source_code/validate_ed01_whole_group_round16.py` |
-| [validate_ed01_whole_group_round17.py](validate_ed01_whole_group_round17.py) | `extended_data_figure_1/source/source_code/validate_ed01_whole_group_round17.py` |
-| [validate_figure_caption_collection.py](validate_figure_caption_collection.py) | `extended_data_figure_1/source/source_code/validate_figure_caption_collection.py` |
-| [validate_single_current_figure_record_layout.py](validate_single_current_figure_record_layout.py) | `extended_data_figure_1/source/source_code/validate_single_current_figure_record_layout.py` |
-| [audit_ed06_ed10_embedded_image_dpi.py](../../../reproduction/library/audit_ed06_ed10_embedded_image_dpi.py) | `extended_data_figure_1/source/source_code/audit_ed06_ed10_embedded_image_dpi.py` |
-| [build_main_figure5b_historical_order_candidate.py](../../../reproduction/library/build_main_figure5b_historical_order_candidate.py) | `extended_data_figure_1/source/source_code/build_main_figure5b_historical_order_candidate.py` |
-| [build_main_figure_refinement_round2_native_panel_candidates.py](../../../reproduction/library/build_main_figure_refinement_round2_native_panel_candidates.py) | `extended_data_figure_1/source/source_code/build_main_figure_refinement_round2_native_panel_candidates.py` |
-| [export_current_version_records_to_desktop.py](../../../reproduction/library/export_current_version_records_to_desktop.py) | `extended_data_figure_1/source/source_code/export_current_version_records_to_desktop.py` |
-| [export_ed02_round21_refinement_figure.py](../../../reproduction/library/export_ed02_round21_refinement_figure.py) | `extended_data_figure_1/source/source_code/export_ed02_round21_refinement_figure.py` |
-| [export_ed02_round23_refinement_figure.py](../../../reproduction/library/export_ed02_round23_refinement_figure.py) | `extended_data_figure_1/source/source_code/export_ed02_round23_refinement_figure.py` |
-| [jw_utils.py](../../../reproduction/library/jw_utils.py) | `extended_data_figure_1/source/source_code/jw_utils.py` |
-| [preview_figure1_assembly.py](../../../reproduction/library/preview_figure1_assembly.py) | `extended_data_figure_1/source/source_code/preview_figure1_assembly.py` |
-| [preview_figure3_assembly.py](../../../reproduction/library/preview_figure3_assembly.py) | `extended_data_figure_1/source/source_code/preview_figure3_assembly.py` |
-| [promote_all_figure_refinement_round2_records.py](../../../reproduction/library/promote_all_figure_refinement_round2_records.py) | `extended_data_figure_1/source/source_code/promote_all_figure_refinement_round2_records.py` |
-| [promote_cross_figure_language_refinement_records.py](../../../reproduction/library/promote_cross_figure_language_refinement_records.py) | `extended_data_figure_1/source/source_code/promote_cross_figure_language_refinement_records.py` |
-| [promote_ed01_ed02_ed05_followup_2026_08_12.py](../../../reproduction/library/promote_ed01_ed02_ed05_followup_2026_08_12.py) | `extended_data_figure_1/source/source_code/promote_ed01_ed02_ed05_followup_2026_08_12.py` |
-| [render_ed02_slide3_refinement_round21.py](../../../reproduction/library/render_ed02_slide3_refinement_round21.py) | `extended_data_figure_1/source/source_code/render_ed02_slide3_refinement_round21.py` |
-| [render_ed02_slide3_upright_policy_round18.py](../../../reproduction/library/render_ed02_slide3_upright_policy_round18.py) | `extended_data_figure_1/source/source_code/render_ed02_slide3_upright_policy_round18.py` |
-| [render_ed04_registration_quality_assembly.py](../../../reproduction/library/render_ed04_registration_quality_assembly.py) | `extended_data_figure_1/source/source_code/render_ed04_registration_quality_assembly.py` |
-| [render_ed05_example_place_maps_assembly.py](../../../reproduction/library/render_ed05_example_place_maps_assembly.py) | `extended_data_figure_1/source/source_code/render_ed05_example_place_maps_assembly.py` |
-| [render_ed05_full_maps_round14.py](../../../reproduction/library/render_ed05_full_maps_round14.py) | `extended_data_figure_1/source/source_code/render_ed05_full_maps_round14.py` |
-| [render_ed06_within_session_convergence_assembly.py](../../../reproduction/library/render_ed06_within_session_convergence_assembly.py) | `extended_data_figure_1/source/source_code/render_ed06_within_session_convergence_assembly.py` |
-| [render_ed07_slide9_powerpoint_matched.py](../../../reproduction/library/render_ed07_slide9_powerpoint_matched.py) | `extended_data_figure_1/source/source_code/render_ed07_slide9_powerpoint_matched.py` |
-| [render_ed08_refinement_round2.py](../../../reproduction/library/render_ed08_refinement_round2.py) | `extended_data_figure_1/source/source_code/render_ed08_refinement_round2.py` |
-| [render_ed09_panel_b_margin_panel_f_star_candidate.py](../../../reproduction/library/render_ed09_panel_b_margin_panel_f_star_candidate.py) | `extended_data_figure_1/source/source_code/render_ed09_panel_b_margin_panel_f_star_candidate.py` |
-| [render_ed09_refinement_round2.py](../../../reproduction/library/render_ed09_refinement_round2.py) | `extended_data_figure_1/source/source_code/render_ed09_refinement_round2.py` |
-| [render_ed10_slide12_powerpoint_matched.py](../../../reproduction/library/render_ed10_slide12_powerpoint_matched.py) | `extended_data_figure_1/source/source_code/render_ed10_slide12_powerpoint_matched.py` |
-| [render_extended_data_figure1_collision_round13.py](../../../reproduction/library/render_extended_data_figure1_collision_round13.py) | `extended_data_figure_1/source/source_code/render_extended_data_figure1_collision_round13.py` |
-| [render_extended_data_figure1_geometry_round12.py](../../../reproduction/library/render_extended_data_figure1_geometry_round12.py) | `extended_data_figure_1/source/source_code/render_extended_data_figure1_geometry_round12.py` |
-| [render_extended_data_figure1_refinement_round11.py](../../../reproduction/library/render_extended_data_figure1_refinement_round11.py) | `extended_data_figure_1/source/source_code/render_extended_data_figure1_refinement_round11.py` |
-| [render_main_figs_v3_publication.py](../../../reproduction/library/render_main_figs_v3_publication.py) | `extended_data_figure_1/source/source_code/render_main_figs_v3_publication.py` |
-| [validate_cross_figure_language_refinement_records.py](../../../reproduction/library/validate_cross_figure_language_refinement_records.py) | `extended_data_figure_1/source/source_code/validate_cross_figure_language_refinement_records.py` |
-| [validate_ed01_ed02_ed05_followup_2026_08_12.py](../../../reproduction/library/validate_ed01_ed02_ed05_followup_2026_08_12.py) | `extended_data_figure_1/source/source_code/validate_ed01_ed02_ed05_followup_2026_08_12.py` |
-| [validate_ed01_ed05_resolution_geometry_candidates.py](../../../reproduction/library/validate_ed01_ed05_resolution_geometry_candidates.py) | `extended_data_figure_1/source/source_code/validate_ed01_ed05_resolution_geometry_candidates.py` |
-| [validate_ed09_panel_b_margin_panel_f_star_candidate.py](../../../reproduction/library/validate_ed09_panel_b_margin_panel_f_star_candidate.py) | `extended_data_figure_1/source/source_code/validate_ed09_panel_b_margin_panel_f_star_candidate.py` |
-| [validate_main_figure3_embedded_dpi_candidate.py](../../../reproduction/library/validate_main_figure3_embedded_dpi_candidate.py) | `extended_data_figure_1/source/source_code/validate_main_figure3_embedded_dpi_candidate.py` |
+- [render_ed01_ed02_gap_closure.py](render_ed01_ed02_gap_closure.py)
+- [render_ed01_no_trajectories_source.py](render_ed01_no_trajectories_source.py)
+- [render_extended_data_figure1.py](render_extended_data_figure1.py)
+- [render_grs2026_first_maze_trial_trajectories.py](render_grs2026_first_maze_trial_trajectories.py)

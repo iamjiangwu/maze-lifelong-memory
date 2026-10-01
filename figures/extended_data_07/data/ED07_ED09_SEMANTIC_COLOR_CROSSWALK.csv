@@ -1,9 +1,0 @@
-scope,semantic_role,naive,3mo,6mo,9mo,12mo,base_or_single,authority
-shared,place_map,#D89C98,#CB817D,#BF6965,#A84E4B,#78312F,#B95A58,Main Figure 3 accepted manifest
-shared,population_vector_or_decoder,#EDBD8F,#E8A76F,#E29957,#BD7137,#8A4A1F,#E29957,Main Figure 3 and Main Figure 4 accepted manifests
-shared,ensemble_rate,#9FB0B5,#7D9198,#637980,#4A5E65,#2C3A3F,#4A5E65,Main Figure 3 accepted manifest
-shared,level_map,#BDB9D6,#A19CC3,#8A85B2,#6F6B99,#4E4A75,#7976A2,Main Figure 3 and Main Figure 5 accepted manifests
-ED8,reward_proximal_decoder,,,,,,#E29957,Main Figure 4 accepted manifest
-ED8,main_figure_1_path_or_endpoint,,,,,,#D82929,Main Figure 1 accepted schematic source
-ED9,shuffle_or_null,,,,,,#7F7F7F,Current tree-depth control contract
-ED9,level_schematic,,,,,,magma,Main Figure 5 accepted manifest

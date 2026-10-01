@@ -1,7 +1,0 @@
-{
-  "scipy_pearson_all_supported_matrix_entries_max_abs_error": 5.551115123125783e-16,
-  "scipy_pearson_status": "PASS",
-  "statsmodels_cluster_CR1_intercept_estimate_SE_parity": "PASS both global contrasts atol 1e-12",
-  "pair_key_uniqueness": "PASS",
-  "validation_scope": "New correlations and inference independently checked against scipy/statsmodels; saved neuron-map correlations and raw subset validation are checked in builder."
-}

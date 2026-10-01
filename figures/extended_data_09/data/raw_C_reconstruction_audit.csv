@@ -1,5 +1,0 @@
-pair_key,session,side,n_neurons,selected_rows,retained_rows,nan_selected_rows_removed,unassigned_rows,max_abs_map_error,raw_C_reconstruction,max_absolute_frame_gap,n_discontinuous_frame_gaps,timebase,signal,neural_source
-418RRday1->418-3day1,418RRday1,train,435,185335,185044,291,0,1.0551559626037488e-12,PASS,62031,24875,absolute frame index,C,sorted
-418RRday1->418-3day1,418-3day1,test,435,114882,114604,278,0,1.2501111257279263e-12,PASS,10519,10980,absolute frame index,C,sorted
-842day1->842-3day1,842day1,train,75,222107,222005,102,0,1.0021428131778976e-12,PASS,28790,26470,absolute frame index,C,sorted
-842day1->842-3day1,842-3day1,test,75,166863,166710,153,0,1.0078604617547171e-12,PASS,8105,16838,absolute frame index,C,sorted

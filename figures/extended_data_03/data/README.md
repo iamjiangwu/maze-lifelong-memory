@@ -1,15 +1,12 @@
-# Extended Data Figure 3: data files
+# Extended Data Figure 3: data
 
-These are the original derived observations, numerical summaries and example assets. No values were recalculated or rounded during reorganization. [index.csv](index.csv) records columns/array formats, checksums and original source paths. Session/animal identifiers in filenames are retained.
+Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
 
 | File | Format |
 |---|---|
-| [RECORD_HASHES.csv](RECORD_HASHES.csv) | .csv |
-| [ed04_depth_small_multiples_current_plus_new12.csv](ed04_depth_small_multiples_current_plus_new12.csv) | .csv |
-| [ed04_route_definition_current_plus_new12.csv](ed04_route_definition_current_plus_new12.csv) | .csv |
-| [ed04_route_events_current_plus_new12.csv](ed04_route_events_current_plus_new12.csv) | .csv |
-| [ed04_route_group_stats_current_plus_new12.csv](ed04_route_group_stats_current_plus_new12.csv) | .csv |
-| [ed04_route_stats_current_plus_new12.csv](ed04_route_stats_current_plus_new12.csv) | .csv |
-| [ed04_session_route_current_plus_new12.csv](ed04_session_route_current_plus_new12.csv) | .csv |
+| [depth_small_multiples.csv](depth_small_multiples.csv) | .csv |
 | [fluency_plot_rows.csv](fluency_plot_rows.csv) | .csv |
 | [fluency_statistics.csv](fluency_statistics.csv) | .csv |
+| [route_definition.csv](route_definition.csv) | .csv |
+| [route_stats.csv](route_stats.csv) | .csv |
+| [session_route.csv](session_route.csv) | .csv |

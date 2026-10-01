@@ -45,6 +45,6 @@ Every build has a `BUILD.log` and `REPRODUCTION_VALIDATION.json`; the enclosing 
 
 ## Where the computation starts
 
-This repository starts from derived session/neuron/pair/mouse observations, fitted map/decoder measurements, saved null/simulator draws and example assets. It rebuilds the figures/tables and separately verifies their recorded statistics. It does **not** rerun recording extraction, tracking, neuron registration, map fitting or decoder fitting. Those belong to the full raw-data repository planned after paper acceptance.
+This repository starts from derived session/neuron/pair/mouse observations, fitted map/decoder measurements, saved null/simulator draws and example assets. It rebuilds figures, tables and statistics, not recording extraction, tracking, neuron registration, map fitting or decoder fitting.
 
 The public folder layout is organized for reading. The launcher restores the exact original input names and import paths in a temporary directory, then executes the unchanged verified engine. [Technical provenance](PROVENANCE.md) records that mapping; readers do not need to navigate it to find data or run a figure.
