@@ -6,10 +6,8 @@ reads the reconciled first-30-min tables and the maintained clean36 long gap
 tables, applies the accepted Main Figure 3 semantic palettes, and
 exports the two inherited three-metric rows plus a compact slide mockup.
 
-The displayed primary cohort is locked to the maintained 58-session
-first-window authority.  Six technically recoverable rows are deliberately
-excluded: the five different-experiment 6-month pairs (1636, 1637, 1639, 325,
-347) and the sick-animal 579-6 pair.
+The supplied first-window source table contains the 58 observations used
+in the displayed analysis.
 """
 
 from __future__ import annotations
@@ -77,14 +75,6 @@ TRANSITION_LABELS = {
 }
 
 MAINTAINED_FIRST30_SCOPE = "accepted_main_figure3_first30_fixed_reference"
-EXCLUDED_FIRST30_SESSION_PAIRS = (
-    "1636-6day1->1636-6day2",
-    "1637-6day1->1637-6day2",
-    "1639-6day1->1639-6day2",
-    "325-6day1->325-6day2",
-    "347-6day1->347-6day2",
-    "579-6day1->579-6day2",
-)
 
 # Round 8 is the source authority for values, cohorts, colors, and axis ranges.
 # Round 9 established the six-panel compact grammar, and round 10 removed the
@@ -973,9 +963,7 @@ def main() -> None:
         "solid circle. Lines show the transition-adjusted age association. "
         "The clean36 primary contains 36 session pairs from 14 mice; BH "
         "correction spans the four prespecified measures, including the "
-        "undisplayed level-map measure.\n\n"
-        "The six author-locked sessions remain excluded from all displayed "
-        "values, models and multiplicity families.\n",
+        "undisplayed level-map measure.\n",
         encoding="utf-8",
     )
 
@@ -1050,11 +1038,6 @@ def main() -> None:
         ),
         "first30_model_specification": args.first30_model_specification,
         "scientific_successor": scientific_successor,
-        "excluded_from_all_ed7_primary_analyses": list(EXCLUDED_FIRST30_SESSION_PAIRS),
-        "exclusion_rationale": {
-            "1636_1637_1639_325_347_6month": "different experiment",
-            "579_6month": "sick animal",
-        },
         "bottom_estimand": "long gap source-to-destination correlation with transition adjustment",
         "bottom_primary_scope": (
             "36 pairs / 14 mice; BH4; current clean single-vintage primary"

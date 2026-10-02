@@ -3,18 +3,10 @@ from __future__ import annotations
 from importlib import import_module
 
 _SUBMODULES = {
-    'io',
     'spatial',
-    'similarity',
-    'stats',
     'compat',
-    'config',
     'maze',
-    'trajectory',
-    'mm_plot_utils',
-    'level_ordering',
     'figure_panels',
-    'session_loader_tools',
 }
 
 __all__ = sorted(_SUBMODULES)

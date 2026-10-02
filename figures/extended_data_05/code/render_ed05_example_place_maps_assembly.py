@@ -40,6 +40,7 @@ from scripts.ed_supplement_common import (  # noqa: E402
     Checks,
     sha256,
 )
+from scripts import ed05_gallery_plotting as gallery
 
 REFRESH_ROOT = REPO_ROOT / "docs" / "extended_data_figure_panel_refresh_2026-07-12"
 ED06_TABLES = (
@@ -226,21 +227,8 @@ RATE_PAIR_SOURCE = CORRECTED_LONG_GAP_DIR / "rate_pair_summary_corrected36_all_v
 EXACT_SUPPORT_SOURCE = CORRECTED_LONG_GAP_DIR / "place_pv_rate_exact_support_audit.csv"
 SELECTED_32 = SHORTLIST_DIR / "selected_32.csv"
 SHORTLIST_NPZ = SHORTLIST_DIR / "selected_maps_fields_45_shortlist32.npz"
-SELECTED_FIELDS = SHORTLIST_DIR / "selected_display_fields.csv"
 GALLERY_PROVENANCE = SHORTLIST_DIR / "ED5_PANEL_A_PER_SIDE_PROVENANCE.csv"
 GALLERY_PROVENANCE_SUMMARY = SHORTLIST_DIR / "ED5_PANEL_A_PROVENANCE_SUMMARY.json"
-
-
-def _load_shortlist_module():
-    path = REPO_ROOT / "scripts" / "build_ed06_example_place_map_shortlist_32.py"
-    spec = importlib.util.spec_from_file_location("ed06_shortlist32", path)
-    if spec is None or spec.loader is None:
-        raise ImportError(f"Cannot load {path}")
-    module = importlib.util.module_from_spec(spec)
-    # The shortlist builder expects to be importable as a scripts module.
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
-    return module
 
 
 def load_shortlist_maps() -> tuple[pd.DataFrame, dict[str, dict[str, Any]]]:
@@ -264,46 +252,41 @@ def load_shortlist_maps() -> tuple[pd.DataFrame, dict[str, dict[str, Any]]]:
     if npz_ids != selected_ids:
         raise ValueError("Shortlist NPZ candidate order does not match selected_32.csv")
     schema = str(arrays.get("schema_version", np.asarray("legacy")))
-    if schema == "current_sorted_normalized_gallery_v1":
-        for key in ("normalized_a", "normalized_b"):
-            if arrays[key].shape != (32, 45, 45):
-                raise ValueError(f"Unexpected gallery array shape for {key}")
-        if not np.array_equal(arrays["visual_rank"], selected["visual_rank"].to_numpy(int)):
-            raise ValueError("Gallery map ranks disagree with selected_32.csv")
-        if not np.array_equal(
-            arrays["analysis_r15"], selected[GALLERY_CORRELATION_COLUMN].to_numpy(float)
-        ):
-            raise ValueError("Gallery map pack and table correlations disagree")
-        for key, column in (
-            ("source_neuron_zero_based", "train_id"),
-            ("target_neuron_zero_based", "test_id"),
-        ):
-            if not np.array_equal(arrays[key], selected[column].to_numpy(int)):
-                raise ValueError("Gallery map pack and table neuron IDs disagree")
-        return selected, {
-            candidate_id: {
-                "normalized_a": arrays["normalized_a"][index],
-                "normalized_b": arrays["normalized_b"][index],
-            }
-            for index, candidate_id in enumerate(selected_ids)
+    if schema != "current_sorted_normalized_gallery_v1":
+        raise ValueError(f"Unexpected gallery map schema: {schema}")
+    for key in ("normalized_a", "normalized_b"):
+        if arrays[key].shape != (32, 45, 45):
+            raise ValueError(f"Unexpected gallery array shape for {key}")
+    if not np.array_equal(arrays["visual_rank"], selected["visual_rank"].to_numpy(int)):
+        raise ValueError("Gallery map ranks disagree with selected_32.csv")
+    if not np.array_equal(
+        arrays["analysis_r15"], selected[GALLERY_CORRELATION_COLUMN].to_numpy(float)
+    ):
+        raise ValueError("Gallery map pack and table correlations disagree")
+    for key, column in (
+        ("source_neuron_zero_based", "train_id"),
+        ("target_neuron_zero_based", "test_id"),
+    ):
+        if not np.array_equal(arrays[key], selected[column].to_numpy(int)):
+            raise ValueError("Gallery map pack and table neuron IDs disagree")
+    return selected, {
+        candidate_id: {
+            "normalized_a": arrays["normalized_a"][index],
+            "normalized_b": arrays["normalized_b"][index],
         }
-    fields = pd.read_csv(SELECTED_FIELDS) if SELECTED_FIELDS.is_file() else pd.DataFrame()
-    shortlist = _load_shortlist_module()
-    maps = shortlist.reconstruct_map_lookup(selected, fields, arrays)
-    return selected, maps
+        for index, candidate_id in enumerate(selected_ids)
+    }
 
 
 def build_ed05_gallery_figure(
     selected: pd.DataFrame,
     maps: dict[str, dict[str, Any]],
-    shortlist: Any,
 ) -> plt.Figure:
     """ED5 gallery: maps + r; red card edges mark Main Figure 2b examples."""
 
     from matplotlib.colors import Normalize
     from matplotlib.patches import Rectangle
 
-    v3 = shortlist.v3
     # Axis-label point size matched to the shared ED contract (0.75 × Main Fig 1).
     colorbar_label_size = MAIN_AXIS_LABEL_SIZE * (FONT_REFERENCE_WIDTH_IN / 10.0)
     # Keep figsize aspect matched to the slide gallery slot (fill_slot contract).
@@ -337,7 +320,7 @@ def build_ed05_gallery_figure(
             axis = figure.add_axes(
                 [x0 + within_pair_column * (each_w + gap), map_y0, each_w, map_height]
             )
-            v3._draw_map(axis, np.asarray(values[f"normalized_{side_name}"]))
+            gallery._draw_map(axis, np.asarray(values[f"normalized_{side_name}"]))
             # Show the complete 45 x 45 map.  The former 2.0--42.5 zoom clipped
             # the outer map bins on every card even though the source arrays
             # were complete.
@@ -349,7 +332,7 @@ def build_ed05_gallery_figure(
         figure.text(
             0.5 * (slot_box.x0 + slot_box.x1),
             header_y,
-            shortlist._format_place_map_correlation(
+            gallery._format_place_map_correlation(
                 getattr(row, GALLERY_CORRELATION_COLUMN)
             ),
             ha="center",
@@ -379,7 +362,7 @@ def build_ed05_gallery_figure(
     # Thin horizontal colorbar in the top empty band (above the 8×4 grid).
     colorbar_axis = figure.add_axes([0.34, 0.968, 0.32, 0.008])
     colorbar = figure.colorbar(
-        matplotlib.cm.ScalarMappable(norm=Normalize(0.0, 1.0), cmap=v3._display_cmap()),
+        matplotlib.cm.ScalarMappable(norm=Normalize(0.0, 1.0), cmap=gallery._display_cmap()),
         cax=colorbar_axis,
         orientation="horizontal",
         ticks=[0.0, 0.5, 1.0],
@@ -405,7 +388,6 @@ def build_ed05_gallery_figure(
 
 def render_gallery_plate(output_dir: Path) -> tuple[dict[str, Path], dict[str, Any]]:
     """Re-render the compact 32-pair plate into svg/png/tiff (+pdf)."""
-    shortlist = _load_shortlist_module()
     selected, maps = load_shortlist_maps()
     # Reorder paired cards only, after validating the original table/NPZ order.
     # The displayed analysis correlation is full precision; candidate_id breaks
@@ -417,7 +399,7 @@ def render_gallery_plate(output_dir: Path) -> tuple[dict[str, Path], dict[str, A
     ).reset_index(drop=True)
     derived = output_dir / "derived"
     derived.mkdir(parents=True, exist_ok=True)
-    figure = build_ed05_gallery_figure(selected, maps, shortlist)
+    figure = build_ed05_gallery_figure(selected, maps)
     map_axes = [axis for axis in figure.axes if axis.images]
     map_bounds = [
         [float(value) for value in (*axis.get_xlim(), *axis.get_ylim())]
@@ -466,7 +448,7 @@ def render_gallery_plate(output_dir: Path) -> tuple[dict[str, Path], dict[str, A
     order_audit["previous_row"] = (order_audit["previous_position"] - 1) // 4 + 1
     order_audit["previous_column"] = (order_audit["previous_position"] - 1) % 4 + 1
     order_audit["displayed_label"] = selected[GALLERY_CORRELATION_COLUMN].map(
-        shortlist._format_place_map_correlation
+        gallery._format_place_map_correlation
     )
     order_audit_path = derived / "ED05_PANEL_A_DISPLAY_ORDER.csv"
     order_audit.to_csv(order_audit_path, index=False, float_format="%.17g")

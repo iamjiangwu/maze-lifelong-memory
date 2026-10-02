@@ -18,28 +18,19 @@ import pandas as pd
 
 from ca_analysis.compat import bootstrap_environment
 from ca_analysis.figure_panels import (
-    DEFAULT_PANEL_OUTPUT_DIR,
     END_NODE_LOWER_THRESHOLD,
     END_NODE_UPPER_THRESHOLD,
     EXAMPLE_PATH_POINTS,
-    GRID_ROUTE_CHOICE_SCHEMATIC_COLORS,
-    GRID_ROUTE_CHOICE_SCHEMATIC_GEOMETRY,
-    GRID_ROUTE_CHOICE_SCHEMATIC_LAYOUT,
-    GRID_ROUTE_CHOICE_SCHEMATIC_STYLE,
-    GRID_ROUTE_CHOICE_SCHEMATIC_TEXT,
     MAZE_SCHEMATIC_LANDMARKS,
     PANEL_COLORS,
     PANEL_LAYOUT,
-    draw_endnode_timeline_axes,
     get_split_day_cycle_diagram_specs,
     render_cycle_diagram_panel,
     render_endnode_timeline_grid_panel,
     render_exploration_efficiency_histogram_panel,
-    render_grid_route_choice_schematic,
     render_grouped_bar_scatter_panel,
     render_maze_schematic_panel,
     render_reward_acquisition_month_panel,
-    render_turning_bias_policy_summary_panel,
     get_panel_maze,
 )
 

@@ -15,5 +15,5 @@ These are implementation modules called by the launcher, not independent raw-dat
 - [trajectory_panel.py](trajectory_panel.py)
 - [tree_geometry.py](tree_geometry.py)
 - [Shared runtime source](../../../reproduction/runtime/)
-- [figure_panels.py](../../../reproduction/library/figure_panels.py)
-- [figure_panels__5697d9ffa6.py](../../../reproduction/library/figure_panels__5697d9ffa6.py)
+- [figure_panels.py](../../../reproduction/runtime/ca_analysis/figure_panels.py)
+- [figure_panels.py](../../../reproduction/runtime/ca_analysis/figure_panels.py)

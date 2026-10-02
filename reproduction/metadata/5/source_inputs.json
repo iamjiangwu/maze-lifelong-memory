@@ -2,20 +2,20 @@
   "status": "PASS",
   "sources": {
     "source_code/preview_figure3_assembly.py": {
-      "sha256": "efde0b9a01b61470e19afd21d0909bf38635b9da18e91b07e1b564a07cdc9a8f",
-      "bytes": 42873
+      "sha256": "2d5f4c7ca6ad7dded92c56be4af1da85deeef8a2066c14287fea7b57e9f8cc47",
+      "bytes": 17748
     },
     "source_code/figure_panels.py": {
-      "sha256": "7defc6416c2b7ea4bff4a74e960c39444086b3ee37141f8bc65a19a85fe1d183",
-      "bytes": 321710
+      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
+      "bytes": 140717
     },
     "source_code/level_heatmap_utils.py": {
-      "sha256": "c4d4e3552278ab916eb85e23d536a666436baff4d075944a830bb0ed1ce936c4",
-      "bytes": 4316
+      "sha256": "890b68e4df15500acb8fb96fb35ff7087491f112ad3ec43ffb5b4f36ec91696c",
+      "bytes": 2282
     },
     "source_code/render_main_figs_v3_publication.py": {
-      "sha256": "48ca29a93e3c4d53635dd2cb5319346093d9ffdb66cdf39de86e8956873f5204",
-      "bytes": 5790
+      "sha256": "77dfda67dfd5e6daa151d00ba333a420e381b65f4127e979dc355e8655c2e3b7",
+      "bytes": 5766
     },
     "source_code/frozen_main_rebuild_runtime.py": {
       "sha256": "bd62175cd73dd4406f6b48ceb8d2f85e538e72d2d9f2b079d4d956dc9c512249",
@@ -54,8 +54,8 @@
       "bytes": 182143
     },
     "source_code/rebuild_figure5.py": {
-      "sha256": "508fa531ee4fb0ee4a95cac85173fdecb6a6e40a47485d78e3c882f020ac1288",
-      "bytes": 15106
+      "sha256": "a5660e58a843e113549032687d787da341e8f971e33df5fd7e196a2145cd3554",
+      "bytes": 14832
     }
   }
 }

@@ -31,18 +31,7 @@ import numpy as np
 
 from matplotlib.colors import Normalize
 
-from ca_analysis.figure_panels import (
-    CORRELATION_MEASURE_COLORS,
-    PANEL_LAYOUT,
-    apply_panel_rcparams,
-    compute_example_cell_arrow_data,
-    get_panel_maze,
-    load_neuron_data_bundle,
-    render_spatial_decoding_error_map,
-    render_example_cell_day12_placemap_panel,
-    render_example_cell_grid_panel,
-    resolve_neuron_data_path,
-)
+from ca_analysis.figure_panels import CORRELATION_MEASURE_COLORS, get_panel_maze
 
 from ca_analysis.figure_colors import get_correlation_experience_colors
 

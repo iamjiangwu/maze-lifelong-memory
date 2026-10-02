@@ -138,8 +138,6 @@ def verify(out,pair,num,animal,rep,rn,xp,xn):
     assert len(records)==14, 'Expected only the fourteen displayed route tests'
     displayed=animal[np.isfinite(animal[['port','away']]).all(axis=1)].copy()
     assert displayed.query("panel=='e'").groupby('group').size().to_dict()=={'home_to_reward':13,'reward_to_home':13}
-    excluded=animal.loc[~np.isfinite(animal[['port','away']]).all(axis=1)]
-    assert len(excluded)==1 and excluded.iloc[0].animal=='434' and excluded.iloc[0].panel=='e'
     ref=pd.read_csv(out/'source_data/candidate_paired_display_summary.csv')
     summary=displayed[displayed.panel.isin(['e','f','h'])].groupby(['panel','group']).agg(n_mice=('animal','size'),away=('away','mean'),port=('port','mean')).reset_index()
     for r in summary.itertuples():

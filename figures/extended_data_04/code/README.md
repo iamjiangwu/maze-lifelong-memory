@@ -7,4 +7,4 @@ The supported entry point is [../build.py](../build.py), run from the repository
 These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
 
 - [ed_supplement_common.py](ed_supplement_common.py)
-- [render_ed04_registration_quality_assembly.py](../../../reproduction/library/render_ed04_registration_quality_assembly.py)
+- [render_ed04_registration_quality_assembly.py](../../../figures/extended_data_04/code/render_ed04_registration_quality_assembly.py)

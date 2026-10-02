@@ -7,38 +7,6 @@ from typing import Any
 import numpy as np
 
 
-def collect_var_from_variant(
-    registry: dict[str, dict[str, dict[str, Any]]],
-    variant: str,
-    var_key: str,
-    which: str | None = "data",
-) -> dict[str, Any]:
-    """Collect a field from every pair in one loaded registry variant."""
-
-    out: dict[str, Any] = {}
-    for pairs in registry[variant].values():
-        for pair_key, entry in pairs.items():
-            obj = entry
-            if isinstance(entry, dict) and ("data" in entry or "shuffle" in entry):
-                if which is None:
-                    obj = entry.get("data", entry.get("shuffle"))
-                else:
-                    obj = entry.get(which)
-            if obj is None:
-                continue
-            current = obj
-            for part in var_key.split("."):
-                if isinstance(current, dict) and part in current:
-                    current = current[part]
-                else:
-                    current = getattr(current, part, None)
-                if current is None:
-                    break
-            if current is not None:
-                out[pair_key] = current
-    return out
-
-
 def stack_level_maps(
     maps_by_pair: dict[str, Any],
     *,
@@ -94,29 +62,3 @@ def normalize_maps(maps: Any, mode: str = "l2", eps: float = 1e-12) -> np.ndarra
         std = np.maximum(np.std(values, axis=0), eps)
         return (values - mean) / std
     raise ValueError(f"Unknown mode: {mode}")
-
-
-def refine_order_by_argmax(
-    train_maps: Any,
-    base_order: Any | None = None,
-    eps: float = 1e-6,
-) -> np.ndarray:
-    """Stably group an existing neuron order by preferred level."""
-
-    maps = np.asarray(train_maps, dtype=float)
-    if maps.ndim != 2 or maps.shape[0] < 2:
-        raise ValueError(f"train_maps must be (levels>=2, neurons), got {maps.shape}")
-    n_neurons = int(maps.shape[1])
-    order = (
-        np.arange(n_neurons, dtype=int)
-        if base_order is None
-        else np.asarray(base_order, dtype=int)
-    )
-    if order.size != n_neurons:
-        raise ValueError("base_order length must match number of columns in train_maps")
-    preferred = np.argmax(maps, axis=0)
-    nonselective = np.max(maps, axis=0) <= eps
-    if np.any(nonselective):
-        preferred = preferred.astype(float)
-        preferred[nonselective] = 999
-    return order[np.argsort(preferred[order], kind="stable")]

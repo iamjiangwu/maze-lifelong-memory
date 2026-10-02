@@ -1,7 +1,7 @@
 """Export the Figure 5 source-rendered SVG through Chrome or Edge.
 
 rebuild_figure5 assembles the panels and passes its SVG to this helper.
-The historical filename identifies the frozen export implementation.
+No scientific calculation is performed here.
 """
 
 from __future__ import annotations

@@ -9,5 +9,5 @@ These are implementation modules called by the launcher, not independent raw-dat
 - [rebuild_figure.py](rebuild_figure.py)
 - [render_main_figs_v3_publication.py](render_main_figs_v3_publication.py)
 - [Shared runtime source](../../../reproduction/runtime/)
-- [figure_panels.py](../../../reproduction/library/figure_panels.py)
+- [figure_panels.py](../../../reproduction/runtime/ca_analysis/figure_panels.py)
 - [rebuild_current_main_figures.py](../../../reproduction/snapshot/shared/rebuild_current_main_figures.py)

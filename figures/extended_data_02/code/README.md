@@ -9,7 +9,7 @@ These are implementation modules called by the launcher, not independent raw-dat
 The [ED driver](../../../reproduction/snapshot/shared/rebuild_current_extended_data_figures.py) combines two drawing passes: `refinement.render()` supplies the assembly, and `aligned.render()` supplies matched-naïve panels d/h. Both use the same current numerical inputs. The import chain, from outer wrapper to base drawing functions, is:
 
 1. [refinement](render_ed02_slide3_refinement.py)
-2. [upright policy labels](../../../reproduction/library/render_ed02_slide3_upright_policy.py)
+2. [upright policy labels](../../../figures/extended_data_02/code/render_ed02_slide3_upright_policy.py)
 3. [panel-g labels](render_ed02_slide3_panel_g_labels.py)
 4. [schematic placement](render_ed02_slide3_schematic_g_fix.py)
 5. [aligned layout](render_ed02_slide3_aligned.py)
@@ -21,4 +21,4 @@ The [ED driver](../../../reproduction/snapshot/shared/rebuild_current_extended_d
 11. [panel layout](render_ed02_slide3_layout_optimized.py)
 12. [component plots](render_ed02_slide3_caption_minimal.py)
 
-The last layer loads the [depth-support adapter](../../../reproduction/library/render_ed02_depth_common_i_adapter.py), which provides the [base renderer](../../../reproduction/snapshot/shared/SOURCE_REBUILD_ED2_ROUND23_BASE_RENDERER.py). The adapter applies the same all-depth-strata support to panel i as to g/h. [export_ed02_vector_figure.py](export_ed02_vector_figure.py) handles vector assembly/export. These layers control drawing or cohort support; they do not introduce additional behavioral windows or statistical families.
+The last layer loads the [depth-support adapter](../../../figures/extended_data_02/code/render_ed02_depth_common_i_adapter.py), which provides the [base renderer](../../../reproduction/snapshot/shared/SOURCE_REBUILD_ED2_ROUND23_BASE_RENDERER.py). The adapter applies the same all-depth-strata support to panel i as to g/h. [export_ed02_vector_figure.py](export_ed02_vector_figure.py) handles vector assembly/export. These layers control drawing or cohort support; they do not introduce additional behavioral windows or statistical families.

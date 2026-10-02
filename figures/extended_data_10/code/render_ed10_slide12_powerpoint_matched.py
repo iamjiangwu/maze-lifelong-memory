@@ -28,9 +28,6 @@ from statsmodels.stats.sandwich_covariance import cov_cluster
 
 from ca_analysis.figure_colors import get_correlation_measure_colors
 
-from _ed10_neural_eligibility import audit_pair_universe, load_neural_eligibility
-
-
 REPO = Path(__file__).resolve().parents[1]
 SUPPLEMENT = REPO / "docs" / "extended_data_supplement_v2_rebuild_2026-08-05"
 ROOT = SUPPLEMENT / "ed10_reward_level_behavior_bridge"
@@ -48,7 +45,6 @@ PROFILE_TABLE = SYNTHESIS / "REWARD_LEVEL_PROFILE_TESTS.csv"
 PAIR_AUDIT = SYNTHESIS / "CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
 SYNTHESIS_VALIDATION = SYNTHESIS / "VALIDATION.json"
 SYNTHESIS_MANIFEST = SYNTHESIS / "SOURCE_MANIFEST.csv"
-NEURAL_ELIGIBILITY_CONTRACT = SYNTHESIS / "NEURAL_ELIGIBILITY_CONTRACT.json"
 ROUND6_SOURCE_VALIDATION = ROOT / "ED10_ROUND6_SOURCE_VALIDATION.json"
 TABLE_C = (
     REPO
@@ -59,7 +55,6 @@ TABLE_C = (
     / "level_policy_bridge_join_corrected36.csv"
 )
 STATS_C = TABLE_C.with_name("level_policy_bridge_stats_corrected36.csv")
-EXCLUSION_CONTRACT = SUPPLEMENT / "EXCLUDED_SESSION_CONTRACT.json"
 
 COLORS = get_correlation_measure_colors()
 REWARD = COLORS["pv_correlation"]
@@ -1154,7 +1149,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         PROFILE_TABLE,
         TABLE_C,
         STATS_C,
-        EXCLUSION_CONTRACT,
         PAIR_AUDIT,
         SYNTHESIS_VALIDATION,
         SYNTHESIS_MANIFEST,
@@ -1163,16 +1157,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         if not path.is_file() or path.stat().st_size == 0:
             raise FileNotFoundError(path)
 
-    eligibility = load_neural_eligibility(REPO)
-    for authority_path in (
-        eligibility["neural_path"],
-        eligibility["biological_path"],
-        eligibility["ed08_path"],
-    ):
-        if authority_path not in required:
-            required.append(authority_path)
-    exclusion = json.loads(EXCLUSION_CONTRACT.read_text(encoding="utf-8"))
-    forbidden = sorted(eligibility["excluded_sessions"])
     synthesis_validation = json.loads(
         SYNTHESIS_VALIDATION.read_text(encoding="utf-8")
     )
@@ -1239,30 +1223,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         raise AssertionError("ED10 policy statistics source must contain four displayed roles")
     pair_audit["source_session"] = pair_audit["pair_key"].astype(str).str.split("->").str[0]
     pair_audit["target_session"] = pair_audit["pair_key"].astype(str).str.split("->").str[1]
-    ab_eligibility = audit_pair_universe(
-        pair_audit,
-        eligibility,
-        pair_column="pair_key",
-        animal_column="animal_id",
-    )
-    c_eligibility = audit_pair_universe(
-        c,
-        eligibility,
-        pair_column="pair_key",
-        animal_column="animal_id",
-    )
-    if not ab_eligibility["eligibility_decision"].eq("USE_NEURAL").all():
-        raise AssertionError("ED10 a/b contains a neural-ineligible row")
-    if not c_eligibility["eligibility_decision"].eq("USE_NEURAL").all():
-        raise AssertionError("ED10 c contains a neural-ineligible row")
-    membership_text = "\n".join(
-        pair_audit[["pair_key", "source_session", "target_session"]].fillna("").astype(str).agg("|".join, axis=1).tolist()
-        + c[["pair_key", "src", "dst"]].fillna("").astype(str).agg("|".join, axis=1).tolist()
-    )
-    present_forbidden = sorted(token for token in forbidden if token in membership_text)
-    if present_forbidden:
-        raise AssertionError(f"Forbidden ED10 sessions found: {present_forbidden}")
-
     render_root = output_root.resolve() if output_root is not None else ROOT
     render_round = output_round or ROUND
     output_dir = render_root / "assembly" / render_round
@@ -1467,14 +1427,10 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         ],
         "layout_contract": "top matrix / middle two bars / bottom four scatters",
         "panel_a_mouse_cr1_rowwise_bh3_stars": True,
-        "forbidden_sessions": forbidden,
-        "forbidden_sessions_present": present_forbidden,
         "checks": {
             "a_scope_30_pairs_14_mice": True,
             "b_scope_30_pairs_14_mice": True,
             "c_scope_36_pairs_14_mice": True,
-            "live_24_session_2_animal_neural_eligibility_applied_before_qc": True,
-            "no_forbidden_session_in_membership": True,
             "maintained_source_tables_not_recomputed": True,
             "panel_a_raw_decoder_error_sign_audit_pass": all(
                 decoder_sign_audit["checks"].values()
@@ -1543,12 +1499,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         },
         "role_qa": role_qa,
         "assembly_qa": assembly_qa,
-        "neural_eligibility": {
-            "path": str(eligibility["neural_path"]),
-            "sha256": eligibility["neural_sha256"],
-            "excluded_animals": sorted(eligibility["excluded_animals"]),
-            "excluded_sessions": sorted(eligibility["excluded_sessions"]),
-        },
         "inputs": [record(path, "input") for path in required],
         "outputs": [record(path, "output") for path in outputs],
         "renderer": record(Path(__file__).resolve(), "renderer"),

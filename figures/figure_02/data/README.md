@@ -4,7 +4,7 @@ Long-gap neural correlations, saved neuron-ID null distributions and example neu
 
 | Panels | Inputs and observation unit |
 |---|---|
-| a–c, h, m | `*_corr.npz` supplies example local-correlation images; the four neuron-example NPZs supply registered-neuron trajectories and signals used in the examples. Representation schematics are drawn by code. |
+| a–c, h, m | `*_corr.npz` supplies example local-correlation images; the four neuron-example NPZs supply displayed trajectories and activity-arrow coordinates. Representation schematics are drawn by code. |
 | d, i, n | `*_distribution.npz`: PV correlations per spatial bin in d, place-map correlations per matched neuron in i, and ensemble-rate correlations per session pair in n, with saved shuffle histograms/values. |
 | e, j, o | `*_shuffle_mean.npz`: null draws of the cohort mean and the observed mean; `pair_metric_summary.csv` and `metric_summary.csv` give the pair/cohort summaries. |
 | f, k, p | `gap_with_day1_day2_curve_data.csv` contains means and 95% intervals by Days apart. `same_stage_*`, `long_gap_pair_rows.csv` and the ensemble-rate pair tables supply the corresponding observations. |
@@ -14,7 +14,7 @@ All correlation values are dimensionless. Distribution observations have differe
 
 In `distribution_pair_support.csv`, `n_pairs_final` counts matched-neuron pairs within a session pair. `n_pairs_dropped_by_user` counts manually excluded matched-neuron pairs; every supplied row is zero. Neither field counts mice or recording-session pairs.
 
-In neuron NPZs, A/B identify source/target sessions; `*_frame` indexes the saved signal trace, while the shorter coordinate arrays contain retained position samples. Do not align these by row number without `*_frame`. Positions are normalized maze coordinates (approximately 0–1), `dt` is seconds per frame, `Craw` is the calcium trace and `S` the inferred activity signal. `place_r` is the 15 × 15 place-map correlation and `place_support_15` its spatial support count. Cell identifiers are indices within the named sessions, not animal-wide neuron IDs.
+In neuron-example NPZs, A/B identify source/target sessions. `*_traj_x`/`*_traj_y` contain the displayed trajectory; `*_px`/`*_py` and `*_ex`/`*_ey` give body and nose coordinates for each displayed activity arrow. Coordinates use maze-grid units with the displayed y orientation. `place_r` is the displayed 15 × 15 place-map correlation. The files contain no neural traces, and reproduction does not reselect activity events.
 
 | File | Format |
 |---|---|

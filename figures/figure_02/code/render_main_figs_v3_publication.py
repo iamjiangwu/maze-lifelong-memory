@@ -48,14 +48,7 @@ from scipy import stats as scipy_stats
 from ca_analysis.figure_panels import (
     CORRELATION_MEASURE_COLORS,
     PANEL_LAYOUT,
-    apply_panel_rcparams,
-    compute_example_cell_arrow_data,
-    get_panel_maze,
-    load_neuron_data_bundle,
-    render_spatial_decoding_error_map,
-    render_example_cell_day12_placemap_panel,
     render_example_cell_grid_panel,
-    resolve_neuron_data_path,
 )
 
 from ca_analysis.figure_colors import get_correlation_experience_colors
@@ -928,11 +921,6 @@ def _render_figure2_panel_b_four_examples(size: tuple[float, float], style: Publ
             "title_template": "{place_r:.2f}",
         },
         save=False,
-        n_bins=45,
-        sigma=1.0,
-        signal="C",
-        dt=0.04,
-        min_time_base=0.5,
     )
     bottom_row_drop = 0.010
     for ax in _axes[1, :]:

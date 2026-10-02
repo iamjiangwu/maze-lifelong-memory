@@ -38,18 +38,11 @@ from scipy import stats as scipy_stats
 from ca_analysis import figure_panels as figure_panels_module
 from ca_analysis.figure_panels import (
     CORRELATION_MEASURE_COLORS,
-    PANEL_LAYOUT,
-    apply_panel_rcparams,
-    compute_example_cell_arrow_data,
-    get_panel_maze,
+    load_example_cell_arrow_data,
     load_neuron_data_bundle,
-    render_spatial_decoding_error_map,
-    render_example_cell_day12_placemap_panel,
-    render_example_cell_grid_panel,
     resolve_neuron_data_path,
 )
 from ca_analysis.figure_colors import get_correlation_experience_colors
-from ca_analysis.mm_plot_utils import plot
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -661,14 +654,7 @@ def _draw_day12_arrow_example(fig: plt.Figure, grid_cell, style: PublicationStyl
     sides = ("A", "A2", "B", "B2")
     titles = ("Day i", "Day i+1", "Day i+90", "Day i+91")
     for ax, side, title in zip(axes, sides, titles, strict=True):
-        arrows = compute_example_cell_arrow_data(
-            pack,
-            side,
-            threshold_sn=5.0,
-            dedupe_frames=4,
-            spike_signal="S",
-            noise_from="Craw",
-        )
+        arrows = load_example_cell_arrow_data(pack, side)
         ax.plot(
             arrows["traj_x"],
             arrows["traj_y"],

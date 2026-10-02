@@ -8,4 +8,4 @@ These are implementation modules called by the launcher, not independent raw-dat
 
 - [preview_figure2_assembly.py](preview_figure2_assembly.py)
 - [render_main_figs_v3_publication.py](render_main_figs_v3_publication.py)
-- [figure_panels.py](../../../reproduction/library/figure_panels.py)
+- [figure_panels.py](../../../reproduction/runtime/ca_analysis/figure_panels.py)

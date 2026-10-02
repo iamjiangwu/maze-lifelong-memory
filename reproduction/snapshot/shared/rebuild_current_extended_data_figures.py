@@ -430,26 +430,6 @@ def render_ed4(record: Path, output: Path, stage: Path) -> dict[str, Any]:
 def render_ed5(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m = load_module(stage / "scripts/render_ed05_example_place_maps_assembly.py", "ed5_source_rebuild")
     plot = record / "plot_ready"
-    # The gallery assembly needs only the frozen shortlist map reconstructor
-    # and v3 drawing helpers. Preload those record copies while satisfying the
-    # unused v3 recomputation dependency with a narrow in-memory stub; otherwise
-    # the namespace package falls through to live ``scripts`` for v1/v2.
-    scripts_package = sys.modules["scripts"]
-    v2_name = "scripts.build_ed06_example_place_map_candidates_v2"
-    v3_name = "scripts.build_ed06_example_place_map_candidates_v3"
-    v2_stub = types.ModuleType(v2_name)
-    sys.modules[v2_name] = v2_stub
-    setattr(scripts_package, v2_name.rsplit(".", 1)[-1], v2_stub)
-    shortlist_v3 = load_module(
-        stage / "scripts/build_ed06_example_place_map_candidates_v3.py",
-        v3_name,
-    )
-    setattr(scripts_package, v3_name.rsplit(".", 1)[-1], shortlist_v3)
-    shortlist = load_module(
-        stage / "scripts/build_ed06_example_place_map_shortlist_32.py",
-        "ed5_source_rebuild_shortlist32",
-    )
-    m._load_shortlist_module = lambda: shortlist
     m.REPO_ROOT = REPO_ROOT
     round_match = re.search(r"_round(\d+)(?:_|$)", record.name)
     if round_match is None:
@@ -467,7 +447,6 @@ def render_ed5(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.EXACT_SUPPORT_SOURCE = plot / "place_pv_rate_exact_support_audit.csv"
     m.SELECTED_32 = plot / "selected_32.csv"
     m.SHORTLIST_NPZ = plot / "selected_maps_fields_45_shortlist32.npz"
-    m.SELECTED_FIELDS = plot / "selected_display_fields.csv"
     m.GALLERY_PROVENANCE = plot / "ED5_PANEL_A_PER_SIDE_PROVENANCE.csv"
     m.GALLERY_PROVENANCE_SUMMARY = plot / "ED5_PANEL_A_PROVENANCE_SUMMARY.json"
     m.EQUAL_EXTRA_SOURCES = ()
@@ -739,15 +718,11 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.PAIR_AUDIT = record / "plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
     m.SYNTHESIS_VALIDATION = synthesis / "VALIDATION.json"
     m.SYNTHESIS_MANIFEST = synthesis / "SOURCE_MANIFEST.csv"
-    m.NEURAL_ELIGIBILITY_CONTRACT = synthesis / "NEURAL_ELIGIBILITY_CONTRACT.json"
     m.TABLE_C = record / "plot_ready/level_policy_bridge_join_corrected36.csv"
     m.STATS_C = record / "plot_ready/level_policy_bridge_stats_corrected36.csv"
-    m.EXCLUSION_CONTRACT = record / "source_authority/EXCLUDED_SESSION_CONTRACT.json"
-    # Close the historical ED8-contract path by deriving the same fail-closed
-    # cross-check locally from the record-frozen ED10 eligibility contract.
     runtime_authority = output / "runtime_authorities"
     runtime_authority.mkdir()
-    # Validate the included source tables and cohort definitions used here.
+    # Validate the included source tables used here.
     maintained_sources = [
         m.TABLE_A,
         m.TABLE_B,
@@ -755,8 +730,6 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
         m.PAIR_AUDIT,
         m.TABLE_C,
         m.STATS_C,
-        m.NEURAL_ELIGIBILITY_CONTRACT,
-        m.EXCLUSION_CONTRACT,
     ]
     local_manifest = runtime_authority / "ED10_RECORD_LOCAL_SOURCE_MANIFEST.csv"
     with local_manifest.open("w", encoding="utf-8", newline="") as stream:
@@ -793,34 +766,6 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     )
     m.SYNTHESIS_MANIFEST = local_manifest
     m.SYNTHESIS_VALIDATION = local_validation
-    neural_path = synthesis / "NEURAL_ELIGIBILITY_CONTRACT.json"
-    neural = json.loads(neural_path.read_text(encoding="utf-8"))
-    ed8_contract = runtime_authority / "ED08_NEURAL_EXCLUSION_CONTRACT.json"
-    ed8_contract.write_text(
-        json.dumps(
-            {
-                "schema": "ed08-neural-exclusion-contract/v1",
-                "status": "VALIDATED_COHORT",
-                "excluded_animals": neural["behavior_only_animals"],
-                "excluded_sessions": neural["neural_excluded_sessions"],
-                "derived_from": neural_path.relative_to(record).as_posix(),
-            },
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
-    original_eligibility_loader = m.load_neural_eligibility
-
-    def local_eligibility(_repo: Path) -> dict[str, Any]:
-        return original_eligibility_loader(
-            record,
-            neural_contract=neural_path,
-            biological_contract=m.EXCLUSION_CONTRACT,
-            ed08_contract=ed8_contract,
-        )
-
-    m.load_neural_eligibility = local_eligibility
     m.ROUND6_SOURCE_VALIDATION = output / "ED10_SOURCE_REBUILD_VALIDATION.json"
     round_match = re.search(r"_(round\d+)(?:_|$)", record.name)
     if round_match is None:

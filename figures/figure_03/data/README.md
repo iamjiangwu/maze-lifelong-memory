@@ -20,7 +20,7 @@ The point/statistics files also contain the level-map measure shown in ED9n/o, w
 
 The successive-cycle points in g/j/m include mouse 1616's 14-day interval. Thus the file's `long_gap` name does not mean that every included interval is approximately 90 days; this cohort differs from the 36-pair long-gap cohort in Figure 2.
 
-In the example NPZ, `*_frame` indexes the corresponding full `*_Craw`/`*_S` signal; retained position samples must not be matched by array row alone. `dt` is seconds per frame, `*_x`/`*_y` are nose coordinates and `*_mass_x`/`*_mass_y` are body-position coordinates, normalized to approximately 0–1 across the maze. The renderer uses inferred `S` activity and noise estimated from `Craw` to draw events on the trajectories.
+The example NPZ contains displayed geometry only. For each session side, `*_traj_x`/`*_traj_y` contain the trajectory; `*_px`/`*_py` and `*_ex`/`*_ey` give body and nose coordinates for each displayed activity arrow. Coordinates use maze-grid units with the displayed y orientation. No neural traces are included, and reproduction does not reselect activity events.
 
 | File | Format |
 |---|---|

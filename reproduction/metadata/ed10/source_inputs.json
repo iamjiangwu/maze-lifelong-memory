@@ -26,24 +26,12 @@
       "sha256": "299f487a50fc30fc18f907ae8b526213ea61a3d0a75d61af0ec5b24415dcef3d"
     },
     {
-      "path": "frozen_source/extended_data_fig10_round18_inputs/source_authority/fixed_neuron_synthesis/NEURAL_ELIGIBILITY_CONTRACT.json",
-      "sha256": "f5aaf11658508286ccc9297f3110312e3543c671a077f263bab0d5df215a88d9"
-    },
-    {
-      "path": "frozen_source/extended_data_fig10_round18_inputs/source_authority/EXCLUDED_SESSION_CONTRACT.json",
-      "sha256": "1948c313d95f8710f7e015a8f792b61713c9f0c7b1d66f8ef43cb3cb879b2491"
-    },
-    {
-      "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/_ed10_neural_eligibility.py",
-      "sha256": "372cd5182cc1634d8831853debc8ea782d9227be564c52a22e811c03884e5696"
-    },
-    {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/render_ed10_slide12_powerpoint_matched.py",
-      "sha256": "90120595b6e8209d2d4623476b022793828514c590d0fd7563406492ea601432"
+      "sha256": "bf654ac3e12809fea48e60229d9c331daa398e30d90f1b675f3ae1c64bc4fda3"
     },
     {
       "path": "source_code/rebuild_current_extended_data_figures.py",
-      "sha256": "5d0bd0f4f40dbee21ec428dda1cb16a1e4027ac23230db68f6a4e358dcea0147"
+      "sha256": "ca7795d53373431a234f9b07407bcc667c1b33807ad10db41e125b7100324912"
     }
   ]
 }

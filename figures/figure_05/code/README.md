@@ -6,10 +6,10 @@ The supported entry point is [../build.py](../build.py), run from the repository
 
 These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
 
-- [level_heatmap_utils.py](level_heatmap_utils.py)
+- [level_heatmap_utils.py](../../../reproduction/runtime/ca_analysis/level_heatmap_utils.py)
 - [rebuild_figure5.py](rebuild_figure5.py)
 - [Shared runtime source](../../../reproduction/runtime/)
-- [figure_panels__5697d9ffa6.py](../../../reproduction/library/figure_panels__5697d9ffa6.py)
-- [preview_figure3_assembly__453e69706c.py](../../../reproduction/library/preview_figure3_assembly__453e69706c.py)
+- [figure_panels.py](../../../reproduction/runtime/ca_analysis/figure_panels.py)
+- [plot_panels.py](plot_panels.py)
 - [rebuild_current_main_figures.py](../../../reproduction/snapshot/shared/rebuild_current_main_figures.py)
-- [render_main_figs_v3_publication__a7a324dc5c.py](../../../reproduction/library/render_main_figs_v3_publication__a7a324dc5c.py)
+- [export_figure.py](export_figure.py)

@@ -62,19 +62,15 @@ def configure(inputs: Path):
     publication = engine._load_publication_renderer(inputs, "exchange_frozen_publication")
     module = engine._load_module("exchange_frozen_main5", inputs / "source_code/preview_figure3_assembly.py")
     bundle = inputs / "source_data/figure5_bundle"
-    module.FIGURE5_CORRECTED_842_DIR = bundle
-    module.FIGURE5_SOURCE_MANIFEST = bundle / "SOURCE_MANIFEST.json"
     module.FIGURE5_LEVEL_DISTRIBUTION_DIR = bundle
     module.FIGURE5_LEVEL_HEATMAP_PLOT_READY = inputs / "source_data/level_vectors_tree_depth7_corrected36_d1v1.csv"
     module.FIGURE5_LEVEL_HEATMAP_PLOT_READY_SHA256 = sha(module.FIGURE5_LEVEL_HEATMAP_PLOT_READY)
-    module.FIGURE5_DECODER_DIR = inputs / "source_data/neuron_id_shuffle"
     module.SORTED_LEVEL_EXPLORATION_DIR = bundle
     scope = pd.read_csv(bundle / "figure5_pair_scope_audit.csv")
     rows = pd.read_csv(module.FIGURE5_LEVEL_HEATMAP_PLOT_READY)
     assert len(scope) == 36 and len(rows) == 16901
     validation = {"status": "PASS", "pairs": len(scope), "neurons": len(rows),
                   "source": "record-frozen ordinary Level-code sources"}
-    module.validate_figure5_corrected842_sources = lambda: validation
     return engine, publication, module, index, validation
 
 
@@ -182,7 +178,7 @@ def rebuild(inputs: Path, output: Path) -> list[Path]:
     assert not pv_svg.findall(".//" + SVG + "image")
     audit["new_heatmap_and_colorbar_vector_only"] = True
     with matplotlib.rc_context({"savefig.dpi": 600}):
-        tree = module.render_assembly_svg(dpi=600, row="all")
+        tree = module.render_assembly_svg(dpi=600)
     # Keep the accepted Figure 5 outer canvas and top margin exactly.
     top_margin = .12
     root = tree.getroot()
