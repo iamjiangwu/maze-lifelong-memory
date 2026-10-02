@@ -62,8 +62,8 @@
   {
     "frozen_file": "within_level_nulls.csv",
     "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/panel_c_boundary_smoothed_round34/null_draws.csv",
-    "sha256": "72921938b82684cdaa6a32650c1d7f446a3d001e5c57c363ec7663430850033a",
-    "bytes": 6191465
+    "sha256": "ddf52f7d3f0e4d5ec8f3986bc6cf67b51103fccf9e46d17b37fd00e3585369da",
+    "bytes": 27842
   },
   {
     "frozen_file": "within_level_stats.csv",

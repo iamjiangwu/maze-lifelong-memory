@@ -568,7 +568,11 @@ def build(inputs: Path, output: Path):
 
     ax=axis("j_null",163.3,51,17,26)
 
-    nulls=read("within_level_nulls.csv").query("scope == 'global'").groupby("repeat").null_raw_mean.mean()
+    null_draws=pd.read_csv(data_dir/"within_level_nulls.csv",float_precision="round_trip")
+
+    assert null_draws.repeat.is_unique and null_draws.n_pairs.eq(len(pairs)).all()
+
+    nulls=null_draws.set_index("repeat").mean_correlation.sort_index()
 
     assert len(nulls)==1000 and len(pairs)==36
 

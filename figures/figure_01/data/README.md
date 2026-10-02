@@ -11,7 +11,9 @@ Behavioral examples and session-level outcomes. [Column and format index](index.
 | i | `long_bout_group_*`: session values, summaries and contrasts across reward contexts. |
 | j | `session_route.csv`, `route_group_stats.csv`, `route_stats.csv`: first-visit route scores, summaries and contrasts. |
 
-`lb0` is first long bout time in seconds. `first_chunk_efficiency` is 32 divided by the number of end-node visits needed to reach 32 distinct end nodes. `route_fraction_correct` is the fraction of correct first choices across the six reward-path decision nodes (0–1); `all6_resolved` and the decision-count fields describe support. `animal_id`/`animal` links repeated sessions from one animal. Missing or unsupported outcomes are not zeros. Group summaries and inferential contrasts have separate units; see [statistical families](../../../docs/STATISTICS.md).
+`lb0` is cumulative time in the maze, in seconds, to the onset of the first long bout. A long bout is an uninterrupted path ending at the water port with more than six consecutive transitions between adjacent tree nodes, each reducing distance to the port. The timestamp is the path's onset, not its arrival at the port.
+
+`first_chunk_efficiency` is 32 divided by the number of end-node visits needed to reach 32 distinct end nodes during exploration; a new visit requires leaving and returning to an end node. `route_fraction_correct` is the fraction of correct first choices across the six reward-path decision nodes (0–1); `all6_resolved` and the decision-count fields describe support. `animal_id`/`animal` links repeated sessions from one animal. Missing or unsupported outcomes are not zeros. Group summaries and inferential contrasts have separate units; see [statistical families](../../../docs/STATISTICS.md).
 
 | File | Format |
 |---|---|

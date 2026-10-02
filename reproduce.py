@@ -209,10 +209,10 @@ def resolve_figure(selection: str, layout: dict) -> str:
     raise ValueError('Unknown figure/table. Run python reproduce.py --list for valid names.')
 
 
-def export_environment(node: str | None) -> tuple[str, dict]:
+def export_environment() -> dict:
     """Set the public Python export environment; no private Node runtime is needed."""
     environment = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', MPLBACKEND='Agg')
-    return node or 'node', environment
+    return environment
 
 
 def main(argv=None) -> int:
@@ -224,7 +224,6 @@ def main(argv=None) -> int:
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--statistics-only', action='store_true', help='Recalculate the included current statistical groups')
     mode.add_argument('--figures-only', action='store_true', help='Build artwork/tables without statistical replay')
-    parser.add_argument('--node', help=argparse.SUPPRESS)  # Legacy CLI compatibility; unused by Python table builders.
     args = parser.parse_args(argv)
     layout = read_layout()
     if args.list:
@@ -248,7 +247,7 @@ def main(argv=None) -> int:
         parser.error('Choose an output directory outside the source/docs folders, for example outputs/rebuild.')
     if output.exists() and any(output.iterdir()):
         parser.error('Use a new or empty output directory: ' + str(output))
-    node, environment = export_environment(args.node)
+    environment = export_environment()
     output.mkdir(parents=True, exist_ok=True)
     (output / 'BUILD_SOURCE_AUTHORITY.json').write_text(json.dumps({
         'manifest_sha256': layout['snapshot_manifest_sha256'],
@@ -260,7 +259,7 @@ def main(argv=None) -> int:
         stage = Path(temporary).resolve()
         stage_snapshot(layout, stage)
         command = [sys.executable, '-B', str(stage/'reproduce.py'), '--no-compare',
-                   '--artifact', figure, '--output-dir', str(output), '--node', node]
+                   '--artifact', figure, '--output-dir', str(output)]
         if args.statistics_only:
             command.append('--statistics-only')
         if args.figures_only:

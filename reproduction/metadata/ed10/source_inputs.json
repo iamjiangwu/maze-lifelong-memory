@@ -63,13 +63,8 @@
     },
     {
       "path": "source_code/rebuild_current_extended_data_figures.py",
-      "sha256": "69f2297300b1cd061694f71b1e7ed6fbc5a0ff9fee4b0236ba134a9a78e43c6f",
+      "sha256": "b008bd5877dfaf330a61ff96804aae9b5a12e01f316fda400b398618f108a45e",
       "authority": "docs/figure_version_records/rebuild_current_extended_data_figures.py"
-    },
-    {
-      "path": "source_code/SOURCE_REBUILD_ED_RUNTIME.zip",
-      "sha256": "0b9486d0ea6c668c1e10a8eb89f12d0e9c722a0eb26c1e682fc7a467cf4cce06",
-      "authority": "docs/figure_version_records/SOURCE_REBUILD_ED_RUNTIME.zip"
     }
   ]
 }

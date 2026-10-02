@@ -38,11 +38,7 @@
     },
     {
       "path": "source_code/rebuild_current_main_figures.py",
-      "sha256": "681f29d589dfc5508b5046dd555c72baedf3ea90f48f6561fc681a0a163ed987"
-    },
-    {
-      "path": "source_code/SOURCE_REBUILD_MAIN_RUNTIME.zip",
-      "sha256": "ac0d1efc9ce078f3b42d16fdcaf48b6446fb42c9acc986b83d20fbd9d0cab4cc"
+      "sha256": "a8e620fbaf4193e260d9163c1c00bd33fffcc4d3d344f8704142987b8bb35d39"
     }
   ]
 }

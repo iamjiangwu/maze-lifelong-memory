@@ -104,6 +104,12 @@ class Audit:
     def compare(self, name: str, regenerated: pd.DataFrame, saved: pd.DataFrame,
                 keys: list[str], columns: list[str], *, atol=1e-10, rtol=1e-9,
                 unit: str, family: str, note=""):
+        if not columns:
+            raise AssertionError(f"{name}: empty numeric comparison contract")
+        for side, table in [("regenerated", regenerated), ("reference", saved)]:
+            missing = set(keys).union(columns).difference(table.columns)
+            if missing or table.empty:
+                raise AssertionError(f"{name}: {side} is empty or missing required columns: {sorted(missing)}")
         a = regenerated.set_index(keys).sort_index()
         b = saved.set_index(keys).sort_index()
         checks = []
@@ -113,7 +119,7 @@ class Audit:
             av, bv = a[col].to_numpy(float), b[col].to_numpy(float)
             # Tiny p-values are tested relatively, so the absolute tolerance
             # cannot accidentally turn a several-fold probability drift into PASS.
-            prob = col.startswith("p_") or col.endswith("_p") or "q_bh" in col or col=="q_BH"
+            prob = bool({"p", "q"}.intersection(col.lower().split("_")))
             limit = (1e-300 if prob else atol) + rtol*np.abs(bv)
             same_nan = np.isnan(av) & np.isnan(bv)
             ok = same_nan | (np.isfinite(av) & np.isfinite(bv) & (np.abs(av-bv)<=limit))

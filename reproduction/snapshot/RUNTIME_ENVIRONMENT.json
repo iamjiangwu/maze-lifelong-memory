@@ -18,5 +18,11 @@
     "Arial font",
     "openpyxl for editable XLSX tables; reportlab and matplotlib/PyMuPDF for publication table exports"
   ],
-  "data_dependency": "None outside this release; no network required for execution"
+  "data_dependency": "None outside this release; no network required for execution",
+  "rendering_engine": {
+    "original_matplotlib_distribution": "conda",
+    "original_freetype": "2.12.1",
+    "clean_pypi_wheel_freetype": "2.6.1",
+    "note": "Binary/font differences can change text rasterization or layout without changing statistical results."
+  }
 }

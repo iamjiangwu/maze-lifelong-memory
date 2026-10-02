@@ -4,7 +4,7 @@ Run the commands below from the repository root. The launcher checks every froze
 
 ## Software first
 
-The verified environment is **Python 3.10 on Windows** with NumPy, pandas, SciPy, Matplotlib and the other versions recorded in [requirements.txt](../requirements.txt) and [the original environment record](../reproduction/snapshot/RUNTIME_ENVIRONMENT.json). This is a tested environment record, not a universally tested clean-install lockfile.
+The complete reproduction has been tested in a **fresh Python 3.10 virtual environment on Windows**, using only [requirements.txt](../requirements.txt). Package versions and export requirements are listed in the [environment record](../reproduction/snapshot/RUNTIME_ENVIRONMENT.json).
 
 Figure vector exports require **Microsoft Edge and Arial**. Supplementary tables use **openpyxl** for editable XLSX files and the Python PDF renderers included here; these public dependencies are listed in `requirements.txt`.
 
@@ -21,6 +21,8 @@ py -3.10 -m venv .venv
 ```
 
 This does not require activating the environment or changing PowerShell's execution policy. In the commands below, use `.\.venv\Scripts\python.exe` in place of `python` when using this environment. Install Microsoft Edge and ensure Arial is available before generating figure exports. Other Python versions or operating systems have not been verified for identical artwork.
+
+Small text-rasterization or layout differences can occur between Matplotlib binary distributions, even at the same version. The original exports used Matplotlib 3.7.0 with FreeType 2.12.1; the tested PyPI wheel bundles FreeType 2.6.1. The statistical results are checked numerically, independently of image pixels.
 
 ## Choose what to build
 

@@ -8,7 +8,20 @@ Matched neural-behavior observations and their inferential results. [Column and 
 | b | The same pair rows plus `reward_level_commonality.csv` (explained-variance components) and `reward_level_profile_tests.csv` (the three behavioral-profile comparisons). |
 | c | `level_policy_bridge_join.csv`: one matched pair's level-map correlation and four first-30-min turning biases; `level_policy_bridge_stats.csv` contains fits and BH4 p values. |
 
-Raw reward/whole-maze decoding errors are spatial bins, first long bout time is seconds, and raw correlations/efficiency ratios are dimensionless. Columns such as `reward_location`, `whole_decoder`, `structure`, `earlier_first_long` and `exploration_efficiency` are the transformed/standardized model readouts, distinct from the corresponding raw fields. `log_reward_over_pooled` is the log reward-approach-speed ratio to pooled controls. Reward decoder readouts are oriented so better decoding is higher; earlier-first-long-bout readouts are oriented so earlier reward acquisition is higher. Support fields record common cells/bins and technical subsamples; subsamples do not create independent observations.
+Raw reward/whole-maze decoding errors are spatial bins; first long bout time is cumulative maze time in seconds to the path's onset ([definition](../../figure_01/data/README.md)). Raw correlations and efficiency ratios are dimensionless. The saved standardized fields use `z(x) = (x - mean(x)) / sd(x)` over the 30 retained session-pair rows, with population standard deviation (`ddof=0`):
+
+| Standardized field | Definition from raw field |
+|---|---|
+| `reward_location` | `-z(reward_error_fixed2000)` |
+| `whole_decoder` | `-z(whole_error_fixed2000)` |
+| `place_map` | `z(place_raw_matched)` |
+| `structure` | `z(level_raw_matched)` |
+| `pv_map` | `z(pv_raw_matched)` |
+| `rate` | `z(rate_raw_matched)` |
+| `earlier_first_long` | `-z(first_long_bout_time_s)` |
+| `exploration_efficiency` | `z(exploration_efficiency_raw)` |
+
+Thus higher decoder and earlier-bout readouts indicate better decoding and earlier bout onset. `log_reward_over_pooled` is the natural log of median reward-approach speed divided by median pooled-control-approach speed. Support fields record common cells/bins and technical subsamples; subsamples do not create independent observations.
 
 Panel a displays absolute Pearson r, but its stars test slopes with standard errors clustered by animal and BH3 over the three behaviors in each neural row. Panel b's `unique_a`, `shared`, `unique_b` partition R² for reward decoding and level maps; these bars are not the profile tests. The profile estimands are reward-minus-level association for earlier first long bout, reward-minus-level association for exploration, and the difference between those two contrasts. Their exact animal-score sign-flip p values form BH3.
 

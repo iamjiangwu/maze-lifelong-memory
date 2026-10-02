@@ -37,7 +37,7 @@ def load(path, name):
     return module
 
 
-def native_build(artifact, shared, out, config, node):
+def native_build(artifact, shared, out, config):
     strategy = config['strategy']
     source = artifact / 'source'
     out.mkdir(parents=True, exist_ok=True)
@@ -104,10 +104,12 @@ def native_build(artifact, shared, out, config, node):
         raise ValueError(strategy)
 
 
-def worker(artifact, shared, out, config, node):
+def worker(artifact, shared, out, config):
     # No accepted composite is staged. In-process reads of the original repository
     # are denied; external Python packages, system fonts and export tools remain allowed.
-    forbidden = config['original_repository'].lower().replace('\\', '/')
+    # sitecustomize installs the same read/network boundary for this worker and
+    # its subprocesses, including support for a repository-local Python venv.
+    from sitecustomize import is_original_source_read
     reads = set()
 
     def audit(event, args):
@@ -116,7 +118,7 @@ def worker(artifact, shared, out, config, node):
             normalized = str(path).lower().replace('\\', '/')
             mode = str(args[1]) if len(args) > 1 else ''
             if 'r' in mode or mode == 'None':
-                if normalized.startswith(forbidden + '/') and not path.is_relative_to(out):
+                if is_original_source_read(normalized):
                     raise PermissionError('Source-only replay attempted original-repository read: ' + str(path))
                 if path.is_relative_to(artifact):
                     reads.add(path.relative_to(artifact).as_posix())
@@ -126,7 +128,7 @@ def worker(artifact, shared, out, config, node):
     # Child Python processes inherit this guard through a release-local sitecustomize.
     sys.addaudithook(audit)
     generated = artifact.parent / 'generated_outputs'
-    native_build(artifact, shared, generated, config, node)
+    native_build(artifact, shared, generated, config)
     if config['artifact_id'] == 'extended_data_figure_4':
         # The accepted ED4 raster was exported from the vector PDF, rather than
         # directly from matplotlib. Preserve that source-derived export path.
@@ -208,13 +210,12 @@ def main():
     p.add_argument('--statistics-only', action='store_true')
     p.add_argument('--figures-only', action='store_true')
     p.add_argument('--no-compare', action='store_true', help='Run a source-only distribution with no accepted_outputs folder')
-    p.add_argument('--node', default=os.environ.get('SOURCE_RELEASE_NODE', 'node'))
     p.add_argument('--worker-config', type=Path, help=argparse.SUPPRESS)
     p.add_argument('--worker-artifact', type=Path, help=argparse.SUPPRESS)
     p.add_argument('--worker-shared', type=Path, help=argparse.SUPPRESS)
     a = p.parse_args()
     if a.worker_config:
-        worker(a.worker_artifact, a.worker_shared, a.output_dir, json.loads(a.worker_config.read_text()), a.node)
+        worker(a.worker_artifact, a.worker_shared, a.output_dir, json.loads(a.worker_config.read_text()))
         return
     release = Path(__file__).resolve().parent
     manifest = json.loads((release / 'RELEASE_MANIFEST.json').read_text(encoding='utf-8'))
@@ -257,7 +258,7 @@ def main():
                        SOURCE_RELEASE_OUTPUT=str(art_out), PYTHONDONTWRITEBYTECODE='1')
             command = [sys.executable, '-B', str(stage / 'reproduce.py'), '--worker-config', str(config_path),
                        '--worker-artifact', str(staged_artifact), '--worker-shared', str(stage / 'shared'),
-                       '--output-dir', str(art_out), '--node', a.node]
+                       '--output-dir', str(art_out)]
             result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env, cwd=stage)
             art_out.mkdir(parents=True, exist_ok=True)
             (art_out / 'BUILD.log').write_text(result.stdout, encoding='utf-8')

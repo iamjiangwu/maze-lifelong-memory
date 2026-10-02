@@ -8,6 +8,7 @@ This directory contains the shared build machinery and source mapping:
 - `snapshot/RELEASE_MANIFEST.json` seals the current source inventory, revision provenance and all 17 artifact configurations.
 - `snapshot/reproduce.py`, `snapshot/recompute_statistics.py` and `snapshot/shared/` contain the frozen rendering and statistics engines.
 - `library/` contains shared helper modules; figure-specific helpers are in each figure's `code/` folder.
+- `runtime/` contains the shared Python support package as readable source files. The [code guide](../docs/CODE.md) maps each figure to its drawing functions.
 - `metadata/` retains historical text needed by build contracts. It is not the current figure guide; some descriptions predate the displayed panels.
 
 The root launcher authenticates the manifest and checks every retained input against it. It restores the required paths in a temporary directory and writes a temporary release inventory for those files. The engines then run using this temporary source layout.

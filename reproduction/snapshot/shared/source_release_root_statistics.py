@@ -1,4 +1,4 @@
-"""Source-data statistical replay for ED6, ED8, ED10 and supplementary tables."""
+"""Source-data statistical replay for ED6, ED8 and ED10."""
 from __future__ import annotations
 import importlib.util
 import itertools
@@ -12,6 +12,32 @@ import pandas as pd
 from scipy import stats
 import statsmodels.api as sm
 from statsmodels.stats.multitest import multipletests
+
+
+# Each contract lists the quantities this replay actually reconstructs. Reference
+# tables can also contain labels or historical summaries outside that contract.
+COMPARISON_COLUMNS = {
+    'ED6_fixed_reference_CR1_BH12': (
+        'n_pair_rows', 'n_animal_clusters', 'estimate', 'cluster_se', 't_value',
+        'df', 'p_two_sided', 'ci_low', 'ci_high', 'q_bh12_two_sided'),
+    'ED6_available_curve_CR1_BH3': (
+        'n_recording_cycles', 'n_animals', 'estimate', 'cluster_se', 't_value',
+        'df', 'p_two_sided', 'ci_low', 'ci_high', 'mean_day_i_within_curve_sd',
+        'mean_day_i1_within_curve_sd', 'p_bh3_two_sided'),
+    'ED8b_equal_mouse_exact_BH4': ('estimate', 'ci95_low', 'ci95_high', 'p_value'),
+    'ED8c_pair_CR1_BH2': ('estimate', 'ci95_low', 'ci95_high', 'p_value'),
+    'ED10a_Pearson_animal_clustered_BH3': ('pooled_pearson_r', 'pairwise_nominal_p_descriptive'),
+    'ED10a_CR1_nominal_and_adjusted_p_parity': ('cr1_p_two_sided', 'cr1_bh3_adjusted_p'),
+    'ED10b_commonality': (
+        'r2_baseline', 'r2_a', 'r2_b', 'r2_full', 'full_increment',
+        'unique_a', 'shared', 'unique_b'),
+    'ED10b_exact_animal_score_signflip_BH3': (
+        'estimate', 'cr1_se', 'cr1_t', 'cr1_df', 'cr1_p', 'ci95_low', 'ci95_high',
+        'n_pairs', 'n_animals', 'score_t', 'exact_p_two_sided', 'n_patterns', 'bh3_adjusted_p'),
+    'ED10c_policy_animal_clustered_BH4': (
+        'n_pairs', 'n_animals', 'pearson_r', 'cluster_beta_standardized',
+        'cluster_se', 'cluster_t', 'cluster_df', 'cluster_p', 'cluster_bh4_adjusted_p'),
+}
 
 
 def load(path, name):
@@ -34,17 +60,27 @@ def cr1(y, groups, x=None):
 
 
 def compare_table(actual, reference, keys, label, out):
+    columns = COMPARISON_COLUMNS.get(label)
+    if not columns:
+        raise AssertionError(label + ' has no numeric comparison contract')
+    for side, table in [('regenerated', actual), ('reference', reference)]:
+        missing = set(keys).union(columns).difference(table.columns)
+        if missing or table.empty:
+            raise AssertionError(f'{label}: {side} is empty or missing required columns: {sorted(missing)}')
     actual.to_csv(out / (label + '.csv'), index=False)
     left, right = actual.set_index(keys).sort_index(), reference.set_index(keys).sort_index()
     if not left.index.equals(right.index):
         raise AssertionError(label + ' row keys differ')
     checked, errors = [], []
-    for col in reference.columns:
-        if col in keys or col not in actual or not pd.api.types.is_numeric_dtype(reference[col]):
-            continue
+    for col in columns:
         a, b = pd.to_numeric(left[col]).to_numpy(float), pd.to_numeric(right[col]).to_numpy(float)
-        atol = 1e-15 if 'p_' in col or col.endswith('_p') or 'q_' in col or col.startswith('p') else 2e-11
-        if not np.allclose(a, b, rtol=1e-8, atol=atol, equal_nan=True):
+        probability = bool({'p', 'q'}.intersection(col.lower().split('_')))
+        # Tiny probabilities require relative agreement; an ordinary absolute
+        # tolerance could conceal several orders of magnitude of drift.
+        atol = 1e-300 if probability else 2e-11
+        same_nan = np.isnan(a) & np.isnan(b)
+        close = same_nan | (np.isfinite(a) & np.isfinite(b) & (np.abs(a-b) <= atol + 1e-8*np.abs(b)))
+        if not close.all():
             errors.append({'column': col, 'max_abs_error': float(np.nanmax(np.abs(a-b)))})
         checked.append(col)
     if errors:
@@ -128,7 +164,9 @@ def ed10(release,out):
     record=source/'frozen_source/extended_data_fig10_round18_inputs'
     plot=record/'plot_ready'
     frame=pd.read_csv(plot/'CURRENT_FIXED_NEURON_PAIR_ROWS.csv',dtype={'animal_id':str},float_precision='round_trip')
-    # Matrix display Pearson r and raw nominal p are reconstructed, not imported.
+    # Pearson r describes the displayed association. Inference uses an OLS slope
+    # with animal-clustered standard errors, followed by BH3 within each row.
+    # The ordinary Pearson p value is retained only as a descriptive comparison.
     table=pd.read_csv(plot/'POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv')
     cols=dict(reward_location='reward_error_fixed2000',whole_decoder='whole_error_fixed2000',place_map='place_map',structure='structure',pv_map='pv_map',rate='rate')
     outcomes=dict(whole_session_reward_approach_speed_advantage='log_reward_over_pooled',first_long_bout_time='first_long_bout_time_s',exploration_efficiency='exploration_efficiency_raw')

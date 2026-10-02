@@ -5,10 +5,10 @@ Long-gap neural correlations, saved neuron-ID null distributions and example neu
 | Panels | Inputs and observation unit |
 |---|---|
 | a–c, h, m | `*_corr.npz` supplies example local-correlation images; the four neuron-example NPZs supply registered-neuron trajectories and signals used in the examples. Representation schematics are drawn by code. |
-| d, i, n | `*_distribution.npz`: observed place-map correlations per neuron, PV correlations per spatial bin, or ensemble-rate correlations per session pair, with saved shuffle histograms/values. |
+| d, i, n | `*_distribution.npz`: PV correlations per spatial bin in d, place-map correlations per matched neuron in i, and ensemble-rate correlations per session pair in n, with saved shuffle histograms/values. |
 | e, j, o | `*_shuffle_mean.npz`: null draws of the cohort mean and the observed mean; `pair_metric_summary.csv` and `metric_summary.csv` give the pair/cohort summaries. |
 | f, k, p | `gap_with_day1_day2_curve_data.csv` contains means and 95% intervals by Days apart. `same_stage_*`, `long_gap_pair_rows.csv` and the ensemble-rate pair tables supply the corresponding observations. |
-| g, l, q | `consecutive_gap_points.csv` and the canonical ensemble-rate consecutive-gap table contain one preceding/following gap comparison per eligible session triplet. Statistics and `displayed_estimand_bh4.csv` supply the fitted tests. |
+| g, l, q | `consecutive_gap_points.csv` contains one preceding/following gap comparison per spatial bin within a three-session chain for g, and per matched neuron within a chain for l. The canonical ensemble-rate consecutive-gap table has one observation per chain for q. Statistics and `displayed_estimand_bh4.csv` supply the fitted tests, with standard errors clustered by animal. |
 
 All correlation values are dimensionless. Distribution observations have different units from cohort means: the latter equally weight session-pair means. `n_pairs_final`, finite neuron/bin counts and `distribution_pair_support.csv` record support; `consecutive_pair_scope.csv` records eligible triplets. BH4 also includes the displayed level-map association in ED9l.
 

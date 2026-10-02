@@ -1,26 +1,19 @@
 """Verified runtime imports and browser-export helpers for Figure 1.
 
 The current Figure 1 builder binds the included tables directly. These helpers
-verify and extract its frozen Python runtime, isolate imports from external
+load its authenticated shared Python runtime, isolate imports from external
 research sources and locate the browser used for vector export.
 """
 
 from __future__ import annotations
 
-import hashlib
 import importlib
 import importlib.util
 import os
 from pathlib import Path
-from pathlib import PurePosixPath
-import re
-import shutil
 import sys
-import tempfile
 import time
 import types
-from typing import Any
-import zipfile
 
 # Dynamic imports must never write cache files into immutable selected records.
 sys.dont_write_bytecode = True
@@ -28,84 +21,10 @@ sys.dont_write_bytecode = True
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import fitz
-import numpy as np
-import pandas as pd
-from PIL import Image
-from matplotlib.ticker import FormatStrFormatter
 
 
 VOR_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = VOR_ROOT.parents[1]
-FORBIDDEN_SOURCE_PARTS = (
-    "figure_version_records_archive",
-    "figure_version_candidates",
-    "parent_record_history",
-    "parent_record_snapshot",
-    "round11_parent_snapshot",
-    "desktop",
-    "ltm-figs",
-)
-MASTER_EXPORT_RE = re.compile(
-    r"figure[1-5]_version_record(?:_300dpi|_600dpi)?\.(?:svg|pdf|png|tiff|html)$",
-    re.IGNORECASE,
-)
-RUNTIME_ARCHIVE = "SOURCE_REBUILD_MAIN_RUNTIME.zip"
-RUNTIME_ARCHIVE_SHA256 = "ac0d1efc9ce078f3b42d16fdcaf48b6446fb42c9acc986b83d20fbd9d0cab4cc"
-RUNTIME_ARCHIVE_BYTES = 472999
-
-_RUNTIME_TEMP: tempfile.TemporaryDirectory[str] | None = None
-_RUNTIME_ROOT: Path | None = None
-
-
-def _sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for block in iter(lambda: stream.read(4 * 1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
-
-
-def _assert_vor_source(path: Path) -> None:
-    resolved = path.resolve()
-    if resolved.parent != VOR_ROOT.resolve():
-        raise RuntimeError(f"VOR-root sidecar must be an immediate child of {VOR_ROOT}: {resolved}")
-    if not resolved.name.startswith("SOURCE_REBUILD_MAIN_"):
-        raise RuntimeError(f"Unrecognized VOR-root sidecar name: {resolved.name}")
-    lowered = resolved.as_posix().lower()
-    if any(part in lowered for part in FORBIDDEN_SOURCE_PARTS):
-        raise RuntimeError(f"Forbidden source tree referenced: {resolved}")
-    if MASTER_EXPORT_RE.search(resolved.name):
-        raise RuntimeError(f"Current master export cannot be used as a source: {resolved}")
-
-
-def _verify_vor_source(
-    filename: str,
-    *,
-    expected_sha256: str,
-    expected_bytes: int,
-    kind: str,
-    role: str,
-) -> dict[str, Any]:
-    path = VOR_ROOT / filename
-    _assert_vor_source(path)
-    if not path.is_file():
-        raise FileNotFoundError(path)
-    observed_bytes = path.stat().st_size
-    observed_hash = _sha256(path)
-    if observed_bytes != int(expected_bytes) or observed_hash.lower() != expected_sha256.lower():
-        raise RuntimeError(f"VOR-root source hash drift: {path}")
-    if path.suffix.lower() == ".zip" and not zipfile.is_zipfile(path):
-        raise RuntimeError(f"VOR-root source archive is not a valid ZIP: {path}")
-    return {
-        "path": filename,
-        "path_base": "vor_root",
-        "kind": kind,
-        "role": role,
-        "sha256": observed_hash,
-        "bytes": observed_bytes,
-    }
 
 
 def _load_module(name: str, path: Path, *, synthetic_file: Path | None = None) -> types.ModuleType:
@@ -120,67 +39,13 @@ def _load_module(name: str, path: Path, *, synthetic_file: Path | None = None) -
     return module
 
 
-def _extract_verified_archive(
-    filename: str,
-    *,
-    expected_sha256: str,
-    expected_bytes: int,
-    prefix: str,
-) -> tuple[tempfile.TemporaryDirectory[str], Path]:
-    _verify_vor_source(
-        filename,
-        expected_sha256=expected_sha256,
-        expected_bytes=expected_bytes,
-        kind="input",
-        role="runtime extraction",
-    )
-    archive = VOR_ROOT / filename
-    temporary = tempfile.TemporaryDirectory(prefix=prefix)
-    root = Path(temporary.name).resolve()
-    try:
-        with zipfile.ZipFile(archive) as source:
-            for info in source.infolist():
-                member = info.filename
-                parts = PurePosixPath(member).parts
-                if (
-                    not parts
-                    or PurePosixPath(member).is_absolute()
-                    or "\\" in member
-                    or any(part in {"", ".", ".."} for part in parts)
-                    or ":" in parts[0]
-                ):
-                    raise RuntimeError(f"Unsafe member in {archive.name}: {member!r}")
-                destination = root.joinpath(*parts).resolve()
-                try:
-                    destination.relative_to(root)
-                except ValueError as exc:
-                    raise RuntimeError(
-                        f"Archive member escapes the extraction root: {member!r}"
-                    ) from exc
-                if info.is_dir():
-                    destination.mkdir(parents=True, exist_ok=True)
-                    continue
-                destination.parent.mkdir(parents=True, exist_ok=True)
-                with source.open(info, "r") as input_stream, destination.open("wb") as output_stream:
-                    shutil.copyfileobj(input_stream, output_stream)
-    except Exception:
-        temporary.cleanup()
-        raise
-    return temporary, root
-
-
 def _runtime_root() -> Path:
-    global _RUNTIME_TEMP, _RUNTIME_ROOT
-    if _RUNTIME_ROOT is None:
-        _RUNTIME_TEMP, _RUNTIME_ROOT = _extract_verified_archive(
-            RUNTIME_ARCHIVE,
-            expected_sha256=RUNTIME_ARCHIVE_SHA256,
-            expected_bytes=RUNTIME_ARCHIVE_BYTES,
-            prefix="source_rebuild_main_runtime_",
-        )
-        if not (_RUNTIME_ROOT / "ca_analysis" / "__init__.py").is_file():
-            raise RuntimeError("The source-rebuild runtime lacks ca_analysis/__init__.py")
-    return _RUNTIME_ROOT
+    # Hash verification is performed by reproduce.py before staging this tree.
+    for parent in (VOR_ROOT, *VOR_ROOT.parents):
+        root = parent / "shared/runtime"
+        if (root / "ca_analysis/__init__.py").is_file():
+            return root
+    raise RuntimeError("Run this figure through reproduce.py to stage its shared runtime")
 
 
 def _remove_live_source_path() -> None:

@@ -28,6 +28,8 @@ def bh(values):
 
 
 def cr1(y, x, animals, weights=None):
+    # Rows are observations; x columns are model coefficients. Repeated rows
+    # from one animal share a covariance cluster. Positive weights affect the fit.
     y, x, animals = np.asarray(y, float), np.asarray(x, float), np.asarray(animals, str)
     if x.ndim == 1:
         x = x[:, None]
@@ -45,8 +47,11 @@ def cr1(y, x, animals, weights=None):
     meat = np.zeros((k, k))
     for animal in unique:
         mask = animals == animal
+        # Sum residual-weighted design rows within animal before forming the
+        # covariance, retaining dependence among that animal's observations.
         score = x[mask].T @ (weights[mask] * residual[mask])
         meat += np.outer(score, score)
+    # CR1 finite-sample factor; inference below uses G - 1 animal degrees of freedom.
     covariance = g / (g - 1) * (n - 1) / (n - k) * bread @ meat @ bread
     se = np.sqrt(np.maximum(np.diag(covariance), 0))
     t = beta / se
@@ -76,6 +81,12 @@ def slope(frame, xcolumn, ycolumn, animalcolumn):
 
 
 def compare(name, actual, target, keys, columns, output, analyses):
+    if not columns:
+        raise AssertionError(f"{name}: empty numeric comparison contract")
+    for side, table in [("regenerated", actual), ("reference", target)]:
+        missing = set(keys).union(columns).difference(table.columns)
+        if missing or table.empty:
+            raise AssertionError(f"{name}: {side} is empty or missing required columns: {sorted(missing)}")
     actual.to_csv(output / (name + ".csv"), index=False)
     left = actual.set_index(keys).sort_index()
     right = target.set_index(keys).sort_index()
@@ -84,7 +95,11 @@ def compare(name, actual, target, keys, columns, output, analyses):
     checks = []
     for column in columns:
         a, b = pd.to_numeric(left[column]).to_numpy(float), pd.to_numeric(right[column]).to_numpy(float)
-        ok = np.isclose(a, b, atol=1e-10, rtol=1e-8, equal_nan=True)
+        probability = bool({"p", "q"}.intersection(column.lower().split("_")))
+        # Preserve relative accuracy for tiny raw and adjusted probabilities.
+        atol = 1e-300 if probability else 1e-10
+        same_nan = np.isnan(a) & np.isnan(b)
+        ok = same_nan | (np.isfinite(a) & np.isfinite(b) & (np.abs(a-b) <= atol + 1e-8*np.abs(b)))
         delta = np.abs(a-b)
         checks.append(dict(column=column, passed=bool(ok.all()), max_absolute_difference=float(np.nanmax(delta)) if np.isfinite(delta).any() else 0))
     report = dict(analysis=name, status="PASS" if all(c["passed"] for c in checks) else "FAIL",

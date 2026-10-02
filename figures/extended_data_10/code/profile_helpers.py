@@ -40,6 +40,8 @@ def sign_matrix(n_groups: int) -> np.ndarray:
 def synchronized_exact(names: list[str], score_vectors: list[np.ndarray], family: str) -> pd.DataFrame:
     if not score_vectors:
         return pd.DataFrame()
+    # Shape: claims x animals. Every claim uses the same animal ordering, and
+    # each sign pattern flips that animal's entire score in all claims together.
     score = np.vstack(score_vectors)
     standardized = score / np.sqrt(np.sum(score * score, axis=1, keepdims=True))
     signs = sign_matrix(score.shape[1])
@@ -47,6 +49,8 @@ def synchronized_exact(names: list[str], score_vectors: list[np.ndarray], family
     observed = standardized.sum(axis=1)
     rows = []
     for (index, name) in enumerate(names):
+        # These are marginal exact p values, not a maximum-statistic correction.
+        # The caller applies BH to the three captioned comparisons afterward.
         rows.append({'family': family, 'claim': name, 'score_t': float(observed[index]), 'exact_p_two_sided': float(np.mean(np.abs(permuted[:, index]) >= abs(observed[index]) - 1e-15)), 'n_patterns': int(len(signs))})
     return pd.DataFrame(rows)
 
@@ -54,6 +58,8 @@ def r2_of(frame: pd.DataFrame, outcome: str, predictors: list[str]) -> float:
     return float(sm.OLS(np.asarray(frame[outcome], dtype=float), design_matrix(frame, predictors).to_numpy(float)).fit().rsquared)
 
 def commonality(frame: pd.DataFrame, outcome: str, a: str, b: str, nuisance: list[str], label: str) -> dict[str, Any]:
+    # Partition the increment in explained variance beyond the nuisance model
+    # into the two unique contributions and their shared contribution.
     baseline = r2_of(frame, outcome, nuisance)
     r2_a = r2_of(frame, outcome, [*nuisance, a])
     r2_b = r2_of(frame, outcome, [*nuisance, b])
@@ -61,6 +67,8 @@ def commonality(frame: pd.DataFrame, outcome: str, a: str, b: str, nuisance: lis
     return {'analysis': label, 'outcome': outcome, 'predictor_a': a, 'predictor_b': b, 'nuisance': '+'.join(nuisance), 'r2_baseline': baseline, 'r2_a': r2_a, 'r2_b': r2_b, 'r2_full': full, 'full_increment': full - baseline, 'unique_a': full - r2_b, 'shared': r2_a - baseline + (r2_b - baseline) - (full - baseline), 'unique_b': full - r2_a}
 
 def _stacked_reward_level_model(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict[str, np.ndarray]]:
+    # Four blocks combine two outcomes x two neural predictors. Each original
+    # session-pair row appears once per block; the fit remains pair-weighted.
     cells = [('early_reward', 'earlier_first_long', 'reward_location'), ('early_level', 'earlier_first_long', 'structure'), ('explore_reward', 'exploration_efficiency', 'reward_location'), ('explore_level', 'exploration_efficiency', 'structure')]
     work = frame.copy()
     variables = sorted({value for (_, outcome, predictor) in cells for value in (outcome, predictor)})
@@ -85,6 +93,8 @@ def _stacked_reward_level_model(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict
     y = np.concatenate(outcomes)
     model = sm.OLS(y, stacked).fit()
     group_array = np.asarray(groups, dtype=str)
+    # Animal IDs repeat across blocks so CR1 retains both within-animal and
+    # cross-model dependence when estimating contrasts between slopes.
     covariance = cov_cluster(model, group_array, use_correction=True)
     names = [name for group in block_names for name in group]
     slope_indices = {cell: names.index(f'{cell}__{predictor}') for (cell, _, predictor) in cells}
@@ -95,6 +105,8 @@ def _stacked_reward_level_model(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict
     base_animals = work['animal_id'].astype(str).to_numpy()
 
     def stacked_score(y_values: np.ndarray, target_values: np.ndarray, nuisance_values: np.ndarray, animal_values: np.ndarray) -> np.ndarray:
+        # Residualize under the restricted model, then sum score products within
+        # animal. These animal scores, not individual pair rows, are sign-flipped.
         y_residual = residualize(y_values, nuisance_values)
         x_residual = residualize(target_values, nuisance_values)
         products = y_residual * x_residual
@@ -117,6 +129,8 @@ def _stacked_reward_level_model(frame: pd.DataFrame) -> tuple[pd.DataFrame, dict
     crossover_scores = stacked_score(y_values, x_code_behavior, np.column_stack([np.ones(len(y_values)), x_values, code_b, behavior_explore, x_code, x_behavior, code_behavior]), np.tile(base_animals, 4))
     score_vectors = {'first_long_reward_minus_level': direct_scores['first_long_reward_minus_level'], 'exploration_reward_minus_level': direct_scores['exploration_reward_minus_level'], 'reward_level_profile_crossover': crossover_scores}
     for (claim, terms) in contrasts.items():
+        # CR1 supplies coefficient uncertainty; the separately calculated exact
+        # score tests supply the reported profile-test p values after BH3.
         contrast = np.zeros(len(names), dtype=float)
         for (cell, coefficient) in terms.items():
             contrast[slope_indices[cell]] = coefficient

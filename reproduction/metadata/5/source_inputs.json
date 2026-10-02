@@ -20,19 +20,14 @@
       "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\level_heatmap_utils.py"
     },
     "source_code/render_main_figs_v3_publication.py": {
-      "sha256": "5f370d14af09562d5e7a6f0f5cbcf6370c8acbb1250de8f7e46777da408629e8",
-      "bytes": 350608,
+      "sha256": "cf2a26c457945df185fe2f9fb0ae5f2c3eca2b58228163b560b31ce32a0bd576",
+      "bytes": 6184,
       "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\render_main_figs_v3_publication.py"
     },
     "source_code/frozen_main_rebuild_runtime.py": {
-      "sha256": "681f29d589dfc5508b5046dd555c72baedf3ea90f48f6561fc681a0a163ed987",
-      "bytes": 80436,
+      "sha256": "a8e620fbaf4193e260d9163c1c00bd33fffcc4d3d344f8704142987b8bb35d39",
+      "bytes": 22551,
       "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\frozen_main_rebuild_runtime.py"
-    },
-    "source_data/SOURCE_REBUILD_MAIN_RUNTIME.zip": {
-      "sha256": "ac0d1efc9ce078f3b42d16fdcaf48b6446fb42c9acc986b83d20fbd9d0cab4cc",
-      "bytes": 472999,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\SOURCE_REBUILD_MAIN_RUNTIME.zip"
     },
     "source_data/figure5_bundle/figure5_pair_scope_audit.csv": {
       "sha256": "94bfcf35d1f13af054ecf659deb68ca8b7aa44d2dacbc5a9ad9b7f4d162b1fa2",
