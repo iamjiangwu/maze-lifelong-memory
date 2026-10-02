@@ -8,7 +8,6 @@ receive equal weight; intervals account for repeated pairs from the same animal.
 
 from __future__ import annotations
 
-import argparse
 import base64
 import importlib.util
 import io
@@ -41,27 +40,6 @@ from scripts.ed_supplement_common import (  # noqa: E402
     sha256,
 )
 from scripts import ed05_gallery_plotting as gallery
-
-REFRESH_ROOT = REPO_ROOT / "docs" / "extended_data_figure_panel_refresh_2026-07-12"
-ED06_TABLES = (
-    REFRESH_ROOT
-    / "extended_data_figures"
-    / "extended_data_fig_06"
-    / "04_source_tables"
-)
-SHORTLIST_DIR = (
-    REPO_ROOT / "docs/figure_version_records"
-    / "extended_data_fig05_2026-09-08_round20_session_pair_means/plot_ready"
-)
-FIGURE_ROOT = (
-    REPO_ROOT
-    / "docs"
-    / "extended_data_supplement_v2_rebuild_2026-08-05"
-    / "ed05_example_place_maps"
-)
-DEFAULT_OUTPUT_DIR = FIGURE_ROOT / "assembly"
-
-ROUND = 20
 
 # The gallery heatmaps retain the high-resolution 45 x 45 display grid, but the
 # printed effect size must use the same 15 x 15 place-map estimator as Main
@@ -204,10 +182,11 @@ DAY_COMB_DISPLAY_ORDER = (
     "ensemble_rate_correlation",
 )
 
-DAY_COMB_STATS = SHORTLIST_DIR / "ed05_day_combination_session_pair_contrasts_cr1_bh3.csv"
-DAY_COMB_DESC = SHORTLIST_DIR / "ed05_day_combination_session_pair_descriptive_cr1.csv"
-EQUAL_PAIRS = ED06_TABLES / "ed06_equal_time_pair_rows_corrected36.csv"
-EQUAL_STATS = ED06_TABLES / "ed06_equal_time_clustered_stats_corrected36.csv"
+# The build driver binds these to the included final source tables.
+DAY_COMB_STATS: Path
+DAY_COMB_DESC: Path
+EQUAL_PAIRS: Path
+EQUAL_STATS: Path
 EQUAL_EXTRA_SOURCES: tuple[tuple[str, Path], ...] = ()
 EQUAL_CAPTION_PANEL_NOTE = (
     "- **e.** Equal-time ensemble-rate Outside versus Maze for Day1→Day1 "
@@ -217,12 +196,11 @@ EQUAL_CAPTION_STATS_LABEL = "Equal-time Day1→Day1 maze−outside"
 EQUAL_MANIFEST_CORRECTION = (
     "panel e height-matched to b-d; ylim before bracket so stars clear the scatter"
 )
-CORRECTED_LONG_GAP_DIR = REFRESH_ROOT / "source_tables" / "corrected_long_gap_metrics"
-PLACE_PAIR_SOURCE = CORRECTED_LONG_GAP_DIR / "place_pair_summary_corrected36_all_variants.csv"
-PV_PAIR_SOURCE = CORRECTED_LONG_GAP_DIR / "pv_pair_summary_corrected36_all_variants.csv"
-RATE_PAIR_SOURCE = CORRECTED_LONG_GAP_DIR / "rate_pair_summary_corrected36_all_variants.csv"
-SELECTED_32 = SHORTLIST_DIR / "selected_32.csv"
-SHORTLIST_NPZ = SHORTLIST_DIR / "selected_maps_fields_45_shortlist32.npz"
+PLACE_PAIR_SOURCE: Path
+PV_PAIR_SOURCE: Path
+RATE_PAIR_SOURCE: Path
+SELECTED_32: Path
+SHORTLIST_NPZ: Path
 
 
 def load_shortlist_maps() -> tuple[pd.DataFrame, dict[str, dict[str, Any]]]:
@@ -404,7 +382,7 @@ def render_gallery_plate(output_dir: Path) -> tuple[dict[str, Path], dict[str, A
             for bounds in map_bounds
         ),
     }
-    stem = derived / f"ed05_compact_32_grid_8x8_round{ROUND}"
+    stem = derived / "ed05_compact_32_grid_8x8"
     outputs: dict[str, Path] = {}
     try:
         for extension in ("svg", "png", "tiff", "pdf"):
@@ -418,7 +396,7 @@ def render_gallery_plate(output_dir: Path) -> tuple[dict[str, Path], dict[str, A
             outputs[extension] = path
     finally:
         plt.close(figure)
-    selected.to_csv(derived / f"ed05_selected_32_used_round{ROUND}.csv", index=False)
+    selected.to_csv(derived / "ed05_gallery_examples.csv", index=False)
     order_audit = selected[["candidate_id", "visual_rank", GALLERY_CORRELATION_COLUMN]].copy()
     order_audit = order_audit.rename(columns={"visual_rank": "previous_position"})
     order_audit.insert(0, "display_position", np.arange(1, len(order_audit) + 1))
@@ -873,7 +851,7 @@ def assemble(output_dir: Path) -> dict[str, Any]:
     reaggregation = _load_pair_reaggregation_module()
     pair_values, source_checks = reaggregation.load_pair_values(PLACE_PAIR_SOURCE.parent)
     day_stats = pd.read_csv(DAY_COMB_STATS)
-    bh_stats_path = output_dir / f"ED05_DAY_COMBINATION_BH3_ROUND{ROUND}.csv"
+    bh_stats_path = output_dir / "ED05_DAY_COMBINATION_BH3.csv"
     day_stats.to_csv(bh_stats_path, index=False)
     day_desc = pd.read_csv(DAY_COMB_DESC)
     pairs = pd.read_csv(EQUAL_PAIRS, dtype={"animal_id": str})
@@ -1021,7 +999,7 @@ def assemble(output_dir: Path) -> dict[str, Any]:
     checks.record("pv_bh3_significant_brackets", pv_sig == 3, f"n_sig={pv_sig}")
     checks.record("rate_bh3_significant_brackets", rate_sig == 3, f"n_sig={rate_sig}")
 
-    stem = output_dir / f"ed05_example_place_maps_assembly_round{ROUND}"
+    stem = output_dir / "ed05_example_place_maps_assembly"
     # Vector backends resample imshow artists at figure.dpi.  Preserve the
     # source plate at publication resolution instead of the 100-dpi default.
     canvas.fig.set_dpi(COMPOSITE_EMBEDDED_RASTER_DPI)
@@ -1033,8 +1011,8 @@ def assemble(output_dir: Path) -> dict[str, Any]:
     # Always place PNG/TIFF next to the review PPT so the figure is viewable
     # without opening PowerPoint (docs/**/*.png|tiff are gitignored but on disk).
     figure_root = output_dir.parent
-    view_png = figure_root / f"extended_data_figure5_source_rerender_round{ROUND}.png"
-    view_tiff = figure_root / f"extended_data_figure5_source_rerender_round{ROUND}.tiff"
+    view_png = figure_root / "extended_data_figure5.png"
+    view_tiff = figure_root / "extended_data_figure5.tiff"
     png_out = next(path for path in outputs if path.suffix == ".png")
     tiff_out = next(path for path in outputs if path.suffix == ".tiff")
     shutil.copy2(png_out, view_png)
@@ -1054,7 +1032,7 @@ def assemble(output_dir: Path) -> dict[str, Any]:
         assert image.size[0] > 0 and image.size[1] > 0
 
     validation = pd.DataFrame(checks.rows)
-    validation_path = output_dir / f"ED05_VALIDATION_ROUND{ROUND}.csv"
+    validation_path = output_dir / "ED05_VALIDATION.csv"
     validation.to_csv(validation_path, index=False)
 
     source_audit = pd.DataFrame(
@@ -1131,14 +1109,14 @@ def assemble(output_dir: Path) -> dict[str, Any]:
             ],
         ]
     )
-    source_audit_path = output_dir / f"SOURCE_DATA_AUDIT_ROUND{ROUND}.csv"
+    source_audit_path = output_dir / "SOURCE_DATA_AUDIT.csv"
     source_audit.to_csv(source_audit_path, index=False)
 
-    caption_notes = output_dir.parent / f"CAPTION_NOTES_ROUND{ROUND}.md"
+    caption_notes = output_dir.parent / "CAPTION_NOTES.md"
     caption_notes.write_text(
         "\n".join(
             [
-                f"# Extended Data Figure 5 — caption notes (round {ROUND})",
+                "# Extended Data Figure 5 — caption notes",
                 "",
                 "## On-figure content",
                 "- **a.** Thirty-two illustrative matched-neuron place-map pairs. Heatmaps use the 45×45 display grid with independent within-map q99 normalization; printed r values use the same 15×15 analysis estimator as Figure 2.",
@@ -1166,7 +1144,6 @@ def assemble(output_dir: Path) -> dict[str, Any]:
 
     manifest = {
         "figure": "extended_data_figure_5",
-        "round": ROUND,
         "layout_source": "Panel geometry constants in this renderer",
         "canvas_inches": [FIGURE_WIDTH_IN, FIGURE_HEIGHT_IN],
         "slide_page_inches": [SLIDE_W_IN, SLIDE_H_IN],
@@ -1208,7 +1185,7 @@ def assemble(output_dir: Path) -> dict[str, Any]:
             "canvas cropped to content bbox",
         ],
     }
-    manifest_path = output_dir / f"MANIFEST_ROUND{ROUND}.json"
+    manifest_path = output_dir / "MANIFEST.json"
     manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
     layout_audit = pd.DataFrame(
@@ -1249,7 +1226,7 @@ def assemble(output_dir: Path) -> dict[str, Any]:
             },
         ]
     )
-    layout_audit.to_csv(output_dir / f"LAYOUT_AUDIT_ROUND{ROUND}.csv", index=False)
+    layout_audit.to_csv(output_dir / "LAYOUT_AUDIT.csv", index=False)
 
     if checks.failed:
         raise AssertionError(
@@ -1257,21 +1234,3 @@ def assemble(output_dir: Path) -> dict[str, Any]:
             + "; ".join(f"{row['check']}={row['detail']}" for row in checks.failed)
         )
     return manifest
-
-
-def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--output-dir",
-        type=Path,
-        default=DEFAULT_OUTPUT_DIR,
-        help="Assembly output directory",
-    )
-    args = parser.parse_args(argv)
-    manifest = assemble(args.output_dir.resolve())
-    print(json.dumps({"status": manifest["status"], "outputs": manifest["outputs"]}, indent=2))
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

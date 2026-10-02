@@ -1,6 +1,6 @@
-"""ED01 Round 24 display transform on a freshly built native source figure.
+"""Arrange ED1 panels from the included numerical tables.
 
-Receives the frozen Round 22 renderer and its record-local numerical tables.
+Receives the base panel renderer and its numerical tables.
 No accepted figure, review image, PDF, SVG or archived record is read.
 """
 from __future__ import annotations

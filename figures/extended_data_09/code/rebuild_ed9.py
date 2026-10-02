@@ -620,15 +620,9 @@ def build(inputs: Path, output: Path):
 
     consecutive=read("consecutive_points.csv").query("metric == 'level_map_correlation'").reset_index(drop=True)
 
-    chain_keys=["session_a","session_b","session_c"]
-
-    scope=read("consecutive_pair_scope.csv")
-
-    consecutive=consecutive.merge(scope[chain_keys+["reward_context_chain"]],on=chain_keys,how="left",validate="many_to_one",sort=False)
-
-    assert consecutive.reward_context_chain.notna().all()
-
-    fit=consecutive[consecutive.reward_context_chain.eq("rewarded_to_rewarded_to_rewarded")]
+    # The final source contains only rewarded session chains, for both the
+    # point cloud and trend. No upstream cohort-selection table is needed.
+    fit=consecutive
 
     ax.scatter(consecutive.prev_gap_correlation,consecutive.next_gap_correlation,s=4,color=LEVEL,alpha=.035,edgecolors="none",rasterized=True)
 

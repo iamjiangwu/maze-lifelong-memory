@@ -1,7 +1,7 @@
 {
   "schema": "reader-layout/v1",
   "snapshot_manifest": "reproduction/snapshot/RELEASE_MANIFEST.json",
-  "snapshot_manifest_sha256": "3c0a275abb56962bd6ea537037c414404bd14464e7abd4505c71f6cb9aca672a",
+  "snapshot_manifest_sha256": "e3bcd9f729b5e1c8cfb50f5ddcd5cb282e8df21b735263cd7c157e4078176d28",
   "artifacts": [
     {
       "artifact_id": "main_figure_1",
@@ -241,22 +241,22 @@
         {
           "name": "ed05_version_record.pdf",
           "sha256": "db4deb78769727c7ff140b88031baacbe9df68fb527cab65a14cac99aad7c8f5",
-          "rebuilt_path": "assembly/ed05_example_place_maps_assembly_round22.pdf"
+          "rebuilt_path": "assembly/ed05_example_place_maps_assembly.pdf"
         },
         {
           "name": "ed05_version_record.svg",
           "sha256": "f8a48c70c63dfda7e27b794a17ba911f6a7627f97f346751f0fd4d98eea41232",
-          "rebuilt_path": "assembly/ed05_example_place_maps_assembly_round22.svg"
+          "rebuilt_path": "assembly/ed05_example_place_maps_assembly.svg"
         },
         {
           "name": "ed05_version_record_600dpi.png",
           "sha256": "7f62ac160419e9bcf085e0cbe31506721b7c08f46f7038f42d45e699373b30f8",
-          "rebuilt_path": "assembly/ed05_example_place_maps_assembly_round22.png"
+          "rebuilt_path": "assembly/ed05_example_place_maps_assembly.png"
         },
         {
           "name": "ed05_version_record.tiff",
           "sha256": "21bed3c2c719cab38d6b08a36030946baab15a2808a5a1695ff684e5482af6d2",
-          "rebuilt_path": "assembly/ed05_example_place_maps_assembly_round22.tiff"
+          "rebuilt_path": "assembly/ed05_example_place_maps_assembly.tiff"
         }
       ]
     },
@@ -499,14 +499,14 @@
     {
       "snapshot_path": "extended_data_figure_1/source/source_code/render_ed01_no_trajectories_source.py",
       "repository_path": "figures/extended_data_01/code/render_ed01_no_trajectories_source.py",
-      "sha256": "e5e30838a06872b8d803057f666c6d9bce0b795a175f7ac1b9e254af489ccf48",
-      "bytes": 10582
+      "sha256": "1262a359434c1819a0c93f3f0f408810fe4b92a589dbe366a5c3beb56dc093f3",
+      "bytes": 10546
     },
     {
       "snapshot_path": "extended_data_figure_1/source/source_code/render_extended_data_figure1_round4.py",
       "repository_path": "figures/extended_data_01/code/render_extended_data_figure1.py",
-      "sha256": "c4e7603301bc3da1d0c22ff2068a3f3fb50f455986278be9b4cd37eb32267501",
-      "bytes": 52419
+      "sha256": "2e0c970960615dc99a1fad360f4a5847c6e04b6fb143f784094e6bd232f66b4e",
+      "bytes": 52402
     },
     {
       "snapshot_path": "extended_data_figure_10/source/frozen_source/extended_data_fig10_round18_inputs/plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv",
@@ -559,13 +559,13 @@
     {
       "snapshot_path": "extended_data_figure_10/source/source_code/rebuild_current_extended_data_figures.py",
       "repository_path": "reproduction/snapshot/shared/rebuild_current_extended_data_figures.py",
-      "sha256": "265232e166a99e0a815f3ff893423b082f4ba5613de5c28ff594883fc4a11730",
-      "bytes": 17284
+      "sha256": "624a4539624b150422a01d0a305dcf27d39e4ddc6c938ef09e567e3b71157f62",
+      "bytes": 16981
     },
     {
       "snapshot_path": "extended_data_figure_10/source/SOURCE_INPUTS.json",
       "repository_path": "reproduction/metadata/ed10/source_inputs.json",
-      "sha256": "d1b3a1c037b0bca459f4d44a2ee7e1d3eb7c69697ae230850ff5ccb04797d60e",
+      "sha256": "fc1fbb1d5fa10d9a39f8b7ae6ce695d2ff2c0d3a46f6ba25e65479f54ff7510c",
       "bytes": 1686
     },
     {
@@ -805,8 +805,8 @@
     {
       "snapshot_path": "extended_data_figure_5/source/source_code/render_ed05_example_place_maps_assembly.py",
       "repository_path": "figures/extended_data_05/code/render_ed05_example_place_maps_assembly.py",
-      "sha256": "5664d416204db77e9a0da1c73d5185dcde5f4ac47b0f264127849c0b309c581e",
-      "bytes": 50104
+      "sha256": "774bef6a7a9b1d72d3fa0fb0b2beeb1edf1a1614b85cfed23320b88b6f5b9bbb",
+      "bytes": 48206
     },
     {
       "snapshot_path": "extended_data_figure_6/source/plot_ready/ed07_current59_clustered_stats.csv",
@@ -913,8 +913,8 @@
     {
       "snapshot_path": "extended_data_figure_8/source/source_code/build_ed8_standardized_pv.py",
       "repository_path": "figures/extended_data_08/code/build_ed8_standardized_pv.py",
-      "sha256": "13d02fd1fa934c07523f941d594ee3b9f1e5db4ad52a02c65d5e4a3248b08f26",
-      "bytes": 32783
+      "sha256": "dcffdb185011595e4c3e79d251029e8d89183f392dc3eac7b200efe6b9528386",
+      "bytes": 32260
     },
     {
       "snapshot_path": "extended_data_figure_8/source/source_data/accepted_b.csv",
@@ -1003,8 +1003,8 @@
     {
       "snapshot_path": "extended_data_figure_9/source/source_code/rebuild_ed9.py",
       "repository_path": "figures/extended_data_09/code/rebuild_ed9.py",
-      "sha256": "8d815d2f12af095bd14142f2fbaf70ec28704fca3b0ad978e71da0ef2779b96f",
-      "bytes": 34438
+      "sha256": "56b895d24d59be073993f75a3d573d4473b74c19d044be5d11edc59600515d09",
+      "bytes": 34212
     },
     {
       "snapshot_path": "extended_data_figure_9/source/source_data/first30_addition/first30_points.csv",
@@ -1813,8 +1813,8 @@
     {
       "snapshot_path": "shared/rebuild_current_extended_data_figures.py",
       "repository_path": "reproduction/snapshot/shared/rebuild_current_extended_data_figures.py",
-      "sha256": "265232e166a99e0a815f3ff893423b082f4ba5613de5c28ff594883fc4a11730",
-      "bytes": 17284
+      "sha256": "624a4539624b150422a01d0a305dcf27d39e4ddc6c938ef09e567e3b71157f62",
+      "bytes": 16981
     },
     {
       "snapshot_path": "shared/rebuild_current_main_figures.py",
@@ -1837,8 +1837,8 @@
     {
       "snapshot_path": "shared/source_release_main_statistics.py",
       "repository_path": "reproduction/snapshot/shared/source_release_main_statistics.py",
-      "sha256": "0f5cb4c5db1c96c954e637c1be6f7c85511620bd41f2644143637224cd283f44",
-      "bytes": 31438
+      "sha256": "f1a507d3fefcc6349997b6b3177bfb0bb789ec311fb53764f28f8a3506e2881d",
+      "bytes": 31511
     },
     {
       "snapshot_path": "shared/source_release_root_statistics.py",
@@ -1897,8 +1897,8 @@
     {
       "snapshot_path": "RELEASE_MANIFEST.json",
       "repository_path": "reproduction/snapshot/RELEASE_MANIFEST.json",
-      "sha256": "3c0a275abb56962bd6ea537037c414404bd14464e7abd4505c71f6cb9aca672a",
-      "bytes": 78505
+      "sha256": "e3bcd9f729b5e1c8cfb50f5ddcd5cb282e8df21b735263cd7c157e4078176d28",
+      "bytes": 78473
     },
     {
       "snapshot_path": "main_figure_1/source/frozen_source/plot_ready/return_experience_statistics.csv",

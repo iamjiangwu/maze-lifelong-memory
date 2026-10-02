@@ -1164,8 +1164,8 @@ def build_figure(
         )
     # Keep the two left-column panel-f row labels inside the publication page
     # after the group is aligned to the shared four-column skeleton.  The
-    # accepted round-11 geometry otherwise placed their PDF word boxes about
-    # 2 pt beyond the left page edge.
+    # unadjusted geometry places their PDF word boxes about 2 pt beyond the
+    # left page edge.
     for axis in (f_axes[0], f_axes[3]):
         axis.yaxis.set_label_coords(-0.269, 0.5)
         axis.tick_params(axis="y", pad=1.0)

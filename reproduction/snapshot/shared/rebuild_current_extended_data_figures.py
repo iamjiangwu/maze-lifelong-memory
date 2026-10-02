@@ -118,8 +118,7 @@ def render_ed1(record: Path, output: Path, stage: Path) -> dict[str, Any]:
             axis.set_yticks(np.arange(0.0, 14.1, 2.0))
         return axes
 
-    # Round 21 fixed panel h at the accepted common 0-14 cm/s scale. Its
-    # inherited dynamic-limit helper predates that display-only authority.
+    # Panel h uses the same fixed 0-14 cm/s scale in both axes.
     m.draw_speed_axes = draw_speed_axes_current
     data = {
         "accumulation": pd.read_csv(source_map["b-c"], low_memory=False),
@@ -197,10 +196,6 @@ def render_ed5(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m = load_module(stage / "scripts/render_ed05_example_place_maps_assembly.py", "ed5_source_rebuild")
     plot = record / "plot_ready"
     m.REPO_ROOT = REPO_ROOT
-    round_match = re.search(r"_round(\d+)(?:_|$)", record.name)
-    if round_match is None:
-        raise RuntimeError(f"Cannot derive ED5 round from record name: {record.name}")
-    m.ROUND = int(round_match.group(1))
     m.DAY_COMB_STATS = plot / "ed05_day_combination_session_pair_contrasts_cr1_bh3.csv"
     m.DAY_COMB_DESC = plot / "ed05_day_combination_session_pair_descriptive_cr1.csv"
     m.EQUAL_PAIRS = plot / "ed05e_context_only_all_outside_pair_rows.csv"

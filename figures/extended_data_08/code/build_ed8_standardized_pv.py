@@ -400,7 +400,7 @@ def main():
     COL['neutral']=COL['mid']='#454545' if args.control_gray=='dark' else '#C4C4C4'
     if args.inputs_from:
         source=args.inputs_from.resolve()
-        for name in ['source_data','INPUT_MANIFEST.json','ACCEPTED_SOURCE_CHECK.json']:
+        for name in ['source_data','INPUT_MANIFEST.json']:
             src=source/name; dest=out/name
             if src.is_dir(): shutil.copytree(src,dest,dirs_exist_ok=True)
             else: shutil.copy2(src,dest)
@@ -429,13 +429,6 @@ def main():
                f='equal frames',i='rewarded versus timeout',g='restored route schematic',h='node routes',j='cross direction')
     pd.DataFrame([dict(source_panel=k,display_panel=DISPLAY[k],role=roles[k]) for k in PANELS]).to_csv(out/'PANEL_CROSSWALK.csv',index=False)
     paneldir=out/'individual_panels'; paneldir.mkdir(exist_ok=True); failures=[]
-    # Preserve obsolete letters from temporary layouts outside current panels.
-    for p in paneldir.glob('ed8_panel_*'):
-        if p.suffix in ['.pdf','.svg','.png'] and p.stem.removeprefix('ed8_panel_') not in DISPLAY.values():
-            archive=out/'history/superseded_display_letters'; archive.mkdir(parents=True,exist_ok=True)
-            target=archive/p.name
-            if target.exists(): target=archive/(p.stem+'_'+sha(p)[:12]+p.suffix)
-            shutil.move(str(p),str(target))
     for letter in PANELS:
         fig=figs[letter]; failures+=bounds(fig,letter)
         for fmt in ['pdf','svg','png']: fig.savefig(paneldir/f'ed8_panel_{DISPLAY[letter]}.{fmt}',dpi=300,bbox_inches=None,transparent=fmt!='png')

@@ -240,8 +240,10 @@ def main2(root: Path,audit: Audit):
                   unit="metric-specific neuron/bin or session-chain observations, with standard errors clustered by animal",family="three dense metrics plus canonical pair-level ensemble rate BH4")
     saved=read(p/"distribution/metric_summary.csv");pair=read(p/"distribution/pair_metric_summary.csv")
     rows=[]
-    for metric,stem in [("place","figure2_panel_d_place"),("pv","figure2_panel_f_pv"),("rate","figure2_panel_h_rate")]:
-        z=np.load(next((p/"distribution").glob(stem+"_shuffle_mean*.npz")))
+    for metric, filename in (("place", "place_map_shuffle_mean.npz"),
+                             ("pv", "pv_shuffle_mean.npz"),
+                             ("rate", "ensemble_rate_shuffle_mean.npz")):
+        z=np.load(p/"distribution"/filename, allow_pickle=False)
         null=z["null"].astype(float);obs=float(z["obs"].item())
         sub=pair.loc[pair.metric.eq(metric)]
         rows.append(dict(metric=metric,n_pairs=len(sub),observed_pair_mean=sub.observed_pair_value.mean(),
