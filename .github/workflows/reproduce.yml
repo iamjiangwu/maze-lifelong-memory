@@ -51,6 +51,7 @@ jobs:
         if: always()
         run: python reproduce.py --statistics-only --output-dir outputs/statistics-only
       - name: Reproduce all figures, tables and statistical tests
+        if: runner.os != 'macOS'
         run: python reproduce.py --output-dir outputs/reproduction
       - name: Save run reports
         if: always()

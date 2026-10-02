@@ -22,7 +22,7 @@ class BrowserDiscoveryTests(unittest.TestCase):
             executable.touch()
             with patch.dict(browser.os.environ, {"MAZE_BROWSER": str(executable)}, clear=True), \
                     patch.object(browser.sys, "platform", "win32"):
-                self.assertEqual(browser.find_browser(), executable.resolve())
+                self.assertEqual(browser.find_browser(), executable.absolute())
 
     def test_invalid_override_does_not_silently_fall_back(self):
         with patch.dict(browser.os.environ, {"MAZE_BROWSER": "missing-browser"}, clear=True), \
