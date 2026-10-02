@@ -39,9 +39,6 @@
     4,
     3
   ],
-  "saved_decoder_payload_index": 92742,
-  "saved_decoder_decoded_pos_15": 48,
-  "saved_decoder_true_pos_15": 49,
   "n_bins_x": 15,
   "n_bins_y": 15,
   "posterior_n_bins_x": 15,

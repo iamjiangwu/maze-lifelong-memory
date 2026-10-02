@@ -51,8 +51,6 @@ def registry_timestamp(value: str) -> datetime:
     return min(parse_timestamp(str(path)) for path in paths)
 
 
-def format_timestamp(value: datetime) -> str:
-    return value.strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
 def find_metafile_row(rows: list[dict[str, str]], session: str) -> dict[str, str]:

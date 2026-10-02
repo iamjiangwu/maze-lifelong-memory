@@ -1,20 +1,7 @@
-panel_role,subestimand,universe,n_pairs,n_mice,estimate,ci95_low,ci95_high,p_value,correction
-B,d1v1:frame_balanced,ed08_round24_location_support,30,14,2.4934061275871398,1.4036224644922557,3.583189790682023,0.000732421875,BH4 across the four source-template-day by balancing-method cells
-B,d1v1:visit_balanced,ed08_round24_location_support,30,14,1.881395971193676,0.8672019914025397,2.8955899509848115,0.0010986328125,BH4 across the four source-template-day by balancing-method cells
-B,d2v1:frame_balanced,ed08_round24_location_support,36,14,3.046581939678958,1.9921071466168123,4.101056732741103,0.0001220703125,BH4 across the four source-template-day by balancing-method cells
-B,d2v1:visit_balanced,ed08_round24_location_support,36,14,2.664074779814804,1.6888341009005612,3.639315458729046,0.0001220703125,BH4 across the four source-template-day by balancing-method cells
-D/F,home_to_water,ed08_round4_neural_exclusion_clean,29,13,0.1402317031435895,,,0.0001220703125,"exact one-sided mouse sign; threshold sweep otherwise descriptive; separate pair-row CR1 estimate=0.13760288394369574, p1=3.5950147611791144e-06"
-F,water_to_home,ed08_round4_neural_exclusion_clean,28,14,0.017676483365029,,,0.395263671875,"exact one-sided mouse sign; threshold sweep otherwise descriptive; separate pair-row CR1 estimate=0.008975054809121549, p1=0.2328507195018325"
-ALT,2_to_water,ed08_round17_reward_experienced_source,30,14,0.0817862207169634,,,0.00091552734375,"BH2 across exact one-sided mouse sign tests for Node 2 and Node 3; separate pair-row CR1 estimate=0.0782412730047518, p1=6.215164999500875e-05"
-ALT,3_to_water,ed08_round17_reward_experienced_source,29,14,0.0741889128619261,,,0.00091552734375,"BH2 across exact one-sided mouse sign tests for Node 2 and Node 3; separate pair-row CR1 estimate=0.0825181678143958, p1=1.1241745584831938e-05"
-E,session_adaptive_absolute_values,ed08_round4_neural_exclusion_clean,29,13,0.1144375198438667,0.087722534217766,0.1411525054699674,0.0001220703125,exact one-sided mouse sign; t-based 95% CI on equal-mouse values
-G,reward_specific_interaction,ed08_round4_neural_exclusion_clean,25,12,-0.0042181350910266,-0.0337251225431268,0.0252888523610734,0.7589231692124421,raw two-sided mouse-clustered CR1 p=0.7589231692124421; BH3 shown
-G,stable_field_enrichment,ed08_round4_neural_exclusion_clean,25,12,-0.1262687554066924,-0.3159823730461096,0.0634448622327247,0.5127931599493865,raw two-sided mouse-clustered CR1 p=0.17093105331646213; BH3 shown
-G,whole_route_pf_correlation,ed08_round4_neural_exclusion_clean,25,12,0.004495873621584,-0.0105912998075675,0.0195830470507355,0.7589231692124421,raw two-sided mouse-clustered CR1 p=0.5253833655913496; BH3 shown
-H,control121,ed08_round4_neural_exclusion_clean,30,14,7.54439708538977,,,,descriptive equal-mouse map; endpoint104 remains masked
-H,control133,ed08_round4_neural_exclusion_clean,30,14,6.660615933173055,,,,descriptive equal-mouse map; endpoint104 remains masked
-H,control91,ed08_round4_neural_exclusion_clean,30,14,6.580718646674117,,,,descriptive equal-mouse map; endpoint104 remains masked
-H,endpoint104,ed08_round4_neural_exclusion_clean,30,1,1.7798264997544988,,,,descriptive equal-mouse map; endpoint104 remains masked
-H,proxy103,ed08_round4_neural_exclusion_clean,30,14,3.616738540049863,,,,descriptive equal-mouse map; endpoint104 remains masked
-C,d1v1,ed08_round21_panel_c_s_gate,30,14,0.1212545950083048,0.077944222315454,0.1645649677011556,8.220471285527339e-05,raw two-sided mouse-clustered CR1 p=4.1102356427637e-05; BH2 shown
-C,d2v1,ed08_round21_panel_c_s_gate,36,14,0.099339465041601,0.0583508533587777,0.1403280767244243,0.0001607615788218,raw two-sided mouse-clustered CR1 p=0.0001607615788218; BH2 shown
+"panel_role","subestimand","universe","n_pairs","n_mice","estimate","ci95_low","ci95_high","p_value","correction"
+"B","d1v1:frame_balanced","ed08_round24_location_support","30","14","2.4934061275871398","1.4036224644922557","3.583189790682023","0.000732421875","BH4 across the four source-template-day by balancing-method cells"
+"B","d1v1:visit_balanced","ed08_round24_location_support","30","14","1.881395971193676","0.8672019914025397","2.8955899509848115","0.0010986328125","BH4 across the four source-template-day by balancing-method cells"
+"B","d2v1:frame_balanced","ed08_round24_location_support","36","14","3.046581939678958","1.9921071466168123","4.101056732741103","0.0001220703125","BH4 across the four source-template-day by balancing-method cells"
+"B","d2v1:visit_balanced","ed08_round24_location_support","36","14","2.664074779814804","1.6888341009005612","3.639315458729046","0.0001220703125","BH4 across the four source-template-day by balancing-method cells"
+"C","d1v1","ed08_round21_panel_c_s_gate","30","14","0.1212545950083048","0.077944222315454","0.1645649677011556","8.220471285527339e-05","raw two-sided mouse-clustered CR1 p=4.1102356427637e-05; BH2 shown"
+"C","d2v1","ed08_round21_panel_c_s_gate","36","14","0.099339465041601","0.0583508533587777","0.1403280767244243","0.0001607615788218","raw two-sided mouse-clustered CR1 p=0.0001607615788218; BH2 shown"

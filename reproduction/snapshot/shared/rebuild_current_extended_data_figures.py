@@ -152,8 +152,6 @@ def scientific_inputs(artifact: str, record: Path) -> list[Path]:
             raise FileNotFoundError(directory)
         paths.extend(path for path in directory.rglob("*") if path.is_file())
     root_extras = {
-        2: ("CAPTION_NOTES.md",),
-        5: ("CONTEXT_SAMPLING_CORRECTION_2026_08_20.json",),
         8: (
             "ED08_ROUND20_RENDER_MANIFEST.json",
             "ED08_VERSION_RECORD_MANIFEST.json",
@@ -460,7 +458,6 @@ def render_ed1(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.RENDER_VALIDATION = output / "RENDER_VALIDATION_ROUND21.json"
     m.MANIFEST = output / "MANIFEST_ROUND21.json"
     source_map = {
-        "a": drawn / "PANEL_A_TRAJECTORY_PLOT_DATA_ROUND21.csv.gz",
         "b-c": plot / "ed01_bc_group_specific_80_session_curves.csv.gz",
         "d-e": plot / "ed01_de_group_specific_80_group_curves.csv",
         "f-rows": plot / "ed01_endpoint_axis_session_rows_current153.csv",
@@ -509,8 +506,6 @@ def render_ed1(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     # inherited dynamic-limit helper predates that display-only authority.
     m.draw_speed_axes = draw_speed_axes_current
     data = {
-        "trajectory": pd.read_csv(source_map["a"], low_memory=False),
-        "trajectory_jump_audit": pd.read_csv(drawn / "PANEL_A_JUMP_MASK_AUDIT_ROUND21.csv"),
         "accumulation": pd.read_csv(source_map["b-c"], low_memory=False),
         "tile_curves": pd.read_csv(source_map["d-e"]),
         "endpoint_rows": pd.read_csv(source_map["f-rows"]),
@@ -527,25 +522,14 @@ def render_ed1(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     }
     m.configure_style()
     display_successor = stage / "scripts/render_ed01_no_trajectories_source.py"
-    if display_successor.is_file():
-        display = load_module(display_successor, "ed1_round23_display_source")
-        return display.render(m, data, output)
-    figure, boxes, derived = m.build_figure(data)
-    paths = m.save_outputs(figure)
-    m.write_audits(data, derived, boxes)
-    m.write_caption_notes(data)
-    validation = m.validate(data, paths, boxes, derived)
-    m.RENDER_VALIDATION.write_text(json.dumps(validation, indent=2) + "\n", encoding="utf-8")
-    if validation["status"] != "pass":
-        raise RuntimeError(f"ED1 frozen-renderer validation failed: {validation['failed_checks']}")
-    return {"status": "PASS", "validation": validation}
+    if not display_successor.is_file():
+        raise FileNotFoundError("The current ten-panel ED1 display adapter is required")
+    display = load_module(display_successor, "ed1_round23_display_source")
+    return display.render(m, data, output)
 
 
 def render_ed2(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     current_adapter = stage / "scripts/render_ed03_fixed_time_30min_full_story.py"
-    current_caption = (record / "CAPTION_NOTES.md").read_text(encoding="utf-8")
-    if "Spearman" in current_caption or "combined_gate" in current_caption:
-        raise RuntimeError("ED2 current caption unexpectedly contains a legacy gate")
 
     adapter_load_count = 0
 
@@ -561,18 +545,17 @@ def render_ed2(record: Path, output: Path, stage: Path) -> dict[str, Any]:
                 f"ed2_current_round26_adapter_{pass_name}_{adapter_load_count}",
             )
 
-        def write_current_caption(
+        def initialize_caption_scratch(
             path: Path,
             _renderer: Any,
             _tables: dict[str, dict[str, pd.DataFrame]],
         ) -> None:
-            # Round 29 intentionally removed the obsolete Spearman/gate text.
-            # Keep its record-hashed Pearson-r and mean-bias wording while all
-            # panel values are regenerated from the current plot-ready tables.
-            path.write_text(current_caption, encoding="utf-8")
+            # Display wrappers require this generated scratch file. It is not
+            # a manuscript/source input and supplies no numerical values.
+            path.write_text("", encoding="utf-8")
 
         caption_layer.load_frozen_renderer = load_current_renderer
-        caption_layer.write_caption_notes = write_current_caption
+        caption_layer.write_caption_notes = initialize_caption_scratch
 
     # Pass A preserves the accepted Round-23 display refinements while the
     # staged Round-26 adapter supplies the current Round-25/26 science.
@@ -684,9 +667,6 @@ def render_ed2(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     ):
         refresh_csv_manifest(manifest_name)
 
-    # Wrapper layers append their historical display notes. Restore the exact
-    # current Pearson-only caption after both source-render passes complete.
-    (pass_a / "CAPTION_NOTES.md").write_text(current_caption, encoding="utf-8")
     exporter = load_module(
         stage / "scripts/export_ed02_round11_vector_figure.py",
         "ed2_source_rebuild_exporter",
@@ -714,7 +694,6 @@ def render_ed2(record: Path, output: Path, stage: Path) -> dict[str, Any]:
         "round11_current_d_h_render": round11_result,
         "replaced_from_round11_pass": replaced,
         "panel_h_label_audit": label_audit,
-        "caption_authority": "record-local Pearson r and mean bias; no legacy gate",
         "composite": composite,
     }
 
@@ -809,15 +788,7 @@ def render_ed5(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.SELECTED_FIELDS = plot / "selected_display_fields.csv"
     m.GALLERY_PROVENANCE = plot / "ED5_PANEL_A_PER_SIDE_PROVENANCE.csv"
     m.GALLERY_PROVENANCE_SUMMARY = plot / "ED5_PANEL_A_PROVENANCE_SUMMARY.json"
-    m.EQUAL_EXTRA_SOURCES = tuple(
-        (path.stem, path)
-        for path in (
-            plot / "ed05e_context_only_all_outside_repeat_results.csv",
-            plot / "ed05e_context_only_all_outside_pair_feasibility.csv",
-            plot / "ed05e_context_only_all_outside_session_frame_pools.csv",
-            record / "CONTEXT_SAMPLING_CORRECTION_2026_08_20.json",
-        )
-    )
+    m.EQUAL_EXTRA_SOURCES = ()
     # The frozen renderer writes and rereads its publication-view companions in
     # ``output_dir.parent``. Nest its assembly directory so those fresh products
     # remain inside the isolated render root instead of beside it.
@@ -841,7 +812,7 @@ def render_ed6(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.FIXED_STATS = plot / "ed07_current59_clustered_stats.csv"
     m.FIXED_SUPPORT = plot / "ed07_current59_curve_support_mask.csv"
     m.PIVOT_CURVES = plot / "ed07_pivot_experience_group_curve_summary_current59.csv"
-    m.PIVOT_STATS = plot / "ed07_pivot_day_specific_early_slope_stats_current59.csv"
+    m.PIVOT_STATS = plot / "ed06_available_curve_clustered_stats.csv"
     m.PIVOT_LIMITS = plot / "ed07_pivot_experience_display_limits_current59.csv"
     m.HISTORICAL_FIXED_DIR = history
     m.FIGURE_ROOT = output
@@ -1208,850 +1179,12 @@ def stage_ed8_chain(record: Path, stage: Path) -> Path:
     return ed8
 
 
-def render_ed8(record: Path, output: Path, stage: Path) -> dict[str, Any]:
-    ed8 = stage_ed8_chain(record, stage)
-    staged_inputs = ed8 / "source_rebuild_inputs"
-    staged_inputs.mkdir()
-    panel_b_mouse_values = staged_inputs / "ED08_PANEL_B_ALL_ELIGIBLE_MOUSE_VALUES.csv"
-    panel_h_mouse_values = staged_inputs / "ED08_PANEL_H_REWARDED_SOURCE_MOUSE_VALUES.csv"
-    shutil.copy2(
-        record / "source_data/ED08_PANEL_B_ALL_ELIGIBLE_MOUSE_VALUES.csv",
-        panel_b_mouse_values,
-    )
-    shutil.copy2(
-        record
-        / "cohort_audit/panel_h_rewarded_source/ED08_PANEL_H_REWARDED_SOURCE_MOUSE_VALUES.csv",
-        panel_h_mouse_values,
-    )
-    m = load_module(stage / "scripts/render_ed08_cohort_transparency_round15.py", "ed8_source_rebuild")
-    m.ROOT = stage
-    m.ED8 = ed8
-    m.PARENT_RENDERER = ed8 / "revision_round10_2026-08-11/render_ed08_round10.py"
-    m.PARENT_MANIFEST = ed8 / "revision_round10_2026-08-11/ED08_ROUND10_RENDER_MANIFEST.json"
-    stage_output = stage / "source_rebuild_output"
-    result = m.render(
-        stage_output,
-        panel_c_upright=True,
-        panel_b_mouse_values=panel_b_mouse_values,
-        panel_h_mouse_values=panel_h_mouse_values,
-        panel_d_support_note=False,
-        panel_e_xlabel="Linearized place map correlation",
-        panel_i_right_ylabel="Linearized place map correlation",
-        root_name="extended_data_figure8_source_rebuild_round20",
-        manifest_name="ED08_SOURCE_REBUILD_RENDER_MANIFEST.json",
-        schema="ed08-record-local-source-rebuild/v1",
-        display_panels=["e", "i"],
-        display_change_text="shared linearized place-map correlation wording in panels e and i",
-        quantitative_recomputation=False,
-        cohorts_changed=False,
-        statistics_changed=False,
-    )
-    shutil.copytree(stage_output, output / "source_rebuild_output")
-    return {"status": result["status"], "panels": sorted(result["panels"])}
 
 
-def prepare_ed9_source(record: Path, output: Path) -> Path:
-    source = output / "source_data_unified"
-    shutil.copytree(
-        record / "source_history/round4_powerpoint_parity/source_data",
-        source,
-    )
-    overlays = {
-        record / "source_data/b1_metadata_round25/be_roles/B1_MAXIMAL42_PAIR_DEFINITION_COMPARISON.csv": source / "be_roles/B1_MAXIMAL42_PAIR_DEFINITION_COMPARISON.csv",
-        record / "source_data/panel_f_all36_round33/be_roles/B2_ALL36_PAIR_REPRESENTATION_CONVERSIONS.csv": source / "be_roles/B2_MAXIMAL42_PAIR_REPRESENTATION_CONVERSIONS.csv",
-        record / "source_data/panel_f_all36_round33/be_roles/B2_ALL36_CR1_BH2_STATISTICS.csv": source / "be_roles/B2_MAXIMAL42_CR1_BH2_STATISTICS.csv",
-        record / "source_data/fig2_fig3_parity_round33/H1_MAIN3_MATCHED59_PLOT_READY.csv": source / "H_STANDARD66_PLOT_READY.csv",
-        record / "source_data/fig2_fig3_parity_round33/J1_MAIN3_MATCHED37_POINTS.csv": source / "J_MAXIMAL42_SIX_METRIC_POINTS.csv",
-        record / "source_data/fig2_fig3_parity_round33/J1_MAIN3_BH4_STATISTICS.csv": source / "J_REWARDED36_CR1_BH6_STATISTICS.csv",
-    }
-    for input_path, target in overlays.items():
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(input_path, target)
-    return source
 
 
-def render_ed9(record: Path, output: Path, stage: Path) -> dict[str, Any]:
-    # Round 6 is the complete source-rendered, title-free a-l panel
-    # implementation at publication-panel scale. Current source overlays are
-    # applied before rendering; panel c is then replaced by the round-34
-    # boundary-smoothed source renderer (alpha=0.35). The final assembly uses
-    # the frozen 3900 x 4010 placement contract directly and never opens an
-    # accepted master or accepted individual-panel artwork file.
-    work = stage / "scripts/source_rebuild_output"
-    work.mkdir()
-    source = prepare_ed9_source(record, work)
-    # The frozen corrected-layer renderer resolves this predecessor one level
-    # above its own ``scripts`` directory.
-    shutil.copy2(
-        stage / "scripts/render_ed09_slide11_panels.py",
-        stage / "render_ed09_slide11_panels.py",
-    )
-    panels = work / "individual_panels"
-    panels.mkdir()
 
-    round6 = load_module(
-        stage / "scripts/render_ed09_narrow_typography_round6.py",
-        "ed9_source_rebuild_round6",
-    )
-    round6.ROUND = work
-    round6.PANELS = panels
-    round6.SOURCE = source
-    round6.ROOT_PNG = work / "extended_data_figure9_source_rebuild_round6.png"
-    round6.ROOT_TIFF = work / "extended_data_figure9_source_rebuild_round6.tiff"
-    round6.CANVAS_WIDTH = 3900
-    round6.PANEL_SIZE_PX = {
-        "C1": (1400, 1000),
-        "C2": (800, 1000),
-        "D1": (1450, 1000),
-        "A1": (3800, 1150),
-        "B1": (875, 875),
-        "B2": (775, 875),
-        "E1": (875, 875),
-        "E2": (775, 875),
-        "F1": (775, 875),
-        "G1": (875, 875),
-        "H1": (775, 875),
-        "J1": (875, 875),
-    }
-    round6.CELL_BOXES = {
-        "C1": (75, 1400, 1000),
-        "C2": (1500, 800, 1000),
-        "D1": (2325, 1450, 1000),
-        "A1": (50, 3800, 1150),
-        "B1": (125, 875, 875),
-        "B2": (1050, 875, 875),
-        "E1": (1975, 875, 875),
-        "E2": (2900, 875, 875),
-        "F1": (125, 875, 875),
-        "G1": (1050, 875, 875),
-        "H1": (1975, 875, 875),
-        "J1": (2900, 875, 875),
-    }
 
-    # The frozen round-6 schematic helper historically measured its target
-    # inter-map spacing from the source-rendered round-5 composite. Preserve the
-    # exact source-derived one-third gaps without opening predecessor artwork.
-    def local_schematic_gap_baseline(_old: Any) -> dict[str, Any]:
-        target = [137.96683559507923, 142.13914292984052]
-        return {
-            "round5_source_canvas_width_px_at_backend_dpi": 2820.0,
-            "round5_source_png_width_px": 2820,
-            "round5_assembly_scale": 1.0,
-            "round5_composite_axes_gaps_px": [value * 3.0 for value in target],
-            "target_round6_axes_gaps_px": target,
-        }
-
-    round6.round5_gap_baseline = local_schematic_gap_baseline
-
-    # Round 6 passes the locally configured source root to its round-3 and
-    # round-5 helpers, but the frozen round-4 J1 helper retained a module-level
-    # predecessor path. Redirect that helper at module-load time as well.
-    original_round6_load_module = round6.load_module
-
-    def load_round6_dependency(name: str, path: Path) -> Any:
-        module = original_round6_load_module(name, path)
-        if name == "ed09_round6_round4":
-            module.SOURCE = source
-        return module
-
-    round6.load_module = load_round6_dependency
-
-    # Carry the current display terminology into the fresh source figures.
-    # These are artist-level text/spacing operations; the plotted arrays and
-    # statistical sources remain unchanged.
-    original_normalize = round6.normalize_panel
-
-    def normalize_current_display(fig: Any, role: str) -> dict[str, Any]:
-        axis = fig.axes[0]
-        if role == "C1":
-            axis.set_xticks(range(7), [str(value) for value in range(7)])
-            axis.set_yticks(range(7), [str(value) for value in range(7)])
-        elif role == "C2":
-            # Preserve the accepted 540-px plotting width while adding the
-            # current 50-px label-safe left margin to the 800-px panel canvas.
-            fig.subplots_adjust(left=230 / 800, right=770 / 800)
-            axis.set_xlabel("Level shift distance")
-        elif role == "B2":
-            fig.subplots_adjust(left=0.29)
-            axis.set_ylabel("Pair-mean r")
-        elif role == "E1":
-            fig.subplots_adjust(left=0.28)
-            axis.set_xlabel("Place map correlation")
-            axis.set_ylabel("Level map correlation")
-        elif role == "E2":
-            fig.subplots_adjust(left=0.34, right=0.95, bottom=0.27)
-            axis.set_xlabel("Place-map correlation\nthreshold")
-        elif role == "H1":
-            axis.set_ylabel("Level map correlation")
-        elif role == "J1":
-            axis.set_xlabel("No. of cycles")
-            axis.set_ylabel("Level map correlation")
-        state = original_normalize(fig, role)
-        if role == "E2":
-            letters = [text for text in fig.texts if text.get_text().strip() == "h"]
-            if len(letters) != 1:
-                raise AssertionError(
-                    f"Expected one panel-h letter artist, found {len(letters)}"
-                )
-            letters[0].set_x(0.002)
-        return state
-
-    round6.normalize_panel = normalize_current_display
-    try:
-        round3, round4, round5, rows, audits = round6.render_panels()
-    finally:
-        round6.normalize_panel = original_normalize
-        round6.load_module = original_round6_load_module
-
-    # render_panels records paths relative to its frozen source-code directory.
-    # Normalize them to the portable working-output root before assembly.
-    for row in rows:
-        for suffix in FORMATS:
-            path = (round6.HERE / row[suffix]).resolve()
-            row[suffix] = path.relative_to(work).as_posix()
-            row[f"{suffix}_sha256"] = sha256(path)
-            row[f"{suffix}_bytes"] = path.stat().st_size
-
-    base_renderer = round3.load_base_renderer()
-    base_renderer.SOURCE = source
-    base_renderer.PANELS = panels
-    plot_layer = base_renderer.load_old_renderer()
-    plot_layer.ROOT = source
-    plot_layer.RENDER_ROOT = panels
-
-    # Re-render current panel a from its source-conditional plot-ready table.
-    # This is the Round-11 scientific estimand plus the current Round-20 raw
-    # 0-6 labels and Round-29 decimal colorbar/title-spacing authority.
-    panel_a_builder = load_module(
-        stage / "scripts/render_ed09_fixed_colorbar_round11.py",
-        "ed9_source_rebuild_panel_a_round29",
-    )
-    panel_a_builder.PANELS = panels
-    panel_a_builder.base.PANELS = panels
-    panel_a_builder.base.REPO = stage
-    panel_a_builder.MAIN_FIGURE2_RENDERER = (
-        stage / "scripts/render_main_figs_v3_publication.py"
-    )
-
-    def replace_panel_row(role: str, paths: dict[str, Path]) -> None:
-        row = next(candidate for candidate in rows if candidate["role"] == role)
-        for suffix, path in paths.items():
-            row[suffix] = path.relative_to(work).as_posix()
-            row[f"{suffix}_sha256"] = sha256(path)
-            row[f"{suffix}_bytes"] = path.stat().st_size
-
-    # Round 10 is the accepted scientific/display authority for panel e.  Its
-    # 36-row plot-ready table, rather than the later 42-row metadata overlay,
-    # defines the visible paired comparison.
-    panel_e_data = pd.read_csv(
-        record / "plot_ready/B1_NO_MANUAL_MASK_DEFINITION_COMPARISON.csv"
-    )
-    if len(panel_e_data) != 36:
-        raise AssertionError(f"ED9 panel-e source row count drifted: {len(panel_e_data)}")
-    e_paths = panel_a_builder.base.render_panel_e(panel_e_data)
-    replace_panel_row("B1", e_paths)
-
-    # Round 11 fixed the panel-i curve grammar to the source-native day gaps,
-    # confidence band, shuffle line, legend, and publication margins.
-    panel_i_data = pd.read_csv(record / "plot_ready/F1_NO_MANUAL_MASK_GAP_CURVE.csv")
-    panel_i_aliases = {
-        "animal_equal_observed_mean": "observed_mean",
-        "animal_equal_observed_ci95_low": "observed_ci95_low",
-        "animal_equal_observed_ci95_high": "observed_ci95_high",
-        "animal_equal_shuffle_mean": "shuffle_mean",
-    }
-    for legacy, current in panel_i_aliases.items():
-        panel_i_data[legacy] = panel_i_data[current]
-    # The isolated pair-gap promotion invoked Round 11 under Matplotlib's
-    # default vector-font settings; retain that exact SVG/PDF grammar here.
-    panel_a_builder.base.plt.rcParams.update(
-        {"svg.fonttype": "path", "pdf.fonttype": 3, "ps.fonttype": 3}
-    )
-    i_paths = panel_a_builder.render_panel_i(panel_i_data)
-    replace_panel_row("F1", i_paths)
-
-    browser_exporter = load_module(
-        stage / "scripts/render_main_figs_v3_publication.py",
-        "ed9_source_rebuild_browser_exporter",
-    )
-    browser_executable = browser_exporter._find_chrome_executable()
-    installed_versions = [
-        candidate.name
-        for candidate in browser_executable.parent.iterdir()
-        if candidate.is_dir()
-        and len(candidate.name.split(".")) >= 3
-        and all(part.isdigit() for part in candidate.name.split("."))
-    ]
-    browser_runtime = {
-        "engine": "Microsoft Edge/Chromium",
-        "resolved_executable": str(browser_executable),
-        "version": (
-            max(installed_versions, key=lambda value: tuple(map(int, value.split("."))))
-            if installed_versions
-            else None
-        ),
-        "resolution": "first existing path in frozen CHROME_CANDIDATES",
-        "purpose": "SVG raster export only",
-        "network": False,
-        "fail_closed_if_missing": True,
-        "binary_not_packaged": True,
-        "python_exporter_packaged_in_shared_runtime": True,
-    }
-
-    def chrome_export_panel(
-        paths: dict[str, Path], size_px: tuple[int, int]
-    ) -> dict[str, Path]:
-        html = browser_exporter._export_svg_with_chrome(
-            paths["svg"],
-            paths["png"],
-            paths["pdf"],
-            width_mm=size_px[0] / 600 * 25.4,
-            height_mm=size_px[1] / 600 * 25.4,
-            dpi=600,
-        )
-        html.unlink(missing_ok=True)
-        with panel_a_builder.base.Image.open(paths["png"]) as image:
-            if image.size != size_px:
-                raise AssertionError(
-                    f"ED9 browser export changed size: {image.size} != {size_px}"
-                )
-            image.convert("RGB").save(
-                paths["tiff"], compression="tiff_lzw", dpi=(600, 600)
-            )
-        return paths
-
-    panel_a_cells = pd.read_csv(
-        record / "plot_ready/C1_CONDITIONAL_TRANSITION_CELLS.csv"
-    )
-    matrix = (
-        panel_a_cells.pivot(
-            index="test_pref_level",
-            columns="train_pref_level",
-            values="observed_minus_null_conditional_probability",
-        )
-        .sort_index()
-        .sort_index(axis=1)
-    )
-    values = matrix.to_numpy(dtype=float)
-    np.fill_diagonal(values, np.nan)
-    color_endpoint = 0.10
-    data_endpoint = float(np.nanmax(np.abs(values)))
-    if values.shape != (7, 7) or data_endpoint > color_endpoint:
-        raise AssertionError(
-            f"ED9 panel-a conditional matrix drifted: {values.shape}, {data_endpoint}"
-        )
-    raw_levels = list(range(7))
-    panel_a_paths = panel_a_builder.render_panel_a(panel_a_cells, {})
-    panel_a_svg = panel_a_paths["svg"]
-    open_terms = load_module(
-        stage / "scripts/render_ed09_open_terms_levels_round20.py",
-        "ed9_source_rebuild_panel_a_round20",
-    )
-    open_terms.edit_svg(panel_a_svg, panel_a_svg, "C1")
-    decimal_ticks = load_module(
-        stage / "scripts/promote_ed09_decimal_colorbar_ticks_round28.py",
-        "ed9_source_rebuild_panel_a_round28",
-    )
-    decimal_ticks.edit_panel_svg(panel_a_svg, panel_a_svg)
-    panel_a_content = panel_a_svg.read_text(encoding="utf-8")
-    old_title = (
-        'x="165.890484" y="52.8" '
-        'transform="rotate(-90 165.890484 52.8)">'
-        "\u0394 conditional probability</text>"
-    )
-    new_title = (
-        'x="156.890484" y="52.8" '
-        'transform="rotate(-90 156.890484 52.8)">'
-        "\u0394 conditional probability</text>"
-    )
-    if panel_a_content.count(old_title) != 1:
-        raise AssertionError("ED9 panel-a Round-29 title geometry source is not exact")
-    panel_a_svg.write_text(
-        panel_a_content.replace(old_title, new_title, 1),
-        encoding="utf-8",
-        newline="",
-    )
-    panel_a_paths = chrome_export_panel(panel_a_paths, (1400, 1000))
-    panel_a_text_nodes = [
-        node
-        for node in ET.parse(panel_a_svg).getroot().iter()
-        if node.tag.rsplit("}", 1)[-1] == "text"
-        and "".join(node.itertext()).strip()
-    ]
-    panel_a_tokens = ["".join(node.itertext()).strip() for node in panel_a_text_nodes]
-    title_nodes = [
-        node
-        for node in panel_a_text_nodes
-        if "".join(node.itertext()).strip() == "\u0394 conditional probability"
-    ]
-    if len(title_nodes) != 1:
-        raise AssertionError("ED9 panel-a colorbar title token is not unique")
-    title_node = title_nodes[0]
-    title_svg_geometry = {
-        "x": title_node.get("x"),
-        "y": title_node.get("y"),
-        "transform": title_node.get("transform"),
-    }
-    expected_title_svg_geometry = {
-        "x": "156.890484",
-        "y": "52.8",
-        "transform": "rotate(-90 156.890484 52.8)",
-    }
-    if title_svg_geometry != expected_title_svg_geometry:
-        raise AssertionError(
-            "ED9 panel-a Round-29 title placement drifted: "
-            f"{title_svg_geometry}"
-        )
-    expected_tokens = ("\N{MINUS SIGN}0.1", "0", "0.1", "\u0394 conditional probability")
-    token_counts = {token: panel_a_tokens.count(token) for token in expected_tokens}
-    colorbar_svg_geometry = {}
-    expected_colorbar_svg_geometry = {
-        "\N{MINUS SIGN}0.1": {
-            "x": "139.116",
-            "y": "89.353664",
-            "transform": "rotate(-0 139.116 89.353664)",
-        },
-        "0": {
-            "x": "139.116",
-            "y": "54.553664",
-            "transform": "rotate(-0 139.116 54.553664)",
-        },
-        "0.1": {
-            "x": "139.116",
-            "y": "19.753664",
-            "transform": "rotate(-0 139.116 19.753664)",
-        },
-    }
-    for token, expected_geometry in expected_colorbar_svg_geometry.items():
-        matches = [
-            node
-            for node in panel_a_text_nodes
-            if "".join(node.itertext()).strip() == token
-            and node.get("x") == expected_geometry["x"]
-            and node.get("y") == expected_geometry["y"]
-            and node.get("transform") == expected_geometry["transform"]
-        ]
-        if len(matches) != 1:
-            raise AssertionError(
-                f"ED9 panel-a colorbar SVG geometry drifted for {token!r}"
-            )
-        colorbar_svg_geometry[token] = {
-            key: matches[0].get(key) for key in ("x", "y", "transform")
-        }
-    if not (
-        token_counts["\N{MINUS SIGN}0.1"] == 1
-        and token_counts["0.1"] == 1
-        and token_counts["\u0394 conditional probability"] == 1
-        and token_counts["0"] >= 1
-        and not any("%" in token for token in panel_a_tokens)
-    ):
-        raise AssertionError(f"ED9 panel-a current colorbar tokens drifted: {token_counts}")
-    with fitz.open(panel_a_paths["pdf"]) as document:
-        pdf_spans = [
-            span
-            for block in document[0].get_text("dict")["blocks"]
-            for line in block.get("lines", [])
-            for span in line.get("spans", [])
-        ]
-    pdf_titles = [
-        span
-        for span in pdf_spans
-        if span["text"] == "\u0394 conditional probability"
-    ]
-    pdf_endpoint_ticks = [
-        span for span in pdf_spans if span["text"] in {"\N{MINUS SIGN}0.1", "0.1"}
-    ]
-    if len(pdf_titles) != 1 or len(pdf_endpoint_ticks) != 2:
-        raise AssertionError("ED9 panel-a PDF colorbar tokens drifted")
-    pdf_tick_right = max(float(span["bbox"][2]) for span in pdf_endpoint_ticks)
-    pdf_title_left = float(pdf_titles[0]["bbox"][0])
-    pdf_title_tick_gap = pdf_title_left - pdf_tick_right
-    if pdf_title_tick_gap < 2.5:
-        raise AssertionError(
-            f"ED9 panel-a Round-29 title clearance drifted: {pdf_title_tick_gap} pt"
-        )
-    for row in rows:
-        if row["role"] == "C1":
-            for suffix, path in panel_a_paths.items():
-                row[suffix] = path.relative_to(work).as_posix()
-                row[f"{suffix}_sha256"] = sha256(path)
-                row[f"{suffix}_bytes"] = path.stat().st_size
-
-    # Re-render panel b through the Round-14 open-circle grammar, retaining its
-    # 540-px plotting width while adding the accepted 50-px label-safe margin.
-    round14_b = load_module(
-        stage / "scripts/render_ed09_panel_c_histogram_round14.py",
-        "ed9_source_rebuild_panel_b_round14",
-    )
-    old_b = load_module(
-        stage / "scripts/render_ed09_slide11_panels.py",
-        "ed9_source_rebuild_panel_b_old",
-    )
-    panel_b_source = record / "source_validation/round14_panel_c_histogram/source_data"
-    round14_b.ED9 = panel_b_source
-    round14_b.PANEL_B_SIZE = (800, 1000)
-    old_b.ROOT = panel_b_source
-    old_b.RENDER_ROOT = panels
-    original_draw_c2 = old_b.draw_c2
-    original_save_b = old_b.save_figure
-
-    def padded_draw_c2(_frame: dict[str, Any]) -> Any:
-        fig = original_draw_c2({"w_in": 800 / 600, "h_in": 1000 / 600})
-        fig.subplots_adjust(
-            left=(0.24 * 750 + 50) / 800,
-            right=(0.96 * 750 + 50) / 800,
-        )
-        return fig
-
-    def save_c2_with_fixed_letter(
-        fig: Any, stem: str, description: str
-    ) -> dict[str, Path]:
-        letters = [text for text in fig.texts if text.get_text().strip() == "b"]
-        if len(letters) != 1:
-            raise AssertionError(
-                f"Expected one panel-b letter artist, found {len(letters)}"
-            )
-        letters[0].set_x((0.014 * 750 + 50) / 800)
-        return original_save_b(fig, stem, description)
-
-    old_b.draw_c2 = padded_draw_c2
-    old_b.save_figure = save_c2_with_fixed_letter
-    round6.normalize_panel = original_normalize
-    try:
-        b_paths, panel_b_audit = round14_b.render_panel_b(old_b, round6)
-    finally:
-        round6.normalize_panel = original_normalize
-        old_b.draw_c2 = original_draw_c2
-        old_b.save_figure = original_save_b
-    panel_b_svg = b_paths["svg"]
-    panel_b_content = panel_b_svg.read_text(encoding="utf-8")
-    if panel_b_content.count("Level-shift distance") != 1:
-        raise AssertionError("ED9 panel-b Round-30 label source is not exact")
-    panel_b_svg.write_text(
-        panel_b_content.replace("Level-shift distance", "Level shift distance", 1),
-        encoding="utf-8",
-        newline="",
-    )
-
-    # Round 30 re-exported this edited source-native SVG with Chromium.  Replay
-    # that renderer so the open label and circle marker grammar reach raster.
-    b_paths = chrome_export_panel(b_paths, (800, 1000))
-    replace_panel_row("C2", b_paths)
-
-    # Round 16 is the accepted month-agnostic panel-g cloud: one low-alpha
-    # level-colour population, black open-compound labels, and no legend.
-    panel_g_builder = load_module(
-        stage / "scripts/render_ed09_panel_b_margin_panel_f_star_candidate.py",
-        "ed9_source_rebuild_panel_g_round16",
-    )
-    panel_g_builder.REPO = stage
-    panel_g_builder.PANEL_DIR = panels
-    panel_g_builder.ROUND16_RENDERER = (
-        stage / "scripts/render_ed09_order_neutral_labels_round16.py"
-    )
-    panel_g_builder.ROUND3_RENDERER = stage / "scripts/render_ed09_four_row_round3.py"
-    panel_g_builder.OLD_RENDERER = stage / "scripts/render_ed09_slide11_panels.py"
-    panel_g_builder.MAINTAINED_ED9 = source
-    panel_g_builder.ROUND16_SOURCE = source
-    panel_g_builder.ROUND4_SOURCE = source
-    panel_g_builder.configure_style(round6)
-    g_paths, panel_g_audit = panel_g_builder.render_panel_g_dense_cloud(round6)
-    replace_panel_row("E1", g_paths)
-    j_paths, panel_j_audit = panel_g_builder.render_panel_j_dense_cloud(round6)
-    replace_panel_row("G1", j_paths)
-
-    # Round 38 replaces the threshold-specific label null with an ID null.
-    # Re-render its values from the explicit current numerical source.
-    h_id_directory = record / "source_data/panel_h_neuron_id_shuffle_round38"
-    if load_contract()["artifacts"]["extended_data_figure_9"].get("panel_h_null") == "neuron_id":
-        h_id_source = h_id_directory / "threshold_clustered_statistics.csv"
-        if not h_id_source.is_file():
-            raise FileNotFoundError(h_id_source)
-        h_renderer = load_module(
-            stage / "scripts/render_ed09h_neuron_id_shuffle.py",
-            "ed9_source_rebuild_neuron_id_h",
-        )
-        h_paths, panel_h_audit = h_renderer.render_panel(h_id_source, panels)
-    else:
-        # Historical Round-20 open terminology was rasterized from its SVG.
-        h_row = next(row for row in rows if row["role"] == "E2")
-        h_paths = {suffix: work / h_row[suffix] for suffix in FORMATS}
-        open_terms.edit_svg(h_paths["svg"], h_paths["svg"], "E2")
-        h_paths = chrome_export_panel(h_paths, (775, 875))
-        panel_h_audit = {"null": "historical output-label shuffle"}
-    replace_panel_row("E2", h_paths)
-
-    # Render k and l after their current source overlays. Normalization already
-    # creates k/l letters, so do not add legacy duplicate artists.
-    h_fig, h1_audit = round5.draw_panel_k(
-        plot_layer, {"w_in": 775 / 600, "h_in": 875 / 600}
-    )
-    round5.clear_panel_titles_and_reclaim_space(h_fig, "H1")
-    h_fig.axes[0].set_ylabel("Level map correlation")
-    original_normalize(h_fig, "H1")
-    panel_k_letter_count = sum(text.get_text().strip() == "k" for text in h_fig.texts)
-    if panel_k_letter_count != 1:
-        raise AssertionError(f"ED9 panel k must have one letter, found {panel_k_letter_count}")
-    h1_paths = plot_layer.save_figure(
-        h_fig,
-        "ED9_H1_fixed_reference",
-        "ED9 panel k from the exact current Figure 3 59-cycle source",
-    )
-    replace_panel_row("H1", h1_paths)
-
-    j_fig, j1_audit = round4.draw_j1(
-        round3,
-        plot_layer,
-        {"w_in": 875 / 600, "h_in": 875 / 600},
-    )
-    round5.clear_panel_titles_and_reclaim_space(j_fig, "J1")
-    j_fig.axes[0].set_xlabel("No. of cycles")
-    j_fig.axes[0].set_ylabel("Level map correlation")
-    original_normalize(j_fig, "J1")
-    panel_l_letter_count = sum(text.get_text().strip() == "l" for text in j_fig.texts)
-    if panel_l_letter_count != 1:
-        raise AssertionError(f"ED9 panel l must have one letter, found {panel_l_letter_count}")
-    j1_paths = plot_layer.save_figure(
-        j_fig,
-        "ED9_J1_long_gap_experience",
-        "ED9 panel l from the exact current Figure 3 37-pair source and BH4 inference",
-    )
-    replace_panel_row("J1", j1_paths)
-
-    # Redraw D1 from the accepted boundary-smoothed null with alpha=0.35.
-    boundary = load_module(stage / "scripts/build_ed09_boundary_smoothed_panel_c_round34.py", "ed9_source_rebuild_boundary")
-    boundary.ROOT = VOR_ROOT
-    boundary.ANALYSIS = record / "source_data/panel_c_boundary_smoothed_round34"
-    boundary.BUILD = work
-    boundary.PANELS = panels
-    boundary.SOURCE_DATA = work / "panel_c_source_data"
-    boundary.MASTER_SVG = work / "extended_data_figure9_source_rebuild.svg"
-    boundary.MASTER_PDF = work / "extended_data_figure9_source_rebuild.pdf"
-    boundary.MASTER_PNG = work / "extended_data_figure9_source_rebuild_600dpi.png"
-    boundary.MASTER_TIFF = work / "extended_data_figure9_source_rebuild_600dpi.tiff"
-    boundary.MASTER_PREVIEW = work / "extended_data_figure9_source_rebuild_300dpi.png"
-    base = load_module(stage / "scripts/render_ed09_panel_c_histogram_round14.py", "ed9_source_rebuild_c_base")
-    r16 = load_module(stage / "scripts/render_ed09_order_neutral_labels_round16.py", "ed9_source_rebuild_r16")
-    r17 = load_module(stage / "scripts/render_ed09_panel_c_raw_p_labels_round17.py", "ed9_source_rebuild_r17")
-    assembly = load_module(stage / "scripts/render_ed09_significance_round12.py", "ed9_source_rebuild_assembly")
-    boundary.configure_modules(base, assembly)
-
-    # Re-render current panel f from the all-36 source rows so the current BH2
-    # brackets/stars are part of the fresh panel, rather than inherited art.
-    panel_f_builder = load_module(
-        stage / "scripts/build_ed09_panel_f_all36_round33.py",
-        "ed9_source_rebuild_panel_f_all36",
-    )
-    panel_f_data = pd.read_csv(
-        source / "be_roles/B2_MAXIMAL42_PAIR_REPRESENTATION_CONVERSIONS.csv"
-    )
-    panel_f_stats = pd.read_csv(
-        source / "be_roles/B2_MAXIMAL42_CR1_BH2_STATISTICS.csv"
-    )
-    round6.normalize_panel = normalize_current_display
-    try:
-        f_paths, f_audit = panel_f_builder.render_panel_f(
-            plot_layer,
-            round6,
-            assembly,
-            panel_f_data,
-            panel_f_stats,
-        )
-    finally:
-        round6.normalize_panel = original_normalize
-    for row in rows:
-        if row["role"] == "B2":
-            for suffix, path in f_paths.items():
-                row[suffix] = path.relative_to(work).as_posix()
-                row[f"{suffix}_sha256"] = sha256(path)
-                row[f"{suffix}_bytes"] = path.stat().st_size
-
-    base.configure_matplotlib(round6)
-    base.panel_c_data = boundary.panel_c_data
-    c_paths, c_audit = r17.render_panel_c(
-        r16, base, plot_layer, round6, assembly
-    )
-    for row in rows:
-        if row["role"] == "D1":
-            for suffix, path in c_paths.items():
-                row[suffix] = path.relative_to(work).as_posix()
-                row[f"{suffix}_sha256"] = sha256(path)
-                row[f"{suffix}_bytes"] = path.stat().st_size
-    # Current round-34 publication geometry. These role boxes are frozen source
-    # layout constants, not measurements copied from accepted artwork.
-    placed_by_role = {
-        "C1": (75, 76, 1400, 1000),
-        "C2": (1500, 76, 800, 1000),
-        "D1": (2325, 76, 1450, 1000),
-        "A1": (50, 1012, 3800, 1150),
-        "B1": (125, 2181, 875, 875),
-        "B2": (1100, 2181, 775, 875),
-        "E1": (1975, 2181, 875, 875),
-        "E2": (2950, 2181, 775, 875),
-        "F1": (175, 3089, 775, 875),
-        "G1": (1050, 3089, 875, 875),
-        "H1": (2025, 3089, 775, 875),
-        "J1": (2900, 3089, 875, 875),
-    }
-    display_order = (
-        "C1",
-        "C2",
-        "D1",
-        "A1",
-        "B1",
-        "B2",
-        "E1",
-        "E2",
-        "F1",
-        "G1",
-        "H1",
-        "J1",
-    )
-    placements = []
-    for role, label in zip(display_order, "abcdefghijkl", strict=True):
-        x, y, width, height = placed_by_role[role]
-        placements.append(
-            {
-                "role": role,
-                "display_label": label,
-                "allocated_cell_px": {
-                    "x": x,
-                    "y": y,
-                    "width": width,
-                    "height": height,
-                },
-                "placed_px": {
-                    "x": x,
-                    "y": y,
-                    "width": width,
-                    "height": height,
-                },
-                "scale": 1.0,
-                "fit_mode": "native-center-no-upscale",
-                "crop": {"left": 0, "top": 0, "right": 0, "bottom": 0},
-            }
-        )
-    assembly.CANVAS_PX = (3900, 4010)
-    assembly.assemble_raster(rows, placements)
-    assembly.compose_master_svg(rows, placements)
-    assembly.compose_master_pdf(rows, placements)
-    if not np.isclose(c_audit["source"]["smoothing"]["alpha"], 0.35):
-        raise RuntimeError("ED9 panel-c smoothing alpha drifted")
-    label_by_role = {row["role"]: row["display_label"] for row in rows}
-    expected_label_by_role = dict(zip(display_order, "abcdefghijkl", strict=True))
-    panel_letter_evidence = {}
-    for row in rows:
-        label = expected_label_by_role[row["role"]]
-        parser = ET.XMLParser(target=ET.TreeBuilder(insert_comments=True))
-        svg_root = ET.parse(work / row["svg"], parser=parser).getroot()
-        literal_count = sum(
-            node.tag == "{http://www.w3.org/2000/svg}text"
-            and "".join(node.itertext()).strip() == label
-            for node in svg_root.iter()
-        )
-        outlined_groups = [
-            node for node in svg_root.iter()
-            if any(child.tag is ET.Comment and (child.text or "").strip() == label for child in node)
-        ]
-        glyph_refs = [
-            node.get("{http://www.w3.org/1999/xlink}href", "")
-            for group in outlined_groups for node in group.iter()
-            if node.tag == "{http://www.w3.org/2000/svg}use"
-        ]
-        if outlined_groups and not all(ref.endswith(f"-{ord(label):x}") for ref in glyph_refs):
-            raise AssertionError(f"ED9 outlined letter glyph mismatch: {label}: {glyph_refs}")
-        panel_letter_evidence[label] = {
-            "role": row["role"], "literal_text_count": literal_count,
-            "outlined_group_count": len(outlined_groups), "outlined_glyph_refs": glyph_refs,
-            "total_count": literal_count + len(outlined_groups),
-        }
-    layout_checks = {
-        "canvas_exactly_3900x4010": assembly.CANVAS_PX == (3900, 4010),
-        "all_12_roles_source_rendered": set(label_by_role) == set(display_order),
-        "display_labels_a_through_l": label_by_role == expected_label_by_role,
-        "panel_k_single_letter": panel_k_letter_count == 1,
-        "panel_l_single_letter": panel_l_letter_count == 1,
-        "all_12_panel_letters_single": all(item["total_count"] == 1 for item in panel_letter_evidence.values()),
-        "all_panels_native_scale_no_crop": all(
-            row["scale"] == 1.0
-            and row["fit_mode"] == "native-center-no-upscale"
-            and not any(row["crop"].values())
-            for row in placements
-        ),
-        "panel_c_alpha_exactly_0_35": bool(
-            np.isclose(c_audit["source"]["smoothing"]["alpha"], 0.35)
-        ),
-        "panel_a_source_conditional_cells_exact": bool(
-            len(panel_a_cells) == 49
-            and values.shape == (7, 7)
-            and panel_a_cells["analysis"].eq(
-                "all_levels_shifted_only_source_conditional"
-            ).all()
-        ),
-        "panel_a_color_endpoint_exactly_0_1": color_endpoint == 0.10,
-        "panel_a_current_decimal_colorbar_tokens": bool(
-            token_counts["\N{MINUS SIGN}0.1"] == 1
-            and token_counts["0.1"] == 1
-            and token_counts["\u0394 conditional probability"] == 1
-            and not any("%" in token for token in panel_a_tokens)
-        ),
-        "panel_a_round29_svg_geometry_exact": bool(
-            title_svg_geometry == expected_title_svg_geometry
-            and colorbar_svg_geometry == expected_colorbar_svg_geometry
-        ),
-        "panel_a_round29_pdf_clearance_at_least_2_5_pt": bool(
-            pdf_title_tick_gap >= 2.5
-        ),
-    }
-    panel_a_source_audit = {
-        "source": "plot_ready/C1_CONDITIONAL_TRANSITION_CELLS.csv",
-        "analysis": "all_levels_shifted_only_source_conditional",
-        "rows": int(len(panel_a_cells)),
-        "matrix_shape": list(values.shape),
-        "raw_levels": raw_levels,
-        "data_absolute_max": data_endpoint,
-        "fixed_color_endpoint": color_endpoint,
-        "svg_token_counts": token_counts,
-        "svg_title_geometry": title_svg_geometry,
-        "svg_colorbar_tick_geometry": colorbar_svg_geometry,
-        "pdf_title_left_pt": pdf_title_left,
-        "pdf_endpoint_tick_right_pt": pdf_tick_right,
-        "pdf_minimum_tick_to_title_gap_pt": pdf_title_tick_gap,
-    }
-    layout_audit = {
-        "schema": "ed09-record-local-current-layout-audit/v1",
-        "status": "PASS" if all(layout_checks.values()) else "FAIL",
-        "canvas_pixels": list(assembly.CANVAS_PX),
-        "display_order": list(display_order),
-        "display_label_by_role": expected_label_by_role,
-        "panel_letter_evidence": panel_letter_evidence,
-        "placements": placements,
-        "checks": layout_checks,
-        "panel_a_source_audit": panel_a_source_audit,
-        "browser_runtime": browser_runtime,
-        "accepted_master_or_panel_artwork_read": False,
-    }
-    (work / "ED09_SOURCE_REBUILD_LAYOUT_AUDIT.json").write_text(
-        json.dumps(layout_audit, indent=2) + "\n", encoding="utf-8"
-    )
-    if layout_audit["status"] != "PASS":
-        raise RuntimeError(f"ED9 current-layout validation failed: {layout_checks}")
-    shutil.copytree(work, output / "source_rebuild_output")
-    return {
-        "status": "PASS",
-        "source_rendered_roles": [row["role"] for row in rows],
-        "canvas_pixels": list(assembly.CANVAS_PX),
-        "display_label_by_role": expected_label_by_role,
-        "layout_audit": "source_rebuild_output/ED09_SOURCE_REBUILD_LAYOUT_AUDIT.json",
-        "panel_a_source_audit": panel_a_source_audit,
-        "panel_c_smoothing_alpha": 0.35,
-        "panel_c_source_audit": c_audit["source"],
-        "panel_f_source_audit": f_audit,
-        "panel_h_source_audit": panel_h_audit,
-        "browser_runtime": browser_runtime,
-        "fixed_assets": ["A1 tree schematic only"],
-        "round6_panel_audits": audits,
-    }
 
 
 def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
@@ -2062,8 +1195,6 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.TABLE_A = record / "plot_ready/POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv"
     m.TABLE_B = record / "plot_ready/REWARD_LEVEL_COMMONALITY.csv"
     m.PROFILE_TABLE = record / "plot_ready/REWARD_LEVEL_PROFILE_TESTS.csv"
-    m.SYNTHESIS_REPORT = synthesis / "REPORT.md"
-    m.SYNTHESIS_CAPTION = synthesis / "ED10_CAPTION_AND_SOURCE_GUIDE.md"
     m.PAIR_AUDIT = record / "plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
     m.SYNTHESIS_VALIDATION = synthesis / "VALIDATION.json"
     m.SYNTHESIS_MANIFEST = synthesis / "SOURCE_MANIFEST.csv"
@@ -2099,8 +1230,6 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
         m.PAIR_AUDIT,
         m.TABLE_C,
         m.STATS_C,
-        m.SYNTHESIS_REPORT,
-        m.SYNTHESIS_CAPTION,
         m.NEURAL_ELIGIBILITY_CONTRACT,
         m.EXCLUSION_CONTRACT,
         m.MAIN_FIGURE5_MANIFEST,
@@ -2186,9 +1315,6 @@ RENDERERS = {
     5: render_ed5,
     6: render_ed6,
     7: render_ed7,
-    8: render_ed8,
-    9: render_ed9,
-    10: render_ed10,
 }
 
 

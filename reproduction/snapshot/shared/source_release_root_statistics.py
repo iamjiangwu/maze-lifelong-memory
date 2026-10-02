@@ -58,23 +58,30 @@ def ed6(release, out):
     inputs, plot = source / 'statistical_inputs', source / 'plot_ready'
     module = load(inputs / 'fixed_stats_helpers.py', 'release_ed6_stats')
     pair = pd.read_csv(inputs / 'ed07_current59_pair_metric_inclusion_audit.csv', dtype={'animal': str})
-    for col in ['included_in_slope_test', 'included_in_experience_test']:
+    for col in ['included_in_slope_test']:
         pair[col] = pair[col].astype(str).str.lower().eq('true')
     results = [compare_table(module._build_stats(pair), pd.read_csv(plot / 'ed07_current59_clustered_stats.csv'),
-                            ['metric', 'window_type', 'window_size', 'estimand'], 'ED6_fixed_reference_CR1_BH18', out)]
-    pair = pd.read_csv(inputs / 'ed07_pivot_maze_time_pair_early_slope_inclusion_current59.csv', dtype={'animal': str})
-    pair['pair_included'] = pair.pair_included.astype(str).str.lower().eq('true')
+                            ['metric', 'window_type', 'window_size', 'estimand'], 'ED6_fixed_reference_CR1_BH12', out)]
+    pair = pd.read_csv(inputs / 'ed06_pair_metric_available_curve_summaries.csv', dtype={'animal': str})
     rows = []
-    keys = ['metric', 'metric_key', 'metric_label', 'support_policy', 'window_size_min']
-    for key, all_rows in pair.groupby(keys, sort=False):
-        selected = all_rows[all_rows.pair_included]
-        for day in ['day1', 'day2']:
-            rows.append(dict(zip(keys,key), day=day, n_eligible_pair_rows=len(all_rows), n_pair_rows=len(selected),
-                             n_animal_clusters=selected.animal.nunique(), **cr1(selected[day+'_slope'], selected.animal)))
+    estimands = {'day_i1_minus_day_i_within_curve_sd': 'day_i1_minus_day_i_sd',
+                 'day_i_linear_slope': 'day_i_slope_r_per_hour',
+                 'day_i1_linear_slope': 'day_i1_slope_r_per_hour'}
+    for estimand, column in estimands.items():
+        for (metric, label), selected in pair.groupby(['metric', 'metric_label'], sort=False):
+            row = dict(estimand=estimand, metric=metric, metric_label=label, value_column=column,
+                       n_recording_cycles=len(selected), n_animals=selected.animal.nunique(),
+                       **cr1(selected[column], selected.animal))
+            if estimand == 'day_i1_minus_day_i_within_curve_sd':
+                row.update(mean_day_i_within_curve_sd=selected.day_i_within_curve_sd.mean(),
+                           mean_day_i1_within_curve_sd=selected.day_i1_within_curve_sd.mean())
+            rows.append(row)
     actual = pd.DataFrame(rows)
-    actual['q_bh_two_sided'] = actual.groupby('day').p_two_sided.transform(lambda s: multipletests(s, method='fdr_bh')[1])
-    results.append(compare_table(actual, pd.read_csv(plot / 'ed07_pivot_day_specific_early_slope_stats_current59.csv'),
-                                 ['metric', 'window_size_min', 'day'], 'ED6_pivot_CR1_BH9', out))
+    if len(actual) != 9 or not actual.groupby('estimand').size().eq(3).all():
+        raise AssertionError('ED6 pivot requires three displayed metrics in each of three estimand families')
+    actual['p_bh3_two_sided'] = actual.groupby('estimand').p_two_sided.transform(lambda s: multipletests(s, method='fdr_bh')[1])
+    results.append(compare_table(actual, pd.read_csv(plot / 'ed06_available_curve_clustered_stats.csv'),
+                                 ['estimand', 'metric'], 'ED6_available_curve_CR1_BH3', out))
     return results
 
 
@@ -133,43 +140,30 @@ def ed10(release,out):
         rows.append(dict(block=ref.block,outcome=ref.outcome,pooled_pearson_r=r,pairwise_nominal_p_descriptive=p,cr1_p_two_sided=fit['p_two_sided']))
     actual=pd.DataFrame(rows)
     actual['cr1_bh3_adjusted_p']=actual.groupby('block').cr1_p_two_sided.transform(lambda s:multipletests(s,method='fdr_bh')[1])
-    actual['cr1_bh6_adjusted_p']=actual.groupby('outcome').cr1_p_two_sided.transform(lambda s:multipletests(s,method='fdr_bh')[1])
-    results=[compare_table(actual,table,['block','outcome'],'ED10a_Pearson_CR1_BH3_and_BH6',out)]
+    results=[compare_table(actual,table,['block','outcome'],'ED10a_Pearson_animal_clustered_BH3',out)]
     expected=pd.read_csv(source/'statistical_inputs/panel_a_expected_multiplicity.csv')
-    results.append(compare_table(actual,expected[['block','outcome','cr1_p_two_sided','cr1_bh3_adjusted_p','cr1_bh6_adjusted_p']],
+    results.append(compare_table(actual,expected[['block','outcome','cr1_p_two_sided','cr1_bh3_adjusted_p']],
                                  ['block','outcome'],'ED10a_CR1_nominal_and_adjusted_p_parity',out))
-    actual.to_csv(out/'ED10a_Pearson_CR1_BH3_and_BH6.csv',index=False)
+    actual.to_csv(out/'ED10a_Pearson_animal_clustered_BH3.csv',index=False)
     helpers=load(source/'statistical_inputs/profile_helpers.py','release_ed10_profile_stats')
-    commonality,profile,lomo=helpers.reward_level_profile_analysis(frame)
+    commonality,profile=helpers.reward_level_profile_analysis(frame)
     results.append(compare_table(commonality,pd.read_csv(plot/'REWARD_LEVEL_COMMONALITY.csv'),['analysis'],'ED10b_commonality',out))
-    results.append(compare_table(profile,pd.read_csv(plot/'REWARD_LEVEL_PROFILE_TESTS.csv'),['claim','specification','weighting'],'ED10b_CR1_exact_cluster_score_maxT3',out))
-    lomo.to_csv(out/'ED10b_leave_one_mouse_out.csv',index=False)
+    results.append(compare_table(profile,pd.read_csv(plot/'REWARD_LEVEL_PROFILE_TESTS.csv'),['claim','specification','weighting'],'ED10b_exact_animal_score_signflip_BH3',out))
     bridge=pd.read_csv(plot/'level_policy_bridge_join_corrected36.csv',dtype={'animal_id':str})
     reference=pd.read_csv(plot/'level_policy_bridge_stats_corrected36.csv')
     rows=[]
     for ref in reference.itertuples():
         x,y=bridge[ref.x],bridge[ref.y]
-        r,p=stats.pearsonr(x,y);rho,sp=stats.spearmanr(x,y)
+        r,p=stats.pearsonr(x,y)
         fit=cr1((y-y.mean())/y.std(ddof=0),bridge.animal_id,(x-x.mean())/x.std(ddof=0))
-        rows.append(dict(x=ref.x,y=ref.y,n_pairs=len(bridge),n_animals=bridge.animal_id.nunique(),pearson_r=r,pearson_p=p,
-                         spearman_rho=rho,spearman_p=sp,cluster_beta_standardized=fit['estimate'],cluster_se=fit['cluster_se'],
-                         cluster_t=fit['t_value'],cluster_df=fit['df'],cluster_p=fit['p_two_sided'],cluster_p_t_clusters_minus_1=fit['p_two_sided'],
-                         cluster_p_normal=2*stats.norm.sf(abs(fit['t_value']))))
+        rows.append(dict(x=ref.x,y=ref.y,n_pairs=len(bridge),n_animals=bridge.animal_id.nunique(),pearson_r=r,
+                         cluster_beta_standardized=fit['estimate'],cluster_se=fit['cluster_se'],
+                         cluster_t=fit['t_value'],cluster_df=fit['df'],cluster_p=fit['p_two_sided']))
     actual=pd.DataFrame(rows)
-    family=pd.read_csv(source/'statistical_inputs/policy_window_pair_rows.csv',dtype={'animal_id':str})
-    family_rows=[]
-    for window,pair in family.groupby('window_id'):
-        for ycol in ['Lf','Lo_depth_weighted']:
-            selected=pair[['level_mean_all',ycol,'animal_id']].dropna()
-            fit=cr1(selected[ycol],selected.animal_id,selected.level_mean_all)
-            family_rows.append(dict(window_id=window,policy=ycol,p_raw=fit['p_two_sided']))
-    family_stats=pd.DataFrame(family_rows)
-    family_stats['p_BH18']=multipletests(family_stats.p_raw,method='fdr_bh')[1]
-    family_stats.to_csv(out/'ED10c_policy_window_family_BH18.csv',index=False)
-    actual['cluster_q_bh_window_family']=np.nan
-    for policy in ['Lf','Lo_depth_weighted']:
-        actual.loc[actual.y.eq(policy),'cluster_q_bh_window_family']=family_stats.query('window_id == "fixed_30min" and policy == @policy').p_BH18.iloc[0]
-    results.append(compare_table(actual,reference,['x','y'],'ED10c_policy_CR1_and_window_BH18',out))
+    if set(actual.y) != {'Bf','Ba','Lf','Lo_depth_weighted'} or len(actual) != 4:
+        raise AssertionError('ED10c BH family must contain exactly the four displayed fixed-30-minute policies')
+    actual['cluster_bh4_adjusted_p']=multipletests(actual.cluster_p,method='fdr_bh')[1]
+    results.append(compare_table(actual,reference,['x','y'],'ED10c_policy_animal_clustered_BH4',out))
     return results
 
 

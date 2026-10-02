@@ -79,8 +79,8 @@ MASTER_EXPORT_RE = re.compile(
     re.IGNORECASE,
 )
 RUNTIME_ARCHIVE = "SOURCE_REBUILD_MAIN_RUNTIME.zip"
-RUNTIME_ARCHIVE_SHA256 = "8d090bedca223b402e757cf5f52e0dd82c7346797e3c6096580364e1023c3286"
-RUNTIME_ARCHIVE_BYTES = 862374
+RUNTIME_ARCHIVE_SHA256 = "ac0d1efc9ce078f3b42d16fdcaf48b6446fb42c9acc986b83d20fbd9d0cab4cc"
+RUNTIME_ARCHIVE_BYTES = 472999
 VOR_INPUT_SPECS = {
     "SOURCE_REBUILD_MAIN_FIGURE4_PANEL_E_LINEAR_PF.zip": {
         "sha256": "af168bec8fe7cb23dc1289ffa796ef03bd3a104d48f8b6547d81a5182071c5ab",
@@ -144,8 +144,8 @@ CONTRACTS = {
             "source_code/render_main_figs_v3_publication.py",
             "source_code/preview_figure2_assembly.py",
             "source_code/figure_panels.py",
-            "panel_a_sources/422_corr.fig",
-            "panel_a_sources/422-3_corr.fig",
+            "panel_a_sources/422_corr.npz",
+            "panel_a_sources/422-3_corr.npz",
             "source_data/gap_curve/gap_with_day1_day2_curve_data.csv",
             "source_data/rate_chain/session_pair_rate_consecutive_gap_points_canonical.csv",
             "source_data/rate_chain/session_pair_rate_consecutive_gap_stats_canonical.csv",
@@ -1022,8 +1022,8 @@ def _load_publication_renderer(record: Path, name: str):
 
 def _patch_figure2_helper_loader(publication, record: Path) -> None:
     helper_path = record / "source_code" / "preview_figure2_assembly.py"
-    panel_a_top = record / "panel_a_sources" / "422_corr.fig"
-    panel_a_bottom = record / "panel_a_sources" / "422-3_corr.fig"
+    panel_a_top = record / "panel_a_sources" / "422_corr.npz"
+    panel_a_bottom = record / "panel_a_sources" / "422-3_corr.npz"
     original_loader = publication._load_script_module
 
     def load(name: str, path: Path):

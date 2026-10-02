@@ -1,460 +1,460 @@
-session,group_key,group_label,group_order,color_key,month,memory_stage,animal_id,animal_id_alias,source_set,load_ok,error,event_number,event_type,abs_frame,maze_seconds,nose_tiles_at_event,nose_decisions_at_event,endpoint_key,endpoint_label,maze_time_s,maze_tiles,decision_nodes,endpoint_reached
-15strday1,naive,Naive night,0,naive,0,naive,15,15str,current_saved,True,,1,reward,19452.0,575.64,1198.0,71.0,first_reward,First reward,575.64,1198.0,71.0,True
-1603,naive,Naive night,0,naive,0,naive,1603,1603,current_saved,True,,1,reward,28766.0,1021.92,2138.0,116.0,first_reward,First reward,1021.92,2138.0,116.0,True
-1608,naive,Naive night,0,naive,0,naive,1608,1608,current_saved,True,,1,reward,16532.0,559.0,1264.0,54.0,first_reward,First reward,559.0,1264.0,54.0,True
-1616day1,naive,Naive night,0,naive,0,naive,1616,1616,current_saved,True,,1,reward,36300.0,1399.24,2339.0,115.0,first_reward,First reward,1399.24,2339.0,115.0,True
-1632Lday1,naive,Naive night,0,naive,0,naive,1632,1632L,current_saved,True,,1,reward,1663.0,54.92,112.0,9.0,first_reward,First reward,54.92,112.0,9.0,True
-163RLday1,naive,Naive night,0,naive,0,naive,163,163RL,current_saved,True,,1,reward,8033.0,184.72,469.0,12.0,first_reward,First reward,184.72,469.0,12.0,True
-202Lday1,naive,Naive night,0,naive,0,naive,202,202L,current_saved,True,,1,reward,35324.0,1372.16,2276.0,104.0,first_reward,First reward,1372.16,2276.0,104.0,True
-355RLday1,naive,Naive night,0,naive,0,naive,355,355RL,current_saved,True,,1,reward,15846.0,616.12,1372.0,51.0,first_reward,First reward,616.12,1372.0,51.0,True
-418RRday1,naive,Naive night,0,naive,0,naive,418,418RR,current_saved,True,,1,reward,55530.0,2145.12,3814.0,226.0,first_reward,First reward,2145.12,3814.0,226.0,True
-434RRday1,naive,Naive night,0,naive,0,naive,434,434RR,current_saved,True,,1,reward,25245.0,961.72,2050.0,87.0,first_reward,First reward,961.72,2050.0,87.0,True
-451Rday1,naive,Naive night,0,naive,0,naive,451,451R,current_saved,True,,1,reward,46066.0,1777.68,3517.0,138.0,first_reward,First reward,1777.68,3517.0,138.0,True
-468Lday1,naive,Naive night,0,naive,0,naive,468,468L,current_saved,True,,1,reward,128644.0,4808.2,4372.0,154.0,first_reward,First reward,4808.2,4372.0,154.0,True
-488Rday1,naive,Naive night,0,naive,0,naive,488,488R,current_saved,True,,1,reward,40445.0,1521.88,2551.0,119.0,first_reward,First reward,1521.88,2551.0,119.0,True
-489Lday1,naive,Naive night,0,naive,0,naive,489,489L,current_saved,True,,1,reward,32142.0,1106.04,1619.0,155.0,first_reward,First reward,1106.04,1619.0,155.0,True
-579RLday1,naive,Naive night,0,naive,0,naive,579,579RL,current_saved,True,,1,reward,12258.0,469.28,1131.0,43.0,first_reward,First reward,469.28,1131.0,43.0,True
-597day1,naive,Naive night,0,naive,0,naive,597,597,current_saved,True,,1,reward,139837.0,1769.8,2126.0,78.0,first_reward,First reward,1769.8,2126.0,78.0,True
-609day1,naive,Naive night,0,naive,0,naive,609,609,current_saved,True,,1,reward,5942.0,205.48,481.0,31.0,first_reward,First reward,205.48,481.0,31.0,True
-618day1,naive,Naive night,0,naive,0,naive,618,618,current_saved,True,,1,reward,57445.0,1883.48,2900.0,96.0,first_reward,First reward,1883.48,2900.0,96.0,True
-624day1,naive,Naive night,0,naive,0,naive,624,624,current_saved,True,,1,reward,20114.0,492.24,828.0,12.0,first_reward,First reward,492.24,828.0,12.0,True
-628day1,naive,Naive night,0,naive,0,naive,628,628,current_saved,True,,1,reward,73916.0,2506.2,4410.0,286.0,first_reward,First reward,2506.2,4410.0,286.0,True
-640day1,naive,Naive night,0,naive,0,naive,640,640,current_saved,True,,1,reward,3402.0,61.24,112.0,0.0,first_reward,First reward,61.24,112.0,0.0,True
-644day1,naive,Naive night,0,naive,0,naive,644,644,current_saved,True,,1,reward,5792.0,80.04,125.0,0.0,first_reward,First reward,80.04,125.0,0.0,True
-646day1,naive,Naive night,0,naive,0,naive,646,646,current_saved,True,,1,reward,28248.0,1127.76,1818.0,74.0,first_reward,First reward,1127.76,1818.0,74.0,True
-418-3day1,return,Return night,1,return,3,return,418,418,current_saved,True,,1,reward,10507.0,387.04,849.0,36.0,first_reward,First reward,387.04,849.0,36.0,True
-422-3day1,return,Return night,1,return,3,return,422,422,current_saved,True,,1,reward,1206.0,42.76,96.0,4.0,first_reward,First reward,42.76,96.0,4.0,True
-434-3day1,return,Return night,1,return,3,return,434,434,current_saved,True,,1,reward,14819.0,367.16,748.0,1.0,first_reward,First reward,367.16,748.0,1.0,True
-451-3day1,return,Return night,1,return,3,return,451,451,current_saved,True,,1,reward,1265.0,40.0,113.0,1.0,first_reward,First reward,40.0,113.0,1.0,True
-468-3day1,return,Return night,1,return,3,return,468,468,current_saved,True,,1,reward,16049.0,538.8,1414.0,63.0,first_reward,First reward,538.8,1414.0,63.0,True
-488-3day1,return,Return night,1,return,3,return,488,488,current_saved,True,,1,reward,4651.0,81.12,135.0,0.0,first_reward,First reward,81.12,135.0,0.0,True
-489-3day1,return,Return night,1,return,3,return,489,489,current_saved,True,,1,reward,4834.0,178.24,396.0,4.0,first_reward,First reward,178.24,396.0,4.0,True
-579-3day1,return,Return night,1,return,3,return,579,579,current_saved,True,,1,reward,6950.0,185.28,500.0,8.0,first_reward,First reward,185.28,500.0,8.0,True
-618-3day1,return,Return night,1,return,3,return,618,618,current_saved,True,,1,reward,7649.0,65.68,116.0,0.0,first_reward,First reward,65.68,116.0,0.0,True
-640-3day1,return,Return night,1,return,3,return,640,640,current_saved,True,,1,reward,8814.0,293.96,590.0,25.0,first_reward,First reward,293.96,590.0,25.0,True
-644-3day1,return,Return night,1,return,3,return,644,644,current_saved,True,,1,reward,13216.0,449.96,1110.0,45.0,first_reward,First reward,449.96,1110.0,45.0,True
-646-3day1,return,Return night,1,return,3,return,646,646,current_saved,True,,1,reward,11372.0,321.12,836.0,5.0,first_reward,First reward,321.12,836.0,5.0,True
-837-3day1,return,Return night,1,return,3,return,837,837,current_saved,True,,1,reward,15173.0,514.16,1439.0,35.0,first_reward,First reward,514.16,1439.0,35.0,True
-838-3day1,return,Return night,1,return,3,return,838,838,current_saved,True,,1,reward,4434.0,123.8,309.0,21.0,first_reward,First reward,123.8,309.0,21.0,True
-839-3day1,return,Return night,1,return,3,return,839,839,current_saved,True,,1,reward,24757.0,737.64,1454.0,69.0,first_reward,First reward,737.64,1454.0,69.0,True
-842-3day1,return,Return night,1,return,3,return,842,842,current_saved,True,,1,reward,4061.0,78.8,226.0,5.0,first_reward,First reward,78.8,226.0,5.0,True
-862-3day1,return,Return night,1,return,3,return,862,862,current_saved,True,,1,reward,29555.0,954.32,2246.0,81.0,first_reward,First reward,954.32,2246.0,81.0,True
-418-6day1,return,Return night,1,return,6,return,418,418,current_saved,True,,1,reward,9402.0,235.92,591.0,0.0,first_reward,First reward,235.92,591.0,0.0,True
-422-6day1,return,Return night,1,return,6,return,422,422,current_saved,True,,1,reward,88021.0,835.08,1494.0,8.0,first_reward,First reward,835.08,1494.0,8.0,True
-434-6day1,return,Return night,1,return,6,return,434,434,current_saved,True,,1,reward,30304.0,465.08,1202.0,7.0,first_reward,First reward,465.08,1202.0,7.0,True
-451-6day1,return,Return night,1,return,6,return,451,451,current_saved,True,,1,reward,5470.0,152.96,501.0,3.0,first_reward,First reward,152.96,501.0,3.0,True
-468-6day1,return,Return night,1,return,6,return,468,468,current_saved,True,,1,reward,18468.0,481.08,1168.0,40.0,first_reward,First reward,481.08,1168.0,40.0,True
-488-6day1,return,Return night,1,return,6,return,488,488,current_saved,True,,1,reward,14478.0,337.2,796.0,1.0,first_reward,First reward,337.2,796.0,1.0,True
-489-6day1,return,Return night,1,return,6,return,489,489,current_saved,True,,1,reward,9378.0,87.64,158.0,0.0,first_reward,First reward,87.64,158.0,0.0,True
-579-6day1,return,Return night,1,return,6,return,579,579,current_saved,True,,1,reward,25052.0,81.52,129.0,0.0,first_reward,First reward,81.52,129.0,0.0,True
-618-6day1,return,Return night,1,return,6,return,618,618,current_saved,True,,1,reward,6315.0,122.24,288.0,0.0,first_reward,First reward,122.24,288.0,0.0,True
-640-6day1,return,Return night,1,return,6,return,640,640,current_saved,True,,1,reward,7026.0,270.52,712.0,25.0,first_reward,First reward,270.52,712.0,25.0,True
-644-6day1,return,Return night,1,return,6,return,644,644,current_saved,True,,1,reward,2737.0,67.72,167.0,0.0,first_reward,First reward,67.72,167.0,0.0,True
-646-6day1,return,Return night,1,return,6,return,646,646,current_saved,True,,1,reward,10706.0,297.68,764.0,6.0,first_reward,First reward,297.68,764.0,6.0,True
-837-6day1,return,Return night,1,return,6,return,837,837,current_saved,True,,1,reward,7371.0,181.48,493.0,3.0,first_reward,First reward,181.48,493.0,3.0,True
-838-6day1,return,Return night,1,return,6,return,838,838,current_saved,True,,1,reward,4589.0,145.52,465.0,20.0,first_reward,First reward,145.52,465.0,20.0,True
-839-6day1,return,Return night,1,return,6,return,839,839,current_saved,True,,1,reward,15069.0,381.04,868.0,4.0,first_reward,First reward,381.04,868.0,4.0,True
-842-6day1,return,Return night,1,return,6,return,842,842,current_saved,True,,1,reward,25307.0,395.84,980.0,5.0,first_reward,First reward,395.84,980.0,5.0,True
-862-6day1,return,Return night,1,return,6,return,862,862,current_saved,True,,1,reward,6036.0,225.08,693.0,23.0,first_reward,First reward,225.08,693.0,23.0,True
-418-9day1,return,Return night,1,return,9,return,418,418,current_saved,True,,1,reward,7803.0,99.6,180.0,0.0,first_reward,First reward,99.6,180.0,0.0,True
-451-9day1,return,Return night,1,return,9,return,451,451,current_saved,True,,1,reward,1452.0,29.28,79.0,0.0,first_reward,First reward,29.28,79.0,0.0,True
-468-9day1,return,Return night,1,return,9,return,468,468,current_saved,True,,1,reward,860.0,15.84,27.0,0.0,first_reward,First reward,15.84,27.0,0.0,True
-488-9day1,return,Return night,1,return,9,return,488,488,current_saved,True,,1,reward,14342.0,367.72,880.0,2.0,first_reward,First reward,367.72,880.0,2.0,True
-579-9day1,return,Return night,1,return,9,return,579,579,current_saved,True,,1,reward,3102.0,71.2,134.0,0.0,first_reward,First reward,71.2,134.0,0.0,True
-640-9day1,return,Return night,1,return,9,return,640,640,current_saved,True,,1,reward,7904.0,316.16,914.0,27.0,first_reward,First reward,316.16,914.0,27.0,True
-644-9day1,return,Return night,1,return,9,return,644,644,current_saved,True,,1,reward,5707.0,203.56,489.0,16.0,first_reward,First reward,203.56,489.0,16.0,True
-646-9day1,return,Return night,1,return,9,return,646,646,current_saved,True,,1,reward,1693.0,22.2,41.0,0.0,first_reward,First reward,22.2,41.0,0.0,True
-837-9day1,return,Return night,1,return,9,return,837,837,current_saved,True,,1,reward,1553.0,41.44,135.0,2.0,first_reward,First reward,41.44,135.0,2.0,True
-838-9day1,return,Return night,1,return,9,return,838,838,current_saved,True,,1,reward,5852.0,163.12,504.0,8.0,first_reward,First reward,163.12,504.0,8.0,True
-839-9day1,return,Return night,1,return,9,return,839,839,current_saved,True,,1,reward,4057.0,32.32,74.0,5.0,first_reward,First reward,32.32,74.0,5.0,True
-842-9day1,return,Return night,1,return,9,return,842,842,current_saved,True,,1,reward,3213.0,27.56,37.0,0.0,first_reward,First reward,27.56,37.0,0.0,True
-418-12day1,return,Return night,1,return,12,return,418,418,current_saved,True,,1,reward,6952.0,184.96,511.0,0.0,first_reward,First reward,184.96,511.0,0.0,True
-451-12day1,return,Return night,1,return,12,return,451,451,current_saved,True,,1,reward,3955.0,153.88,456.0,3.0,first_reward,First reward,153.88,456.0,3.0,True
-468-12day1,return,Return night,1,return,12,return,468,468,current_saved,True,,1,reward,1807.0,71.08,209.0,0.0,first_reward,First reward,71.08,209.0,0.0,True
-618-12day1,return,Return night,1,return,12,return,618,618,current_saved,True,,1,reward,6212.0,172.24,429.0,8.0,first_reward,First reward,172.24,429.0,8.0,True
-640-12day1,return,Return night,1,return,12,return,640,640,current_saved,True,,1,reward,1329.0,35.36,93.0,4.0,first_reward,First reward,35.36,93.0,4.0,True
-644-12day1,return,Return night,1,return,12,return,644,644,current_saved,True,,1,reward,3529.0,141.08,333.0,0.0,first_reward,First reward,141.08,333.0,0.0,True
-646-12day1,return,Return night,1,return,12,return,646,646,current_saved,True,,1,reward,3393.0,135.2,346.0,5.0,first_reward,First reward,135.2,346.0,5.0,True
-1616day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1616,1616,current_saved,True,,1,reward,4912.0,100.32,168.0,7.0,first_reward,First reward,100.32,168.0,7.0,True
-1632Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1632,1632L,current_saved,True,,1,reward,1241.0,37.56,81.0,0.0,first_reward,First reward,37.56,81.0,0.0,True
-163RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,163,163RL,current_saved,True,,1,reward,2317.0,53.88,121.0,0.0,first_reward,First reward,53.88,121.0,0.0,True
-355RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,355,355RL,current_saved,True,,1,reward,4873.0,184.76,383.0,9.0,first_reward,First reward,184.76,383.0,9.0,True
-418RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,418,418RR,current_saved,True,,1,reward,5512.0,144.6,298.0,19.0,first_reward,First reward,144.6,298.0,19.0,True
-434RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,434,434RR,current_saved,True,,1,reward,1814.0,23.96,59.0,0.0,first_reward,First reward,23.96,59.0,0.0,True
-451Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,451,451R,current_saved,True,,1,reward,1933.0,38.0,96.0,3.0,first_reward,First reward,38.0,96.0,3.0,True
-468Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,468,468L,current_saved,True,,1,reward,4410.0,104.04,176.0,2.0,first_reward,First reward,104.04,176.0,2.0,True
-488Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,488,488R,current_saved,True,,1,reward,2734.0,30.56,46.0,0.0,first_reward,First reward,30.56,46.0,0.0,True
-489Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,489,489L,current_saved,True,,1,reward,3949.0,79.48,134.0,8.0,first_reward,First reward,79.48,134.0,8.0,True
-579RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,579,579RL,current_saved,True,,1,reward,4190.0,163.68,403.0,5.0,first_reward,First reward,163.68,403.0,5.0,True
-597day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,597,597,current_saved,True,,1,reward,2534.0,35.96,55.0,2.0,first_reward,First reward,35.96,55.0,2.0,True
-609day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,609,609,current_saved,True,,1,reward,1900.0,15.6,25.0,0.0,first_reward,First reward,15.6,25.0,0.0,True
-618day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,618,618,current_saved,True,,1,reward,4205.0,93.08,135.0,4.0,first_reward,First reward,93.08,135.0,4.0,True
-624day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,624,624,current_saved,True,,1,reward,1217.0,15.04,27.0,0.0,first_reward,First reward,15.04,27.0,0.0,True
-640day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,640,640,current_saved,True,,1,reward,2060.0,81.84,156.0,1.0,first_reward,First reward,81.84,156.0,1.0,True
-644day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,644,644,current_saved,True,,1,reward,2328.0,38.52,73.0,0.0,first_reward,First reward,38.52,73.0,0.0,True
-646day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,646,646,current_saved,True,,1,reward,528.0,21.04,29.0,0.0,first_reward,First reward,21.04,29.0,0.0,True
-418-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,418,418,current_saved,True,,1,reward,1287.0,25.52,47.0,0.0,first_reward,First reward,25.52,47.0,0.0,True
-422-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,422,422,current_saved,True,,1,reward,1373.0,13.64,27.0,0.0,first_reward,First reward,13.64,27.0,0.0,True
-434-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,434,434,current_saved,True,,1,reward,3159.0,93.84,247.0,2.0,first_reward,First reward,93.84,247.0,2.0,True
-451-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,451,451,current_saved,True,,1,reward,1969.0,72.52,165.0,2.0,first_reward,First reward,72.52,165.0,2.0,True
-468-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,468,468,current_saved,True,,1,reward,2360.0,32.76,69.0,0.0,first_reward,First reward,32.76,69.0,0.0,True
-488-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,488,488,current_saved,True,,1,reward,1647.0,39.84,80.0,0.0,first_reward,First reward,39.84,80.0,0.0,True
-489-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,489,489,current_saved,True,,1,reward,4716.0,76.28,180.0,3.0,first_reward,First reward,76.28,180.0,3.0,True
-579-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,579,579,current_saved,True,,1,reward,2038.0,60.72,131.0,2.0,first_reward,First reward,60.72,131.0,2.0,True
-618-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,618,618,current_saved,True,,1,reward,1071.0,9.6,23.0,0.0,first_reward,First reward,9.6,23.0,0.0,True
-640-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,640,640,current_saved,True,,1,reward,898.0,12.8,23.0,0.0,first_reward,First reward,12.8,23.0,0.0,True
-644-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,644,644,current_saved,True,,1,reward,1478.0,30.92,79.0,0.0,first_reward,First reward,30.92,79.0,0.0,True
-646-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,646,646,current_saved,True,,1,reward,1057.0,36.56,77.0,2.0,first_reward,First reward,36.56,77.0,2.0,True
-837-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,837,837,current_saved,True,,1,reward,2699.0,22.96,48.0,0.0,first_reward,First reward,22.96,48.0,0.0,True
-838-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,838,838,current_saved,True,,1,reward,1056.0,17.72,27.0,0.0,first_reward,First reward,17.72,27.0,0.0,True
-839-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,839,839,current_saved,True,,1,reward,4832.0,111.24,224.0,0.0,first_reward,First reward,111.24,224.0,0.0,True
-842-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,842,842,current_saved,True,,1,reward,3585.0,80.32,187.0,0.0,first_reward,First reward,80.32,187.0,0.0,True
-862-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,862,862,current_saved,True,,1,reward,1492.0,23.72,53.0,0.0,first_reward,First reward,23.72,53.0,0.0,True
-418-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,418,418,current_saved,True,,1,reward,2335.0,56.64,121.0,0.0,first_reward,First reward,56.64,121.0,0.0,True
-422-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,422,422,current_saved,True,,1,reward,6395.0,154.52,451.0,4.0,first_reward,First reward,154.52,451.0,4.0,True
-434-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,434,434,current_saved,True,,1,reward,4904.0,157.56,427.0,3.0,first_reward,First reward,157.56,427.0,3.0,True
-451-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,451,451,current_saved,True,,1,reward,1629.0,42.24,107.0,0.0,first_reward,First reward,42.24,107.0,0.0,True
-468-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,468,468,current_saved,True,,1,reward,813.0,21.08,44.0,0.0,first_reward,First reward,21.08,44.0,0.0,True
-488-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,488,488,current_saved,True,,1,reward,1488.0,23.4,46.0,0.0,first_reward,First reward,23.4,46.0,0.0,True
-489-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,489,489,current_saved,True,,1,reward,4821.0,59.16,143.0,0.0,first_reward,First reward,59.16,143.0,0.0,True
-579-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,579,579,current_saved,True,,1,reward,7081.0,48.68,65.0,6.0,first_reward,First reward,48.68,65.0,6.0,True
-618-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,618,618,current_saved,True,,1,reward,754.0,12.72,31.0,0.0,first_reward,First reward,12.72,31.0,0.0,True
-640-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,640,640,current_saved,True,,1,reward,643.0,25.72,64.0,0.0,first_reward,First reward,25.72,64.0,0.0,True
-644-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,644,644,current_saved,True,,1,reward,502.0,12.68,27.0,0.0,first_reward,First reward,12.68,27.0,0.0,True
-646-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,646,646,current_saved,True,,1,reward,847.0,12.2,25.0,0.0,first_reward,First reward,12.2,25.0,0.0,True
-837-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,837,837,current_saved,True,,1,reward,1787.0,39.76,125.0,0.0,first_reward,First reward,39.76,125.0,0.0,True
-838-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,838,838,current_saved,True,,1,reward,2242.0,73.48,207.0,2.0,first_reward,First reward,73.48,207.0,2.0,True
-839-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,839,839,current_saved,True,,1,reward,1050.0,34.88,105.0,0.0,first_reward,First reward,34.88,105.0,0.0,True
-842-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,842,842,current_saved,True,,1,reward,555.0,13.08,25.0,0.0,first_reward,First reward,13.08,25.0,0.0,True
-862-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,862,862,current_saved,True,,1,reward,1377.0,44.36,95.0,4.0,first_reward,First reward,44.36,95.0,4.0,True
-418-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,418,418,current_saved,True,,1,reward,2186.0,33.04,61.0,0.0,first_reward,First reward,33.04,61.0,0.0,True
-451-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,451,451,current_saved,True,,1,reward,655.0,12.96,30.0,0.0,first_reward,First reward,12.96,30.0,0.0,True
-468-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,468,468,current_saved,True,,1,reward,1390.0,37.96,80.0,0.0,first_reward,First reward,37.96,80.0,0.0,True
-488-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,488,488,current_saved,True,,1,reward,1152.0,12.6,23.0,0.0,first_reward,First reward,12.6,23.0,0.0,True
-579-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,579,579,current_saved,True,,1,reward,5045.0,165.96,325.0,11.0,first_reward,First reward,165.96,325.0,11.0,True
-640-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,640,640,current_saved,True,,1,reward,594.0,8.4,25.0,0.0,first_reward,First reward,8.4,25.0,0.0,True
-644-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,644,644,current_saved,True,,1,reward,631.0,13.76,29.0,0.0,first_reward,First reward,13.76,29.0,0.0,True
-646-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,646,646,current_saved,True,,1,reward,927.0,26.48,63.0,0.0,first_reward,First reward,26.48,63.0,0.0,True
-837-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,837,837,current_saved,True,,1,reward,8842.0,105.28,275.0,3.0,first_reward,First reward,105.28,275.0,3.0,True
-838-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,838,838,current_saved,True,,1,reward,1835.0,63.04,196.0,0.0,first_reward,First reward,63.04,196.0,0.0,True
-839-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,839,839,current_saved,True,,1,reward,2601.0,100.0,288.0,10.0,first_reward,First reward,100.0,288.0,10.0,True
-842-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,842,842,current_saved,True,,1,reward,1501.0,20.6,44.0,0.0,first_reward,First reward,20.6,44.0,0.0,True
-418-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,418,418,current_saved,True,,1,reward,1575.0,45.8,110.0,0.0,first_reward,First reward,45.8,110.0,0.0,True
-451-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,451,451,current_saved,True,,1,reward,1960.0,76.12,204.0,4.0,first_reward,First reward,76.12,204.0,4.0,True
-468-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,468,468,current_saved,True,,1,reward,3188.0,123.08,249.0,7.0,first_reward,First reward,123.08,249.0,7.0,True
-618-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,618,618,current_saved,True,,1,reward,798.0,15.76,27.0,0.0,first_reward,First reward,15.76,27.0,0.0,True
-640-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,640,640,current_saved,True,,1,reward,955.0,33.0,75.0,0.0,first_reward,First reward,33.0,75.0,0.0,True
-644-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,644,644,current_saved,True,,1,reward,1165.0,12.6,31.0,0.0,first_reward,First reward,12.6,31.0,0.0,True
-646-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,646,646,current_saved,True,,1,reward,3566.0,97.64,237.0,0.0,first_reward,First reward,97.64,237.0,0.0,True
-837-12day1,return,Return night,1,return,12,return,837,837,new_12mo,True,,1,reward,9492.0,225.36,550.0,2.0,first_reward,First reward,225.36,550.0,2.0,True
-838-12day1,return,Return night,1,return,12,return,838,838,new_12mo,True,,1,reward,3819.0,115.76,342.0,1.0,first_reward,First reward,115.76,342.0,1.0,True
-839-12day1,return,Return night,1,return,12,return,839,839,new_12mo,True,,1,reward,10137.0,239.08,557.0,3.0,first_reward,First reward,239.08,557.0,3.0,True
-837-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,837,837,new_12mo,True,,1,reward,1957.0,49.84,147.0,0.0,first_reward,First reward,49.84,147.0,0.0,True
-838-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,838,838,new_12mo,True,,1,reward,1905.0,66.8,186.0,0.0,first_reward,First reward,66.8,186.0,0.0,True
-839-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,839,839,new_12mo,True,,1,reward,2826.0,32.76,69.0,0.0,first_reward,First reward,32.76,69.0,0.0,True
-15strday1,naive,Naive night,0,naive,0,naive,15,15str,current_saved,True,,10,reward,83932.0,2854.2,5305.0,202.0,tenth_reward,Tenth reward,2854.2,5305.0,202.0,True
-1603,naive,Naive night,0,naive,0,naive,1603,1603,current_saved,True,,10,reward,92157.0,3187.2,5782.0,323.0,tenth_reward,Tenth reward,3187.2,5782.0,323.0,True
-1608,naive,Naive night,0,naive,0,naive,1608,1608,current_saved,True,,10,reward,60347.0,2003.84,3905.0,117.0,tenth_reward,Tenth reward,2003.84,3905.0,117.0,True
-1616day1,naive,Naive night,0,naive,0,naive,1616,1616,current_saved,True,,10,reward,67695.0,2655.04,4250.0,186.0,tenth_reward,Tenth reward,2655.04,4250.0,186.0,True
-1632Lday1,naive,Naive night,0,naive,0,naive,1632,1632L,current_saved,True,,10,reward,70540.0,2359.12,3994.0,126.0,tenth_reward,Tenth reward,2359.12,3994.0,126.0,True
-163RLday1,naive,Naive night,0,naive,0,naive,163,163RL,current_saved,True,,10,reward,89900.0,2987.04,5704.0,196.0,tenth_reward,Tenth reward,2987.04,5704.0,196.0,True
-202Lday1,naive,Naive night,0,naive,0,naive,202,202L,current_saved,True,,10,reward,107731.0,3648.32,5205.0,188.0,tenth_reward,Tenth reward,3648.32,5205.0,188.0,True
-355RLday1,naive,Naive night,0,naive,0,naive,355,355RL,current_saved,True,,10,reward,76328.0,2577.48,4878.0,141.0,tenth_reward,Tenth reward,2577.48,4878.0,141.0,True
-418RRday1,naive,Naive night,0,naive,0,naive,418,418RR,current_saved,True,,10,reward,186889.0,5036.64,8950.0,309.0,tenth_reward,Tenth reward,5036.64,8950.0,309.0,True
-434RRday1,naive,Naive night,0,naive,0,naive,434,434RR,current_saved,True,,10,reward,79306.0,2743.04,5593.0,183.0,tenth_reward,Tenth reward,2743.04,5593.0,183.0,True
-451Rday1,naive,Naive night,0,naive,0,naive,451,451R,current_saved,True,,10,reward,82383.0,3230.36,4834.0,188.0,tenth_reward,Tenth reward,3230.36,4834.0,188.0,True
-468Lday1,naive,Naive night,0,naive,0,naive,468,468L,current_saved,True,,10,reward,153874.0,5817.4,4887.0,170.0,tenth_reward,Tenth reward,5817.4,4887.0,170.0,True
-488Rday1,naive,Naive night,0,naive,0,naive,488,488R,current_saved,True,,10,reward,83527.0,3199.24,4855.0,151.0,tenth_reward,Tenth reward,3199.24,4855.0,151.0,True
-489Lday1,naive,Naive night,0,naive,0,naive,489,489L,current_saved,True,,10,reward,71118.0,2665.08,3420.0,254.0,tenth_reward,Tenth reward,2665.08,3420.0,254.0,True
-579RLday1,naive,Naive night,0,naive,0,naive,579,579RL,current_saved,True,,10,reward,252411.0,7537.64,12544.0,379.0,tenth_reward,Tenth reward,7537.64,12544.0,379.0,True
-597day1,naive,Naive night,0,naive,0,naive,597,597,current_saved,True,,10,reward,281721.0,5529.96,5400.0,216.0,tenth_reward,Tenth reward,5529.96,5400.0,216.0,True
-609day1,naive,Naive night,0,naive,0,naive,609,609,current_saved,True,,10,reward,71095.0,2404.52,4406.0,176.0,tenth_reward,Tenth reward,2404.52,4406.0,176.0,True
-618day1,naive,Naive night,0,naive,0,naive,618,618,current_saved,True,,10,reward,117933.0,3649.6,4928.0,135.0,tenth_reward,Tenth reward,3649.6,4928.0,135.0,True
-624day1,naive,Naive night,0,naive,0,naive,624,624,current_saved,True,,10,reward,105991.0,3927.32,4126.0,173.0,tenth_reward,Tenth reward,3927.32,4126.0,173.0,True
-628day1,naive,Naive night,0,naive,0,naive,628,628,current_saved,True,,10,reward,124373.0,3884.0,6557.0,329.0,tenth_reward,Tenth reward,3884.0,6557.0,329.0,True
-640day1,naive,Naive night,0,naive,0,naive,640,640,current_saved,True,,10,reward,26833.0,998.48,960.0,81.0,tenth_reward,Tenth reward,998.48,960.0,81.0,True
-644day1,naive,Naive night,0,naive,0,naive,644,644,current_saved,True,,10,reward,75310.0,2535.68,4643.0,166.0,tenth_reward,Tenth reward,2535.68,4643.0,166.0,True
-646day1,naive,Naive night,0,naive,0,naive,646,646,current_saved,True,,10,reward,50663.0,2024.36,2531.0,94.0,tenth_reward,Tenth reward,2024.36,2531.0,94.0,True
-418-3day1,return,Return night,1,return,3,return,418,418,current_saved,True,,10,reward,64409.0,1743.4,3557.0,83.0,tenth_reward,Tenth reward,1743.4,3557.0,83.0,True
-422-3day1,return,Return night,1,return,3,return,422,422,current_saved,True,,10,reward,36645.0,1311.84,2165.0,48.0,tenth_reward,Tenth reward,1311.84,2165.0,48.0,True
-434-3day1,return,Return night,1,return,3,return,434,434,current_saved,True,,10,reward,80139.0,2160.72,4006.0,71.0,tenth_reward,Tenth reward,2160.72,4006.0,71.0,True
-451-3day1,return,Return night,1,return,3,return,451,451,current_saved,True,,10,reward,36094.0,1278.32,2825.0,52.0,tenth_reward,Tenth reward,1278.32,2825.0,52.0,True
-468-3day1,return,Return night,1,return,3,return,468,468,current_saved,True,,10,reward,73286.0,2378.44,4878.0,137.0,tenth_reward,Tenth reward,2378.44,4878.0,137.0,True
-488-3day1,return,Return night,1,return,3,return,488,488,current_saved,True,,10,reward,67727.0,2131.52,4356.0,105.0,tenth_reward,Tenth reward,2131.52,4356.0,105.0,True
-489-3day1,return,Return night,1,return,3,return,489,489,current_saved,True,,10,reward,39886.0,1552.04,2570.0,98.0,tenth_reward,Tenth reward,1552.04,2570.0,98.0,True
-579-3day1,return,Return night,1,return,3,return,579,579,current_saved,True,,10,reward,73941.0,2649.44,6044.0,130.0,tenth_reward,Tenth reward,2649.44,6044.0,130.0,True
-618-3day1,return,Return night,1,return,3,return,618,618,current_saved,True,,10,reward,37779.0,1172.44,2421.0,33.0,tenth_reward,Tenth reward,1172.44,2421.0,33.0,True
-640-3day1,return,Return night,1,return,3,return,640,640,current_saved,True,,10,reward,55353.0,1630.92,2892.0,51.0,tenth_reward,Tenth reward,1630.92,2892.0,51.0,True
-644-3day1,return,Return night,1,return,3,return,644,644,current_saved,True,,10,reward,88922.0,2804.88,5709.0,124.0,tenth_reward,Tenth reward,2804.88,5709.0,124.0,True
-646-3day1,return,Return night,1,return,3,return,646,646,current_saved,True,,10,reward,62267.0,2130.12,4291.0,71.0,tenth_reward,Tenth reward,2130.12,4291.0,71.0,True
-837-3day1,return,Return night,1,return,3,return,837,837,current_saved,True,,10,reward,61571.0,1811.24,3761.0,63.0,tenth_reward,Tenth reward,1811.24,3761.0,63.0,True
-838-3day1,return,Return night,1,return,3,return,838,838,current_saved,True,,10,reward,56872.0,1828.92,4351.0,157.0,tenth_reward,Tenth reward,1828.92,4351.0,157.0,True
-839-3day1,return,Return night,1,return,3,return,839,839,current_saved,True,,10,reward,92880.0,2905.92,4890.0,139.0,tenth_reward,Tenth reward,2905.92,4890.0,139.0,True
-842-3day1,return,Return night,1,return,3,return,842,842,current_saved,True,,10,reward,58062.0,1659.52,3433.0,79.0,tenth_reward,Tenth reward,1659.52,3433.0,79.0,True
-862-3day1,return,Return night,1,return,3,return,862,862,current_saved,True,,10,reward,73117.0,2339.12,5298.0,143.0,tenth_reward,Tenth reward,2339.12,5298.0,143.0,True
-418-6day1,return,Return night,1,return,6,return,418,418,current_saved,True,,10,reward,46616.0,1396.44,2985.0,41.0,tenth_reward,Tenth reward,1396.44,2985.0,41.0,True
-422-6day1,return,Return night,1,return,6,return,422,422,current_saved,True,,10,reward,134815.0,2434.72,4704.0,96.0,tenth_reward,Tenth reward,2434.72,4704.0,96.0,True
-434-6day1,return,Return night,1,return,6,return,434,434,current_saved,True,,10,reward,76296.0,1741.52,3953.0,45.0,tenth_reward,Tenth reward,1741.52,3953.0,45.0,True
-451-6day1,return,Return night,1,return,6,return,451,451,current_saved,True,,10,reward,37505.0,1134.2,2802.0,56.0,tenth_reward,Tenth reward,1134.2,2802.0,56.0,True
-468-6day1,return,Return night,1,return,6,return,468,468,current_saved,True,,10,reward,55382.0,1553.8,3319.0,73.0,tenth_reward,Tenth reward,1553.8,3319.0,73.0,True
-488-6day1,return,Return night,1,return,6,return,488,488,current_saved,True,,10,reward,63068.0,1795.68,3608.0,32.0,tenth_reward,Tenth reward,1795.68,3608.0,32.0,True
-489-6day1,return,Return night,1,return,6,return,489,489,current_saved,True,,10,reward,62903.0,1651.56,2653.0,41.0,tenth_reward,Tenth reward,1651.56,2653.0,41.0,True
-579-6day1,return,Return night,1,return,6,return,579,579,current_saved,True,,10,reward,54245.0,1249.24,1319.0,45.0,tenth_reward,Tenth reward,1249.24,1319.0,45.0,True
-618-6day1,return,Return night,1,return,6,return,618,618,current_saved,True,,10,reward,46979.0,1552.56,2624.0,52.0,tenth_reward,Tenth reward,1552.56,2624.0,52.0,True
-640-6day1,return,Return night,1,return,6,return,640,640,current_saved,True,,10,reward,44697.0,1777.36,2693.0,57.0,tenth_reward,Tenth reward,1777.36,2693.0,57.0,True
-644-6day1,return,Return night,1,return,6,return,644,644,current_saved,True,,10,reward,53751.0,1667.24,3620.0,52.0,tenth_reward,Tenth reward,1667.24,3620.0,52.0,True
-646-6day1,return,Return night,1,return,6,return,646,646,current_saved,True,,10,reward,38966.0,1354.4,2424.0,36.0,tenth_reward,Tenth reward,1354.4,2424.0,36.0,True
-837-6day1,return,Return night,1,return,6,return,837,837,current_saved,True,,10,reward,39299.0,1082.36,2559.0,35.0,tenth_reward,Tenth reward,1082.36,2559.0,35.0,True
-838-6day1,return,Return night,1,return,6,return,838,838,current_saved,True,,10,reward,53304.0,1628.84,4321.0,113.0,tenth_reward,Tenth reward,1628.84,4321.0,113.0,True
-839-6day1,return,Return night,1,return,6,return,839,839,current_saved,True,,10,reward,44398.0,1158.28,2242.0,8.0,tenth_reward,Tenth reward,1158.28,2242.0,8.0,True
-842-6day1,return,Return night,1,return,6,return,842,842,current_saved,True,,10,reward,51660.0,1294.72,3027.0,27.0,tenth_reward,Tenth reward,1294.72,3027.0,27.0,True
-862-6day1,return,Return night,1,return,6,return,862,862,current_saved,True,,10,reward,47965.0,1450.4,3445.0,45.0,tenth_reward,Tenth reward,1450.4,3445.0,45.0,True
-418-9day1,return,Return night,1,return,9,return,418,418,current_saved,True,,10,reward,46297.0,1178.68,2424.0,43.0,tenth_reward,Tenth reward,1178.68,2424.0,43.0,True
-451-9day1,return,Return night,1,return,9,return,451,451,current_saved,True,,10,reward,35343.0,1166.16,3027.0,75.0,tenth_reward,Tenth reward,1166.16,3027.0,75.0,True
-468-9day1,return,Return night,1,return,9,return,468,468,current_saved,True,,10,reward,49621.0,1446.72,3660.0,75.0,tenth_reward,Tenth reward,1446.72,3660.0,75.0,True
-488-9day1,return,Return night,1,return,9,return,488,488,current_saved,True,,10,reward,52742.0,1768.32,3904.0,55.0,tenth_reward,Tenth reward,1768.32,3904.0,55.0,True
-579-9day1,return,Return night,1,return,9,return,579,579,current_saved,True,,10,reward,40126.0,976.84,1628.0,17.0,tenth_reward,Tenth reward,976.84,1628.0,17.0,True
-640-9day1,return,Return night,1,return,9,return,640,640,current_saved,True,,10,reward,46131.0,1642.52,3195.0,66.0,tenth_reward,Tenth reward,1642.52,3195.0,66.0,True
-644-9day1,return,Return night,1,return,9,return,644,644,current_saved,True,,10,reward,37862.0,1262.96,2301.0,30.0,tenth_reward,Tenth reward,1262.96,2301.0,30.0,True
-646-9day1,return,Return night,1,return,9,return,646,646,current_saved,True,,10,reward,35415.0,1069.68,1525.0,9.0,tenth_reward,Tenth reward,1069.68,1525.0,9.0,True
-837-9day1,return,Return night,1,return,9,return,837,837,current_saved,True,,10,reward,42283.0,1265.4,3368.0,66.0,tenth_reward,Tenth reward,1265.4,3368.0,66.0,True
-838-9day1,return,Return night,1,return,9,return,838,838,current_saved,True,,10,reward,34446.0,1194.24,3168.0,69.0,tenth_reward,Tenth reward,1194.24,3168.0,69.0,True
-839-9day1,return,Return night,1,return,9,return,839,839,current_saved,True,,10,reward,45064.0,1363.88,2955.0,96.0,tenth_reward,Tenth reward,1363.88,2955.0,96.0,True
-842-9day1,return,Return night,1,return,9,return,842,842,current_saved,True,,10,reward,41507.0,1324.24,3183.0,60.0,tenth_reward,Tenth reward,1324.24,3183.0,60.0,True
-418-12day1,return,Return night,1,return,12,return,418,418,current_saved,True,,10,reward,49191.0,1501.76,3271.0,70.0,tenth_reward,Tenth reward,1501.76,3271.0,70.0,True
-451-12day1,return,Return night,1,return,12,return,451,451,current_saved,True,,10,reward,38879.0,1168.08,2756.0,53.0,tenth_reward,Tenth reward,1168.08,2756.0,53.0,True
-468-12day1,return,Return night,1,return,12,return,468,468,current_saved,True,,10,reward,33107.0,1059.56,2632.0,56.0,tenth_reward,Tenth reward,1059.56,2632.0,56.0,True
-618-12day1,return,Return night,1,return,12,return,618,618,current_saved,True,,10,reward,43749.0,1296.0,2483.0,34.0,tenth_reward,Tenth reward,1296.0,2483.0,34.0,True
-640-12day1,return,Return night,1,return,12,return,640,640,current_saved,True,,10,reward,38989.0,1541.76,2205.0,41.0,tenth_reward,Tenth reward,1541.76,2205.0,41.0,True
-644-12day1,return,Return night,1,return,12,return,644,644,current_saved,True,,10,reward,40215.0,1470.56,1944.0,16.0,tenth_reward,Tenth reward,1470.56,1944.0,16.0,True
-646-12day1,return,Return night,1,return,12,return,646,646,current_saved,True,,10,reward,66693.0,1616.92,2573.0,21.0,tenth_reward,Tenth reward,1616.92,2573.0,21.0,True
-1616day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1616,1616,current_saved,True,,10,reward,34174.0,1132.92,1512.0,27.0,tenth_reward,Tenth reward,1132.92,1512.0,27.0,True
-1632Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1632,1632L,current_saved,True,,10,reward,28278.0,968.84,1905.0,26.0,tenth_reward,Tenth reward,968.84,1905.0,26.0,True
-163RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,163,163RL,current_saved,True,,10,reward,29312.0,1089.52,2257.0,25.0,tenth_reward,Tenth reward,1089.52,2257.0,25.0,True
-355RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,355,355RL,current_saved,True,,10,reward,32550.0,1211.76,2240.0,27.0,tenth_reward,Tenth reward,1211.76,2240.0,27.0,True
-418RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,418,418RR,current_saved,True,,10,reward,32139.0,1159.36,1696.0,31.0,tenth_reward,Tenth reward,1159.36,1696.0,31.0,True
-434RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,434,434RR,current_saved,True,,10,reward,24155.0,861.04,1585.0,25.0,tenth_reward,Tenth reward,861.04,1585.0,25.0,True
-451Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,451,451R,current_saved,True,,10,reward,26235.0,934.44,1578.0,14.0,tenth_reward,Tenth reward,934.44,1578.0,14.0,True
-468Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,468,468L,current_saved,True,,10,reward,41340.0,1072.4,1261.0,3.0,tenth_reward,Tenth reward,1072.4,1261.0,3.0,True
-488Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,488,488R,current_saved,True,,10,reward,30346.0,1006.44,1896.0,9.0,tenth_reward,Tenth reward,1006.44,1896.0,9.0,True
-489Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,489,489L,current_saved,True,,10,reward,37933.0,1183.8,1608.0,33.0,tenth_reward,Tenth reward,1183.8,1608.0,33.0,True
-579RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,579,579RL,current_saved,True,,10,reward,28316.0,1075.04,1840.0,27.0,tenth_reward,Tenth reward,1075.04,1840.0,27.0,True
-597day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,597,597,current_saved,True,,10,reward,48089.0,1560.84,1886.0,21.0,tenth_reward,Tenth reward,1560.84,1886.0,21.0,True
-609day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,609,609,current_saved,True,,10,reward,42311.0,1117.8,1977.0,36.0,tenth_reward,Tenth reward,1117.8,1977.0,36.0,True
-618day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,618,618,current_saved,True,,10,reward,49162.0,1402.56,2065.0,13.0,tenth_reward,Tenth reward,1402.56,2065.0,13.0,True
-624day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,624,624,current_saved,True,,10,reward,65700.0,1765.4,1850.0,29.0,tenth_reward,Tenth reward,1765.4,1850.0,29.0,True
-640day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,640,640,current_saved,True,,10,reward,39257.0,1067.76,1843.0,13.0,tenth_reward,Tenth reward,1067.76,1843.0,13.0,True
-644day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,644,644,current_saved,True,,10,reward,27697.0,962.88,1947.0,25.0,tenth_reward,Tenth reward,962.88,1947.0,25.0,True
-646day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,646,646,current_saved,True,,10,reward,38914.0,1333.08,2521.0,20.0,tenth_reward,Tenth reward,1333.08,2521.0,20.0,True
-418-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,418,418,current_saved,True,,10,reward,28344.0,794.44,1288.0,10.0,tenth_reward,Tenth reward,794.44,1288.0,10.0,True
-422-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,422,422,current_saved,True,,10,reward,25702.0,882.2,1264.0,28.0,tenth_reward,Tenth reward,882.2,1264.0,28.0,True
-434-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,434,434,current_saved,True,,10,reward,33424.0,1078.4,2051.0,29.0,tenth_reward,Tenth reward,1078.4,2051.0,29.0,True
-451-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,451,451,current_saved,True,,10,reward,32907.0,1171.04,1870.0,24.0,tenth_reward,Tenth reward,1171.04,1870.0,24.0,True
-468-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,468,468,current_saved,True,,10,reward,30637.0,1070.84,1624.0,30.0,tenth_reward,Tenth reward,1070.84,1624.0,30.0,True
-488-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,488,488,current_saved,True,,10,reward,27150.0,1022.0,1642.0,14.0,tenth_reward,Tenth reward,1022.0,1642.0,14.0,True
-489-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,489,489,current_saved,True,,10,reward,31053.0,1079.28,2089.0,32.0,tenth_reward,Tenth reward,1079.28,2089.0,32.0,True
-579-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,579,579,current_saved,True,,10,reward,29670.0,1024.24,2110.0,29.0,tenth_reward,Tenth reward,1024.24,2110.0,29.0,True
-618-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,618,618,current_saved,True,,10,reward,25471.0,922.52,2203.0,8.0,tenth_reward,Tenth reward,922.52,2203.0,8.0,True
-640-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,640,640,current_saved,True,,10,reward,26219.0,848.52,1916.0,5.0,tenth_reward,Tenth reward,848.52,1916.0,5.0,True
-644-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,644,644,current_saved,True,,10,reward,40829.0,1447.84,2383.0,14.0,tenth_reward,Tenth reward,1447.84,2383.0,14.0,True
-646-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,646,646,current_saved,True,,10,reward,38730.0,1198.4,2392.0,11.0,tenth_reward,Tenth reward,1198.4,2392.0,11.0,True
-837-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,837,837,current_saved,True,,10,reward,33034.0,906.72,2005.0,8.0,tenth_reward,Tenth reward,906.72,2005.0,8.0,True
-838-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,838,838,current_saved,True,,10,reward,33339.0,938.32,2651.0,25.0,tenth_reward,Tenth reward,938.32,2651.0,25.0,True
-839-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,839,839,current_saved,True,,10,reward,31709.0,885.6,1842.0,8.0,tenth_reward,Tenth reward,885.6,1842.0,8.0,True
-842-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,842,842,current_saved,True,,10,reward,33934.0,1049.88,2156.0,24.0,tenth_reward,Tenth reward,1049.88,2156.0,24.0,True
-862-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,862,862,current_saved,True,,10,reward,28466.0,982.76,2587.0,20.0,tenth_reward,Tenth reward,982.76,2587.0,20.0,True
-418-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,418,418,current_saved,True,,10,reward,33230.0,1046.4,2247.0,38.0,tenth_reward,Tenth reward,1046.4,2247.0,38.0,True
-422-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,422,422,current_saved,True,,10,reward,33723.0,1174.84,2715.0,36.0,tenth_reward,Tenth reward,1174.84,2715.0,36.0,True
-434-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,434,434,current_saved,True,,10,reward,40881.0,1112.68,2317.0,39.0,tenth_reward,Tenth reward,1112.68,2317.0,39.0,True
-451-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,451,451,current_saved,True,,10,reward,25095.0,846.88,1625.0,23.0,tenth_reward,Tenth reward,846.88,1625.0,23.0,True
-468-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,468,468,current_saved,True,,10,reward,24845.0,879.2,1849.0,32.0,tenth_reward,Tenth reward,879.2,1849.0,32.0,True
-488-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,488,488,current_saved,True,,10,reward,25148.0,932.52,1690.0,18.0,tenth_reward,Tenth reward,932.52,1690.0,18.0,True
-489-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,489,489,current_saved,True,,10,reward,28598.0,955.04,1600.0,12.0,tenth_reward,Tenth reward,955.04,1600.0,12.0,True
-579-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,579,579,current_saved,True,,10,reward,39627.0,1131.8,1262.0,30.0,tenth_reward,Tenth reward,1131.8,1262.0,30.0,True
-618-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,618,618,current_saved,True,,10,reward,32329.0,1074.96,1397.0,15.0,tenth_reward,Tenth reward,1074.96,1397.0,15.0,True
-640-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,640,640,current_saved,True,,10,reward,28126.0,909.72,2230.0,17.0,tenth_reward,Tenth reward,909.72,2230.0,17.0,True
-644-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,644,644,current_saved,True,,10,reward,26447.0,956.16,2057.0,16.0,tenth_reward,Tenth reward,956.16,2057.0,16.0,True
-646-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,646,646,current_saved,True,,10,reward,28768.0,809.08,1595.0,15.0,tenth_reward,Tenth reward,809.08,1595.0,15.0,True
-837-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,837,837,current_saved,True,,10,reward,31634.0,1068.72,2320.0,53.0,tenth_reward,Tenth reward,1068.72,2320.0,53.0,True
-838-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,838,838,current_saved,True,,10,reward,24008.0,697.48,2007.0,16.0,tenth_reward,Tenth reward,697.48,2007.0,16.0,True
-839-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,839,839,current_saved,True,,10,reward,22833.0,864.56,968.0,5.0,tenth_reward,Tenth reward,864.56,968.0,5.0,True
-842-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,842,842,current_saved,True,,10,reward,26509.0,818.36,1923.0,15.0,tenth_reward,Tenth reward,818.36,1923.0,15.0,True
-862-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,862,862,current_saved,True,,10,reward,30516.0,956.16,2243.0,30.0,tenth_reward,Tenth reward,956.16,2243.0,30.0,True
-418-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,418,418,current_saved,True,,10,reward,32358.0,1140.32,2077.0,23.0,tenth_reward,Tenth reward,1140.32,2077.0,23.0,True
-451-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,451,451,current_saved,True,,10,reward,25857.0,877.6,1746.0,14.0,tenth_reward,Tenth reward,877.6,1746.0,14.0,True
-468-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,468,468,current_saved,True,,10,reward,25531.0,895.88,1773.0,31.0,tenth_reward,Tenth reward,895.88,1773.0,31.0,True
-488-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,488,488,current_saved,True,,10,reward,27334.0,949.72,2361.0,35.0,tenth_reward,Tenth reward,949.72,2361.0,35.0,True
-579-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,579,579,current_saved,True,,10,reward,28767.0,906.32,1311.0,18.0,tenth_reward,Tenth reward,906.32,1311.0,18.0,True
-640-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,640,640,current_saved,True,,10,reward,25569.0,753.08,2114.0,17.0,tenth_reward,Tenth reward,753.08,2114.0,17.0,True
-644-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,644,644,current_saved,True,,10,reward,25113.0,912.72,1674.0,8.0,tenth_reward,Tenth reward,912.72,1674.0,8.0,True
-646-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,646,646,current_saved,True,,10,reward,27448.0,893.2,1194.0,8.0,tenth_reward,Tenth reward,893.2,1194.0,8.0,True
-837-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,837,837,current_saved,True,,10,reward,36476.0,776.92,1623.0,13.0,tenth_reward,Tenth reward,776.92,1623.0,13.0,True
-838-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,838,838,current_saved,True,,10,reward,24431.0,792.36,1855.0,19.0,tenth_reward,Tenth reward,792.36,1855.0,19.0,True
-839-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,839,839,current_saved,True,,10,reward,25856.0,883.44,1442.0,24.0,tenth_reward,Tenth reward,883.44,1442.0,24.0,True
-842-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,842,842,current_saved,True,,10,reward,29735.0,976.56,2350.0,26.0,tenth_reward,Tenth reward,976.56,2350.0,26.0,True
-418-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,418,418,current_saved,True,,10,reward,30604.0,1016.16,2315.0,38.0,tenth_reward,Tenth reward,1016.16,2315.0,38.0,True
-451-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,451,451,current_saved,True,,10,reward,32662.0,993.0,2498.0,44.0,tenth_reward,Tenth reward,993.0,2498.0,44.0,True
-468-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,468,468,current_saved,True,,10,reward,35049.0,928.24,2112.0,27.0,tenth_reward,Tenth reward,928.24,2112.0,27.0,True
-618-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,618,618,current_saved,True,,10,reward,32188.0,730.0,1633.0,6.0,tenth_reward,Tenth reward,730.0,1633.0,6.0,True
-640-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,640,640,current_saved,True,,10,reward,28244.0,669.2,1720.0,4.0,tenth_reward,Tenth reward,669.2,1720.0,4.0,True
-644-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,644,644,current_saved,True,,10,reward,27802.0,857.12,2064.0,18.0,tenth_reward,Tenth reward,857.12,2064.0,18.0,True
-646-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,646,646,current_saved,True,,10,reward,29729.0,974.72,1260.0,1.0,tenth_reward,Tenth reward,974.72,1260.0,1.0,True
-837-12day1,return,Return night,1,return,12,return,837,837,new_12mo,True,,10,reward,54372.0,933.28,2136.0,10.0,tenth_reward,Tenth reward,933.28,2136.0,10.0,True
-838-12day1,return,Return night,1,return,12,return,838,838,new_12mo,True,,10,reward,40938.0,1142.28,2847.0,45.0,tenth_reward,Tenth reward,1142.28,2847.0,45.0,True
-839-12day1,return,Return night,1,return,12,return,839,839,new_12mo,True,,10,reward,44307.0,1273.64,2085.0,14.0,tenth_reward,Tenth reward,1273.64,2085.0,14.0,True
-837-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,837,837,new_12mo,True,,10,reward,33357.0,686.28,1498.0,5.0,tenth_reward,Tenth reward,686.28,1498.0,5.0,True
-838-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,838,838,new_12mo,True,,10,reward,29353.0,780.04,2083.0,26.0,tenth_reward,Tenth reward,780.04,2083.0,26.0,True
-839-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,839,839,new_12mo,True,,10,reward,24652.0,894.28,997.0,5.0,tenth_reward,Tenth reward,894.28,997.0,5.0,True
-15strday1,naive,Naive night,0,naive,0,naive,15,15str,current_saved,True,,1,long_path_reward,30313.0,1010.08,1945.0,102.0,first_long_bout,First long bout,1010.08,1945.0,102.0,True
-1603,naive,Naive night,0,naive,0,naive,1603,1603,current_saved,True,,1,long_path_reward,138065.0,4422.0,8201.0,389.0,first_long_bout,First long bout,4422.0,8201.0,389.0,True
-1608,naive,Naive night,0,naive,0,naive,1608,1608,current_saved,True,,1,long_path_reward,19273.0,668.64,1482.0,59.0,first_long_bout,First long bout,668.64,1482.0,59.0,True
-1616day1,naive,Naive night,0,naive,0,naive,1616,1616,current_saved,True,,1,long_path_reward,102073.0,3030.88,4837.0,203.0,first_long_bout,First long bout,3030.88,4837.0,203.0,True
-1632Lday1,naive,Naive night,0,naive,0,naive,1632,1632L,current_saved,True,,1,long_path_reward,2585.0,91.8,211.0,9.0,first_long_bout,First long bout,91.8,211.0,9.0,True
-163RLday1,naive,Naive night,0,naive,0,naive,163,163RL,current_saved,True,,1,long_path_reward,153204.0,4788.72,9502.0,272.0,first_long_bout,First long bout,4788.72,9502.0,272.0,True
-202Lday1,naive,Naive night,0,naive,0,naive,202,202L,current_saved,True,,1,long_path_reward,35073.0,1362.12,2265.0,104.0,first_long_bout,First long bout,1362.12,2265.0,104.0,True
-355RLday1,naive,Naive night,0,naive,0,naive,355,355RL,current_saved,True,,1,long_path_reward,34920.0,1366.08,2790.0,106.0,first_long_bout,First long bout,1366.08,2790.0,106.0,True
-418RRday1,naive,Naive night,0,naive,0,naive,418,418RR,current_saved,True,,1,long_path_reward,60143.0,2329.64,4047.0,234.0,first_long_bout,First long bout,2329.64,4047.0,234.0,True
-434RRday1,naive,Naive night,0,naive,0,naive,434,434RR,current_saved,True,,1,long_path_reward,52434.0,1956.56,4093.0,153.0,first_long_bout,First long bout,1956.56,4093.0,153.0,True
-451Rday1,naive,Naive night,0,naive,0,naive,451,451R,current_saved,True,,1,long_path_reward,45993.0,1774.76,3516.0,138.0,first_long_bout,First long bout,1774.76,3516.0,138.0,True
-468Lday1,naive,Naive night,0,naive,0,naive,468,468L,current_saved,True,,1,long_path_reward,31563.0,924.96,1458.0,89.0,first_long_bout,First long bout,924.96,1458.0,89.0,True
-488Rday1,naive,Naive night,0,naive,0,naive,488,488R,current_saved,True,,1,long_path_reward,77577.0,2961.24,4484.0,151.0,first_long_bout,First long bout,2961.24,4484.0,151.0,True
-489Lday1,naive,Naive night,0,naive,0,naive,489,489L,current_saved,True,,1,long_path_reward,33177.0,1147.44,1689.0,155.0,first_long_bout,First long bout,1147.44,1689.0,155.0,True
-579RLday1,naive,Naive night,0,naive,0,naive,579,579RL,current_saved,True,,1,long_path_reward,13706.0,527.2,1293.0,43.0,first_long_bout,First long bout,527.2,1293.0,43.0,True
-597day1,naive,Naive night,0,naive,0,naive,597,597,current_saved,True,,1,long_path_reward,139779.0,1767.48,2126.0,78.0,first_long_bout,First long bout,1767.48,2126.0,78.0,True
-609day1,naive,Naive night,0,naive,0,naive,609,609,current_saved,True,,1,long_path_reward,54757.0,2096.44,3908.0,168.0,first_long_bout,First long bout,2096.44,3908.0,168.0,True
-618day1,naive,Naive night,0,naive,0,naive,618,618,current_saved,True,,1,long_path_reward,61795.0,2057.48,3054.0,100.0,first_long_bout,First long bout,2057.48,3054.0,100.0,True
-624day1,naive,Naive night,0,naive,0,naive,624,624,current_saved,True,,1,long_path_reward,122093.0,4184.64,4429.0,180.0,first_long_bout,First long bout,4184.64,4429.0,180.0,True
-628day1,naive,Naive night,0,naive,0,naive,628,628,current_saved,True,,1,long_path_reward,73866.0,2504.2,4410.0,286.0,first_long_bout,First long bout,2504.2,4410.0,286.0,True
-640day1,naive,Naive night,0,naive,0,naive,640,640,current_saved,True,,1,long_path_reward,73481.0,2864.4,2644.0,122.0,first_long_bout,First long bout,2864.4,2644.0,122.0,True
-644day1,naive,Naive night,0,naive,0,naive,644,644,current_saved,True,,1,long_path_reward,13332.0,381.64,741.0,52.0,first_long_bout,First long bout,381.64,741.0,52.0,True
-646day1,naive,Naive night,0,naive,0,naive,646,646,current_saved,True,,1,long_path_reward,38228.0,1526.96,2199.0,91.0,first_long_bout,First long bout,1526.96,2199.0,91.0,True
-418-3day1,return,Return night,1,return,3,return,418,418,current_saved,True,,1,long_path_reward,10445.0,384.56,849.0,36.0,first_long_bout,First long bout,384.56,849.0,36.0,True
-422-3day1,return,Return night,1,return,3,return,422,422,current_saved,True,,1,long_path_reward,12052.0,445.44,866.0,23.0,first_long_bout,First long bout,445.44,866.0,23.0,True
-434-3day1,return,Return night,1,return,3,return,434,434,current_saved,True,,1,long_path_reward,14783.0,365.72,748.0,1.0,first_long_bout,First long bout,365.72,748.0,1.0,True
-451-3day1,return,Return night,1,return,3,return,451,451,current_saved,True,,1,long_path_reward,1159.0,35.76,112.0,1.0,first_long_bout,First long bout,35.76,112.0,1.0,True
-468-3day1,return,Return night,1,return,3,return,468,468,current_saved,True,,1,long_path_reward,23989.0,830.84,2067.0,81.0,first_long_bout,First long bout,830.84,2067.0,81.0,True
-488-3day1,return,Return night,1,return,3,return,488,488,current_saved,True,,1,long_path_reward,25197.0,829.0,1978.0,65.0,first_long_bout,First long bout,829.0,1978.0,65.0,True
-489-3day1,return,Return night,1,return,3,return,489,489,current_saved,True,,1,long_path_reward,19559.0,738.96,1572.0,58.0,first_long_bout,First long bout,738.96,1572.0,58.0,True
-579-3day1,return,Return night,1,return,3,return,579,579,current_saved,True,,1,long_path_reward,9827.0,300.36,763.0,17.0,first_long_bout,First long bout,300.36,763.0,17.0,True
-618-3day1,return,Return night,1,return,3,return,618,618,current_saved,True,,1,long_path_reward,7565.0,62.32,115.0,0.0,first_long_bout,First long bout,62.32,115.0,0.0,True
-640-3day1,return,Return night,1,return,3,return,640,640,current_saved,True,,1,long_path_reward,23473.0,849.0,1552.0,40.0,first_long_bout,First long bout,849.0,1552.0,40.0,True
-644-3day1,return,Return night,1,return,3,return,644,644,current_saved,True,,1,long_path_reward,21123.0,730.24,1713.0,60.0,first_long_bout,First long bout,730.24,1713.0,60.0,True
-646-3day1,return,Return night,1,return,3,return,646,646,current_saved,True,,1,long_path_reward,11289.0,317.8,834.0,5.0,first_long_bout,First long bout,317.8,834.0,5.0,True
-837-3day1,return,Return night,1,return,3,return,837,837,current_saved,True,,1,long_path_reward,14806.0,499.48,1423.0,35.0,first_long_bout,First long bout,499.48,1423.0,35.0,True
-838-3day1,return,Return night,1,return,3,return,838,838,current_saved,True,,1,long_path_reward,4380.0,121.64,309.0,21.0,first_long_bout,First long bout,121.64,309.0,21.0,True
-839-3day1,return,Return night,1,return,3,return,839,839,current_saved,True,,1,long_path_reward,52655.0,1560.76,2800.0,100.0,first_long_bout,First long bout,1560.76,2800.0,100.0,True
-842-3day1,return,Return night,1,return,3,return,842,842,current_saved,True,,1,long_path_reward,40743.0,1126.16,2417.0,53.0,first_long_bout,First long bout,1126.16,2417.0,53.0,True
-862-3day1,return,Return night,1,return,3,return,862,862,current_saved,True,,1,long_path_reward,61686.0,1986.04,4512.0,135.0,first_long_bout,First long bout,1986.04,4512.0,135.0,True
-418-6day1,return,Return night,1,return,6,return,418,418,current_saved,True,,1,long_path_reward,27569.0,905.92,1962.0,24.0,first_long_bout,First long bout,905.92,1962.0,24.0,True
-422-6day1,return,Return night,1,return,6,return,422,422,current_saved,True,,1,long_path_reward,87934.0,831.6,1493.0,8.0,first_long_bout,First long bout,831.6,1493.0,8.0,True
-434-6day1,return,Return night,1,return,6,return,434,434,current_saved,True,,1,long_path_reward,32902.0,558.04,1421.0,10.0,first_long_bout,First long bout,558.04,1421.0,10.0,True
-451-6day1,return,Return night,1,return,6,return,451,451,current_saved,True,,1,long_path_reward,5420.0,150.96,500.0,3.0,first_long_bout,First long bout,150.96,500.0,3.0,True
-468-6day1,return,Return night,1,return,6,return,468,468,current_saved,True,,1,long_path_reward,18416.0,479.0,1167.0,40.0,first_long_bout,First long bout,479.0,1167.0,40.0,True
-488-6day1,return,Return night,1,return,6,return,488,488,current_saved,True,,1,long_path_reward,27957.0,782.96,1668.0,7.0,first_long_bout,First long bout,782.96,1668.0,7.0,True
-489-6day1,return,Return night,1,return,6,return,489,489,current_saved,True,,1,long_path_reward,33942.0,999.32,1537.0,29.0,first_long_bout,First long bout,999.32,1537.0,29.0,True
-579-6day1,return,Return night,1,return,6,return,579,579,current_saved,True,,1,long_path_reward,25014.0,80.0,129.0,0.0,first_long_bout,First long bout,80.0,129.0,0.0,True
-618-6day1,return,Return night,1,return,6,return,618,618,current_saved,True,,1,long_path_reward,7367.0,164.32,358.0,0.0,first_long_bout,First long bout,164.32,358.0,0.0,True
-640-6day1,return,Return night,1,return,6,return,640,640,current_saved,True,,1,long_path_reward,6971.0,268.32,712.0,25.0,first_long_bout,First long bout,268.32,712.0,25.0,True
-644-6day1,return,Return night,1,return,6,return,644,644,current_saved,True,,1,long_path_reward,2701.0,66.28,167.0,0.0,first_long_bout,First long bout,66.28,167.0,0.0,True
-646-6day1,return,Return night,1,return,6,return,646,646,current_saved,True,,1,long_path_reward,12063.0,351.96,861.0,11.0,first_long_bout,First long bout,351.96,861.0,11.0,True
-837-6day1,return,Return night,1,return,6,return,837,837,current_saved,True,,1,long_path_reward,7304.0,178.8,493.0,3.0,first_long_bout,First long bout,178.8,493.0,3.0,True
-838-6day1,return,Return night,1,return,6,return,838,838,current_saved,True,,1,long_path_reward,15060.0,506.24,1520.0,55.0,first_long_bout,First long bout,506.24,1520.0,55.0,True
-839-6day1,return,Return night,1,return,6,return,839,839,current_saved,True,,1,long_path_reward,17280.0,463.28,1015.0,4.0,first_long_bout,First long bout,463.28,1015.0,4.0,True
-842-6day1,return,Return night,1,return,6,return,842,842,current_saved,True,,1,long_path_reward,33635.0,711.92,1629.0,13.0,first_long_bout,First long bout,711.92,1629.0,13.0,True
-862-6day1,return,Return night,1,return,6,return,862,862,current_saved,True,,1,long_path_reward,6003.0,223.76,693.0,23.0,first_long_bout,First long bout,223.76,693.0,23.0,True
-418-9day1,return,Return night,1,return,9,return,418,418,current_saved,True,,1,long_path_reward,15208.0,354.48,738.0,9.0,first_long_bout,First long bout,354.48,738.0,9.0,True
-451-9day1,return,Return night,1,return,9,return,451,451,current_saved,True,,1,long_path_reward,6822.0,212.8,639.0,11.0,first_long_bout,First long bout,212.8,639.0,11.0,True
-468-9day1,return,Return night,1,return,9,return,468,468,current_saved,True,,1,long_path_reward,5904.0,217.6,663.0,21.0,first_long_bout,First long bout,217.6,663.0,21.0,True
-488-9day1,return,Return night,1,return,9,return,488,488,current_saved,True,,1,long_path_reward,18641.0,531.04,1227.0,11.0,first_long_bout,First long bout,531.04,1227.0,11.0,True
-579-9day1,return,Return night,1,return,9,return,579,579,current_saved,True,,1,long_path_reward,3056.0,69.36,134.0,0.0,first_long_bout,First long bout,69.36,134.0,0.0,True
-640-9day1,return,Return night,1,return,9,return,640,640,current_saved,True,,1,long_path_reward,7871.0,314.84,914.0,27.0,first_long_bout,First long bout,314.84,914.0,27.0,True
-644-9day1,return,Return night,1,return,9,return,644,644,current_saved,True,,1,long_path_reward,5626.0,200.32,489.0,16.0,first_long_bout,First long bout,200.32,489.0,16.0,True
-646-9day1,return,Return night,1,return,9,return,646,646,current_saved,True,,1,long_path_reward,1658.0,20.8,41.0,0.0,first_long_bout,First long bout,20.8,41.0,0.0,True
-837-9day1,return,Return night,1,return,9,return,837,837,current_saved,True,,1,long_path_reward,3035.0,100.72,337.0,7.0,first_long_bout,First long bout,100.72,337.0,7.0,True
-838-9day1,return,Return night,1,return,9,return,838,838,current_saved,True,,1,long_path_reward,11157.0,353.6,986.0,13.0,first_long_bout,First long bout,353.6,986.0,13.0,True
-839-9day1,return,Return night,1,return,9,return,839,839,current_saved,True,,1,long_path_reward,9697.0,257.92,704.0,35.0,first_long_bout,First long bout,257.92,704.0,35.0,True
-842-9day1,return,Return night,1,return,9,return,842,842,current_saved,True,,1,long_path_reward,3750.0,49.04,79.0,0.0,first_long_bout,First long bout,49.04,79.0,0.0,True
-418-12day1,return,Return night,1,return,12,return,418,418,current_saved,True,,1,long_path_reward,6909.0,183.24,511.0,0.0,first_long_bout,First long bout,183.24,511.0,0.0,True
-451-12day1,return,Return night,1,return,12,return,451,451,current_saved,True,,1,long_path_reward,5785.0,211.28,586.0,5.0,first_long_bout,First long bout,211.28,586.0,5.0,True
-468-12day1,return,Return night,1,return,12,return,468,468,current_saved,True,,1,long_path_reward,1779.0,69.96,209.0,0.0,first_long_bout,First long bout,69.96,209.0,0.0,True
-618-12day1,return,Return night,1,return,12,return,618,618,current_saved,True,,1,long_path_reward,11460.0,382.16,894.0,17.0,first_long_bout,First long bout,382.16,894.0,17.0,True
-640-12day1,return,Return night,1,return,12,return,640,640,current_saved,True,,1,long_path_reward,993.0,21.92,51.0,0.0,first_long_bout,First long bout,21.92,51.0,0.0,True
-644-12day1,return,Return night,1,return,12,return,644,644,current_saved,True,,1,long_path_reward,3498.0,139.84,333.0,0.0,first_long_bout,First long bout,139.84,333.0,0.0,True
-646-12day1,return,Return night,1,return,12,return,646,646,current_saved,True,,1,long_path_reward,9712.0,333.12,805.0,10.0,first_long_bout,First long bout,333.12,805.0,10.0,True
-1616day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1616,1616,current_saved,True,,1,long_path_reward,6057.0,146.12,255.0,7.0,first_long_bout,First long bout,146.12,255.0,7.0,True
-1632Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1632,1632L,current_saved,True,,1,long_path_reward,2292.0,79.6,177.0,0.0,first_long_bout,First long bout,79.6,177.0,0.0,True
-163RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,163,163RL,current_saved,True,,1,long_path_reward,5739.0,173.88,413.0,7.0,first_long_bout,First long bout,173.88,413.0,7.0,True
-355RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,355,355RL,current_saved,True,,1,long_path_reward,4521.0,170.68,383.0,9.0,first_long_bout,First long bout,170.68,383.0,9.0,True
-418RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,418,418RR,current_saved,True,,1,long_path_reward,5466.0,142.76,298.0,19.0,first_long_bout,First long bout,142.76,298.0,19.0,True
-434RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,434,434RR,current_saved,True,,1,long_path_reward,1778.0,22.52,59.0,0.0,first_long_bout,First long bout,22.52,59.0,0.0,True
-451Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,451,451R,current_saved,True,,1,long_path_reward,1893.0,36.4,95.0,3.0,first_long_bout,First long bout,36.4,95.0,3.0,True
-468Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,468,468L,current_saved,True,,1,long_path_reward,4355.0,101.84,174.0,2.0,first_long_bout,First long bout,101.84,174.0,2.0,True
-488Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,488,488R,current_saved,True,,1,long_path_reward,4900.0,117.2,240.0,0.0,first_long_bout,First long bout,117.2,240.0,0.0,True
-489Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,489,489L,current_saved,True,,1,long_path_reward,9941.0,319.16,585.0,21.0,first_long_bout,First long bout,319.16,585.0,21.0,True
-579RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,579,579RL,current_saved,True,,1,long_path_reward,4763.0,186.6,442.0,5.0,first_long_bout,First long bout,186.6,442.0,5.0,True
-597day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,597,597,current_saved,True,,1,long_path_reward,9276.0,305.64,490.0,14.0,first_long_bout,First long bout,305.64,490.0,14.0,True
-609day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,609,609,current_saved,True,,1,long_path_reward,5948.0,143.52,294.0,2.0,first_long_bout,First long bout,143.52,294.0,2.0,True
-618day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,618,618,current_saved,True,,1,long_path_reward,5999.0,164.84,248.0,4.0,first_long_bout,First long bout,164.84,248.0,4.0,True
-624day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,624,624,current_saved,True,,1,long_path_reward,6609.0,203.2,320.0,9.0,first_long_bout,First long bout,203.2,320.0,9.0,True
-640day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,640,640,current_saved,True,,1,long_path_reward,4805.0,180.4,322.0,3.0,first_long_bout,First long bout,180.4,322.0,3.0,True
-644day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,644,644,current_saved,True,,1,long_path_reward,4364.0,119.96,225.0,5.0,first_long_bout,First long bout,119.96,225.0,5.0,True
-646day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,646,646,current_saved,True,,1,long_path_reward,1532.0,61.2,102.0,0.0,first_long_bout,First long bout,61.2,102.0,0.0,True
-418-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,418,418,current_saved,True,,1,long_path_reward,1203.0,22.16,47.0,0.0,first_long_bout,First long bout,22.16,47.0,0.0,True
-422-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,422,422,current_saved,True,,1,long_path_reward,2682.0,53.76,115.0,0.0,first_long_bout,First long bout,53.76,115.0,0.0,True
-434-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,434,434,current_saved,True,,1,long_path_reward,5696.0,175.72,433.0,3.0,first_long_bout,First long bout,175.72,433.0,3.0,True
-451-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,451,451,current_saved,True,,1,long_path_reward,4865.0,188.36,291.0,4.0,first_long_bout,First long bout,188.36,291.0,4.0,True
-468-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,468,468,current_saved,True,,1,long_path_reward,2326.0,31.4,69.0,0.0,first_long_bout,First long bout,31.4,69.0,0.0,True
-488-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,488,488,current_saved,True,,1,long_path_reward,1617.0,38.64,80.0,0.0,first_long_bout,First long bout,38.64,80.0,0.0,True
-489-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,489,489,current_saved,True,,1,long_path_reward,5779.0,118.8,274.0,5.0,first_long_bout,First long bout,118.8,274.0,5.0,True
-579-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,579,579,current_saved,True,,1,long_path_reward,3450.0,117.2,242.0,2.0,first_long_bout,First long bout,117.2,242.0,2.0,True
-618-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,618,618,current_saved,True,,1,long_path_reward,2179.0,53.92,136.0,1.0,first_long_bout,First long bout,53.92,136.0,1.0,True
-640-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,640,640,current_saved,True,,1,long_path_reward,2267.0,67.56,115.0,0.0,first_long_bout,First long bout,67.56,115.0,0.0,True
-644-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,644,644,current_saved,True,,1,long_path_reward,5301.0,170.48,343.0,1.0,first_long_bout,First long bout,170.48,343.0,1.0,True
-646-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,646,646,current_saved,True,,1,long_path_reward,1034.0,35.64,77.0,2.0,first_long_bout,First long bout,35.64,77.0,2.0,True
-837-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,837,837,current_saved,True,,1,long_path_reward,2660.0,21.4,47.0,0.0,first_long_bout,First long bout,21.4,47.0,0.0,True
-838-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,838,838,current_saved,True,,1,long_path_reward,1929.0,52.64,126.0,0.0,first_long_bout,First long bout,52.64,126.0,0.0,True
-839-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,839,839,current_saved,True,,1,long_path_reward,4786.0,109.4,224.0,0.0,first_long_bout,First long bout,109.4,224.0,0.0,True
-842-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,842,842,current_saved,True,,1,long_path_reward,3550.0,78.92,187.0,0.0,first_long_bout,First long bout,78.92,187.0,0.0,True
-862-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,862,862,current_saved,True,,1,long_path_reward,1456.0,22.28,53.0,0.0,first_long_bout,First long bout,22.28,53.0,0.0,True
-418-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,418,418,current_saved,True,,1,long_path_reward,2298.0,55.16,121.0,0.0,first_long_bout,First long bout,55.16,121.0,0.0,True
-422-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,422,422,current_saved,True,,1,long_path_reward,6358.0,153.04,451.0,4.0,first_long_bout,First long bout,153.04,451.0,4.0,True
-434-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,434,434,current_saved,True,,1,long_path_reward,5935.0,198.8,496.0,4.0,first_long_bout,First long bout,198.8,496.0,4.0,True
-451-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,451,451,current_saved,True,,1,long_path_reward,2076.0,60.12,135.0,0.0,first_long_bout,First long bout,60.12,135.0,0.0,True
-468-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,468,468,current_saved,True,,1,long_path_reward,776.0,19.6,43.0,0.0,first_long_bout,First long bout,19.6,43.0,0.0,True
-488-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,488,488,current_saved,True,,1,long_path_reward,1452.0,21.96,45.0,0.0,first_long_bout,First long bout,21.96,45.0,0.0,True
-489-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,489,489,current_saved,True,,1,long_path_reward,8050.0,175.92,367.0,3.0,first_long_bout,First long bout,175.92,367.0,3.0,True
-579-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,579,579,current_saved,True,,1,long_path_reward,12490.0,265.04,164.0,11.0,first_long_bout,First long bout,265.04,164.0,11.0,True
-618-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,618,618,current_saved,True,,1,long_path_reward,1495.0,42.36,101.0,0.0,first_long_bout,First long bout,42.36,101.0,0.0,True
-640-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,640,640,current_saved,True,,1,long_path_reward,617.0,24.68,64.0,0.0,first_long_bout,First long bout,24.68,64.0,0.0,True
-644-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,644,644,current_saved,True,,1,long_path_reward,1968.0,64.24,164.0,0.0,first_long_bout,First long bout,64.24,164.0,0.0,True
-646-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,646,646,current_saved,True,,1,long_path_reward,1676.0,45.36,93.0,0.0,first_long_bout,First long bout,45.36,93.0,0.0,True
-837-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,837,837,current_saved,True,,1,long_path_reward,3317.0,100.96,240.0,12.0,first_long_bout,First long bout,100.96,240.0,12.0,True
-838-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,838,838,current_saved,True,,1,long_path_reward,2215.0,72.4,207.0,2.0,first_long_bout,First long bout,72.4,207.0,2.0,True
-839-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,839,839,current_saved,True,,1,long_path_reward,5726.0,197.28,332.0,1.0,first_long_bout,First long bout,197.28,332.0,1.0,True
-842-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,842,842,current_saved,True,,1,long_path_reward,1283.0,42.2,108.0,0.0,first_long_bout,First long bout,42.2,108.0,0.0,True
-862-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,862,862,current_saved,True,,1,long_path_reward,2292.0,80.96,194.0,4.0,first_long_bout,First long bout,80.96,194.0,4.0,True
-418-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,418,418,current_saved,True,,1,long_path_reward,2164.0,32.16,61.0,0.0,first_long_bout,First long bout,32.16,61.0,0.0,True
-451-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,451,451,current_saved,True,,1,long_path_reward,3773.0,131.6,267.0,3.0,first_long_bout,First long bout,131.6,267.0,3.0,True
-468-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,468,468,current_saved,True,,1,long_path_reward,2893.0,98.08,197.0,0.0,first_long_bout,First long bout,98.08,197.0,0.0,True
-488-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,488,488,current_saved,True,,1,long_path_reward,2292.0,51.0,134.0,0.0,first_long_bout,First long bout,51.0,134.0,0.0,True
-579-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,579,579,current_saved,True,,1,long_path_reward,6488.0,223.68,406.0,11.0,first_long_bout,First long bout,223.68,406.0,11.0,True
-640-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,640,640,current_saved,True,,1,long_path_reward,1567.0,47.32,104.0,0.0,first_long_bout,First long bout,47.32,104.0,0.0,True
-644-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,644,644,current_saved,True,,1,long_path_reward,1255.0,38.72,97.0,0.0,first_long_bout,First long bout,38.72,97.0,0.0,True
-646-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,646,646,current_saved,True,,1,long_path_reward,894.0,25.16,63.0,0.0,first_long_bout,First long bout,25.16,63.0,0.0,True
-837-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,837,837,current_saved,True,,1,long_path_reward,10199.0,159.56,360.0,3.0,first_long_bout,First long bout,159.56,360.0,3.0,True
-838-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,838,838,current_saved,True,,1,long_path_reward,3296.0,121.48,377.0,0.0,first_long_bout,First long bout,121.48,377.0,0.0,True
-839-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,839,839,current_saved,True,,1,long_path_reward,2566.0,98.6,288.0,10.0,first_long_bout,First long bout,98.6,288.0,10.0,True
-842-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,842,842,current_saved,True,,1,long_path_reward,2665.0,67.16,150.0,5.0,first_long_bout,First long bout,67.16,150.0,5.0,True
-418-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,418,418,current_saved,True,,1,long_path_reward,1546.0,44.64,110.0,0.0,first_long_bout,First long bout,44.64,110.0,0.0,True
-451-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,451,451,current_saved,True,,1,long_path_reward,6669.0,237.76,651.0,7.0,first_long_bout,First long bout,237.76,651.0,7.0,True
-468-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,468,468,current_saved,True,,1,long_path_reward,4181.0,162.8,303.0,8.0,first_long_bout,First long bout,162.8,303.0,8.0,True
-618-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,618,618,current_saved,True,,1,long_path_reward,2784.0,84.8,181.0,0.0,first_long_bout,First long bout,84.8,181.0,0.0,True
-640-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,640,640,current_saved,True,,1,long_path_reward,927.0,31.88,75.0,0.0,first_long_bout,First long bout,31.88,75.0,0.0,True
-644-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,644,644,current_saved,True,,1,long_path_reward,2735.0,67.48,144.0,0.0,first_long_bout,First long bout,67.48,144.0,0.0,True
-646-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,646,646,current_saved,True,,1,long_path_reward,3510.0,95.4,233.0,0.0,first_long_bout,First long bout,95.4,233.0,0.0,True
-837-12day1,return,Return night,1,return,12,return,837,837,new_12mo,True,,1,long_path_reward,15079.0,420.4,977.0,9.0,first_long_bout,First long bout,420.4,977.0,9.0,True
-838-12day1,return,Return night,1,return,12,return,838,838,new_12mo,True,,1,long_path_reward,13790.0,487.0,1299.0,17.0,first_long_bout,First long bout,487.0,1299.0,17.0,True
-839-12day1,return,Return night,1,return,12,return,839,839,new_12mo,True,,1,long_path_reward,14861.0,415.56,823.0,9.0,first_long_bout,First long bout,415.56,823.0,9.0,True
-837-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,837,837,new_12mo,True,,1,long_path_reward,3241.0,101.2,269.0,0.0,first_long_bout,First long bout,101.2,269.0,0.0,True
-838-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,838,838,new_12mo,True,,1,long_path_reward,4096.0,145.0,370.0,4.0,first_long_bout,First long bout,145.0,370.0,4.0,True
-839-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,839,839,new_12mo,True,,1,long_path_reward,3804.0,71.88,140.0,0.0,first_long_bout,First long bout,71.88,140.0,0.0,True
+session,group_key,group_label,group_order,color_key,month,memory_stage,animal_id,animal_id_alias,source_set,load_ok,error,event_number,event_type,abs_frame,maze_seconds,nose_tiles_at_event,endpoint_key,endpoint_label,maze_time_s,maze_tiles,endpoint_reached
+15strday1,naive,Naive night,0,naive,0,naive,15,15str,current_saved,True,,1,reward,19452.0,575.64,1198.0,first_reward,First reward,575.64,1198.0,True
+1603,naive,Naive night,0,naive,0,naive,1603,1603,current_saved,True,,1,reward,28766.0,1021.92,2138.0,first_reward,First reward,1021.92,2138.0,True
+1608,naive,Naive night,0,naive,0,naive,1608,1608,current_saved,True,,1,reward,16532.0,559.0,1264.0,first_reward,First reward,559.0,1264.0,True
+1616day1,naive,Naive night,0,naive,0,naive,1616,1616,current_saved,True,,1,reward,36300.0,1399.24,2339.0,first_reward,First reward,1399.24,2339.0,True
+1632Lday1,naive,Naive night,0,naive,0,naive,1632,1632L,current_saved,True,,1,reward,1663.0,54.92,112.0,first_reward,First reward,54.92,112.0,True
+163RLday1,naive,Naive night,0,naive,0,naive,163,163RL,current_saved,True,,1,reward,8033.0,184.72,469.0,first_reward,First reward,184.72,469.0,True
+202Lday1,naive,Naive night,0,naive,0,naive,202,202L,current_saved,True,,1,reward,35324.0,1372.16,2276.0,first_reward,First reward,1372.16,2276.0,True
+355RLday1,naive,Naive night,0,naive,0,naive,355,355RL,current_saved,True,,1,reward,15846.0,616.12,1372.0,first_reward,First reward,616.12,1372.0,True
+418RRday1,naive,Naive night,0,naive,0,naive,418,418RR,current_saved,True,,1,reward,55530.0,2145.12,3814.0,first_reward,First reward,2145.12,3814.0,True
+434RRday1,naive,Naive night,0,naive,0,naive,434,434RR,current_saved,True,,1,reward,25245.0,961.72,2050.0,first_reward,First reward,961.72,2050.0,True
+451Rday1,naive,Naive night,0,naive,0,naive,451,451R,current_saved,True,,1,reward,46066.0,1777.68,3517.0,first_reward,First reward,1777.68,3517.0,True
+468Lday1,naive,Naive night,0,naive,0,naive,468,468L,current_saved,True,,1,reward,128644.0,4808.2,4372.0,first_reward,First reward,4808.2,4372.0,True
+488Rday1,naive,Naive night,0,naive,0,naive,488,488R,current_saved,True,,1,reward,40445.0,1521.88,2551.0,first_reward,First reward,1521.88,2551.0,True
+489Lday1,naive,Naive night,0,naive,0,naive,489,489L,current_saved,True,,1,reward,32142.0,1106.04,1619.0,first_reward,First reward,1106.04,1619.0,True
+579RLday1,naive,Naive night,0,naive,0,naive,579,579RL,current_saved,True,,1,reward,12258.0,469.28,1131.0,first_reward,First reward,469.28,1131.0,True
+597day1,naive,Naive night,0,naive,0,naive,597,597,current_saved,True,,1,reward,139837.0,1769.8,2126.0,first_reward,First reward,1769.8,2126.0,True
+609day1,naive,Naive night,0,naive,0,naive,609,609,current_saved,True,,1,reward,5942.0,205.48,481.0,first_reward,First reward,205.48,481.0,True
+618day1,naive,Naive night,0,naive,0,naive,618,618,current_saved,True,,1,reward,57445.0,1883.48,2900.0,first_reward,First reward,1883.48,2900.0,True
+624day1,naive,Naive night,0,naive,0,naive,624,624,current_saved,True,,1,reward,20114.0,492.24,828.0,first_reward,First reward,492.24,828.0,True
+628day1,naive,Naive night,0,naive,0,naive,628,628,current_saved,True,,1,reward,73916.0,2506.2,4410.0,first_reward,First reward,2506.2,4410.0,True
+640day1,naive,Naive night,0,naive,0,naive,640,640,current_saved,True,,1,reward,3402.0,61.24,112.0,first_reward,First reward,61.24,112.0,True
+644day1,naive,Naive night,0,naive,0,naive,644,644,current_saved,True,,1,reward,5792.0,80.04,125.0,first_reward,First reward,80.04,125.0,True
+646day1,naive,Naive night,0,naive,0,naive,646,646,current_saved,True,,1,reward,28248.0,1127.76,1818.0,first_reward,First reward,1127.76,1818.0,True
+418-3day1,return,Return night,1,return,3,return,418,418,current_saved,True,,1,reward,10507.0,387.04,849.0,first_reward,First reward,387.04,849.0,True
+422-3day1,return,Return night,1,return,3,return,422,422,current_saved,True,,1,reward,1206.0,42.76,96.0,first_reward,First reward,42.76,96.0,True
+434-3day1,return,Return night,1,return,3,return,434,434,current_saved,True,,1,reward,14819.0,367.16,748.0,first_reward,First reward,367.16,748.0,True
+451-3day1,return,Return night,1,return,3,return,451,451,current_saved,True,,1,reward,1265.0,40.0,113.0,first_reward,First reward,40.0,113.0,True
+468-3day1,return,Return night,1,return,3,return,468,468,current_saved,True,,1,reward,16049.0,538.8,1414.0,first_reward,First reward,538.8,1414.0,True
+488-3day1,return,Return night,1,return,3,return,488,488,current_saved,True,,1,reward,4651.0,81.12,135.0,first_reward,First reward,81.12,135.0,True
+489-3day1,return,Return night,1,return,3,return,489,489,current_saved,True,,1,reward,4834.0,178.24,396.0,first_reward,First reward,178.24,396.0,True
+579-3day1,return,Return night,1,return,3,return,579,579,current_saved,True,,1,reward,6950.0,185.28,500.0,first_reward,First reward,185.28,500.0,True
+618-3day1,return,Return night,1,return,3,return,618,618,current_saved,True,,1,reward,7649.0,65.68,116.0,first_reward,First reward,65.68,116.0,True
+640-3day1,return,Return night,1,return,3,return,640,640,current_saved,True,,1,reward,8814.0,293.96,590.0,first_reward,First reward,293.96,590.0,True
+644-3day1,return,Return night,1,return,3,return,644,644,current_saved,True,,1,reward,13216.0,449.96,1110.0,first_reward,First reward,449.96,1110.0,True
+646-3day1,return,Return night,1,return,3,return,646,646,current_saved,True,,1,reward,11372.0,321.12,836.0,first_reward,First reward,321.12,836.0,True
+837-3day1,return,Return night,1,return,3,return,837,837,current_saved,True,,1,reward,15173.0,514.16,1439.0,first_reward,First reward,514.16,1439.0,True
+838-3day1,return,Return night,1,return,3,return,838,838,current_saved,True,,1,reward,4434.0,123.8,309.0,first_reward,First reward,123.8,309.0,True
+839-3day1,return,Return night,1,return,3,return,839,839,current_saved,True,,1,reward,24757.0,737.64,1454.0,first_reward,First reward,737.64,1454.0,True
+842-3day1,return,Return night,1,return,3,return,842,842,current_saved,True,,1,reward,4061.0,78.8,226.0,first_reward,First reward,78.8,226.0,True
+862-3day1,return,Return night,1,return,3,return,862,862,current_saved,True,,1,reward,29555.0,954.32,2246.0,first_reward,First reward,954.32,2246.0,True
+418-6day1,return,Return night,1,return,6,return,418,418,current_saved,True,,1,reward,9402.0,235.92,591.0,first_reward,First reward,235.92,591.0,True
+422-6day1,return,Return night,1,return,6,return,422,422,current_saved,True,,1,reward,88021.0,835.08,1494.0,first_reward,First reward,835.08,1494.0,True
+434-6day1,return,Return night,1,return,6,return,434,434,current_saved,True,,1,reward,30304.0,465.08,1202.0,first_reward,First reward,465.08,1202.0,True
+451-6day1,return,Return night,1,return,6,return,451,451,current_saved,True,,1,reward,5470.0,152.96,501.0,first_reward,First reward,152.96,501.0,True
+468-6day1,return,Return night,1,return,6,return,468,468,current_saved,True,,1,reward,18468.0,481.08,1168.0,first_reward,First reward,481.08,1168.0,True
+488-6day1,return,Return night,1,return,6,return,488,488,current_saved,True,,1,reward,14478.0,337.2,796.0,first_reward,First reward,337.2,796.0,True
+489-6day1,return,Return night,1,return,6,return,489,489,current_saved,True,,1,reward,9378.0,87.64,158.0,first_reward,First reward,87.64,158.0,True
+579-6day1,return,Return night,1,return,6,return,579,579,current_saved,True,,1,reward,25052.0,81.52,129.0,first_reward,First reward,81.52,129.0,True
+618-6day1,return,Return night,1,return,6,return,618,618,current_saved,True,,1,reward,6315.0,122.24,288.0,first_reward,First reward,122.24,288.0,True
+640-6day1,return,Return night,1,return,6,return,640,640,current_saved,True,,1,reward,7026.0,270.52,712.0,first_reward,First reward,270.52,712.0,True
+644-6day1,return,Return night,1,return,6,return,644,644,current_saved,True,,1,reward,2737.0,67.72,167.0,first_reward,First reward,67.72,167.0,True
+646-6day1,return,Return night,1,return,6,return,646,646,current_saved,True,,1,reward,10706.0,297.68,764.0,first_reward,First reward,297.68,764.0,True
+837-6day1,return,Return night,1,return,6,return,837,837,current_saved,True,,1,reward,7371.0,181.48,493.0,first_reward,First reward,181.48,493.0,True
+838-6day1,return,Return night,1,return,6,return,838,838,current_saved,True,,1,reward,4589.0,145.52,465.0,first_reward,First reward,145.52,465.0,True
+839-6day1,return,Return night,1,return,6,return,839,839,current_saved,True,,1,reward,15069.0,381.04,868.0,first_reward,First reward,381.04,868.0,True
+842-6day1,return,Return night,1,return,6,return,842,842,current_saved,True,,1,reward,25307.0,395.84,980.0,first_reward,First reward,395.84,980.0,True
+862-6day1,return,Return night,1,return,6,return,862,862,current_saved,True,,1,reward,6036.0,225.08,693.0,first_reward,First reward,225.08,693.0,True
+418-9day1,return,Return night,1,return,9,return,418,418,current_saved,True,,1,reward,7803.0,99.6,180.0,first_reward,First reward,99.6,180.0,True
+451-9day1,return,Return night,1,return,9,return,451,451,current_saved,True,,1,reward,1452.0,29.28,79.0,first_reward,First reward,29.28,79.0,True
+468-9day1,return,Return night,1,return,9,return,468,468,current_saved,True,,1,reward,860.0,15.84,27.0,first_reward,First reward,15.84,27.0,True
+488-9day1,return,Return night,1,return,9,return,488,488,current_saved,True,,1,reward,14342.0,367.72,880.0,first_reward,First reward,367.72,880.0,True
+579-9day1,return,Return night,1,return,9,return,579,579,current_saved,True,,1,reward,3102.0,71.2,134.0,first_reward,First reward,71.2,134.0,True
+640-9day1,return,Return night,1,return,9,return,640,640,current_saved,True,,1,reward,7904.0,316.16,914.0,first_reward,First reward,316.16,914.0,True
+644-9day1,return,Return night,1,return,9,return,644,644,current_saved,True,,1,reward,5707.0,203.56,489.0,first_reward,First reward,203.56,489.0,True
+646-9day1,return,Return night,1,return,9,return,646,646,current_saved,True,,1,reward,1693.0,22.2,41.0,first_reward,First reward,22.2,41.0,True
+837-9day1,return,Return night,1,return,9,return,837,837,current_saved,True,,1,reward,1553.0,41.44,135.0,first_reward,First reward,41.44,135.0,True
+838-9day1,return,Return night,1,return,9,return,838,838,current_saved,True,,1,reward,5852.0,163.12,504.0,first_reward,First reward,163.12,504.0,True
+839-9day1,return,Return night,1,return,9,return,839,839,current_saved,True,,1,reward,4057.0,32.32,74.0,first_reward,First reward,32.32,74.0,True
+842-9day1,return,Return night,1,return,9,return,842,842,current_saved,True,,1,reward,3213.0,27.56,37.0,first_reward,First reward,27.56,37.0,True
+418-12day1,return,Return night,1,return,12,return,418,418,current_saved,True,,1,reward,6952.0,184.96,511.0,first_reward,First reward,184.96,511.0,True
+451-12day1,return,Return night,1,return,12,return,451,451,current_saved,True,,1,reward,3955.0,153.88,456.0,first_reward,First reward,153.88,456.0,True
+468-12day1,return,Return night,1,return,12,return,468,468,current_saved,True,,1,reward,1807.0,71.08,209.0,first_reward,First reward,71.08,209.0,True
+618-12day1,return,Return night,1,return,12,return,618,618,current_saved,True,,1,reward,6212.0,172.24,429.0,first_reward,First reward,172.24,429.0,True
+640-12day1,return,Return night,1,return,12,return,640,640,current_saved,True,,1,reward,1329.0,35.36,93.0,first_reward,First reward,35.36,93.0,True
+644-12day1,return,Return night,1,return,12,return,644,644,current_saved,True,,1,reward,3529.0,141.08,333.0,first_reward,First reward,141.08,333.0,True
+646-12day1,return,Return night,1,return,12,return,646,646,current_saved,True,,1,reward,3393.0,135.2,346.0,first_reward,First reward,135.2,346.0,True
+1616day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1616,1616,current_saved,True,,1,reward,4912.0,100.32,168.0,first_reward,First reward,100.32,168.0,True
+1632Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1632,1632L,current_saved,True,,1,reward,1241.0,37.56,81.0,first_reward,First reward,37.56,81.0,True
+163RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,163,163RL,current_saved,True,,1,reward,2317.0,53.88,121.0,first_reward,First reward,53.88,121.0,True
+355RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,355,355RL,current_saved,True,,1,reward,4873.0,184.76,383.0,first_reward,First reward,184.76,383.0,True
+418RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,418,418RR,current_saved,True,,1,reward,5512.0,144.6,298.0,first_reward,First reward,144.6,298.0,True
+434RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,434,434RR,current_saved,True,,1,reward,1814.0,23.96,59.0,first_reward,First reward,23.96,59.0,True
+451Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,451,451R,current_saved,True,,1,reward,1933.0,38.0,96.0,first_reward,First reward,38.0,96.0,True
+468Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,468,468L,current_saved,True,,1,reward,4410.0,104.04,176.0,first_reward,First reward,104.04,176.0,True
+488Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,488,488R,current_saved,True,,1,reward,2734.0,30.56,46.0,first_reward,First reward,30.56,46.0,True
+489Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,489,489L,current_saved,True,,1,reward,3949.0,79.48,134.0,first_reward,First reward,79.48,134.0,True
+579RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,579,579RL,current_saved,True,,1,reward,4190.0,163.68,403.0,first_reward,First reward,163.68,403.0,True
+597day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,597,597,current_saved,True,,1,reward,2534.0,35.96,55.0,first_reward,First reward,35.96,55.0,True
+609day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,609,609,current_saved,True,,1,reward,1900.0,15.6,25.0,first_reward,First reward,15.6,25.0,True
+618day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,618,618,current_saved,True,,1,reward,4205.0,93.08,135.0,first_reward,First reward,93.08,135.0,True
+624day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,624,624,current_saved,True,,1,reward,1217.0,15.04,27.0,first_reward,First reward,15.04,27.0,True
+640day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,640,640,current_saved,True,,1,reward,2060.0,81.84,156.0,first_reward,First reward,81.84,156.0,True
+644day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,644,644,current_saved,True,,1,reward,2328.0,38.52,73.0,first_reward,First reward,38.52,73.0,True
+646day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,646,646,current_saved,True,,1,reward,528.0,21.04,29.0,first_reward,First reward,21.04,29.0,True
+418-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,418,418,current_saved,True,,1,reward,1287.0,25.52,47.0,first_reward,First reward,25.52,47.0,True
+422-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,422,422,current_saved,True,,1,reward,1373.0,13.64,27.0,first_reward,First reward,13.64,27.0,True
+434-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,434,434,current_saved,True,,1,reward,3159.0,93.84,247.0,first_reward,First reward,93.84,247.0,True
+451-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,451,451,current_saved,True,,1,reward,1969.0,72.52,165.0,first_reward,First reward,72.52,165.0,True
+468-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,468,468,current_saved,True,,1,reward,2360.0,32.76,69.0,first_reward,First reward,32.76,69.0,True
+488-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,488,488,current_saved,True,,1,reward,1647.0,39.84,80.0,first_reward,First reward,39.84,80.0,True
+489-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,489,489,current_saved,True,,1,reward,4716.0,76.28,180.0,first_reward,First reward,76.28,180.0,True
+579-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,579,579,current_saved,True,,1,reward,2038.0,60.72,131.0,first_reward,First reward,60.72,131.0,True
+618-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,618,618,current_saved,True,,1,reward,1071.0,9.6,23.0,first_reward,First reward,9.6,23.0,True
+640-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,640,640,current_saved,True,,1,reward,898.0,12.8,23.0,first_reward,First reward,12.8,23.0,True
+644-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,644,644,current_saved,True,,1,reward,1478.0,30.92,79.0,first_reward,First reward,30.92,79.0,True
+646-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,646,646,current_saved,True,,1,reward,1057.0,36.56,77.0,first_reward,First reward,36.56,77.0,True
+837-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,837,837,current_saved,True,,1,reward,2699.0,22.96,48.0,first_reward,First reward,22.96,48.0,True
+838-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,838,838,current_saved,True,,1,reward,1056.0,17.72,27.0,first_reward,First reward,17.72,27.0,True
+839-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,839,839,current_saved,True,,1,reward,4832.0,111.24,224.0,first_reward,First reward,111.24,224.0,True
+842-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,842,842,current_saved,True,,1,reward,3585.0,80.32,187.0,first_reward,First reward,80.32,187.0,True
+862-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,862,862,current_saved,True,,1,reward,1492.0,23.72,53.0,first_reward,First reward,23.72,53.0,True
+418-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,418,418,current_saved,True,,1,reward,2335.0,56.64,121.0,first_reward,First reward,56.64,121.0,True
+422-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,422,422,current_saved,True,,1,reward,6395.0,154.52,451.0,first_reward,First reward,154.52,451.0,True
+434-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,434,434,current_saved,True,,1,reward,4904.0,157.56,427.0,first_reward,First reward,157.56,427.0,True
+451-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,451,451,current_saved,True,,1,reward,1629.0,42.24,107.0,first_reward,First reward,42.24,107.0,True
+468-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,468,468,current_saved,True,,1,reward,813.0,21.08,44.0,first_reward,First reward,21.08,44.0,True
+488-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,488,488,current_saved,True,,1,reward,1488.0,23.4,46.0,first_reward,First reward,23.4,46.0,True
+489-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,489,489,current_saved,True,,1,reward,4821.0,59.16,143.0,first_reward,First reward,59.16,143.0,True
+579-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,579,579,current_saved,True,,1,reward,7081.0,48.68,65.0,first_reward,First reward,48.68,65.0,True
+618-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,618,618,current_saved,True,,1,reward,754.0,12.72,31.0,first_reward,First reward,12.72,31.0,True
+640-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,640,640,current_saved,True,,1,reward,643.0,25.72,64.0,first_reward,First reward,25.72,64.0,True
+644-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,644,644,current_saved,True,,1,reward,502.0,12.68,27.0,first_reward,First reward,12.68,27.0,True
+646-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,646,646,current_saved,True,,1,reward,847.0,12.2,25.0,first_reward,First reward,12.2,25.0,True
+837-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,837,837,current_saved,True,,1,reward,1787.0,39.76,125.0,first_reward,First reward,39.76,125.0,True
+838-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,838,838,current_saved,True,,1,reward,2242.0,73.48,207.0,first_reward,First reward,73.48,207.0,True
+839-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,839,839,current_saved,True,,1,reward,1050.0,34.88,105.0,first_reward,First reward,34.88,105.0,True
+842-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,842,842,current_saved,True,,1,reward,555.0,13.08,25.0,first_reward,First reward,13.08,25.0,True
+862-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,862,862,current_saved,True,,1,reward,1377.0,44.36,95.0,first_reward,First reward,44.36,95.0,True
+418-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,418,418,current_saved,True,,1,reward,2186.0,33.04,61.0,first_reward,First reward,33.04,61.0,True
+451-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,451,451,current_saved,True,,1,reward,655.0,12.96,30.0,first_reward,First reward,12.96,30.0,True
+468-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,468,468,current_saved,True,,1,reward,1390.0,37.96,80.0,first_reward,First reward,37.96,80.0,True
+488-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,488,488,current_saved,True,,1,reward,1152.0,12.6,23.0,first_reward,First reward,12.6,23.0,True
+579-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,579,579,current_saved,True,,1,reward,5045.0,165.96,325.0,first_reward,First reward,165.96,325.0,True
+640-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,640,640,current_saved,True,,1,reward,594.0,8.4,25.0,first_reward,First reward,8.4,25.0,True
+644-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,644,644,current_saved,True,,1,reward,631.0,13.76,29.0,first_reward,First reward,13.76,29.0,True
+646-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,646,646,current_saved,True,,1,reward,927.0,26.48,63.0,first_reward,First reward,26.48,63.0,True
+837-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,837,837,current_saved,True,,1,reward,8842.0,105.28,275.0,first_reward,First reward,105.28,275.0,True
+838-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,838,838,current_saved,True,,1,reward,1835.0,63.04,196.0,first_reward,First reward,63.04,196.0,True
+839-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,839,839,current_saved,True,,1,reward,2601.0,100.0,288.0,first_reward,First reward,100.0,288.0,True
+842-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,842,842,current_saved,True,,1,reward,1501.0,20.6,44.0,first_reward,First reward,20.6,44.0,True
+418-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,418,418,current_saved,True,,1,reward,1575.0,45.8,110.0,first_reward,First reward,45.8,110.0,True
+451-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,451,451,current_saved,True,,1,reward,1960.0,76.12,204.0,first_reward,First reward,76.12,204.0,True
+468-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,468,468,current_saved,True,,1,reward,3188.0,123.08,249.0,first_reward,First reward,123.08,249.0,True
+618-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,618,618,current_saved,True,,1,reward,798.0,15.76,27.0,first_reward,First reward,15.76,27.0,True
+640-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,640,640,current_saved,True,,1,reward,955.0,33.0,75.0,first_reward,First reward,33.0,75.0,True
+644-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,644,644,current_saved,True,,1,reward,1165.0,12.6,31.0,first_reward,First reward,12.6,31.0,True
+646-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,646,646,current_saved,True,,1,reward,3566.0,97.64,237.0,first_reward,First reward,97.64,237.0,True
+837-12day1,return,Return night,1,return,12,return,837,837,new_12mo,True,,1,reward,9492.0,225.36,550.0,first_reward,First reward,225.36,550.0,True
+838-12day1,return,Return night,1,return,12,return,838,838,new_12mo,True,,1,reward,3819.0,115.76,342.0,first_reward,First reward,115.76,342.0,True
+839-12day1,return,Return night,1,return,12,return,839,839,new_12mo,True,,1,reward,10137.0,239.08,557.0,first_reward,First reward,239.08,557.0,True
+837-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,837,837,new_12mo,True,,1,reward,1957.0,49.84,147.0,first_reward,First reward,49.84,147.0,True
+838-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,838,838,new_12mo,True,,1,reward,1905.0,66.8,186.0,first_reward,First reward,66.8,186.0,True
+839-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,839,839,new_12mo,True,,1,reward,2826.0,32.76,69.0,first_reward,First reward,32.76,69.0,True
+15strday1,naive,Naive night,0,naive,0,naive,15,15str,current_saved,True,,10,reward,83932.0,2854.2,5305.0,tenth_reward,Tenth reward,2854.2,5305.0,True
+1603,naive,Naive night,0,naive,0,naive,1603,1603,current_saved,True,,10,reward,92157.0,3187.2,5782.0,tenth_reward,Tenth reward,3187.2,5782.0,True
+1608,naive,Naive night,0,naive,0,naive,1608,1608,current_saved,True,,10,reward,60347.0,2003.84,3905.0,tenth_reward,Tenth reward,2003.84,3905.0,True
+1616day1,naive,Naive night,0,naive,0,naive,1616,1616,current_saved,True,,10,reward,67695.0,2655.04,4250.0,tenth_reward,Tenth reward,2655.04,4250.0,True
+1632Lday1,naive,Naive night,0,naive,0,naive,1632,1632L,current_saved,True,,10,reward,70540.0,2359.12,3994.0,tenth_reward,Tenth reward,2359.12,3994.0,True
+163RLday1,naive,Naive night,0,naive,0,naive,163,163RL,current_saved,True,,10,reward,89900.0,2987.04,5704.0,tenth_reward,Tenth reward,2987.04,5704.0,True
+202Lday1,naive,Naive night,0,naive,0,naive,202,202L,current_saved,True,,10,reward,107731.0,3648.32,5205.0,tenth_reward,Tenth reward,3648.32,5205.0,True
+355RLday1,naive,Naive night,0,naive,0,naive,355,355RL,current_saved,True,,10,reward,76328.0,2577.48,4878.0,tenth_reward,Tenth reward,2577.48,4878.0,True
+418RRday1,naive,Naive night,0,naive,0,naive,418,418RR,current_saved,True,,10,reward,186889.0,5036.64,8950.0,tenth_reward,Tenth reward,5036.64,8950.0,True
+434RRday1,naive,Naive night,0,naive,0,naive,434,434RR,current_saved,True,,10,reward,79306.0,2743.04,5593.0,tenth_reward,Tenth reward,2743.04,5593.0,True
+451Rday1,naive,Naive night,0,naive,0,naive,451,451R,current_saved,True,,10,reward,82383.0,3230.36,4834.0,tenth_reward,Tenth reward,3230.36,4834.0,True
+468Lday1,naive,Naive night,0,naive,0,naive,468,468L,current_saved,True,,10,reward,153874.0,5817.4,4887.0,tenth_reward,Tenth reward,5817.4,4887.0,True
+488Rday1,naive,Naive night,0,naive,0,naive,488,488R,current_saved,True,,10,reward,83527.0,3199.24,4855.0,tenth_reward,Tenth reward,3199.24,4855.0,True
+489Lday1,naive,Naive night,0,naive,0,naive,489,489L,current_saved,True,,10,reward,71118.0,2665.08,3420.0,tenth_reward,Tenth reward,2665.08,3420.0,True
+579RLday1,naive,Naive night,0,naive,0,naive,579,579RL,current_saved,True,,10,reward,252411.0,7537.64,12544.0,tenth_reward,Tenth reward,7537.64,12544.0,True
+597day1,naive,Naive night,0,naive,0,naive,597,597,current_saved,True,,10,reward,281721.0,5529.96,5400.0,tenth_reward,Tenth reward,5529.96,5400.0,True
+609day1,naive,Naive night,0,naive,0,naive,609,609,current_saved,True,,10,reward,71095.0,2404.52,4406.0,tenth_reward,Tenth reward,2404.52,4406.0,True
+618day1,naive,Naive night,0,naive,0,naive,618,618,current_saved,True,,10,reward,117933.0,3649.6,4928.0,tenth_reward,Tenth reward,3649.6,4928.0,True
+624day1,naive,Naive night,0,naive,0,naive,624,624,current_saved,True,,10,reward,105991.0,3927.32,4126.0,tenth_reward,Tenth reward,3927.32,4126.0,True
+628day1,naive,Naive night,0,naive,0,naive,628,628,current_saved,True,,10,reward,124373.0,3884.0,6557.0,tenth_reward,Tenth reward,3884.0,6557.0,True
+640day1,naive,Naive night,0,naive,0,naive,640,640,current_saved,True,,10,reward,26833.0,998.48,960.0,tenth_reward,Tenth reward,998.48,960.0,True
+644day1,naive,Naive night,0,naive,0,naive,644,644,current_saved,True,,10,reward,75310.0,2535.68,4643.0,tenth_reward,Tenth reward,2535.68,4643.0,True
+646day1,naive,Naive night,0,naive,0,naive,646,646,current_saved,True,,10,reward,50663.0,2024.36,2531.0,tenth_reward,Tenth reward,2024.36,2531.0,True
+418-3day1,return,Return night,1,return,3,return,418,418,current_saved,True,,10,reward,64409.0,1743.4,3557.0,tenth_reward,Tenth reward,1743.4,3557.0,True
+422-3day1,return,Return night,1,return,3,return,422,422,current_saved,True,,10,reward,36645.0,1311.84,2165.0,tenth_reward,Tenth reward,1311.84,2165.0,True
+434-3day1,return,Return night,1,return,3,return,434,434,current_saved,True,,10,reward,80139.0,2160.72,4006.0,tenth_reward,Tenth reward,2160.72,4006.0,True
+451-3day1,return,Return night,1,return,3,return,451,451,current_saved,True,,10,reward,36094.0,1278.32,2825.0,tenth_reward,Tenth reward,1278.32,2825.0,True
+468-3day1,return,Return night,1,return,3,return,468,468,current_saved,True,,10,reward,73286.0,2378.44,4878.0,tenth_reward,Tenth reward,2378.44,4878.0,True
+488-3day1,return,Return night,1,return,3,return,488,488,current_saved,True,,10,reward,67727.0,2131.52,4356.0,tenth_reward,Tenth reward,2131.52,4356.0,True
+489-3day1,return,Return night,1,return,3,return,489,489,current_saved,True,,10,reward,39886.0,1552.04,2570.0,tenth_reward,Tenth reward,1552.04,2570.0,True
+579-3day1,return,Return night,1,return,3,return,579,579,current_saved,True,,10,reward,73941.0,2649.44,6044.0,tenth_reward,Tenth reward,2649.44,6044.0,True
+618-3day1,return,Return night,1,return,3,return,618,618,current_saved,True,,10,reward,37779.0,1172.44,2421.0,tenth_reward,Tenth reward,1172.44,2421.0,True
+640-3day1,return,Return night,1,return,3,return,640,640,current_saved,True,,10,reward,55353.0,1630.92,2892.0,tenth_reward,Tenth reward,1630.92,2892.0,True
+644-3day1,return,Return night,1,return,3,return,644,644,current_saved,True,,10,reward,88922.0,2804.88,5709.0,tenth_reward,Tenth reward,2804.88,5709.0,True
+646-3day1,return,Return night,1,return,3,return,646,646,current_saved,True,,10,reward,62267.0,2130.12,4291.0,tenth_reward,Tenth reward,2130.12,4291.0,True
+837-3day1,return,Return night,1,return,3,return,837,837,current_saved,True,,10,reward,61571.0,1811.24,3761.0,tenth_reward,Tenth reward,1811.24,3761.0,True
+838-3day1,return,Return night,1,return,3,return,838,838,current_saved,True,,10,reward,56872.0,1828.92,4351.0,tenth_reward,Tenth reward,1828.92,4351.0,True
+839-3day1,return,Return night,1,return,3,return,839,839,current_saved,True,,10,reward,92880.0,2905.92,4890.0,tenth_reward,Tenth reward,2905.92,4890.0,True
+842-3day1,return,Return night,1,return,3,return,842,842,current_saved,True,,10,reward,58062.0,1659.52,3433.0,tenth_reward,Tenth reward,1659.52,3433.0,True
+862-3day1,return,Return night,1,return,3,return,862,862,current_saved,True,,10,reward,73117.0,2339.12,5298.0,tenth_reward,Tenth reward,2339.12,5298.0,True
+418-6day1,return,Return night,1,return,6,return,418,418,current_saved,True,,10,reward,46616.0,1396.44,2985.0,tenth_reward,Tenth reward,1396.44,2985.0,True
+422-6day1,return,Return night,1,return,6,return,422,422,current_saved,True,,10,reward,134815.0,2434.72,4704.0,tenth_reward,Tenth reward,2434.72,4704.0,True
+434-6day1,return,Return night,1,return,6,return,434,434,current_saved,True,,10,reward,76296.0,1741.52,3953.0,tenth_reward,Tenth reward,1741.52,3953.0,True
+451-6day1,return,Return night,1,return,6,return,451,451,current_saved,True,,10,reward,37505.0,1134.2,2802.0,tenth_reward,Tenth reward,1134.2,2802.0,True
+468-6day1,return,Return night,1,return,6,return,468,468,current_saved,True,,10,reward,55382.0,1553.8,3319.0,tenth_reward,Tenth reward,1553.8,3319.0,True
+488-6day1,return,Return night,1,return,6,return,488,488,current_saved,True,,10,reward,63068.0,1795.68,3608.0,tenth_reward,Tenth reward,1795.68,3608.0,True
+489-6day1,return,Return night,1,return,6,return,489,489,current_saved,True,,10,reward,62903.0,1651.56,2653.0,tenth_reward,Tenth reward,1651.56,2653.0,True
+579-6day1,return,Return night,1,return,6,return,579,579,current_saved,True,,10,reward,54245.0,1249.24,1319.0,tenth_reward,Tenth reward,1249.24,1319.0,True
+618-6day1,return,Return night,1,return,6,return,618,618,current_saved,True,,10,reward,46979.0,1552.56,2624.0,tenth_reward,Tenth reward,1552.56,2624.0,True
+640-6day1,return,Return night,1,return,6,return,640,640,current_saved,True,,10,reward,44697.0,1777.36,2693.0,tenth_reward,Tenth reward,1777.36,2693.0,True
+644-6day1,return,Return night,1,return,6,return,644,644,current_saved,True,,10,reward,53751.0,1667.24,3620.0,tenth_reward,Tenth reward,1667.24,3620.0,True
+646-6day1,return,Return night,1,return,6,return,646,646,current_saved,True,,10,reward,38966.0,1354.4,2424.0,tenth_reward,Tenth reward,1354.4,2424.0,True
+837-6day1,return,Return night,1,return,6,return,837,837,current_saved,True,,10,reward,39299.0,1082.36,2559.0,tenth_reward,Tenth reward,1082.36,2559.0,True
+838-6day1,return,Return night,1,return,6,return,838,838,current_saved,True,,10,reward,53304.0,1628.84,4321.0,tenth_reward,Tenth reward,1628.84,4321.0,True
+839-6day1,return,Return night,1,return,6,return,839,839,current_saved,True,,10,reward,44398.0,1158.28,2242.0,tenth_reward,Tenth reward,1158.28,2242.0,True
+842-6day1,return,Return night,1,return,6,return,842,842,current_saved,True,,10,reward,51660.0,1294.72,3027.0,tenth_reward,Tenth reward,1294.72,3027.0,True
+862-6day1,return,Return night,1,return,6,return,862,862,current_saved,True,,10,reward,47965.0,1450.4,3445.0,tenth_reward,Tenth reward,1450.4,3445.0,True
+418-9day1,return,Return night,1,return,9,return,418,418,current_saved,True,,10,reward,46297.0,1178.68,2424.0,tenth_reward,Tenth reward,1178.68,2424.0,True
+451-9day1,return,Return night,1,return,9,return,451,451,current_saved,True,,10,reward,35343.0,1166.16,3027.0,tenth_reward,Tenth reward,1166.16,3027.0,True
+468-9day1,return,Return night,1,return,9,return,468,468,current_saved,True,,10,reward,49621.0,1446.72,3660.0,tenth_reward,Tenth reward,1446.72,3660.0,True
+488-9day1,return,Return night,1,return,9,return,488,488,current_saved,True,,10,reward,52742.0,1768.32,3904.0,tenth_reward,Tenth reward,1768.32,3904.0,True
+579-9day1,return,Return night,1,return,9,return,579,579,current_saved,True,,10,reward,40126.0,976.84,1628.0,tenth_reward,Tenth reward,976.84,1628.0,True
+640-9day1,return,Return night,1,return,9,return,640,640,current_saved,True,,10,reward,46131.0,1642.52,3195.0,tenth_reward,Tenth reward,1642.52,3195.0,True
+644-9day1,return,Return night,1,return,9,return,644,644,current_saved,True,,10,reward,37862.0,1262.96,2301.0,tenth_reward,Tenth reward,1262.96,2301.0,True
+646-9day1,return,Return night,1,return,9,return,646,646,current_saved,True,,10,reward,35415.0,1069.68,1525.0,tenth_reward,Tenth reward,1069.68,1525.0,True
+837-9day1,return,Return night,1,return,9,return,837,837,current_saved,True,,10,reward,42283.0,1265.4,3368.0,tenth_reward,Tenth reward,1265.4,3368.0,True
+838-9day1,return,Return night,1,return,9,return,838,838,current_saved,True,,10,reward,34446.0,1194.24,3168.0,tenth_reward,Tenth reward,1194.24,3168.0,True
+839-9day1,return,Return night,1,return,9,return,839,839,current_saved,True,,10,reward,45064.0,1363.88,2955.0,tenth_reward,Tenth reward,1363.88,2955.0,True
+842-9day1,return,Return night,1,return,9,return,842,842,current_saved,True,,10,reward,41507.0,1324.24,3183.0,tenth_reward,Tenth reward,1324.24,3183.0,True
+418-12day1,return,Return night,1,return,12,return,418,418,current_saved,True,,10,reward,49191.0,1501.76,3271.0,tenth_reward,Tenth reward,1501.76,3271.0,True
+451-12day1,return,Return night,1,return,12,return,451,451,current_saved,True,,10,reward,38879.0,1168.08,2756.0,tenth_reward,Tenth reward,1168.08,2756.0,True
+468-12day1,return,Return night,1,return,12,return,468,468,current_saved,True,,10,reward,33107.0,1059.56,2632.0,tenth_reward,Tenth reward,1059.56,2632.0,True
+618-12day1,return,Return night,1,return,12,return,618,618,current_saved,True,,10,reward,43749.0,1296.0,2483.0,tenth_reward,Tenth reward,1296.0,2483.0,True
+640-12day1,return,Return night,1,return,12,return,640,640,current_saved,True,,10,reward,38989.0,1541.76,2205.0,tenth_reward,Tenth reward,1541.76,2205.0,True
+644-12day1,return,Return night,1,return,12,return,644,644,current_saved,True,,10,reward,40215.0,1470.56,1944.0,tenth_reward,Tenth reward,1470.56,1944.0,True
+646-12day1,return,Return night,1,return,12,return,646,646,current_saved,True,,10,reward,66693.0,1616.92,2573.0,tenth_reward,Tenth reward,1616.92,2573.0,True
+1616day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1616,1616,current_saved,True,,10,reward,34174.0,1132.92,1512.0,tenth_reward,Tenth reward,1132.92,1512.0,True
+1632Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1632,1632L,current_saved,True,,10,reward,28278.0,968.84,1905.0,tenth_reward,Tenth reward,968.84,1905.0,True
+163RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,163,163RL,current_saved,True,,10,reward,29312.0,1089.52,2257.0,tenth_reward,Tenth reward,1089.52,2257.0,True
+355RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,355,355RL,current_saved,True,,10,reward,32550.0,1211.76,2240.0,tenth_reward,Tenth reward,1211.76,2240.0,True
+418RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,418,418RR,current_saved,True,,10,reward,32139.0,1159.36,1696.0,tenth_reward,Tenth reward,1159.36,1696.0,True
+434RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,434,434RR,current_saved,True,,10,reward,24155.0,861.04,1585.0,tenth_reward,Tenth reward,861.04,1585.0,True
+451Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,451,451R,current_saved,True,,10,reward,26235.0,934.44,1578.0,tenth_reward,Tenth reward,934.44,1578.0,True
+468Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,468,468L,current_saved,True,,10,reward,41340.0,1072.4,1261.0,tenth_reward,Tenth reward,1072.4,1261.0,True
+488Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,488,488R,current_saved,True,,10,reward,30346.0,1006.44,1896.0,tenth_reward,Tenth reward,1006.44,1896.0,True
+489Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,489,489L,current_saved,True,,10,reward,37933.0,1183.8,1608.0,tenth_reward,Tenth reward,1183.8,1608.0,True
+579RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,579,579RL,current_saved,True,,10,reward,28316.0,1075.04,1840.0,tenth_reward,Tenth reward,1075.04,1840.0,True
+597day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,597,597,current_saved,True,,10,reward,48089.0,1560.84,1886.0,tenth_reward,Tenth reward,1560.84,1886.0,True
+609day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,609,609,current_saved,True,,10,reward,42311.0,1117.8,1977.0,tenth_reward,Tenth reward,1117.8,1977.0,True
+618day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,618,618,current_saved,True,,10,reward,49162.0,1402.56,2065.0,tenth_reward,Tenth reward,1402.56,2065.0,True
+624day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,624,624,current_saved,True,,10,reward,65700.0,1765.4,1850.0,tenth_reward,Tenth reward,1765.4,1850.0,True
+640day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,640,640,current_saved,True,,10,reward,39257.0,1067.76,1843.0,tenth_reward,Tenth reward,1067.76,1843.0,True
+644day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,644,644,current_saved,True,,10,reward,27697.0,962.88,1947.0,tenth_reward,Tenth reward,962.88,1947.0,True
+646day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,646,646,current_saved,True,,10,reward,38914.0,1333.08,2521.0,tenth_reward,Tenth reward,1333.08,2521.0,True
+418-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,418,418,current_saved,True,,10,reward,28344.0,794.44,1288.0,tenth_reward,Tenth reward,794.44,1288.0,True
+422-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,422,422,current_saved,True,,10,reward,25702.0,882.2,1264.0,tenth_reward,Tenth reward,882.2,1264.0,True
+434-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,434,434,current_saved,True,,10,reward,33424.0,1078.4,2051.0,tenth_reward,Tenth reward,1078.4,2051.0,True
+451-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,451,451,current_saved,True,,10,reward,32907.0,1171.04,1870.0,tenth_reward,Tenth reward,1171.04,1870.0,True
+468-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,468,468,current_saved,True,,10,reward,30637.0,1070.84,1624.0,tenth_reward,Tenth reward,1070.84,1624.0,True
+488-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,488,488,current_saved,True,,10,reward,27150.0,1022.0,1642.0,tenth_reward,Tenth reward,1022.0,1642.0,True
+489-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,489,489,current_saved,True,,10,reward,31053.0,1079.28,2089.0,tenth_reward,Tenth reward,1079.28,2089.0,True
+579-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,579,579,current_saved,True,,10,reward,29670.0,1024.24,2110.0,tenth_reward,Tenth reward,1024.24,2110.0,True
+618-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,618,618,current_saved,True,,10,reward,25471.0,922.52,2203.0,tenth_reward,Tenth reward,922.52,2203.0,True
+640-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,640,640,current_saved,True,,10,reward,26219.0,848.52,1916.0,tenth_reward,Tenth reward,848.52,1916.0,True
+644-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,644,644,current_saved,True,,10,reward,40829.0,1447.84,2383.0,tenth_reward,Tenth reward,1447.84,2383.0,True
+646-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,646,646,current_saved,True,,10,reward,38730.0,1198.4,2392.0,tenth_reward,Tenth reward,1198.4,2392.0,True
+837-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,837,837,current_saved,True,,10,reward,33034.0,906.72,2005.0,tenth_reward,Tenth reward,906.72,2005.0,True
+838-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,838,838,current_saved,True,,10,reward,33339.0,938.32,2651.0,tenth_reward,Tenth reward,938.32,2651.0,True
+839-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,839,839,current_saved,True,,10,reward,31709.0,885.6,1842.0,tenth_reward,Tenth reward,885.6,1842.0,True
+842-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,842,842,current_saved,True,,10,reward,33934.0,1049.88,2156.0,tenth_reward,Tenth reward,1049.88,2156.0,True
+862-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,862,862,current_saved,True,,10,reward,28466.0,982.76,2587.0,tenth_reward,Tenth reward,982.76,2587.0,True
+418-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,418,418,current_saved,True,,10,reward,33230.0,1046.4,2247.0,tenth_reward,Tenth reward,1046.4,2247.0,True
+422-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,422,422,current_saved,True,,10,reward,33723.0,1174.84,2715.0,tenth_reward,Tenth reward,1174.84,2715.0,True
+434-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,434,434,current_saved,True,,10,reward,40881.0,1112.68,2317.0,tenth_reward,Tenth reward,1112.68,2317.0,True
+451-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,451,451,current_saved,True,,10,reward,25095.0,846.88,1625.0,tenth_reward,Tenth reward,846.88,1625.0,True
+468-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,468,468,current_saved,True,,10,reward,24845.0,879.2,1849.0,tenth_reward,Tenth reward,879.2,1849.0,True
+488-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,488,488,current_saved,True,,10,reward,25148.0,932.52,1690.0,tenth_reward,Tenth reward,932.52,1690.0,True
+489-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,489,489,current_saved,True,,10,reward,28598.0,955.04,1600.0,tenth_reward,Tenth reward,955.04,1600.0,True
+579-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,579,579,current_saved,True,,10,reward,39627.0,1131.8,1262.0,tenth_reward,Tenth reward,1131.8,1262.0,True
+618-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,618,618,current_saved,True,,10,reward,32329.0,1074.96,1397.0,tenth_reward,Tenth reward,1074.96,1397.0,True
+640-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,640,640,current_saved,True,,10,reward,28126.0,909.72,2230.0,tenth_reward,Tenth reward,909.72,2230.0,True
+644-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,644,644,current_saved,True,,10,reward,26447.0,956.16,2057.0,tenth_reward,Tenth reward,956.16,2057.0,True
+646-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,646,646,current_saved,True,,10,reward,28768.0,809.08,1595.0,tenth_reward,Tenth reward,809.08,1595.0,True
+837-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,837,837,current_saved,True,,10,reward,31634.0,1068.72,2320.0,tenth_reward,Tenth reward,1068.72,2320.0,True
+838-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,838,838,current_saved,True,,10,reward,24008.0,697.48,2007.0,tenth_reward,Tenth reward,697.48,2007.0,True
+839-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,839,839,current_saved,True,,10,reward,22833.0,864.56,968.0,tenth_reward,Tenth reward,864.56,968.0,True
+842-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,842,842,current_saved,True,,10,reward,26509.0,818.36,1923.0,tenth_reward,Tenth reward,818.36,1923.0,True
+862-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,862,862,current_saved,True,,10,reward,30516.0,956.16,2243.0,tenth_reward,Tenth reward,956.16,2243.0,True
+418-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,418,418,current_saved,True,,10,reward,32358.0,1140.32,2077.0,tenth_reward,Tenth reward,1140.32,2077.0,True
+451-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,451,451,current_saved,True,,10,reward,25857.0,877.6,1746.0,tenth_reward,Tenth reward,877.6,1746.0,True
+468-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,468,468,current_saved,True,,10,reward,25531.0,895.88,1773.0,tenth_reward,Tenth reward,895.88,1773.0,True
+488-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,488,488,current_saved,True,,10,reward,27334.0,949.72,2361.0,tenth_reward,Tenth reward,949.72,2361.0,True
+579-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,579,579,current_saved,True,,10,reward,28767.0,906.32,1311.0,tenth_reward,Tenth reward,906.32,1311.0,True
+640-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,640,640,current_saved,True,,10,reward,25569.0,753.08,2114.0,tenth_reward,Tenth reward,753.08,2114.0,True
+644-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,644,644,current_saved,True,,10,reward,25113.0,912.72,1674.0,tenth_reward,Tenth reward,912.72,1674.0,True
+646-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,646,646,current_saved,True,,10,reward,27448.0,893.2,1194.0,tenth_reward,Tenth reward,893.2,1194.0,True
+837-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,837,837,current_saved,True,,10,reward,36476.0,776.92,1623.0,tenth_reward,Tenth reward,776.92,1623.0,True
+838-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,838,838,current_saved,True,,10,reward,24431.0,792.36,1855.0,tenth_reward,Tenth reward,792.36,1855.0,True
+839-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,839,839,current_saved,True,,10,reward,25856.0,883.44,1442.0,tenth_reward,Tenth reward,883.44,1442.0,True
+842-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,842,842,current_saved,True,,10,reward,29735.0,976.56,2350.0,tenth_reward,Tenth reward,976.56,2350.0,True
+418-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,418,418,current_saved,True,,10,reward,30604.0,1016.16,2315.0,tenth_reward,Tenth reward,1016.16,2315.0,True
+451-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,451,451,current_saved,True,,10,reward,32662.0,993.0,2498.0,tenth_reward,Tenth reward,993.0,2498.0,True
+468-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,468,468,current_saved,True,,10,reward,35049.0,928.24,2112.0,tenth_reward,Tenth reward,928.24,2112.0,True
+618-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,618,618,current_saved,True,,10,reward,32188.0,730.0,1633.0,tenth_reward,Tenth reward,730.0,1633.0,True
+640-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,640,640,current_saved,True,,10,reward,28244.0,669.2,1720.0,tenth_reward,Tenth reward,669.2,1720.0,True
+644-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,644,644,current_saved,True,,10,reward,27802.0,857.12,2064.0,tenth_reward,Tenth reward,857.12,2064.0,True
+646-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,646,646,current_saved,True,,10,reward,29729.0,974.72,1260.0,tenth_reward,Tenth reward,974.72,1260.0,True
+837-12day1,return,Return night,1,return,12,return,837,837,new_12mo,True,,10,reward,54372.0,933.28,2136.0,tenth_reward,Tenth reward,933.28,2136.0,True
+838-12day1,return,Return night,1,return,12,return,838,838,new_12mo,True,,10,reward,40938.0,1142.28,2847.0,tenth_reward,Tenth reward,1142.28,2847.0,True
+839-12day1,return,Return night,1,return,12,return,839,839,new_12mo,True,,10,reward,44307.0,1273.64,2085.0,tenth_reward,Tenth reward,1273.64,2085.0,True
+837-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,837,837,new_12mo,True,,10,reward,33357.0,686.28,1498.0,tenth_reward,Tenth reward,686.28,1498.0,True
+838-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,838,838,new_12mo,True,,10,reward,29353.0,780.04,2083.0,tenth_reward,Tenth reward,780.04,2083.0,True
+839-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,839,839,new_12mo,True,,10,reward,24652.0,894.28,997.0,tenth_reward,Tenth reward,894.28,997.0,True
+15strday1,naive,Naive night,0,naive,0,naive,15,15str,current_saved,True,,1,long_path_reward,30313.0,1010.08,1945.0,first_long_bout,First long bout,1010.08,1945.0,True
+1603,naive,Naive night,0,naive,0,naive,1603,1603,current_saved,True,,1,long_path_reward,138065.0,4422.0,8201.0,first_long_bout,First long bout,4422.0,8201.0,True
+1608,naive,Naive night,0,naive,0,naive,1608,1608,current_saved,True,,1,long_path_reward,19273.0,668.64,1482.0,first_long_bout,First long bout,668.64,1482.0,True
+1616day1,naive,Naive night,0,naive,0,naive,1616,1616,current_saved,True,,1,long_path_reward,102073.0,3030.88,4837.0,first_long_bout,First long bout,3030.88,4837.0,True
+1632Lday1,naive,Naive night,0,naive,0,naive,1632,1632L,current_saved,True,,1,long_path_reward,2585.0,91.8,211.0,first_long_bout,First long bout,91.8,211.0,True
+163RLday1,naive,Naive night,0,naive,0,naive,163,163RL,current_saved,True,,1,long_path_reward,153204.0,4788.72,9502.0,first_long_bout,First long bout,4788.72,9502.0,True
+202Lday1,naive,Naive night,0,naive,0,naive,202,202L,current_saved,True,,1,long_path_reward,35073.0,1362.12,2265.0,first_long_bout,First long bout,1362.12,2265.0,True
+355RLday1,naive,Naive night,0,naive,0,naive,355,355RL,current_saved,True,,1,long_path_reward,34920.0,1366.08,2790.0,first_long_bout,First long bout,1366.08,2790.0,True
+418RRday1,naive,Naive night,0,naive,0,naive,418,418RR,current_saved,True,,1,long_path_reward,60143.0,2329.64,4047.0,first_long_bout,First long bout,2329.64,4047.0,True
+434RRday1,naive,Naive night,0,naive,0,naive,434,434RR,current_saved,True,,1,long_path_reward,52434.0,1956.56,4093.0,first_long_bout,First long bout,1956.56,4093.0,True
+451Rday1,naive,Naive night,0,naive,0,naive,451,451R,current_saved,True,,1,long_path_reward,45993.0,1774.76,3516.0,first_long_bout,First long bout,1774.76,3516.0,True
+468Lday1,naive,Naive night,0,naive,0,naive,468,468L,current_saved,True,,1,long_path_reward,31563.0,924.96,1458.0,first_long_bout,First long bout,924.96,1458.0,True
+488Rday1,naive,Naive night,0,naive,0,naive,488,488R,current_saved,True,,1,long_path_reward,77577.0,2961.24,4484.0,first_long_bout,First long bout,2961.24,4484.0,True
+489Lday1,naive,Naive night,0,naive,0,naive,489,489L,current_saved,True,,1,long_path_reward,33177.0,1147.44,1689.0,first_long_bout,First long bout,1147.44,1689.0,True
+579RLday1,naive,Naive night,0,naive,0,naive,579,579RL,current_saved,True,,1,long_path_reward,13706.0,527.2,1293.0,first_long_bout,First long bout,527.2,1293.0,True
+597day1,naive,Naive night,0,naive,0,naive,597,597,current_saved,True,,1,long_path_reward,139779.0,1767.48,2126.0,first_long_bout,First long bout,1767.48,2126.0,True
+609day1,naive,Naive night,0,naive,0,naive,609,609,current_saved,True,,1,long_path_reward,54757.0,2096.44,3908.0,first_long_bout,First long bout,2096.44,3908.0,True
+618day1,naive,Naive night,0,naive,0,naive,618,618,current_saved,True,,1,long_path_reward,61795.0,2057.48,3054.0,first_long_bout,First long bout,2057.48,3054.0,True
+624day1,naive,Naive night,0,naive,0,naive,624,624,current_saved,True,,1,long_path_reward,122093.0,4184.64,4429.0,first_long_bout,First long bout,4184.64,4429.0,True
+628day1,naive,Naive night,0,naive,0,naive,628,628,current_saved,True,,1,long_path_reward,73866.0,2504.2,4410.0,first_long_bout,First long bout,2504.2,4410.0,True
+640day1,naive,Naive night,0,naive,0,naive,640,640,current_saved,True,,1,long_path_reward,73481.0,2864.4,2644.0,first_long_bout,First long bout,2864.4,2644.0,True
+644day1,naive,Naive night,0,naive,0,naive,644,644,current_saved,True,,1,long_path_reward,13332.0,381.64,741.0,first_long_bout,First long bout,381.64,741.0,True
+646day1,naive,Naive night,0,naive,0,naive,646,646,current_saved,True,,1,long_path_reward,38228.0,1526.96,2199.0,first_long_bout,First long bout,1526.96,2199.0,True
+418-3day1,return,Return night,1,return,3,return,418,418,current_saved,True,,1,long_path_reward,10445.0,384.56,849.0,first_long_bout,First long bout,384.56,849.0,True
+422-3day1,return,Return night,1,return,3,return,422,422,current_saved,True,,1,long_path_reward,12052.0,445.44,866.0,first_long_bout,First long bout,445.44,866.0,True
+434-3day1,return,Return night,1,return,3,return,434,434,current_saved,True,,1,long_path_reward,14783.0,365.72,748.0,first_long_bout,First long bout,365.72,748.0,True
+451-3day1,return,Return night,1,return,3,return,451,451,current_saved,True,,1,long_path_reward,1159.0,35.76,112.0,first_long_bout,First long bout,35.76,112.0,True
+468-3day1,return,Return night,1,return,3,return,468,468,current_saved,True,,1,long_path_reward,23989.0,830.84,2067.0,first_long_bout,First long bout,830.84,2067.0,True
+488-3day1,return,Return night,1,return,3,return,488,488,current_saved,True,,1,long_path_reward,25197.0,829.0,1978.0,first_long_bout,First long bout,829.0,1978.0,True
+489-3day1,return,Return night,1,return,3,return,489,489,current_saved,True,,1,long_path_reward,19559.0,738.96,1572.0,first_long_bout,First long bout,738.96,1572.0,True
+579-3day1,return,Return night,1,return,3,return,579,579,current_saved,True,,1,long_path_reward,9827.0,300.36,763.0,first_long_bout,First long bout,300.36,763.0,True
+618-3day1,return,Return night,1,return,3,return,618,618,current_saved,True,,1,long_path_reward,7565.0,62.32,115.0,first_long_bout,First long bout,62.32,115.0,True
+640-3day1,return,Return night,1,return,3,return,640,640,current_saved,True,,1,long_path_reward,23473.0,849.0,1552.0,first_long_bout,First long bout,849.0,1552.0,True
+644-3day1,return,Return night,1,return,3,return,644,644,current_saved,True,,1,long_path_reward,21123.0,730.24,1713.0,first_long_bout,First long bout,730.24,1713.0,True
+646-3day1,return,Return night,1,return,3,return,646,646,current_saved,True,,1,long_path_reward,11289.0,317.8,834.0,first_long_bout,First long bout,317.8,834.0,True
+837-3day1,return,Return night,1,return,3,return,837,837,current_saved,True,,1,long_path_reward,14806.0,499.48,1423.0,first_long_bout,First long bout,499.48,1423.0,True
+838-3day1,return,Return night,1,return,3,return,838,838,current_saved,True,,1,long_path_reward,4380.0,121.64,309.0,first_long_bout,First long bout,121.64,309.0,True
+839-3day1,return,Return night,1,return,3,return,839,839,current_saved,True,,1,long_path_reward,52655.0,1560.76,2800.0,first_long_bout,First long bout,1560.76,2800.0,True
+842-3day1,return,Return night,1,return,3,return,842,842,current_saved,True,,1,long_path_reward,40743.0,1126.16,2417.0,first_long_bout,First long bout,1126.16,2417.0,True
+862-3day1,return,Return night,1,return,3,return,862,862,current_saved,True,,1,long_path_reward,61686.0,1986.04,4512.0,first_long_bout,First long bout,1986.04,4512.0,True
+418-6day1,return,Return night,1,return,6,return,418,418,current_saved,True,,1,long_path_reward,27569.0,905.92,1962.0,first_long_bout,First long bout,905.92,1962.0,True
+422-6day1,return,Return night,1,return,6,return,422,422,current_saved,True,,1,long_path_reward,87934.0,831.6,1493.0,first_long_bout,First long bout,831.6,1493.0,True
+434-6day1,return,Return night,1,return,6,return,434,434,current_saved,True,,1,long_path_reward,32902.0,558.04,1421.0,first_long_bout,First long bout,558.04,1421.0,True
+451-6day1,return,Return night,1,return,6,return,451,451,current_saved,True,,1,long_path_reward,5420.0,150.96,500.0,first_long_bout,First long bout,150.96,500.0,True
+468-6day1,return,Return night,1,return,6,return,468,468,current_saved,True,,1,long_path_reward,18416.0,479.0,1167.0,first_long_bout,First long bout,479.0,1167.0,True
+488-6day1,return,Return night,1,return,6,return,488,488,current_saved,True,,1,long_path_reward,27957.0,782.96,1668.0,first_long_bout,First long bout,782.96,1668.0,True
+489-6day1,return,Return night,1,return,6,return,489,489,current_saved,True,,1,long_path_reward,33942.0,999.32,1537.0,first_long_bout,First long bout,999.32,1537.0,True
+579-6day1,return,Return night,1,return,6,return,579,579,current_saved,True,,1,long_path_reward,25014.0,80.0,129.0,first_long_bout,First long bout,80.0,129.0,True
+618-6day1,return,Return night,1,return,6,return,618,618,current_saved,True,,1,long_path_reward,7367.0,164.32,358.0,first_long_bout,First long bout,164.32,358.0,True
+640-6day1,return,Return night,1,return,6,return,640,640,current_saved,True,,1,long_path_reward,6971.0,268.32,712.0,first_long_bout,First long bout,268.32,712.0,True
+644-6day1,return,Return night,1,return,6,return,644,644,current_saved,True,,1,long_path_reward,2701.0,66.28,167.0,first_long_bout,First long bout,66.28,167.0,True
+646-6day1,return,Return night,1,return,6,return,646,646,current_saved,True,,1,long_path_reward,12063.0,351.96,861.0,first_long_bout,First long bout,351.96,861.0,True
+837-6day1,return,Return night,1,return,6,return,837,837,current_saved,True,,1,long_path_reward,7304.0,178.8,493.0,first_long_bout,First long bout,178.8,493.0,True
+838-6day1,return,Return night,1,return,6,return,838,838,current_saved,True,,1,long_path_reward,15060.0,506.24,1520.0,first_long_bout,First long bout,506.24,1520.0,True
+839-6day1,return,Return night,1,return,6,return,839,839,current_saved,True,,1,long_path_reward,17280.0,463.28,1015.0,first_long_bout,First long bout,463.28,1015.0,True
+842-6day1,return,Return night,1,return,6,return,842,842,current_saved,True,,1,long_path_reward,33635.0,711.92,1629.0,first_long_bout,First long bout,711.92,1629.0,True
+862-6day1,return,Return night,1,return,6,return,862,862,current_saved,True,,1,long_path_reward,6003.0,223.76,693.0,first_long_bout,First long bout,223.76,693.0,True
+418-9day1,return,Return night,1,return,9,return,418,418,current_saved,True,,1,long_path_reward,15208.0,354.48,738.0,first_long_bout,First long bout,354.48,738.0,True
+451-9day1,return,Return night,1,return,9,return,451,451,current_saved,True,,1,long_path_reward,6822.0,212.8,639.0,first_long_bout,First long bout,212.8,639.0,True
+468-9day1,return,Return night,1,return,9,return,468,468,current_saved,True,,1,long_path_reward,5904.0,217.6,663.0,first_long_bout,First long bout,217.6,663.0,True
+488-9day1,return,Return night,1,return,9,return,488,488,current_saved,True,,1,long_path_reward,18641.0,531.04,1227.0,first_long_bout,First long bout,531.04,1227.0,True
+579-9day1,return,Return night,1,return,9,return,579,579,current_saved,True,,1,long_path_reward,3056.0,69.36,134.0,first_long_bout,First long bout,69.36,134.0,True
+640-9day1,return,Return night,1,return,9,return,640,640,current_saved,True,,1,long_path_reward,7871.0,314.84,914.0,first_long_bout,First long bout,314.84,914.0,True
+644-9day1,return,Return night,1,return,9,return,644,644,current_saved,True,,1,long_path_reward,5626.0,200.32,489.0,first_long_bout,First long bout,200.32,489.0,True
+646-9day1,return,Return night,1,return,9,return,646,646,current_saved,True,,1,long_path_reward,1658.0,20.8,41.0,first_long_bout,First long bout,20.8,41.0,True
+837-9day1,return,Return night,1,return,9,return,837,837,current_saved,True,,1,long_path_reward,3035.0,100.72,337.0,first_long_bout,First long bout,100.72,337.0,True
+838-9day1,return,Return night,1,return,9,return,838,838,current_saved,True,,1,long_path_reward,11157.0,353.6,986.0,first_long_bout,First long bout,353.6,986.0,True
+839-9day1,return,Return night,1,return,9,return,839,839,current_saved,True,,1,long_path_reward,9697.0,257.92,704.0,first_long_bout,First long bout,257.92,704.0,True
+842-9day1,return,Return night,1,return,9,return,842,842,current_saved,True,,1,long_path_reward,3750.0,49.04,79.0,first_long_bout,First long bout,49.04,79.0,True
+418-12day1,return,Return night,1,return,12,return,418,418,current_saved,True,,1,long_path_reward,6909.0,183.24,511.0,first_long_bout,First long bout,183.24,511.0,True
+451-12day1,return,Return night,1,return,12,return,451,451,current_saved,True,,1,long_path_reward,5785.0,211.28,586.0,first_long_bout,First long bout,211.28,586.0,True
+468-12day1,return,Return night,1,return,12,return,468,468,current_saved,True,,1,long_path_reward,1779.0,69.96,209.0,first_long_bout,First long bout,69.96,209.0,True
+618-12day1,return,Return night,1,return,12,return,618,618,current_saved,True,,1,long_path_reward,11460.0,382.16,894.0,first_long_bout,First long bout,382.16,894.0,True
+640-12day1,return,Return night,1,return,12,return,640,640,current_saved,True,,1,long_path_reward,993.0,21.92,51.0,first_long_bout,First long bout,21.92,51.0,True
+644-12day1,return,Return night,1,return,12,return,644,644,current_saved,True,,1,long_path_reward,3498.0,139.84,333.0,first_long_bout,First long bout,139.84,333.0,True
+646-12day1,return,Return night,1,return,12,return,646,646,current_saved,True,,1,long_path_reward,9712.0,333.12,805.0,first_long_bout,First long bout,333.12,805.0,True
+1616day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1616,1616,current_saved,True,,1,long_path_reward,6057.0,146.12,255.0,first_long_bout,First long bout,146.12,255.0,True
+1632Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,1632,1632L,current_saved,True,,1,long_path_reward,2292.0,79.6,177.0,first_long_bout,First long bout,79.6,177.0,True
+163RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,163,163RL,current_saved,True,,1,long_path_reward,5739.0,173.88,413.0,first_long_bout,First long bout,173.88,413.0,True
+355RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,355,355RL,current_saved,True,,1,long_path_reward,4521.0,170.68,383.0,first_long_bout,First long bout,170.68,383.0,True
+418RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,418,418RR,current_saved,True,,1,long_path_reward,5466.0,142.76,298.0,first_long_bout,First long bout,142.76,298.0,True
+434RRday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,434,434RR,current_saved,True,,1,long_path_reward,1778.0,22.52,59.0,first_long_bout,First long bout,22.52,59.0,True
+451Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,451,451R,current_saved,True,,1,long_path_reward,1893.0,36.4,95.0,first_long_bout,First long bout,36.4,95.0,True
+468Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,468,468L,current_saved,True,,1,long_path_reward,4355.0,101.84,174.0,first_long_bout,First long bout,101.84,174.0,True
+488Rday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,488,488R,current_saved,True,,1,long_path_reward,4900.0,117.2,240.0,first_long_bout,First long bout,117.2,240.0,True
+489Lday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,489,489L,current_saved,True,,1,long_path_reward,9941.0,319.16,585.0,first_long_bout,First long bout,319.16,585.0,True
+579RLday2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,579,579RL,current_saved,True,,1,long_path_reward,4763.0,186.6,442.0,first_long_bout,First long bout,186.6,442.0,True
+597day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,597,597,current_saved,True,,1,long_path_reward,9276.0,305.64,490.0,first_long_bout,First long bout,305.64,490.0,True
+609day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,609,609,current_saved,True,,1,long_path_reward,5948.0,143.52,294.0,first_long_bout,First long bout,143.52,294.0,True
+618day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,618,618,current_saved,True,,1,long_path_reward,5999.0,164.84,248.0,first_long_bout,First long bout,164.84,248.0,True
+624day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,624,624,current_saved,True,,1,long_path_reward,6609.0,203.2,320.0,first_long_bout,First long bout,203.2,320.0,True
+640day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,640,640,current_saved,True,,1,long_path_reward,4805.0,180.4,322.0,first_long_bout,First long bout,180.4,322.0,True
+644day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,644,644,current_saved,True,,1,long_path_reward,4364.0,119.96,225.0,first_long_bout,First long bout,119.96,225.0,True
+646day2,experienced_day2,Second night,2,experienced_day2,0,experienced_day2,646,646,current_saved,True,,1,long_path_reward,1532.0,61.2,102.0,first_long_bout,First long bout,61.2,102.0,True
+418-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,418,418,current_saved,True,,1,long_path_reward,1203.0,22.16,47.0,first_long_bout,First long bout,22.16,47.0,True
+422-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,422,422,current_saved,True,,1,long_path_reward,2682.0,53.76,115.0,first_long_bout,First long bout,53.76,115.0,True
+434-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,434,434,current_saved,True,,1,long_path_reward,5696.0,175.72,433.0,first_long_bout,First long bout,175.72,433.0,True
+451-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,451,451,current_saved,True,,1,long_path_reward,4865.0,188.36,291.0,first_long_bout,First long bout,188.36,291.0,True
+468-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,468,468,current_saved,True,,1,long_path_reward,2326.0,31.4,69.0,first_long_bout,First long bout,31.4,69.0,True
+488-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,488,488,current_saved,True,,1,long_path_reward,1617.0,38.64,80.0,first_long_bout,First long bout,38.64,80.0,True
+489-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,489,489,current_saved,True,,1,long_path_reward,5779.0,118.8,274.0,first_long_bout,First long bout,118.8,274.0,True
+579-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,579,579,current_saved,True,,1,long_path_reward,3450.0,117.2,242.0,first_long_bout,First long bout,117.2,242.0,True
+618-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,618,618,current_saved,True,,1,long_path_reward,2179.0,53.92,136.0,first_long_bout,First long bout,53.92,136.0,True
+640-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,640,640,current_saved,True,,1,long_path_reward,2267.0,67.56,115.0,first_long_bout,First long bout,67.56,115.0,True
+644-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,644,644,current_saved,True,,1,long_path_reward,5301.0,170.48,343.0,first_long_bout,First long bout,170.48,343.0,True
+646-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,646,646,current_saved,True,,1,long_path_reward,1034.0,35.64,77.0,first_long_bout,First long bout,35.64,77.0,True
+837-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,837,837,current_saved,True,,1,long_path_reward,2660.0,21.4,47.0,first_long_bout,First long bout,21.4,47.0,True
+838-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,838,838,current_saved,True,,1,long_path_reward,1929.0,52.64,126.0,first_long_bout,First long bout,52.64,126.0,True
+839-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,839,839,current_saved,True,,1,long_path_reward,4786.0,109.4,224.0,first_long_bout,First long bout,109.4,224.0,True
+842-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,842,842,current_saved,True,,1,long_path_reward,3550.0,78.92,187.0,first_long_bout,First long bout,78.92,187.0,True
+862-3day2,experienced_day2,Second night,2,experienced_day2,3,experienced_day2,862,862,current_saved,True,,1,long_path_reward,1456.0,22.28,53.0,first_long_bout,First long bout,22.28,53.0,True
+418-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,418,418,current_saved,True,,1,long_path_reward,2298.0,55.16,121.0,first_long_bout,First long bout,55.16,121.0,True
+422-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,422,422,current_saved,True,,1,long_path_reward,6358.0,153.04,451.0,first_long_bout,First long bout,153.04,451.0,True
+434-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,434,434,current_saved,True,,1,long_path_reward,5935.0,198.8,496.0,first_long_bout,First long bout,198.8,496.0,True
+451-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,451,451,current_saved,True,,1,long_path_reward,2076.0,60.12,135.0,first_long_bout,First long bout,60.12,135.0,True
+468-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,468,468,current_saved,True,,1,long_path_reward,776.0,19.6,43.0,first_long_bout,First long bout,19.6,43.0,True
+488-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,488,488,current_saved,True,,1,long_path_reward,1452.0,21.96,45.0,first_long_bout,First long bout,21.96,45.0,True
+489-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,489,489,current_saved,True,,1,long_path_reward,8050.0,175.92,367.0,first_long_bout,First long bout,175.92,367.0,True
+579-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,579,579,current_saved,True,,1,long_path_reward,12490.0,265.04,164.0,first_long_bout,First long bout,265.04,164.0,True
+618-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,618,618,current_saved,True,,1,long_path_reward,1495.0,42.36,101.0,first_long_bout,First long bout,42.36,101.0,True
+640-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,640,640,current_saved,True,,1,long_path_reward,617.0,24.68,64.0,first_long_bout,First long bout,24.68,64.0,True
+644-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,644,644,current_saved,True,,1,long_path_reward,1968.0,64.24,164.0,first_long_bout,First long bout,64.24,164.0,True
+646-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,646,646,current_saved,True,,1,long_path_reward,1676.0,45.36,93.0,first_long_bout,First long bout,45.36,93.0,True
+837-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,837,837,current_saved,True,,1,long_path_reward,3317.0,100.96,240.0,first_long_bout,First long bout,100.96,240.0,True
+838-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,838,838,current_saved,True,,1,long_path_reward,2215.0,72.4,207.0,first_long_bout,First long bout,72.4,207.0,True
+839-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,839,839,current_saved,True,,1,long_path_reward,5726.0,197.28,332.0,first_long_bout,First long bout,197.28,332.0,True
+842-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,842,842,current_saved,True,,1,long_path_reward,1283.0,42.2,108.0,first_long_bout,First long bout,42.2,108.0,True
+862-6day2,experienced_day2,Second night,2,experienced_day2,6,experienced_day2,862,862,current_saved,True,,1,long_path_reward,2292.0,80.96,194.0,first_long_bout,First long bout,80.96,194.0,True
+418-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,418,418,current_saved,True,,1,long_path_reward,2164.0,32.16,61.0,first_long_bout,First long bout,32.16,61.0,True
+451-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,451,451,current_saved,True,,1,long_path_reward,3773.0,131.6,267.0,first_long_bout,First long bout,131.6,267.0,True
+468-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,468,468,current_saved,True,,1,long_path_reward,2893.0,98.08,197.0,first_long_bout,First long bout,98.08,197.0,True
+488-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,488,488,current_saved,True,,1,long_path_reward,2292.0,51.0,134.0,first_long_bout,First long bout,51.0,134.0,True
+579-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,579,579,current_saved,True,,1,long_path_reward,6488.0,223.68,406.0,first_long_bout,First long bout,223.68,406.0,True
+640-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,640,640,current_saved,True,,1,long_path_reward,1567.0,47.32,104.0,first_long_bout,First long bout,47.32,104.0,True
+644-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,644,644,current_saved,True,,1,long_path_reward,1255.0,38.72,97.0,first_long_bout,First long bout,38.72,97.0,True
+646-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,646,646,current_saved,True,,1,long_path_reward,894.0,25.16,63.0,first_long_bout,First long bout,25.16,63.0,True
+837-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,837,837,current_saved,True,,1,long_path_reward,10199.0,159.56,360.0,first_long_bout,First long bout,159.56,360.0,True
+838-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,838,838,current_saved,True,,1,long_path_reward,3296.0,121.48,377.0,first_long_bout,First long bout,121.48,377.0,True
+839-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,839,839,current_saved,True,,1,long_path_reward,2566.0,98.6,288.0,first_long_bout,First long bout,98.6,288.0,True
+842-9day2,experienced_day2,Second night,2,experienced_day2,9,experienced_day2,842,842,current_saved,True,,1,long_path_reward,2665.0,67.16,150.0,first_long_bout,First long bout,67.16,150.0,True
+418-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,418,418,current_saved,True,,1,long_path_reward,1546.0,44.64,110.0,first_long_bout,First long bout,44.64,110.0,True
+451-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,451,451,current_saved,True,,1,long_path_reward,6669.0,237.76,651.0,first_long_bout,First long bout,237.76,651.0,True
+468-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,468,468,current_saved,True,,1,long_path_reward,4181.0,162.8,303.0,first_long_bout,First long bout,162.8,303.0,True
+618-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,618,618,current_saved,True,,1,long_path_reward,2784.0,84.8,181.0,first_long_bout,First long bout,84.8,181.0,True
+640-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,640,640,current_saved,True,,1,long_path_reward,927.0,31.88,75.0,first_long_bout,First long bout,31.88,75.0,True
+644-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,644,644,current_saved,True,,1,long_path_reward,2735.0,67.48,144.0,first_long_bout,First long bout,67.48,144.0,True
+646-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,646,646,current_saved,True,,1,long_path_reward,3510.0,95.4,233.0,first_long_bout,First long bout,95.4,233.0,True
+837-12day1,return,Return night,1,return,12,return,837,837,new_12mo,True,,1,long_path_reward,15079.0,420.4,977.0,first_long_bout,First long bout,420.4,977.0,True
+838-12day1,return,Return night,1,return,12,return,838,838,new_12mo,True,,1,long_path_reward,13790.0,487.0,1299.0,first_long_bout,First long bout,487.0,1299.0,True
+839-12day1,return,Return night,1,return,12,return,839,839,new_12mo,True,,1,long_path_reward,14861.0,415.56,823.0,first_long_bout,First long bout,415.56,823.0,True
+837-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,837,837,new_12mo,True,,1,long_path_reward,3241.0,101.2,269.0,first_long_bout,First long bout,101.2,269.0,True
+838-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,838,838,new_12mo,True,,1,long_path_reward,4096.0,145.0,370.0,first_long_bout,First long bout,145.0,370.0,True
+839-12day2,experienced_day2,Second night,2,experienced_day2,12,experienced_day2,839,839,new_12mo,True,,1,long_path_reward,3804.0,71.88,140.0,first_long_bout,First long bout,71.88,140.0,True

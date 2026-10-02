@@ -28,7 +28,7 @@ def significance_star(p_value: float) -> str:
 
 
 def fit_statistics(rows: pd.DataFrame) -> dict[str, Any]:
-    """Return pooled Pearson r and nominal mouse-clustered CR1 inference."""
+    """Return pooled Pearson r and nominal OLS inference with standard errors clustered by animal."""
 
     required = {
         "animal_id",

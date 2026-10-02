@@ -3,8 +3,8 @@
   "pointer": "CURRENT_EXTENDED_DATA_FIGURES.md",
   "shared_runtime": {
     "path": "SOURCE_REBUILD_ED_RUNTIME.zip",
-    "python_files": 82,
-    "sha256": "ef1fdd9a90564a28f1f866fbb3eadae5c671676bbedeaf7e8343be510352a143"
+    "python_files": 35,
+    "sha256": "0b9486d0ea6c668c1e10a8eb89f12d0e9c722a0eb26c1e682fc7a467cf4cce06"
   },
   "policy": {
     "record_selection": "Resolve the accepted record only through the current pointer.",
@@ -25,21 +25,21 @@
     "extended_data_figure_1": {
       "record": "extended_data_fig01_2026-09-25_round24_trim_right_margin",
       "renderer": "source_code/render_extended_data_figure1_round4.py",
-      "source_stage": "record-local numerical sources with frozen native panel removal/relettering; retired trajectory inputs retained only for renderer compatibility",
+      "source_stage": "current derived session curves, endpoint comparisons and exploration-cycle examples",
       "fixed_assets": []
     },
     "extended_data_figure_2": {
       "record": "extended_data_fig02_2026-09-25_round30_display_refinements",
       "renderer": "source_code/render_ed02_slide3_upright_policy_round18.py",
-      "source_stage": "record-local policy/calibration sources and 18 plot-ready tables; native display means and units; unchanged cohort/inference",
+      "source_stage": "first-30-minute junction turning biases, biased-walk calibration and current plotted simulations",
       "fixed_assets": [
         "four-policy maze schematic drawn by frozen renderer"
       ],
       "code_sidecars": [
         {
           "path": "SOURCE_REBUILD_ED2_ROUND23_BASE_RENDERER.py",
-          "bytes": 73895,
-          "sha256": "1dcdbfa435d9d73d72749f2d18940dadfb195a2681deda6d958143851219d810",
+          "bytes": 33394,
+          "sha256": "146b7d93cdd737ff5b9bfe10286eee3c8e951afc4996afedd227f01b52f7fad5",
           "provenance": "byte-identical copy of docs/figure_version_records_archive_2026-08-09/extended_data_fig02_2026-08-12_round23_preceding_turn/source_code/render_ed03_fixed_time_30min_full_story.py",
           "purpose": "frozen Round 23 base-renderer code required by the current ED2 adapter chain; contains rendering logic only and is not a scientific-data input"
         }
@@ -65,13 +65,13 @@
     "extended_data_figure_5": {
       "record": "extended_data_fig05_2026-09-25_round21_descending_examples",
       "renderer": "source_code/render_ed05_example_place_maps_assembly.py",
-      "source_stage": "record-local normalized 45x45 current-neuron map NPZ and 15x15 correlations plus equal-weighted corrected-36 session-pair day-combination tables, animal-clustered inference, and unchanged context-control tables",
+      "source_stage": "45x45 example maps, 15x15 place-map correlations and equal-weighted session-pair day-combination means; BH3 exact animal-level sign-flip tests and the single nominal context comparison",
       "fixed_assets": []
     },
     "extended_data_figure_6": {
       "record": "extended_data_fig06_2026-08-16_round7_available_curve_all59",
       "renderer": "source_code/render_ed06_within_session_convergence_assembly.py",
-      "source_stage": "record-local five-minute-gate fixed-window, pivot, support-mask, and reference tables",
+      "source_stage": "current fixed-reference BH12 and available-curve pivot BH3 inputs, support masks and reference curves",
       "fixed_assets": [
         "analysis-cycle schematic drawn by frozen renderer"
       ]
@@ -127,7 +127,7 @@
     "extended_data_figure_10": {
       "record": "extended_data_fig10_2026-09-25_round18_smaller_ns",
       "renderer": "source_code/render_ed10_slide12_powerpoint_matched.py",
-      "source_stage": "record-local Pearson-rate fixed-neuron synthesis, mouse-clustered CR1/BH3 multiplicity audit, and clean36 level-policy bridge tables",
+      "source_stage": "neural-behavioral associations with standard errors clustered by animal and row-wise BH3, exact animal-score BH3 profile tests, and first-30-minute turning-bias BH4 tests",
       "fixed_assets": []
     }
   }

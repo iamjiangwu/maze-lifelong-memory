@@ -50,8 +50,7 @@ DISPLAY = dict(a='a',b='b',c='c',d='d',e='e',f='f',i='g',g='h',h='i',j='j')
 ROUTE_FILES = ['signal_comparison_primary_pairs.csv','signal_comparison_primary_numbers.csv',
                'replication_day2_pairs.csv','replication_day2_numbers.csv',
                'strength_checks_profiles.csv','strength_checks_numbers.csv',
-               'candidate_paired_display_values.csv','candidate_paired_display_summary.csv',
-               'manuscript_proposed.tex']
+               'candidate_paired_display_values.csv','candidate_paired_display_summary.csv']
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def load(name,p):
@@ -163,8 +162,13 @@ def read(out):
     rn=pd.read_csv(sd/'replication_day2_numbers.csv')
     rn=rn[rn.signal.eq('S')&rn.comparison.eq('replication: Day i+1 vs Day i+91')]
     xp=pd.read_csv(sd/'strength_checks_profiles.csv',dtype={'animal':str})
+    plotted_profiles=['same direction across gap: home to reward',
+                      'same direction across gap: reward to home',
+                      'cross direction across gap', 'cross direction across gap, shuffle']
+    xp=xp[xp.measure.isin(plotted_profiles)]
     xp=xp.groupby(['measure','animal','bin'],as_index=False).pv.mean()
-    xn=pd.read_csv(sd/'strength_checks_numbers.csv'); xn=xn[xn.check.eq('cross-direction')]
+    xn=pd.read_csv(sd/'strength_checks_numbers.csv')
+    xn=xn[xn.check.eq('cross-direction')&xn.item.eq('cross direction across gap')]
     return data,pair,num,animal,rep,rn,xp,xn
 
 def verify(out,pair,num,animal,rep,rn,xp,xn):
@@ -181,13 +185,10 @@ def verify(out,pair,num,animal,rep,rn,xp,xn):
         if row['group']=='rewarded minus timeout':
             w=animal[animal.panel.eq('i')].pivot(index='animal',columns='group',values='advantage')
             one('i','rewarded minus timeout',w.rewarded-w.timeout,row,'single')
-        elif row['group']=='reward_to_home minus home_to_reward':
-            w=animal[animal.panel.eq('main')].pivot(index='animal',columns='group',values='advantage').dropna()
-            one('main',row['group'],w.reward_to_home-w.home_to_reward,row,'single')
-        elif row['item']=='port minus elsewhere':
+        elif row['item']=='port minus elsewhere' and row['family'] in ['fig4e','ed8efh']:
             g=animal[animal.panel.eq(row.panel)&animal.group.eq(row['group'])]
             one(row.panel,row['group'],g.advantage,row,str(row.family))
-    for family in ['fig4e','ed8efh','ed8i_types']:
+    for family in ['fig4e','ed8efh']:
         rows=[r for r in records if r['family']==family]
         if rows: np.testing.assert_allclose(bh([r['p_exact'] for r in rows]),[r['adjusted_p'] for r in rows],atol=2e-13,rtol=0)
     for _,row in rn.iterrows(): one('d_second_day',row['group'],rep[rep.group.eq(row['group'])].advantage,row,'second_day')
@@ -197,6 +198,7 @@ def verify(out,pair,num,animal,rep,rn,xp,xn):
     x=xp[xp.measure.eq(measure)].pivot(index='animal',columns='bin',values='pv')
     row=xn[xn.item.eq(measure)].iloc[0]
     one('j',measure,x[21]-x.loc[:,range(21)].mean(axis=1),row,'single')
+    assert len(records)==14, 'Expected only the fourteen displayed route tests'
     displayed=animal[np.isfinite(animal[['port','away']]).all(axis=1)].copy()
     assert displayed.query("panel=='e'").groupby('group').size().to_dict()=={'home_to_reward':13,'reward_to_home':13}
     excluded=animal.loc[~np.isfinite(animal[['port','away']]).all(axis=1)]
@@ -407,51 +409,11 @@ def compose(out):
             if dpi==600: im.save(out/'ed8_standardized_pv_600dpi.tiff',dpi=(dpi,dpi),compression='tiff_lzw')
 
 def documentation(out,pair,records):
-    prefix=(out/'source_data/manuscript_proposed.tex').read_text(encoding='utf-8').split(r'\saveimageanchor{fig:ed08}',1)[1].split(r'\textbf{d,}',1)[0]
-    prefix=prefix.split(r'\captionof{extendeddatafigure}{',1)[1]
-    prefix=prefix.replace('population vector correlation','PV correlation').replace('Population vector correlation','PV correlation')
-    prefix=prefix.replace('gray outlines mark', 'light gray outlines mark')
-    prefix=prefix.replace('Small points and connecting lines are animal means;',
-        'One-sided exact sign-flip tests across mice were corrected by Benjamini-Hochberg across these four comparisons. Small points and connecting lines are animal means;')
-    prefix=prefix.replace('Confidence intervals and two sided tests used standard errors clustered by animal. Large symbols and error bars show means and intervals.',
-        'Intervals for the differences and two sided tests used standard errors clustered by animal. Small points and connectors show session pairs; large symbols and error bars show pair means and descriptive 95\\% Student-t intervals.')
-    route=r'''\textbf{d,} Port-minus-elsewhere standardized PV correlation in individual mice on the first day of each visit (filled symbols; Day i versus Day i+90) and the second day (open symbols; Day i+1 versus Day i+91). Orange diamonds, runs toward the port; blue squares, runs away. Solid and dotted vertical lines show the corresponding means; the dashed gray line marks zero (13 mice toward, 14 away).
-\textbf{e,} Reliability-adjusted standardized PV correlation at the port and elsewhere: across-gap correlation between half-session maps divided by within-day correlation between odd- and even-run maps. All four half-session maps are standardized on their common observed positions. The numerator and denominator are averaged within animal before division; the denominator is the geometric mean of the two sessions' correlations. Both locations use the same 13 mice in each direction. This is a ratio of correlations, not a fraction retained.
-\textbf{f,} Standardized PV correlation with equal numbers of retained frames across route bins within each session, using 100 sampling draws (13 mice toward, 14 away).
-\textbf{g,} The home, node-2 and node-3 routes analyzed in both directions; the legend identifies each starting route, with matching heading colors in \textbf{h}. The physical partition is identical in the two directions: 22 bins of 3.8 cm on the home route; 19 bins from node 2 and 15 from node 3, with a 1.9 cm junction bin and all other bins, including the port, 3.8 cm. Every bin requires at least 0.2 s of retained samples.
-\textbf{h,} Standardized PV correlation at the port and elsewhere on node-2 and node-3 routes, in both directions (14 mice for each comparison); the Day-i source session was required to have rewarded experience.
-\textbf{i,} Port-minus-elsewhere standardized PV correlation on approaches followed by rewarded or timeout visits (25 session pairs, 12 mice). Rewarded visits had water delivery within 3 s of entry into node 94; timeout visits did not. The moving-frame window is not clipped to water delivery.
-\textbf{j,} Standardized PV correlation across positions on pairs analyzed in both directions (27 pairs, 13 mice): toward versus toward (orange), away versus away (blue), and toward versus away (black). The cross-direction comparison averages the two cross-day direction pairings; the same matched neurons are used for every curve. The dotted gray line is the neuron-ID shuffle; the band is a 95% interval across mice. Positions run home to port in every curve.
-PV, population vector. Route maps in \textbf{d-f} and \textbf{h-j} use deconvolved activity (S), standardized separately for each neuron and recording by subtracting its mean across observed route bins and dividing by its population standard deviation across those bins. Moving port frames are retained for at most 0.5 s after node-94 entry or before exit, bounded by the visit and stopped at a gap greater than 0.4 s between moving frames; nose direction resolves frames claimed by both directions (Methods). Panel \textbf{c} retains its unstandardized C-map analysis. In \textbf{e}, \textbf{f}, \textbf{h} and \textbf{i}, small points show animal values and lines pair the same mouse; large symbols and error bars show means and 95% Student-t intervals. Pairs are averaged within mouse before inference. Two-sided exact sign-flip tests across mice; Benjamini-Hochberg correction over the eight port-versus-elsewhere comparisons in \textbf{e}, \textbf{f} and \textbf{h}. The rewarded-versus-timeout comparison in \textbf{i} and cross-direction contrast in \textbf{j} are separate single tests. *p < 0.05, **p < 0.01, ***p < 0.001; n.s., not significant.'''
-    route=route.replace('Two-sided exact sign-flip tests across mice;', 'For route panels \\textbf{d-f} and \\textbf{h-j}, two-sided exact sign-flip tests across mice;')
-    route=route.replace('Orange diamonds, runs toward the port; blue squares, runs away.', 'Light orange diamonds, runs toward the port; dark orange squares, runs away.')
-    route=route.replace('toward versus toward (orange), away versus away (blue)', 'toward versus toward (light orange, solid), away versus away (dark orange, dashed)')
-    route=route.replace('95%','95\\%').replace('*p < 0.05, **p < 0.01, ***p < 0.001',r'$*p < 0.05$, $**p < 0.01$, $***p < 0.001$')
-    route=route.replace('dotted gray line',f'dotted {"dark" if COL["mid"]=="#454545" else "light"} gray line')
-    chunks=re.split(r'(?=\\textbf\{[d-j],\})',route)
-    sections={re.match(r'\\textbf\{([d-j]),\}',chunk).group(1):chunk for chunk in chunks if chunk.startswith('\\textbf{')}
-    sections['d']=r'\textbf{d,} Port-minus-elsewhere standardized PV correlation in individual mice: first day of each visit (left, Day i versus Day i+90) and second day (right, Day i+1 versus Day i+91), using independent recordings. Both axes share the same mouse order, limits and direction symbols. Light orange diamonds, runs toward the port; dark orange squares, runs away. Vertical colored lines show the corresponding means (13 mice toward, 14 away in each comparison).'+ '\n'
-    route=''.join(sections[key] for key in ['d','e','f','i','g','h','j'])
-    def relabel(match):
-        token=match.group(1)
-        if token=='d-f': return r'\textbf{d-g}'
-        if token=='h-j': return r'\textbf{i-j}'
-        if token.rstrip(',') in DISPLAY:
-            return r'\textbf{'+DISPLAY[token.rstrip(',')]+(',' if token.endswith(',') else '')+'}'
-        return match.group(0)
-    route=re.sub(r'\\textbf\{([^}]+)\}',relabel,route)
-    route=route.replace(r'In \textbf{e}, \textbf{f}, \textbf{i} and \textbf{g}',r'In \textbf{e}, \textbf{f}, \textbf{g} and \textbf{i}')
-    def reward_terms(text):
-        text=text.replace('water port','WATER_PORT_PLACEHOLDER')
-        text=re.sub(r'\bPort\b','Reward',text); text=re.sub(r'\bport\b','reward',text)
-        return text.replace('WATER_PORT_PLACEHOLDER','water port')
-    prefix=reward_terms(prefix); route=reward_terms(route)
-    (out/'CAPTION.md').write_text('# Extended Data Figure 8 caption\n\nDraft for author review; manuscript not edited. Panels a–c preserve their accepted scientific definitions.\n\n```latex\n'+prefix+route+'\n```\n',encoding='utf-8')
     (out/'README.md').write_text('''# Complete ED8: finalized standardized route PV
 
 This source-built three-row figure preserves accepted panels a–c, uses the approved cividis scale in a, and replaces the route panels with the finalized v4 S-map analysis. Panel c remains unstandardized C. No density or speed-control panel is included. Panel h restores the previous source-native route schematic with black walls, gray corridors, home/water icons and a starting-node legend. Observed values use orange #E29957 and darker orange #B96B2C, with direction also distinguished by marker or line style. Starting routes retain the previous schematic codes: Home #587785, Node 2 #5B8E7D and Node 3 #9C8060, matched by i's headings. The primary control/shuffle gray is #C4C4C4; both orange and gray heatmap outlines have a matching white under-outline, with map centers unfilled. The water symbol remains blue as in Figure 4. Explicit zero guidelines are omitted; the measured neuron-ID shuffle in j remains visible. Visible analysis terminology uses Reward, aligned with Figure 4; numerical source columns retain port.
 
-Final rows are a/b/c, d/e/f/g, and h/i/j. Panel d contains side-by-side first-/second-day comparisons with identical mouse order and axis limits, explicit day-pair titles, filled direction symbols and shared 6-point labels/legend. animal_daypair_display.csv contains both day-pair columns and their shared order. PANEL_CROSSWALK.csv maps original analysis keys to display letters: original i (reward delivery) is g, g (schematic) is h, and h (node controls) is i. Numerical CSVs retain original analysis keys; individual panel filenames and the caption use final display letters. Panel b's title and legend are centered over its plotting area.
+Final rows are a/b/c, d/e/f/g, and h/i/j. Panel d contains side-by-side first-/second-day comparisons with identical mouse order and axis limits, explicit day-pair titles, filled direction symbols and shared 6-point labels/legend. animal_daypair_display.csv contains both day-pair columns and their shared order. PANEL_CROSSWALK.csv maps original analysis keys to display letters: original i (reward delivery) is g, g (schematic) is h, and h (node controls) is i. Numerical CSVs retain original analysis keys; individual panel filenames use final display letters. Panel b's title and legend are centered over its plotting area.
 
 ## Rebuild without raw recordings
 
@@ -466,11 +428,11 @@ Only Python, NumPy, pandas, scipy, Matplotlib, Pillow and PyMuPDF are needed. Th
 
 route_animal_values.csv preserves all source animal values, including the undefined departure reward ratio for mouse 434. route_paired_display_values.csv uses identical animals for both paired means: reliability panel e contains 13 mice in each direction. route_statistics_verified.csv independently recomputes current route estimates, intervals, exact sign-flip tests and correction families. Panel d's second-day replication and j's profiles are rebuilt from their frozen pair/bin rows. Accepted b/c inference is preserved from accepted source tables; descriptive plotted values are calculated anew.
 
-The four route families are Figure4e/d (two directions), replication/d (two directions), e/f/i (eight contrasts), and g reward-versus-elsewhere (two visit types, not displayed as separate stars). The g rewarded-minus-timeout and j cross-direction contrast are single tests. Error bars are 95% Student-t intervals across animals for route panels. Panel c retains accepted pair-level points and intervals, with published mouse-clustered inference. Accepted b uses one-sided exact mouse sign-flip tests with BH4; route tests are two-sided.
+The route families are Figure4e/d (two directions), replication/d (two directions), and e/f/i (eight contrasts). The g rewarded-minus-timeout and j cross-direction contrasts are separate single tests. Error bars are 95% Student-t intervals across animals for route panels. Panel c retains accepted pair-level points and intervals, with standard errors clustered by animal. Accepted b uses one-sided exact sign-flip tests on animal means with BH4; route tests are two-sided.
 
 ## Files
 
-PDF and SVG contain all ten panels; PNGs are 300 and 600 dpi and TIFF is 600 dpi LZW. Individual PDF/SVG/PNG panels are in individual_panels. CAPTION.md defines normalization, sampling, pairing, windows and each interval. DISPLAY_VALIDATION.json and VISUAL_QA.md document the actual rendered result. Transparent vector margins permit compact placement without masking neighboring labels. This folder is a candidate build; global records, manuscript and Desktop exports are managed separately.
+PDF and SVG contain all ten panels; PNGs are 300 and 600 dpi and TIFF is 600 dpi LZW. Individual PDF/SVG/PNG panels are in individual_panels. DISPLAY_VALIDATION.json and VISUAL_QA.md document the actual rendered result. Transparent vector margins permit compact placement without masking neighboring labels. This folder is a candidate build; global records, manuscript and Desktop exports are managed separately.
 ''',encoding='utf-8')
 
 def main():

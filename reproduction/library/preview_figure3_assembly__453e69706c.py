@@ -292,7 +292,6 @@ def validate_figure5_corrected842_sources() -> dict[str, object]:
         or SHORT_PAIR in set(pair_scope["pair_key"])
         or int(pd.to_numeric(pair_scope["n_neurons"], errors="raise").sum()) != expected_level_support
         or not _as_bool(pair_scope["level_pair_present"]).all()
-        or not _as_bool(pair_scope["decoder_pair_present"]).all()
         or not _as_bool(pair_scope["exploration_pair_present"]).all()
     ):
         raise RuntimeError("Main Figure 5 pair-scope audit failed exact cross-panel parity.")

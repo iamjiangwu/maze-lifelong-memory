@@ -1,80 +1,80 @@
-nickname,group,month,day,reward_context,lb0,animal_id,month_label,month_index,in_reference_14animal_cohort,source_set
-15strday1,Naive D1,0,1,rewarded,997.28,15,Naive,0,False,current_saved
-1603,Naive D1,0,1,rewarded,4416.88,1603,Naive,0,False,current_saved
-1608,Naive D1,0,1,rewarded,663.28,1608,Naive,0,False,current_saved
-1616day1,Naive D1,0,1,rewarded,3021.44,1616,Naive,0,True,current_saved
-163RLday1,Naive D1,0,1,rewarded,4783.32,163,Naive,0,False,current_saved
-1632Lday1,Naive D1,0,1,rewarded,87.56,1632,Naive,0,False,current_saved
-202Lday1,Naive D1,0,1,rewarded,1355.88,202,Naive,0,False,current_saved
-355RLday1,Naive D1,0,1,rewarded,1355.24,355,Naive,0,False,current_saved
-418RRday1,Naive D1,0,1,rewarded,2321.76,418,Naive,0,True,current_saved
-434RRday1,Naive D1,0,1,rewarded,1952.0,434,Naive,0,True,current_saved
-451Rday1,Naive D1,0,1,rewarded,1763.0,451,Naive,0,True,current_saved
-468Lday1,Naive D1,0,1,rewarded,898.84,468,Naive,0,True,current_saved
-488Rday1,Naive D1,0,1,rewarded,2954.08,488,Naive,0,True,current_saved
-489Lday1,Naive D1,0,1,rewarded,1141.16,489,Naive,0,True,current_saved
-579RLday1,Naive D1,0,1,rewarded,521.28,579,Naive,0,True,current_saved
-597day1,Naive D1,0,1,rewarded,1757.92,597,Naive,0,False,current_saved
-609day1,Naive D1,0,1,rewarded,2090.4,609,Naive,0,False,current_saved
-618day1,Naive D1,0,1,rewarded,2048.12,618,Naive,0,False,current_saved
-624day1,Naive D1,0,1,rewarded,4177.84,624,Naive,0,False,current_saved
-628day1,Naive D1,0,1,rewarded,2490.4,628,Naive,0,False,current_saved
-640day1,Naive D1,0,1,rewarded,2851.84,640,Naive,0,False,current_saved
-644day1,Naive D1,0,1,rewarded,372.12,644,Naive,0,False,current_saved
-646day1,Naive D1,0,1,rewarded,1518.68,646,Naive,0,False,current_saved
-418-3day1,LTM D1,3,1,rewarded,368.6,418,3 mo,1,True,current_saved
-422-3day1,LTM D1,3,1,rewarded,436.56,422,3 mo,1,True,current_saved
-434-3day1,LTM D1,3,1,rewarded,357.56,434,3 mo,1,True,current_saved
-451-3day1,LTM D1,3,1,rewarded,30.4,451,3 mo,1,True,current_saved
-468-3day1,LTM D1,3,1,rewarded,825.88,468,3 mo,1,True,current_saved
-488-3day1,LTM D1,3,1,rewarded,821.44,488,3 mo,1,True,current_saved
-489-3day1,LTM D1,3,1,rewarded,731.52,489,3 mo,1,True,current_saved
-579-3day1,LTM D1,3,1,rewarded,295.24,579,3 mo,1,True,current_saved
-618-3day1,LTM D1,3,1,rewarded,55.04,618,3 mo,1,False,current_saved
-640-3day1,LTM D1,3,1,rewarded,841.6,640,3 mo,1,False,current_saved
-644-3day1,LTM D1,3,1,rewarded,718.6,644,3 mo,1,False,current_saved
-646-3day1,LTM D1,3,1,rewarded,311.92,646,3 mo,1,False,current_saved
-837-3day1,LTM D1,3,1,rewarded,489.92,837,3 mo,1,True,current_saved
-838-3day1,LTM D1,3,1,rewarded,117.56,838,3 mo,1,True,current_saved
-839-3day1,LTM D1,3,1,rewarded,1549.0,839,3 mo,1,True,current_saved
-842-3day1,LTM D1,3,1,rewarded,1115.12,842,3 mo,1,True,current_saved
-862-3day1,LTM D1,3,1,rewarded,1982.08,862,3 mo,1,True,current_saved
-418-6day1,LTM D1,6,1,rewarded,899.52,418,6 mo,2,True,current_saved
-422-6day1,LTM D1,6,1,rewarded,822.96,422,6 mo,2,True,current_saved
-434-6day1,LTM D1,6,1,rewarded,547.4,434,6 mo,2,True,current_saved
-451-6day1,LTM D1,6,1,rewarded,141.32,451,6 mo,2,True,current_saved
-468-6day1,LTM D1,6,1,rewarded,466.8,468,6 mo,2,True,current_saved
-488-6day1,LTM D1,6,1,rewarded,777.16,488,6 mo,2,True,current_saved
-489-6day1,LTM D1,6,1,rewarded,991.8,489,6 mo,2,True,current_saved
-579-6day1,LTM D1,6,1,rewarded,64.52,579,6 mo,2,True,current_saved
-618-6day1,LTM D1,6,1,rewarded,155.8,618,6 mo,2,False,current_saved
-640-6day1,LTM D1,6,1,rewarded,262.0,640,6 mo,2,False,current_saved
-644-6day1,LTM D1,6,1,rewarded,61.64,644,6 mo,2,False,current_saved
-646-6day1,LTM D1,6,1,rewarded,345.84,646,6 mo,2,False,current_saved
-837-6day1,LTM D1,6,1,rewarded,168.0,837,6 mo,2,True,current_saved
-838-6day1,LTM D1,6,1,rewarded,500.88,838,6 mo,2,True,current_saved
-839-6day1,LTM D1,6,1,rewarded,450.8,839,6 mo,2,True,current_saved
-842-6day1,LTM D1,6,1,rewarded,706.68,842,6 mo,2,True,current_saved
-862-6day1,LTM D1,6,1,rewarded,216.08,862,6 mo,2,True,current_saved
-418-9day1,LTM D1,9,1,rewarded,349.2,418,9 mo,3,True,current_saved
-451-9day1,LTM D1,9,1,rewarded,209.24,451,9 mo,3,True,current_saved
-468-9day1,LTM D1,9,1,rewarded,210.16,468,9 mo,3,True,current_saved
-488-9day1,LTM D1,9,1,rewarded,522.08,488,9 mo,3,True,current_saved
-579-9day1,LTM D1,9,1,rewarded,60.64,579,9 mo,3,True,current_saved
-640-9day1,LTM D1,9,1,rewarded,309.0,640,9 mo,3,False,current_saved
-644-9day1,LTM D1,9,1,rewarded,189.2,644,9 mo,3,False,current_saved
-646-9day1,LTM D1,9,1,rewarded,11.72,646,9 mo,3,False,current_saved
-837-9day1,LTM D1,9,1,rewarded,94.36,837,9 mo,3,True,current_saved
-838-9day1,LTM D1,9,1,rewarded,346.56,838,9 mo,3,True,current_saved
-839-9day1,LTM D1,9,1,rewarded,252.8,839,9 mo,3,True,current_saved
-842-9day1,LTM D1,9,1,rewarded,44.28,842,9 mo,3,True,current_saved
-418-12day1,LTM D1,12,1,rewarded,176.96,418,12 mo,4,True,current_saved
-451-12day1,LTM D1,12,1,rewarded,206.28,451,12 mo,4,True,current_saved
-468-12day1,LTM D1,12,1,rewarded,61.24,468,12 mo,4,True,current_saved
-618-12day1,LTM D1,12,1,rewarded,369.2,618,12 mo,4,False,current_saved
-640-12day1,LTM D1,12,1,rewarded,15.24,640,12 mo,4,False,current_saved
-644-12day1,LTM D1,12,1,rewarded,131.88,644,12 mo,4,False,current_saved
-646-12day1,LTM D1,12,1,rewarded,327.72,646,12 mo,4,False,current_saved
-837-12day1,LTM D1,12,1,rewarded,410.44,837,12 mo,4,True,new_12mo
-838-12day1,LTM D1,12,1,rewarded,481.92,838,12 mo,4,True,new_12mo
-839-12day1,LTM D1,12,1,rewarded,407.6,839,12 mo,4,True,new_12mo
+nickname,month,lb0,animal_id
+15strday1,0,997.28,15
+1603,0,4416.88,1603
+1608,0,663.28,1608
+1616day1,0,3021.44,1616
+163RLday1,0,4783.32,163
+1632Lday1,0,87.56,1632
+202Lday1,0,1355.88,202
+355RLday1,0,1355.24,355
+418RRday1,0,2321.76,418
+434RRday1,0,1952.0,434
+451Rday1,0,1763.0,451
+468Lday1,0,898.84,468
+488Rday1,0,2954.08,488
+489Lday1,0,1141.16,489
+579RLday1,0,521.28,579
+597day1,0,1757.92,597
+609day1,0,2090.4,609
+618day1,0,2048.12,618
+624day1,0,4177.84,624
+628day1,0,2490.4,628
+640day1,0,2851.84,640
+644day1,0,372.12,644
+646day1,0,1518.68,646
+418-3day1,3,368.6,418
+422-3day1,3,436.56,422
+434-3day1,3,357.56,434
+451-3day1,3,30.4,451
+468-3day1,3,825.88,468
+488-3day1,3,821.44,488
+489-3day1,3,731.52,489
+579-3day1,3,295.24,579
+618-3day1,3,55.04,618
+640-3day1,3,841.6,640
+644-3day1,3,718.6,644
+646-3day1,3,311.92,646
+837-3day1,3,489.92,837
+838-3day1,3,117.56,838
+839-3day1,3,1549.0,839
+842-3day1,3,1115.12,842
+862-3day1,3,1982.08,862
+418-6day1,6,899.52,418
+422-6day1,6,822.96,422
+434-6day1,6,547.4,434
+451-6day1,6,141.32,451
+468-6day1,6,466.8,468
+488-6day1,6,777.16,488
+489-6day1,6,991.8,489
+579-6day1,6,64.52,579
+618-6day1,6,155.8,618
+640-6day1,6,262.0,640
+644-6day1,6,61.64,644
+646-6day1,6,345.84,646
+837-6day1,6,168.0,837
+838-6day1,6,500.88,838
+839-6day1,6,450.8,839
+842-6day1,6,706.68,842
+862-6day1,6,216.08,862
+418-9day1,9,349.2,418
+451-9day1,9,209.24,451
+468-9day1,9,210.16,468
+488-9day1,9,522.08,488
+579-9day1,9,60.64,579
+640-9day1,9,309.0,640
+644-9day1,9,189.2,644
+646-9day1,9,11.72,646
+837-9day1,9,94.36,837
+838-9day1,9,346.56,838
+839-9day1,9,252.8,839
+842-9day1,9,44.28,842
+418-12day1,12,176.96,418
+451-12day1,12,206.28,451
+468-12day1,12,61.24,468
+618-12day1,12,369.2,618
+640-12day1,12,15.24,640
+644-12day1,12,131.88,644
+646-12day1,12,327.72,646
+837-12day1,12,410.44,837
+838-12day1,12,481.92,838
+839-12day1,12,407.6,839

@@ -6,12 +6,7 @@ Run the commands below from the repository root. The launcher checks every froze
 
 The verified environment is **Python 3.10 on Windows** with NumPy, pandas, SciPy, Matplotlib and the other versions recorded in [requirements.txt](../requirements.txt) and [the original environment record](../reproduction/snapshot/RUNTIME_ENVIRONMENT.json). This is a tested environment record, not a universally tested clean-install lockfile.
 
-Vector exports require **Microsoft Edge and Arial**. Editable XLSX exports for both supplementary tables additionally need **Node.js and `@oai/artifact-tool`**. On the original tested computer the launcher detects the Codex bundled runtime. On another computer, provide an installed module directory and Node executable explicitly:
-
-```powershell
-.\reproduce.ps1 -Figure table1 -OutputDir outputs/table1 `
-    -NodePath C:\path\to\node.exe -ArtifactToolModules C:\path\to\node_modules
-```
+Figure vector exports require **Microsoft Edge and Arial**. Supplementary tables use **openpyxl** for editable XLSX files and the Python PDF renderers included here; these public dependencies are listed in `requirements.txt`.
 
 A plain Python installation alone is not enough for every export. These are software requirements; no external scientific-data drive is needed.
 
@@ -41,10 +36,10 @@ Use a **new or empty output directory** each time. If omitted, the launcher crea
 
 Figures produce their original PNG, PDF, SVG and TIFF exports. Table builders produce PDF and editable XLSX files plus their numerical ledgers. Artifact outputs are grouped by the original identifier, such as `main_figure_2/` or `supplementary_table_2/`, inside the selected output folder.
 
-Every build has a `BUILD.log` and `REPRODUCTION_VALIDATION.json`; the enclosing folder has `REPRODUCTION_REPORT.json`. The statistical replay writes `statistics/STATISTICS_REPORT.json`, regenerated tables and comparison tables. A single-figure build does not automatically rerun all statistics; use the statistics command above. Table summary counts/intervals are recalculated by the table builders themselves.
+Every build has a `BUILD.log` and `REPRODUCTION_VALIDATION.json`; the enclosing folder has `REPRODUCTION_REPORT.json`. The statistical replay writes `statistics/STATISTICS_REPORT.json`, regenerated tables and comparison tables. These checks establish agreement with the saved results, not agreement with every manuscript claim; see [analysis definitions and known differences](STATISTICS.md). A single-figure build does not automatically rerun all statistics. Table summary counts/intervals are recalculated by the table builders themselves.
 
 ## Where the computation starts
 
 This repository starts from derived session/neuron/pair/mouse observations, fitted map/decoder measurements, saved null/simulator draws and example assets. It rebuilds figures, tables and statistics, not recording extraction, tracking, neuron registration, map fitting or decoder fitting.
 
-The public folder layout is organized for reading. The launcher restores the exact original input names and import paths in a temporary directory, then executes the unchanged verified engine. [Technical provenance](PROVENANCE.md) records that mapping; readers do not need to navigate it to find data or run a figure.
+The public folder layout is organized for reading. The launcher restores the required input names and import paths in a temporary directory. [Technical provenance](PROVENANCE.md) records that mapping; readers do not need to navigate it to find data or run a figure.

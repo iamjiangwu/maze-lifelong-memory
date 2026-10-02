@@ -3523,7 +3523,7 @@ def prepare_turning_bias_policy_summary(
 
     The input is expected to contain one session per row. The point estimate is
     therefore the equal-session mean; repeated sessions from a mouse are retained
-    and handled by the mouse-clustered CR1 covariance.
+    and handled by the covariance estimator for standard errors clustered by animal.
     """
     metrics = deepcopy(metric_specs) if metric_specs is not None else (
         _default_turning_bias_policy_summary_metrics()
@@ -5570,6 +5570,17 @@ def render_shuffle_mean_distribution_panel(
 
 
 def _load_matlab_local_correlation_figure(fig_path) -> dict:
+    # Publication source inputs contain the image and its coordinate/color
+    # metadata, not an otherwise unused MATLAB graphics-object tree.
+    if Path(fig_path).suffix.lower() == ".npz":
+        with np.load(fig_path, allow_pickle=False) as source:
+            required = {"image", "xdata", "ydata", "clim", "colormap"}
+            if not required.issubset(source.files):
+                raise KeyError(f"Local-correlation source is missing {sorted(required - set(source.files))}")
+            data = {key: np.asarray(source[key]).copy() for key in required}
+        data.update(xticks=[], yticks=[], xticklabels=[], yticklabels=[],
+                    colorbar_ticks=[], colorbar_ticklabels=[], title_text=None)
+        return data
     matlab_fig = sio.loadmat(str(fig_path), squeeze_me=True, struct_as_record=False)["hgS_070000"]
     figure_children = np.atleast_1d(matlab_fig.children)
     axes_obj = next(child for child in figure_children if getattr(child, "type", None) == "axes")

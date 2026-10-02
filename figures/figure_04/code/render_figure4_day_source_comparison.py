@@ -175,8 +175,6 @@ def star(p: float) -> str:
     return "n.s."
 
 
-def p_label(p: float) -> str:
-    return f"P={p:.1e}" if p < 0.001 else f"P={p:.3f}"
 
 
 def figure_svg(fig: plt.Figure) -> bytes:

@@ -1,21 +1,21 @@
-summary_variant,analysis_mode,day,month,month_label,window_id,window_label,window_order,n_sessions_registry,n_sessions,n_animals,speed_mean_cm_s,speed_sem_cm_s,eligible_time_sec_mean,eligible_time_sec_min,excluded_undefined_reward_context,max_segment_speed_cm_s
-exact_current_mode_rule,explore,day1,0,0mo,first_30_min,First 30 min,0,23,23,23,3.1143807315486325,0.1486341100498544,1703.64,1618.84,0,60.0
-exact_current_mode_rule,explore,day1,3,3mo,first_30_min,First 30 min,0,17,17,17,4.258728973632393,0.1612725833105099,1571.7882352941178,1405.88,0,60.0
-exact_current_mode_rule,explore,day1,6,6mo,first_30_min,First 30 min,0,17,17,17,4.606593621000416,0.2254108888183569,1471.701176470588,1320.1199999999994,0,60.0
-exact_current_mode_rule,explore,day1,9,9mo,first_30_min,First 30 min,0,12,12,12,4.9960773379522045,0.317559457603093,1376.3600000000004,1054.16,0,60.0
-exact_current_mode_rule,explore,day1,12,12mo,first_30_min,First 30 min,0,10,10,10,4.289706086176016,0.3953244859359348,1403.6119999999996,1119.0,0,60.0
-exact_current_mode_rule,explore,day2,0,0mo,first_30_min,First 30 min,0,18,18,18,3.529771674354265,0.1692816427595574,1380.208888888889,1162.1999999999994,0,60.0
-exact_current_mode_rule,explore,day2,3,3mo,first_30_min,First 30 min,0,17,17,17,4.342740422912306,0.2486335010806962,1325.3788235294116,1118.880000000001,0,60.0
-exact_current_mode_rule,explore,day2,6,6mo,first_30_min,First 30 min,0,17,17,17,4.228036699392795,0.2619952155654871,1294.8941176470591,918.9600000000004,0,60.0
-exact_current_mode_rule,explore,day2,9,9mo,first_30_min,First 30 min,0,12,12,12,4.49421887688895,0.3052740647647062,1200.6466666666668,895.7599999999993,0,60.0
-exact_current_mode_rule,explore,day2,12,12mo,first_30_min,First 30 min,0,10,10,10,4.385369737876017,0.308013562491689,1113.9199999999996,708.8400000000001,0,60.0
-exact_current_mode_rule,reward,day1,0,0mo,first_30_min,First 30 min,0,23,20,20,3.2899722349141407,0.2350171455829664,50.219999999999786,18.199999999999815,0,60.0
-exact_current_mode_rule,reward,day1,3,3mo,first_30_min,First 30 min,0,17,17,17,5.571781902575543,0.2499872838117948,86.38823529411759,27.43999999999994,0,60.0
-exact_current_mode_rule,reward,day1,6,6mo,first_30_min,First 30 min,0,17,17,17,6.936680484278018,0.3910676819300733,132.58352941176466,71.55999999999975,0,60.0
-exact_current_mode_rule,reward,day1,9,9mo,first_30_min,First 30 min,0,12,12,12,8.785335253626325,0.5037949728634904,181.3000000000001,97.1199999999995,0,60.0
-exact_current_mode_rule,reward,day1,12,12mo,first_30_min,First 30 min,0,10,10,10,7.337333595481818,0.9220963508718985,192.07599999999996,49.83999999999975,0,60.0
-exact_current_mode_rule,reward,day2,0,0mo,first_30_min,First 30 min,0,18,18,18,7.243512695064037,0.5332131229832803,216.79555555555555,114.9200000000006,0,60.0
-exact_current_mode_rule,reward,day2,3,3mo,first_30_min,First 30 min,0,17,17,17,9.771220642933278,0.4102481130897805,267.05411764705894,142.6799999999999,0,60.0
-exact_current_mode_rule,reward,day2,6,6mo,first_30_min,First 30 min,0,17,17,17,10.056797346573036,0.6172656892275772,271.4917647058824,128.0000000000001,0,60.0
-exact_current_mode_rule,reward,day2,9,9mo,first_30_min,First 30 min,0,12,12,12,11.428044789014578,0.5139913348888444,277.6499999999998,153.99999999999923,0,60.0
-exact_current_mode_rule,reward,day2,12,12mo,first_30_min,First 30 min,0,10,10,10,10.978444539377836,0.6590795130664382,277.62799999999976,176.32000000000073,0,60.0
+summary_variant,analysis_mode,day,month,month_label,window_id,n_sessions,n_animals,speed_mean_cm_s,speed_sem_cm_s,max_segment_speed_cm_s
+exact_current_mode_rule,explore,day1,0,0mo,first_30_min,23,23,3.1143807315486325,0.1486341100498544,60.0
+exact_current_mode_rule,explore,day1,3,3mo,first_30_min,17,17,4.258728973632393,0.1612725833105099,60.0
+exact_current_mode_rule,explore,day1,6,6mo,first_30_min,17,17,4.606593621000416,0.2254108888183569,60.0
+exact_current_mode_rule,explore,day1,9,9mo,first_30_min,12,12,4.9960773379522045,0.317559457603093,60.0
+exact_current_mode_rule,explore,day1,12,12mo,first_30_min,10,10,4.289706086176016,0.3953244859359348,60.0
+exact_current_mode_rule,explore,day2,0,0mo,first_30_min,18,18,3.529771674354265,0.1692816427595574,60.0
+exact_current_mode_rule,explore,day2,3,3mo,first_30_min,17,17,4.342740422912306,0.2486335010806962,60.0
+exact_current_mode_rule,explore,day2,6,6mo,first_30_min,17,17,4.228036699392795,0.2619952155654871,60.0
+exact_current_mode_rule,explore,day2,9,9mo,first_30_min,12,12,4.49421887688895,0.3052740647647062,60.0
+exact_current_mode_rule,explore,day2,12,12mo,first_30_min,10,10,4.385369737876017,0.308013562491689,60.0
+exact_current_mode_rule,reward,day1,0,0mo,first_30_min,20,20,3.2899722349141407,0.2350171455829664,60.0
+exact_current_mode_rule,reward,day1,3,3mo,first_30_min,17,17,5.571781902575543,0.2499872838117948,60.0
+exact_current_mode_rule,reward,day1,6,6mo,first_30_min,17,17,6.936680484278018,0.3910676819300733,60.0
+exact_current_mode_rule,reward,day1,9,9mo,first_30_min,12,12,8.785335253626325,0.5037949728634904,60.0
+exact_current_mode_rule,reward,day1,12,12mo,first_30_min,10,10,7.337333595481818,0.9220963508718985,60.0
+exact_current_mode_rule,reward,day2,0,0mo,first_30_min,18,18,7.243512695064037,0.5332131229832803,60.0
+exact_current_mode_rule,reward,day2,3,3mo,first_30_min,17,17,9.771220642933278,0.4102481130897805,60.0
+exact_current_mode_rule,reward,day2,6,6mo,first_30_min,17,17,10.056797346573036,0.6172656892275772,60.0
+exact_current_mode_rule,reward,day2,9,9mo,first_30_min,12,12,11.428044789014578,0.5139913348888444,60.0
+exact_current_mode_rule,reward,day2,12,12mo,first_30_min,10,10,10.978444539377836,0.6590795130664382,60.0

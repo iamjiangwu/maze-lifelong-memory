@@ -180,12 +180,3 @@ def audit_pair_universe(
             }
         )
     return pd.DataFrame(rows)
-
-
-def assert_selected_cohort_eligible(audit: pd.DataFrame, label: str) -> None:
-    bad = audit.loc[~audit["eligibility_decision"].eq("USE_NEURAL")]
-    if not bad.empty:
-        raise RuntimeError(
-            f"{label} contains biologically excluded neural rows before QC: "
-            f"{bad[['pair_id', 'excluded_animal_hits', 'excluded_session_hits']].to_dict('records')}"
-        )

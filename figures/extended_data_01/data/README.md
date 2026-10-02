@@ -10,8 +10,6 @@ Inputs for the current figure or table and its statistics. [Column and format in
 | [endpoint_axis_session_rows.csv](endpoint_axis_session_rows.csv) | .csv |
 | [j_group_specific_80_time_session_bins.csv](j_group_specific_80_time_session_bins.csv) | .csv |
 | [k_group_specific_80_tile_session_bins.csv](k_group_specific_80_tile_session_bins.csv) | .csv |
-| [panel_a_jump_mask_audit.csv](panel_a_jump_mask_audit.csv) | .csv |
-| [panel_a_trajectory_plot_data.csv.gz](panel_a_trajectory_plot_data.csv.gz) | .csv.gz |
 | [panel_h_first30_group_summary_cap60.csv](panel_h_first30_group_summary_cap60.csv) | .csv |
 | [panel_h_first30_session_rows_cap60.csv](panel_h_first30_session_rows_cap60.csv) | .csv |
 | [panel_i_cycle_summary.csv](panel_i_cycle_summary.csv) | .csv |

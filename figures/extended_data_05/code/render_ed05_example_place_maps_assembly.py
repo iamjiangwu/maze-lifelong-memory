@@ -13,10 +13,10 @@ Every panel is source-rendered from maintained plot-ready tables or the frozen
 2. The bottom-left crop of the legacy day-combination strip is redrawn as three
    Main-Figure-1 bar-plus-scatter axes from the saved correlations for 36
    session pairs × 4 variants for place, PV, and ensemble rate. Session pairs
-   are weighted equally; uncertainty and contrasts are clustered by mouse.
+   are weighted equally; standard errors are clustered by animal.
 3. The bottom-right crop of the legacy dual-cohort equal-time absolute panel is
    replaced by the corrected-36 Day1→Day1 Outside↔Maze paired plot (36 transition
-   rows, animal-clustered CR1 means/CI, BH4 q).
+   rows, standard errors clustered by animal, single-comparison p).
 4. Typography follows the shared Extended Data contract; background grids are
    off; exact P/q and counts belong in the caption.
 """
@@ -623,16 +623,6 @@ def _check_composite_embedded_resolution(
         )
 
 
-def _ci95_from_values(values: np.ndarray) -> tuple[float, float, float]:
-    values = np.asarray(values, dtype=float)
-    mean = float(np.mean(values))
-    if len(values) < 2:
-        return mean, mean, mean
-    sem = float(np.std(values, ddof=1) / np.sqrt(len(values)))
-    from scipy import stats
-
-    tcrit = float(stats.t.ppf(0.975, df=len(values) - 1))
-    return mean, mean - tcrit * sem, mean + tcrit * sem
 
 
 def _metric_contrast_rows(stats: pd.DataFrame, metric: str) -> pd.DataFrame:
@@ -912,7 +902,7 @@ def draw_equal_time_panel(
         ax,
         0.0,
         1.0,
-        float(test["q_bh4"]),
+        float(test["pvalue"]),
         y_frac=y_frac,
         skip_ns=True,
         star_offset_frac=-0.024,
@@ -926,9 +916,9 @@ def draw_equal_time_panel(
         f"{len(d1)} rows / {d1['animal_id'].nunique()} mice",
     )
     checks.record(
-        "equal_time_d1v1_q_bh4",
-        float(test["q_bh4"]) < 0.05,
-        f"q_bh4={float(test['q_bh4']):.6g}",
+        "equal_time_d1v1_p",
+        float(test["pvalue"]) < 0.05,
+        f"p={float(test['pvalue']):.6g}",
     )
     checks.record(
         "equal_height_matches_bcd",
@@ -995,7 +985,8 @@ def assemble(output_dir: Path) -> dict[str, Any]:
     equal_feasibility_sets = set(pairs["feasibility_source"].astype(str))
     checks.record(
         "equal_time_single_source_vintage",
-        len(pairs) == 144
+        len(pairs) == 36
+        and pairs["variant"].eq("d1v1").all()
         and equal_source_sets == EQUAL_SOURCE_SET_EXPECTED
         and equal_feasibility_sets == EQUAL_FEASIBILITY_SET_EXPECTED,
         f"{len(pairs)} rows; source_set={sorted(equal_source_sets)}; feasibility={sorted(equal_feasibility_sets)}",
@@ -1421,7 +1412,7 @@ def assemble(output_dir: Path) -> dict[str, Any]:
                 f"- Day-combination descriptive means: see `{DAY_COMB_DESC.name}`.",
                 "- Planned Day1→Day1 contrasts use exact mouse-cluster sign-flip tests of the equal-pair mean with Benjamini--Hochberg correction within each metric across three comparisons; none of the place-map contrasts and all PV and ensemble-rate contrasts survive.",
                 f"- {EQUAL_CAPTION_STATS_LABEL}: β={float(equal_stats.loc[equal_stats.variant.eq('d1v1') & equal_stats.analysis.eq('maze_minus_outside'), 'beta'].iloc[0]):.3f}, "
-                f"q_BH4={float(equal_stats.loc[equal_stats.variant.eq('d1v1') & equal_stats.analysis.eq('maze_minus_outside'), 'q_bh4'].iloc[0]):.3g}.",
+                f"p={float(equal_stats.loc[equal_stats.variant.eq('d1v1') & equal_stats.analysis.eq('maze_minus_outside'), 'pvalue'].iloc[0]):.3g}.",
                 "",
                 "## Layout",
                 f"- Canvas is the content bounding box "

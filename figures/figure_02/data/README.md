@@ -5,8 +5,8 @@ Inputs for the current figure or table and its statistics. [Column and format in
 | File | Format |
 |---|---|
 | [418-3day1_to_418-6day1__row0062_a83_b794.npz](418-3day1_to_418-6day1__row0062_a83_b794.npz) | .npz |
-| [422-3_corr.fig](422-3_corr.fig) | .fig |
-| [422_corr.fig](422_corr.fig) | .fig |
+| [422-3_corr.npz](422-3_corr.npz) | Local-correlation image, coordinates and color metadata |
+| [422_corr.npz](422_corr.npz) | Local-correlation image, coordinates and color metadata |
 | [451-6day1_to_451-9day1__row0305_a402_b408.npz](451-6day1_to_451-9day1__row0305_a402_b408.npz) | .npz |
 | [837-6day1_to_837-9day1__row0175_a187_b131.npz](837-6day1_to_837-9day1__row0175_a187_b131.npz) | .npz |
 | [837-6day1_to_837-9day1__row0588_a674_b683.npz](837-6day1_to_837-9day1__row0588_a674_b683.npz) | .npz |

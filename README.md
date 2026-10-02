@@ -20,13 +20,13 @@ tables/table_01/ ... table_02/
 
 Each folder has a guide, a `build.py`, `data/` and `code/`. Data include derived neuron, session, pair and animal measurements; plotted summaries; example maps; and saved simulation/shuffle values. Formats are CSV, compressed CSV, numerical arrays and JSON. [Data guide](docs/DATA.md).
 
-The code rebuilds artwork and tables and recalculates statistics. Individual measurements are retained where needed to calculate means, uncertainty and tests. For example, Figure 3 includes animal/pair window values as well as the mean curves and s.e.m.; Figure 5 includes both level representations and their association with later exploration efficiency.
+The code rebuilds artwork and tables and recalculates the recorded statistical analyses. Individual measurements are retained where needed to calculate means, uncertainty and tests. For example, Figure 3 includes animal/pair window values as well as the mean curves and s.e.m.; Figure 5 includes both level representations and their association with later exploration efficiency. [Analysis definitions and correction families](docs/STATISTICS.md).
 
 Raw imaging movies and behavior videos are not included. Tracking, neural extraction, registration, map estimation and decoder fitting are not rerun here.
 
 ## Reproduce
 
-The tested environment is Python 3.10 on Windows. Vector exports use Edge and Arial; editable tables also require Node.js and `@oai/artifact-tool`. [Environment and commands](docs/REPRODUCING.md).
+The tested environment is Python 3.10 on Windows; vector exports use Edge and Arial. Supplementary workbooks use openpyxl. [Environment and commands](docs/REPRODUCING.md).
 
 From the repository root:
 

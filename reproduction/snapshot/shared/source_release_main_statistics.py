@@ -1,20 +1,18 @@
 """Recompute main-figure and ED1 publication statistics from compact source data.
 
-This module never reads raw acquisition data or accepted artwork. ``--prepare``
-is the one-time repository packaging operation; ordinary ``run`` needs only the
-release. Saved statistics are comparison authorities, not estimator inputs.
+This module never reads raw acquisition data or accepted artwork. ``run`` needs
+only the included derived inputs. Saved statistics are comparison authorities,
+not estimator inputs.
 
 CR1 follows the frozen producers: G/(G-1)*(N-1)/(N-K), two-sided t(G-1).
 BH families are kept separate (Figure1 BH4/BH3/BH6, Figure2 BH4, Figure3
-separate first-window and long-gap BH4, Figure4e BH2, ED1 BH27).
+separate first-window and long-gap BH4, Figure4e BH2, ED1 BH18).
 """
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
-import shutil
 from typing import Any
 
 import numpy as np
@@ -76,7 +74,7 @@ def regression(frame, xcol, ycol, animal) -> dict:
                 slope_se=c["se"], slope_t=c["t"], df=c["df"],
                 p_two_sided=c["p"], p_less=float(stats.t.cdf(c["t"],c["df"])),
                 p_greater=float(stats.t.sf(c["t"],c["df"])), r2=float(model["r2"]),
-                pearson_r=float(p.statistic), pearson_p=float(p.pvalue),
+                pearson_r=float(p.statistic),
                 n_rows=c["n_rows"], n_animals=c["n_animals"],
                 ci95_low=c["ci_low"], ci95_high=c["ci_high"])
 
@@ -151,14 +149,23 @@ def main1(root: Path, audit: Audit):
             c=contrast(model,[0,1])
             rows.append(dict(comparison=row.comparison, **{effect:c["estimate"], fold:np.exp(c["estimate"])},
                              n_sessions=c["n_rows"], n_animals=c["n_animals"], cluster_ols_t=c["t"],
-                             cluster_ols_p=c["p"], ordinary_ols_p=float(model["ordinary"].pvalues[1])))
+                             cluster_ols_p=c["p"]))
         result=pd.DataFrame(rows)
         result["cluster_ols_q_bh"]=bh(result.cluster_ols_p)
-        result["ordinary_ols_q_bh"]=bh(result.ordinary_ols_p)
         audit.compare("main1_"+prefix,result,saved,["comparison"],
-                      [effect,fold,"n_sessions","n_animals","cluster_ols_t","cluster_ols_p","cluster_ols_q_bh","ordinary_ols_p","ordinary_ols_q_bh"],
-                      unit="session observations; CR1 clustered by mouse; log(lb0) response",family=family,
+                      [effect,fold,"n_sessions","n_animals","cluster_ols_t","cluster_ols_p","cluster_ols_q_bh"],
+                      unit="session observations; OLS with standard errors clustered by animal; log(lb0) response",family=family,
                       note="Primary panel inference; historical GEE/bootstrap sensitivity columns are not used by the artwork.")
+    returns=read(p/"reward_acquisition_day1_month_points_current_plus_new12.csv")
+    returns=returns.loc[returns.month.isin([3,6,9,12]) & returns.lb0.gt(0)].copy()
+    c=contrast(fit(np.log(returns.lb0), np.column_stack([np.ones(len(returns)), returns.month/3]), returns.animal_id), [0,1])
+    trend=pd.DataFrame([dict(analysis="within_return_experience_trend", n_rows=c["n_rows"],
+        n_animals=c["n_animals"], estimate_log=c["estimate"], cluster_se=c["se"], t=c["t"], df=c["df"],
+        p_two_sided_cluster_t=c["p"], fold_change_per_unit=np.exp(c["estimate"]),
+        ci95_log_low=c["ci_low"], ci95_log_high=c["ci_high"])])
+    audit.compare("main1_within_return_experience_trend", trend, read(p/"return_experience_statistics.csv"),
+        ["analysis"], list(trend.columns[1:]), unit="56 return sessions from 17 animals; log-time slope per return cycle; standard errors clustered by animal",
+        family="one captioned trend test; nominal two-sided p")
     points=read(p/"ed04_session_route_current_plus_new12.csv")
     saved=read(p/"ed04_route_stats_current_plus_new12.csv")
     group_saved=read(p/"ed04_route_group_stats_current_plus_new12.csv")
@@ -174,7 +181,7 @@ def main1(root: Path, audit: Audit):
                          t_cluster=c["t"],df_cluster=c["df"],p_cluster=c["p"],n_rows_total=c["n_rows"],n_clusters_total=c["n_animals"]))
     result=pd.DataFrame(rows);result["q_bh6"]=bh(result.p_cluster)
     audit.compare("main1_route_contrasts",result,saved,["comparison"],list(result.columns[1:]),
-                  unit="162 sessions; four-level saturated condition model; CR1 clustered by 33 mice",family="six route-score pairwise contrasts BH6")
+                  unit="162 sessions; four-level saturated condition model; standard errors clustered by animal (33 animals)",family="six route-score pairwise contrasts BH6")
     rows=[]
     for i,g in enumerate(groups):
         vector=np.zeros(len(groups));vector[i]=1;c=contrast(model,vector)
@@ -202,17 +209,14 @@ def main2(root: Path,audit: Audit):
     points=read(p/"consecutive_gap/consecutive_gap_clean_long_gap_corrected_points.csv")
     saved=read(p/"consecutive_gap/consecutive_gap_clean_long_gap_corrected_stats.csv")
     rows=[]
-    for metric,sub in points.groupby("metric",sort=False):
+    for metric,sub in points.loc[points.metric.isin(["place_map_correlation", "pv_correlation", "level_map_correlation"])].groupby("metric",sort=False):
         row=regression(sub,"prev_gap_correlation","next_gap_correlation","animal_id")
         # The frozen dense producer used complementary CDF tails, not sf.
         # This matters for the historical ~1e-8 rate p at machine epsilon.
         row["p_greater"]=1-row["p_less"]
         row["p_two_sided"]=2*min(row["p_less"],row["p_greater"])
         rows.append(dict(metric=metric,**row))
-    dense=pd.DataFrame(rows);dense["q_bh_two_sided"]=bh(dense.p_two_sided)
-    audit.compare("main2_dense_previous_next",dense,saved,["metric"],
-                  ["intercept","slope","slope_se","slope_t","df","p_two_sided","p_less","p_greater","r2","pearson_r","pearson_p","n_rows","n_animals","q_bh_two_sided"],
-                  unit="neuron/bin observations; CR1 clustered by mouse",family="historical dense four-metric BH4 context, not current displayed ensemble-rate estimand")
+    dense=pd.DataFrame(rows)
     points=read(p/"rate_chain/session_pair_rate_consecutive_gap_points_canonical.csv")
     rate=regression(points,"value_sorted_ab","value_sorted_bc","animal_id")
     rate_saved=read(p/"rate_chain/session_pair_rate_consecutive_gap_stats_canonical.csv")
@@ -227,7 +231,7 @@ def main2(root: Path,audit: Audit):
     authority=read(root/"main_figure_2/source/statistical_inputs/displayed_estimand_bh4.csv")
     audit.compare("main2_displayed_previous_next_bh4",displayed,authority,["metric"],
                   ["intercept","slope","slope_se","slope_t","df","p_two_sided","n_rows","n_animals","q_bh4_two_sided"],
-                  unit="metric-specific neuron/bin or session-chain observations, clustered by mouse",family="three dense metrics plus canonical pair-level ensemble rate BH4")
+                  unit="metric-specific neuron/bin or session-chain observations, with standard errors clustered by animal",family="three dense metrics plus canonical pair-level ensemble rate BH4")
     saved=read(p/"distribution/metric_summary.csv");pair=read(p/"distribution/pair_metric_summary.csv")
     rows=[]
     for metric,stem in [("place","figure2_panel_d_place"),("pv","figure2_panel_f_pv"),("rate","figure2_panel_h_rate")]:
@@ -273,7 +277,10 @@ def main3(root: Path,audit: Audit):
     for folder,pointname,statname,xcol,correction in [
         ("first30","combined_first30_points_all_metrics.csv","combined_first30_stats_all_metrics.csv","experience_index",True),
         ("long_gap","main3_experience_trend_points_no_manual_mask.csv","main3_experience_trend_clustered_stats_no_manual_mask.csv","experience",False)]:
+        metrics=["place_map_correlation","level_map_correlation","pv_correlation","ensemble_rate_correlation"]
         points=read(p/folder/pointname);saved=read(p/folder/statname)
+        points=points.loc[points.metric.isin(metrics)]
+        saved=saved.loc[saved.metric.isin(metrics)]
         rows=[dict(metric=metric,**regression(sub,xcol,"value","animal")) for metric,sub in points.groupby("metric",sort=False)]
         result=pd.DataFrame(rows)
         if correction:
@@ -283,9 +290,9 @@ def main3(root: Path,audit: Audit):
         else:
             chosen=result.metric.isin(["place_map_correlation","level_map_correlation","pv_correlation","ensemble_rate_correlation"])
             result["q_bh_two_sided"]=np.nan;result.loc[chosen,"q_bh_two_sided"]=bh(result.loc[chosen,"p_two_sided"])
-            cols=["intercept","slope","slope_se","slope_t","df","p_two_sided","p_less","p_greater","r2","pearson_r","pearson_p","n_rows","n_animals","q_bh_two_sided"]
+            cols=["intercept","slope","slope_se","slope_t","df","p_two_sided","p_less","p_greater","r2","pearson_r","n_rows","n_animals","q_bh_two_sided"]
         audit.compare("main3_"+folder+"_experience_trends",result,saved,["metric"],cols,
-                      unit="pair/animal–experience rows; CR1 clustered by animal",family="separate four-representation BH4 family; decoder sensitivities excluded")
+                      unit="pair/animal–experience rows; standard errors clustered by animal",family="separate four-representation BH4 family; decoder sensitivities excluded")
     # Recreate the plotted 30-min primary curves, including their SEM, from
     # compact per-pair window values. Preserve the producer's two-stage pooling
     # (within source cohort then pool mean/variance), including its n definition.
@@ -333,7 +340,7 @@ def main4(root: Path,audit: Audit):
                          cluster_p=c["p"],ci95_low=c["ci_low"],ci95_high=c["ci_high"],n_pairs=c["n_rows"],n_animals=c["n_animals"]))
     result=pd.DataFrame(rows)
     audit.compare("main4_decoder_advantages",result,saved.loc[saved.analysis.isin(result.analysis)], ["analysis"],list(result.columns[1:]),
-                  unit="within-pair advantages; intercept-only OLS with mouse-clustered CR1",family="none; prespecified nominal tests")
+                  unit="within-pair advantages; intercept-only OLS with standard errors clustered by animal",family="none; prespecified nominal tests")
     sub=read(ref/"plot_ready/panel_f_matched_pair_means.csv")
     x=sub.d1_reward_proxy_error.to_numpy(float);y=sub.first_long_bout_time_s.to_numpy(float)
     assert len(sub)==30 and sub.animal_id.nunique()==14 and sub.neuron_target_n.eq(166).all()
@@ -347,7 +354,7 @@ def main4(root: Path,audit: Audit):
     animals=pairs.groupby(["group","animal","bin"],as_index=False)[["pv","pv_sh"]].mean()
     target_animals=read(p/"plot_ready/panel_e_animal_profiles.csv")
     audit.compare("main4_route_animal_profiles",animals,target_animals,["group","animal","bin"],["pv","pv_sh"],
-                  unit="pairs within mouse, then equally weighted animals",family="none")
+                  unit="pairs within animal, then equally weighted animals",family="none")
     rows=[];effects={}
     curves=[]
     for group,sub in animals.groupby("group",sort=False):
@@ -362,17 +369,13 @@ def main4(root: Path,audit: Audit):
         for b,bs in sub.groupby("bin"):
             ci=mean_ci(bs.pv)
             curves.append(dict(group=group,bin=b,mean=ci["mean"],lo=ci["lo"],hi=ci["hi"],shuffle=bs.pv_sh.mean(),n_mice=ci["n"]))
-    common=effects["reward_to_home"].index.intersection(effects["home_to_reward"].index)
-    delta=effects["reward_to_home"].loc[common]-effects["home_to_reward"].loc[common]
-    ci=mean_ci(delta)
-    rows.append(dict(group="reward_to_home minus home_to_reward",item="port minus elsewhere",mean=ci["mean"],lo=ci["lo"],hi=ci["hi"],n_mice=ci["n"],
-                     n_positive=int((delta>0).sum()),p_exact=signflip(delta)))
     result=pd.DataFrame(rows);result["q_BH"]=np.nan
     mask=result.group.isin(["home_to_reward","reward_to_home"])&result.item.eq("port minus elsewhere")
     result.loc[mask,"q_BH"]=bh(result.loc[mask,"p_exact"])
-    mask=result.group.eq("reward_to_home minus home_to_reward");result.loc[mask,"q_BH"]=result.loc[mask,"p_exact"]
-    audit.compare("main4_route_enrichment",result,read(p/"plot_ready/panel_e_statistics.csv"),["group","item"],list(result.columns[2:]),
-                  unit="animal-mean effects; exact two-sided sign-flip of mean (all 2^G signs); 95% t intervals",family="two direction enrichment tests BH2; direction difference separate")
+    saved=read(p/"plot_ready/panel_e_statistics.csv")
+    saved=saved.loc[saved.group.isin(["home_to_reward","reward_to_home"])]
+    audit.compare("main4_route_enrichment",result,saved,["group","item"],list(result.columns[2:]),
+                  unit="animal-mean effects; exact two-sided sign-flip of mean (all 2^G signs); 95% t intervals",family="two shown direction enrichment tests BH2")
     result=pd.DataFrame(curves)
     audit.compare("main4_route_curve",result,read(p/"plot_ready/panel_e_curve.csv"),["group","bin"],list(result.columns[2:]),
                   unit="equal animals; t(G-1) descriptive 95% intervals",family="none")
@@ -387,9 +390,9 @@ def main5(root: Path,audit: Audit):
     row=regression(points,"exploration_efficiency","level_map_correlation","animal_id")
     result=pd.DataFrame([dict(analysis="level_exploration",cluster_ols_slope=row["slope"],cluster_ols_se=row["slope_se"],cluster_ols_t=row["slope_t"],
                              cluster_ols_df=row["df"],cluster_ols_p=row["p_two_sided"],ols_intercept=row["intercept"],pearson_r=row["pearson_r"],
-                             pearson_p=row["pearson_p"],n_pairs=row["n_rows"],n_animals=row["n_animals"])])
+                             n_pairs=row["n_rows"],n_animals=row["n_animals"])])
     audit.compare("main5_level_exploration",result,pd.DataFrame([dict(analysis="level_exploration",**saved)]),["analysis"],list(result.columns[1:]),
-                  unit="36 session-pair observations, CR1 clustered by 14 mice",family="none; prespecified nominal association")
+                  unit="36 session-pair observations, standard errors clustered by animal (14 animals)",family="none; prespecified nominal association")
     p=root/"main_figure_5/source/source_data/level_pv"
     pairs=read(p/"level_pv_pair_matrices.csv")
     matrix=pairs.pivot_table(index="train_depth",columns="test_depth",values="pearson_r",aggfunc="mean").reset_index()
@@ -403,6 +406,7 @@ def ed1(root: Path,audit: Audit):
     p=root/"extended_data_figure_1/source/plot_ready"
     points=read(p/"ed01_endpoint_axis_session_rows_current153.csv")
     saved=read(p/"ed01_endpoint_axis_cluster_stats_current153.csv")
+    saved=saved.loc[saved.axis_key.isin(["maze_time_s","maze_tiles"])].copy()
     rows=[]
     for row in saved.itertuples():
         sub=points.loc[points.endpoint_key.eq(row.endpoint_key)&points.group_key.isin([row.group_a,row.group_b])].copy()
@@ -414,9 +418,12 @@ def ed1(root: Path,audit: Audit):
                          n_sessions_group_a=len(avalues),n_sessions_group_b=len(bvalues),n_sessions=c["n_rows"],n_mice=c["n_animals"],
                          mean_group_a=avalues.mean(),mean_group_b=bvalues.mean(),raw_mean_diff_group_b_minus_a=bvalues.mean()-avalues.mean(),
                          coef_log1p_group_b_minus_a=c["estimate"],effect_ratio_plus_one=np.exp(c["estimate"]),cluster_t=c["t"],cluster_p_two_sided=c["p"],cluster_df=c["df"]))
-    result=pd.DataFrame(rows);result["q_bh27"]=bh(result.cluster_p_two_sided)
-    audit.compare("ed1_endpoint_bh27",result,saved,["endpoint_key","axis_key","group_a","group_b"],list(result.columns[4:]),
-                  unit="eligible session rows, log1p outcomes, CR1 clustered by canonical biological animal",family="27 endpoint×axis×group contrasts BH27")
+    result=pd.DataFrame(rows)
+    if len(result)!=18:
+        raise AssertionError("ED1 acquisition family must contain 18 displayed time/tile contrasts")
+    result["p_bh18"]=bh(result.cluster_p_two_sided)
+    audit.compare("ed1_endpoint_bh18",result,saved,["endpoint_key","axis_key","group_a","group_b"],list(result.columns[4:]),
+                  unit="eligible session rows, log1p outcomes, standard errors clustered by animal",family="18 displayed endpoint×time/tile-axis×group contrasts BH18")
     points=read(p/"ed02_tile_time_loglog_rows_current153.csv");points=points.loc[truth(points.included_in_loglog_model)]
     row=regression(points,"log_elapsed_time_s","log_tile_transitions","animal_id")
     result=pd.DataFrame([dict(analysis="tile_time",intercept_log_scale=row["intercept"],slope_loglog=row["slope"],cluster_se=row["slope_se"],t_cluster=row["slope_t"],
@@ -424,7 +431,7 @@ def ed1(root: Path,audit: Audit):
                              n_sessions=row["n_rows"],n_mice=row["n_animals"],df_t=row["df"])] )
     saved=read(p/"ed02_tile_time_loglog_stats_current153.csv");saved["analysis"]="tile_time"
     audit.compare("ed1_tile_time",result,saved,["analysis"],list(result.columns[1:]),
-                  unit="153 sessions; log-log OLS, canonical mouse-clustered CR1",family="none; single prespecified diagnostic")
+                  unit="153 sessions; log-log OLS, standard errors clustered by animal",family="none; single prespecified diagnostic")
     points=read(p/"ed01_panel_h_first30_session_rows_cap60.csv")
     points=points.loc[points.window_id.eq("first_30_min")&points.analysis_mode.isin(["explore","reward"])&points.day.isin(["day1","day2"])]
     rows=[]
@@ -438,78 +445,6 @@ def ed1(root: Path,audit: Audit):
                   unit="session speeds, first 30 min in-maze, 60 cm/s segment cap; mean/SEM",family="none; descriptive only")
 
 
-def prepare(release_root: Path, repository: Path) -> dict:
-    """Freeze only missing compact derived tables; no estimator runs here."""
-    source_dir=release_root/"main_figure_2/source/statistical_inputs"
-    sources={
-        "same_stage_correlations.csv":"docs/sorted_data_full_figure_rerun_2026-06-11/figure4d_same_stage_support_matched_sorted_target164_no_manual_mask_2026-08-07/panel_same_stage_correlations.csv",
-        "same_stage_shuffle.csv":"docs/sorted_data_full_figure_rerun_2026-06-11/figure4d_same_stage_support_matched_sorted_target164_no_manual_mask_2026-08-07/panel_same_stage_shuffle.csv",
-        "long_gap_pair_rows.csv":"docs/sorted_data_full_figure_rerun_2026-06-11/figure2_main3_ed12_source_repair_842_2026-08-03/figure2_long_gap_pair_rows_corrected_842_common.csv",
-        "displayed_estimand_bh4.csv":"output/figures/axis_names_2026-09-29/artifacts/main_figure_2/figure2_consecutive_gap_displayed_estimand_bh4.csv",
-    }
-    source_dir.mkdir(parents=True,exist_ok=True)
-    rows=[]
-    for name,relative in sources.items():
-        source=repository/relative;target=source_dir/name
-        shutil.copy2(source,target)
-        digest=hashlib.sha256(source.read_bytes()).hexdigest()
-        assert hashlib.sha256(target.read_bytes()).hexdigest()==digest
-        rows.append(dict(path=name,source=relative,sha256=digest,bytes=source.stat().st_size,
-                         role="saved comparison authority" if name.startswith("displayed") else "derived per-pair numerical input"))
-    payload=dict(schema="main-statistical-source-provenance/v1",files=rows,raw_data_used=False,
-                 estimators=dict(cr1="G/(G-1)*(N-1)/(N-K), Student t(G-1)",
-                                 route_sign_flip="exact two-sided mean under all 2^G animal-level signs; not binomial sign test"),
-                 producer_math=["scripts/export_reward_acquisition_by_month.py:clustered_session_contrasts",
-                     "scripts/export_long_bout_comparison.py:pairwise_clustered_contrasts",
-                     "scripts/render_ed02_ed04_current_panels.py:four_level_cluster_route_stats",
-                     "scripts/render_main_figs_v3_publication.py:_figure2_displayed_estimand_stats",
-                     "scripts/compare_gap_curve_aggregation_units.py:mean_t_ci",
-                     "scripts/build_main3_long_gap_no_manual_mask_sources.py:_cluster_fit",
-                     "scripts/render_main_figure4_panel_f_ed10_k166.py:fit_statistics",
-                     "scripts/analyze_mm_route_zscored_pv.py:exact_p",
-                     "scripts/analyze_ed01_canonical_animal_clusters.py:recompute_endpoints,recompute_tile_time"])
-    (source_dir/"PROVENANCE.json").write_text(json.dumps(payload,indent=2)+"\n",encoding="utf-8")
-    curve_dir=release_root/"main_figure_3/source/statistical_inputs"
-    curve_dir.mkdir(parents=True,exist_ok=True)
-    curve_path=curve_dir/"day2_template_window_values.csv.gz"
-    provenance_path=curve_dir/"PROVENANCE.json"
-    if not curve_path.exists():
-        pieces=[];curve_sources=[]
-        columns=["animal","pair_id","experience_group","metric","map_type","support_policy","window_type","window_size","window_size_label","x_value","x_unit","sim_mean","common_bins","finite_neuron_fraction"]
-        base=repository/"docs/coverage5min_window_reanalysis_2026-08-05"
-        for cohort in ["sorted_non1616","original_fallback_naive","sorted_1616"]:
-            for tree in [False]:
-                relative=Path("fixed_reference_tree_depth7" if tree else "fixed_reference")/cohort/"window_convergence_curves.csv"
-                path=base/relative
-                source_rows=0;retained_rows=0
-                for chunk in pd.read_csv(path,usecols=columns,chunksize=100000,float_precision="round_trip",low_memory=False):
-                    source_rows+=len(chunk)
-                    policy=chunk.support_policy.eq("scaled_nonoverlap")| (chunk.metric.eq("ensemble_rate_correlation")&chunk.support_policy.eq("not_applicable"))
-                    metric=chunk.metric.eq("level_map_correlation") if tree else chunk.metric.isin(["place_map_correlation","pv_correlation","ensemble_rate_correlation"])
-                    sub=chunk.loc[chunk.window_type.eq("maze_time")&chunk.window_size.eq(30)&policy&metric].copy()
-                    sub["source_bundle"]=("tree_depth7_" if tree else "")+cohort
-                    sub["experience_group"]=sub.experience_group.astype(str).str.lower().replace({"0mo":"naive","0":"naive"})
-                    retained_rows+=len(sub);pieces.append(sub)
-                curve_sources.append(dict(source=str(path.relative_to(repository)),sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
-                                          source_rows=source_rows,retained_rows=retained_rows))
-        pd.concat(pieces,ignore_index=True).to_csv(curve_path,index=False,compression={"method":"gzip","mtime":0})
-        provenance_path.write_text(json.dumps(dict(schema="main3-descriptive-curve-inputs/v1",sources=curve_sources,
-            output=dict(path=curve_path.name,sha256=hashlib.sha256(curve_path.read_bytes()).hexdigest(),bytes=curve_path.stat().st_size),
-            selection="three displayed metrics only: place/PV/rate; maze_time 30-min windows, primary metric-specific scaled_nonoverlap/not_applicable support; preserves finite/missing values; no raw acquisition",
-            producer_math="scripts/export_fixed_reference_window_convergence.py:_aggregate_curves; scripts/summarize_coverage5min_figure3_sources.py:_combine_group_curves"),indent=2)+"\n",encoding="utf-8")
-    else:
-        # Narrow a prior packaging candidate to the metrics actually drawn by
-        # the frozen Figure3 renderer. Do not distribute unused level windows.
-        windows=read(curve_path)
-        keep=windows.metric.isin(["place_map_correlation","pv_correlation","ensemble_rate_correlation"])
-        if not keep.all():
-            windows.loc[keep].to_csv(curve_path,index=False,compression={"method":"gzip","mtime":0})
-            provenance=json.loads(provenance_path.read_text(encoding="utf-8"))
-            provenance["sources"]=[item for item in provenance["sources"] if "fixed_reference_tree_depth7" not in item["source"]]
-            provenance["output"]=dict(path=curve_path.name,sha256=hashlib.sha256(curve_path.read_bytes()).hexdigest(),bytes=curve_path.stat().st_size)
-            provenance["selection"]="three displayed metrics only: place/PV/rate; maze_time 30-min windows, primary scaled_nonoverlap/not_applicable support; preserves finite/missing values; no raw acquisition"
-            provenance_path.write_text(json.dumps(provenance,indent=2)+"\n",encoding="utf-8")
-    return payload
 
 
 def run(release_root: Path,output_dir: Path) -> dict[str,Any]:
@@ -532,9 +467,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--release-root",type=Path,required=True)
     parser.add_argument("--output-dir",type=Path,required=True)
-    parser.add_argument("--prepare",action="store_true")
     args=parser.parse_args()
-    if args.prepare:prepare(args.release_root,Path(__file__).resolve().parents[1])
     result=run(args.release_root,args.output_dir)
     print(json.dumps(result,indent=2))
     raise SystemExit(0 if result["status"]=="PASS" else 1)

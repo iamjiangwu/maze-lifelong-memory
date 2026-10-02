@@ -89,7 +89,10 @@ FIXED_CURVES = FIXED_DIR / "ed07_current59_group_curve_summary.csv"
 FIXED_STATS = FIXED_DIR / "ed07_current59_clustered_stats.csv"
 FIXED_SUPPORT = FIXED_DIR / "ed07_current59_curve_support_mask.csv"
 PIVOT_CURVES = PIVOT_DIR / "ed07_pivot_experience_group_curve_summary_current59.csv"
-PIVOT_STATS = PIVOT_DIR / "ed07_pivot_day_specific_early_slope_stats_current59.csv"
+PIVOT_STATS = (
+    REPO_ROOT / "docs/figure_version_records/extended_data_fig06_2026-08-16_round7_available_curve_all59"
+    / "source_data/available_curve_support_2026_08_16/ed06_available_curve_clustered_stats.csv"
+)
 PIVOT_LIMITS = PIVOT_DIR / "ed07_pivot_experience_display_limits_current59.csv"
 
 FIGURE_ROOT = (
@@ -108,9 +111,9 @@ COVERAGE_GATE_FRAMES = 7500
 EXPECTED_PAIRS = 59
 EXPECTED_ANIMALS = 22
 PIVOT_WINDOW_MIN = 30.0
-PIVOT_EXPECTED_PAIR_ROWS = 56
-FIXED_BH_FAMILY = 18
-PIVOT_BH_FAMILY = 9
+PIVOT_EXPECTED_PAIR_ROWS = 59
+FIXED_BH_FAMILY = 12
+PIVOT_BH_FAMILY = 3
 
 EXPERIENCE_ORDER = ("naive", "3mo", "6mo", "9mo", "12mo")
 EXPERIENCE_LABEL = {
@@ -345,10 +348,10 @@ def _fixed_slope(stats: pd.DataFrame, metric: str, window_type: str, window_size
 
 
 def _pivot_slope(stats: pd.DataFrame, metric: str, day: str):
+    estimand = {"day1": "day_i_linear_slope", "day2": "day_i1_linear_slope"}[day]
     rows = stats[
         stats["metric"].eq(metric)
-        & stats["day"].eq(day)
-        & np.isclose(stats["window_size_min"], PIVOT_WINDOW_MIN)
+        & stats["estimand"].eq(estimand)
     ]
     if len(rows) != 1:
         raise ValueError(f"expected one pivot slope row for {metric}/{day}, got {len(rows)}")
@@ -741,29 +744,31 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
         f"{sorted(set(slope_rows['n_animal_clusters']))} animal clusters",
     )
     checks.record(
-        "fixed_template_bh18_family",
+        "fixed_template_bh12_family",
         len(slope_rows) == FIXED_BH_FAMILY
-        and "q_bh18_two_sided" in fixed_stats.columns,
+        and "q_bh12_two_sided" in fixed_stats.columns,
         f"{len(slope_rows)} slope estimands in the BH{FIXED_BH_FAMILY} family",
     )
-    pivot30 = pivot_stats[np.isclose(pivot_stats["window_size_min"], PIVOT_WINDOW_MIN)]
     checks.record(
-        "pivot_scope_30min_56_pairs_22_mice",
-        set(pivot30["n_pair_rows"]) == {PIVOT_EXPECTED_PAIR_ROWS}
-        and set(pivot30["n_animal_clusters"]) == {EXPECTED_ANIMALS}
-        and set(pivot30["n_eligible_pair_rows"]) == {EXPECTED_PAIRS},
-        f"{PIVOT_EXPECTED_PAIR_ROWS} of {EXPECTED_PAIRS} eligible pairs retained, "
+        "pivot_available_curve_scope_59_pairs_22_animals",
+        set(pivot_stats["n_recording_cycles"]) == {PIVOT_EXPECTED_PAIR_ROWS}
+        and set(pivot_stats["n_animals"]) == {EXPECTED_ANIMALS},
+        f"{PIVOT_EXPECTED_PAIR_ROWS} recording cycles retained, "
         f"{EXPECTED_ANIMALS} animal clusters",
     )
     checks.record(
-        "pivot_bh9_family_per_day",
-        set(pivot30["correction_family_n"]) == {PIVOT_BH_FAMILY},
-        f"BH{PIVOT_BH_FAMILY} within each day, across 3 metrics x 3 window sizes",
+        "pivot_bh3_family_per_estimand",
+        len(pivot_stats) == 9
+        and pivot_stats.groupby("estimand").size().eq(PIVOT_BH_FAMILY).all()
+        and "p_bh3_two_sided" in pivot_stats.columns,
+        "BH3 across three neural measures separately for Day i slope, Day i+1 slope and within-curve SD difference",
     )
     checks.record(
-        "pivot_timebase_is_maze_time",
-        set(pivot_stats["pivot_timebase"]) == {"maze_time"},
-        "pivot windows placed on cumulative TimeInMaze, not selected-sample time",
+        "pivot_available_curve_estimands",
+        set(pivot_stats["value_column"]) == {
+            "day_i_slope_r_per_hour", "day_i1_slope_r_per_hour", "day_i1_minus_day_i_sd"
+        },
+        "slopes and SD differences use each recording cycle's complete finite-in-both-days pivot curve",
     )
 
     # ---- five-minute gate: which displayed columns move ----------------------
@@ -877,7 +882,7 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
                 fixed_stats, metric, str(column["window_type"]), float(column["window_size"])
             )
             # Recorded for the caption only; nothing statistical is drawn on the panel.
-            stars = canvas.significance_stars(float(stats_row["q_bh18_two_sided"]))
+            stars = canvas.significance_stars(float(stats_row["q_bh12_two_sided"]))
             displayed_stats.append(
                 {
                     "panel": fixed_letter,
@@ -886,7 +891,7 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
                     "estimand": "mean_pairwise_within_day1_slope",
                     "estimate": float(stats_row["estimate"]),
                     "unit": str(stats_row["estimate_unit"]),
-                    "q_bh18_two_sided": float(stats_row["q_bh18_two_sided"]),
+                    "q_bh12_two_sided": float(stats_row["q_bh12_two_sided"]),
                     "stars": stars,
                     "n_pair_rows": int(stats_row["n_pair_rows"]),
                     "n_animal_clusters": int(stats_row["n_animal_clusters"]),
@@ -948,19 +953,19 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
             )
             stats_row = _pivot_slope(pivot_stats, metric, str(column["day"]))
             # Recorded for the caption only; nothing statistical is drawn on the panel.
-            stars = canvas.significance_stars(float(stats_row["q_bh_two_sided"]))
+            stars = canvas.significance_stars(float(stats_row["p_bh3_two_sided"]))
             displayed_stats.append(
                 {
                     "panel": pivot_letter,
                     "metric": metric,
                     "column": column["title"],
-                    "estimand": "day_specific_early_pivot_slope",
+                    "estimand": str(stats_row["estimand"]),
                     "estimate": float(stats_row["estimate"]),
                     "unit": "r per hour",
-                    "q_bh_two_sided": float(stats_row["q_bh_two_sided"]),
+                    "p_bh3_two_sided": float(stats_row["p_bh3_two_sided"]),
                     "stars": stars,
-                    "n_pair_rows": int(stats_row["n_pair_rows"]),
-                    "n_animal_clusters": int(stats_row["n_animal_clusters"]),
+                    "n_pair_rows": int(stats_row["n_recording_cycles"]),
+                    "n_animal_clusters": int(stats_row["n_animals"]),
                 }
             )
             if is_top_row:
@@ -1249,7 +1254,7 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
                 ("fixed_clustered_stats", "fixed_stats", FIXED_STATS),
                 ("fixed_curve_support_mask", "fixed_support", FIXED_SUPPORT),
                 ("pivot_group_curves", "pivot_curves", PIVOT_CURVES),
-                ("pivot_early_slope_stats", "pivot_stats", PIVOT_STATS),
+                ("pivot_available_curve_stats", "pivot_stats", PIVOT_STATS),
                 ("pivot_display_limits", "pivot_limits", PIVOT_LIMITS),
             )
         },
@@ -1319,11 +1324,12 @@ def _write_caption_notes(
         f" {COVERAGE_GATE_SEC:.0f} s of selected data ({COVERAGE_GATE_FRAMES:,} frames at"
         " DT = 0.04 s). This supersedes the previous 50%-of-window rule.",
         f"- Fixed {DAY_IP1_LABEL}-template panels (c, e, g): {EXPECTED_PAIRS} same-stage pairs from"
-        f" {EXPECTED_ANIMALS} mice; mouse-clustered CR1; BH across the"
+        f" {EXPECTED_ANIMALS} animals; standard errors clustered by animal; BH across the"
         f" {FIXED_BH_FAMILY}-member window family.",
         f"- Pivot panels (d, f, h): {PIVOT_EXPECTED_PAIR_ROWS} of {EXPECTED_PAIRS} eligible"
         f" pairs retained at the {PIVOT_WINDOW_MIN:.0f}-min window, {EXPECTED_ANIMALS} mice;"
-        f" BH{PIVOT_BH_FAMILY} within each day across 3 metrics x 3 window sizes.",
+        f" BH{PIVOT_BH_FAMILY} across three neural measures separately for the within-curve"
+        " SD difference, Day i slope and Day i+1 slope.",
         "- Pivot windows are placed on cumulative TimeInMaze, not on selected-sample time.",
         "- Curves are drawn only where the maintained support mask passes; shading is ± SEM"
         " across animals.",
@@ -1349,7 +1355,7 @@ def _write_caption_notes(
         "|---|---|---|---|---:|---|---:|---|---:|---:|",
     ]
     for row in displayed_stats:
-        q_value = row.get("q_bh18_two_sided", row.get("q_bh_two_sided"))
+        q_value = row.get("q_bh12_two_sided", row.get("p_bh3_two_sided"))
         lines.append(
             f"| {row['panel']} | {row['metric']} | {row['column']} | {row['estimand']} | "
             f"{row['estimate']:.6f} | {row['unit']} | {q_value:.3g} | {row['stars']} | "

@@ -1,0 +1,2 @@
+analysis,n_rows,n_animals,estimate_log,cluster_se,t,df,p_two_sided_cluster_t,fold_change_per_unit,ci95_log_low,ci95_log_high
+within_return_experience_trend,56,17,-0.3491046941415784,0.15270081674972882,-2.286200569010371,16,0.036213906565061384,0.7053192836074293,-0.6728159647647052,-0.025393423518451697

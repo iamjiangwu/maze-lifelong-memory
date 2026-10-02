@@ -6,47 +6,37 @@
     {
       "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\signal_comparison_primary_pairs.csv",
       "frozen": "source_data\\signal_comparison_primary_pairs.csv",
-      "sha256": "829dc573706275321bf68ea431516a4a35a1b45970ecdf567ff79ac16aaa7e5a"
+      "sha256": "dd933a207fbfefd858ca3b4e7062085fe0cbef27cf878ae40b49b940044c8da8"
     },
     {
       "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\signal_comparison_primary_numbers.csv",
       "frozen": "source_data\\signal_comparison_primary_numbers.csv",
-      "sha256": "330dd3eb0b7dc6345758da742f8b2d0d71c4f46d035403ab9a8a92b00ebde042"
+      "sha256": "dc12120998b7f24a0db3e4c7611057f8a1eb6851cabf5aca343a351a73045cd5"
     },
     {
       "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\replication_day2_pairs.csv",
       "frozen": "source_data\\replication_day2_pairs.csv",
-      "sha256": "6d9fa6d55d406ad0b55f67436086bb62bb8ecb05cabe16e54ed4e3e4e2e68885"
+      "sha256": "ef58ba1c7e8ff56945da6e37521daa37029e9444d85a2661fdd73870dc6388c1"
     },
     {
       "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\replication_day2_numbers.csv",
       "frozen": "source_data\\replication_day2_numbers.csv",
-      "sha256": "d114951a683ee1f673da73804219b7629cc36b544ce0740bca2a115f2dd1ce42"
+      "sha256": "1444d100b4b3caac080a6ec5505918c0141b22ad2ee27d4b3a90c5a3c934e51a"
     },
     {
       "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\strength_checks_profiles.csv",
       "frozen": "source_data\\strength_checks_profiles.csv",
-      "sha256": "79a9820f8af38540794c8b653b5fd954dc61114116cb902e8a84fa3464c1508d"
+      "sha256": "e62b6c6d3c4b3be95fa7f14c77a1446b6c6e3a72e5e1c8ccc6431b0e8ab1570d"
     },
     {
       "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\strength_checks_numbers.csv",
       "frozen": "source_data\\strength_checks_numbers.csv",
-      "sha256": "2fe966d6eaa178b17cd9cf0870004a387712239d56472af2547c8ead30021ed5"
-    },
-    {
-      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\candidate_paired_display_values.csv",
-      "frozen": "source_data\\candidate_paired_display_values.csv",
-      "sha256": "a18b23a6c590f6b1b48fb2185acb00f7f6aced48a5e47f499af2b788b4f755c9"
+      "sha256": "a3efc1b1adce55357741af816ad40a0e96fc4a2a05f08c252fc262ed05b1d1ec"
     },
     {
       "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\candidate_paired_display_summary.csv",
       "frozen": "source_data\\candidate_paired_display_summary.csv",
       "sha256": "6587848317a0665e89848d4e1f33208d62694f1ee11880ecf5073a36980be9e2"
-    },
-    {
-      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\manuscript_proposed.tex",
-      "frozen": "source_data\\manuscript_proposed.tex",
-      "sha256": "101ea647c508c09a6be8be895ffcb2e5905c66f44c8ef1b867562ed51822e949"
     },
     {
       "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\plot_ready\\ed08_panel_h_map.csv",
@@ -66,17 +56,12 @@
     {
       "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\plot_ready\\ed08_expanded_statistics.csv",
       "frozen": "source_data\\accepted_stats.csv",
-      "sha256": "a6421a0c3add49b8c7bf96d6c7f1b8e1b7a99b68ff9cb07afec329062d7507aa"
+      "sha256": "aad7e79d2f8306bb177d23b0a3f9aae120c7559224c9552b5cea0b6961975ef9"
     },
     {
       "original": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\extended_data_fig08_2026-09-09_round25_linearized_place_map_axes\\source_data\\ED08_PANEL_B_ALL_ELIGIBLE_MOUSE_VALUES.csv",
       "frozen": "source_data\\accepted_b.csv",
       "sha256": "625176e275686adde6aa7f51e5c7d728a9f3fb0eab449afb6dba197692000acc"
-    },
-    {
-      "original": "D:\\combineddata\\github_clean_repo\\output\\analysis\\route_density_vs_pv_explained_2026-09-24\\signal_maps_primary\\1616b-3day1.npz::info",
-      "frozen": "source_data/route_geometry_and_rule.json",
-      "sha256": "d341b8fd5aec63f260dc2b0f1f65c85ac04ac221d1a17d8cb8e7396beb73f99c"
     },
     {
       "original": "canonical wall vertices from accepted source-only renderer",

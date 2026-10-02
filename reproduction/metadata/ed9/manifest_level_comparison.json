@@ -26,7 +26,7 @@
     "registered_neuron_pair_observations": 21412,
     "retained_neuron_pair_observations": 16901
   },
-  "inference": "Two one-sided Level-minus-axis pair contrasts; intercept-only mouse-clustered CR1; Student t(13); BH2",
+  "inference": "Two one-sided Level-minus-axis pair contrasts; intercept-only regressions with standard errors clustered by animal; finite-animal CR1 adjustment; Student t(13); BH2",
   "support_caveat": "Ordinary Level code and the two eight-bin controls retain their own spatial support/category definitions; this is not an equal-bin-count or matched-tile comparison.",
   "upstream_steps_not_recomputed": [
     "signal extraction",
@@ -179,18 +179,6 @@
     }
   ],
   "outputs": {
-    "all_registered_neuron_gate_masks.csv": {
-      "bytes": 1578166,
-      "sha256": "8184e77ed9e843b14bb8d972bdb1d64e52f1271b39f0b75c27ca213de1c95d7d"
-    },
-    "included_neuron_values.csv": {
-      "bytes": 5349616,
-      "sha256": "202792e443d23f7226cc03b69f8d08f712cf31d04f0bd55575edd013c6296b53"
-    },
-    "means.csv": {
-      "bytes": 273,
-      "sha256": "bb08c333e647fcb1a76ffd4f7bbe070606e64f4f40c0ebf57711b3f5419a075c"
-    },
     "pair_values.csv": {
       "bytes": 14195,
       "sha256": "9a5c8991377f5961f6ebf01500665c37bafe5a05ca7e1b452064b6c240bb2b5b"
@@ -199,17 +187,9 @@
       "bytes": 4672,
       "sha256": "003b8ce720b6577d715083f9a86a9bee5168ca1ad0dff0e91e24e9fa195682dc"
     },
-    "SOURCE_HASHES.csv": {
-      "bytes": 1931,
-      "sha256": "2b7afd92b117b11edb382630fa036a1b37ef4ad8b0ec501d507bdbd67c67f417"
-    },
     "statistics.csv": {
       "bytes": 922,
       "sha256": "1c9bf2a6e73acece2a54e2183ac0c9076d4f31945a4286aa7956079f4266910f"
-    },
-    "VALIDATION_CHECKS.csv": {
-      "bytes": 1091,
-      "sha256": "baa59832d88c555d4748c74ab30e072730673ea71c36612a412b13d2c9a86db0"
     }
   }
 }

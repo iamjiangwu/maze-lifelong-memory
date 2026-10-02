@@ -2,6 +2,8 @@
 
 Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
 
+Preferred-level tests use 36 recording-pair observations from 14 animals, with standard errors clustered by animal and BH correction across the two one-sided tests. The shift-distance curve pools neurons that changed preferred level; inference gives each recording pair equal weight.
+
 | File | Format |
 |---|---|
 | [consecutive_points.csv](consecutive_points.csv) | .csv |
@@ -25,6 +27,8 @@ Inputs for the current figure or table and its statistics. [Column and format in
 | [pair_values.csv](pair_values.csv) | .csv |
 | [paired_contrasts.csv](paired_contrasts.csv) | .csv |
 | [plot_data.npz](plot_data.npz) | .npz |
+| [preferred_level_pair_observations.csv](preferred_level_pair_observations.csv) | .csv |
+| [preferred_level_statistics.csv](preferred_level_statistics.csv) | .csv |
 | [shift.csv](shift.csv) | .csv |
 | [statistics.csv](statistics.csv) | .csv |
 | [summary.json](summary.json) | .json |

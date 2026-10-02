@@ -22,8 +22,6 @@ SOURCE_FILES = [
     "plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv",
     "plot_ready/level_policy_bridge_join_corrected36.csv",
     "plot_ready/level_policy_bridge_stats_corrected36.csv",
-    "source_authority/fixed_neuron_synthesis/REPORT.md",
-    "source_authority/fixed_neuron_synthesis/ED10_CAPTION_AND_SOURCE_GUIDE.md",
     "source_authority/fixed_neuron_synthesis/NEURAL_ELIGIBILITY_CONTRACT.json",
     "source_authority/EXCLUDED_SESSION_CONTRACT.json",
     "main_figure_authority/figure5_source_manifest.json",
@@ -70,15 +68,15 @@ def prepare(bundle):
     shutil.copy2(Path(__file__), bundle / "rebuild_figure.py")
     write_json(bundle / "SOURCE_INPUTS.json", {"status": "PASS", "files": rows})
     (bundle / "REBUILD_README.md").write_text(
-        "# ED10 absolute-correlation review\n\n"
+        "# Extended Data Figure 10\n\n"
         "Run `python -B rebuild_figure.py --bundle . --output <new-empty-directory>`.\n\n"
         "All required tables, renderer, adapter and Python support modules are frozen here. "
         "No accepted figure image is a rendering input. Panel a displays abs(Pearson r) "
         "in both colors and labels. Signed coefficients and original CR1/BH3 tests are retained; "
         "panels b/c and figure geometry are unchanged.\n\n"
-        "The coefficient is pooled across 30 session pairs from 14 mice; stars use two-sided "
-        "pair-row OLS with mouse-clustered CR1 and row-wise BH3. Panel c retains its separate "
-        "36-pair cohort. This display change does not promote an accepted record or edit manuscript text.\n",
+        "The coefficient is pooled across 30 session pairs from 14 animals; stars use two-sided "
+        "regression tests with standard errors clustered by animal and row-wise BH3. Panel c uses "
+        "its separate 36-pair cohort and BH4 across the four shown turning biases.\n",
         encoding="utf-8",
     )
 
@@ -93,6 +91,12 @@ def build(bundle, output):
     sys.modules[spec.name] = driver
     spec.loader.exec_module(driver)
     driver.REPO_ROOT = bundle
+    # The source package supplies one shared contract/runtime, rather than a
+    # second ED10-specific copy of the same contract.
+    shared = bundle.parents[1] / "shared"
+    if (shared / "SOURCE_REBUILD_ED_CONTRACT.json").is_file():
+        driver.VOR_ROOT = shared
+        driver.CONTRACT = shared / "SOURCE_REBUILD_ED_CONTRACT.json"
     output.mkdir(parents=True, exist_ok=True)
     if (output / "runtime_authorities").exists():
         raise FileExistsError("Use a fresh output directory")

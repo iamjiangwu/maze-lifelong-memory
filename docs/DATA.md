@@ -9,9 +9,8 @@ The package includes derived observations, plotted summaries, example maps and s
 | CSV / CSV.gz | Measurements, summaries, null draws and simulation results |
 | NPZ / NPY | Numerical arrays and example maps |
 | JSON | Structured measurements or settings |
-| MAT / FIG | Example-map containers |
 | PNG / SVG / TIFF / PDF | Fixed illustrations or example assets |
 
-Reader-facing filenames identify current inputs, not analysis rounds. The technical relocation map restores the build code’s expected names only during execution. Unused historical inputs and local validation reports are not part of the current package.
+Reader-facing filenames identify the retained inputs, not analysis rounds. Correction families may span main and Extended Data panels; see the [statistics guide](STATISTICS.md). The technical relocation map restores the build code’s expected names only during execution; local validation reports are not included.
 
-Animal/session IDs and numerical values are unchanged. Some internal column names are retained for compatibility: `policy` means junction turning biases, `lb0` means first long bout time, and `rate` denotes ensemble rate measurements. Statistical units and correction families are defined by the associated analysis, not inferred from similar column names. [Statistics guide](STATISTICS.md).
+Animal/session IDs identify the retained observations. Some internal column names are retained for compatibility: `policy` refers to junction turning biases, `lb0` to first long bout time, and `rate` to ensemble rate measurements. Correlations between session representations and associations with behavior are different analyses; similar column names do not establish the statistical unit or correction family.

@@ -3,43 +3,33 @@
   "files": [
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv",
-      "sha256": "aead0bbff35e50598f0956e8be1b216818c7d3ba73553bdcd5577e391c8971bb",
+      "sha256": "c803bc76af8b8fbfa0d90e893a1123c9a2fe1fb790a9de8a31a71a0094132a52",
       "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/plot_ready/POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/REWARD_LEVEL_COMMONALITY.csv",
-      "sha256": "2869041a543e15e34bcb0fe7debfbb74165f9954a828aef144006db71a2a4cce",
+      "sha256": "4fb74583b126754ad78f2ae41e912024d518beeb21c5b8f58f28246688f3e8ec",
       "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/plot_ready/REWARD_LEVEL_COMMONALITY.csv"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/REWARD_LEVEL_PROFILE_TESTS.csv",
-      "sha256": "f6caad3e93a615278c860335721a119dafe25ca3e4dcc68b087a713634a415f5",
+      "sha256": "ca30de4b08d838b1bcef8f594d4e7f71991ecdfb1b0108008176e2aa0289f66f",
       "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/plot_ready/REWARD_LEVEL_PROFILE_TESTS.csv"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv",
-      "sha256": "9fded38471a51403fc9db31ca405601b82cf6124dd9bc2529ed3b9b3916f1776",
+      "sha256": "9b06721c532308c48045b35a06fa14d0cda9ae511bc40324855e957a252c3664",
       "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/level_policy_bridge_join_corrected36.csv",
-      "sha256": "07270cd310b9dab21e4a35ae9bd1946873b231745784434fc2ae0d2d1f3c0be4",
+      "sha256": "56457a842be09afa19edd90dfaeabf5df2c2ab63ea97dcbc45d8380e94f81ba3",
       "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/plot_ready/level_policy_bridge_join_corrected36.csv"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/level_policy_bridge_stats_corrected36.csv",
-      "sha256": "284ec36943f7cdc6bb779f4dc85058820f95868422cce8d9c4abd6d3788e682a",
+      "sha256": "299f487a50fc30fc18f907ae8b526213ea61a3d0a75d61af0ec5b24415dcef3d",
       "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/plot_ready/level_policy_bridge_stats_corrected36.csv"
-    },
-    {
-      "path": "frozen_source/extended_data_fig10_round18_inputs/source_authority/fixed_neuron_synthesis/REPORT.md",
-      "sha256": "f56e55f55510f71ff70e08e96cf6d7fd38069fc1cf40f8b38d88800d88544af8",
-      "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/source_authority/fixed_neuron_synthesis/REPORT.md"
-    },
-    {
-      "path": "frozen_source/extended_data_fig10_round18_inputs/source_authority/fixed_neuron_synthesis/ED10_CAPTION_AND_SOURCE_GUIDE.md",
-      "sha256": "a3e9491fe1319700edb94d32d7610132fe0a262c42c69b16bfd28dce88d29515",
-      "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/source_authority/fixed_neuron_synthesis/ED10_CAPTION_AND_SOURCE_GUIDE.md"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_authority/fixed_neuron_synthesis/NEURAL_ELIGIBILITY_CONTRACT.json",
@@ -58,33 +48,28 @@
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/preview_figure3_assembly.py",
-      "sha256": "6e95d1c8257297738c0e0f08a8da8894a37b3a901911d2e9b21739218f010ebe",
+      "sha256": "9a638775c8e6e3cb472b3fbbe15c97b964f60865c849c8a868b322aa7bc0f0dc",
       "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/source_code/preview_figure3_assembly.py"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/_ed10_neural_eligibility.py",
-      "sha256": "5b45e26acb7e0da0cac8647874f3f352ee09fc769a80e2857d1577b07223b1f9",
+      "sha256": "2b030a2513d9624a646295caf9b5c3ed1ec19c7e2355fcbd165582e52b5187d7",
       "authority": "docs/figure_version_records/extended_data_fig10_2026-09-25_round18_smaller_ns/source_code/_ed10_neural_eligibility.py"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/render_ed10_slide12_powerpoint_matched.py",
-      "sha256": "d2c93f7ce9537ff101d83c9850cbb14986956bc203b1a13527c69973676e7941",
+      "sha256": "cd80d25bf361de8eb299ce618daf1cbc5fba25f92ca2ea3f683d3159add4942f",
       "authority": "scripts/render_ed10_slide12_powerpoint_matched.py"
     },
     {
       "path": "source_code/rebuild_current_extended_data_figures.py",
-      "sha256": "059aebff147e133b4286b55879026301b277d6b48a91d5a00f05d4fb9114225f",
+      "sha256": "4cacc73dc282628f76c400dd6fed1fb90d46f0cd7478fbab00bdfcf099b20cb5",
       "authority": "docs/figure_version_records/rebuild_current_extended_data_figures.py"
     },
     {
       "path": "source_code/SOURCE_REBUILD_ED_RUNTIME.zip",
-      "sha256": "ef1fdd9a90564a28f1f866fbb3eadae5c671676bbedeaf7e8343be510352a143",
+      "sha256": "0b9486d0ea6c668c1e10a8eb89f12d0e9c722a0eb26c1e682fc7a467cf4cce06",
       "authority": "docs/figure_version_records/SOURCE_REBUILD_ED_RUNTIME.zip"
-    },
-    {
-      "path": "source_code/SOURCE_REBUILD_ED_CONTRACT.json",
-      "sha256": "e58e470e64968e5cad99ba53fae06e21383e40e509a13d4ad31c00d36cb19d46",
-      "authority": "docs/figure_version_records/SOURCE_REBUILD_ED_CONTRACT.json"
     }
   ]
 }

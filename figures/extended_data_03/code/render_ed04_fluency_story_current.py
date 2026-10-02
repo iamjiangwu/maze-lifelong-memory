@@ -788,7 +788,7 @@ def write_readme(
         "## Figure contract",
         "",
         "- **Core conclusion:** return sessions show strong broad pre-reward fluency, no supported pre-reward direct-path specificity, an attenuated post-reward exploratory advantage, and robust reward-directed approach fluency after the first reward encounter.",
-        "- **Statistical unit:** every eligible session row; CR1 covariance clustered by mouse; Student t with G-1 df.",
+        "- **Statistical unit:** every eligible session row; standard errors clustered by animal; Student t with G-1 df.",
         "- **Displayed family:** BH4 across exactly the four current panels, separately for raw seconds and log1p seconds.",
         "- **Time anchor:** before versus after that session's first reward encounter.",
         "",
@@ -927,7 +927,7 @@ def run(output_dir: Path) -> dict[str, Any]:
         },
         "analysis_contract": {
             "row_unit": "eligible session",
-            "dependence": "CR1 covariance clustered by mouse",
+            "dependence": "standard errors clustered by animal",
             "calibration": "Student t with df=number of mouse clusters minus 1",
             "primary_weighting": "all eligible session rows retained with unit weight",
             "sensitivity_weighting": "inverse session count within mouse",

@@ -175,7 +175,7 @@ def render(source_renderer, data, output: Path):
               "export_policy": "native source viewport; original logical x transforms unchanged",
               "retained_artists_and_physical_geometry_unchanged": True,
               "scientific_source": "record-local numerical tables and frozen native renderer",
-              "retired_panel_a": "Trajectory axes are removed before export; old inputs retained solely for inherited renderer compatibility."}
+              "retired_panel_a": "Empty geometry placeholders are removed before export; no retired trajectory inputs are loaded."}
     (output / "RENDER_VALIDATION_ROUND24.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     plt.close(fig)
     return result

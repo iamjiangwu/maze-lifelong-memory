@@ -140,8 +140,7 @@ def rebuild(record: Path, output: Path) -> list[Path]:
     load("figure1_complete_timeline_source", record / "source_code/figure1_complete_timeline_source.py")
     builder = load("figure1_approved_layout", record / "source_code/build_figure1_layout_alternatives.py")
     builder.MAIN = record
-    timeline_audit = json.loads((record / "source_data/TIMELINE_SOURCE_PARITY.json").read_text(encoding="utf-8"))
-    builder.build_complete_rewarded_timelines = lambda _record: (complete.loc[complete.nickname.str.startswith("434")].copy(), timeline_audit)
+    builder.build_complete_rewarded_timelines = lambda _record: (complete.loc[complete.nickname.str.startswith("434")].copy(), {})
     audit = {}
     preview, panels = builder.native_panels(runtime, output, audit)
     panels["b"], timeline_rows = builder.session_timeline(preview)

@@ -2,9 +2,9 @@
 
 The quantitative inputs are frozen plot-ready tables. Panel a shows black,
 normal-weight correlation values with adjacent stars derived from two-sided
-pair-row OLS tests with CR1 covariance clustered by mouse and Benjamini--
+pair-row OLS tests with CR1 standard errors clustered by animal and Benjamini--
 Hochberg correction across the three behavior outcomes within each neural row.
-Nominal CR1, row-wise BH3 and column-wise BH6 results are exported together.
+Nominal CR1 and row-wise BH3 results are exported together.
 The ED2 policy order (P_SF, P_SA, P_BF, depth-weighted P_BS) is preserved.
 """
 
@@ -45,8 +45,6 @@ SYNTHESIS = (
 TABLE_A = SYNTHESIS / "POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv"
 TABLE_B = SYNTHESIS / "REWARD_LEVEL_COMMONALITY.csv"
 PROFILE_TABLE = SYNTHESIS / "REWARD_LEVEL_PROFILE_TESTS.csv"
-SYNTHESIS_REPORT = SYNTHESIS / "REPORT.md"
-SYNTHESIS_CAPTION = SYNTHESIS / "ED10_CAPTION_AND_SOURCE_GUIDE.md"
 PAIR_AUDIT = SYNTHESIS / "CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
 SYNTHESIS_VALIDATION = SYNTHESIS / "VALIDATION.json"
 SYNTHESIS_MANIFEST = SYNTHESIS / "SOURCE_MANIFEST.csv"
@@ -266,7 +264,7 @@ def _cr1_p_value(frame: pd.DataFrame, predictor: str, outcome: str) -> dict[str,
 def panel_a_multiplicity_audit(
     table: pd.DataFrame, pair_rows: pd.DataFrame
 ) -> pd.DataFrame:
-    """Build raw-Pearson and mouse-clustered CR1/BH sensitivity results."""
+    """Build the displayed animal-clustered slope tests and row-wise BH3."""
 
     row_order = [
         "reward_location",
@@ -302,19 +300,8 @@ def panel_a_multiplicity_audit(
     audit["raw_p_two_sided_pairwise_pearson"] = pd.to_numeric(
         audit[RAW_P_VALUE_COLUMN], errors="raise"
     )
-    audit["raw_p_star"] = audit["raw_p_two_sided_pairwise_pearson"].map(p_value_star)
     audit["bh3_family_id"] = "neural_measure::" + audit["block"].astype(str)
     audit["bh3_family_size"] = 3
-    audit["bh3_adjusted_p"] = audit.groupby("block", sort=False)[
-        "raw_p_two_sided_pairwise_pearson"
-    ].transform(benjamini_hochberg)
-    audit["bh3_star"] = audit["bh3_adjusted_p"].map(p_value_star)
-    audit["bh6_family_id"] = "behavior_measure::" + audit["outcome"].astype(str)
-    audit["bh6_family_size"] = 6
-    audit["bh6_adjusted_p"] = audit.groupby("outcome", sort=False)[
-        "raw_p_two_sided_pairwise_pearson"
-    ].transform(benjamini_hochberg)
-    audit["bh6_star"] = audit["bh6_adjusted_p"].map(p_value_star)
     neural_columns = {
         "reward_location": "reward_error_fixed2000",
         "whole_decoder": "whole_error_fixed2000",
@@ -345,13 +332,9 @@ def panel_a_multiplicity_audit(
         "cr1_p_two_sided"
     ].transform(benjamini_hochberg)
     audit["cr1_bh3_star"] = audit["cr1_bh3_adjusted_p"].map(p_value_star)
-    audit["cr1_bh6_adjusted_p"] = audit.groupby("outcome", sort=False)[
-        "cr1_p_two_sided"
-    ].transform(benjamini_hochberg)
-    audit["cr1_bh6_star"] = audit["cr1_bh6_adjusted_p"].map(p_value_star)
     audit["statistical_unit"] = "session_pair"
     audit["p_value_scope_note"] = (
-        "Pair-row OLS with CR1 covariance clustered by mouse, Student t(13); plotted values use row-wise BH3"
+        "Pair-row OLS with standard errors clustered by animal, CR1 and Student t(13); row-wise BH3"
     )
     columns = [
         "neural_row_order",
@@ -362,15 +345,8 @@ def panel_a_multiplicity_audit(
         "outcome_label",
         "pooled_pearson_r",
         "raw_p_two_sided_pairwise_pearson",
-        "raw_p_star",
         "bh3_family_id",
         "bh3_family_size",
-        "bh3_adjusted_p",
-        "bh3_star",
-        "bh6_family_id",
-        "bh6_family_size",
-        "bh6_adjusted_p",
-        "bh6_star",
         "cr1_slope",
         "cr1_se",
         "cr1_t",
@@ -379,8 +355,6 @@ def panel_a_multiplicity_audit(
         "cr1_nominal_star",
         "cr1_bh3_adjusted_p",
         "cr1_bh3_star",
-        "cr1_bh6_adjusted_p",
-        "cr1_bh6_star",
         "n_pairs",
         "n_animals",
         "statistical_unit",
@@ -725,9 +699,9 @@ def policy_scatter_panel(
         if len(stat) != 1:
             raise AssertionError(f"Expected one ED10 policy-stat row for {column}")
         stat = stat.iloc[0]
-        q_value = float(stat["cluster_q_bh_window_family"])
+        q_value = float(stat["cluster_bh4_adjusted_p"])
         if not np.isfinite(q_value):
-            q_value = float(stat["cluster_p"])
+            raise AssertionError("Each displayed policy requires a finite BH4-adjusted p value")
         annotation = significance_stars(q_value)
         if annotation != "n.s.":
             bottom, top = ax.get_ylim()
@@ -1118,155 +1092,63 @@ def write_plain_language_docs(
     *,
     output_root: Path | None = None,
 ) -> list[Path]:
+    """Describe only the displayed outcomes and captioned comparisons."""
     document_root = output_root.resolve() if output_root is not None else ROOT
-    pooled = profile.loc[
-        profile["claim"].eq("reward_level_profile_crossover")
-        & profile["specification"].eq("pooled")
-        & profile["weighting"].eq("pair_weighted")
-    ].iloc[0]
-    stage = profile.loc[
-        profile["claim"].eq("reward_level_profile_crossover")
-        & profile["specification"].eq("stage_adjusted")
-        & profile["weighting"].eq("pair_weighted")
-    ].iloc[0]
+    tests = profile.set_index("claim")
     pooled_b = b.loc[b["specification"].eq("pooled")].set_index("outcome")
     early = pooled_b.loc["earlier_first_long"]
     explore = pooled_b.loc["exploration_efficiency"]
-    whole_decoder = a.loc[a["block"].eq("whole_decoder")].set_index("outcome")
     depth_policy = stats_c.loc[stats_c["y"].eq("Lo_depth_weighted")].iloc[0]
-    report = f"""# Extended Data Figure 10: resolved result and final display
+    report = f"""# Extended Data Figure 10: neural preservation and later behavior
 
-## Plain-language answer
+Panel a contains six neural readouts and three later-session behaviors
+(30 session pairs from 14 animals). Stars use two-sided regressions with
+standard errors clustered by animal and BH correction across the three
+behavior outcomes within each neural-measure row.
 
-The result did not collapse. The weaker-looking draft silently changed what was
-shown: it replaced the PowerPoint's pooled Pearson correlations with adjusted
-regression coefficients, changed the speed endpoint from the whole session to
-the first 30 minutes, removed the population vector row, and omitted the
-policy panel. The current figure restores the original three-part hierarchy
-while keeping the stricter analyses in Source Data. Round 8 retains all five
-PowerPoint readouts and adds whole maze decoding error as a visible general decoder
-quality control; no inherited row is replaced.
+Panel b partitions behavioral variance into reward-decoder unique, shared,
+and level-map unique components: {100*early.unique_a:.1f}%, {100*early.shared:.1f}%,
+and {100*early.unique_b:.1f}% for first long bout time; {100*explore.unique_a:.1f}%,
+{100*explore.shared:.1f}%, and {100*explore.unique_b:.1f}% for exploration efficiency.
+The three captioned profile comparisons use two-sided exact animal-score
+sign-flip tests and BH correction across those three tests. Adjusted p values
+are {tests.loc['first_long_reward_minus_level', 'bh3_adjusted_p']:.3g},
+{tests.loc['exploration_reward_minus_level', 'bh3_adjusted_p']:.3g}, and
+{tests.loc['reward_level_profile_crossover', 'bh3_adjusted_p']:.3g}, respectively.
 
-Panel a displays absolute Pearson correlations (both colors and numbers),
-with a sequential 0-0.8 color scale. Signed coefficients remain in Source Data;
-the existing two-sided tests and significance stars are unchanged.
-The neural readouts include raw decoder error and the current no-manual-mask K = 166
-map-stability values against reward approach speed advantage, elapsed first
-long bout time, and exploration efficiency. Higher decoder error means poorer
-decoding. The adjacent asterisks use two-sided pair-row OLS tests with CR1
-covariance clustered by mouse and Benjamini--Hochberg correction across the
-three behaviors within each neural row (`*` adjusted p < 0.05, `**` adjusted
-p < 0.01, `***` adjusted p < 0.001). The source-data audit also reports nominal
-CR1 and behavior-column BH6 results. Whole maze
-decoding error correlates
-{whole_decoder.loc['whole_session_reward_approach_speed_advantage', 'pooled_pearson_r']:.3f},
-{whole_decoder.loc['first_long_bout_time', 'pooled_pearson_r']:.3f}, and
-{whole_decoder.loc['exploration_efficiency', 'pooled_pearson_r']:.3f} with the
-three displayed behaviors, respectively. It uses the same denoised-C K = 166
-draws and exactly 2,000 target frames as reward decoding. It is a 15 x 15
-whole maze position decoder, not an all-frame or occupancy-balanced decoder.
-
-Panel b shows the pooled reward decoder/level map variance partition. For first
-long bout time, explained variance is {100*early.unique_a:.1f}% reward decoder unique,
-{100*early.shared:.1f}% shared and {100*early.unique_b:.1f}% level map unique.
-For exploration it is {100*explore.unique_a:.1f}%, {100*explore.shared:.1f}% and
-{100*explore.unique_b:.1f}%, respectively. Explained-variance partitions are
-unchanged when decoder error or elapsed bout time is multiplied by -1. Here Reward decoder
-unique means reward decoder unique relative to the level map; it
-does not mean unique relative to whole maze decoding.
-
-Panel c retains the separate clean36 level-policy bridge. The depth-weighted
-P_BS association is positive (r = {depth_policy.pearson_r:.3f}; full policy-by-
-window q = {depth_policy.cluster_q_bh_window_family:.3g}; ***), whereas the other three displayed policy
-associations are nonsignificant controls and are labeled `n.s.`. This family is supporting evidence from
-a different cohort, not an independent replication of panels a/b. Each scatter
-now reports its descriptive Pearson r at the lower right; `n.s.` and the significant star
-use the promoted main-figure upper-left purple grammar, with normal weight for `n.s.`.
-
-## Data and exclusion resolution
-
-- Panels a/b use 30 session pairs from 14 mice and average 50 technical K = 166
-  draws within pair.
-- Decoder and raw-map calculations use the same selected neuron tuples.
-- The live neural-eligibility contract is applied before QC. Animals 840 and
-  841 are behavior-only; 488-9, 579-6 and every other locked neural-excluded
-  session are absent. Earlier valid 488 and 579 intervals remain only when they
-  do not touch those excluded sessions.
-- The six-month Day1/Day2 session pairs for animals 1636, 1637, 1639, 325
-  and 347 are absent because they belong to a different experiment.
-- The first-30-min matched-terminal speed result is retained as a labeled
-  sensitivity; it is not substituted into panel a.
-
-## Claim boundary
-
-The defensible conclusion is that stronger Day-1 spatial map quality covaries
-with more efficient later navigation across return stages. The data do not
-establish a unique reward code, mediation, causality, an independent
-replication of Main Fig. 4f, or a stage-independent double dissociation.
-
-## Figure and PowerPoint QA contract
-
-The final source figure preserves the PowerPoint's three-band hierarchy and adds
-whole maze decoding error as a prespecified general decoder quality control directly
-below reward decoding, yielding a six-by-three matrix. Two commonality bars and
-four aligned policy axes are retained. The a-b gap is exactly half its round-5
-value while the b-c gap, row heights and source-role aspects are unchanged. The three roles are separate
-zero-crop vector/raster assets. Panel methods, cohort counts and inferential
-statistics are kept in the caption rather than printed over the plots, except
-for panel a's requested mouse-clustered row-wise BH3 stars and panel c's `n.s.`/`***` annotations and
-descriptive Pearson correlations.
-
-Detailed statistical and conversion audit: `{SYNTHESIS_REPORT.as_posix()}`.
+Panel c relates level map correlation to the four displayed turning biases
+measured during Explore behavior in the first 30 cumulative maze minutes
+(36 pairs from 14 animals). All four slope tests use standard errors clustered
+by animal and BH correction across those four tests. Depth-weighted P_BS:
+r = {depth_policy.pearson_r:.3f}, adjusted p = {depth_policy.cluster_bh4_adjusted_p:.3g}.
 """
     caption = f"""# Extended Data Figure 10 caption notes
 
-**Extended Data Fig. 10 | Spatial code stability and later navigation.**
-**a,** Absolute pair-level Pearson correlations between six Day-1-source neural
-readouts and three target-session behaviors for 30 session pairs from 14 mice.
-Cell colors and numbers show |r|; signed coefficients are retained in Source Data.
-The original five rows are retained and whole maze decoding error is added immediately
-below reward decoding error as a general decoder quality control. Both decoder rows
-use denoised C calcium activity, the same K = 166 neuron draws and exactly 2,000
-target frames per pair; whole maze decoding is not an all-frame or occupancy-
-balanced estimator. Values are raw decoder errors, so higher values indicate
-poorer decoding. The columns show reward approach speed advantage, elapsed
-first long bout time, and exploration efficiency; lower bout time denotes
-earlier onset. Neural
-readouts use the current exclusion-clean, no-manual-mask K = 166 authority;
-technical draws are averaged within session pair. Asterisks show two-sided
-pair-row OLS tests with CR1 covariance clustered by mouse and Student t(13),
-after Benjamini--Hochberg correction across the three behavior outcomes within
-each neural-measure row (`*` adjusted p < 0.05, `**` adjusted p < 0.01, `***`
-adjusted p < 0.001). Source Data also report the nominal CR1 and alternative
-behavior-column BH6 results. The first-30-min matched-terminal
-endpoint is reported as a sensitivity in Source Data. **b,** Pooled commonality
-partition for reward-proximal decoding and level map stability. Explained-
-variance partitions are unchanged by using elapsed first long bout time rather
-than its sign-reversed earlier-oriented form. In panel b, Reward decoder unique
-means reward decoder unique relative to the level map,
-not relative to whole maze decoding. **c,** Level map correlation versus four fixed 30-min turning-policy measures
-in the separate clean36 cohort (36 pairs, 14 mice). Points are pairs; lines are
-ordinary least-squares fits and bands are 95% mouse-cluster bootstrap intervals.
-The depth-weighted P_BS association was supported after the maintained policy-
-by-window family correction (q = {depth_policy.cluster_q_bh_window_family:.3g}; ***); the other three measures are nonsignificant controls and are labeled `n.s.`. Each scatter displays descriptive Pearson r at lower right. Association
-does not imply mediation or causality.
+**Extended Data Fig. 10 | Neural preservation and later behavior.**
 
-Animals 840 and 841 and all neural-excluded sessions, including 488-9 and the
-sick-animal 579-6 session, were removed before neural QC. The six-month
-Day1/Day2 session pairs for animals 1636, 1637, 1639, 325 and 347 are absent
-because they belong to a different experiment.
+**a,** Absolute Pearson correlations between six neural readouts and three
+later-session behaviors, across 30 session pairs from 14 animals. Stars use
+two-sided regressions with standard errors clustered by animal and BH
+correction across three behaviors within each neural-measure row. The behavior
+outcomes are whole-session reward approach speed advantage, first long bout
+time and exploration efficiency.
 
-[Sources]
-{SYNTHESIS_VALIDATION.as_posix()}
-{TABLE_A.as_posix()}
-{TABLE_B.as_posix()}
-{TABLE_C.as_posix()}
-{STATS_C.as_posix()}
-{EXCLUSION_CONTRACT.as_posix()}
-{NEURAL_ELIGIBILITY_CONTRACT.as_posix()}
-{ROUND6_SOURCE_VALIDATION.as_posix()}
-{SYNTHESIS_CAPTION.as_posix()}
-[/Sources]
+**b,** Commonality partition of variance associated with reward decoding error
+and level map correlation. The two bars concern first long bout time and
+exploration efficiency. Three pooled profile contrasts use two-sided exact
+animal-score sign-flip tests with BH correction across the three captioned
+comparisons. First-long-bout difference: {tests.loc['first_long_reward_minus_level', 'estimate']:.2f},
+adjusted p = {tests.loc['first_long_reward_minus_level', 'bh3_adjusted_p']:.3g};
+exploration difference: {abs(tests.loc['exploration_reward_minus_level', 'estimate']):.2f},
+adjusted p = {tests.loc['exploration_reward_minus_level', 'bh3_adjusted_p']:.3g};
+profile crossover: adjusted p = {tests.loc['reward_level_profile_crossover', 'bh3_adjusted_p']:.3g}.
+
+**c,** Level map correlation versus four turning biases during exploration
+within the first 30 cumulative maze minutes of the later session (36 pairs from
+14 animals). Lines are linear fits and bands are 95% confidence intervals
+from resampling animals. Stars use two-sided regressions with standard errors
+clustered by animal and BH correction across the four displayed policies.
+Depth-weighted P_BS: adjusted p = {depth_policy.cluster_bh4_adjusted_p:.3g}.
 """
     report_path = document_root / "AUDIT_REPORT.md"
     caption_path = document_root / "ED10_CAPTION_NOTES.md"
@@ -1281,8 +1163,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         TABLE_A,
         TABLE_B,
         PROFILE_TABLE,
-        SYNTHESIS_REPORT,
-        SYNTHESIS_CAPTION,
         TABLE_C,
         STATS_C,
         EXCLUSION_CONTRACT,
@@ -1356,7 +1236,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
                 "outcome",
                 "cr1_p_two_sided",
                 "cr1_bh3_adjusted_p",
-                "cr1_bh6_adjusted_p",
             ]
         ],
         on=["block", "outcome"],
@@ -1364,12 +1243,8 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         validate="one_to_one",
     )
     if not (
-        int(multiplicity_audit["raw_p_star"].ne("").sum()) == 11
-        and int(multiplicity_audit["bh3_star"].ne("").sum()) == 10
-        and int(multiplicity_audit["bh6_star"].ne("").sum()) == 11
-        and int(multiplicity_audit["cr1_nominal_star"].ne("").sum()) == 14
+        int(multiplicity_audit["cr1_nominal_star"].ne("").sum()) == 14
         and int(multiplicity_audit["cr1_bh3_star"].ne("").sum()) == 12
-        and int(multiplicity_audit["cr1_bh6_star"].ne("").sum()) == 14
     ):
         raise AssertionError("ED10 panel-a Pearson/CR1/BH significance counts drifted")
     if len(c) != 36 or c["pair_key"].nunique() != 36 or c["animal_id"].nunique() != 14:
@@ -1454,11 +1329,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
             multiplicity_audit["cr1_bh3_star"]
         )
     ]
-    cr1_bh6_changed = multiplicity_audit.loc[
-        multiplicity_audit["cr1_nominal_star"].ne(
-            multiplicity_audit["cr1_bh6_star"]
-        )
-    ]
     multiplicity_summary_path.write_text(
         json.dumps(
             {
@@ -1487,19 +1357,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
                                 "outcome_label",
                                 "cr1_nominal_star",
                                 "cr1_bh3_star",
-                            ]
-                        ].to_dict(orient="records"),
-                    },
-                    "mouse_cr1_behavior_column_bh6": {
-                        "number_of_families": 3,
-                        "tests_per_family": 6,
-                        "significant_cells": 14,
-                        "changed_from_nominal_cr1": cr1_bh6_changed[
-                            [
-                                "block_label",
-                                "outcome_label",
-                                "cr1_nominal_star",
-                                "cr1_bh6_star",
                             ]
                         ].to_dict(orient="records"),
                     },
@@ -1671,7 +1528,7 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
             "panel_a_18_correlation_values_all_black_normal_weight": True,
             "panel_a_12_mouse_cr1_bh3_stars_upper_right_of_r": True,
             "panel_a_cr1_covariance_clustered_by_mouse": True,
-            "panel_a_cr1_nominal_bh3_and_bh6_exported": True,
+            "panel_a_cr1_nominal_and_bh3_exported": True,
             "panel_a_uses_elapsed_first_long_bout_time": True,
             "panel_b_reward_decoder_unique_label_and_elapsed_time_title": True,
             "panel_c_true_policy_subscripts_and_two_decimal_ticks": True,

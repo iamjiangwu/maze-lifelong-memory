@@ -95,13 +95,11 @@ def native_build(artifact, shared, out, config, node):
         m = load(source / 'source_code/rebuild_ed9.py', 'release_ed9')
         m.build(source, out)
     elif strategy == 's1':
-        env = dict(os.environ)
-        env['NODE_PATH'] = env['ARTIFACT_TOOL_NODE_MODULES']
-        subprocess.run([node, str(source / 'source_code/build_workbook.mjs'), str(out)], check=True, env=env)
+        subprocess.run([sys.executable, '-B', str(source / 'source_code/build_workbook.py'), str(out)], check=True)
         subprocess.run([sys.executable, '-B', str(source / 'source_code/build_pdf.py'), '--output-dir', str(out)], check=True)
     elif strategy == 's2':
         subprocess.run([sys.executable, '-B', str(source / 'source_code/rebuild.py'), '--output-dir', str(out),
-                        '--node', node, '--renderer-python', sys.executable], cwd=source, check=True)
+                        '--renderer-python', sys.executable], cwd=source, check=True)
     else:
         raise ValueError(strategy)
 

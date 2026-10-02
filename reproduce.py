@@ -1,8 +1,8 @@
 """Build manuscript figures and tables from their included derived Source Data.
 
 The public folder layout is optimized for browsing. This launcher verifies the
-retained original inputs and restores their paths in a temporary directory,
-then calls the unchanged rendering/statistics engine. No raw-data processing runs.
+retained inputs and restores their paths in a temporary directory,
+then calls the rendering/statistics engine. No raw-data processing runs.
 """
 from __future__ import annotations
 
@@ -63,7 +63,7 @@ def read_layout(repository: Path = REPOSITORY) -> dict:
 
 
 def source_catalog(layout: dict, repository: Path = REPOSITORY) -> tuple[dict, dict]:
-    """Authenticate the original manifest and a subset of its source paths."""
+    """Authenticate the current source authority and required runtime paths."""
     manifest_path = inside(repository, layout['snapshot_manifest'])
     if checksum(manifest_path) != layout['snapshot_manifest_sha256']:
         raise ValueError('Original snapshot manifest checksum changed')
@@ -106,7 +106,7 @@ def source_catalog(layout: dict, repository: Path = REPOSITORY) -> tuple[dict, d
 
 
 def verify_sources(layout: dict, repository: Path = REPOSITORY) -> dict:
-    """Verify every retained byte against the authenticated original inventory."""
+    """Verify every retained byte against the authenticated current inventory."""
     _, mapped = source_catalog(layout, repository)
     checked = {}
     for row in layout['files']:
@@ -210,15 +210,9 @@ def resolve_figure(selection: str, layout: dict) -> str:
 
 
 def export_environment(node: str | None) -> tuple[str, dict]:
-    """Use explicit dependencies or the already installed bundled export runtime."""
+    """Set the public Python export environment; no private Node runtime is needed."""
     environment = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', MPLBACKEND='Agg')
-    profile = Path(os.environ.get('USERPROFILE', str(Path.home())))
-    bundled = profile / '.cache/codex-runtimes/codex-primary-runtime/dependencies/node'
-    bundled_node = bundled / 'bin/node.exe'
-    selected = node or (str(bundled_node) if bundled_node.is_file() else 'node')
-    if 'ARTIFACT_TOOL_NODE_MODULES' not in environment and (bundled/'node_modules').is_dir():
-        environment['ARTIFACT_TOOL_NODE_MODULES'] = str(bundled/'node_modules')
-    return selected, environment
+    return node or 'node', environment
 
 
 def main(argv=None) -> int:
@@ -228,9 +222,9 @@ def main(argv=None) -> int:
     parser.add_argument('--list', action='store_true', help='List figure/table names without building')
     parser.add_argument('--check-only', action='store_true', help='Verify source integrity without building')
     mode = parser.add_mutually_exclusive_group()
-    mode.add_argument('--statistics-only', action='store_true', help='Recalculate all 53 recorded statistical groups')
+    mode.add_argument('--statistics-only', action='store_true', help='Recalculate the included current statistical groups')
     mode.add_argument('--figures-only', action='store_true', help='Build artwork/tables without statistical replay')
-    parser.add_argument('--node', help='Explicit Node.js executable for XLSX exports')
+    parser.add_argument('--node', help=argparse.SUPPRESS)  # Legacy CLI compatibility; unused by Python table builders.
     args = parser.parse_args(argv)
     layout = read_layout()
     if args.list:
@@ -255,6 +249,12 @@ def main(argv=None) -> int:
     if output.exists() and any(output.iterdir()):
         parser.error('Use a new or empty output directory: ' + str(output))
     node, environment = export_environment(args.node)
+    output.mkdir(parents=True, exist_ok=True)
+    (output / 'BUILD_SOURCE_AUTHORITY.json').write_text(json.dumps({
+        'manifest_sha256': layout['snapshot_manifest_sha256'],
+        'layout_sha256': checksum(REPOSITORY/'reproduction/layout.json'),
+        'input_verification': report,
+    }, indent=2)+'\n', encoding='utf-8')
     print(f'Outputs: {output}', flush=True)
     with tempfile.TemporaryDirectory(prefix='maze_source_') as temporary:
         stage = Path(temporary).resolve()

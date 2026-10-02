@@ -1,6 +1,6 @@
 # Extended Data Figure 7. Age associations with map stability
 
-Age associations with early alignment to the second day representation and long gap place map, PV and ensemble rate correlations, accounting for recording cycle or transition.
+Age associations with early alignment to the second day representation and long gap place map, PV and ensemble rate correlations, accounting for recording cycle or transition. The long-gap BH family includes all four neural measures, including level maps.
 
 ## Reproduce
 

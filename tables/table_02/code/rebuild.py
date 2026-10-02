@@ -29,7 +29,6 @@ def run(argv: list[str], *, cwd: Path) -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output-dir", type=Path, required=True)
-    parser.add_argument("--node", default="node")
     parser.add_argument("--renderer-python", default=sys.executable, help="Python with matplotlib and PyMuPDF")
     return parser.parse_args()
 
@@ -69,11 +68,11 @@ def main() -> None:
         )
 
     run(
-        [args.node, str(code / "build_workbook.mjs"), str(output), str(output)],
+        [sys.executable, "-B", str(code / "build_workbook.py"), str(output), str(output)],
         cwd=record,
     )
     workbook = output / "Supplementary_Table_2_Long_Gap_Intervals.xlsx"
-    run([args.node, str(code / "validate_workbook.mjs"), str(workbook)], cwd=record)
+    run([sys.executable, "-B", str(code / "validate_workbook.py"), str(workbook)], cwd=record)
     run(
         [
             args.renderer_python,

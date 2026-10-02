@@ -56,32 +56,20 @@
   {
     "frozen_file": "within_level_pairs.csv",
     "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/panel_c_boundary_smoothed_round34/pair_summary.csv",
-    "sha256": "de23f0cf380849d46289362dfa4830a956bc24a7aef33ed5f600073a852bd25c",
-    "bytes": 30511
+    "sha256": "f7b8657e4257cb2bff4c239865e651bfac49317e3c5444e96249e9f799285f76",
+    "bytes": 27037
   },
   {
     "frozen_file": "within_level_nulls.csv",
     "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/panel_c_boundary_smoothed_round34/null_draws.csv",
-    "sha256": "aea79334662afe7eb17dd50a9ffcf09df7225d62f05bb6b2daca39ca94b686d1",
-    "bytes": 6881035
+    "sha256": "72921938b82684cdaa6a32650c1d7f446a3d001e5c57c363ec7663430850033a",
+    "bytes": 6191465
   },
   {
     "frozen_file": "within_level_stats.csv",
     "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/panel_c_boundary_smoothed_round34/pair_clustered_stats.csv",
-    "sha256": "99f2f1b92ce407adb876b9946977646c02ad1fb50d3bf88ebb0648853a58ec2e",
-    "bytes": 515
-  },
-  {
-    "frozen_file": "level_pv_matrix.csv",
-    "source": "output/analysis/mm_proposed_panels_2026-09-24/level_pv/mean_cross_depth_matrix.csv",
-    "sha256": "b4bec935e48f263a75ae199ba952782037663fe58166472d45ea5740e3939c71",
-    "bytes": 1012
-  },
-  {
-    "frozen_file": "level_pv_pair_matrices.csv",
-    "source": "output/analysis/mm_proposed_panels_2026-09-24/level_pv/pair_depth_cross_similarity_matrices.csv",
-    "sha256": "c79be58285ac2d7762cc1f6ab63a37f1ddf2b3603db1d13051e7c4197eef46c3",
-    "bytes": 190987
+    "sha256": "808fa550e92bf0a2a88a3339af056185fd6896add0e346efa55ea5e317715172",
+    "bytes": 310
   },
   {
     "frozen_file": "maze_cells.csv",

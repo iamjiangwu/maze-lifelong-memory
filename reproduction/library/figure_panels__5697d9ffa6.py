@@ -3653,7 +3653,7 @@ def prepare_turning_bias_policy_summary(
 
     The input is expected to contain one session per row. The point estimate is
     therefore the equal-session mean; repeated sessions from a mouse are retained
-    and handled by the mouse-clustered CR1 covariance.
+    and handled by the covariance estimator for standard errors clustered by animal.
     """
     metrics = deepcopy(metric_specs) if metric_specs is not None else (
         _default_turning_bias_policy_summary_metrics()

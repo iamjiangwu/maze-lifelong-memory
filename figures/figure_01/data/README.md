@@ -17,5 +17,4 @@ Inputs for the current figure or table and its statistics. [Column and format in
 | [route_group_stats.csv](route_group_stats.csv) | .csv |
 | [route_stats.csv](route_stats.csv) | .csv |
 | [session_route.csv](session_route.csv) | .csv |
-| [timeline_source_parity.json](timeline_source_parity.json) | .json |
 | [trajectory_examples.csv.gz](trajectory_examples.csv.gz) | .csv.gz |
