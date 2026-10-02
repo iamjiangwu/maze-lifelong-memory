@@ -534,5 +534,3 @@ def _compose_main4(publication, module, payloads: dict[str, bytes], output_svg: 
 RENDERERS: dict[str, Callable[[Path, Path, dict[str, Any]], list[Path]]] = {
     "main_figure_2": _render_main2,
 }
-
-

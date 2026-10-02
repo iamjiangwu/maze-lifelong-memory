@@ -63,7 +63,7 @@
     },
     {
       "path": "source_code/rebuild_current_extended_data_figures.py",
-      "sha256": "b008bd5877dfaf330a61ff96804aae9b5a12e01f316fda400b398618f108a45e",
+      "sha256": "a37a14a668827cd084e3337d4c32ee94624351bc72b2edc78b7e995cd97e2e0f",
       "authority": "docs/figure_version_records/rebuild_current_extended_data_figures.py"
     }
   ]

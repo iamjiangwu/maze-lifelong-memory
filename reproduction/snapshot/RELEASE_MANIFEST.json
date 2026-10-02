@@ -761,13 +761,13 @@
     },
     {
       "path": "extended_data_figure_10/source/source_code/rebuild_current_extended_data_figures.py",
-      "sha256": "b008bd5877dfaf330a61ff96804aae9b5a12e01f316fda400b398618f108a45e",
-      "bytes": 35777,
+      "sha256": "a37a14a668827cd084e3337d4c32ee94624351bc72b2edc78b7e995cd97e2e0f",
+      "bytes": 35775,
       "role": "source_or_code"
     },
     {
       "path": "extended_data_figure_10/source/SOURCE_INPUTS.json",
-      "sha256": "61c126aff7f298da6c4013911d7d2267ed95a22e03b1acbfe3ad39003ab1ad07",
+      "sha256": "f710bf9986916876139db7c421165a4c712f6723bc83e7b4db65a8a90fc6f2c3",
       "bytes": 4625,
       "role": "source_or_code"
     },
@@ -1955,19 +1955,19 @@
     },
     {
       "path": "main_figure_3/source/source_code/rebuild_current_main_figures.py",
-      "sha256": "a8e620fbaf4193e260d9163c1c00bd33fffcc4d3d344f8704142987b8bb35d39",
-      "bytes": 22551,
+      "sha256": "640088194ab783c3cd82dc257cf2112224d565a0b8d2a9654734417bad7c7079",
+      "bytes": 22549,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_3/source/SOURCE_INPUTS.json",
-      "sha256": "8b156881b3b553ccb429cbab5bcfe74bf00dbbc407e130c7155db3b1134c79ef",
+      "sha256": "8972b36acb2e7af7839211224b78728868f6136c01cbd30954b56d67a9a59047",
       "bytes": 1890,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_4/source/INPUT_HASHES.json",
-      "sha256": "491e0361d99d928104f02399d1898c8f725d1b8efb2d08766f66a37a2c0928f0",
+      "sha256": "a42cfd6faf16e9293606ab0d7373fbda90e23543c4442db317bc7698973750eb",
       "bytes": 2468,
       "role": "source_or_code"
     },
@@ -2081,8 +2081,8 @@
     },
     {
       "path": "main_figure_4/source/source_code/rebuild_current_main_figures.py",
-      "sha256": "a8e620fbaf4193e260d9163c1c00bd33fffcc4d3d344f8704142987b8bb35d39",
-      "bytes": 22551,
+      "sha256": "640088194ab783c3cd82dc257cf2112224d565a0b8d2a9654734417bad7c7079",
+      "bytes": 22549,
       "role": "source_or_code"
     },
     {
@@ -2093,8 +2093,8 @@
     },
     {
       "path": "main_figure_5/source/source_code/frozen_main_rebuild_runtime.py",
-      "sha256": "a8e620fbaf4193e260d9163c1c00bd33fffcc4d3d344f8704142987b8bb35d39",
-      "bytes": 22551,
+      "sha256": "640088194ab783c3cd82dc257cf2112224d565a0b8d2a9654734417bad7c7079",
+      "bytes": 22549,
       "role": "source_or_code"
     },
     {
@@ -2171,7 +2171,7 @@
     },
     {
       "path": "main_figure_5/source/SOURCE_INPUTS.json",
-      "sha256": "e467bb15bfa0740f86b9f7b61cadea4b1ad554614bf7d88c95368b21d04d7f16",
+      "sha256": "4cc2142effab762716733e18060df175f90b89afd2b3ca2ff44795dc04caa835",
       "bytes": 5241,
       "role": "source_or_code"
     },
@@ -2201,14 +2201,14 @@
     },
     {
       "path": "shared/rebuild_current_extended_data_figures.py",
-      "sha256": "b008bd5877dfaf330a61ff96804aae9b5a12e01f316fda400b398618f108a45e",
-      "bytes": 35777,
+      "sha256": "a37a14a668827cd084e3337d4c32ee94624351bc72b2edc78b7e995cd97e2e0f",
+      "bytes": 35775,
       "role": "source_or_code"
     },
     {
       "path": "shared/rebuild_current_main_figures.py",
-      "sha256": "a8e620fbaf4193e260d9163c1c00bd33fffcc4d3d344f8704142987b8bb35d39",
-      "bytes": 22551,
+      "sha256": "640088194ab783c3cd82dc257cf2112224d565a0b8d2a9654734417bad7c7079",
+      "bytes": 22549,
       "role": "source_or_code"
     },
     {

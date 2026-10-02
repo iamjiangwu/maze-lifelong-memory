@@ -824,5 +824,3 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.main(output_root=output, output_round=round_match.group(1))
     validation = json.loads((output / "AUDIT_VALIDATION.json").read_text(encoding="utf-8"))
     return {"status": validation["status"], "validation": validation}
-
-
