@@ -188,6 +188,30 @@ def render_ed1(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     return display.render(m, data, output)
 
 
+@contextlib.contextmanager
+def _ed2_outer_tick_alignment() -> Iterator[None]:
+    """Keep the outer time labels inside ED2 f/i without affecting other figures."""
+    from matplotlib.figure import Figure
+
+    original = Figure.savefig
+
+    def save(fig, filename, *args, **kwargs):
+        if Path(filename).name.startswith(('ed02f_', 'ed02i_')):
+            for ax in fig.axes:
+                labels = ax.get_xticklabels()
+                if labels:
+                    labels[0].set_ha('left')
+                    labels[-1].set_ha('right')
+        return original(fig, filename, *args, **kwargs)
+
+    Figure.savefig = save
+    try:
+        yield
+    finally:
+        Figure.savefig = original
+
+
+@_ed2_outer_tick_alignment()
 def render_ed2(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     current_adapter = stage / "scripts/render_ed03_fixed_time_30min_full_story.py"
 
@@ -431,11 +455,9 @@ def render_ed5(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     if round_match is None:
         raise RuntimeError(f"Cannot derive ED5 round from record name: {record.name}")
     m.ROUND = int(round_match.group(1))
-    m.DAY_COMB_PAIRS = plot / "ed05_day_combination_session_pair_values.csv"
     m.DAY_COMB_STATS = plot / "ed05_day_combination_session_pair_contrasts_cr1_bh3.csv"
     m.DAY_COMB_DESC = plot / "ed05_day_combination_session_pair_descriptive_cr1.csv"
     m.EQUAL_PAIRS = plot / "ed05e_context_only_all_outside_pair_rows.csv"
-    m.EQUAL_MEANS = plot / "ed05e_context_only_all_outside_condition_means.csv"
     m.EQUAL_STATS = plot / "ed05e_context_only_all_outside_clustered_stats.csv"
     m.EQUAL_SOURCE_SET_EXPECTED = {"context_only_all_outside_2026-08-20"}
     m.EQUAL_FEASIBILITY_SET_EXPECTED = m.EQUAL_SOURCE_SET_EXPECTED
@@ -796,7 +818,7 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
         json.dumps(
             {
                 "schema": "ed08-neural-exclusion-contract/v1",
-                "status": "LOCKED_FROM_MAINTAINED_NEURAL_AUTHORITY",
+                "status": "VALIDATED_COHORT",
                 "excluded_animals": neural["behavior_only_animals"],
                 "excluded_sessions": neural["neural_excluded_sessions"],
                 "derived_from": neural_path.relative_to(record).as_posix(),

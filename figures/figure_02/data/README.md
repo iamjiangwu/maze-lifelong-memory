@@ -28,7 +28,6 @@ In neuron NPZs, A/B identify source/target sessions; `*_frame` indexes the saved
 | [consecutive_gap_statistics.csv](consecutive_gap_statistics.csv) | .csv |
 | [consecutive_pair_scope.csv](consecutive_pair_scope.csv) | .csv |
 | [displayed_estimand_bh4.csv](displayed_estimand_bh4.csv) | .csv |
-| [distribution_pair_inputs.csv](distribution_pair_inputs.csv) | .csv |
 | [distribution_pair_support.csv](distribution_pair_support.csv) | .csv |
 | [ensemble_rate_distribution.npz](ensemble_rate_distribution.npz) | .npz |
 | [ensemble_rate_shuffle_mean.npz](ensemble_rate_shuffle_mean.npz) | .npz |

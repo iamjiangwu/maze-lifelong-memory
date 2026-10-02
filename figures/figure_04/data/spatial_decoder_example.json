@@ -1,7 +1,6 @@
 {
   "src_session": "837day1",
   "dst_session": "837-3day1",
-  "decoder_pkl": "docs/cross_session_decoding/cross_session_837day1_to_837-3day1.pkl",
   "n_matched_neurons": 677,
   "selected_train_ids": [
     117,

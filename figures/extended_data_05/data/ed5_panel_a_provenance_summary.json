@@ -4,6 +4,5 @@
   "pair_count": 32,
   "side_count": 64,
   "index_basis": "current_sorted_zero_based",
-  "all_current_cimap_matches_verified": true,
-  "historical_selection_provenance": "extended_data_fig05_2026-09-05_round18_15x15_labels"
+  "all_current_cimap_matches_verified": true
 }

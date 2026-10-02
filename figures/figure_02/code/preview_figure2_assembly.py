@@ -41,7 +41,7 @@ DEFAULT_OUTPUT_DIR = Path("docs/figure_panel_previews")
 DEFAULT_BASENAME = "figure2_assembly_preview_current"
 DEFAULT_LAYOUT_SPEC = DEFAULT_OUTPUT_DIR / "figure2_layout_controls.json"
 LAYOUT_SPEC_VERSION = 2
-DEFAULT_LINEAR_PF_DATA_ROOT = Path(r"D:\combineddata\linear_pf_rerun_day1_2026-04-14")
+DEFAULT_LINEAR_PF_DATA_ROOT = None  # Supplied explicitly for the optional linearized panel.
 LINEAR_PF_DATA_ROOT = DEFAULT_LINEAR_PF_DATA_ROOT
 
 FONT_FAMILY = "Arial"
@@ -193,8 +193,8 @@ def _render_panel_a(size: tuple[float, float]):
         "scale_bar_fontweight": "normal",
     }
     fig, _axes, _data, _paths = render_stacked_local_correlation_panel(
-        top_fig_path=r"G:\422\corr.fig",
-        bottom_fig_path=r"G:\422-3\corr.fig",
+        top_fig_path=Path(__file__).resolve().parents[1] / "panel_a_sources/422_corr.npz",
+        bottom_fig_path=Path(__file__).resolve().parents[1] / "panel_a_sources/422-3_corr.npz",
         panel_size=size,
         layout=layout,
         style=style,

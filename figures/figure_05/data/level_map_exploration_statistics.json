@@ -2,7 +2,6 @@
   "cluster_covariance": "CR1 animal-clustered sandwich; statsmodels default finite-sample correction",
   "cluster_ols_df": 13,
   "cluster_ols_p": 0.00018500001268342234,
-  "cluster_ols_p_asymptotic_audit_only": 2.534221260008781e-07,
   "cluster_ols_se": 0.12306155116262707,
   "cluster_ols_slope": 0.6344012881444724,
   "cluster_ols_status": "ok",
@@ -17,11 +16,9 @@
   "n_animals": 14,
   "n_pairs": 36,
   "ols_intercept": 0.023859776095060015,
-  "ols_p": 1.7490361318047537e-07,
   "ols_rvalue": 0.7462063628113133,
   "ols_slope": 0.6344012881444726,
   "ols_stderr": 0.09706301956460608,
-  "pearson_p": 1.7490361318047259e-07,
   "pearson_r": 0.7462063628113135,
   "refreshed_pairs": [
     "1616bday1->1616b-3day1",
@@ -31,7 +28,5 @@
   ],
   "row_source": "all 36 rows taken from the corrected level authority",
   "scope": "primary_clean",
-  "source_scope": "exact corrected d1v1 36-pair set; short 1616 interval excluded",
-  "spearman_p": 1.72988913547157e-06,
-  "spearman_rho": 0.7031863898170698
+  "source_scope": "exact corrected d1v1 36-pair set; short 1616 interval excluded"
 }

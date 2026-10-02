@@ -41,8 +41,10 @@ GRID_SIZE = 15  # 15x15 maze grid
 
 
 def get_data_root():
-    return os.path.join(os.environ.get("BEHAV_WD", r"D:\combineddata"),
-                        "linear_pf_extended")
+    root = os.environ.get("BEHAV_WD")
+    if not root:
+        raise ValueError("Pass data_root explicitly or set BEHAV_WD for external linearized inputs")
+    return os.path.join(root, "linear_pf_extended")
 
 
 def get_fig_dir(script_file):

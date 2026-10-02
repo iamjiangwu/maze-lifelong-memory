@@ -33,7 +33,6 @@ from matplotlib.offsetbox import AnnotationBbox, DrawingArea
 from matplotlib.path import Path as MplPath
 from matplotlib.patches import PathPatch, Ellipse, Rectangle
 from matplotlib.transforms import Affine2D
-from figure1_complete_timeline_source import build_complete_rewarded_timelines
 import numpy as np
 import pandas as pd
 from PIL import Image
@@ -254,11 +253,10 @@ def repack_significance(ax, letter, height_mm):
 
 
 def native_panels(rebuilder, output, audit):
-    # The maintained entrypoint binds every path to the frozen record and
-    # replaces the timeline loader with the frozen six-session CSV.
+    # The public entrypoint supplies the included six-session event table.
     preview = sys.modules["record_local_main1_preview"]
-    rewarded, _ = build_complete_rewarded_timelines(MAIN)
     archived = pd.read_csv(MAIN / "plot_ready/figure1_endnode_timelines.csv")
+    rewarded = archived.loc[archived.nickname.str.startswith("434")].copy()
     complete = pd.concat([rewarded, archived.loc[archived.nickname.str.startswith("1636")]], ignore_index=True)
     complete.to_csv(output / "complete_endnode_timelines.csv", index=False)
     def complete_timeline(nickname, *, lower_threshold=63, upper_threshold=126):

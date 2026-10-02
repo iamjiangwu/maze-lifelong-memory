@@ -1,7 +1,6 @@
-"""Review-only Figure 1 first row: native black Figure 5 tree and smaller trajectories."""
+"""Render Figure 1 from the included data and binary-tree geometry."""
 from pathlib import Path
 import argparse
-import ast
 import csv
 import hashlib
 import importlib.util
@@ -20,9 +19,8 @@ import numpy as np
 
 sys.dont_write_bytecode=True
 ROOT=Path(__file__).resolve().parents[1]
-BASE=ROOT/"output/figures/figure1_day_label_spacing_2026-09-26"
-F5=ROOT/"output/figures/figure5_level_population_vector_label_2026-09-26/source_code"
-DEFAULT=ROOT/"output/figures/figure1_binary_tree_preview_2026-09-30/v7_panel_a_left"
+BASE=ROOT
+DEFAULT=Path("figure1_output")
 PANEL_A_SHIFT_MM=-1.5
 TITLE_MAP={"Day1":"Day 1","Day91":"Day 91","Day2":"Day 2","Day181":"Day 181"}
 
@@ -34,24 +32,10 @@ def load(name,path):
     return module
 
 def tree_source(output):
-    folder=output/"reference_source";folder.mkdir(exist_ok=True)
-    paths=[]
-    for name in ["figure_panels.py","preview_figure3_assembly.py"]:
-        source=F5/name;target=folder/name
-        if not target.exists():shutil.copy2(source,target)
-        assert sha(source)==sha(target)
-        paths.append(target)
-    tree=ast.parse(paths[0].read_text(encoding="utf-8"))
-    names={"_compute_complete_binary_tree_positions","_horizontal_binary_tree_positions"}
-    selected=[n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name in names]
-    assert len(selected)==2
-    namespace={"np":np}
-    exec(compile(ast.Module(body=selected,type_ignores=[]),str(paths[0]),"exec"),namespace)
-    preview=ast.parse(paths[1].read_text(encoding="utf-8"))
-    panel=next(n for n in preview.body if isinstance(n,ast.FunctionDef) and n.name=="_render_panel_a")
-    assignment=next(n for n in panel.body if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=="geometry" for t in n.targets))
-    geometry=ast.literal_eval(assignment.value.args[0])
-    positions=namespace["_horizontal_binary_tree_positions"](geometry["tree_depth"],geometry["tree_width"],geometry["tree_height"])
+    source = BASE / "source_code/tree_geometry.py"
+    tree = load("figure1_tree_geometry", source)
+    geometry = dict(tree.GEOMETRY)
+    positions = tree._horizontal_binary_tree_positions(geometry["tree_depth"], geometry["tree_width"], geometry["tree_height"])
     edges=[]
     for level in range(geometry["tree_depth"]-1):
         for index in range(2**level):
@@ -59,7 +43,7 @@ def tree_source(output):
                 edges.append([level,index,*positions[(level,index)],*child,*positions[child]])
     with (output/"tree_edges.csv").open("w",newline="") as f:
         w=csv.writer(f);w.writerow(["parent_level","parent_index","x0","y0","child_level","child_index","x1","y1"]);w.writerows(edges)
-    return geometry,positions,edges,{str(p.relative_to(output)):sha(p) for p in paths}
+    return geometry,positions,edges,{"source_code/tree_geometry.py": sha(source)}
 
 def build(output):
     output=output.resolve();output.mkdir(parents=True,exist_ok=True)
@@ -224,7 +208,7 @@ def build(output):
     dump(output/"REVIEW_VALIDATION.json",audit)
     dump(output/"UNRELATED_PANEL_PARITY.json",unchanged)
     shutil.copy2(__file__,output/"source_code"/Path(__file__).name)
-    (output/"README.md").write_text("# Figure 1 binary-tree draft v7\n\nReview only: no current pointer, Desktop or Overleaf update. The 0.8x-width tree highlights the canonical 0-1-4-10-22-46-94 reward route in blue and uses the shared vector water icon at node 94. No level numbers or labels. Each tree fork is ordered by physical left/right turns from NewMaze(6), not run-ID order: the reward route is L-R-R-L-R-L, matching the Figure1d physical route. Terminal physical coordinate is (14,6). reward_tree_nodes.csv records all 127 assignments.\n\nThe physical maze, its water icon, and binary tree are shifted together 1.5 mm left; the panel letter retains its shared alignment. Trajectories are closer than v5 and the right colorbar title is 5 pt closer. Axes are 49.25 mm wide (accepted 52 mm, first draft 45 mm), a residual 5.3% reduction after spacing is tightened. Tree height and black line weight are unchanged; physical maze artwork is exact except for translation. Panels c-j are unchanged. Fonts remain 6.5 pt. PREVIEW_VALIDATION.json records source hashes and segment counts.\n\nRebuild from repository root: `python scripts/build_figure1_binary_tree_preview.py --output-dir <new review directory>`.\n",encoding="utf-8")
+    (output/"README.md").write_text("# Figure 1 source build\n\nThe binary tree highlights maze nodes 0-1-4-10-22-46-94 in blue, with the water icon at node 94. Each fork follows physical left/right turns: L-R-R-L-R-L. The terminal maze coordinate is (14,6). reward_tree_nodes.csv records all 127 node assignments.\n\nPREVIEW_VALIDATION.json records source hashes, segment counts and display geometry. Reproduce from the publication repository with `python reproduce.py --figure 1 --output-dir OUTPUT`.\n",encoding="utf-8")
     print(json.dumps(audit,indent=2))
 
 if __name__=="__main__":

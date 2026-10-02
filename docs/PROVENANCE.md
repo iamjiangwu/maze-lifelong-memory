@@ -1,9 +1,11 @@
 # Provenance
 
-The included measurements are the inputs to the manuscript figures and tables. Current checksums and the mapping to the build code's expected paths are recorded in `reproduction/layout.json`. Reader-facing filenames do not denote separate analysis rounds. The current manifest identifies the authorized statistical revisions and the preceding source authority.
+The included measurements support the manuscript figures and tables. Checksums and the mapping between repository files and their build paths are recorded in [reproduction/layout.json](../reproduction/layout.json). The [release manifest](../reproduction/snapshot/RELEASE_MANIFEST.json) identifies the source inventory and artifact configurations.
 
 The launcher reconstructs the required input paths in a temporary directory. Figures use derived plotting values; statistical calculations use individual observations and saved shuffle/simulation values. Upstream raw-data processing is not part of this package.
 
-The earlier complete source package is retained in Git history under `source-data-2026-09-30`. Generated validation reports are kept locally, outside this repository. Reproduction commands write reports to the selected output directory.
+During reproduction, a Python-level guard blocks reads of unstaged source files in the repository checkout and Python network access. Installed Python libraries and output files remain accessible. This is not an operating-system sandbox.
+
+Reproduction commands write artwork, tables and calculation reports to the selected output directory. Git history records changes to the source package.
 
 Original code uses the [MIT license](../LICENSE); original data and documentation use [CC BY 4.0](../DATA_LICENSE.md). Existing third-party notices take precedence.

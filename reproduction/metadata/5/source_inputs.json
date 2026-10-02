@@ -1,80 +1,61 @@
 {
   "status": "PASS",
-  "base_record": "main_figure5_2026-09-25_round10_black_stars",
-  "base_review": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25",
-  "revision": "Only panel c title changed to Level population vector correlation; native fontsize8pt retained.",
   "sources": {
     "source_code/preview_figure3_assembly.py": {
       "sha256": "efde0b9a01b61470e19afd21d0909bf38635b9da18e91b07e1b564a07cdc9a8f",
-      "bytes": 42873,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\preview_figure3_assembly.py"
+      "bytes": 42873
     },
     "source_code/figure_panels.py": {
-      "sha256": "f3d5cca9f12966ff2c7f2cdd9d637a0c2899f477356721e6eac382bd043b9533",
-      "bytes": 321751,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\figure_panels.py"
+      "sha256": "7defc6416c2b7ea4bff4a74e960c39444086b3ee37141f8bc65a19a85fe1d183",
+      "bytes": 321710
     },
     "source_code/level_heatmap_utils.py": {
       "sha256": "582608d6d49f8417117a1a57fc117b3c2dc3aed37fa125a5e6321256a9d90b9f",
-      "bytes": 4460,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\level_heatmap_utils.py"
+      "bytes": 4460
     },
     "source_code/render_main_figs_v3_publication.py": {
-      "sha256": "cf2a26c457945df185fe2f9fb0ae5f2c3eca2b58228163b560b31ce32a0bd576",
-      "bytes": 6184,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\render_main_figs_v3_publication.py"
+      "sha256": "27c7cc2eeeac63e5724427c8ab9e6b10ae44b5c70e1525407bd61a3012198cc5",
+      "bytes": 5658
     },
     "source_code/frozen_main_rebuild_runtime.py": {
-      "sha256": "640088194ab783c3cd82dc257cf2112224d565a0b8d2a9654734417bad7c7079",
-      "bytes": 22549,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_code\\frozen_main_rebuild_runtime.py"
+      "sha256": "a3dd94164d85101ea1feacd706f85091801bb1587fbffec5457c701bcabb9cb9",
+      "bytes": 19866
     },
     "source_data/figure5_bundle/figure5_pair_scope_audit.csv": {
       "sha256": "94bfcf35d1f13af054ecf659deb68ca8b7aa44d2dacbc5a9ad9b7f4d162b1fa2",
-      "bytes": 4954,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5_bundle\\figure5_pair_scope_audit.csv"
+      "bytes": 4954
     },
     "source_data/figure5_bundle/plot_data_cell228_level.npz": {
       "sha256": "9a222da8654d6b0ad439080901c646ecebceec55569057491dcfdfd430a1e1cb",
-      "bytes": 69980,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5_bundle\\plot_data_cell228_level.npz"
+      "bytes": 69980
     },
     "source_data/figure5_bundle/level_map_vs_exploration_efficiency_primary_clean_rows.csv": {
-      "sha256": "4908193d52373c0b4193f50e0501789e243b474208b50753316a471ebb85fe2b",
-      "bytes": 13986,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5_bundle\\level_map_vs_exploration_efficiency_primary_clean_rows.csv"
+      "sha256": "4ef77c57d8272a5031d7a8be8d8da8ba17ee9e39425262935d27c06a0ab74f0e",
+      "bytes": 7744
     },
     "source_data/figure5_bundle/level_map_vs_exploration_efficiency_primary_clean_stats.json": {
-      "sha256": "6a86848a9023d2cbc395fdd4713cab7e2636e0d2d50d40a72ac45a340c16d253",
-      "bytes": 1461,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5_bundle\\level_map_vs_exploration_efficiency_primary_clean_stats.json"
+      "sha256": "5c4ae0ae6205cca31a969c5345d538f30f911371d6b09263418b7945bc0b6fab",
+      "bytes": 1280
     },
     "source_data/level_vectors_tree_depth7_corrected36_d1v1.csv": {
       "sha256": "7dde368f1d87d4355c74565948eda5b19f93610c639d750400abf5014ca55dff",
-      "bytes": 7662144,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\level_vectors_tree_depth7_corrected36_d1v1.csv"
+      "bytes": 7662144
     },
     "source_data/figure5b_historical_hierarchical_refined_order.npy": {
       "sha256": "c7b3467afb3f04a22a96f006780ad4aad5336239323e0375090ade89469bd1d4",
-      "bytes": 135336,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\figure5b_historical_hierarchical_refined_order.npy"
+      "bytes": 135336
     },
     "source_data/level_pv/level_pv_matrix.csv": {
       "sha256": "b4bec935e48f263a75ae199ba952782037663fe58166472d45ea5740e3939c71",
-      "bytes": 1012,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\level_pv\\level_pv_matrix.csv"
+      "bytes": 1012
     },
     "source_data/level_pv/level_pv_pair_matrices.csv": {
       "sha256": "43873f75572ed2465d653d37f42d96c0051a03db70db7fafca854bb361eacb66",
-      "bytes": 182143,
-      "source": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure5_ed9_panel_exchange_2026-09-25\\source_data\\level_pv\\level_pv_pair_matrices.csv"
+      "bytes": 182143
     },
     "source_code/rebuild_figure5.py": {
       "sha256": "508fa531ee4fb0ee4a95cac85173fdecb6a6e40a47485d78e3c882f020ac1288",
-      "bytes": 15106,
-      "source": "D:\\combineddata\\github_clean_repo\\scripts\\build_figure5_ed9_panel_exchange.py"
+      "bytes": 15106
     }
-  },
-  "scientific_inputs": "Frozen numerical and Python sources only; no accepted or review artwork used as rendering input.",
-  "raw_analysis_runs": 0
+  }
 }

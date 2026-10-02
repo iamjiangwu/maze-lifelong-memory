@@ -1,6 +1,6 @@
 {
-  "python": "3.10.9 | packaged by Anaconda, Inc. | (main, Mar  1 2023, 18:18:15) [MSC v.1916 64 bit (AMD64)]",
-  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.10",
+  "platform": "Windows, macOS or Linux with an installed Chromium browser",
   "packages": {
     "numpy": "1.26.4",
     "pandas": "2.3.3",
@@ -14,9 +14,9 @@
     "reportlab": "5.0.1"
   },
   "export_requirements": [
-    "Windows Microsoft Edge for native SVG/PDF export",
-    "Arial font",
-    "openpyxl for editable XLSX tables; reportlab and matplotlib/PyMuPDF for publication table exports"
+    "Google Chrome, Chromium or Microsoft Edge; executable on PATH, in a standard installation directory, or selected by MAZE_BROWSER",
+    "Arial is used when available; font substitution can change text layout and rasterization",
+    "openpyxl for XLSX tables; reportlab, matplotlib and PyMuPDF for figure and table exports"
   ],
   "data_dependency": "None outside this release; no network required for execution",
   "rendering_engine": {
@@ -24,5 +24,6 @@
     "original_freetype": "2.12.1",
     "clean_pypi_wheel_freetype": "2.6.1",
     "note": "Binary/font differences can change text rasterization or layout without changing statistical results."
-  }
+  },
+  "dependency_lock": "requirements-lock.txt"
 }

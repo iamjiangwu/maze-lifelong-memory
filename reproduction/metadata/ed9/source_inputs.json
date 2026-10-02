@@ -1,109 +1,91 @@
 [
   {
     "frozen_file": "transition.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/plot_ready/C1_CONDITIONAL_TRANSITION_CELLS.csv",
     "sha256": "7d1c451fff59fbe10ba5d1deaeff1e04cb945cdd4108c0a316807fed370fe237",
     "bytes": 7512
   },
   {
     "frozen_file": "shift.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/plot_ready/C2_SHIFT_DISTANCE_10000PERM.csv",
     "sha256": "acdfbe020cc1ce374c6c1716850751e139ef833ba3305371303c8d339826f46c",
     "bytes": 904
   },
   {
     "frozen_file": "gap.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/plot_ready/F1_NO_MANUAL_MASK_GAP_CURVE.csv",
     "sha256": "db7c7aaaa3057999b406c99236030372e8ef0cbe56a93eb377e71f31f60fc10f",
     "bytes": 2059
   },
   {
     "frozen_file": "joint_cloud.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_history/round4_powerpoint_parity/source_data/be_roles/E1_MAXIMAL42_CONTINUOUS_CLOUD_INPUT.csv",
     "sha256": "03b1cdf6057d8901ea5a611ef6730cbb61d3b8b5542c67acd26970d78dfa1aaa",
     "bytes": 3905630
   },
   {
     "frozen_file": "consecutive_points.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_history/round4_powerpoint_parity/source_data/G_MAXIMAL26_POINTS.csv",
-    "sha256": "27fd7328bf43e4beffdc03bd39c057efeb1be0d9ac8738303ce472649edf7123",
-    "bytes": 4284264
+    "sha256": "0631b5e901760df617c7edbe7ccaf4304ae0f568015e2d024c16665d01a1115d",
+    "bytes": 4558534
   },
   {
     "frozen_file": "consecutive_stats.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_history/round4_powerpoint_parity/source_data/G_REWARDED20_CR1_BH4_STATISTICS.csv",
-    "sha256": "bbecb58e2962d2eedd92659067d5fc33ef0a75d04f6b7115f99c13be4928a6b7",
-    "bytes": 868
+    "sha256": "3f60a3a64381dcd806e3bce4416c75d307ed3203f1b115e46ac5eebf5227b861",
+    "bytes": 729
   },
   {
     "frozen_file": "learning.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/fig2_fig3_parity_round33/H1_MAIN3_MATCHED59_PLOT_READY.csv",
     "sha256": "2d1343fe600447f4a4a27e21f925b3a586141a2ff7a8321dacf0c9c15eec3e6c",
     "bytes": 192153
   },
   {
     "frozen_file": "cycles.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/fig2_fig3_parity_round33/J1_MAIN3_MATCHED37_POINTS.csv",
-    "sha256": "04c664c54f2bbb78b3b56645685cbd6ab32df39fbbf25daf9e7a2106173a5ed2",
-    "bytes": 13258
+    "sha256": "7245b1e8fd922a23383af81a66cb526c4b62b750074db7a5b1354ec726cda859",
+    "bytes": 17882
   },
   {
     "frozen_file": "cycles_stats.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/fig2_fig3_parity_round33/J1_MAIN3_BH4_STATISTICS.csv",
-    "sha256": "705002e5b6d7db050a6fcf95139320a5f45ebef1450bc670054f6ad69f05d2e7",
-    "bytes": 613
+    "sha256": "8715f1e0d157d5fa84885142bf580cc74c5d5a65050055224cb1d2be0b7924d2",
+    "bytes": 585
   },
   {
     "frozen_file": "within_level_pairs.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/panel_c_boundary_smoothed_round34/pair_summary.csv",
     "sha256": "f7b8657e4257cb2bff4c239865e651bfac49317e3c5444e96249e9f799285f76",
     "bytes": 27037
   },
   {
     "frozen_file": "within_level_nulls.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/panel_c_boundary_smoothed_round34/null_draws.csv",
     "sha256": "ddf52f7d3f0e4d5ec8f3986bc6cf67b51103fccf9e46d17b37fd00e3585369da",
     "bytes": 27842
   },
   {
     "frozen_file": "within_level_stats.csv",
-    "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_data/panel_c_boundary_smoothed_round34/pair_clustered_stats.csv",
     "sha256": "808fa550e92bf0a2a88a3339af056185fd6896add0e346efa55ea5e317715172",
     "bytes": 310
   },
   {
     "frozen_file": "maze_cells.csv",
-    "source": "ca_analysis.maze.NewMaze(6)",
     "sha256": "68f738c9339973ae65130529273f560ff135ba5ce139f00c0b3889e23a3fe144",
     "bytes": 1001
   },
   {
     "frozen_file": "maze_walls.csv",
-    "source": "ca_analysis.maze.NewMaze(6)",
     "sha256": "32147931069cd1b0c12f3503416477a10db6ecc6826c90be5e1e24308e81f704",
     "bytes": 4329
   },
   {
     "frozen_file": "figure5_mean_null.npz",
-    "source": "docs/figure_version_records/main_figure5_2026-09-25_round10_black_stars/source_data/figure5_bundle/plot_data_cell226_level.npz",
     "sha256": "1d0772961fe6815e23257c2b6fe615e5c9d5a67455ff58db4ba31378f5ebed30",
     "bytes": 40758
   },
   {
     "frozen_file": "figure5_decoder_points.csv",
-    "source": "docs/figure_version_records/main_figure5_2026-09-25_round10_black_stars/source_data/neuron_id_shuffle/cross_session_decoding_accuracy_points.csv",
     "sha256": "848970f371addf8da2c5e500cb68f58645c50dee66722f1699adc567434612c5",
     "bytes": 5783
   },
   {
     "frozen_file": "figure5_decoder_summary.csv",
-    "source": "docs/figure_version_records/main_figure5_2026-09-25_round10_black_stars/source_data/neuron_id_shuffle/cross_session_decoding_accuracy_summary.csv",
     "sha256": "edeb53ae70b89f71a7e0a0df6326d871c18774e4865ec14d81d78793c187dffe",
     "bytes": 177
   },
   {
     "frozen_file": "figure5_decoder_stats.json",
-    "source": "docs/figure_version_records/main_figure5_2026-09-25_round10_black_stars/source_data/neuron_id_shuffle/cross_session_decoding_accuracy_stats.json",
     "sha256": "f2c22397032d138996e64bde290f5cca8d2f6f1bf68662b9b818ab517c12ce8f",
     "bytes": 872
   }

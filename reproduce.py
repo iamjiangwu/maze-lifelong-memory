@@ -210,8 +210,9 @@ def resolve_figure(selection: str, layout: dict) -> str:
 
 
 def export_environment() -> dict:
-    """Set the public Python export environment; no private Node runtime is needed."""
-    environment = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', MPLBACKEND='Agg')
+    """Keep replay offline and distinguish the checkout from staged inputs."""
+    environment = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', MPLBACKEND='Agg',
+                       PYTHONUTF8='1', SOURCE_RELEASE_FORBIDDEN_ROOT=str(REPOSITORY))
     return environment
 
 

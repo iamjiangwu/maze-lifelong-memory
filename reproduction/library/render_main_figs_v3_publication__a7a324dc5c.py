@@ -22,12 +22,6 @@ import matplotlib
 
 matplotlib.use("Agg")
 
-CHROME_CANDIDATES = (
-    Path("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"),
-    Path("C:/Program Files/Microsoft/Edge/Application/msedge.exe"),
-    Path("C:/Program Files/Google/Chrome/Application/chrome.exe"),
-)
-
 BROWSER_EXPORT_TIMEOUT_SECONDS = 180
 
 SVG_NS = "http://www.w3.org/2000/svg"
@@ -39,13 +33,9 @@ ET.register_namespace("", SVG_NS)
 ET.register_namespace("xlink", XLINK_NS)
 
 def _find_chrome_executable() -> Path:
-    for path in CHROME_CANDIDATES:
-        if path.exists():
-            return path
-    raise FileNotFoundError(
-        "Could not find Chrome/Edge for SVG export. Checked: "
-        + ", ".join(str(path) for path in CHROME_CANDIDATES)
-    )
+    from ca_analysis.browser_export import find_browser
+
+    return find_browser(preferred=("edge", "chrome", "chromium"))
 
 def _write_svg_browser_wrapper(svg_path: Path, html_path: Path, *, width_mm: float, height_mm: float) -> None:
     svg_text = svg_path.read_text(encoding="utf-8")
@@ -76,10 +66,7 @@ def _export_svg_with_chrome(
     height_mm: float,
     dpi: int,
 ) -> Path:
-    browsers = [path for path in CHROME_CANDIDATES if path.exists()]
-    if not browsers:
-        _find_chrome_executable()  # Raise the maintained, path-specific error.
-        raise AssertionError("unreachable")
+    browsers = [_find_chrome_executable()]
     html_path = svg_path.with_suffix(".html")
     _write_svg_browser_wrapper(svg_path, html_path, width_mm=width_mm, height_mm=height_mm)
     css_width_px = max(1, int(round(width_mm / 25.4 * 96.0)))

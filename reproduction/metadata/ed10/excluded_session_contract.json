@@ -1,32 +1,31 @@
 {
   "schema": "extended_data_biological_design_exclusions/v1",
-  "status": "LOCKED_BY_AUTHOR",
-  "effective_date": "2026-08-09",
+  "status": "VALIDATED_COHORT",
   "scope": "ED7, ED8, ED9, and ED10 cross-session neural analyses and all downstream displayed neural statistics; behavior-only panels are unaffected",
   "excluded_animals": [
     {
       "animal": "840",
-      "reason_class": "no_author_accepted_cimap",
-      "reason": "Animal 840 has no author-accepted CIMap for cross-session neural comparison."
+      "reason_class": "no_accepted_cimap",
+      "reason": "No accepted CIMap for cross-session neural comparison."
     },
     {
       "animal": "841",
-      "reason_class": "no_author_accepted_cimap",
-      "reason": "Animal 841 has no author-accepted CIMap for cross-session neural comparison."
+      "reason_class": "no_accepted_cimap",
+      "reason": "No accepted CIMap for cross-session neural comparison."
     }
   ],
   "excluded_sessions": [
     {
       "session": "488-9day1",
       "animal": "488",
-      "reason_class": "author_identified_mistaken_addition",
-      "reason": "The 488 nine-month session was added to cross-session neural figures by mistake."
+      "reason_class": "excluded_from_neural_cohort",
+      "reason": "Excluded from the cross-session neural analysis cohort."
     },
     {
       "session": "488-9day2",
       "animal": "488",
-      "reason_class": "author_identified_mistaken_addition",
-      "reason": "The 488 nine-month session was added to cross-session neural figures by mistake."
+      "reason_class": "excluded_from_neural_cohort",
+      "reason": "Excluded from the cross-session neural analysis cohort."
     },
     {
       "session": "1636-6day1",
@@ -107,7 +106,6 @@
     "forbid_transitions_touching_session": true,
     "forbid_chains_touching_session": true,
     "forbid_display": true,
-    "forbid_models": true,
-    "forbid_sensitivity_without_explicit_author_request": true
+    "forbid_models": true
   }
 }

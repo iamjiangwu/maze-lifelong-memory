@@ -53,54 +53,21 @@ from ca_analysis.mm_plot_utils import plot
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SORTED_ROOT = REPO_ROOT / "docs" / "sorted_data_full_figure_rerun_2026-06-11"
-COVERAGE5MIN_ROOT = REPO_ROOT / "docs" / "coverage5min_window_reanalysis_2026-08-05"
 DAY2_TEMPLATE_VARIANT_LABEL = "coverage5min_current59"
-FIGURE3_FIRST30_AUTHORITY_DIR = COVERAGE5MIN_ROOT / "figure3_authority"
+FIGURE3_FIRST30_AUTHORITY_DIR = REPO_ROOT / "source_data" / "first30"
 DAY2_TEMPLATE_GROUP_CURVES = (
     FIGURE3_FIRST30_AUTHORITY_DIR / "day2_template_group_curve_summary.csv"
 )
-DAY2_TEMPLATE_SOURCE_MANIFEST = FIGURE3_FIRST30_AUTHORITY_DIR / "SOURCE_MANIFEST.json"
-DAY2_TEMPLATE_FIXED_ROOT = COVERAGE5MIN_ROOT / "fixed_reference"
-DAY2_TEMPLATE_ANIMAL_SUMMARIES = {
-    "sorted_non1616_plus_12mo": DAY2_TEMPLATE_FIXED_ROOT
-    / "sorted_non1616"
-    / "animal_metric_summary.csv",
-    "original_fallback_naive": DAY2_TEMPLATE_FIXED_ROOT
-    / "original_fallback_naive"
-    / "animal_metric_summary.csv",
-    "sorted_1616_as_0_3_6mo": DAY2_TEMPLATE_FIXED_ROOT
-    / "sorted_1616"
-    / "animal_metric_summary.csv",
-}
 FIGURE3_FIRST30_POINTS_ALL_METRICS = (
     FIGURE3_FIRST30_AUTHORITY_DIR / "combined_first30_points_all_metrics.csv"
 )
 FIGURE3_FIRST30_STATS_ALL_METRICS = (
     FIGURE3_FIRST30_AUTHORITY_DIR / "combined_first30_stats_all_metrics.csv"
 )
-SOURCE_REPAIR_842_DIR = (
-    SORTED_ROOT / "figure2_main3_ed12_source_repair_842_2026-08-03"
-)
-SOURCE_REPAIR_842_MANIFEST = SOURCE_REPAIR_842_DIR / "SOURCE_REPAIR_MANIFEST.json"
-MAIN3_NO_MASK_DIR = SORTED_ROOT / "main3_long_gap_bh4_correlations_2026-08-14"
+MAIN3_NO_MASK_DIR = REPO_ROOT / "source_data" / "long_gap"
 LONG_GAP_POINTS = MAIN3_NO_MASK_DIR / "main3_experience_trend_points_no_manual_mask.csv"
 LONG_GAP_STATS = MAIN3_NO_MASK_DIR / "main3_experience_trend_clustered_stats_no_manual_mask.csv"
-FIGURE3_CORRECTED_842_SIX_METRIC_AUDIT = (
-    SOURCE_REPAIR_842_DIR / "main3_ed12j_corrected_842_six_metric_source_audit.csv"
-)
-EXAMPLE_SAVED_DIR = REPO_ROOT / "docs" / "example_neuron_candidates" / "saved_picks"
-# Panels f/k/p. The four long-gap points and the D1-D2 anchor use equal session-
-# pair weighting. Per-pair place/level values already average matched neurons,
-# PV values average spatial bins, and ensemble rate contributes one correlation.
-# The source retains the no-manual-mask same-stage rows and corrected long-gap
-# values; only the final D1-D2 aggregation changed from animal means to pairs.
-FIGURE3_LEVEL_PAIR_AUDIT = SOURCE_REPAIR_842_DIR / "main3_ed12j_level_patch_audit.csv"
-CHROME_CANDIDATES = (
-    Path("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"),
-    Path("C:/Program Files/Microsoft/Edge/Application/msedge.exe"),
-    Path("C:/Program Files/Google/Chrome/Application/chrome.exe"),
-)
+EXAMPLE_SAVED_DIR = REPO_ROOT / "source_data" / "example"
 BROWSER_EXPORT_TIMEOUT_SECONDS = 180
 SVG_NS = "http://www.w3.org/2000/svg"
 XLINK_NS = "http://www.w3.org/1999/xlink"
@@ -124,47 +91,6 @@ EXPERIENCE_DISPLAY = {
     "12mo": "12 mo",
 }
 LONG_GAP_XLABELS = ("1", "2", "3", "4")
-FIGURE2_PPT_LOWER_ORIGINAL_COLUMN_SLOTS = {
-    0: (0.060494313210848645, 1.5728860454943132),
-    1: (1.621017060367454, 0.8354002624671916),
-    2: (2.570269028871391, 1.9038823272090988),
-    3: (4.538460192475941, 1.4868022747156606),
-}
-FIGURE2_PPT_LOWER_COLUMN_WIDTH_SCALES = {0: 0.8, 1: 1.0, 2: 0.5, 3: 0.8}
-FIGURE2_PPT_LOWER_GAP_IN = 0.08
-FIGURE2_PPT_LOWER_CONTENT_LEFT_IN = FIGURE2_PPT_LOWER_ORIGINAL_COLUMN_SLOTS[0][0]
-FIGURE2_PPT_LOWER_CONTENT_RIGHT_IN = (
-    FIGURE2_PPT_LOWER_ORIGINAL_COLUMN_SLOTS[3][0]
-    + FIGURE2_PPT_LOWER_ORIGINAL_COLUMN_SLOTS[3][1]
-)
-FIGURE2_PPT_SCHEMATIC_WIDTH_IN = (
-    FIGURE2_PPT_LOWER_CONTENT_RIGHT_IN
-    - FIGURE2_PPT_LOWER_CONTENT_LEFT_IN
-    - sum(
-        FIGURE2_PPT_LOWER_ORIGINAL_COLUMN_SLOTS[column][1]
-        * FIGURE2_PPT_LOWER_COLUMN_WIDTH_SCALES[column]
-        for column in range(4)
-    )
-    - 4 * FIGURE2_PPT_LOWER_GAP_IN
-)
-FIGURE2_PPT_LOWER_COLUMN_SLOTS: dict[int, tuple[float, float]] = {}
-_figure2_lower_column_x = (
-    FIGURE2_PPT_LOWER_CONTENT_LEFT_IN
-    + FIGURE2_PPT_SCHEMATIC_WIDTH_IN
-    + FIGURE2_PPT_LOWER_GAP_IN
-)
-for _figure2_lower_column in range(4):
-    _figure2_lower_column_width = (
-        FIGURE2_PPT_LOWER_ORIGINAL_COLUMN_SLOTS[_figure2_lower_column][1]
-        * FIGURE2_PPT_LOWER_COLUMN_WIDTH_SCALES[_figure2_lower_column]
-    )
-    FIGURE2_PPT_LOWER_COLUMN_SLOTS[_figure2_lower_column] = (
-        _figure2_lower_column_x,
-        _figure2_lower_column_width,
-    )
-    _figure2_lower_column_x += _figure2_lower_column_width + FIGURE2_PPT_LOWER_GAP_IN
-del _figure2_lower_column, _figure2_lower_column_width, _figure2_lower_column_x
-FIGURE3_PPT_LAYOUT_REFERENCE = Path("C:/Users/jiangwu/Desktop/ltm-figs/main-figs-v4-f3.pptx")
 FIGURE3_PPT_CONTENT_BBOX_PT = (2.410000, 2.271102, 353.006063, 486.800000)
 FIGURE3_PPT_ROW_HEADERS: tuple[dict[str, object], ...] = ()
 FIGURE3_SCHEMATIC_TITLES = {
@@ -196,9 +122,9 @@ FIGURE3_EXAMPLE_AXIS_LIM = (-0.5, 14.5)
 FIGURE3_EXAMPLE_BOUNDARY_LINEWIDTH = 1.15
 FIGURE3_CURVE_SUPPORT_MIN_ANIMALS = 3
 FIGURE3_CURVE_SUPPORT_MASK = (
-    COVERAGE5MIN_ROOT
-    / "rendered"
-    / "ed07_fixed_time_tile"
+    REPO_ROOT
+    / "source_data"
+    / "support"
     / "ed07_current59_curve_support_mask.csv"
 )
 FIGURE3_CURVE_SUPPORT_RULE = "max(3, ceil(max_n_animals_for_curve / 2))"
@@ -464,13 +390,9 @@ def _write_json(path: Path, payload: object) -> None:
 
 
 def _find_chrome_executable() -> Path:
-    for path in CHROME_CANDIDATES:
-        if path.exists():
-            return path
-    raise FileNotFoundError(
-        "Could not find Chrome/Edge for SVG export. Checked: "
-        + ", ".join(str(path) for path in CHROME_CANDIDATES)
-    )
+    from ca_analysis.browser_export import find_browser
+
+    return find_browser(preferred=("edge", "chrome", "chromium"))
 
 
 def _svg_tag(name: str) -> str:
@@ -558,10 +480,7 @@ def _export_svg_with_chrome(
     height_mm: float,
     dpi: int,
 ) -> Path:
-    browsers = [path for path in CHROME_CANDIDATES if path.exists()]
-    if not browsers:
-        _find_chrome_executable()  # Raise the maintained, path-specific error.
-        raise AssertionError("unreachable")
+    browsers = [_find_chrome_executable()]
     html_path = svg_path.with_suffix(".html")
     _write_svg_browser_wrapper(svg_path, html_path, width_mm=width_mm, height_mm=height_mm)
     css_width_px = max(1, int(round(width_mm / 25.4 * 96.0)))
@@ -659,9 +578,6 @@ def _wait_for_browser_output(path: Path, *, timeout_seconds: float = 15.0) -> No
     raise RuntimeError(f"browser output did not settle within {timeout_seconds:g} s: {path}")
 
 
-def _ensure_sources() -> None:
-    """Source integrity is verified by the publication build wrapper."""
-    return None
 
 
 def _apply_axis_style(ax: plt.Axes, style: PublicationStyle) -> None:
@@ -890,78 +806,12 @@ def _load_day2_template_curves(style: PublicationStyle) -> pd.DataFrame:
 
 
 def _load_day2_template_30min_points() -> pd.DataFrame:
-    """Load per-animal first-window values from the same bundle family as the curves."""
-
-    usecols = {
-        "animal",
-        "experience_group",
-        "metric",
-        "metric_label",
-        "map_type",
-        "support_policy",
-        "window_type",
-        "window_size",
-        "window_size_label",
-        "first_value",
-        "mean_common_bins",
-        "mean_finite_neuron_fraction",
-        "mean_finite_bin_fraction",
-        "n_pairs",
-    }
-    pieces: list[pd.DataFrame] = []
-    for source_bundle, path in DAY2_TEMPLATE_ANIMAL_SUMMARIES.items():
-        df = pd.read_csv(path, usecols=lambda col: col in usecols)
-        df["source_bundle"] = source_bundle
-        pieces.append(df)
-    points = pd.concat(pieces, ignore_index=True)
-    points["experience_group"] = _normalize_experience(points["experience_group"])
-    points["metric"] = points["metric"].astype(str)
-    points["support_policy"] = points["support_policy"].astype(str)
-    points["window_type"] = points["window_type"].astype(str)
-    points["window_size"] = pd.to_numeric(points["window_size"], errors="coerce")
-    points["value"] = pd.to_numeric(points["first_value"], errors="coerce")
+    """Read the included first-window animal values used by panels f, i and l."""
+    points = pd.read_csv(FIGURE3_FIRST30_POINTS_ALL_METRICS)
     points["metric_label"] = points["metric"].map(METRIC_LABELS)
-    points = points.loc[
-        points["metric"].isin(METRICS)
-        & points["window_type"].eq("maze_time")
-        & np.isclose(points["window_size"], 30.0)
-        & np.isfinite(points["value"])
-    ].copy()
-    support_ok = points.apply(
-        lambda row: str(row["support_policy"]) == DAY2_TEMPLATE_SUPPORT_POLICY[str(row["metric"])],
-        axis=1,
-    )
-    points = points.loc[support_ok].copy()
-    points["experience_index"] = points["experience_group"].map(EXPERIENCE_INDEX)
-    points = points[np.isfinite(points["experience_index"])].copy()
-    points["experience_index"] = points["experience_index"].astype(int)
-    group_cols = [
-        "animal",
-        "experience_group",
-        "experience_index",
-        "metric",
-        "metric_label",
-        "support_policy",
-        "window_type",
-        "window_size",
-    ]
-    points = (
-        points.groupby(group_cols, dropna=False, as_index=False)
-        .agg(
-            value=("value", "mean"),
-            n_source_rows=("value", "size"),
-            n_pairs=("n_pairs", "sum"),
-            source_bundles=("source_bundle", lambda x: ";".join(sorted(set(map(str, x))))),
-            mean_common_bins=("mean_common_bins", "mean"),
-            mean_finite_neuron_fraction=("mean_finite_neuron_fraction", "mean"),
-            mean_finite_bin_fraction=("mean_finite_bin_fraction", "mean"),
-        )
-    )
-    for metric in METRICS:
-        metric_rows = points.loc[points["metric"].eq(metric)]
-        if metric_rows.empty:
-            raise ValueError(f"Missing Day2-template first-window rows for {metric}.")
-    return points.sort_values(["metric", "experience_index", "animal"], kind="stable")
+    return points.sort_values(
+        ["metric", "experience_index", "animal"], kind="stable"
+    ).reset_index(drop=True)
 
 
 def _compute_experience_stats(points: pd.DataFrame, *, x_col: str) -> pd.DataFrame:
@@ -1827,7 +1677,7 @@ def _render_figure3_individual_panels(
                         show_title=False,
                         point_group_map=FIGURE3_FIRST30_EXPERIENCE_COLOR_GROUPS,
                     )
-                    source = "; ".join(_rel(path) for path in DAY2_TEMPLATE_ANIMAL_SUMMARIES.values())
+                    source = _rel(FIGURE3_FIRST30_POINTS_ALL_METRICS)
                 else:
                     _draw_experience_scatter(
                         ax,
@@ -2190,7 +2040,6 @@ def _add_svg_figure3_stat_overlay(
 
 def render_figure3(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
     style = dataclass_replace(style, show_grid=False)
-    _ensure_sources()
     out_dir.mkdir(parents=True, exist_ok=True)
     day2_curves = _load_day2_template_curves(style)
     day2_points = _load_day2_template_30min_points()
@@ -2369,7 +2218,6 @@ def render_figure3(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
             "support_run_audit": _rel(support_runs_path),
             "support_mask_authority": _rel(FIGURE3_CURVE_SUPPORT_MASK),
             "support_rule": FIGURE3_CURVE_SUPPORT_RULE,
-            "source_manifest": _rel(DAY2_TEMPLATE_SOURCE_MANIFEST) if DAY2_TEMPLATE_SOURCE_MANIFEST.exists() else None,
             "renderer": "render_main_figs_v3_publication._draw_day2_template_curve",
             "filters": {
                 "metrics": list(METRICS),
@@ -2381,7 +2229,7 @@ def render_figure3(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
         },
         {
             "panel": "figure3_day2_template_first30_experience",
-            "source_paths": {name: _rel(path) for name, path in DAY2_TEMPLATE_ANIMAL_SUMMARIES.items()},
+            "source_paths": {"included_points": _rel(FIGURE3_FIRST30_POINTS_ALL_METRICS)},
             "plot_ready_points_authority": _rel(FIGURE3_FIRST30_POINTS_ALL_METRICS),
             "stats_path": _rel(FIGURE3_FIRST30_STATS_ALL_METRICS),
             "renderer": "render_main_figs_v3_publication._draw_experience_scatter",
@@ -2390,7 +2238,7 @@ def render_figure3(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                 "metrics": list(METRICS),
                 "window_type": "maze_time",
                 "window_size": 30.0,
-                "value_column": "first_value",
+                "value_column": "value",
                 "support_policy_by_metric": DAY2_TEMPLATE_SUPPORT_POLICY,
                 "variant": DAY2_TEMPLATE_VARIANT_LABEL,
                 "excluded_metrics": ["level_map_correlation"],
@@ -2400,11 +2248,6 @@ def render_figure3(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
             "panel": "figure3_long_gap_experience_trends",
             "source_path": _rel(LONG_GAP_POINTS),
             "stats_path": _rel(LONG_GAP_STATS),
-            "source_repair_manifest": _rel(SOURCE_REPAIR_842_MANIFEST),
-            "level_pair_audit": _rel(FIGURE3_LEVEL_PAIR_AUDIT),
-            "corrected_842_six_metric_audit": _rel(
-                FIGURE3_CORRECTED_842_SIX_METRIC_AUDIT
-            ),
             "renderer": "render_main_figs_v3_publication._draw_experience_scatter",
             "filters": {"metrics": list(METRICS), "excluded_metrics": ["level_map_correlation"]},
         },
@@ -2421,7 +2264,7 @@ def render_figure3(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
         "style": asdict(style),
         "layout_mode": "schematic_row_source_panel_svg",
         "layout_reference": {
-            "pptx": str(FIGURE3_PPT_LAYOUT_REFERENCE),
+            "layout_source": "Figure 3 layout constants in this renderer",
             "content_bbox_pt": list(FIGURE3_PPT_CONTENT_BBOX_PT),
             "source_panel_dir": _rel(source_panel_dir),
             "row_headers": FIGURE3_PPT_ROW_HEADERS,
@@ -2521,7 +2364,7 @@ def render_figure3(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                     "panel_key": f"day2_template_first30_{metric}",
                     "panel_letter": lower_panel_letters[(row, 1)],
                     "visual_role": "Experience scatter from the same Day2-template source family, first 30 min maze-time window",
-                    "source": "; ".join(_rel(path) for path in DAY2_TEMPLATE_ANIMAL_SUMMARIES.values()),
+                    "source": _rel(FIGURE3_FIRST30_POINTS_ALL_METRICS),
                     "filters": f"metric={metric}; window_type=maze_time; window_size=30; value=first_value; support_policy={DAY2_TEMPLATE_SUPPORT_POLICY[metric]}",
                     "source_row_count": int(len(first_rows)),
                     "n_animals": int(first_rows["animal"].astype(str).nunique()),

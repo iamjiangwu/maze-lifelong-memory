@@ -288,8 +288,7 @@ def ed9(release,source,output,analyses):
         actual=pd.DataFrame(family);actual["q_bh_two_sided"]=bh(actual.p_two_sided);actual.to_csv(output/("ed9_"+name+"_entire_bh4_family.csv"),index=False)
         compare("ed9_"+name+"_bh4",actual.loc[actual.metric.eq("level_map_correlation")],pd.read_csv(stored),["metric"],["intercept","slope","slope_se","p_two_sided","q_bh_two_sided","pearson_r","n_rows","n_animals"],output,analyses)
     # ED9's current BH4 family combines three dense representation fits with
-    # canonical (ungated) ensemble-rate session-pair inference, not the older
-    # dense-neuron ensemble-rate sensitivity that remains in historical files.
+    # canonical (ungated) ensemble-rate session-pair inference.
     main2=release/"main_figure_2/source/source_data"
     rows=pd.read_csv(main2/"consecutive_gap/consecutive_gap_clean_long_gap_corrected_points.csv",dtype={"animal_id":str});family=[]
     for metric in CORRELATIONS[:3]:family.append(dict(metric=metric,**slope(rows.loc[rows.metric.eq(metric)],"prev_gap_correlation","next_gap_correlation","animal_id")))
@@ -302,7 +301,8 @@ def ed9(release,source,output,analyses):
     pairs=pd.read_csv(shuffle/"pair_summary.csv");null=pd.read_csv(shuffle/"null_draws.csv").mean_correlation.to_numpy(float)
     observed=pairs.observed_mean_correlation.mean(); summary=json.loads((shuffle/"summary.json").read_text())
     actual=pd.DataFrame([dict(test="null_distribution",observed_mean=observed,null_mean=null.mean(),null_sd=null.std(ddof=1),null_quantile025=np.quantile(null,.025),null_quantile975=np.quantile(null,.975),empirical_p_greater=(1+np.sum(null>=observed))/(len(null)+1))])
-    compare("ed9_population_vector_null_summary",actual,pd.DataFrame([dict(test="null_distribution",**summary)]),["test"],["observed_mean","null_mean","null_sd","null_quantile025","null_quantile975"],output,analyses)
+    reference=pd.DataFrame([dict(test="null_distribution",**summary,empirical_p_greater=summary["conditional_p_right"])])
+    compare("ed9_population_vector_null_summary",actual,reference,["test"],["observed_mean","null_mean","null_sd","null_quantile025","null_quantile975","empirical_p_greater"],output,analyses)
 
 
 

@@ -26,7 +26,7 @@ Raw imaging movies and behavior videos are not included. Tracking, neural extrac
 
 ## Reproduce
 
-The tested environment is Python 3.10 on Windows; vector exports use Edge and Arial. Supplementary workbooks use openpyxl. [Environment and commands](docs/REPRODUCING.md) · [Code reading map](docs/CODE.md).
+Use Python 3.10 and the included package requirements. Figure export uses Chrome, Chromium or Edge, discovered on Windows, macOS or Linux; the statistics-only command needs no browser. Supplementary workbooks use openpyxl. [Setup and tested platforms](docs/REPRODUCING.md) · [Code reading map](docs/CODE.md).
 
 From the repository root:
 

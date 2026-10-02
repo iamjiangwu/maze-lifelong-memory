@@ -1,24 +1,9 @@
-"""Assemble Extended Data Figure 5 (example place maps + day-combination controls).
+"""Render Extended Data Figure 5 from retained maps and session-pair values.
 
-Layout authority is slide 6 of ``sup-figs-v2.pptx``. Under the merged Extended Data
-numbering that slide is new ED5; repository sources remain under old ED6
-(``extended_data_fig_06``).
-
-Every panel is source-rendered from maintained plot-ready tables or the frozen
-32-pair shortlist arrays. Deliberate corrections to the slide:
-
-1. The top plate is regenerated from
-   ``selected_maps_fields_45_shortlist32.npz`` via the maintained compact-grid
-   renderer, not by embedding the PowerPoint media or a stale PNG copy.
-2. The bottom-left crop of the legacy day-combination strip is redrawn as three
-   Main-Figure-1 bar-plus-scatter axes from the saved correlations for 36
-   session pairs × 4 variants for place, PV, and ensemble rate. Session pairs
-   are weighted equally; standard errors are clustered by animal.
-3. The bottom-right crop of the legacy dual-cohort equal-time absolute panel is
-   replaced by the corrected-36 Day1→Day1 Outside↔Maze paired plot (36 transition
-   rows, standard errors clustered by animal, single-comparison p).
-4. Typography follows the shared Extended Data contract; background grids are
-   off; exact P/q and counts belong in the caption.
+The gallery contains 32 registered-neuron examples. Quantitative panels compare
+the four day combinations for place maps, population vectors and ensemble rates,
+and maze-versus-outside activity for 36 transitions from 14 animals. Session pairs
+receive equal weight; intervals account for repeated pairs from the same animal.
 """
 
 from __future__ import annotations
@@ -85,7 +70,7 @@ GALLERY_DISPLAY_CORRELATION_COLUMN = "place_r_45_display"
 GALLERY_CORRELATION_GRID = (15, 15)
 GALLERY_DISPLAY_GRID = (45, 45)
 
-# Exact slide-6 picture geometries (PowerPoint top-left origin, inches).
+# Panel geometry uses a top-left page origin, in inches.
 SLIDE_W_IN = 7.5
 SLIDE_H_IN = 7.5
 SLIDE_GALLERY = {
@@ -107,8 +92,8 @@ SLIDE_EQUAL = {
     "height": 1.48625656167979,
 }
 
-# Content bbox uses gallery + day-combination band. Panel e is deliberately
-# height-matched to b-d (slide e was taller); empty 7.5×7.5 page margin is dropped.
+# Content bbox uses gallery + day-combination band. Panel e is height-matched
+# to b-d; the empty 7.5×7.5 page margin is dropped.
 _CONTENT_LEFT = min(SLIDE_GALLERY["left"], SLIDE_DAYCOMB["left"], SLIDE_EQUAL["left"])
 _CONTENT_RIGHT = max(
     SLIDE_GALLERY["left"] + SLIDE_GALLERY["width"],
@@ -152,7 +137,7 @@ COMPOSITE_EMBEDDED_RASTER_DPI = 600
 
 
 def _slide_to_canvas(left: float, top: float, width: float, height: float) -> dict[str, float]:
-    """Convert a PowerPoint top-left rectangle into canvas lower-left inches."""
+    """Convert a top-left page rectangle into canvas lower-left inches."""
 
     return {
         "left": (left - _CONTENT_LEFT) + PAD_LEFT,
@@ -219,11 +204,9 @@ DAY_COMB_DISPLAY_ORDER = (
     "ensemble_rate_correlation",
 )
 
-DAY_COMB_PAIRS = SHORTLIST_DIR / "ed05_day_combination_session_pair_values.csv"
 DAY_COMB_STATS = SHORTLIST_DIR / "ed05_day_combination_session_pair_contrasts_cr1_bh3.csv"
 DAY_COMB_DESC = SHORTLIST_DIR / "ed05_day_combination_session_pair_descriptive_cr1.csv"
 EQUAL_PAIRS = ED06_TABLES / "ed06_equal_time_pair_rows_corrected36.csv"
-EQUAL_MEANS = ED06_TABLES / "ed06_equal_time_condition_means_corrected36.csv"
 EQUAL_STATS = ED06_TABLES / "ed06_equal_time_clustered_stats_corrected36.csv"
 EQUAL_SOURCE_SET_EXPECTED = {"clean_authority_2026-08-08"}
 EQUAL_FEASIBILITY_SET_EXPECTED = EQUAL_SOURCE_SET_EXPECTED
@@ -231,10 +214,6 @@ EQUAL_EXTRA_SOURCES: tuple[tuple[str, Path], ...] = ()
 EQUAL_CAPTION_PANEL_NOTE = (
     "- **e.** Equal-time ensemble-rate Outside versus Maze for Day1→Day1 "
     "(36 transition rows / 14 mice; CR1 means ± 95% CI)."
-)
-EQUAL_CAPTION_CORRECTION_NOTE = (
-    "- Replaced the legacy dual-cohort equal-time absolute crop with "
-    "corrected-36 Day1→Day1 Outside↔Maze."
 )
 EQUAL_CAPTION_STATS_LABEL = "Equal-time Day1→Day1 maze−outside"
 EQUAL_MANIFEST_CORRECTION = (
@@ -938,14 +917,17 @@ def assemble(output_dir: Path) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     checks = Checks()
 
-    pair_values = pd.read_csv(DAY_COMB_PAIRS, dtype={"animal_id": str})
+    reaggregation = _load_pair_reaggregation_module()
+    pair_values, source_checks = reaggregation.load_pair_values(PLACE_PAIR_SOURCE.parent)
     day_stats = pd.read_csv(DAY_COMB_STATS)
     bh_stats_path = output_dir / f"ED05_DAY_COMBINATION_BH3_ROUND{ROUND}.csv"
     day_stats.to_csv(bh_stats_path, index=False)
     day_desc = pd.read_csv(DAY_COMB_DESC)
     pairs = pd.read_csv(EQUAL_PAIRS, dtype={"animal_id": str})
-    means = pd.read_csv(EQUAL_MEANS)
     equal_stats = pd.read_csv(EQUAL_STATS)
+    means = equal_stats.loc[equal_stats["analysis"].isin(["outside", "maze"])].rename(
+        columns={"analysis": "condition"}
+    )
     gallery_provenance = pd.read_csv(GALLERY_PROVENANCE)
     gallery_provenance_summary = json.loads(
         GALLERY_PROVENANCE_SUMMARY.read_text(encoding="utf-8")
@@ -1097,32 +1079,12 @@ def assemble(output_dir: Path) -> dict[str, Any]:
         f"{len(exact_support)} rows; all exact={exact_ok}",
     )
 
-    # Close the complete transformation from the three 144-row pair authorities
-    # to the plotted 432 pair values, descriptive CR1 intervals and BH3 tests.
-    reaggregation = _load_pair_reaggregation_module()
-    recomputed_pairs, source_checks = reaggregation.load_pair_values(
-        PLACE_PAIR_SOURCE.parent
-    )
-    try:
-        pd.testing.assert_frame_equal(
-            pair_values.reset_index(drop=True),
-            recomputed_pairs.reset_index(drop=True),
-            check_dtype=False,
-            check_exact=False,
-            rtol=0.0,
-            atol=2e-15,
-        )
-        pair_values_ok = True
-        pair_values_detail = "432/432 rows exact within 2e-15"
-    except AssertionError as error:
-        pair_values_ok = False
-        pair_values_detail = str(error)
+    # Plot the same 432 values derived directly from the three pair authorities.
     checks.record(
-        "daycomb_drawn_session_pair_values_recompute_from_pair_authority",
-        pair_values_ok
-        and len(pair_values) == 432
+        "daycomb_session_pair_values_loaded_from_pair_authority",
+        len(pair_values) == 432
         and source_checks["status"].eq("PASS").all(),
-        pair_values_detail,
+        "432 pair/metric values from three matched 144-row authorities",
     )
 
     desc_recomputed = reaggregation.summarize(pair_values)
@@ -1315,11 +1277,6 @@ def assemble(output_dir: Path) -> dict[str, Any]:
                 ),
             },
             {
-                "role": "day_combination_session_pair_values",
-                "path": _repo_rel(DAY_COMB_PAIRS),
-                "sha256": sha256(DAY_COMB_PAIRS),
-            },
-            {
                 "role": "day_combination_session_pair_clustered_stats",
                 "path": _repo_rel(DAY_COMB_STATS),
                 "sha256": sha256(DAY_COMB_STATS),
@@ -1365,11 +1322,6 @@ def assemble(output_dir: Path) -> dict[str, Any]:
                 "sha256": sha256(EQUAL_PAIRS),
             },
             {
-                "role": "equal_time_condition_means",
-                "path": _repo_rel(EQUAL_MEANS),
-                "sha256": sha256(EQUAL_MEANS),
-            },
-            {
                 "role": "equal_time_clustered_stats",
                 "path": _repo_rel(EQUAL_STATS),
                 "sha256": sha256(EQUAL_STATS),
@@ -1401,8 +1353,6 @@ def assemble(output_dir: Path) -> dict[str, Any]:
             [
                 f"# Extended Data Figure 5 — caption notes (round {ROUND})",
                 "",
-                "Merged numbering: slide 6 of `sup-figs-v2.pptx` (old ED6 → new ED5).",
-                "",
                 "## On-figure content",
                 "- **a.** Thirty-two illustrative matched-neuron place-map pairs. Heatmaps use the 45×45 display grid with independent within-map q99 normalization; printed r values use the same 15×15 analysis estimator as Figure 2.",
                 "- **b–d.** Session-pair cross-session correlations for population vectors, place maps, and ensemble rate, respectively, across the four Day1/Day2 combinations (36 pairs from 14 mice).",
@@ -1417,14 +1367,10 @@ def assemble(output_dir: Path) -> dict[str, Any]:
                 "## Layout",
                 f"- Canvas is the content bounding box "
                 f"({FIGURE_WIDTH_IN:.3f} × {FIGURE_HEIGHT_IN:.3f} in), not the empty 7.5 × 7.5 slide page.",
-                "- Gallery width/height match the slide-6 picture; panel e is height-matched to b–d.",
+                "- Gallery uses the specified panel geometry; panel e is height-matched to b–d.",
                 "- Gallery omits ranks, A/B tags, and Fig. 2b labels; colorbar label is `Normalized rate`.",
                 "- Day-combination brackets use Main Figure / ED1 ticks/lines and star offset; n.s. brackets are omitted.",
                 "- Panel e sets ylim before the significance bracket so stars sit above the scatter cloud.",
-                "",
-                "## Deliberate slide corrections",
-                EQUAL_CAPTION_CORRECTION_NOTE,
-                "- Redrew the day-combination strip with Main Figure 1 bar-plus-scatter grammar (no background grids; upright `d1-d1`… tick labels).",
                 "",
             ]
         ),
@@ -1434,9 +1380,7 @@ def assemble(output_dir: Path) -> dict[str, Any]:
     manifest = {
         "figure": "extended_data_figure_5",
         "round": ROUND,
-        "slide_authority": r"C:\Users\jiangwu\Desktop\ltm-figs\supplement\sup-figs-v2.pptx#slide6",
-        "old_figure_number": 6,
-        "new_figure_number": 5,
+        "layout_source": "Panel geometry constants in this renderer",
         "canvas_inches": [FIGURE_WIDTH_IN, FIGURE_HEIGHT_IN],
         "slide_page_inches": [SLIDE_W_IN, SLIDE_H_IN],
         "content_bbox_slide_inches": {

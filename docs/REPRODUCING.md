@@ -1,26 +1,36 @@
 # Reproduce figures, tables or statistics
 
-Run the commands below from the repository root. The launcher checks every frozen source checksum and uses only included derived Source Data. It automatically selects source-only mode: no finished reference artwork or `-NoCompare` flag is needed.
+Run the commands below from the repository root. The launcher checks the source checksums and uses only the included derived Source Data; finished reference artwork is not required.
 
 ## Software first
 
-The complete reproduction has been tested in a **fresh Python 3.10 virtual environment on Windows**, using only [requirements.txt](../requirements.txt). Package versions and export requirements are listed in the [environment record](../reproduction/snapshot/RUNTIME_ENVIRONMENT.json).
+Use **Python 3.10** with [requirements-lock.txt](../requirements-lock.txt), which pins the Python packages. [requirements.txt](../requirements.txt) lists direct dependencies; the [environment record](../reproduction/snapshot/RUNTIME_ENVIRONMENT.json) describes export requirements. Browser discovery supports Windows, macOS and Linux; end-to-end checks of the current portable build are pending.
 
-Figure vector exports require **Microsoft Edge and Arial**. Supplementary tables use **openpyxl** for editable XLSX files and the Python PDF renderers included here; these public dependencies are listed in `requirements.txt`.
+Figure vector exports require an installed **Google Chrome, Chromium or Microsoft Edge**. The shared browser helper checks `PATH` and standard application locations, or uses an explicit `MAZE_BROWSER` executable path. The scripts do not download a browser. The manuscript artwork uses Arial; font substitution can change text geometry. Supplementary tables use **openpyxl** for editable XLSX files and the included Python PDF renderers.
 
 A plain Python installation alone is not enough for every export. These are software requirements; no external scientific-data drive is needed.
 
-After downloading or cloning the repository, open PowerShell in its root folder. With Python 3.10 installed, create an isolated environment and install the listed packages:
+After downloading or cloning the repository, open a terminal in its root folder. On Windows with Python 3.10 installed:
 
 ```powershell
 py -3.10 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
 .\.venv\Scripts\python.exe reproduce.py --check-only
 .\.venv\Scripts\python.exe reproduce.py --figure 2 --output-dir outputs/figure2
 ```
 
-This does not require activating the environment or changing PowerShell's execution policy. In the commands below, use `.\.venv\Scripts\python.exe` in place of `python` when using this environment. Install Microsoft Edge and ensure Arial is available before generating figure exports. Other Python versions or operating systems have not been verified for identical artwork.
+On macOS or Linux, the equivalent commands are:
+
+```bash
+python3.10 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install -r requirements-lock.txt
+.venv/bin/python reproduce.py --check-only
+.venv/bin/python reproduce.py --figure 2 --output-dir outputs/figure2
+```
+
+Activation is optional. In subsequent commands, substitute your environment's Python executable for `python`. If a browser is not discovered, set `MAZE_BROWSER` to its executable path; it can also select one browser consistently for all figures. For example, with Chromium on `PATH`, use `$env:MAZE_BROWSER = "chromium"` in PowerShell or `export MAZE_BROWSER=chromium` in a POSIX shell. An invalid override produces an error rather than silently choosing another browser. Statistical replay (`--statistics-only`) does not require a browser or Arial.
 
 Small text-rasterization or layout differences can occur between Matplotlib binary distributions, even at the same version. The original exports used Matplotlib 3.7.0 with FreeType 2.12.1; the tested PyPI wheel bundles FreeType 2.6.1. The statistical results are checked numerically, independently of image pixels.
 
@@ -52,7 +62,9 @@ Use a **new or empty output directory** each time. If omitted, the launcher crea
 
 Figures produce their original PNG, PDF, SVG and TIFF exports. Table builders produce PDF and editable XLSX files plus their numerical ledgers. Artifact outputs are grouped by the original identifier, such as `main_figure_2/` or `supplementary_table_2/`, inside the selected output folder.
 
-Every build has a `BUILD.log` and `REPRODUCTION_VALIDATION.json`; the enclosing folder has `REPRODUCTION_REPORT.json`. The statistical replay writes `statistics/STATISTICS_REPORT.json`, regenerated tables and comparison tables. These checks establish agreement with the saved results, not agreement with every manuscript claim; see [analysis definitions and known differences](STATISTICS.md). A single-figure build does not automatically rerun all statistics. Table summary counts/intervals are recalculated by the table builders themselves.
+Every build has a `BUILD.log` and `REPRODUCTION_VALIDATION.json`; the enclosing folder has `REPRODUCTION_REPORT.json`. For artwork, **PASS means that the verified inputs were accepted and the builder completed its checks successfully**. The public build does not compare the generated artwork with a reference image or establish pixel-identical rendering.
+
+Statistical verification is separate: `statistics/STATISTICS_REPORT.json` reports numerical comparisons between recalculated results and the supplied statistical tables. A single-figure build does not automatically rerun all statistics; use `--statistics-only` for those comparisons, or build everything. Table summary counts/intervals are recalculated by the table builders themselves. See [analysis definitions](STATISTICS.md) for what each calculation tests.
 
 ## Where the computation starts
 

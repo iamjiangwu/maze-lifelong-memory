@@ -134,12 +134,6 @@ FIGURE2_RATE_CHAIN_STATS = (
     FIGURE2_RATE_CHAIN_DIR / "session_pair_rate_consecutive_gap_stats_clean_long_gap_no_manual_mask.csv"
 )
 
-CHROME_CANDIDATES = (
-    Path("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"),
-    Path("C:/Program Files/Microsoft/Edge/Application/msedge.exe"),
-    Path("C:/Program Files/Google/Chrome/Application/chrome.exe"),
-)
-
 BROWSER_EXPORT_TIMEOUT_SECONDS = 180
 
 SVG_NS = "http://www.w3.org/2000/svg"
@@ -528,13 +522,9 @@ def _load_script_module(module_name: str, path: Path):
     return module
 
 def _find_chrome_executable() -> Path:
-    for path in CHROME_CANDIDATES:
-        if path.exists():
-            return path
-    raise FileNotFoundError(
-        "Could not find Chrome/Edge for SVG export. Checked: "
-        + ", ".join(str(path) for path in CHROME_CANDIDATES)
-    )
+    from ca_analysis.browser_export import find_browser
+
+    return find_browser(preferred=("edge", "chrome", "chromium"))
 
 def _svg_tag(name: str) -> str:
     return f"{{{SVG_NS}}}{name}"
@@ -734,10 +724,7 @@ def _export_svg_with_chrome(
     height_mm: float,
     dpi: int,
 ) -> Path:
-    browsers = [path for path in CHROME_CANDIDATES if path.exists()]
-    if not browsers:
-        _find_chrome_executable()  # Raise the maintained, path-specific error.
-        raise AssertionError("unreachable")
+    browsers = [_find_chrome_executable()]
     html_path = svg_path.with_suffix(".html")
     _write_svg_browser_wrapper(svg_path, html_path, width_mm=width_mm, height_mm=height_mm)
     css_width_px = max(1, int(round(width_mm / 25.4 * 96.0)))
@@ -2001,10 +1988,10 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
             "panel_key": "figure2_a",
             "panel_letter": "a",
             "visual_role": FIGURE2_PANEL_ROLES["a"],
-            "source": "G:/422/corr.fig; G:/422-3/corr.fig",
+            "source": "panel_a_sources/422_corr.npz; panel_a_sources/422-3_corr.npz",
             "filters": "fixed FOV example rendered by preview_figure2_assembly._render_panel_a",
             "source_row_count": "",
-            "expected": "two stacked local-correlation FOV examples from source .fig files",
+            "expected": "two stacked local-correlation FOV examples from included arrays",
             "auto_check": "PASS",
         }
     )
@@ -2153,7 +2140,7 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
             "export_width_mm": float(style.figure2_export_width_mm),
             "export_height_mm": float(export_height_mm),
             "canvas_size": [float(canvas_w), float(canvas_h)],
-            "layout_source": "C:/Users/jiangwu/Desktop/ltm-figs/main-figs-v4-f2.pptx slide 1",
+            "layout_source": "Figure 2 layout constants in this renderer",
             "top_slots": {key: list(value) for key, value in FIGURE2_PPT_TOP_SLOTS.items()},
             "panel_b_slot": list(FIGURE2_PANEL_B_SLOT),
             "panel_b_min_column_gap_in": float(FIGURE2_PANEL_B_MIN_COLUMN_GAP_IN),
@@ -2207,7 +2194,7 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                 "display_label": "a",
                 "visual_role": FIGURE2_PANEL_ROLES["a"],
                 "renderer": "preview_figure2_assembly._render_panel_a",
-                "source_path": "G:/422/corr.fig; G:/422-3/corr.fig",
+                "source_path": "panel_a_sources/422_corr.npz; panel_a_sources/422-3_corr.npz",
             },
             {
                 "panel": "figure2_b",

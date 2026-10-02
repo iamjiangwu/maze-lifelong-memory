@@ -14,6 +14,8 @@ Levels 0–6 index the seven tree depths, not horizontal/vertical spatial partit
 
 `exploration_efficiency` is 32 divided by end-node visits needed to reach 32 distinct end nodes on return. `level_map_pair_scope.csv` identifies the pair cohort. Neuron-level distributions, cell-wise matrix means and pair-level behavioral fits have different averaging units; the panel-e test uses standard errors clustered by animal.
 
+Panel e fits **level-map correlation as response** and exploration efficiency as predictor, using 36 session pairs from 14 animals and a nominal two-sided p value. The related [ED10a](../../extended_data_10/data/README.md) analysis uses 30 pairs on common support across neural readouts, fits exploration efficiency as response, and applies row-wise BH3. Pearson r is symmetric, but the slope test with standard errors clustered by animal depends on this direction and cohort.
+
 | File | Format |
 |---|---|
 | [level_map_distribution.npz](level_map_distribution.npz) | .npz |

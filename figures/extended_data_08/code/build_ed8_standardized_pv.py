@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 """Complete ED8: accepted a-c and finalized v4 standardized route PV controls.
 
-First build freezes authoritative numerical inputs. Subsequent builds, including
-the bundled copy, read only the frozen source_data directory (no raw recordings).
+Every build reads the included frozen source_data directory (no raw recordings).
 """
 from __future__ import annotations
 import argparse
-import ast
 import hashlib
 import importlib.util
 import itertools
@@ -31,11 +29,6 @@ from scipy import stats
 from PIL import Image
 
 HERE = Path(__file__).resolve()
-BUNDLED = HERE.parent.name == 'source_code'
-ROOT = HERE.parents[1] if not BUNDLED else None
-DEFAULT_OUT = HERE.parents[1] if BUNDLED else ROOT / 'output/figures/ed8_standardized_pv_2026-09-27'
-S = ROOT / 'output/analysis/route_density_vs_pv_explained_2026-09-24' if ROOT else None
-RECORD_NAME = 'extended_data_fig08_2026-09-09_round25_linearized_place_map_axes'
 COL = dict(approach='#E29957', departure='#B96B2C', neutral='#C4C4C4', mid='#C4C4C4',
            rewarded='#E29957', timeout='#B96B2C', node2='#5B8E7D', node3='#9C8060',
            day1='#E29957', day2='#E29957', decoder='#E29957', home='#587785')
@@ -47,10 +40,6 @@ PANELS = {
     'g': (.15,3.81,1.90,2.08), 'h': (2.15,3.81,2.97,2.08), 'j': (5.22,3.81,2.13,2.08),
 }
 DISPLAY = dict(a='a',b='b',c='c',d='d',e='e',f='f',i='g',g='h',h='i',j='j')
-ROUTE_FILES = ['signal_comparison_primary_pairs.csv','signal_comparison_primary_numbers.csv',
-               'replication_day2_pairs.csv','replication_day2_numbers.csv',
-               'strength_checks_profiles.csv','strength_checks_numbers.csv',
-               'candidate_paired_display_values.csv','candidate_paired_display_summary.csv']
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def load(name,p):
@@ -80,64 +69,12 @@ def configure():
         'savefig.facecolor':'white','savefig.bbox':None})
 
 def freeze(out):
-    sd=out/'source_data'; sd.mkdir(parents=True,exist_ok=True)
-    manifest=out/'INPUT_MANIFEST.json'
-    if manifest.exists():
-        rows=json.loads(manifest.read_text())['files']
-        assert all(sha(out/r['frozen'])==r['sha256'] for r in rows), 'Frozen input drift'
-        return
-    assert ROOT is not None, 'Bundle lacks frozen inputs'
-    record=ROOT/'docs/figure_version_records'/RECORD_NAME
-    rows=[]
-    def copy(src,name):
-        dest=sd/name; shutil.copy2(src,dest)
-        rows.append(dict(original=str(src),frozen=str(dest.relative_to(out)),sha256=sha(dest)))
-    for name in ROUTE_FILES: copy(S/name,name)
-    for key,name in [('h','ed08_panel_h_map.csv'),('c','ed08_panel_c_pair_values.csv'),
-                     ('routes','ed08_panel_a_routes.csv'),('stats','ed08_expanded_statistics.csv')]:
-        copy(record/'plot_ready'/name,f'accepted_{key}.csv')
-    copy(record/'source_data/ED08_PANEL_B_ALL_ELIGIBLE_MOUSE_VALUES.csv','accepted_b.csv')
-    z=np.load(S/'signal_maps_primary/1616b-3day1.npz',allow_pickle=False)
-    info=json.loads(str(z['info'])); assert info['rule_version']=='2026-09-27-uniform-port-grid-v4'
-    (sd/'route_geometry_and_rule.json').write_text(json.dumps(info,indent=2))
-    rows.append(dict(original=str(S/'signal_maps_primary/1616b-3day1.npz')+'::info',
-                     frozen='source_data/route_geometry_and_rule.json',sha256=sha(sd/'route_geometry_and_rule.json')))
-    # Extract canonical maze geometry from a fresh accepted-source render, never
-    # from an accepted composite or a raster. This bootstrap is not used again.
-    rebuild=load('ed8_v4_accepted_rebuild',ROOT/'docs/figure_version_records/rebuild_current_extended_data_figures.py')
-    check=rebuild.check_artifact('extended_data_figure_8')
-    assert rebuild.record_root('extended_data_figure_8').name==RECORD_NAME
-    (out/'ACCEPTED_SOURCE_CHECK.json').write_text(json.dumps(check,indent=2))
-    with rebuild.frozen_stage(record) as stage:
-        ed8=rebuild.stage_ed8_chain(record,stage)
-        parent=rebuild.load_module(ed8/'revision_round10_2026-08-11/render_ed08_round10.py','ed8_v4_geometry_source')
-        r=parent.r; r.configure_style(); base=r.load_base_renderer(); data=r.read_data(base)
-        fig=plt.figure(figsize=(2.8,2.25)); axs=parent.r9.r8.draw_a(fig,data,base)
-        line=axs[0].lines[0]
-        pd.DataFrame({'x':line.get_xdata(),'y':line.get_ydata()}).to_csv(sd/'accepted_maze_wall.csv',index=False)
-        np.testing.assert_allclose(np.asarray(axs[0].images[0].get_array().filled(np.nan)),
-            map_grid(pd.read_csv(sd/'accepted_h.csv')),equal_nan=True)
-        plt.close('all')
-    rows.append(dict(original='canonical wall vertices from accepted source-only renderer',
-                     frozen='source_data/accepted_maze_wall.csv',sha256=sha(sd/'accepted_maze_wall.csv')))
-    refs=out/'source_code/accepted_reference'; refs.mkdir(parents=True,exist_ok=True)
-    for name in ['render_ed08_round3.py','render_ed08_round4.py','render_ed08_round5.py',
-                 'render_ed08_round6.py','render_ed08_round7.py','render_ed08_round8.py']:
-        shutil.copy2(record/'source_code'/name,refs/name)
-    primitive_source=record/'source_code/figure_panels.py'; primitive_text=primitive_source.read_text(encoding='utf-8')
-    segments=[]
-    for node in ast.parse(primitive_text).body:
-        if isinstance(node,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='GRAY_BLOCKS' for t in node.targets):
-            segments.append(ast.get_source_segment(primitive_text,node))
-        if isinstance(node,ast.FunctionDef) and node.name in ['_draw_house_icon','_draw_water_drop_icon']:
-            segments.append(ast.get_source_segment(primitive_text,node))
-    assert len(segments)==3
-    primitive_dest=sd/'accepted_schematic_primitives.py'
-    primitive_dest.write_text('"""Exact accepted schematic geometry/icon primitives; source attribution in INPUT_MANIFEST."""\nimport matplotlib.patches as patches\nfrom matplotlib.path import Path as MplPath\n\n'+'\n\n'.join(segments)+'\n',encoding='utf-8')
-    rows.append(dict(original=str(primitive_source)+'::GRAY_BLOCKS,_draw_house_icon,_draw_water_drop_icon',
-        frozen='source_data/accepted_schematic_primitives.py',sha256=sha(primitive_dest),original_file_sha256=sha(primitive_source)))
-    manifest.write_text(json.dumps(dict(schema='ed8-standardized-pv-frozen-inputs/v1',
-        rule_version=info['rule_version'],accepted_record=RECORD_NAME,files=rows),indent=2))
+    """Verify the included numerical inputs before drawing any ED8 panel."""
+    manifest = out / 'INPUT_MANIFEST.json'
+    if not manifest.is_file():
+        raise FileNotFoundError('ED8 requires the included inputs; pass --inputs-from SOURCE_DIR')
+    rows = json.loads(manifest.read_text())['files']
+    assert all(sha(out / row['frozen']) == row['sha256'] for row in rows), 'Frozen input drift'
 
 def map_grid(frame):
     grid=np.full((15,15),np.nan)
@@ -432,11 +369,11 @@ The route families are Figure4e/d (two directions), replication/d (two direction
 
 ## Files
 
-PDF and SVG contain all ten panels; PNGs are 300 and 600 dpi and TIFF is 600 dpi LZW. Individual PDF/SVG/PNG panels are in individual_panels. DISPLAY_VALIDATION.json and VISUAL_QA.md document the actual rendered result. Transparent vector margins permit compact placement without masking neighboring labels. This folder is a candidate build; global records, manuscript and Desktop exports are managed separately.
+PDF and SVG contain all ten panels; PNGs are 300 and 600 dpi and TIFF is 600 dpi LZW. Individual PDF/SVG/PNG panels are in individual_panels. DISPLAY_VALIDATION.json and VISUAL_QA.md document the actual rendered result. Transparent vector margins permit compact placement without masking neighboring labels. These outputs are generated from the included source inputs.
 ''',encoding='utf-8')
 
 def main():
-    p=argparse.ArgumentParser(); p.add_argument('--output-dir',type=Path,default=DEFAULT_OUT); p.add_argument('--inputs-from',type=Path)
+    p=argparse.ArgumentParser(); p.add_argument('--output-dir',type=Path,required=True); p.add_argument('--inputs-from',type=Path,required=True)
     p.add_argument('--control-gray',choices=['dark','light'],default='light')
     args=p.parse_args(); out=args.output_dir.resolve(); out.mkdir(parents=True,exist_ok=True)
     COL['neutral']=COL['mid']='#454545' if args.control_gray=='dark' else '#C4C4C4'

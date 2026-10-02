@@ -1,8 +1,4 @@
-"""Refine only Figure 1 i/j using the accepted frozen native source builder.
-
-The review bundle contains all declared source inputs and this adapter. No
-accepted record, manuscript, or Desktop file is modified.
-"""
+"""Apply the Figure 1 i/j display geometry to the included source panels."""
 from __future__ import annotations
 
 import argparse
@@ -212,7 +208,7 @@ def build(output, record=None, *, skip_individual=False):
         "The frozen source is copied verbatim from the accepted Round 13 declared inputs; "
         "no composite artwork is used to draw the figure. Accepted artwork is read only for the unrelated-panel QA comparison. "
         "REVIEW_VALIDATION.json, IJ_ARTIST_PARITY.json and IJ_GEOMETRY_QA.json contain the checks. "
-        "This is a review export, with no figure-record, manuscript or Desktop changes.\n",
+        "Only the requested output directory is written.\n",
         encoding="utf-8",
     )
     return review

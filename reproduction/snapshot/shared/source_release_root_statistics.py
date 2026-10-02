@@ -137,6 +137,8 @@ def ed8(release, out):
         delta=(pair.matched_control_error-pair.reward_proxy_error).to_numpy(float)
         mean=delta.mean(); half=stats.sem(delta)*stats.t.ppf(.975,len(delta)-1)
         # Accepted decoding family is one-sided (control error > reward error).
+        if not mean > 0:
+            raise AssertionError("ED8 decoding one-sided tail requires a positive control-minus-reward effect")
         rows.append(dict(panel_role='B',subestimand=variant+':'+method,estimate=mean,ci95_low=mean-half,ci95_high=mean+half,p_value=exact_flip(delta)/2))
     actual=pd.DataFrame(rows); actual.p_value=multipletests(actual.p_value,method='fdr_bh')[1]
     results=[compare_table(actual,reference[reference.panel_role.eq('B')],['subestimand'],'ED8b_equal_mouse_exact_BH4',out)]

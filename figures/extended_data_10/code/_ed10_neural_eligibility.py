@@ -53,7 +53,7 @@ def load_neural_eligibility(
     biological_contract: Path | str = BIOLOGICAL_CONTRACT_REL,
     ed08_contract: Path | str = ED08_CONTRACT_REL,
 ) -> dict[str, Any]:
-    """Load and cross-check the live ED10 neural exclusion authorities."""
+    """Validate included cohort schemas, identifier sets and exclusion policy."""
 
     repo = Path(repo).resolve()
     neural_path = _resolve(repo, neural_contract)
@@ -62,12 +62,23 @@ def load_neural_eligibility(
     neural = _load_json(neural_path)
     biological = _load_json(biological_path)
     ed08 = _load_json(ed08_path)
-    if neural.get("status") != "LOCKED_BY_AUTHOR_DIRECTIVE":
-        raise RuntimeError("ED10 neural eligibility contract is not author-locked")
-    if biological.get("status") != "LOCKED_BY_AUTHOR":
-        raise RuntimeError("Biological exclusion contract is not author-locked")
-    if ed08.get("status") != "LOCKED_FROM_MAINTAINED_NEURAL_AUTHORITY":
-        raise RuntimeError("ED8 neural exclusion authority is not locked")
+    contracts = (
+        (neural, "ed10_fixed_neuron_neural_eligibility/v1", ("behavior_only_animals", "neural_excluded_sessions")),
+        (biological, "extended_data_biological_design_exclusions/v1", ("excluded_animals", "excluded_sessions")),
+        (ed08, "ed08-neural-exclusion-contract/v1", ("excluded_animals", "excluded_sessions")),
+    )
+    for contract, schema, fields in contracts:
+        if contract.get("schema") != schema:
+            raise RuntimeError(f"Unexpected eligibility schema; expected {schema}")
+        if contract.get("status") != "VALIDATED_COHORT":
+            raise RuntimeError(f"Eligibility contract is not validated: {schema}")
+        for field, identifier in zip(fields, ("animal", "session"), strict=True):
+            rows = contract.get(field)
+            if not isinstance(rows, list) or any(
+                not isinstance(row, dict) or not str(row.get(identifier, "")).strip()
+                for row in rows
+            ):
+                raise RuntimeError(f"Invalid {field} identifier list in {schema}")
 
     excluded_animals = {
         str(row["animal"]) for row in neural.get("behavior_only_animals", [])

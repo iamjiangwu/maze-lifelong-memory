@@ -2215,7 +2215,7 @@ def _prepare_level_code_heatmap_data(
 ):
     style = {} if style is None else dict(style)
     resolved_data_roots = (
-        [r"D:/combineddata/similarity_results_102525/mode_level"]
+        []
         if data_roots is None
         else list(data_roots)
     )
@@ -2320,7 +2320,7 @@ def _prepare_level_code_heatmap_data(
     if ordering_method == "hierarchical":
         # Preserve the legacy renderer for smaller exploratory pools without
         # imposing its large import cost on the scalable publication path.
-        from .jw_utils import order_hier_shape_index
+        from .level_ordering import order_hier_shape_index
 
         order_hier = order_hier_shape_index(
             train_maps_stacked,

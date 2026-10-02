@@ -32,8 +32,8 @@ from PIL import Image
 from scipy import stats
 
 
-DEFAULT_REPO = Path(r"D:\combineddata\github_clean_repo")
-DEFAULT_BUNDLE = DEFAULT_REPO / "docs/main_fig4_d1_d2_source_comparison_2026-08-04"
+DEFAULT_REPO = Path(__file__).resolve().parents[1]
+DEFAULT_BUNDLE = DEFAULT_REPO
 DEFAULT_ANALYSIS = DEFAULT_BUNDLE / "analysis"
 DEFAULT_OUTPUT = DEFAULT_BUNDLE / "rendered_current_format"
 PANEL_A_SVG = Path(
@@ -78,7 +78,6 @@ FIGSIZE = (7.50, 4.00)
 WIDTH_MM = 180.0
 HEIGHT_MM = WIDTH_MM * FIGSIZE[1] / FIGSIZE[0]
 DPI = 600
-CHROME = Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe")
 BROWSER_EXPORT_TIMEOUT_SECONDS = 420
 FIGURE4_ORANGE = "#e29957"
 COLOR = {"d1": FIGURE4_ORANGE, "d2": FIGURE4_ORANGE, "reference": "#7f7f7f"}
@@ -559,8 +558,9 @@ def _wait_stable(path: Path, timeout: float = 20.0) -> None:
 
 
 def export_svg(svg_path: Path) -> dict[str, Any]:
-    if not CHROME.exists():
-        raise FileNotFoundError(CHROME)
+    from ca_analysis.browser_export import find_browser
+
+    browser = find_browser(preferred=("chrome", "edge", "chromium"))
     root = ET.parse(svg_path).getroot()
     width_mm = _length_mm(root.attrib["width"])
     height_mm = _length_mm(root.attrib["height"])
@@ -584,7 +584,7 @@ svg {{ display:block; width:{width_mm:.6f}mm !important; height:{height_mm:.6f}m
     scale = DPI / 96.0
     with tempfile.TemporaryDirectory(prefix="fig4_chrome_", dir=str(svg_path.parent)) as profile:
         common = [
-            str(CHROME),
+            str(browser),
             "--headless=new",
             "--disable-gpu",
             "--hide-scrollbars",

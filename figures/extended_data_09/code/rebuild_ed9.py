@@ -618,7 +618,15 @@ def build(inputs: Path, output: Path):
 
     ax=axis("l_consecutive",45,91,25.5,31)
 
-    consecutive=read("consecutive_points.csv").query("metric == 'level_map_correlation'")
+    consecutive=read("consecutive_points.csv").query("metric == 'level_map_correlation'").reset_index(drop=True)
+
+    chain_keys=["session_a","session_b","session_c"]
+
+    scope=read("consecutive_pair_scope.csv")
+
+    consecutive=consecutive.merge(scope[chain_keys+["reward_context_chain"]],on=chain_keys,how="left",validate="many_to_one",sort=False)
+
+    assert consecutive.reward_context_chain.notna().all()
 
     fit=consecutive[consecutive.reward_context_chain.eq("rewarded_to_rewarded_to_rewarded")]
 
@@ -682,7 +690,7 @@ def build(inputs: Path, output: Path):
 
     ax=axis("n_first30",118,91,26,31)
 
-    first30=pd.read_csv(first30_dir/"first30_points.csv")
+    first30=pd.read_csv(first30_dir/"first30_points.csv").query("metric == 'level_map_correlation'").reset_index(drop=True)
 
     firststat=pd.read_csv(first30_dir/"first30_stats.csv").iloc[0]
 
@@ -720,7 +728,11 @@ def build(inputs: Path, output: Path):
 
     ax=axis("o_cycles",154.5,91,26.5,31)
 
-    cycles=read("cycles.csv");fitstat=read("cycles_stats.csv").iloc[0]
+    cycles=read("cycles.csv").query("metric == 'level_map_correlation'").reset_index(drop=True)
+
+    cycles["pair_key"]=cycles.src+"->"+cycles.dst
+
+    fitstat=read("cycles_stats.csv").iloc[0]
 
     jj=jitter(cycles.pair_key,.07)
 

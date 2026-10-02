@@ -134,10 +134,8 @@ def rebuild(record: Path, output: Path) -> list[Path]:
         return rows.endnode.to_numpy(int), rows.time_in_maze_s.to_numpy(float)
 
     frozen_panels.extract_endnode_timeline = extract
-    load("figure1_complete_timeline_source", record / "source_code/figure1_complete_timeline_source.py")
     builder = load("figure1_approved_layout", record / "source_code/build_figure1_layout_alternatives.py")
     builder.MAIN = record
-    builder.build_complete_rewarded_timelines = lambda _record: (complete.loc[complete.nickname.str.startswith("434")].copy(), {})
     audit = {}
     preview, panels = builder.native_panels(runtime, output, audit)
     panels["b"], timeline_rows = builder.session_timeline(preview)

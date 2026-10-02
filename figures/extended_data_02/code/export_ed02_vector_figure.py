@@ -17,6 +17,7 @@ from typing import Any
 
 import fitz
 from PIL import Image
+from matplotlib.font_manager import FontProperties, findfont
 
 
 sys.dont_write_bytecode = True
@@ -29,7 +30,9 @@ DEFAULT_SOURCE_ROOT = (
     / "assembly_round11_review"
 )
 DEFAULT_OUTPUT_ROOT = REPO_ROOT / "tmp" / "ed02_round11_vor_2026-08-09" / "composite"
-ARIAL_BOLD = Path(r"C:\Windows\Fonts\arialbd.ttf")
+# Resolve the installed Arial face on every OS; Matplotlib reports its fallback
+# when Arial is unavailable. The font hash is recorded with the generated PDF.
+ARIAL_BOLD = Path(findfont(FontProperties(family="Arial", weight="bold")))
 PAGE_UNITS = 720.0
 PAGE_INCHES = 7.5
 POINTS_PER_UNIT = PAGE_INCHES * 72.0 / PAGE_UNITS

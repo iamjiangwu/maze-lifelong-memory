@@ -44,7 +44,6 @@ def native_build(artifact, shared, out, config):
     if strategy == 'main1':
         m = load(source / 'source_code/build_figure1_binary_tree_preview.py', 'release_main1')
         m.BASE = source
-        m.F5 = source / 'reference_source'
         m.build(out)
     elif strategy == 'main':
         m = load(shared / 'rebuild_current_main_figures.py', 'release_main')
@@ -69,25 +68,10 @@ def native_build(artifact, shared, out, config):
         # Preserve the original record name used to dispatch the frozen ED2/ED5 adapters.
         record = artifact / config['record_name']
         shutil.copytree(source, record)
-        from matplotlib.figure import Figure
-        original = Figure.savefig
-        if config['artifact_id'] == 'extended_data_figure_2':
-            def save(fig, filename, *args, **kwargs):
-                if Path(filename).name.startswith(('ed02f_', 'ed02i_')):
-                    for ax in fig.axes:
-                        labels = ax.get_xticklabels()
-                        if labels:
-                            labels[0].set_ha('left')
-                            labels[-1].set_ha('right')
-                return original(fig, filename, *args, **kwargs)
-            Figure.savefig = save
-        try:
-            with m.frozen_stage(record) as stage:
-                result = getattr(m, 'render_ed' + config['artifact_id'].rsplit('_', 1)[-1])(record, out, stage)
-            assert result['status'] == 'PASS', result
-            write(out / 'NATIVE_SOURCE_REBUILD_RESULT.json', result)
-        finally:
-            Figure.savefig = original
+        with m.frozen_stage(record) as stage:
+            result = getattr(m, 'render_ed' + config['artifact_id'].rsplit('_', 1)[-1])(record, out, stage)
+        assert result['status'] == 'PASS', result
+        write(out / 'NATIVE_SOURCE_REBUILD_RESULT.json', result)
     elif strategy == 'ed8':
         subprocess.run([sys.executable, '-B', str(source / 'source_code/build_ed8_standardized_pv.py'),
                         '--inputs-from', str(source), '--output-dir', str(out)], check=True)
@@ -249,12 +233,12 @@ def main():
             staged_artifact = stage / entry['artifact_id']
             shutil.copytree(release / entry['artifact_id'] / 'source', staged_artifact / 'source')
             shutil.copytree(release / 'shared', stage / 'shared')
-            config = dict(entry, original_repository=manifest['original_repository'])
+            config = dict(entry)
             config_path = stage / 'config.json'
             write(config_path, config)
             shutil.copy2(release / 'reproduce.py', stage / 'reproduce.py')
             shutil.copy2(release / 'shared/source_data_release_guard.py', stage / 'sitecustomize.py')
-            env = dict(os.environ, PYTHONPATH=str(stage), SOURCE_RELEASE_FORBIDDEN_ROOT=manifest['original_repository'],
+            env = dict(os.environ, PYTHONPATH=str(stage),
                        SOURCE_RELEASE_OUTPUT=str(art_out), PYTHONDONTWRITEBYTECODE='1')
             command = [sys.executable, '-B', str(stage / 'reproduce.py'), '--worker-config', str(config_path),
                        '--worker-artifact', str(staged_artifact), '--worker-shared', str(stage / 'shared'),
@@ -262,7 +246,9 @@ def main():
             result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env, cwd=stage)
             art_out.mkdir(parents=True, exist_ok=True)
             (art_out / 'BUILD.log').write_text(result.stdout, encoding='utf-8')
-            report = {'artifact_id': entry['artifact_id'], 'exit_code': result.returncode, 'comparisons': {}}
+            validation_scope = 'build_completion_only' if a.no_compare else 'accepted_output_comparison'
+            report = {'artifact_id': entry['artifact_id'], 'exit_code': result.returncode,
+                      'validation_scope': validation_scope, 'comparisons': {}}
             if result.returncode == 0 and not a.no_compare:
                 for expected in entry['accepted_outputs']:
                     ref = release / entry['artifact_id'] / 'accepted_outputs' / expected['name']
@@ -280,7 +266,8 @@ def main():
             report['status'] = 'PASS' if result.returncode == 0 and all(x['pass'] for x in report['comparisons'].values()) else 'FAIL'
             write(art_out / 'REPRODUCTION_VALIDATION.json', report)
             reports.append(report)
-            write(output / 'REPRODUCTION_REPORT.json', {'status': 'PASS' if all(x['status'] == 'PASS' for x in reports) else 'FAIL', 'artifacts': reports})
+            write(output / 'REPRODUCTION_REPORT.json', {'status': 'PASS' if all(x['status'] == 'PASS' for x in reports) else 'FAIL',
+                                                       'validation_scope': validation_scope, 'artifacts': reports})
             print(report['status'] + ' ' + entry['artifact_id'], flush=True)
             if report['status'] != 'PASS':
                 print(report.get('failure_tail', json.dumps(report['comparisons'], indent=2)), flush=True)
@@ -300,7 +287,7 @@ def run_statistics(release,output,manifest):
         shutil.copytree(release/'shared',stage/'shared')
         shutil.copy2(release/'recompute_statistics.py',stage/'recompute_statistics.py')
         shutil.copy2(release/'shared/source_data_release_guard.py',stage/'sitecustomize.py')
-        env=dict(os.environ,PYTHONPATH=str(stage),SOURCE_RELEASE_FORBIDDEN_ROOT=manifest['original_repository'],
+        env=dict(os.environ,PYTHONPATH=str(stage),
                  SOURCE_RELEASE_OUTPUT=str(output),PYTHONDONTWRITEBYTECODE='1')
         command=[sys.executable,'-B',str(stage/'recompute_statistics.py'),'--source-root',str(stage),'--output-dir',str(output)]
         result=subprocess.run(command,cwd=stage,env=env,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)

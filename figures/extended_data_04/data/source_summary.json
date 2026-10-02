@@ -1,9 +1,6 @@
 {
-  "figure": "Extended Data Figure 4 (merged numbering; slide 5)",
-  "sources_resolve_under": "extended_data_fig_05 (old numbering)",
-  "generated_from": "raw CellReg outputs under the footprint root",
-  "footprint_root": "F:\\footprint-new",
-  "scope_csv": "docs\\main_figs_v3_source_render_2026-06-24\\figure_scope_exclusions_2026-06-29\\figure2_distribution_shuffle_36_no_1616_short\\current_panel_base_pairs_36_no_1616_short.csv",
+  "figure": "Extended Data Figure 4",
+  "generated_from": "CellReg registration outputs and physical field-of-view transformations",
   "scope": "final sorted 36-pair scaffold, short 1616 pair excluded",
   "n_session_pairs": 36,
   "n_animals": 14,

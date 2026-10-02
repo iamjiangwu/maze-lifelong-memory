@@ -190,19 +190,6 @@ def set_axes(axes, xlabel, ylabel, legend, loc, xlim, ylim, xscale, yscale,
     #         axes.legend(legend, prop={"size":12, "family":'Arial'})
     #     For options on legend placement see https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot
 
-def test_plot():
-    x = np.arange(-10,10,.01)
-    t = [0.1,0.3,1,3,10]
-    y = [np.exp(-x**2/(4*ti))/np.sqrt(4*np.pi*ti) for ti in t]
-    plot (x,y,fmts=['g-','m--','b-.','r:','k-'],linewidth=1,
-        xlabel='Distance',ylabel='Concentration',yzero=True,
-        legend=['t=0.1','0.3','1','3','10'],xticks=[-10,-5,-1,0,1,5,10])
     
-def save_mib_img(imgname):
-    """
-    Saves the current plot to the img/ folder in the MIB project directory
-    """
-    projectpath = '/Users/markus/Work/Projects/Books/Mathematics Book/MIB-R'
-    plt.savefig(projectpath+'/img/'+imgname, bbox_inches = "tight") 
 
     

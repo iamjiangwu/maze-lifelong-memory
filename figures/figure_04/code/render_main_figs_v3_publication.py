@@ -52,18 +52,9 @@ FIGURE4_PANEL_A_PPT_CROP = {"l": 12400, "t": 15055, "r": 9866, "b": 9331}
 
 FIGURE4_SCHEMATIC_PAIR = ("837day1", "837-3day1")
 
-FIGURE4_SCHEMATIC_DECODER_PKL = (
-    REPO_ROOT
-    / "docs"
-    / "cross_session_decoding"
-    / f"cross_session_{FIGURE4_SCHEMATIC_PAIR[0]}_to_{FIGURE4_SCHEMATIC_PAIR[1]}.pkl"
-)
 
-FIGURE4_SCHEMATIC_MAP_BINS = 15
 
-FIGURE4_SCHEMATIC_N_CELLS = 5
 
-FIGURE4_SCHEMATIC_SOURCE_CELL_IDS = (117, 12, 10, 24, 70)
 
 FIGURE4_SCHEMATIC_TRACE_POINTS = 5000
 
@@ -215,157 +206,15 @@ def _rel(path: Path) -> str:
 def _svg_tag(name: str) -> str:
     return f"{{{SVG_NS}}}{name}"
 
-def _matrix_frames_by_neuron(matrix: np.ndarray, n_neurons: int) -> np.ndarray:
-    arr = np.asarray(matrix, dtype=float)
-    if arr.ndim != 2:
-        raise ValueError(f"expected 2D matrix, got shape {arr.shape}")
-    if arr.shape[1] == n_neurons:
-        return arr
-    if arr.shape[0] == n_neurons:
-        return arr.T
-    raise ValueError(f"matrix shape {arr.shape} does not match n_neurons={n_neurons}")
 
-def _load_figure4_schematic_session(session_id: str) -> dict[str, object]:
-    from ca_analysis.config import get_behav_wd, get_neural_wd
-    from ca_analysis.io import load_behav_neural
 
-    _, selected_df, _, _raw_counts, calcium, spike_counts, _ = load_behav_neural(
-        session_id,
-        behav_wd=get_behav_wd(),
-        neural_wd=get_neural_wd(),
-    )
-    if spike_counts is None:
-        raise RuntimeError(f"{session_id}: missing spike/activity matrix")
-    n_neurons = int(np.asarray(spike_counts).shape[0])
-    spike_tn_all = _matrix_frames_by_neuron(spike_counts, n_neurons)
-    calcium_tn_all = _matrix_frames_by_neuron(calcium, n_neurons) if calcium is not None else spike_tn_all
 
-    selected_df = selected_df.copy().reset_index(drop=True)
-    frames = selected_df["frame"].to_numpy(dtype=int)
-    valid = (frames >= 0) & (frames < spike_tn_all.shape[0]) & (frames < calcium_tn_all.shape[0])
-    if calcium is not None:
-        valid &= ~np.any(np.isnan(calcium_tn_all[frames.clip(0, calcium_tn_all.shape[0] - 1), :]), axis=1)
-    selected_df = selected_df.loc[valid].reset_index(drop=True)
-    frames = selected_df["frame"].to_numpy(dtype=int)
 
-    return {
-        "selected_df": selected_df,
-        "positions": selected_df[["mass_x", "mass_y"]].to_numpy(dtype=float),
-        "spike_tn": spike_tn_all[frames, :],
-        "calcium_tn": calcium_tn_all[frames, :],
-        "n_neurons": n_neurons,
-    }
 
-def _choose_figure4_schematic_cells(lam: np.ndarray, traces_tn: np.ndarray, n_cells: int = 5) -> np.ndarray:
-    peak = np.nanmax(lam, axis=0)
-    trace_span = np.nanpercentile(traces_tn, 98, axis=0) - np.nanpercentile(traces_tn, 2, axis=0)
-    finite = np.isfinite(peak) & (peak > 0) & np.isfinite(trace_span) & (trace_span > 0)
-    candidates = np.flatnonzero(finite)
-    if candidates.size < n_cells:
-        raise RuntimeError(f"not enough source-backed Figure 4A cells: {candidates.size}")
-    top_n = min(max(n_cells * 12, 25), int(candidates.size))
-    top = candidates[np.argsort(peak[candidates])[-top_n:]]
-    peak_bins = np.nanargmax(np.where(np.isfinite(lam), lam, -np.inf), axis=0)
-    top = top[np.argsort(peak_bins[top])]
-    quantiles = np.linspace(0, top.size - 1, n_cells).round().astype(int)
-    chosen = top[quantiles]
-    _, unique_idx = np.unique(chosen, return_index=True)
-    if unique_idx.size != n_cells:
-        remaining = [idx for idx in top if idx not in set(chosen)]
-        chosen = list(chosen[np.sort(unique_idx)])
-        chosen.extend(remaining[: n_cells - len(chosen)])
-        chosen = np.asarray(chosen, dtype=int)
-    return chosen.astype(int)
 
-def _normalize_trace_segment(segment_tn: np.ndarray) -> np.ndarray:
-    lo = np.nanpercentile(segment_tn, 5, axis=0)
-    hi = np.nanpercentile(segment_tn, 99, axis=0)
-    denom = np.where((hi - lo) > 1e-12, hi - lo, 1.0)
-    norm = (segment_tn - lo) / denom
-    return np.clip(np.nan_to_num(norm, nan=0.0), 0.0, 1.15)
 
-def _figure4_mean_activity_maps(
-    activity_tn: np.ndarray,
-    labels: np.ndarray,
-    *,
-    n_bins: int,
-    min_samples: int = 3,
-) -> tuple[np.ndarray, np.ndarray]:
-    activity = np.asarray(activity_tn, dtype=float)
-    labels = np.asarray(labels, dtype=int)
-    if activity.ndim != 2:
-        raise ValueError(f"expected 2D activity matrix, got {activity.shape}")
-    valid = (labels >= 0) & (labels < int(n_bins)) & np.all(np.isfinite(activity), axis=1)
-    if not np.any(valid):
-        raise RuntimeError("Figure 4A schematic has no valid activity samples for map construction")
-    labels = labels[valid]
-    activity = np.clip(np.nan_to_num(activity[valid], nan=0.0, posinf=0.0, neginf=0.0), 0.0, None)
-    occupancy = np.bincount(labels, minlength=int(n_bins)).astype(float)
-    maps = np.full((int(n_bins), activity.shape[1]), np.nan, dtype=float)
-    keep = occupancy >= int(min_samples)
-    for neuron in range(activity.shape[1]):
-        sums = np.bincount(labels, weights=activity[:, neuron], minlength=int(n_bins)).astype(float)
-        maps[keep, neuron] = sums[keep] / np.maximum(occupancy[keep], 1.0)
-    return maps, occupancy
 
-def _figure4_softmax(log_values: np.ndarray) -> np.ndarray:
-    log_values = np.asarray(log_values, dtype=float)
-    finite = np.isfinite(log_values)
-    out = np.zeros_like(log_values, dtype=float)
-    if not np.any(finite):
-        return out
-    shifted = log_values[finite] - float(np.nanmax(log_values[finite]))
-    out[finite] = np.exp(np.clip(shifted, -80.0, 0.0))
-    total = float(out.sum())
-    if total > 0:
-        out /= total
-    return out
-
-def _figure4_label_xy(label: int, n_bins_x: int) -> tuple[int, int]:
-    label = int(label)
-    n_bins_x = int(n_bins_x)
-    return label % n_bins_x, label // n_bins_x
-
-def _choose_diverse_figure4_schematic_cells(
-    ranked_cells: np.ndarray,
-    map_matrix: np.ndarray,
-    peak_bins: np.ndarray,
-    n_cells: int,
-    n_bins_x: int,
-) -> np.ndarray:
-    ranked_cells = np.asarray(ranked_cells, dtype=int)
-    map_matrix = np.asarray(map_matrix, dtype=float)
-    peak_bins = np.asarray(peak_bins, dtype=int)
-    if ranked_cells.size <= int(n_cells):
-        return ranked_cells[: int(n_cells)]
-
-    def _corr(a_idx: int, b_idx: int) -> float:
-        a = np.nan_to_num(map_matrix[:, int(a_idx)], nan=0.0, posinf=0.0, neginf=0.0)
-        b = np.nan_to_num(map_matrix[:, int(b_idx)], nan=0.0, posinf=0.0, neginf=0.0)
-        a = a - float(np.mean(a))
-        b = b - float(np.mean(b))
-        denom = float(np.linalg.norm(a) * np.linalg.norm(b))
-        if denom <= 1e-12:
-            return 0.0
-        return float(np.dot(a, b) / denom)
-
-    def _peak_dist(a_idx: int, b_idx: int) -> float:
-        ax, ay = _figure4_label_xy(int(peak_bins[int(a_idx)]), int(n_bins_x))
-        bx, by = _figure4_label_xy(int(peak_bins[int(b_idx)]), int(n_bins_x))
-        return float(math.hypot(ax - bx, ay - by))
-
-    for min_dist, max_corr in ((13.0, 0.55), (10.0, 0.65), (7.0, 0.75), (4.0, 0.85)):
-        chosen: list[int] = []
-        for cell in ranked_cells.tolist():
-            if all(_peak_dist(cell, prev) >= min_dist and _corr(cell, prev) <= max_corr for prev in chosen):
-                chosen.append(int(cell))
-            if len(chosen) == int(n_cells):
-                return np.asarray(chosen, dtype=int)
-
-    chosen = list(ranked_cells[: int(n_cells)])
-    return np.asarray(chosen, dtype=int)
-
-FIGURE4_SCHEMATIC_DATA_ROOT = REPO_ROOT / "docs/figure_illustration_sources"
+FIGURE4_SCHEMATIC_DATA_ROOT = REPO_ROOT / "illustration_data"
 
 def _build_figure4_schematic_source() -> dict[str, object]:
     # The method diagram needs only its displayed values, not a second set of
@@ -379,229 +228,8 @@ def _build_figure4_schematic_source() -> dict[str, object]:
             source["template_maps"] = np.asarray(arrays["place_maps"], dtype=float)
             source["trace_segment"] = np.asarray(arrays["activity"], dtype=float)
             source["posterior"] = np.asarray(arrays["posterior"], dtype=float)
-        source["decoder_pkl"] = REPO_ROOT / str(source["decoder_pkl"])
         return source
-    from ca_analysis.config import DT
-    from ca_analysis.similarity import compute_tuning_and_prior
-    from ca_analysis.spatial import discretize_positions
-
-    if not FIGURE4_SCHEMATIC_DECODER_PKL.exists():
-        raise FileNotFoundError(FIGURE4_SCHEMATIC_DECODER_PKL)
-    with open(FIGURE4_SCHEMATIC_DECODER_PKL, "rb") as f:
-        decoder_payload = pickle.load(f)
-
-    src_session, dst_session = FIGURE4_SCHEMATIC_PAIR
-    src = _load_figure4_schematic_session(src_session)
-    dst = _load_figure4_schematic_session(dst_session)
-    train_ids = np.asarray(decoder_payload["train_ids"], dtype=int)
-    test_ids = np.asarray(decoder_payload["test_ids"], dtype=int)
-    valid_pair = (
-        (train_ids >= 0)
-        & (test_ids >= 0)
-        & (train_ids < int(src["n_neurons"]))
-        & (test_ids < int(dst["n_neurons"]))
-    )
-    train_ids = train_ids[valid_pair]
-    test_ids = test_ids[valid_pair]
-    if train_ids.size == 0:
-        raise RuntimeError("Figure 4A decoder pair has no valid matched neurons")
-
-    n_map_bins = int(FIGURE4_SCHEMATIC_MAP_BINS)
-    n_map_total = n_map_bins * n_map_bins
-    labels_train_45, _x_edges_45, _y_edges_45 = discretize_positions(
-        np.asarray(src["positions"]),
-        n_map_bins,
-        n_map_bins,
-    )
-    source_calcium = np.asarray(src["calcium_tn"], dtype=float)[:, train_ids]
-    target_traces = np.asarray(dst["calcium_tn"], dtype=float)[:, test_ids]
-    calcium_maps, _map_occupancy = _figure4_mean_activity_maps(
-        source_calcium,
-        labels_train_45,
-        n_bins=n_map_total,
-        min_samples=3,
-    )
-
-    peak = np.nanpercentile(calcium_maps, 99.5, axis=0)
-    trace_span = np.nanpercentile(target_traces, 99.5, axis=0) - np.nanpercentile(target_traces, 20, axis=0)
-    finite = np.isfinite(peak) & (peak > 0) & np.isfinite(trace_span) & (trace_span > 0)
-    candidates = np.flatnonzero(finite)
-    n_display_cells = int(FIGURE4_SCHEMATIC_N_CELLS)
-    if candidates.size < n_display_cells:
-        chosen = _choose_figure4_schematic_cells(
-            np.nan_to_num(calcium_maps, nan=0.0),
-            target_traces,
-            n_cells=n_display_cells,
-        )
-        candidates = chosen
-    top_n = min(max(80, n_display_cells * 20), int(candidates.size))
-    combined = peak[candidates] * np.sqrt(np.maximum(trace_span[candidates], 1e-12))
-    top = candidates[np.argsort(combined)[-top_n:]]
-    score_basis = _normalize_trace_segment(target_traces[:, top])
-    score = np.nanpercentile(score_basis, 90, axis=1)
-    segment_len = min(int(FIGURE4_SCHEMATIC_TRACE_POINTS), int(score.size))
-    if segment_len < 20:
-        raise RuntimeError("Figure 4A target activity segment is too short")
-    saved_decoded_pos = np.asarray(decoder_payload.get("decoded_pos", []), dtype=int)
-    saved_true_pos = np.asarray(decoder_payload.get("labels_pos", []), dtype=int)
-    if score.size > segment_len:
-        max_start = int(score.size - segment_len)
-        later_min = int(round(score.size * 0.55))
-        if saved_decoded_pos.size == score.size and saved_true_pos.size == score.size:
-            saved_decoded_xy = np.asarray([_figure4_label_xy(label, 15) for label in saved_decoded_pos], dtype=float)
-            saved_true_xy = np.asarray([_figure4_label_xy(label, 15) for label in saved_true_pos], dtype=float)
-            saved_errors = np.sqrt(np.sum((saved_decoded_xy - saved_true_xy) ** 2, axis=1))
-            candidate_centers = np.flatnonzero(
-                (np.arange(score.size) >= later_min)
-                & (np.arange(score.size) >= segment_len // 2)
-                & (np.arange(score.size) <= score.size - max(1, segment_len // 2) - 1)
-                & np.isfinite(saved_errors)
-                & (saved_errors <= 2.5)
-                & np.isfinite(score)
-            )
-            if candidate_centers.size:
-                posterior_center = int(candidate_centers[np.argmax(score[candidate_centers])])
-                start = int(np.clip(posterior_center - segment_len // 2, 0, max_start))
-            else:
-                csum = np.concatenate([[0.0], np.cumsum(np.nan_to_num(score, nan=0.0))])
-                window_score = csum[segment_len:] - csum[:-segment_len]
-                start_min = min(max_start, later_min)
-                start = int(start_min + np.argmax(window_score[start_min:])) if start_min < window_score.size else max_start
-        else:
-            csum = np.concatenate([[0.0], np.cumsum(np.nan_to_num(score, nan=0.0))])
-            window_score = csum[segment_len:] - csum[:-segment_len]
-            start_min = min(max_start, later_min)
-            start = int(start_min + np.argmax(window_score[start_min:])) if start_min < window_score.size else max_start
-    else:
-        start = 0
-    stop = start + segment_len
-    top_segment = _normalize_trace_segment(target_traces[start:stop, top])
-    segment_amp = np.nanpercentile(top_segment, 99, axis=0) - np.nanpercentile(top_segment, 25, axis=0)
-    selected_rank = segment_amp * np.sqrt(np.maximum(peak[top], 1e-12))
-    peak_bins = np.nanargmax(np.where(np.isfinite(calcium_maps), calcium_maps, -np.inf), axis=0)
-    forced_source_cells = tuple(int(v) for v in FIGURE4_SCHEMATIC_SOURCE_CELL_IDS)
-    if forced_source_cells:
-        if len(forced_source_cells) != n_display_cells:
-            raise RuntimeError(
-                "Figure 4A forced source-cell list must match "
-                f"FIGURE4_SCHEMATIC_N_CELLS={n_display_cells}"
-            )
-        source_cell_lookup = {int(cell_id): idx for idx, cell_id in enumerate(train_ids.tolist())}
-        missing = [cell_id for cell_id in forced_source_cells if cell_id not in source_cell_lookup]
-        if missing:
-            raise RuntimeError(f"Figure 4A forced source cells are not matched in the decoder CIMap: {missing}")
-        chosen = np.asarray([source_cell_lookup[cell_id] for cell_id in forced_source_cells], dtype=int)
-    else:
-        ranked_top = top[np.argsort(selected_rank)[::-1]]
-        chosen = _choose_diverse_figure4_schematic_cells(
-            ranked_top,
-            calcium_maps,
-            peak_bins,
-            n_display_cells,
-            n_map_bins,
-        )
-        chosen = chosen[np.argsort(peak_bins[chosen])]
-    trace_segment = _normalize_trace_segment(target_traces[start:stop, chosen])
-
-    maps = []
-    for idx in chosen:
-        neuron_map = np.asarray(calcium_maps[:, idx], dtype=float).reshape(n_map_bins, n_map_bins)
-        maps.append(neuron_map)
-
-    decode_bins = 15
-    labels_train_decode, _x_edges_decode, _y_edges_decode = discretize_positions(
-        np.asarray(src["positions"]),
-        decode_bins,
-        decode_bins,
-    )
-    labels_dst_decode, _x_edges_dst_decode, _y_edges_dst_decode = discretize_positions(
-        np.asarray(dst["positions"]),
-        decode_bins,
-        decode_bins,
-    )
-    spike_train_decode = np.asarray(src["spike_tn"], dtype=float)[:, train_ids]
-    valid_decode_train = np.isfinite(labels_train_decode) & (np.asarray(labels_train_decode) >= 0)
-    lam_decode, prior_decode = compute_tuning_and_prior(
-        np.nan_to_num(spike_train_decode[valid_decode_train], nan=0.0, posinf=0.0, neginf=0.0),
-        np.asarray(labels_train_decode, dtype=int)[valid_decode_train],
-        n_bins=decode_bins * decode_bins,
-        dt=float(DT),
-        filter_ratemap=False,
-        sigma=1.0,
-        min_time=0.0,
-        eps=1e-12,
-        decode_head="none",
-    )
-    segment_activity = np.nan_to_num(
-        np.asarray(dst["spike_tn"], dtype=float)[start:stop, :][:, test_ids],
-        nan=0.0,
-        posinf=0.0,
-        neginf=0.0,
-    )
-    log_rate = np.log(lam_decode + 1e-12)
-    log_offset = -float(DT) * np.sum(lam_decode, axis=1) + np.log(prior_decode + 1e-12)
-    log_post_segment = (log_rate @ segment_activity.T) + log_offset[:, None]
-    decoded_segment = np.nanargmax(log_post_segment, axis=0).astype(int)
-    labels_segment = np.asarray(labels_dst_decode, dtype=int)[start:stop]
-    decoded_xy = np.asarray([_figure4_label_xy(label, decode_bins) for label in decoded_segment], dtype=float)
-    true_xy = np.asarray([_figure4_label_xy(label, decode_bins) for label in labels_segment], dtype=float)
-    distances = np.sqrt(np.sum((decoded_xy - true_xy) ** 2, axis=1))
-    log_max = np.nanmax(log_post_segment, axis=0)
-    exp_sum = np.sum(np.exp(np.clip(log_post_segment - log_max[None, :], -80.0, 0.0)), axis=0)
-    top_prob = 1.0 / np.maximum(exp_sum, 1e-12)
-    valid_posterior_frames = np.flatnonzero(np.isfinite(top_prob) & np.isfinite(distances))
-    close_frames = valid_posterior_frames[distances[valid_posterior_frames] <= 2.5]
-    posterior_candidates = close_frames if close_frames.size else valid_posterior_frames
-    if posterior_candidates.size:
-        vline_idx = int(posterior_candidates[np.argmax(top_prob[posterior_candidates])])
-    else:
-        vline_idx = int(np.argmax(np.nanmean(trace_segment, axis=1)))
-    posterior_index = int(np.clip(start + vline_idx, 0, target_traces.shape[0] - 1))
-    posterior = _figure4_softmax(log_post_segment[:, vline_idx]).reshape(decode_bins, decode_bins)
-    decoded_label_45 = int(np.nanargmax(posterior))
-    true_label_45 = int(np.asarray(labels_dst_decode, dtype=int)[posterior_index])
-
-    decoder_frames = np.asarray(decoder_payload.get("frames", []), dtype=int)
-    dst_frame = int(dst["selected_df"].iloc[posterior_index]["frame"])
-    decoder_frame_matches = np.flatnonzero(decoder_frames == dst_frame) if decoder_frames.size else np.array([], dtype=int)
-    decoder_payload_index = int(decoder_frame_matches[0]) if decoder_frame_matches.size else int(
-        min(posterior_index, max(len(decoder_frames) - 1, 0))
-    )
-
-    return {
-        "src_session": src_session,
-        "dst_session": dst_session,
-        "decoder_pkl": FIGURE4_SCHEMATIC_DECODER_PKL,
-        "n_matched_neurons": int(train_ids.size),
-        "selected_train_ids": [int(train_ids[idx]) for idx in chosen],
-        "selected_test_ids": [int(test_ids[idx]) for idx in chosen],
-        "selected_match_indices": [int(idx) for idx in chosen],
-        "template_maps": maps,
-        "trace_segment": trace_segment,
-        "trace_start_index": int(start),
-        "trace_stop_index": int(stop),
-        "vline_idx": int(vline_idx),
-        "posterior": posterior,
-        "posterior_index": int(posterior_index),
-        "posterior_frame": int(dst_frame),
-        "posterior_decoded_label": int(decoded_label_45),
-        "posterior_true_label": int(true_label_45),
-        "posterior_decoded_xy": [int(v) for v in _figure4_label_xy(decoded_label_45, decode_bins)],
-        "posterior_true_xy": [int(v) for v in _figure4_label_xy(true_label_45, decode_bins)],
-        "saved_decoder_payload_index": int(decoder_payload_index),
-        "saved_decoder_decoded_pos_15": int(saved_decoded_pos[decoder_payload_index])
-        if saved_decoded_pos.size
-        else None,
-        "saved_decoder_true_pos_15": int(saved_true_pos[decoder_payload_index]) if saved_true_pos.size else None,
-        "n_bins_x": int(n_map_bins),
-        "n_bins_y": int(n_map_bins),
-        "posterior_n_bins_x": int(decode_bins),
-        "posterior_n_bins_y": int(decode_bins),
-        "dt": float(DT),
-        "template_source": f"source-session C matrix averaged in {n_map_bins}x{n_map_bins} position bins",
-        "activity_source": "target-session C activity traces at matched-neuron ids",
-        "posterior_source": "real 15x15 Poisson decoder posterior recomputed from source-session S tuning and target-session S activity",
-    }
+    raise FileNotFoundError(f"Missing included schematic input: {illustration_path}")
 
 def _render_figure4_method_schematic(size: tuple[float, float], style: PublicationStyle) -> tuple[plt.Figure, dict[str, object]]:
     fig, ax = plt.subplots(figsize=size)
@@ -957,7 +585,6 @@ def _render_figure4_method_schematic(size: tuple[float, float], style: Publicati
     meta = {
         "src_session": str(source["src_session"]),
         "dst_session": str(source["dst_session"]),
-        "decoder_pkl": _rel(Path(source["decoder_pkl"])),
         "n_matched_neurons": int(source["n_matched_neurons"]),
         "selected_train_ids": list(source["selected_train_ids"]),
         "selected_test_ids": list(source["selected_test_ids"]),

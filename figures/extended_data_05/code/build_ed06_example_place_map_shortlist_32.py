@@ -23,7 +23,6 @@ import tempfile
 from typing import Any, Iterable, Mapping
 import uuid
 
-os.environ.setdefault("WINDIR", r"C:\Windows")
 os.environ.setdefault(
     "MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "ed06_shortlist32_mplconfig")
 )
@@ -62,14 +61,8 @@ from ca_analysis.ed06_representation_selection import (
 from scripts import build_ed06_example_place_map_candidates_v3 as v3
 
 
-DEFAULT_PARENT = Path(
-    r"C:\Users\jiangwu\Documents\Codex\2026-07-31\fo\outputs"
-    r"\ed06_place_map_candidates_100_v3_levelaware"
-)
-DEFAULT_OUTPUT = Path(
-    r"C:\Users\jiangwu\Documents\Codex\2026-07-31\fo\outputs"
-    r"\ed06_place_map_shortlist_32_level_overlap_30pct"
-)
+DEFAULT_PARENT = REPO_ROOT / "outputs" / "ed05_candidates"
+DEFAULT_OUTPUT = REPO_ROOT / "outputs" / "ed05_shortlist"
 TARGET_N = 32
 VISUAL_RETENTION = 0.97
 DIVERSITY_RETENTION = 0.98

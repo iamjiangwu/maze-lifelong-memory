@@ -153,16 +153,9 @@ def _svg_dimensions_mm(svg_path: Path) -> tuple[float, float]:
 
 
 def _find_chrome() -> Path:
-    candidates = (
-        Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe"),
-        Path(r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"),
-        Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
-        Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"),
-    )
-    for candidate in candidates:
-        if candidate.is_file():
-            return candidate
-    raise FileNotFoundError("Chrome/Edge is required for vector SVG-to-PDF export")
+    from ca_analysis.browser_export import find_browser
+
+    return find_browser(preferred=("chrome", "edge", "chromium"))
 
 
 def _wait_for_file(path: Path, *, timeout_seconds: float = 120.0) -> None:
@@ -314,10 +307,7 @@ def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list
     publication.FIGURE2_HELPER = record / "source_code" / "preview_figure2_assembly.py"
     publication.EXAMPLE_SAVED_DIR = record / "panel_b_sources"
     publication.FIGURE2_DISTRIBUTION_DIR = distribution
-    publication.FIGURE2_DISTRIBUTION_PROVENANCE = distribution / "provenance_manifest.json"
-    publication.FIGURE2_DISTRIBUTION_PAIR_INPUT = distribution / "pair_input_audit.csv"
     publication.FIGURE2_DISTRIBUTION_PAIR_SUPPORT = distribution / "pair_support_audit.csv"
-    publication.FIGURE2_DISTRIBUTION_METRIC_SUMMARY = distribution / "metric_summary.csv"
     publication.FIGURE2_GAP_CURVE = gap / "gap_with_day1_day2_curve_data.csv"
     publication.FIGURE2_CONSECUTIVE_POINTS = (
         consecutive / "consecutive_gap_clean_long_gap_corrected_points.csv"
@@ -325,20 +315,8 @@ def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list
     publication.FIGURE2_CONSECUTIVE_STATS = (
         consecutive / "consecutive_gap_clean_long_gap_corrected_stats.csv"
     )
-    publication.FIGURE2_CONSECUTIVE_MANIFEST = (
-        consecutive / "consecutive_gap_clean_long_gap_manifest.json"
-    )
-    publication.FIGURE2_CONSECUTIVE_UNRESTRICTED_SCOPE = (
-        consecutive / "consecutive_gap_unrestricted_adjacent_23_chain_scope.csv"
-    )
     publication.FIGURE2_CONSECUTIVE_CLEAN_SCOPE = (
         consecutive / "consecutive_gap_clean_long_gap_22_chain_scope.csv"
-    )
-    publication.FIGURE2_CONSECUTIVE_INPUT_AUDIT = (
-        consecutive / "consecutive_gap_sorted_triplet_input_audit.csv"
-    )
-    publication.FIGURE2_OLD_NEW_REPLICATION_AUDIT = (
-        consecutive / "figure2_ed12_consecutive_old_vs_new_replication_audit.csv"
     )
     publication.FIGURE2_RATE_CHAIN_POINTS = (
         rate / "session_pair_rate_consecutive_gap_points_canonical.csv"
@@ -346,27 +324,10 @@ def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list
     publication.FIGURE2_RATE_CHAIN_STATS = (
         rate / "session_pair_rate_consecutive_gap_stats_canonical.csv"
     )
-    publication.FIGURE2_RATE_CHAIN_MANIFEST = rate / "SOURCE_MANIFEST.json"
-    publication.SOURCE_REPAIR_842_MANIFEST = distribution / "provenance_manifest.json"
-    publication.FIGURE2_GAP_PAIR_AUDIT = (
-        record
-        / "source_validation"
-        / "canonical_ensemble_rate_correction"
-        / "audits"
-        / "gap_curve_old_vs_canonical.csv"
-    )
-    publication.FIGURE2_GAP_DISTRIBUTION_PARITY = (
-        record
-        / "source_validation"
-        / "canonical_ensemble_rate_correction"
-        / "audits"
-        / "distribution_vs_gap_3month_parity.csv"
-    )
 
     def distribution_audit() -> dict[str, Any]:
-        pair_input = pd.read_csv(publication.FIGURE2_DISTRIBUTION_PAIR_INPUT)
         support = pd.read_csv(publication.FIGURE2_DISTRIBUTION_PAIR_SUPPORT)
-        if len(pair_input) != 36 or len(support) != 36:
+        if len(support) != 36:
             raise RuntimeError("Figure 2 distribution source is not the accepted 36-pair scope")
         return {
             "status": "PASS",
@@ -426,22 +387,6 @@ def _render_main3(record: Path, output_dir: Path, check: dict[str, Any]) -> list
     publication.FIGURE3_CURVE_SUPPORT_MASK = (
         record / "source_data" / "support" / "ed07_current59_curve_support_mask.csv"
     )
-    publication.DAY2_TEMPLATE_SOURCE_MANIFEST = first30 / "SOURCE_MANIFEST.json"
-    publication.SOURCE_REPAIR_842_MANIFEST = long_gap / "SOURCE_MANIFEST.json"
-    publication.FIGURE3_LEVEL_PAIR_AUDIT = long_gap / "MASK_ONLY_METRIC_DELTAS.csv"
-    publication.FIGURE3_CORRECTED_842_SIX_METRIC_AUDIT = (
-        long_gap / "FINAL_VALUE_PROVENANCE.csv"
-    )
-    publication._ensure_sources = lambda: None
-
-    def load_points() -> pd.DataFrame:
-        points = pd.read_csv(publication.FIGURE3_FIRST30_POINTS_ALL_METRICS)
-        points["metric_label"] = points["metric"].map(publication.METRIC_LABELS)
-        return points.sort_values(
-            ["metric", "experience_index", "animal"], kind="stable"
-        ).reset_index(drop=True)
-
-    publication._load_day2_template_30min_points = load_points
     output_dir.mkdir(parents=True, exist_ok=True)
     style = publication.PublicationStyle(dpi=600)
     publication.render_figure3(output_dir, style)

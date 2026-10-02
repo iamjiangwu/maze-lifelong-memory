@@ -19,7 +19,6 @@ import sys
 import tempfile
 from typing import Any, Iterable, Mapping
 
-os.environ.setdefault("WINDIR", r"C:\Windows")
 os.environ.setdefault(
     "MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "ed06_v3_mplconfig")
 )
@@ -77,12 +76,8 @@ matplotlib.rcParams.update(
 
 DISPLAY_QUANTILE = 0.99
 COLORBAR_LABEL = "Within-map normalized denoised C (q99 = 1)"
-DEFAULT_V2 = Path(
-    r"C:\Users\jiangwu\Documents\Codex\2026-07-31\fo\outputs\ed06_place_map_candidates_100_v2"
-)
-DEFAULT_OUTPUT = Path(
-    r"C:\Users\jiangwu\Documents\Codex\2026-07-31\fo\outputs\ed06_place_map_candidates_100_v3_levelaware"
-)
+DEFAULT_V2 = REPO_ROOT / "outputs" / "ed05_candidate_inputs"
+DEFAULT_OUTPUT = REPO_ROOT / "outputs" / "ed05_candidates"
 IMAGE_SIMILARITY_THRESHOLD = 0.95
 LEVEL_COLORS = (
     "#1b9e77",

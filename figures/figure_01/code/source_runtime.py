@@ -119,16 +119,9 @@ def _install_frozen_panel_modules(record: Path):
 
 
 def _find_chrome() -> Path:
-    candidates = (
-        Path(r"C:\Program Files\Google\Chrome\Application\chrome.exe"),
-        Path(r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"),
-        Path(r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"),
-        Path(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"),
-    )
-    for candidate in candidates:
-        if candidate.is_file():
-            return candidate
-    raise FileNotFoundError("Chrome/Edge is required for vector SVG-to-PDF export")
+    from ca_analysis.browser_export import find_browser
+
+    return find_browser(preferred=("chrome", "edge", "chromium"))
 
 
 def _wait_for_file(path: Path, *, timeout_seconds: float = 120.0) -> None:
