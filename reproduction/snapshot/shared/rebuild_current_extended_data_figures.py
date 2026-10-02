@@ -743,27 +743,11 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.TABLE_C = record / "plot_ready/level_policy_bridge_join_corrected36.csv"
     m.STATS_C = record / "plot_ready/level_policy_bridge_stats_corrected36.csv"
     m.EXCLUSION_CONTRACT = record / "source_authority/EXCLUDED_SESSION_CONTRACT.json"
-    m.MAIN_FIGURE5_RECORD = record / "main_figure_authority"
-    m.MAIN_FIGURE5_MANIFEST = m.MAIN_FIGURE5_RECORD / "figure5_source_manifest.json"
-    m.MAIN_FIGURE5_RENDERER = record / "source_code/preview_figure3_assembly.py"
-    # The maintained renderer historically opened the accepted Main Figure 5
-    # master solely to assert two typography tokens. Replace that master read
-    # with a tiny validation-only source-code-derived token authority.
-    typography_tokens = output / "MAIN_FIGURE5_TYPOGRAPHY_TOKENS.txt"
-    typography_tokens.write_text(
-        '<svg xmlns="http://www.w3.org/2000/svg"><text>r=0.75</text>'
-        '<text>***</text></svg>\n',
-        encoding="utf-8",
-    )
-    m.MAIN_FIGURE5_SVG = typography_tokens
     # Close the historical ED8-contract path by deriving the same fail-closed
     # cross-check locally from the record-frozen ED10 eligibility contract.
     runtime_authority = output / "runtime_authorities"
     runtime_authority.mkdir()
-    # The frozen renderer's historical validation follows a synthesis manifest
-    # back into live analysis directories.  Re-express that closure over the
-    # immutable record-local products that are actually used for this render.
-    # This preserves the hash check without permitting archival/live sources.
+    # Validate the included source tables and cohort definitions used here.
     maintained_sources = [
         m.TABLE_A,
         m.TABLE_B,
@@ -773,8 +757,6 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
         m.STATS_C,
         m.NEURAL_ELIGIBILITY_CONTRACT,
         m.EXCLUSION_CONTRACT,
-        m.MAIN_FIGURE5_MANIFEST,
-        m.MAIN_FIGURE5_RENDERER,
     ]
     local_manifest = runtime_authority / "ED10_RECORD_LOCAL_SOURCE_MANIFEST.csv"
     with local_manifest.open("w", encoding="utf-8", newline="") as stream:

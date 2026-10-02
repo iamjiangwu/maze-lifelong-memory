@@ -11,22 +11,6 @@ from typing import Any
 import pandas as pd
 
 
-NEURAL_CONTRACT_REL = Path(
-    "docs/extended_data_figure_panel_refresh_2026-07-12/source_tables/"
-    "extended_data_fig_11/fixed_neuron_correlation_synthesis_2026-08-09/"
-    "NEURAL_ELIGIBILITY_CONTRACT.json"
-)
-BIOLOGICAL_CONTRACT_REL = Path(
-    "docs/extended_data_supplement_v2_rebuild_2026-08-05/"
-    "EXCLUDED_SESSION_CONTRACT.json"
-)
-ED08_CONTRACT_REL = Path(
-    "docs/extended_data_supplement_v2_rebuild_2026-08-05/"
-    "ed08_reward_proximal_controls/revision_round4_2026-08-09/"
-    "ED08_NEURAL_EXCLUSION_CONTRACT.json"
-)
-
-
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as handle:
@@ -49,9 +33,9 @@ def _load_json(path: Path) -> dict[str, Any]:
 
 def load_neural_eligibility(
     repo: Path,
-    neural_contract: Path | str = NEURAL_CONTRACT_REL,
-    biological_contract: Path | str = BIOLOGICAL_CONTRACT_REL,
-    ed08_contract: Path | str = ED08_CONTRACT_REL,
+    neural_contract: Path | str,
+    biological_contract: Path | str,
+    ed08_contract: Path | str,
 ) -> dict[str, Any]:
     """Validate included cohort schemas, identifier sets and exclusion policy."""
 

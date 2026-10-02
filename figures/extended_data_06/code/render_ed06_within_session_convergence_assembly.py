@@ -1,44 +1,9 @@
 """Assemble Extended Data Figure 6 (within-session convergence and local stability).
 
-Layout authority is **slide 7** of ``sup-figs-v2.pptx``. Under the merged Extended Data
-numbering that slide is new ED6: slide 8 is empty and its speaker note is the "combine
-with 7" instruction, so its content is already inside slide 7. Repository sources remain
-under old ED7 (``extended_data_fig_07``).
-
-Data authority is the **five-minute selected-data coverage gate** rerun in
-``docs/coverage5min_window_reanalysis_2026-08-05/``. The previous rule required selected
-data covering 50% of each nominal window; the current rule requires a fixed 300 s
-(7,500 frames at DT = 0.04 s). Verified consequence, by direct comparison against the
-2026-07-14 bundle:
-
-* ``maze_time`` 10-min curves are **byte-for-byte unchanged** (the 10-min window already
-  demanded 5 min of selected data);
-* ``maze_time`` 20-min curves **change** (243 newly admitted curve rows);
-* ``tile_change`` 1,000/2,000/3,000-tile curves are **unchanged** — no fractional
-  time-coverage gate applies;
-* the 30-min pivot early slopes **change**.
-
-Every panel is redrawn from the rerun's plot-ready tables. No maintained panel PNG or SVG
-is embedded, and the slide's PowerPoint crops are treated as layout instructions rather
-than as the implementation.
-
-Deliberate corrections to the slide:
-
-1. The slide crops one wide three-window image per metric, which silently drops the 30-min
-   maze-time window and leaves x-axis titles on an inconsistent subset of rows. Here the
-   displayed windows are drawn as real axes and x-axis titles appear once, on the bottom
-   metric row.
-2. Column titles are drawn once on the top metric row instead of being repeated three
-   times, keeping on-panel text minimal.
-3. **No statistics are drawn on any panel.** Slope estimates, q values and significance
-   stars all live in the caption notes; the panels carry data, axes and labels only.
-   Row legends are centred across the whole row, since the experience ramp applies to the
-   pivot pair as well as the fixed-template columns. In the pivot block the window title
-   drops to the same height as ``10-min window`` and the day identity moves to the line
-   above it.
-4. A **schematic row is added**, as the slide's own note asks ("add a schematic?"), adapted
-   from ``analysis_schematic.py`` the way Main Figure 3 adapted it: compact green palette,
-   placeholder result curves removed, method diagram only.
+Every panel is redrawn from the included plot-ready tables. Time-window rows
+require 300 s of selected-data coverage (7,500 frames at DT = 0.04 s).
+Tile-change windows have no fractional time-coverage gate. The panels show
+data, axes and labels; statistical results are exported in the caption notes.
 """
 
 from __future__ import annotations
@@ -1180,19 +1145,13 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
     canvas.close()
 
     manifest = {
-        "figure": "Extended Data Figure 6 (merged numbering; slide 7 + empty slide 8 of "
-        "sup-figs-v2.pptx)",
+        "figure": "Extended Data Figure 6",
         "round": round_number,
         "canvas_inches": [FIGURE_WIDTH_IN, round(FIGURE_HEIGHT_IN, 4)],
         "status": checks.status,
-        "layout_authority": "slide 7; the slide-8 note 'combine with 7' means its content "
-        "is already on slide 7. Repository sources remain under old ED7 "
-        "(extended_data_fig_07)",
         "data_authority": {
-            "bundle": "docs/coverage5min_window_reanalysis_2026-08-05",
             "coverage_gate_sec": COVERAGE_GATE_SEC,
             "coverage_gate_frames_at_dt_0p04": COVERAGE_GATE_FRAMES,
-            "superseded_rule": "selected data covering 50% of each nominal window",
         },
         "figure_size_inches": [FIGURE_WIDTH_IN, round(FIGURE_HEIGHT_IN, 4)],
         "renderer": "scripts/render_ed06_within_session_convergence_assembly.py",
@@ -1211,15 +1170,6 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
                 ("pivot_display_limits", "pivot_limits", PIVOT_LIMITS),
             )
         },
-        "slide_corrections": [
-            "the slide's PowerPoint crops of one wide three-window image are replaced by "
-            "real axes for the displayed windows",
-            "x-axis titles appear once on the bottom metric row instead of on an "
-            "inconsistent subset of rows",
-            "column titles are drawn once on the top metric row rather than repeated three times",
-            "exact q values move to the caption; panels keep the slope estimate and stars",
-            "a schematic row is added, as the slide note requests",
-        ],
         "panels": panel_audit,
         "displayed_statistics": displayed_stats,
         "outputs": [

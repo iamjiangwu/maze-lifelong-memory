@@ -99,11 +99,7 @@ def _install_frozen_panel_modules(record: Path):
 
     compat.bootstrap_environment = frozen_bootstrap_environment
 
-    # ``jw_utils.py`` is a large legacy utility module with costly optional
-    # imports.  None of these five rebuilds calls it: Main Figure 5 freezes a
-    # precomputed exact seriation, so the on-demand hierarchical fallback in
-    # ``figure_panels.py`` is never reached.  Install only the lightweight
-    # frozen helper that is actually executed.
+    # Prefer the figure-local heatmap helper when one is included.
     for stem in ("level_heatmap_utils",):
         frozen = record / "source_code" / f"{stem}.py"
         if frozen.is_file():

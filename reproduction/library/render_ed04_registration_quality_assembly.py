@@ -1,23 +1,8 @@
 """Assemble Extended Data Figure 4 (cross-session neuron-matching quality).
 
-Layout authority is slide 5 of ``sup-figs-v2.pptx``, which carries the Extended Data
-Figure 4 role under the merged numbering. Sources resolve under the OLD number,
-``extended_data_fig_05``.
-
-Panels c-h are drawn here from tables that
-``scripts/build_ed04_registration_source_from_raw.py`` regenerated directly from the raw
-CellReg outputs, plus the raw-derived physical-alignment table. Panels a and b are the
-maintained source-rendered field-of-view images.
-
-Departures from the slide:
-
-* the slide's FOV slot is ``99_legacy_audit_only/ed05_panel_a_fov_displacement.png``. Its
-  two views are rebuilt on current data as panels c (cumulative drift path, microns) and
-  d (alignment displacement, % of source FOV diagonal).
-* panel g adds the marginal count distributions to the joint density.
-* the Main Figure 2 similarity cross-check is not applied. It re-derives the activity gate
-  and the 21,412 -> 16,901 denominator, which is Methods material and unrelated to
-  matching quality.
+Panels a and b use the included field-of-view images. Panels c-h use the
+included CellReg-derived and physical-alignment tables. Cumulative drift is in
+microns; alignment displacement is a percentage of the source FOV diagonal.
 
 Formatting follows the main figures for typography only -- family, sizes, weights,
 spacing, spines, panel letters. Each panel keeps its own colour scheme, because these
@@ -704,7 +689,7 @@ def build(output_dir: Path) -> dict[str, Any]:
     canvas.close()
 
     manifest = {
-        "figure": "Extended Data Figure 4 (merged numbering; slide 5 of sup-figs-v2.pptx)",
+        "figure": "Extended Data Figure 4",
         "sources_resolve_under": "extended_data_fig_05 (old numbering)",
         "figure_size_inches": [FIGURE_WIDTH_IN, FIGURE_HEIGHT_IN],
         "source_summary": summary,

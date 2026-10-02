@@ -21,15 +21,6 @@ from matplotlib.font_manager import FontProperties, findfont
 
 
 sys.dont_write_bytecode = True
-REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SOURCE_ROOT = (
-    REPO_ROOT
-    / "docs"
-    / "extended_data_supplement_v2_rebuild_2026-08-05"
-    / "ed02_route_policies_and_biased_walk"
-    / "assembly_round11_review"
-)
-DEFAULT_OUTPUT_ROOT = REPO_ROOT / "tmp" / "ed02_round11_vor_2026-08-09" / "composite"
 # Resolve the installed Arial face on every OS; Matplotlib reports its fallback
 # when Arial is unavailable. The font hash is recorded with the generated PDF.
 ARIAL_BOLD = Path(findfont(FontProperties(family="Arial", weight="bold")))
@@ -249,8 +240,8 @@ def export(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source-root", type=Path, default=DEFAULT_SOURCE_ROOT)
-    parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
+    parser.add_argument("--source-root", type=Path, required=True)
+    parser.add_argument("--output-root", type=Path, required=True)
     return parser.parse_args()
 
 

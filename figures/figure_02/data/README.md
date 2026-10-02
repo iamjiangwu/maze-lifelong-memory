@@ -12,6 +12,8 @@ Long-gap neural correlations, saved neuron-ID null distributions and example neu
 
 All correlation values are dimensionless. Distribution observations have different units from cohort means: the latter equally weight session-pair means. `n_pairs_final`, finite neuron/bin counts and `distribution_pair_support.csv` record support; `consecutive_pair_scope.csv` records eligible triplets. BH4 also includes the displayed level-map association in ED9l.
 
+In `distribution_pair_support.csv`, `n_pairs_final` counts matched-neuron pairs within a session pair. `n_pairs_dropped_by_user` counts manually excluded matched-neuron pairs; every supplied row is zero. Neither field counts mice or recording-session pairs.
+
 In neuron NPZs, A/B identify source/target sessions; `*_frame` indexes the saved signal trace, while the shorter coordinate arrays contain retained position samples. Do not align these by row number without `*_frame`. Positions are normalized maze coordinates (approximately 0–1), `dt` is seconds per frame, `Craw` is the calcium trace and `S` the inferred activity signal. `place_r` is the 15 × 15 place-map correlation and `place_support_15` its spatial support count. Cell identifiers are indices within the named sessions, not animal-wide neuron IDs.
 
 | File | Format |

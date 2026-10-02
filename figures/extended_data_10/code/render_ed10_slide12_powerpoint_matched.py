@@ -60,17 +60,6 @@ TABLE_C = (
 )
 STATS_C = TABLE_C.with_name("level_policy_bridge_stats_corrected36.csv")
 EXCLUSION_CONTRACT = SUPPLEMENT / "EXCLUDED_SESSION_CONTRACT.json"
-MAIN_FIGURE5_RECORD = (
-    REPO
-    / "docs"
-    / "figure_version_records"
-    / "main_figure5_2026-08-12_round6_historical_hierarchical_order"
-)
-MAIN_FIGURE5_MANIFEST = MAIN_FIGURE5_RECORD / "figure5_source_manifest.json"
-MAIN_FIGURE5_SVG = MAIN_FIGURE5_RECORD / "figure5_version_record.svg"
-MAIN_FIGURE5_RENDERER = (
-    MAIN_FIGURE5_RECORD / "source_code" / "preview_figure3_assembly.py"
-)
 
 COLORS = get_correlation_measure_colors()
 REWARD = COLORS["pv_correlation"]
@@ -1169,9 +1158,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         PAIR_AUDIT,
         SYNTHESIS_VALIDATION,
         SYNTHESIS_MANIFEST,
-        MAIN_FIGURE5_MANIFEST,
-        MAIN_FIGURE5_SVG,
-        MAIN_FIGURE5_RENDERER,
     ]
     for path in required:
         if not path.is_file() or path.stat().st_size == 0:
@@ -1251,24 +1237,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         raise AssertionError("ED10 policy source is not clean36/14")
     if len(stats_c) != 4:
         raise AssertionError("ED10 policy statistics source must contain four displayed roles")
-    main5_manifest = json.loads(MAIN_FIGURE5_MANIFEST.read_text(encoding="utf-8"))
-    main5_style = main5_manifest["style"]
-    main5_svg = MAIN_FIGURE5_SVG.read_text(encoding="utf-8")
-    main5_renderer = MAIN_FIGURE5_RENDERER.read_text(encoding="utf-8")
-    if not (
-        float(main5_style["base_font_size"]) == 8.0
-        and float(main5_style["axis_label_size"]) == 8.0
-        and float(main5_style["tick_label_size"]) == 7.0
-        and float(main5_style["title_size"]) == 8.0
-        and int(main5_style["panel_id_size"]) == 13
-        and "r=0.75" in main5_svg
-        and ">***</text>" in main5_svg
-        and "0.08," in main5_renderer
-        and "0.92," in main5_renderer
-        and "0.94," in main5_renderer
-        and "fontsize=7.2 * style_scale" in main5_renderer
-    ):
-        raise AssertionError("Promoted Main Figure 5 typography/annotation authority drifted")
     pair_audit["source_session"] = pair_audit["pair_key"].astype(str).str.split("->").str[0]
     pair_audit["target_session"] = pair_audit["pair_key"].astype(str).str.split("->").str[1]
     ab_eligibility = audit_pair_universe(
@@ -1535,8 +1503,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
             "panel_c_corrected_depth_weighted_q_shown_as_three_stars": True,
             "panel_c_first_three_controls_labeled_nonsignificant": True,
             "panel_a_colorbar_title_is_pearson_correlation": True,
-            "main_figure5_typography_contract_applied": True,
-            "panel_c_main_figure5_star_contract_applied": True,
             "panel_c_four_lower_right_r_labels_clear_of_points": True,
             "panel_c_four_annotations_clear_of_points": True,
             "a_b_gap_exactly_half_round5": True,
@@ -1554,10 +1520,7 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
                 for key in ROUND5_INTERROW_GAPS_720
             },
         },
-        "main_figure5_annotation_authority": {
-            "manifest": record(MAIN_FIGURE5_MANIFEST, "display_authority"),
-            "svg": record(MAIN_FIGURE5_SVG, "display_authority"),
-            "renderer": record(MAIN_FIGURE5_RENDERER, "display_authority"),
+        "annotation_style": {
             "font_contract": {
                 "base": 8.0,
                 "axis": 8.0,

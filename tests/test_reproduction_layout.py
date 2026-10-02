@@ -46,6 +46,28 @@ class ReaderLayoutTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             reproduction.inside(ROOT, '.')
 
+    def test_data_indexes_describe_current_columns_and_json_keys(self):
+        with (ROOT/'docs/DATA_CATALOG.csv').open(encoding='utf-8-sig', newline='') as stream:
+            catalog = {row['path']: row['columns_or_shape'] for row in csv.DictReader(stream)}
+        for artifact in self.layout['artifacts']:
+            data = ROOT/artifact['directory']/'data'
+            with (data/'index.csv').open(encoding='utf-8-sig', newline='') as stream:
+                rows = list(csv.DictReader(stream))
+            for row in rows:
+                source = data/row['file']
+                with self.subTest(source=source.relative_to(ROOT)):
+                    description = row['columns_or_shape']
+                    if source.suffix == '.csv':
+                        with source.open(encoding='utf-8-sig', newline='') as stream:
+                            self.assertEqual(description, 'columns: ' + ','.join(next(csv.reader(stream))))
+                    elif source.suffix == '.json':
+                        payload = json.loads(source.read_text(encoding='utf-8-sig'))
+                        if isinstance(payload, dict):
+                            self.assertEqual(description, 'keys: ' + ','.join(payload))
+                        elif isinstance(payload, list):
+                            self.assertEqual(description, f'list: {len(payload)} items')
+                    self.assertEqual(catalog[source.relative_to(ROOT).as_posix()], description)
+
     def test_retained_files_match_authenticated_original_manifest(self):
         report = reproduction.verify_sources(self.layout, ROOT)
         self.assertEqual(report['status'], 'PASS')

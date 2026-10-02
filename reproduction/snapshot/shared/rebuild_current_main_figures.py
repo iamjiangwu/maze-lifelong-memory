@@ -110,11 +110,7 @@ def _install_frozen_panel_modules(record: Path):
 
     compat.bootstrap_environment = frozen_bootstrap_environment
 
-    # ``jw_utils.py`` is a large legacy utility module with costly optional
-    # imports.  None of these five rebuilds calls it: Main Figure 5 freezes a
-    # precomputed exact seriation, so the on-demand hierarchical fallback in
-    # ``figure_panels.py`` is never reached.  Install only the lightweight
-    # frozen helper that is actually executed.
+    # Prefer the figure-local heatmap helper when one is included.
     for stem in ("level_heatmap_utils",):
         frozen = record / "source_code" / f"{stem}.py"
         if frozen.is_file():
@@ -334,7 +330,7 @@ def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list
         return {
             "status": "PASS",
             "pair_count": 36,
-            "source": "record-local frozen distribution bundle",
+            "source": "included distribution summaries",
         }
 
     def consecutive_audit(points: pd.DataFrame, stats: pd.DataFrame) -> dict[str, Any]:
@@ -345,13 +341,9 @@ def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list
         return {
             "status": "PASS",
             "clean_chains": 22,
-            "source": "record-local frozen consecutive and canonical-rate tables",
+            "source": "included consecutive-session and ensemble-rate tables",
         }
 
-    publication._validate_source_repair_842 = lambda: {
-        "status": "PASS",
-        "source": "record-local frozen correction audits",
-    }
     publication._validate_figure2_distribution_sources = distribution_audit
     publication._validate_figure2_clean_consecutive_scope = consecutive_audit
     _patch_figure2_helper_loader(publication, record)

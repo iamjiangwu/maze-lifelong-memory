@@ -10,9 +10,11 @@ from __future__ import annotations
 import os
 from pathlib import Path
 import shutil
+import socket
 import subprocess
 import sys
 import tempfile
+import time
 
 
 _COMMANDS = {
@@ -116,21 +118,76 @@ def platform_headless_flags() -> list[str]:
     return []
 
 
+def _run_macos_export(command, diagnostics, log_path, timeout):
+    """Request a normal browser shutdown once the CLI reports its saved export.
+
+    Some macOS builds stay in the application event loop after printing. A
+    private DevTools pipe lets us send Browser.close to only this disposable
+    instance, without a network port, user profile, or process-name kill.
+    Successful process exit and the caller's PDF/PNG checks are still required.
+    """
+    exports = [Path(str(arg).split('=', 1)[1]) for arg in command
+               if str(arg).startswith(('--print-to-pdf=', '--screenshot='))]
+    if len(exports) != 1 or not any(str(arg).startswith('--user-data-dir=') for arg in command):
+        raise ValueError('macOS export requires one output and a disposable browser profile')
+    if exports[0].exists():
+        raise FileExistsError('Use a fresh browser export path: ' + str(exports[0]))
+    # Chromium reads CDP on descriptor 3 and writes on 4. A socket pair carries
+    # the same null-terminated messages in both directions. The tiny exec
+    # wrapper maps only inherited descriptors; it becomes the browser process.
+    setup = ('import os,sys,fcntl; '
+             'fd=fcntl.fcntl(int(sys.argv[1]),fcntl.F_DUPFD,5); '
+             'os.dup2(fd,3); os.dup2(fd,4); os.close(fd); '
+             'os.execv(sys.argv[2],sys.argv[2:])')
+    parent, child = socket.socketpair()
+    with parent, child:
+        launched = [sys.executable, '-c', setup, str(child.fileno()),
+                    str(command[0]), '--remote-debugging-pipe', *command[1:]]
+        process = subprocess.Popen(launched, stdout=diagnostics, stderr=subprocess.STDOUT,
+                                   pass_fds=(child.fileno(),))
+        child.close()
+        deadline = time.monotonic() + timeout
+        close_sent = False
+        marker = b' bytes written to file ' + os.fsencode(exports[0])
+        try:
+            while process.poll() is None:
+                if time.monotonic() >= deadline:
+                    raise subprocess.TimeoutExpired(command, timeout)
+                if not close_sent and marker in log_path.read_bytes() and exports[0].is_file():
+                    try:
+                        parent.sendall(b'{"id":1,"method":"Browser.close"}\0')
+                    except BrokenPipeError:
+                        # A browser that has already exited needs no shutdown
+                        # request. Its actual exit code is checked below.
+                        if process.poll() is None:
+                            raise
+                    close_sent = True
+                time.sleep(0.1)
+            return subprocess.CompletedProcess(command, process.returncode)
+        finally:
+            if process.poll() is None:
+                process.kill()
+                process.wait()
+
+
 def run_browser(command, *, check=False, capture_output=True, text=False, timeout=180):
     """Wait for the exporter, not background updaters that inherit its stderr.
 
-    On macOS a browser's updater can retain a pipe after the exporting process
-    exits. Capture combined diagnostics in a temporary file instead: process
-    exit, timeout and caller checks of the produced PDF/PNG remain mandatory.
-    Only this explicitly launched process is waited for; no other browser or
-    updater is terminated. The temporary log is not a published source input.
+    Capture combined diagnostics in a temporary file so inherited updater pipes
+    cannot hold a completed export open. macOS receives Browser.close after the
+    CLI reports the saved file. Normal process exit, timeout and caller checks
+    of the produced PDF/PNG remain mandatory. The log is not a source input.
     """
     if not capture_output:
         raise ValueError('Browser diagnostics must be captured')
-    with tempfile.TemporaryFile() as diagnostics:
+    log_factory = tempfile.NamedTemporaryFile if sys.platform == 'darwin' else tempfile.TemporaryFile
+    with log_factory() as diagnostics:
         try:
-            completed = subprocess.run(command, stdout=diagnostics, stderr=subprocess.STDOUT,
-                                       timeout=timeout, check=False)
+            if sys.platform == 'darwin' and any(str(arg).startswith(('--print-to-pdf=', '--screenshot=')) for arg in command):
+                completed = _run_macos_export(command, diagnostics, Path(diagnostics.name), timeout)
+            else:
+                completed = subprocess.run(command, stdout=diagnostics, stderr=subprocess.STDOUT,
+                                           timeout=timeout, check=False)
         except subprocess.TimeoutExpired as error:
             diagnostics.seek(0)
             error.stderr = diagnostics.read()

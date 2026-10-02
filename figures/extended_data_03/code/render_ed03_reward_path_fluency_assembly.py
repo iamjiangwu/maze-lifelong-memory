@@ -1,27 +1,8 @@
 """Assemble Extended Data Figure 3 (reward-path fluency and first-visit choices).
 
-Layout authority is slide 4 of ``sup-figs-v2.pptx``. After Extended Data Figure 2
-is merged into Extended Data Figure 1, that slide carries the Extended Data
-Figure 3 role, so the panels are lettered a-f here.
-
-Every panel is source-rendered from the maintained plot-ready tables; no panel is
-copied as a raster crop. Deliberate corrections to the slide:
-
-1. The slide's a-d region is a crop of ``ed04_fluency_four_panel_story_current``,
-   which the panel manifest marks ``role=source`` ("navigation and visual-QA
-   overview; individual panels are manuscript-facing"). The four claims are
-   redrawn here through the maintained ``draw_claim_panel`` contract.
-2. The slide's assay schematic is
-   ``ed04_panel_b_reward_path_first_turn_schematic_source.png``, which lives in
-   ``99_legacy_audit_only`` and encodes the superseded first-turn assay. Panel e
-   instead draws the six scored decision points of the current first-visit route
-   on the canonical main-figure maze schematic, suppressing only the coloured
-   end-node quadrants and the long-bout path.
-3. The slide's depth bars use a superseded warm palette. The maintained palette
-   (``#8BBDEB``/``#5F8C62``/``#DA2323``/``#B3A99B``) is used instead, which is the
-   same condition palette as Main Figure 1, and it is applied to every panel.
-4. Typography follows the main-figure contract at printed size, background grid
-   lines are off, and on-panel text is limited to what the caption cannot carry.
+Panels a-d use the included fluency tables and ``draw_claim_panel``. Panel e
+shows the six scored decisions of the first-visit route; panel f shows the
+depth-specific choices. All panels use the Main Figure 1 condition palette.
 """
 
 from __future__ import annotations
@@ -831,8 +812,7 @@ def run(output_dir: Path) -> dict[str, Any]:
 
     checks = validate(outputs, audit)
     manifest = {
-        "figure": "Extended Data Figure 3 (slide 4 of sup-figs-v2.pptx)",
-        "layout_authority": "slide 4; Extended Data Figure 2 merged into Figure 1 shifts this slide to the Figure 3 role",
+        "figure": "Extended Data Figure 3",
         "figure_size_inches": [FIGURE_WIDTH_IN, FIGURE_HEIGHT_IN],
         "sources": {
             "fluency_plot_rows": {"path": str(FLUENCY_ROWS.relative_to(REPO_ROOT)), "sha256": sha256(FLUENCY_ROWS)},
@@ -840,11 +820,6 @@ def run(output_dir: Path) -> dict[str, Any]:
             "depth_small_multiples": {"path": str(DEPTH_TABLE.relative_to(REPO_ROOT)), "sha256": sha256(DEPTH_TABLE)},
             "route_definition": {"path": str(ROUTE_DEFINITION.relative_to(REPO_ROOT)), "sha256": sha256(ROUTE_DEFINITION)},
         },
-        "slide_corrections": [
-            "panels a-d redrawn from the manuscript-facing claim contract instead of the role=source QA overview crop",
-            "panel e replaced the 99_legacy_audit_only first-turn maze schematic with the current first-visit six-decision definition",
-            "panel f uses the maintained condition palette, which matches Main Figure 1; the slide palette is superseded",
-        ],
         "audit": audit,
         "outputs": [
             {"path": str(path.relative_to(REPO_ROOT)), "sha256": sha256(path), "bytes": path.stat().st_size}

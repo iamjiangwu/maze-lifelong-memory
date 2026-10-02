@@ -10,7 +10,6 @@ import shutil
 import sys
 import xml.etree.ElementTree as ET
 
-import fitz
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -196,14 +195,8 @@ def build(output):
         return module
     base.load=scoped_load
     base.build(output,record=None,skip_individual=True)
-    unchanged={}
     audit.update(status="PASS", source_manifest_sha256=sha(frozen/"SOURCE_INPUTS.csv"), reference_sources=reference_hashes)
-    with fitz.open(output/"figure1_version_record.pdf") as d:
-        d[0].get_pixmap(dpi=230,clip=fitz.Rect(0,0,d[0].rect.width,49*72/25.4),alpha=False).save(output/"figure1_binary_tree_first_row_v7.png")
-        d[0].get_pixmap(dpi=180,alpha=False).save(output/"figure1_binary_tree_full_v7.png")
     dump(output/"PREVIEW_VALIDATION.json",audit)
-    dump(output/"REVIEW_VALIDATION.json",audit)
-    dump(output/"UNRELATED_PANEL_PARITY.json",unchanged)
     shutil.copy2(__file__,output/"source_code"/Path(__file__).name)
     (output/"README.md").write_text("# Figure 1 source build\n\nThe binary tree highlights maze nodes 0-1-4-10-22-46-94 in blue, with the water icon at node 94. Each fork follows physical left/right turns: L-R-R-L-R-L. The terminal maze coordinate is (14,6). reward_tree_nodes.csv records all 127 node assignments.\n\nPREVIEW_VALIDATION.json records source hashes, segment counts and display geometry. Reproduce from the publication repository with `python reproduce.py --figure 1 --output-dir OUTPUT`.\n",encoding="utf-8")
     print(json.dumps(audit,indent=2))

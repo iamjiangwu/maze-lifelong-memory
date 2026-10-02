@@ -59,7 +59,7 @@ def freeze(record, output):
 
 
 def snapshot(ax):
-    """Numerical artists excluding the specifically authorized bar widths."""
+    """Numerical artists, with bar width omitted from the value comparison."""
     bars = [bar for container in ax.containers if isinstance(container, BarContainer) for bar in container.patches]
     return {
         "bar_centers_heights_bottoms_colors": [[b.get_x()+b.get_width()/2, b.get_height(), b.get_y(), list(b.get_facecolor())] for b in bars],
@@ -178,7 +178,7 @@ def build(output, record=None, *, skip_individual=False):
             old, new = canonical_group(accepted, letter), canonical_group(output / "figure1_version_record.svg", letter)
             unchanged[letter] = {"svg_native_artists_identical": old == new}
             assert old == new, f"Unrelated panel {letter} changed"
-    write_json(output / "UNRELATED_PANEL_PARITY.json", unchanged)
+        write_json(output / "UNRELATED_PANEL_PARITY.json", unchanged)
     with fitz.open(output / "figure1_version_record.pdf") as pdf:
         assert len(pdf) == 1
         font_sizes = sorted(set(round(span["size"], 2) for block in pdf[0].get_text("dict")["blocks"] if "lines" in block for line in block["lines"] for span in line["spans"]))
@@ -189,7 +189,6 @@ def build(output, record=None, *, skip_individual=False):
         "source_panel_parity": unchanged, "pdf_font_sizes_pt": font_sizes,
         "source_data_artists_match": True,
         "export_scale": 1}
-    write_json(output / "REVIEW_VALIDATION.json", review)
     script_copy = output / "source_code/build_figure1_ij_spacing.py"
     script_copy.parent.mkdir(exist_ok=True)
     if Path(__file__).resolve() != script_copy.resolve():
@@ -205,7 +204,7 @@ def build(output, record=None, *, skip_individual=False):
         "python source_code/build_figure1_ij_spacing.py --frozen-source frozen_source --output-dir <new directory>\n"
         "```\n\n"
         "No composite artwork is used to draw the figure. "
-        "REVIEW_VALIDATION.json, IJ_ARTIST_PARITY.json and IJ_GEOMETRY_QA.json contain the checks. "
+        "IJ_ARTIST_PARITY.json and IJ_GEOMETRY_QA.json contain the checks. "
         "Only the requested output directory is written.\n",
         encoding="utf-8",
     )

@@ -12,6 +12,8 @@ Day codes `d1–d1`, `d1–d2`, `d2–d1`, `d2–d2` mean Day i/i+90, i/i+91, i+
 
 The three pair tables use `place_map_mean_all`, `data_mean` and `pearson_raw_r` for place-map, PV and ensemble-rate correlation, respectively. Session and animal identifiers link the four day combinations; matched-neuron counts describe support, not the weight assigned to a pair.
 
+`n_pairs_dropped_by_user` in the PV table and `manual_user_drops` in the exact-support table count manually excluded matched-neuron pairs, not session pairs. All values are zero; the builder checks this and verifies that the three neural measures use the same matched-neuron support.
+
 Panels b–d equally weight session-pair values for cohort means. Confidence intervals use standard errors clustered by animal; the three contrasts within each metric use exact sign-flips with every pair of an animal flipped together, then BH3. Their plotted p values are `p_bh3_within_metric_exact_cluster_signflip`, not the separately recorded regression p values. `feasible` and frame counts describe equal-sampling support in panel e; only the displayed day combination enters its test.
 
 | File | Format |

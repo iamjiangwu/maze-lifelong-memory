@@ -34,24 +34,16 @@
       "sha256": "1948c313d95f8710f7e015a8f792b61713c9f0c7b1d66f8ef43cb3cb879b2491"
     },
     {
-      "path": "frozen_source/extended_data_fig10_round18_inputs/main_figure_authority/figure5_source_manifest.json",
-      "sha256": "bce2234fb1294f4b8c2a1ab8a7ec009ee4ff8440609a85550f0d2423f20c6fea"
-    },
-    {
-      "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/preview_figure3_assembly.py",
-      "sha256": "9a638775c8e6e3cb472b3fbbe15c97b964f60865c849c8a868b322aa7bc0f0dc"
-    },
-    {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/_ed10_neural_eligibility.py",
-      "sha256": "c1d14e09b8dda9ba7bdd9aa71fe4a7894895978d0d154e4e53ac2e3bf6e51fa8"
+      "sha256": "372cd5182cc1634d8831853debc8ea782d9227be564c52a22e811c03884e5696"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/render_ed10_slide12_powerpoint_matched.py",
-      "sha256": "cd80d25bf361de8eb299ce618daf1cbc5fba25f92ca2ea3f683d3159add4942f"
+      "sha256": "90120595b6e8209d2d4623476b022793828514c590d0fd7563406492ea601432"
     },
     {
       "path": "source_code/rebuild_current_extended_data_figures.py",
-      "sha256": "33963cfa073b490f8242c6febe96a578e5db833557c1f9f771a2d90bdbc7eb55"
+      "sha256": "5d0bd0f4f40dbee21ec428dda1cb16a1e4027ac23230db68f6a4e358dcea0147"
     }
   ]
 }

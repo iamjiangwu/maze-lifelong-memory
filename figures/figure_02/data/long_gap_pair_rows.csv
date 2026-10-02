@@ -1,220 +1,220 @@
-pair_id,pair_key,animal,src_session,dst_session,src_month,dst_month,gap_months,pair_family,metric,metric_label,point_kind,matching_mode,observed_mean,shuffle_mean,shuffle_repeats,n_units_finite,repair_status
-1616bday1__1616b-3day1,1616bday1->1616b-3day1,1616,1616bday1,1616b-3day1,1,3,3,1->3_special_3mo,place,Place map correlation,neuron,nearby_common_cimap,0.1663484853180413,0.0007198489644704,10000,958,unchanged_declared_scope
-1616bday1__1616b-3day1,1616bday1->1616b-3day1,1616,1616bday1,1616b-3day1,1,3,3,1->3_special_3mo,level,Level map correlation,neuron,nearby_common_cimap,0.3060983791803795,0.0401622243609222,10000,958,unchanged_declared_scope
-1616bday1__1616b-3day1,1616bday1->1616b-3day1,1616,1616bday1,1616b-3day1,1,3,3,1->3_special_3mo,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2162529050198434,3.761660025693928e-05,10000,113,unchanged_declared_scope
-418RRday1__418-3day1,418RRday1->418-3day1,418,418RRday1,418-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.0251564639337082,0.0011075716489685,10000,435,unchanged_declared_scope
-418RRday1__418-3day1,418RRday1->418-3day1,418,418RRday1,418-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1734933385892109,0.0240858919022971,10000,435,unchanged_declared_scope
-418RRday1__418-3day1,418RRday1->418-3day1,418,418RRday1,418-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.171879574444637,-9.124198924060164e-05,10000,102,unchanged_declared_scope
-418-3day1__418-6day1,418-3day1->418-6day1,418,418-3day1,418-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.0086714477063273,0.0032700618960234,10000,521,unchanged_declared_scope
-418-3day1__418-6day1,418-3day1->418-6day1,418,418-3day1,418-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2982328516608002,0.0401263655198689,10000,521,unchanged_declared_scope
-418-3day1__418-6day1,418-3day1->418-6day1,418,418-3day1,418-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1468759567600847,5.53036091638236e-05,10000,101,unchanged_declared_scope
-418-6day1__418-9day1,418-6day1->418-9day1,418,418-6day1,418-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.0073159518588404,0.0051611586523121,10000,588,unchanged_declared_scope
-418-6day1__418-9day1,418-6day1->418-9day1,418,418-6day1,418-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.1585495651721572,0.0288100062037078,10000,588,unchanged_declared_scope
-418-6day1__418-9day1,418-6day1->418-9day1,418,418-6day1,418-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1517398478508572,0.0001059770421948,10000,100,unchanged_declared_scope
-422RRday1__422-3day1,422RRday1->422-3day1,422,422RRday1,422-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.020786762605065,0.0008698203563005,10000,346,unchanged_declared_scope
-422RRday1__422-3day1,422RRday1->422-3day1,422,422RRday1,422-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1828352626622861,0.0322968332573743,10000,346,unchanged_declared_scope
-422RRday1__422-3day1,422RRday1->422-3day1,422,422RRday1,422-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1010756060886079,-0.0001217604034938,10000,110,unchanged_declared_scope
-422-3day1__422-6day1,422-3day1->422-6day1,422,422-3day1,422-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.1204263073559113,0.0007885144185259,10000,340,unchanged_declared_scope
-422-3day1__422-6day1,422-3day1->422-6day1,422,422-3day1,422-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2336457187985605,0.0166554520946116,10000,340,unchanged_declared_scope
-422-3day1__422-6day1,422-3day1->422-6day1,422,422-3day1,422-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2066606248850905,-5.61913243156396e-05,10000,107,unchanged_declared_scope
-434RRday1__434-3day1,434RRday1->434-3day1,434,434RRday1,434-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.049896152658971,0.0009732480237503,10000,414,unchanged_declared_scope
-434RRday1__434-3day1,434RRday1->434-3day1,434,434RRday1,434-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1912202460458297,0.079618436561466,10000,414,unchanged_declared_scope
-434RRday1__434-3day1,434RRday1->434-3day1,434,434RRday1,434-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1740532066760922,-0.0001193527302195,10000,99,unchanged_declared_scope
-451Rday1__451-3day1,451Rday1->451-3day1,451,451Rday1,451-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.0856200860909862,2.6928192844742816e-05,10000,442,unchanged_declared_scope
-451Rday1__451-3day1,451Rday1->451-3day1,451,451Rday1,451-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.2196293220126862,0.0556192183525862,10000,442,unchanged_declared_scope
-451Rday1__451-3day1,451Rday1->451-3day1,451,451Rday1,451-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2080495973788438,7.134232230796096e-05,10000,110,unchanged_declared_scope
-451-3day1__451-6day1,451-3day1->451-6day1,451,451-3day1,451-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.2484390209349322,0.0033565610888994,10000,451,unchanged_declared_scope
-451-3day1__451-6day1,451-3day1->451-6day1,451,451-3day1,451-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.3333878917608366,0.0294645085595604,10000,451,unchanged_declared_scope
-451-3day1__451-6day1,451-3day1->451-6day1,451,451-3day1,451-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3684854088693959,0.0002108477828514,10000,109,unchanged_declared_scope
-451-6day1__451-9day1,451-6day1->451-9day1,451,451-6day1,451-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.2727473417148862,0.0024467467829898,10000,477,unchanged_declared_scope
-451-6day1__451-9day1,451-6day1->451-9day1,451,451-6day1,451-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.3929801327417754,0.0359642649792604,10000,477,unchanged_declared_scope
-451-6day1__451-9day1,451-6day1->451-9day1,451,451-6day1,451-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.4021229752201947,8.994545492314981e-06,10000,105,unchanged_declared_scope
-468Lday1__468-3day1,468Lday1->468-3day1,468,468Lday1,468-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.1186936162574558,0.0008375938103643,10000,166,unchanged_declared_scope
-468Lday1__468-3day1,468Lday1->468-3day1,468,468Lday1,468-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.185376368245272,0.0315772924951076,10000,166,unchanged_declared_scope
-468Lday1__468-3day1,468Lday1->468-3day1,468,468Lday1,468-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.256660340618051,-0.0001733681477195,10000,102,unchanged_declared_scope
-468-3day1__468-6day1,468-3day1->468-6day1,468,468-3day1,468-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.0342079787705722,0.0095492541358986,10000,228,unchanged_declared_scope
-468-3day1__468-6day1,468-3day1->468-6day1,468,468-3day1,468-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.141425671993754,0.0457842478581341,10000,228,unchanged_declared_scope
-468-3day1__468-6day1,468-3day1->468-6day1,468,468-3day1,468-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1972892499373039,0.0002151957420948,10000,106,unchanged_declared_scope
-468-6day1__468-9day1,468-6day1->468-9day1,468,468-6day1,468-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.227971559108979,0.0067467286201959,10000,188,unchanged_declared_scope
-468-6day1__468-9day1,468-6day1->468-9day1,468,468-6day1,468-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.3261807860037696,0.0522546639183551,10000,188,unchanged_declared_scope
-468-6day1__468-9day1,468-6day1->468-9day1,468,468-6day1,468-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.331829997775041,-4.743468254095613e-05,10000,106,unchanged_declared_scope
-468-9day1__468-12day1,468-9day1->468-12day1,468,468-9day1,468-12day1,9,12,3,9->12,place,Place map correlation,neuron,nearby_common_cimap,0.2113454981785041,0.0035516669421648,10000,209,unchanged_declared_scope
-468-9day1__468-12day1,468-9day1->468-12day1,468,468-9day1,468-12day1,9,12,3,9->12,level,Level map correlation,neuron,nearby_common_cimap,0.3886567298688277,0.0333119867617468,10000,209,unchanged_declared_scope
-468-9day1__468-12day1,468-9day1->468-12day1,468,468-9day1,468-12day1,9,12,3,9->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3513343872155303,0.0002636330250841,10000,107,unchanged_declared_scope
-488Rday1__488-3day1,488Rday1->488-3day1,488,488Rday1,488-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,-0.0070995192268825,0.0025944808388842,10000,203,unchanged_declared_scope
-488Rday1__488-3day1,488Rday1->488-3day1,488,488Rday1,488-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.0947363976048782,0.0328076235271513,10000,203,unchanged_declared_scope
-488Rday1__488-3day1,488Rday1->488-3day1,488,488Rday1,488-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1275579438258759,-9.741662163186162e-05,10000,108,unchanged_declared_scope
-488-3day1__488-6day1,488-3day1->488-6day1,488,488-3day1,488-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.0283100579919052,0.0028329438677735,10000,217,unchanged_declared_scope
-488-3day1__488-6day1,488-3day1->488-6day1,488,488-3day1,488-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2058147467650344,0.0462779902802859,10000,217,unchanged_declared_scope
-488-3day1__488-6day1,488-3day1->488-6day1,488,488-3day1,488-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1658276139488547,-0.0001812814443925,10000,102,unchanged_declared_scope
-489Lday1__489-3day1,489Lday1->489-3day1,489,489Lday1,489-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.1204575613995916,0.0032258915137909,10000,170,unchanged_declared_scope
-489Lday1__489-3day1,489Lday1->489-3day1,489,489Lday1,489-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.181822438753202,0.046182399089489,10000,170,unchanged_declared_scope
-489Lday1__489-3day1,489Lday1->489-3day1,489,489Lday1,489-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3168114331051839,-4.1194183499182665e-05,10000,110,unchanged_declared_scope
-489-3day1__489-6day1,489-3day1->489-6day1,489,489-3day1,489-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.1097663718570606,0.0040510892157224,10000,198,unchanged_declared_scope
-489-3day1__489-6day1,489-3day1->489-6day1,489,489-3day1,489-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2188066175004341,0.0282325229810023,10000,198,unchanged_declared_scope
-489-3day1__489-6day1,489-3day1->489-6day1,489,489-3day1,489-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3405039652679419,-0.0001389323837705,10000,105,unchanged_declared_scope
-579RLday1__579-3day1,579RLday1->579-3day1,579,579RLday1,579-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.1378497528139318,0.0024650417555179,10000,484,unchanged_declared_scope
-579RLday1__579-3day1,579RLday1->579-3day1,579,579RLday1,579-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.261472809187414,0.0588611555916084,10000,484,unchanged_declared_scope
-579RLday1__579-3day1,579RLday1->579-3day1,579,579RLday1,579-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2640392694395539,8.763013491178491e-05,10000,111,unchanged_declared_scope
-837day1__837-3day1,837day1->837-3day1,837,837day1,837-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.0250130295145134,0.0015091052951067,10000,569,unchanged_declared_scope
-837day1__837-3day1,837day1->837-3day1,837,837day1,837-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1743918069975589,0.0316573696461715,10000,569,unchanged_declared_scope
-837day1__837-3day1,837day1->837-3day1,837,837day1,837-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1366875291137057,-0.0001187332764147,10000,106,unchanged_declared_scope
-837-3day1__837-6day1,837-3day1->837-6day1,837,837-3day1,837-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.3924437566976838,0.0028109459110415,10000,706,unchanged_declared_scope
-837-3day1__837-6day1,837-3day1->837-6day1,837,837-3day1,837-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.502496003613528,0.0274552586287018,10000,706,unchanged_declared_scope
-837-3day1__837-6day1,837-3day1->837-6day1,837,837-3day1,837-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.5004417704723513,-1.51125471800279e-05,10000,106,unchanged_declared_scope
-837-6day1__837-9day1,837-6day1->837-9day1,837,837-6day1,837-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.3720809373968942,0.0064434252166226,10000,749,unchanged_declared_scope
-837-6day1__837-9day1,837-6day1->837-9day1,837,837-6day1,837-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.4666498973475415,0.0316471255217503,10000,749,unchanged_declared_scope
-837-6day1__837-9day1,837-6day1->837-9day1,837,837-6day1,837-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.4533474960035665,5.522244541601733e-05,10000,110,unchanged_declared_scope
-837-9day1__837-12day1,837-9day1->837-12day1,837,837-9day1,837-12day1,9,12,3,9->12,place,Place map correlation,neuron,nearby_common_cimap,0.4282311219485878,0.0024158492914841,10000,738,unchanged_declared_scope
-837-9day1__837-12day1,837-9day1->837-12day1,837,837-9day1,837-12day1,9,12,3,9->12,level,Level map correlation,neuron,nearby_common_cimap,0.5213370919202216,0.0154988899854358,10000,738,unchanged_declared_scope
-837-9day1__837-12day1,837-9day1->837-12day1,837,837-9day1,837-12day1,9,12,3,9->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.4678802465769889,0.00010130081822,10000,85,unchanged_declared_scope
-838day1__838-3day1,838day1->838-3day1,838,838day1,838-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,-0.0006582638543848,0.0023280420724386,10000,665,unchanged_declared_scope
-838day1__838-3day1,838day1->838-3day1,838,838day1,838-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1979059709952232,0.0045338714790341,10000,665,unchanged_declared_scope
-838day1__838-3day1,838day1->838-3day1,838,838day1,838-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0669692919663596,-8.341991206576225e-05,10000,112,unchanged_declared_scope
-838-3day1__838-6day1,838-3day1->838-6day1,838,838-3day1,838-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.0181386215084231,0.0034349632360275,10000,948,unchanged_declared_scope
-838-3day1__838-6day1,838-3day1->838-6day1,838,838-3day1,838-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.34617347731657,0.014590246418713,10000,948,unchanged_declared_scope
-838-3day1__838-6day1,838-3day1->838-6day1,838,838-3day1,838-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1010128332977834,3.497908015085797e-05,10000,111,unchanged_declared_scope
-838-6day1__838-9day1,838-6day1->838-9day1,838,838-6day1,838-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.0586024240514129,0.0016353666254033,10000,725,unchanged_declared_scope
-838-6day1__838-9day1,838-6day1->838-9day1,838,838-6day1,838-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.1891850900911824,0.0234726974707462,10000,725,unchanged_declared_scope
-838-6day1__838-9day1,838-6day1->838-9day1,838,838-6day1,838-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1371661962992816,-1.2416437875285463e-05,10000,111,unchanged_declared_scope
-838-9day1__838-12day1,838-9day1->838-12day1,838,838-9day1,838-12day1,9,12,3,9->12,place,Place map correlation,neuron,nearby_common_cimap,0.0502611381185677,0.0035037065574172,10000,809,unchanged_declared_scope
-838-9day1__838-12day1,838-9day1->838-12day1,838,838-9day1,838-12day1,9,12,3,9->12,level,Level map correlation,neuron,nearby_common_cimap,0.2294892842063039,0.0276630510336661,10000,809,unchanged_declared_scope
-838-9day1__838-12day1,838-9day1->838-12day1,838,838-9day1,838-12day1,9,12,3,9->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1275748266565159,-1.7608362329147186e-05,10000,112,unchanged_declared_scope
-839day1__839-3day1,839day1->839-3day1,839,839day1,839-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.0023132447817822,-0.0008840135875416,10000,356,unchanged_declared_scope
-839day1__839-3day1,839day1->839-3day1,839,839day1,839-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,-0.022739564508752,0.0004610250171181,10000,356,unchanged_declared_scope
-839day1__839-3day1,839day1->839-3day1,839,839day1,839-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0137548242172036,-4.469119296683854e-06,10000,103,unchanged_declared_scope
-839-3day1__839-6day1,839-3day1->839-6day1,839,839-3day1,839-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.087499305209609,0.0017481342233319,10000,645,unchanged_declared_scope
-839-3day1__839-6day1,839-3day1->839-6day1,839,839-3day1,839-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2296014318329261,0.0327930493217702,10000,645,unchanged_declared_scope
-839-3day1__839-6day1,839-3day1->839-6day1,839,839-3day1,839-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1443722174430158,-5.084726785116663e-05,10000,101,unchanged_declared_scope
-839-6day1__839-9day1,839-6day1->839-9day1,839,839-6day1,839-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.0839039800667561,0.0006970080454113,10000,842,unchanged_declared_scope
-839-6day1__839-9day1,839-6day1->839-9day1,839,839-6day1,839-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.201769306071788,0.0616615326922799,10000,842,unchanged_declared_scope
-839-6day1__839-9day1,839-6day1->839-9day1,839,839-6day1,839-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1313503903401311,1.2488659155727132e-05,10000,97,unchanged_declared_scope
-839-9day1__839-12day1,839-9day1->839-12day1,839,839-9day1,839-12day1,9,12,3,9->12,place,Place map correlation,neuron,nearby_common_cimap,0.1242280469235539,0.0027221964113008,10000,669,unchanged_declared_scope
-839-9day1__839-12day1,839-9day1->839-12day1,839,839-9day1,839-12day1,9,12,3,9->12,level,Level map correlation,neuron,nearby_common_cimap,0.2252267267320592,0.0643063560568463,10000,669,unchanged_declared_scope
-839-9day1__839-12day1,839-9day1->839-12day1,839,839-9day1,839-12day1,9,12,3,9->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2020337348858626,3.3234036389529174e-05,10000,94,unchanged_declared_scope
-842day1__842-3day1,842day1->842-3day1,842,842day1,842-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.024744643578739175,0.0031002456262566465,10000,75,recomputed_corrected_842_nearby_common
-842day1__842-3day1,842day1->842-3day1,842,842day1,842-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.05554206543534955,0.04147987042139699,10000,75,recomputed_corrected_842_nearby_common
-842day1__842-3day1,842day1->842-3day1,842,842day1,842-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,-0.01702145506818525,-7.55252017972281e-05,10000,111,recomputed_corrected_842_nearby_common
-842-3day1__842-6day1,842-3day1->842-6day1,842,842-3day1,842-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.2351901180863406,0.0051691634337584,10000,416,unchanged_declared_scope
-842-3day1__842-6day1,842-3day1->842-6day1,842,842-3day1,842-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.3122128107749687,0.0320088945214682,10000,416,unchanged_declared_scope
-842-3day1__842-6day1,842-3day1->842-6day1,842,842-3day1,842-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.287394947698215,1.963994560201092e-05,10000,110,unchanged_declared_scope
-842-6day1__842-9day1,842-6day1->842-9day1,842,842-6day1,842-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.1776446608970298,0.0060107688912133,10000,457,unchanged_declared_scope
-842-6day1__842-9day1,842-6day1->842-9day1,842,842-6day1,842-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.2471662267800178,0.0335307034739154,10000,457,unchanged_declared_scope
-842-6day1__842-9day1,842-6day1->842-9day1,842,842-6day1,842-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3040245187898959,-3.4094003837803904e-05,10000,106,unchanged_declared_scope
-862day1__862-3day1,862day1->862-3day1,862,862day1,862-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,-0.0044590016692767,0.0036918422054642,10000,211,unchanged_declared_scope
-862day1__862-3day1,862day1->862-3day1,862,862day1,862-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.226684447957486,0.035142919593863,10000,211,unchanged_declared_scope
-862day1__862-3day1,862day1->862-3day1,862,862day1,862-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0905552896032866,-6.253318113712892e-06,10000,112,unchanged_declared_scope
-862-3day1__862-6day1,862-3day1->862-6day1,862,862-3day1,862-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.1767237565618589,-0.0003844612354227,10000,286,unchanged_declared_scope
-862-3day1__862-6day1,862-3day1->862-6day1,862,862-3day1,862-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.3281092213680397,0.0204884919152443,10000,286,unchanged_declared_scope
-862-3day1__862-6day1,862-3day1->862-6day1,862,862-3day1,862-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2619521140740529,6.002494279513747e-05,10000,110,unchanged_declared_scope
-418RRday1__418-6day1,418RRday1->418-6day1,418,418RRday1,418-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0066039342648699,0.0012616338002543,10000,433,unchanged_declared_scope
-418RRday1__418-6day1,418RRday1->418-6day1,418,418RRday1,418-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1386510819985164,0.0300364594452468,10000,433,unchanged_declared_scope
-418RRday1__418-6day1,418RRday1->418-6day1,418,418RRday1,418-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1391873737646772,-6.948104839399504e-05,10000,110,unchanged_declared_scope
-418-3day1__418-9day1,418-3day1->418-9day1,418,418-3day1,418-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.0214080786300973,0.0037374872572298,10000,466,unchanged_declared_scope
-418-3day1__418-9day1,418-3day1->418-9day1,418,418-3day1,418-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.1499822777854741,0.0225317304581622,10000,466,unchanged_declared_scope
-418-3day1__418-9day1,418-3day1->418-9day1,418,418-3day1,418-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1423644008084068,-8.02251844876593e-05,10000,94,unchanged_declared_scope
-422RRday1__422-6day1,422RRday1->422-6day1,422,422RRday1,422-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0399193043056055,0.0006454951168777,10000,278,unchanged_declared_scope
-422RRday1__422-6day1,422RRday1->422-6day1,422,422RRday1,422-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.0846975279988669,0.0073221243117099,10000,278,unchanged_declared_scope
-422RRday1__422-6day1,422RRday1->422-6day1,422,422RRday1,422-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1317608821050963,5.720982596771716e-05,10000,108,unchanged_declared_scope
-451Rday1__451-6day1,451Rday1->451-6day1,451,451Rday1,451-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0631166273859324,-4.463847756382579e-05,10000,394,unchanged_declared_scope
-451Rday1__451-6day1,451Rday1->451-6day1,451,451Rday1,451-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1695916861593965,0.0516540294504994,10000,394,unchanged_declared_scope
-451Rday1__451-6day1,451Rday1->451-6day1,451,451Rday1,451-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1614195197608543,-7.106413342097671e-05,10000,111,unchanged_declared_scope
-451-3day1__451-9day1,451-3day1->451-9day1,451,451-3day1,451-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.1915642642159209,0.0017306953889808,10000,397,unchanged_declared_scope
-451-3day1__451-9day1,451-3day1->451-9day1,451,451-3day1,451-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.2882650724700054,0.0415166420850356,10000,397,unchanged_declared_scope
-451-3day1__451-9day1,451-3day1->451-9day1,451,451-3day1,451-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3004535159379877,0.0001007838208722,10000,105,unchanged_declared_scope
-468Lday1__468-6day1,468Lday1->468-6day1,468,468Lday1,468-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0064042304324985,0.0031058989895334,10000,131,unchanged_declared_scope
-468Lday1__468-6day1,468Lday1->468-6day1,468,468Lday1,468-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1277037928436964,0.0596480454319444,10000,131,unchanged_declared_scope
-468Lday1__468-6day1,468Lday1->468-6day1,468,468Lday1,468-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1688072602565052,5.233032365492402e-05,10000,101,unchanged_declared_scope
-468-3day1__468-9day1,468-3day1->468-9day1,468,468-3day1,468-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.0298546297072379,0.0045577937590087,10000,150,unchanged_declared_scope
-468-3day1__468-9day1,468-3day1->468-9day1,468,468-3day1,468-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.1455248479937844,0.0425660011897489,10000,150,unchanged_declared_scope
-468-3day1__468-9day1,468-3day1->468-9day1,468,468-3day1,468-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1462608381659803,0.0001714578386004,10000,106,unchanged_declared_scope
-468-6day1__468-12day1,468-6day1->468-12day1,468,468-6day1,468-12day1,6,12,6,6->12,place,Place map correlation,neuron,nearby_common_cimap,0.2013158597975507,0.005526568204199,10000,159,unchanged_declared_scope
-468-6day1__468-12day1,468-6day1->468-12day1,468,468-6day1,468-12day1,6,12,6,6->12,level,Level map correlation,neuron,nearby_common_cimap,0.2975087819966223,0.025480788999525,10000,159,unchanged_declared_scope
-468-6day1__468-12day1,468-6day1->468-12day1,468,468-6day1,468-12day1,6,12,6,6->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3964804507976825,0.0001677548073594,10000,107,unchanged_declared_scope
-488Rday1__488-6day1,488Rday1->488-6day1,488,488Rday1,488-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0591749959941874,-0.0019452325571336,10000,158,unchanged_declared_scope
-488Rday1__488-6day1,488Rday1->488-6day1,488,488Rday1,488-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1459900967079947,0.0258054043381528,10000,158,unchanged_declared_scope
-488Rday1__488-6day1,488Rday1->488-6day1,488,488Rday1,488-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1919623309506272,-2.4334917780104737e-05,10000,101,unchanged_declared_scope
-489Lday1__489-6day1,489Lday1->489-6day1,489,489Lday1,489-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0498214389540344,-0.0012681963446679,10000,146,unchanged_declared_scope
-489Lday1__489-6day1,489Lday1->489-6day1,489,489Lday1,489-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1181025750121183,0.020376759846699,10000,146,unchanged_declared_scope
-489Lday1__489-6day1,489Lday1->489-6day1,489,489Lday1,489-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2714500666883646,-0.00013537476204,10000,107,unchanged_declared_scope
-837day1__837-6day1,837day1->837-6day1,837,837day1,837-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.025021449842442,0.0025683950529724,10000,417,unchanged_declared_scope
-837day1__837-6day1,837day1->837-6day1,837,837day1,837-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.164969049880673,0.0343246360151254,10000,417,unchanged_declared_scope
-837day1__837-6day1,837day1->837-6day1,837,837day1,837-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1042580091871383,0.0001405554720751,10000,110,unchanged_declared_scope
-837-3day1__837-9day1,837-3day1->837-9day1,837,837-3day1,837-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.3946330307961628,0.0026804579791018,10000,575,unchanged_declared_scope
-837-3day1__837-9day1,837-3day1->837-9day1,837,837-3day1,837-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.4999851405286842,0.0376395311136263,10000,575,unchanged_declared_scope
-837-3day1__837-9day1,837-3day1->837-9day1,837,837-3day1,837-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.4534616537137869,-2.9789005991659072e-05,10000,106,unchanged_declared_scope
-837-6day1__837-12day1,837-6day1->837-12day1,837,837-6day1,837-12day1,6,12,6,6->12,place,Place map correlation,neuron,nearby_common_cimap,0.268647726417311,0.0024584295424177,10000,615,unchanged_declared_scope
-837-6day1__837-12day1,837-6day1->837-12day1,837,837-6day1,837-12day1,6,12,6,6->12,level,Level map correlation,neuron,nearby_common_cimap,0.3296484295955931,0.0120598194167381,10000,615,unchanged_declared_scope
-837-6day1__837-12day1,837-6day1->837-12day1,837,837-6day1,837-12day1,6,12,6,6->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2933516825706562,-6.400529404173394e-06,10000,85,unchanged_declared_scope
-838day1__838-6day1,838day1->838-6day1,838,838day1,838-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0970840904037887,0.0026809864458431,10000,501,unchanged_declared_scope
-838day1__838-6day1,838day1->838-6day1,838,838day1,838-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1557593386566795,0.0071301376572548,10000,501,unchanged_declared_scope
-838day1__838-6day1,838day1->838-6day1,838,838day1,838-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1448658954232735,9.011678229969396e-06,10000,111,unchanged_declared_scope
-838-3day1__838-9day1,838-3day1->838-9day1,838,838-3day1,838-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.0157912183112622,0.001272171621479,10000,576,unchanged_declared_scope
-838-3day1__838-9day1,838-3day1->838-9day1,838,838-3day1,838-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.1704350751961402,0.0096112275410418,10000,576,unchanged_declared_scope
-838-3day1__838-9day1,838-3day1->838-9day1,838,838-3day1,838-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0727244402211253,-8.019526601271111e-05,10000,112,unchanged_declared_scope
-838-6day1__838-12day1,838-6day1->838-12day1,838,838-6day1,838-12day1,6,12,6,6->12,place,Place map correlation,neuron,nearby_common_cimap,0.0095444484304899,0.0030719977503757,10000,626,unchanged_declared_scope
-838-6day1__838-12day1,838-6day1->838-12day1,838,838-6day1,838-12day1,6,12,6,6->12,level,Level map correlation,neuron,nearby_common_cimap,0.3177897626066752,0.0260250261371234,10000,626,unchanged_declared_scope
-838-6day1__838-12day1,838-6day1->838-12day1,838,838-6day1,838-12day1,6,12,6,6->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0657657367767633,3.8220239767347466e-05,10000,111,unchanged_declared_scope
-839day1__839-6day1,839day1->839-6day1,839,839day1,839-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,-0.008869123979971,4.338224874465447e-05,10000,176,unchanged_declared_scope
-839day1__839-6day1,839day1->839-6day1,839,839day1,839-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,-0.03772563848228,0.0124342544335815,10000,176,unchanged_declared_scope
-839day1__839-6day1,839day1->839-6day1,839,839day1,839-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0191362595955594,-6.501935813814274e-05,10000,96,unchanged_declared_scope
-839-3day1__839-9day1,839-3day1->839-9day1,839,839-3day1,839-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.1209397717465199,0.0008987187539246,10000,545,unchanged_declared_scope
-839-3day1__839-9day1,839-3day1->839-9day1,839,839-3day1,839-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.256745279843353,0.038526549925607,10000,545,unchanged_declared_scope
-839-3day1__839-9day1,839-3day1->839-9day1,839,839-3day1,839-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1511024006479422,0.0001251480353499,10000,104,unchanged_declared_scope
-839-6day1__839-12day1,839-6day1->839-12day1,839,839-6day1,839-12day1,6,12,6,6->12,place,Place map correlation,neuron,nearby_common_cimap,0.012603254101847,0.0032199015740891,10000,491,unchanged_declared_scope
-839-6day1__839-12day1,839-6day1->839-12day1,839,839-6day1,839-12day1,6,12,6,6->12,level,Level map correlation,neuron,nearby_common_cimap,0.1134391258473516,0.0377909338985519,10000,491,unchanged_declared_scope
-839-6day1__839-12day1,839-6day1->839-12day1,839,839-6day1,839-12day1,6,12,6,6->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0606917263328167,-7.455714880233642e-05,10000,91,unchanged_declared_scope
-842day1__842-6day1,842day1->842-6day1,842,842day1,842-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0013200154125726565,-0.0011153050764973844,10000,45,recomputed_corrected_842_nearby_common
-842day1__842-6day1,842day1->842-6day1,842,842day1,842-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,-0.01130256115001373,0.04509639708114098,10000,45,recomputed_corrected_842_nearby_common
-842day1__842-6day1,842day1->842-6day1,842,842day1,842-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,-0.023466826646472743,-4.533585347283462e-05,10000,111,recomputed_corrected_842_nearby_common
-842-3day1__842-9day1,842-3day1->842-9day1,842,842-3day1,842-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.1304540125679482,0.0025428837142893,10000,343,unchanged_declared_scope
-842-3day1__842-9day1,842-3day1->842-9day1,842,842-3day1,842-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.222810058329369,0.0321127003587561,10000,343,unchanged_declared_scope
-842-3day1__842-9day1,842-3day1->842-9day1,842,842-3day1,842-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1914057889895687,-0.0001574841873217,10000,106,unchanged_declared_scope
-862day1__862-6day1,862day1->862-6day1,862,862day1,862-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0066471066986445,0.0009377733996765,10000,138,unchanged_declared_scope
-862day1__862-6day1,862day1->862-6day1,862,862day1,862-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.2218211199993888,0.0254875050680432,10000,138,unchanged_declared_scope
-862day1__862-6day1,862day1->862-6day1,862,862day1,862-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0650052023916857,1.3238449847998737e-05,10000,110,unchanged_declared_scope
-418RRday1__418-9day1,418RRday1->418-9day1,418,418RRday1,418-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.2236469776260164,0.0019237106399153,10000,403,unchanged_declared_scope
-418RRday1__418-9day1,418RRday1->418-9day1,418,418RRday1,418-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.3389518064044645,0.0228928680030972,10000,403,unchanged_declared_scope
-418RRday1__418-9day1,418RRday1->418-9day1,418,418RRday1,418-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3259775515936601,-5.048143988719196e-05,10000,101,unchanged_declared_scope
-451Rday1__451-9day1,451Rday1->451-9day1,451,451Rday1,451-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.0698163773877006,-0.0005915348579569,10000,358,unchanged_declared_scope
-451Rday1__451-9day1,451Rday1->451-9day1,451,451Rday1,451-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.1528785968754375,0.0622725088473024,10000,358,unchanged_declared_scope
-451Rday1__451-9day1,451Rday1->451-9day1,451,451Rday1,451-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1308696307883959,-8.028450496666559e-05,10000,106,unchanged_declared_scope
-468Lday1__468-9day1,468Lday1->468-9day1,468,468Lday1,468-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.000537655271912,0.0015944555351514,10000,97,unchanged_declared_scope
-468Lday1__468-9day1,468Lday1->468-9day1,468,468Lday1,468-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.1262259809832158,0.061292644528036,10000,97,unchanged_declared_scope
-468Lday1__468-9day1,468Lday1->468-9day1,468,468Lday1,468-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1282846906380615,-6.414934947298618e-05,10000,102,unchanged_declared_scope
-468-3day1__468-12day1,468-3day1->468-12day1,468,468-3day1,468-12day1,3,12,9,3->12,place,Place map correlation,neuron,nearby_common_cimap,0.034731238665074,0.0020726845143361,10000,124,unchanged_declared_scope
-468-3day1__468-12day1,468-3day1->468-12day1,468,468-3day1,468-12day1,3,12,9,3->12,level,Level map correlation,neuron,nearby_common_cimap,0.1442552611097845,0.0277539249584317,10000,124,unchanged_declared_scope
-468-3day1__468-12day1,468-3day1->468-12day1,468,468-3day1,468-12day1,3,12,9,3->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1867398253067858,0.000479950838398,10000,107,unchanged_declared_scope
-837day1__837-9day1,837day1->837-9day1,837,837day1,837-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.051832341446157,0.0029913329406958,10000,347,unchanged_declared_scope
-837day1__837-9day1,837day1->837-9day1,837,837day1,837-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.1951470349287736,0.0420122820796583,10000,347,unchanged_declared_scope
-837day1__837-9day1,837day1->837-9day1,837,837day1,837-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1120823562935492,-0.0001205266892513,10000,109,unchanged_declared_scope
-837-3day1__837-12day1,837-3day1->837-12day1,837,837-3day1,837-12day1,3,12,9,3->12,place,Place map correlation,neuron,nearby_common_cimap,0.3143089120984641,0.0020068572579635,10000,482,unchanged_declared_scope
-837-3day1__837-12day1,837-3day1->837-12day1,837,837-3day1,837-12day1,3,12,9,3->12,level,Level map correlation,neuron,nearby_common_cimap,0.3997049882109548,0.0211276779784795,10000,482,unchanged_declared_scope
-837-3day1__837-12day1,837-3day1->837-12day1,837,837-3day1,837-12day1,3,12,9,3->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.341902287337805,9.547507351497764e-05,10000,84,unchanged_declared_scope
-838day1__838-9day1,838day1->838-9day1,838,838day1,838-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.1718629346782514,0.0026472112370338,10000,306,unchanged_declared_scope
-838day1__838-9day1,838day1->838-9day1,838,838day1,838-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.2064489094090391,0.0089828235981089,10000,306,unchanged_declared_scope
-838day1__838-9day1,838day1->838-9day1,838,838day1,838-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1882909626958887,0.0001220313747108,10000,112,unchanged_declared_scope
-838-3day1__838-12day1,838-3day1->838-12day1,838,838-3day1,838-12day1,3,12,9,3->12,place,Place map correlation,neuron,nearby_common_cimap,0.2547075244652408,0.0050559632848845,10000,512,unchanged_declared_scope
-838-3day1__838-12day1,838-3day1->838-12day1,838,838-3day1,838-12day1,3,12,9,3->12,level,Level map correlation,neuron,nearby_common_cimap,0.3121806393404809,0.0113221816345141,10000,512,unchanged_declared_scope
-838-3day1__838-12day1,838-3day1->838-12day1,838,838-3day1,838-12day1,3,12,9,3->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2782942334039962,-1.103039504220658e-05,10000,112,unchanged_declared_scope
-839day1__839-9day1,839day1->839-9day1,839,839day1,839-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.0130764364976014,0.0034907601402457,10000,155,unchanged_declared_scope
-839day1__839-9day1,839day1->839-9day1,839,839day1,839-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.0177437881231271,0.0208347561875664,10000,155,unchanged_declared_scope
-839day1__839-9day1,839day1->839-9day1,839,839day1,839-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0453669772416335,-6.976520208459582e-05,10000,101,unchanged_declared_scope
-839-3day1__839-12day1,839-3day1->839-12day1,839,839-3day1,839-12day1,3,12,9,3->12,place,Place map correlation,neuron,nearby_common_cimap,0.2481540961500549,0.0014643813323594,10000,354,unchanged_declared_scope
-839-3day1__839-12day1,839-3day1->839-12day1,839,839-3day1,839-12day1,3,12,9,3->12,level,Level map correlation,neuron,nearby_common_cimap,0.3092529811772043,0.016415346240629,10000,354,unchanged_declared_scope
-839-3day1__839-12day1,839-3day1->839-12day1,839,839-3day1,839-12day1,3,12,9,3->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2899725661248748,0.0001175734696281,10000,95,unchanged_declared_scope
-842day1__842-9day1,842day1->842-9day1,842,842day1,842-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,-0.00023960922998508865,0.002190321568437443,10000,36,recomputed_corrected_842_nearby_common
-842day1__842-9day1,842day1->842-9day1,842,842day1,842-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,-0.037008099696648825,0.08281768115711706,10000,36,recomputed_corrected_842_nearby_common
-842day1__842-9day1,842day1->842-9day1,842,842day1,842-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,-0.04181371653640717,-6.930225286654046e-05,10000,107,recomputed_corrected_842_nearby_common
-468Lday1__468-12day1,468Lday1->468-12day1,468,468Lday1,468-12day1,0,12,12,0->12,place,Place map correlation,neuron,nearby_common_cimap,0.0062721489071065,0.0002907140062217,10000,85,unchanged_declared_scope
-468Lday1__468-12day1,468Lday1->468-12day1,468,468Lday1,468-12day1,0,12,12,0->12,level,Level map correlation,neuron,nearby_common_cimap,0.1325305664984011,0.0257350514081229,10000,85,unchanged_declared_scope
-468Lday1__468-12day1,468Lday1->468-12day1,468,468Lday1,468-12day1,0,12,12,0->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1227630653049298,-0.0003549177456104,10000,101,unchanged_declared_scope
-837day1__837-12day1,837day1->837-12day1,837,837day1,837-12day1,0,12,12,0->12,place,Place map correlation,neuron,nearby_common_cimap,0.0281060030182691,-0.0004859449252745,10000,303,unchanged_declared_scope
-837day1__837-12day1,837day1->837-12day1,837,837day1,837-12day1,0,12,12,0->12,level,Level map correlation,neuron,nearby_common_cimap,0.1510132364838278,0.0345192239504254,10000,303,unchanged_declared_scope
-837day1__837-12day1,837day1->837-12day1,837,837day1,837-12day1,0,12,12,0->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.062674982459659,2.9120133221329624e-05,10000,84,unchanged_declared_scope
-838day1__838-12day1,838day1->838-12day1,838,838day1,838-12day1,0,12,12,0->12,place,Place map correlation,neuron,nearby_common_cimap,-0.0097773683952738,0.000831570062906,10000,273,unchanged_declared_scope
-838day1__838-12day1,838day1->838-12day1,838,838day1,838-12day1,0,12,12,0->12,level,Level map correlation,neuron,nearby_common_cimap,0.0635873407137813,0.0091498082465475,10000,273,unchanged_declared_scope
-838day1__838-12day1,838day1->838-12day1,838,838day1,838-12day1,0,12,12,0->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0010770851930384,0.0001437213114633,10000,112,unchanged_declared_scope
-839day1__839-12day1,839day1->839-12day1,839,839day1,839-12day1,0,12,12,0->12,place,Place map correlation,neuron,nearby_common_cimap,0.0086415889603885,-0.0059016524190003,10000,101,unchanged_declared_scope
-839day1__839-12day1,839day1->839-12day1,839,839day1,839-12day1,0,12,12,0->12,level,Level map correlation,neuron,nearby_common_cimap,-0.0139681451995713,0.0085872307338961,10000,101,unchanged_declared_scope
-839day1__839-12day1,839day1->839-12day1,839,839day1,839-12day1,0,12,12,0->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0259816666288707,-0.0004421238865987,10000,93,unchanged_declared_scope
+pair_id,pair_key,animal,src_session,dst_session,src_month,dst_month,gap_months,pair_family,metric,metric_label,point_kind,matching_mode,observed_mean,shuffle_mean,shuffle_repeats,n_units_finite
+1616bday1__1616b-3day1,1616bday1->1616b-3day1,1616,1616bday1,1616b-3day1,1,3,3,1->3_special_3mo,place,Place map correlation,neuron,nearby_common_cimap,0.1663484853180413,0.0007198489644704,10000,958
+1616bday1__1616b-3day1,1616bday1->1616b-3day1,1616,1616bday1,1616b-3day1,1,3,3,1->3_special_3mo,level,Level map correlation,neuron,nearby_common_cimap,0.3060983791803795,0.0401622243609222,10000,958
+1616bday1__1616b-3day1,1616bday1->1616b-3day1,1616,1616bday1,1616b-3day1,1,3,3,1->3_special_3mo,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2162529050198434,3.761660025693928e-05,10000,113
+418RRday1__418-3day1,418RRday1->418-3day1,418,418RRday1,418-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.0251564639337082,0.0011075716489685,10000,435
+418RRday1__418-3day1,418RRday1->418-3day1,418,418RRday1,418-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1734933385892109,0.0240858919022971,10000,435
+418RRday1__418-3day1,418RRday1->418-3day1,418,418RRday1,418-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.171879574444637,-9.124198924060164e-05,10000,102
+418-3day1__418-6day1,418-3day1->418-6day1,418,418-3day1,418-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.0086714477063273,0.0032700618960234,10000,521
+418-3day1__418-6day1,418-3day1->418-6day1,418,418-3day1,418-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2982328516608002,0.0401263655198689,10000,521
+418-3day1__418-6day1,418-3day1->418-6day1,418,418-3day1,418-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1468759567600847,5.53036091638236e-05,10000,101
+418-6day1__418-9day1,418-6day1->418-9day1,418,418-6day1,418-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.0073159518588404,0.0051611586523121,10000,588
+418-6day1__418-9day1,418-6day1->418-9day1,418,418-6day1,418-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.1585495651721572,0.0288100062037078,10000,588
+418-6day1__418-9day1,418-6day1->418-9day1,418,418-6day1,418-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1517398478508572,0.0001059770421948,10000,100
+422RRday1__422-3day1,422RRday1->422-3day1,422,422RRday1,422-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.020786762605065,0.0008698203563005,10000,346
+422RRday1__422-3day1,422RRday1->422-3day1,422,422RRday1,422-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1828352626622861,0.0322968332573743,10000,346
+422RRday1__422-3day1,422RRday1->422-3day1,422,422RRday1,422-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1010756060886079,-0.0001217604034938,10000,110
+422-3day1__422-6day1,422-3day1->422-6day1,422,422-3day1,422-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.1204263073559113,0.0007885144185259,10000,340
+422-3day1__422-6day1,422-3day1->422-6day1,422,422-3day1,422-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2336457187985605,0.0166554520946116,10000,340
+422-3day1__422-6day1,422-3day1->422-6day1,422,422-3day1,422-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2066606248850905,-5.61913243156396e-05,10000,107
+434RRday1__434-3day1,434RRday1->434-3day1,434,434RRday1,434-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.049896152658971,0.0009732480237503,10000,414
+434RRday1__434-3day1,434RRday1->434-3day1,434,434RRday1,434-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1912202460458297,0.079618436561466,10000,414
+434RRday1__434-3day1,434RRday1->434-3day1,434,434RRday1,434-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1740532066760922,-0.0001193527302195,10000,99
+451Rday1__451-3day1,451Rday1->451-3day1,451,451Rday1,451-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.0856200860909862,2.6928192844742816e-05,10000,442
+451Rday1__451-3day1,451Rday1->451-3day1,451,451Rday1,451-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.2196293220126862,0.0556192183525862,10000,442
+451Rday1__451-3day1,451Rday1->451-3day1,451,451Rday1,451-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2080495973788438,7.134232230796096e-05,10000,110
+451-3day1__451-6day1,451-3day1->451-6day1,451,451-3day1,451-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.2484390209349322,0.0033565610888994,10000,451
+451-3day1__451-6day1,451-3day1->451-6day1,451,451-3day1,451-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.3333878917608366,0.0294645085595604,10000,451
+451-3day1__451-6day1,451-3day1->451-6day1,451,451-3day1,451-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3684854088693959,0.0002108477828514,10000,109
+451-6day1__451-9day1,451-6day1->451-9day1,451,451-6day1,451-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.2727473417148862,0.0024467467829898,10000,477
+451-6day1__451-9day1,451-6day1->451-9day1,451,451-6day1,451-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.3929801327417754,0.0359642649792604,10000,477
+451-6day1__451-9day1,451-6day1->451-9day1,451,451-6day1,451-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.4021229752201947,8.994545492314981e-06,10000,105
+468Lday1__468-3day1,468Lday1->468-3day1,468,468Lday1,468-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.1186936162574558,0.0008375938103643,10000,166
+468Lday1__468-3day1,468Lday1->468-3day1,468,468Lday1,468-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.185376368245272,0.0315772924951076,10000,166
+468Lday1__468-3day1,468Lday1->468-3day1,468,468Lday1,468-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.256660340618051,-0.0001733681477195,10000,102
+468-3day1__468-6day1,468-3day1->468-6day1,468,468-3day1,468-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.0342079787705722,0.0095492541358986,10000,228
+468-3day1__468-6day1,468-3day1->468-6day1,468,468-3day1,468-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.141425671993754,0.0457842478581341,10000,228
+468-3day1__468-6day1,468-3day1->468-6day1,468,468-3day1,468-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1972892499373039,0.0002151957420948,10000,106
+468-6day1__468-9day1,468-6day1->468-9day1,468,468-6day1,468-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.227971559108979,0.0067467286201959,10000,188
+468-6day1__468-9day1,468-6day1->468-9day1,468,468-6day1,468-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.3261807860037696,0.0522546639183551,10000,188
+468-6day1__468-9day1,468-6day1->468-9day1,468,468-6day1,468-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.331829997775041,-4.743468254095613e-05,10000,106
+468-9day1__468-12day1,468-9day1->468-12day1,468,468-9day1,468-12day1,9,12,3,9->12,place,Place map correlation,neuron,nearby_common_cimap,0.2113454981785041,0.0035516669421648,10000,209
+468-9day1__468-12day1,468-9day1->468-12day1,468,468-9day1,468-12day1,9,12,3,9->12,level,Level map correlation,neuron,nearby_common_cimap,0.3886567298688277,0.0333119867617468,10000,209
+468-9day1__468-12day1,468-9day1->468-12day1,468,468-9day1,468-12day1,9,12,3,9->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3513343872155303,0.0002636330250841,10000,107
+488Rday1__488-3day1,488Rday1->488-3day1,488,488Rday1,488-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,-0.0070995192268825,0.0025944808388842,10000,203
+488Rday1__488-3day1,488Rday1->488-3day1,488,488Rday1,488-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.0947363976048782,0.0328076235271513,10000,203
+488Rday1__488-3day1,488Rday1->488-3day1,488,488Rday1,488-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1275579438258759,-9.741662163186162e-05,10000,108
+488-3day1__488-6day1,488-3day1->488-6day1,488,488-3day1,488-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.0283100579919052,0.0028329438677735,10000,217
+488-3day1__488-6day1,488-3day1->488-6day1,488,488-3day1,488-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2058147467650344,0.0462779902802859,10000,217
+488-3day1__488-6day1,488-3day1->488-6day1,488,488-3day1,488-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1658276139488547,-0.0001812814443925,10000,102
+489Lday1__489-3day1,489Lday1->489-3day1,489,489Lday1,489-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.1204575613995916,0.0032258915137909,10000,170
+489Lday1__489-3day1,489Lday1->489-3day1,489,489Lday1,489-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.181822438753202,0.046182399089489,10000,170
+489Lday1__489-3day1,489Lday1->489-3day1,489,489Lday1,489-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3168114331051839,-4.1194183499182665e-05,10000,110
+489-3day1__489-6day1,489-3day1->489-6day1,489,489-3day1,489-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.1097663718570606,0.0040510892157224,10000,198
+489-3day1__489-6day1,489-3day1->489-6day1,489,489-3day1,489-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2188066175004341,0.0282325229810023,10000,198
+489-3day1__489-6day1,489-3day1->489-6day1,489,489-3day1,489-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3405039652679419,-0.0001389323837705,10000,105
+579RLday1__579-3day1,579RLday1->579-3day1,579,579RLday1,579-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.1378497528139318,0.0024650417555179,10000,484
+579RLday1__579-3day1,579RLday1->579-3day1,579,579RLday1,579-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.261472809187414,0.0588611555916084,10000,484
+579RLday1__579-3day1,579RLday1->579-3day1,579,579RLday1,579-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2640392694395539,8.763013491178491e-05,10000,111
+837day1__837-3day1,837day1->837-3day1,837,837day1,837-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.0250130295145134,0.0015091052951067,10000,569
+837day1__837-3day1,837day1->837-3day1,837,837day1,837-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1743918069975589,0.0316573696461715,10000,569
+837day1__837-3day1,837day1->837-3day1,837,837day1,837-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1366875291137057,-0.0001187332764147,10000,106
+837-3day1__837-6day1,837-3day1->837-6day1,837,837-3day1,837-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.3924437566976838,0.0028109459110415,10000,706
+837-3day1__837-6day1,837-3day1->837-6day1,837,837-3day1,837-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.502496003613528,0.0274552586287018,10000,706
+837-3day1__837-6day1,837-3day1->837-6day1,837,837-3day1,837-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.5004417704723513,-1.51125471800279e-05,10000,106
+837-6day1__837-9day1,837-6day1->837-9day1,837,837-6day1,837-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.3720809373968942,0.0064434252166226,10000,749
+837-6day1__837-9day1,837-6day1->837-9day1,837,837-6day1,837-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.4666498973475415,0.0316471255217503,10000,749
+837-6day1__837-9day1,837-6day1->837-9day1,837,837-6day1,837-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.4533474960035665,5.522244541601733e-05,10000,110
+837-9day1__837-12day1,837-9day1->837-12day1,837,837-9day1,837-12day1,9,12,3,9->12,place,Place map correlation,neuron,nearby_common_cimap,0.4282311219485878,0.0024158492914841,10000,738
+837-9day1__837-12day1,837-9day1->837-12day1,837,837-9day1,837-12day1,9,12,3,9->12,level,Level map correlation,neuron,nearby_common_cimap,0.5213370919202216,0.0154988899854358,10000,738
+837-9day1__837-12day1,837-9day1->837-12day1,837,837-9day1,837-12day1,9,12,3,9->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.4678802465769889,0.00010130081822,10000,85
+838day1__838-3day1,838day1->838-3day1,838,838day1,838-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,-0.0006582638543848,0.0023280420724386,10000,665
+838day1__838-3day1,838day1->838-3day1,838,838day1,838-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.1979059709952232,0.0045338714790341,10000,665
+838day1__838-3day1,838day1->838-3day1,838,838day1,838-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0669692919663596,-8.341991206576225e-05,10000,112
+838-3day1__838-6day1,838-3day1->838-6day1,838,838-3day1,838-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.0181386215084231,0.0034349632360275,10000,948
+838-3day1__838-6day1,838-3day1->838-6day1,838,838-3day1,838-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.34617347731657,0.014590246418713,10000,948
+838-3day1__838-6day1,838-3day1->838-6day1,838,838-3day1,838-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1010128332977834,3.497908015085797e-05,10000,111
+838-6day1__838-9day1,838-6day1->838-9day1,838,838-6day1,838-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.0586024240514129,0.0016353666254033,10000,725
+838-6day1__838-9day1,838-6day1->838-9day1,838,838-6day1,838-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.1891850900911824,0.0234726974707462,10000,725
+838-6day1__838-9day1,838-6day1->838-9day1,838,838-6day1,838-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1371661962992816,-1.2416437875285463e-05,10000,111
+838-9day1__838-12day1,838-9day1->838-12day1,838,838-9day1,838-12day1,9,12,3,9->12,place,Place map correlation,neuron,nearby_common_cimap,0.0502611381185677,0.0035037065574172,10000,809
+838-9day1__838-12day1,838-9day1->838-12day1,838,838-9day1,838-12day1,9,12,3,9->12,level,Level map correlation,neuron,nearby_common_cimap,0.2294892842063039,0.0276630510336661,10000,809
+838-9day1__838-12day1,838-9day1->838-12day1,838,838-9day1,838-12day1,9,12,3,9->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1275748266565159,-1.7608362329147186e-05,10000,112
+839day1__839-3day1,839day1->839-3day1,839,839day1,839-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.0023132447817822,-0.0008840135875416,10000,356
+839day1__839-3day1,839day1->839-3day1,839,839day1,839-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,-0.022739564508752,0.0004610250171181,10000,356
+839day1__839-3day1,839day1->839-3day1,839,839day1,839-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0137548242172036,-4.469119296683854e-06,10000,103
+839-3day1__839-6day1,839-3day1->839-6day1,839,839-3day1,839-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.087499305209609,0.0017481342233319,10000,645
+839-3day1__839-6day1,839-3day1->839-6day1,839,839-3day1,839-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.2296014318329261,0.0327930493217702,10000,645
+839-3day1__839-6day1,839-3day1->839-6day1,839,839-3day1,839-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1443722174430158,-5.084726785116663e-05,10000,101
+839-6day1__839-9day1,839-6day1->839-9day1,839,839-6day1,839-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.0839039800667561,0.0006970080454113,10000,842
+839-6day1__839-9day1,839-6day1->839-9day1,839,839-6day1,839-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.201769306071788,0.0616615326922799,10000,842
+839-6day1__839-9day1,839-6day1->839-9day1,839,839-6day1,839-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1313503903401311,1.2488659155727132e-05,10000,97
+839-9day1__839-12day1,839-9day1->839-12day1,839,839-9day1,839-12day1,9,12,3,9->12,place,Place map correlation,neuron,nearby_common_cimap,0.1242280469235539,0.0027221964113008,10000,669
+839-9day1__839-12day1,839-9day1->839-12day1,839,839-9day1,839-12day1,9,12,3,9->12,level,Level map correlation,neuron,nearby_common_cimap,0.2252267267320592,0.0643063560568463,10000,669
+839-9day1__839-12day1,839-9day1->839-12day1,839,839-9day1,839-12day1,9,12,3,9->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2020337348858626,3.3234036389529174e-05,10000,94
+842day1__842-3day1,842day1->842-3day1,842,842day1,842-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,0.024744643578739175,0.0031002456262566465,10000,75
+842day1__842-3day1,842day1->842-3day1,842,842day1,842-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.05554206543534955,0.04147987042139699,10000,75
+842day1__842-3day1,842day1->842-3day1,842,842day1,842-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,-0.01702145506818525,-7.55252017972281e-05,10000,111
+842-3day1__842-6day1,842-3day1->842-6day1,842,842-3day1,842-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.2351901180863406,0.0051691634337584,10000,416
+842-3day1__842-6day1,842-3day1->842-6day1,842,842-3day1,842-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.3122128107749687,0.0320088945214682,10000,416
+842-3day1__842-6day1,842-3day1->842-6day1,842,842-3day1,842-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.287394947698215,1.963994560201092e-05,10000,110
+842-6day1__842-9day1,842-6day1->842-9day1,842,842-6day1,842-9day1,6,9,3,6->9,place,Place map correlation,neuron,nearby_common_cimap,0.1776446608970298,0.0060107688912133,10000,457
+842-6day1__842-9day1,842-6day1->842-9day1,842,842-6day1,842-9day1,6,9,3,6->9,level,Level map correlation,neuron,nearby_common_cimap,0.2471662267800178,0.0335307034739154,10000,457
+842-6day1__842-9day1,842-6day1->842-9day1,842,842-6day1,842-9day1,6,9,3,6->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3040245187898959,-3.4094003837803904e-05,10000,106
+862day1__862-3day1,862day1->862-3day1,862,862day1,862-3day1,0,3,3,0->3,place,Place map correlation,neuron,nearby_common_cimap,-0.0044590016692767,0.0036918422054642,10000,211
+862day1__862-3day1,862day1->862-3day1,862,862day1,862-3day1,0,3,3,0->3,level,Level map correlation,neuron,nearby_common_cimap,0.226684447957486,0.035142919593863,10000,211
+862day1__862-3day1,862day1->862-3day1,862,862day1,862-3day1,0,3,3,0->3,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0905552896032866,-6.253318113712892e-06,10000,112
+862-3day1__862-6day1,862-3day1->862-6day1,862,862-3day1,862-6day1,3,6,3,3->6,place,Place map correlation,neuron,nearby_common_cimap,0.1767237565618589,-0.0003844612354227,10000,286
+862-3day1__862-6day1,862-3day1->862-6day1,862,862-3day1,862-6day1,3,6,3,3->6,level,Level map correlation,neuron,nearby_common_cimap,0.3281092213680397,0.0204884919152443,10000,286
+862-3day1__862-6day1,862-3day1->862-6day1,862,862-3day1,862-6day1,3,6,3,3->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2619521140740529,6.002494279513747e-05,10000,110
+418RRday1__418-6day1,418RRday1->418-6day1,418,418RRday1,418-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0066039342648699,0.0012616338002543,10000,433
+418RRday1__418-6day1,418RRday1->418-6day1,418,418RRday1,418-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1386510819985164,0.0300364594452468,10000,433
+418RRday1__418-6day1,418RRday1->418-6day1,418,418RRday1,418-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1391873737646772,-6.948104839399504e-05,10000,110
+418-3day1__418-9day1,418-3day1->418-9day1,418,418-3day1,418-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.0214080786300973,0.0037374872572298,10000,466
+418-3day1__418-9day1,418-3day1->418-9day1,418,418-3day1,418-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.1499822777854741,0.0225317304581622,10000,466
+418-3day1__418-9day1,418-3day1->418-9day1,418,418-3day1,418-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1423644008084068,-8.02251844876593e-05,10000,94
+422RRday1__422-6day1,422RRday1->422-6day1,422,422RRday1,422-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0399193043056055,0.0006454951168777,10000,278
+422RRday1__422-6day1,422RRday1->422-6day1,422,422RRday1,422-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.0846975279988669,0.0073221243117099,10000,278
+422RRday1__422-6day1,422RRday1->422-6day1,422,422RRday1,422-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1317608821050963,5.720982596771716e-05,10000,108
+451Rday1__451-6day1,451Rday1->451-6day1,451,451Rday1,451-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0631166273859324,-4.463847756382579e-05,10000,394
+451Rday1__451-6day1,451Rday1->451-6day1,451,451Rday1,451-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1695916861593965,0.0516540294504994,10000,394
+451Rday1__451-6day1,451Rday1->451-6day1,451,451Rday1,451-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1614195197608543,-7.106413342097671e-05,10000,111
+451-3day1__451-9day1,451-3day1->451-9day1,451,451-3day1,451-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.1915642642159209,0.0017306953889808,10000,397
+451-3day1__451-9day1,451-3day1->451-9day1,451,451-3day1,451-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.2882650724700054,0.0415166420850356,10000,397
+451-3day1__451-9day1,451-3day1->451-9day1,451,451-3day1,451-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3004535159379877,0.0001007838208722,10000,105
+468Lday1__468-6day1,468Lday1->468-6day1,468,468Lday1,468-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0064042304324985,0.0031058989895334,10000,131
+468Lday1__468-6day1,468Lday1->468-6day1,468,468Lday1,468-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1277037928436964,0.0596480454319444,10000,131
+468Lday1__468-6day1,468Lday1->468-6day1,468,468Lday1,468-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1688072602565052,5.233032365492402e-05,10000,101
+468-3day1__468-9day1,468-3day1->468-9day1,468,468-3day1,468-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.0298546297072379,0.0045577937590087,10000,150
+468-3day1__468-9day1,468-3day1->468-9day1,468,468-3day1,468-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.1455248479937844,0.0425660011897489,10000,150
+468-3day1__468-9day1,468-3day1->468-9day1,468,468-3day1,468-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1462608381659803,0.0001714578386004,10000,106
+468-6day1__468-12day1,468-6day1->468-12day1,468,468-6day1,468-12day1,6,12,6,6->12,place,Place map correlation,neuron,nearby_common_cimap,0.2013158597975507,0.005526568204199,10000,159
+468-6day1__468-12day1,468-6day1->468-12day1,468,468-6day1,468-12day1,6,12,6,6->12,level,Level map correlation,neuron,nearby_common_cimap,0.2975087819966223,0.025480788999525,10000,159
+468-6day1__468-12day1,468-6day1->468-12day1,468,468-6day1,468-12day1,6,12,6,6->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3964804507976825,0.0001677548073594,10000,107
+488Rday1__488-6day1,488Rday1->488-6day1,488,488Rday1,488-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0591749959941874,-0.0019452325571336,10000,158
+488Rday1__488-6day1,488Rday1->488-6day1,488,488Rday1,488-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1459900967079947,0.0258054043381528,10000,158
+488Rday1__488-6day1,488Rday1->488-6day1,488,488Rday1,488-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1919623309506272,-2.4334917780104737e-05,10000,101
+489Lday1__489-6day1,489Lday1->489-6day1,489,489Lday1,489-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0498214389540344,-0.0012681963446679,10000,146
+489Lday1__489-6day1,489Lday1->489-6day1,489,489Lday1,489-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1181025750121183,0.020376759846699,10000,146
+489Lday1__489-6day1,489Lday1->489-6day1,489,489Lday1,489-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2714500666883646,-0.00013537476204,10000,107
+837day1__837-6day1,837day1->837-6day1,837,837day1,837-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.025021449842442,0.0025683950529724,10000,417
+837day1__837-6day1,837day1->837-6day1,837,837day1,837-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.164969049880673,0.0343246360151254,10000,417
+837day1__837-6day1,837day1->837-6day1,837,837day1,837-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1042580091871383,0.0001405554720751,10000,110
+837-3day1__837-9day1,837-3day1->837-9day1,837,837-3day1,837-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.3946330307961628,0.0026804579791018,10000,575
+837-3day1__837-9day1,837-3day1->837-9day1,837,837-3day1,837-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.4999851405286842,0.0376395311136263,10000,575
+837-3day1__837-9day1,837-3day1->837-9day1,837,837-3day1,837-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.4534616537137869,-2.9789005991659072e-05,10000,106
+837-6day1__837-12day1,837-6day1->837-12day1,837,837-6day1,837-12day1,6,12,6,6->12,place,Place map correlation,neuron,nearby_common_cimap,0.268647726417311,0.0024584295424177,10000,615
+837-6day1__837-12day1,837-6day1->837-12day1,837,837-6day1,837-12day1,6,12,6,6->12,level,Level map correlation,neuron,nearby_common_cimap,0.3296484295955931,0.0120598194167381,10000,615
+837-6day1__837-12day1,837-6day1->837-12day1,837,837-6day1,837-12day1,6,12,6,6->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2933516825706562,-6.400529404173394e-06,10000,85
+838day1__838-6day1,838day1->838-6day1,838,838day1,838-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0970840904037887,0.0026809864458431,10000,501
+838day1__838-6day1,838day1->838-6day1,838,838day1,838-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.1557593386566795,0.0071301376572548,10000,501
+838day1__838-6day1,838day1->838-6day1,838,838day1,838-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1448658954232735,9.011678229969396e-06,10000,111
+838-3day1__838-9day1,838-3day1->838-9day1,838,838-3day1,838-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.0157912183112622,0.001272171621479,10000,576
+838-3day1__838-9day1,838-3day1->838-9day1,838,838-3day1,838-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.1704350751961402,0.0096112275410418,10000,576
+838-3day1__838-9day1,838-3day1->838-9day1,838,838-3day1,838-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0727244402211253,-8.019526601271111e-05,10000,112
+838-6day1__838-12day1,838-6day1->838-12day1,838,838-6day1,838-12day1,6,12,6,6->12,place,Place map correlation,neuron,nearby_common_cimap,0.0095444484304899,0.0030719977503757,10000,626
+838-6day1__838-12day1,838-6day1->838-12day1,838,838-6day1,838-12day1,6,12,6,6->12,level,Level map correlation,neuron,nearby_common_cimap,0.3177897626066752,0.0260250261371234,10000,626
+838-6day1__838-12day1,838-6day1->838-12day1,838,838-6day1,838-12day1,6,12,6,6->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0657657367767633,3.8220239767347466e-05,10000,111
+839day1__839-6day1,839day1->839-6day1,839,839day1,839-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,-0.008869123979971,4.338224874465447e-05,10000,176
+839day1__839-6day1,839day1->839-6day1,839,839day1,839-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,-0.03772563848228,0.0124342544335815,10000,176
+839day1__839-6day1,839day1->839-6day1,839,839day1,839-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0191362595955594,-6.501935813814274e-05,10000,96
+839-3day1__839-9day1,839-3day1->839-9day1,839,839-3day1,839-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.1209397717465199,0.0008987187539246,10000,545
+839-3day1__839-9day1,839-3day1->839-9day1,839,839-3day1,839-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.256745279843353,0.038526549925607,10000,545
+839-3day1__839-9day1,839-3day1->839-9day1,839,839-3day1,839-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1511024006479422,0.0001251480353499,10000,104
+839-6day1__839-12day1,839-6day1->839-12day1,839,839-6day1,839-12day1,6,12,6,6->12,place,Place map correlation,neuron,nearby_common_cimap,0.012603254101847,0.0032199015740891,10000,491
+839-6day1__839-12day1,839-6day1->839-12day1,839,839-6day1,839-12day1,6,12,6,6->12,level,Level map correlation,neuron,nearby_common_cimap,0.1134391258473516,0.0377909338985519,10000,491
+839-6day1__839-12day1,839-6day1->839-12day1,839,839-6day1,839-12day1,6,12,6,6->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0606917263328167,-7.455714880233642e-05,10000,91
+842day1__842-6day1,842day1->842-6day1,842,842day1,842-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0013200154125726565,-0.0011153050764973844,10000,45
+842day1__842-6day1,842day1->842-6day1,842,842day1,842-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,-0.01130256115001373,0.04509639708114098,10000,45
+842day1__842-6day1,842day1->842-6day1,842,842day1,842-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,-0.023466826646472743,-4.533585347283462e-05,10000,111
+842-3day1__842-9day1,842-3day1->842-9day1,842,842-3day1,842-9day1,3,9,6,3->9,place,Place map correlation,neuron,nearby_common_cimap,0.1304540125679482,0.0025428837142893,10000,343
+842-3day1__842-9day1,842-3day1->842-9day1,842,842-3day1,842-9day1,3,9,6,3->9,level,Level map correlation,neuron,nearby_common_cimap,0.222810058329369,0.0321127003587561,10000,343
+842-3day1__842-9day1,842-3day1->842-9day1,842,842-3day1,842-9day1,3,9,6,3->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1914057889895687,-0.0001574841873217,10000,106
+862day1__862-6day1,862day1->862-6day1,862,862day1,862-6day1,0,6,6,0->6,place,Place map correlation,neuron,nearby_common_cimap,0.0066471066986445,0.0009377733996765,10000,138
+862day1__862-6day1,862day1->862-6day1,862,862day1,862-6day1,0,6,6,0->6,level,Level map correlation,neuron,nearby_common_cimap,0.2218211199993888,0.0254875050680432,10000,138
+862day1__862-6day1,862day1->862-6day1,862,862day1,862-6day1,0,6,6,0->6,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0650052023916857,1.3238449847998737e-05,10000,110
+418RRday1__418-9day1,418RRday1->418-9day1,418,418RRday1,418-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.2236469776260164,0.0019237106399153,10000,403
+418RRday1__418-9day1,418RRday1->418-9day1,418,418RRday1,418-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.3389518064044645,0.0228928680030972,10000,403
+418RRday1__418-9day1,418RRday1->418-9day1,418,418RRday1,418-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.3259775515936601,-5.048143988719196e-05,10000,101
+451Rday1__451-9day1,451Rday1->451-9day1,451,451Rday1,451-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.0698163773877006,-0.0005915348579569,10000,358
+451Rday1__451-9day1,451Rday1->451-9day1,451,451Rday1,451-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.1528785968754375,0.0622725088473024,10000,358
+451Rday1__451-9day1,451Rday1->451-9day1,451,451Rday1,451-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1308696307883959,-8.028450496666559e-05,10000,106
+468Lday1__468-9day1,468Lday1->468-9day1,468,468Lday1,468-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.000537655271912,0.0015944555351514,10000,97
+468Lday1__468-9day1,468Lday1->468-9day1,468,468Lday1,468-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.1262259809832158,0.061292644528036,10000,97
+468Lday1__468-9day1,468Lday1->468-9day1,468,468Lday1,468-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1282846906380615,-6.414934947298618e-05,10000,102
+468-3day1__468-12day1,468-3day1->468-12day1,468,468-3day1,468-12day1,3,12,9,3->12,place,Place map correlation,neuron,nearby_common_cimap,0.034731238665074,0.0020726845143361,10000,124
+468-3day1__468-12day1,468-3day1->468-12day1,468,468-3day1,468-12day1,3,12,9,3->12,level,Level map correlation,neuron,nearby_common_cimap,0.1442552611097845,0.0277539249584317,10000,124
+468-3day1__468-12day1,468-3day1->468-12day1,468,468-3day1,468-12day1,3,12,9,3->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1867398253067858,0.000479950838398,10000,107
+837day1__837-9day1,837day1->837-9day1,837,837day1,837-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.051832341446157,0.0029913329406958,10000,347
+837day1__837-9day1,837day1->837-9day1,837,837day1,837-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.1951470349287736,0.0420122820796583,10000,347
+837day1__837-9day1,837day1->837-9day1,837,837day1,837-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1120823562935492,-0.0001205266892513,10000,109
+837-3day1__837-12day1,837-3day1->837-12day1,837,837-3day1,837-12day1,3,12,9,3->12,place,Place map correlation,neuron,nearby_common_cimap,0.3143089120984641,0.0020068572579635,10000,482
+837-3day1__837-12day1,837-3day1->837-12day1,837,837-3day1,837-12day1,3,12,9,3->12,level,Level map correlation,neuron,nearby_common_cimap,0.3997049882109548,0.0211276779784795,10000,482
+837-3day1__837-12day1,837-3day1->837-12day1,837,837-3day1,837-12day1,3,12,9,3->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.341902287337805,9.547507351497764e-05,10000,84
+838day1__838-9day1,838day1->838-9day1,838,838day1,838-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.1718629346782514,0.0026472112370338,10000,306
+838day1__838-9day1,838day1->838-9day1,838,838day1,838-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.2064489094090391,0.0089828235981089,10000,306
+838day1__838-9day1,838day1->838-9day1,838,838day1,838-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1882909626958887,0.0001220313747108,10000,112
+838-3day1__838-12day1,838-3day1->838-12day1,838,838-3day1,838-12day1,3,12,9,3->12,place,Place map correlation,neuron,nearby_common_cimap,0.2547075244652408,0.0050559632848845,10000,512
+838-3day1__838-12day1,838-3day1->838-12day1,838,838-3day1,838-12day1,3,12,9,3->12,level,Level map correlation,neuron,nearby_common_cimap,0.3121806393404809,0.0113221816345141,10000,512
+838-3day1__838-12day1,838-3day1->838-12day1,838,838-3day1,838-12day1,3,12,9,3->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2782942334039962,-1.103039504220658e-05,10000,112
+839day1__839-9day1,839day1->839-9day1,839,839day1,839-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,0.0130764364976014,0.0034907601402457,10000,155
+839day1__839-9day1,839day1->839-9day1,839,839day1,839-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,0.0177437881231271,0.0208347561875664,10000,155
+839day1__839-9day1,839day1->839-9day1,839,839day1,839-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0453669772416335,-6.976520208459582e-05,10000,101
+839-3day1__839-12day1,839-3day1->839-12day1,839,839-3day1,839-12day1,3,12,9,3->12,place,Place map correlation,neuron,nearby_common_cimap,0.2481540961500549,0.0014643813323594,10000,354
+839-3day1__839-12day1,839-3day1->839-12day1,839,839-3day1,839-12day1,3,12,9,3->12,level,Level map correlation,neuron,nearby_common_cimap,0.3092529811772043,0.016415346240629,10000,354
+839-3day1__839-12day1,839-3day1->839-12day1,839,839-3day1,839-12day1,3,12,9,3->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.2899725661248748,0.0001175734696281,10000,95
+842day1__842-9day1,842day1->842-9day1,842,842day1,842-9day1,0,9,9,0->9,place,Place map correlation,neuron,nearby_common_cimap,-0.00023960922998508865,0.002190321568437443,10000,36
+842day1__842-9day1,842day1->842-9day1,842,842day1,842-9day1,0,9,9,0->9,level,Level map correlation,neuron,nearby_common_cimap,-0.037008099696648825,0.08281768115711706,10000,36
+842day1__842-9day1,842day1->842-9day1,842,842day1,842-9day1,0,9,9,0->9,pv,PV correlation,spatial_bin,nearby_common_cimap,-0.04181371653640717,-6.930225286654046e-05,10000,107
+468Lday1__468-12day1,468Lday1->468-12day1,468,468Lday1,468-12day1,0,12,12,0->12,place,Place map correlation,neuron,nearby_common_cimap,0.0062721489071065,0.0002907140062217,10000,85
+468Lday1__468-12day1,468Lday1->468-12day1,468,468Lday1,468-12day1,0,12,12,0->12,level,Level map correlation,neuron,nearby_common_cimap,0.1325305664984011,0.0257350514081229,10000,85
+468Lday1__468-12day1,468Lday1->468-12day1,468,468Lday1,468-12day1,0,12,12,0->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.1227630653049298,-0.0003549177456104,10000,101
+837day1__837-12day1,837day1->837-12day1,837,837day1,837-12day1,0,12,12,0->12,place,Place map correlation,neuron,nearby_common_cimap,0.0281060030182691,-0.0004859449252745,10000,303
+837day1__837-12day1,837day1->837-12day1,837,837day1,837-12day1,0,12,12,0->12,level,Level map correlation,neuron,nearby_common_cimap,0.1510132364838278,0.0345192239504254,10000,303
+837day1__837-12day1,837day1->837-12day1,837,837day1,837-12day1,0,12,12,0->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.062674982459659,2.9120133221329624e-05,10000,84
+838day1__838-12day1,838day1->838-12day1,838,838day1,838-12day1,0,12,12,0->12,place,Place map correlation,neuron,nearby_common_cimap,-0.0097773683952738,0.000831570062906,10000,273
+838day1__838-12day1,838day1->838-12day1,838,838day1,838-12day1,0,12,12,0->12,level,Level map correlation,neuron,nearby_common_cimap,0.0635873407137813,0.0091498082465475,10000,273
+838day1__838-12day1,838day1->838-12day1,838,838day1,838-12day1,0,12,12,0->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0010770851930384,0.0001437213114633,10000,112
+839day1__839-12day1,839day1->839-12day1,839,839day1,839-12day1,0,12,12,0->12,place,Place map correlation,neuron,nearby_common_cimap,0.0086415889603885,-0.0059016524190003,10000,101
+839day1__839-12day1,839day1->839-12day1,839,839day1,839-12day1,0,12,12,0->12,level,Level map correlation,neuron,nearby_common_cimap,-0.0139681451995713,0.0085872307338961,10000,101
+839day1__839-12day1,839day1->839-12day1,839,839day1,839-12day1,0,12,12,0->12,pv,PV correlation,spatial_bin,nearby_common_cimap,0.0259816666288707,-0.0004421238865987,10000,93

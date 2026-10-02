@@ -11,6 +11,8 @@ Field-of-view displacement and neuron-matching measurements. [Column and format 
 
 Distances and shifts ending `_um` are micrometres; `_pixels` are image pixels. `microns_per_pixel` converts between them. `spatial_footprint_correlation` is dimensionless; `cellreg_registration_score` measures matching evidence, not biological map stability. Directed candidates are not independent mice and can represent both query directions. `source_summary.json` supplies the cohort and pooling counts. Field-of-view curves summarize animals; candidate histograms pool candidate observations. Missing/unsupported correlations are excluded from the stated plotting range rather than zero-filled.
 
+In the field-of-view table, `source_kind=direct` means one registration alignment; `composed` means a transform composed from the alignments listed in `component_pair_codes`/`component_pair_labels` (34 direct and two composed rows).
+
 | File | Format |
 |---|---|
 | [candidate_features_directed_long.csv](candidate_features_directed_long.csv) | .csv |

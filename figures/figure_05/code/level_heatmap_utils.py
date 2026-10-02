@@ -1,8 +1,4 @@
-"""Lightweight helpers for level-code heatmap assembly.
-
-These routines intentionally avoid importing :mod:`ca_analysis.jw_utils`, whose
-large legacy dependency graph is unnecessary for publication heatmap rendering.
-"""
+"""Array collection and ordering helpers for level-code heatmap assembly."""
 
 from __future__ import annotations
 

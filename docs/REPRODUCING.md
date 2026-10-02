@@ -6,7 +6,7 @@ Run the commands below from the repository root. The launcher checks the source 
 
 Use **Python 3.10** with [requirements-lock.txt](../requirements-lock.txt), which pins the Python packages. [requirements.txt](../requirements.txt) lists direct dependencies; the [environment record](../reproduction/snapshot/RUNTIME_ENVIRONMENT.json) describes export requirements. Browser discovery supports Windows, macOS and Linux; end-to-end checks of the current portable build are pending.
 
-Figure vector exports require an installed **Google Chrome, Chromium or Microsoft Edge**. The shared browser helper checks `PATH` and standard application locations, or uses an explicit `MAZE_BROWSER` executable path. The scripts do not download a browser. The manuscript artwork uses Arial; font substitution can change text geometry. Supplementary tables use **openpyxl** for editable XLSX files and the included Python PDF renderers.
+Figure vector exports require an installed **Google Chrome, Chromium or Microsoft Edge** from a native application/package installer. Snap and Flatpak browsers are unsupported because their confinement can hide the temporary export files. The shared browser helper checks `PATH` and standard application locations, or uses an explicit `MAZE_BROWSER` executable path. The scripts do not download a browser. The manuscript artwork uses Arial; font substitution can change text geometry. Supplementary tables use **openpyxl** for editable XLSX files and the included Python PDF renderers.
 
 A plain Python installation alone is not enough for every export. These are software requirements; no external scientific-data drive is needed.
 

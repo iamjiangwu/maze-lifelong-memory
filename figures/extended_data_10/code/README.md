@@ -11,5 +11,4 @@ These are implementation modules called by the launcher, not independent raw-dat
 - [rebuild_figure.py](rebuild_figure.py)
 - [render_ed10_slide12_powerpoint_matched.py](render_ed10_slide12_powerpoint_matched.py)
 - [Shared runtime source](../../../reproduction/runtime/)
-- [preview_figure3_assembly.py](../../../reproduction/library/preview_figure3_assembly.py)
 - [rebuild_current_extended_data_figures.py](../../../reproduction/snapshot/shared/rebuild_current_extended_data_figures.py)

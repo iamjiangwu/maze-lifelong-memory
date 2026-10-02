@@ -12,6 +12,8 @@ Correlations are dimensionless. The fixed-reference curve tables contain the win
 
 Sliding-pivot curve and display-limit tables contain only the displayed 30-minute window. Statistics use the jointly available curve within each recording cycle. `day_i1_minus_day_i_sd` is Day-2 minus Day-1 within-curve standard deviation, not a difference in fitted slopes. Slopes are correlation per hour. Three separate BH3 families cover Day-1 slopes, Day-2 slopes and the variability differences; repeated cycles remain grouped by animal.
 
+`source_bundle` in the pair-slope table identifies sorted-neuron cohorts or original-neuron naïve fallbacks; see [source-label definitions](../../../docs/DATA.md#source-labels).
+
 | File | Format |
 |---|---|
 | [day2_template_clustered_statistics.csv](day2_template_clustered_statistics.csv) | .csv |

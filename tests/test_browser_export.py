@@ -1,5 +1,6 @@
 """Platform-independent checks for the browser discovery contract."""
 import importlib.util
+import os
 from pathlib import Path
 import tempfile
 import subprocess
@@ -116,6 +117,26 @@ class BrowserDiscoveryTests(unittest.TestCase):
     def test_failed_export_is_not_accepted(self):
         with self.assertRaises(subprocess.CalledProcessError):
             browser.run_browser([sys.executable, '-c', 'raise SystemExit(2)'], check=True)
+
+    @unittest.skipIf(os.name == 'nt', 'POSIX descriptor protocol used only on macOS')
+    def test_macos_close_requests_normal_exit_after_export_marker(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            executable, output = root/'fake-browser', root/'output.pdf'
+            executable.write_text('#!' + sys.executable + '\n'
+                'import os,sys\nfrom pathlib import Path\n'
+                'output=Path(next(x.split("=",1)[1] for x in sys.argv if x.startswith("--print-to-pdf=")))\n'
+                'output.write_bytes(b"PDF fixture")\n'
+                'print("11 bytes written to file " + str(output),file=sys.stderr,flush=True)\n'
+                'request=os.read(3,4096)\n'
+                'assert request == b\'{"id":1,"method":"Browser.close"}\\0\'\n', encoding='utf-8')
+            executable.chmod(0o755)
+            with patch.object(browser.sys, 'platform', 'darwin'):
+                result = browser.run_browser([str(executable), f'--print-to-pdf={output}',
+                                              f'--user-data-dir={root / "profile"}'],
+                                             check=True, timeout=3)
+            self.assertEqual(result.returncode, 0)
+            self.assertEqual(output.read_bytes(), b'PDF fixture')
 
 
 if __name__ == "__main__":

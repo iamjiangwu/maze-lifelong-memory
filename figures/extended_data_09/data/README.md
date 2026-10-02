@@ -24,6 +24,8 @@ Panels n/o show 95% fitted-mean bands from the animal-level sandwich covariance 
 
 Shared observation files for l/n/o contain all relevant neural metrics; the ED9 renderer selects `metric=level_map_correlation`. For l, `reward_context_chain` is joined from the session-chain scope by the three session identifiers. For o, `pair_key` is formed from `src` and `dst`. No duplicate copies of these observations are needed in this folder.
 
+`source_bundles` in the learning summaries identifies the preprocessing cohorts contributing to each row; semicolon-separated labels mark pooled cohorts. See [source-label definitions](../../../docs/DATA.md#source-labels).
+
 | File | Format |
 |---|---|
 | [consecutive_stats.csv](consecutive_stats.csv) | .csv |

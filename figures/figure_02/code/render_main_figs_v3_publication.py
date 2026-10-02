@@ -1,7 +1,7 @@
 """Render Figure 2 from included derived Source Data.
 
-The supported build.py launcher supplies source paths and the three
-record-specific validation callbacks before calling render_figure2.
+The supported build.py launcher supplies source paths and the two
+source-scope validation callbacks before calling render_figure2.
 Historical path defaults below are replaced by that launcher.
 """
 
@@ -64,12 +64,6 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 SORTED_ROOT = REPO_ROOT / "docs" / "sorted_data_full_figure_rerun_2026-06-11"
 
-SOURCE_REPAIR_842_DIR = (
-    SORTED_ROOT / "figure2_main3_ed12_source_repair_842_2026-08-03"
-)
-
-SOURCE_REPAIR_842_MANIFEST = SOURCE_REPAIR_842_DIR / "SOURCE_REPAIR_MANIFEST.json"
-
 EXAMPLE_SAVED_DIR = REPO_ROOT / "docs" / "example_neuron_candidates" / "saved_picks"
 
 FIGURE2_HELPER = REPO_ROOT / "scripts" / "preview_figure2_assembly.py"
@@ -79,25 +73,12 @@ FIGURE2_DISTRIBUTION_DIR = (
     / "figure2_distribution_shuffle_corrected_842_no_presort_exclusions_2026-08-03"
 )
 
-FIGURE2_DISTRIBUTION_PROVENANCE = FIGURE2_DISTRIBUTION_DIR / "provenance_manifest.json"
-
-FIGURE2_DISTRIBUTION_PAIR_INPUT = FIGURE2_DISTRIBUTION_DIR / "pair_input_audit.csv"
-
 FIGURE2_DISTRIBUTION_PAIR_SUPPORT = FIGURE2_DISTRIBUTION_DIR / "pair_support_audit.csv"
 
 FIGURE2_GAP_CURVE = (
     SORTED_ROOT
     / "figure2_gap_anchor_pair_mean_no_manual_mask_2026-08-13"
     / "gap_with_day1_day2_curve_data.csv"
-)
-
-FIGURE2_GAP_PAIR_AUDIT = (
-    SOURCE_REPAIR_842_DIR
-    / "figure2_842_affected_pair_metric_before_after_support_audit.csv"
-)
-
-FIGURE2_GAP_DISTRIBUTION_PARITY = (
-    SOURCE_REPAIR_842_DIR / "figure2_842_0to3_distribution_parity_audit.csv"
 )
 
 FIGURE2_CONSECUTIVE_POINTS = (
@@ -114,15 +95,7 @@ FIGURE2_CONSECUTIVE_STATS = (
 
 FIGURE2_CONSECUTIVE_DIR = SORTED_ROOT / "figure2_consecutive_gap_clean_long_gap_corrected_2026-08-03"
 
-FIGURE2_CONSECUTIVE_MANIFEST = FIGURE2_CONSECUTIVE_DIR / "consecutive_gap_clean_long_gap_manifest.json"
-
-FIGURE2_CONSECUTIVE_UNRESTRICTED_SCOPE = (
-    FIGURE2_CONSECUTIVE_DIR / "consecutive_gap_unrestricted_adjacent_23_chain_scope.csv"
-)
-
 FIGURE2_CONSECUTIVE_CLEAN_SCOPE = FIGURE2_CONSECUTIVE_DIR / "consecutive_gap_clean_long_gap_22_chain_scope.csv"
-
-FIGURE2_CONSECUTIVE_INPUT_AUDIT = FIGURE2_CONSECUTIVE_DIR / "consecutive_gap_sorted_triplet_input_audit.csv"
 
 FIGURE2_RATE_CHAIN_DIR = SORTED_ROOT / "figure2_rate_chain_no_manual_mask_2026-08-07"
 
@@ -1801,7 +1774,6 @@ def _bh_q(p_values: list[float]) -> list[float]:
 
 def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
     out_dir.mkdir(parents=True, exist_ok=True)
-    source_repair_audit = _validate_source_repair_842()
     distribution_scope_audit = _validate_figure2_distribution_sources()
     fig2 = _load_script_module("preview_figure2_assembly_source_render", FIGURE2_HELPER)
     canvas_w, canvas_h = FIGURE2_PPT_LAYOUT_CANVAS_SIZE
@@ -2247,8 +2219,6 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                     }
                     for metric in METRICS
                 },
-                "provenance_manifest": _rel(FIGURE2_DISTRIBUTION_PROVENANCE),
-                "pair_input_audit": _rel(FIGURE2_DISTRIBUTION_PAIR_INPUT),
                 "pair_support_audit": _rel(FIGURE2_DISTRIBUTION_PAIR_SUPPORT),
                 "scope_audit": distribution_scope_audit,
             },
@@ -2259,12 +2229,6 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                 "renderer": "render_main_figs_v3_publication._draw_figure2_gap_curve",
                 "source_path": _rel(FIGURE2_GAP_CURVE),
                 "filters": {"metrics": ["place", "pv", "rate"], "excluded_metrics": ["level"]},
-                "source_repair_manifest": _rel(SOURCE_REPAIR_842_MANIFEST),
-                "corrected_842_pair_audit": _rel(FIGURE2_GAP_PAIR_AUDIT),
-                "corrected_842_distribution_parity_audit": _rel(
-                    FIGURE2_GAP_DISTRIBUTION_PARITY
-                ),
-                "source_repair_audit": source_repair_audit,
             },
             {
                 "panel": "figure2_consecutive_gap",
@@ -2284,7 +2248,6 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                 "filters": {
                     "place_pv_metrics": ["place_map_correlation", "pv_correlation"],
                     "place_pv_source_scope": "22 clean long-gap Day-1 chains from corrected pair authorities",
-                    "unrestricted_adjacency_scope": "23 chains; retained as audit only",
                     "explicitly_excluded_chain": "1616day1 -> 1616bday1 -> 1616b-3day1",
                     "ensemble_rate_scope": "clean_long_gap_day1_triplets",
                     "ensemble_rate_metric": "value_sorted",
@@ -2297,10 +2260,7 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                 "binned_curve_audit": _rel(consecutive_binned_curve_path),
                 "displayed_estimand_bh4": _rel(displayed_estimand_stats_path),
                 "scope_sources": {
-                    "manifest": _rel(FIGURE2_CONSECUTIVE_MANIFEST),
-                    "unrestricted_23": _rel(FIGURE2_CONSECUTIVE_UNRESTRICTED_SCOPE),
                     "clean_22": _rel(FIGURE2_CONSECUTIVE_CLEAN_SCOPE),
-                    "input_audit": _rel(FIGURE2_CONSECUTIVE_INPUT_AUDIT),
                 },
             }
         ],
@@ -2309,7 +2269,6 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
         "consecutive_gap_binned_curve_audit": _rel(consecutive_binned_curve_path),
         "consecutive_gap_displayed_estimand_bh4": _rel(displayed_estimand_stats_path),
         "distribution_scope_audit": distribution_scope_audit,
-        "source_repair_audit": source_repair_audit,
         "consecutive_scope_audit": consecutive_scope_audit,
     }
     _write_json(out_dir / "figure2_source_manifest.json", manifest)
