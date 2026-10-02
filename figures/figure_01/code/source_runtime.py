@@ -86,18 +86,7 @@ def _install_frozen_panel_modules(record: Path):
     for name in tuple(sys.modules):
         if name == "ca_analysis" or name.startswith("ca_analysis."):
             del sys.modules[name]
-    os.environ["CA_COMPAT_LINK_ARTIFACTS"] = "0"
     ca_analysis = importlib.import_module("ca_analysis")
-    compat = importlib.import_module("ca_analysis.compat")
-
-    def frozen_bootstrap_environment(repo_root: str | os.PathLike | None = None):
-        return types.SimpleNamespace(
-            repo_root=str(Path(repo_root).resolve() if repo_root is not None else REPO_ROOT),
-            added_paths=[],
-            missing_paths=[],
-        )
-
-    compat.bootstrap_environment = frozen_bootstrap_environment
 
     # Prefer the figure-local heatmap helper when one is included.
     for stem in ("level_heatmap_utils",):

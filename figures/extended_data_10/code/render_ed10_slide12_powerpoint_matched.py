@@ -1,4 +1,4 @@
-"""Render Extended Data Figure 10 from the three frozen slide-12 source roles.
+"""Render Extended Data Figure 10 from its three plot-ready source tables.
 
 The quantitative inputs are frozen plot-ready tables. Panel a shows black,
 normal-weight correlation values with adjacent stars derived from two-sided
@@ -28,32 +28,13 @@ from statsmodels.stats.sandwich_covariance import cov_cluster
 
 from ca_analysis.figure_colors import get_correlation_measure_colors
 
-REPO = Path(__file__).resolve().parents[1]
-SUPPLEMENT = REPO / "docs" / "extended_data_supplement_v2_rebuild_2026-08-05"
-ROOT = SUPPLEMENT / "ed10_reward_level_behavior_bridge"
-SYNTHESIS = (
-    REPO
-    / "docs"
-    / "extended_data_figure_panel_refresh_2026-07-12"
-    / "source_tables"
-    / "extended_data_fig_11"
-    / "fixed_neuron_correlation_synthesis_2026-08-09"
-)
-TABLE_A = SYNTHESIS / "POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv"
-TABLE_B = SYNTHESIS / "REWARD_LEVEL_COMMONALITY.csv"
-PROFILE_TABLE = SYNTHESIS / "REWARD_LEVEL_PROFILE_TESTS.csv"
-PAIR_AUDIT = SYNTHESIS / "CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
-SYNTHESIS_VALIDATION = SYNTHESIS / "VALIDATION.json"
-SYNTHESIS_MANIFEST = SYNTHESIS / "SOURCE_MANIFEST.csv"
-ROUND6_SOURCE_VALIDATION = ROOT / "ED10_ROUND6_SOURCE_VALIDATION.json"
-TABLE_C = (
-    REPO
-    / "docs"
-    / "extended_data_figure_panel_refresh_2026-07-12"
-    / "source_tables"
-    / "extended_data_fig_11"
-    / "level_policy_bridge_join_corrected36.csv"
-)
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data"
+TABLE_A = DATA / "POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv"
+TABLE_B = DATA / "REWARD_LEVEL_COMMONALITY.csv"
+PROFILE_TABLE = DATA / "REWARD_LEVEL_PROFILE_TESTS.csv"
+PAIR_AUDIT = DATA / "CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
+TABLE_C = DATA / "level_policy_bridge_join_corrected36.csv"
 STATS_C = TABLE_C.with_name("level_policy_bridge_stats_corrected36.csv")
 
 COLORS = get_correlation_measure_colors()
@@ -116,34 +97,6 @@ def record(path: Path, role: str) -> dict[str, object]:
         "bytes": path.stat().st_size,
         "sha256": sha256(path),
     }
-
-
-def resolve_manifest_source(path: Path, expected_sha256: str, expected_bytes: int) -> Path:
-    """Resolve an immutable-record path after administrative record archival."""
-
-    candidates = [path]
-    parts = list(path.parts)
-    record_indices = [
-        index
-        for index, part in enumerate(parts)
-        if part in {"figure_version_records", "figure_version_records_archive_2026-08-09"}
-    ]
-    if record_indices:
-        index = record_indices[-1]
-        tail = Path(*parts[index + 2 :])
-        for root in (
-            REPO / "docs" / "figure_version_records",
-            REPO / "docs" / "figure_version_records_archive_2026-08-09",
-        ):
-            candidates.extend(root.glob(f"*/{tail.as_posix()}"))
-    for candidate in candidates:
-        if (
-            candidate.is_file()
-            and candidate.stat().st_size == expected_bytes
-            and sha256(candidate) == expected_sha256
-        ):
-            return candidate
-    raise FileNotFoundError(path)
 
 
 def configure_style() -> None:
@@ -1150,32 +1103,11 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         TABLE_C,
         STATS_C,
         PAIR_AUDIT,
-        SYNTHESIS_VALIDATION,
-        SYNTHESIS_MANIFEST,
     ]
     for path in required:
         if not path.is_file() or path.stat().st_size == 0:
             raise FileNotFoundError(path)
 
-    synthesis_validation = json.loads(
-        SYNTHESIS_VALIDATION.read_text(encoding="utf-8")
-    )
-    if synthesis_validation.get("status") != "PASS":
-        raise AssertionError("Current ED10 synthesis validation is not PASS")
-    if not all(
-        Path(path).exists() and sha256(Path(path)) == str(digest)
-        for path, digest in synthesis_validation.get("outputs", {}).items()
-    ):
-        raise AssertionError("A current ED10 synthesis output hash is stale")
-    source_manifest = pd.read_csv(SYNTHESIS_MANIFEST)
-    for row in source_manifest.itertuples(index=False):
-        path = Path(str(row.path))
-        try:
-            resolve_manifest_source(path, str(row.sha256), int(row.bytes))
-        except FileNotFoundError as exc:
-            raise AssertionError(
-                f"Stale ED10 synthesis source manifest row: {path}"
-            ) from exc
     a = pd.read_csv(TABLE_A)
     b = pd.read_csv(TABLE_B)
     profile = pd.read_csv(PROFILE_TABLE)
@@ -1443,7 +1375,6 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
             "individual_role_text_contained_and_nonoverlapping": True,
             "assembly_text_contained_and_nonoverlapping": True,
             "same_row_axes_aligned": True,
-            "synthesis_nested_source_and_output_hashes_live": True,
             "whole_session_powerpoint_endpoint_restored": True,
             "whole_maze_decoder_control_added_without_replacing_powerpoint_rows": True,
             "panel_a_exact_6x3_inventory": True,

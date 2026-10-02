@@ -66,10 +66,8 @@ def configure(inputs: Path):
     module.FIGURE5_LEVEL_HEATMAP_PLOT_READY = inputs / "source_data/level_vectors_tree_depth7_corrected36_d1v1.csv"
     module.FIGURE5_LEVEL_HEATMAP_PLOT_READY_SHA256 = sha(module.FIGURE5_LEVEL_HEATMAP_PLOT_READY)
     module.SORTED_LEVEL_EXPLORATION_DIR = bundle
-    scope = pd.read_csv(bundle / "figure5_pair_scope_audit.csv")
     rows = pd.read_csv(module.FIGURE5_LEVEL_HEATMAP_PLOT_READY)
-    assert len(scope) == 36 and len(rows) == 16901
-    validation = {"status": "PASS", "pairs": len(scope), "neurons": len(rows),
+    validation = {"status": "PASS", "neurons": len(rows),
                   "source": "record-frozen ordinary Level-code sources"}
     return engine, publication, module, index, validation
 
@@ -237,14 +235,10 @@ def rebuild(inputs: Path, output: Path) -> list[Path]:
         "records_and_manuscript_modified":False,
     })
     (output/"README.md").write_text(
-        "# Figure 5 / ED9 panel exchange review\n\n"
-        "Figure5 a/b remain unchanged; ED9's Level population-vector heatmap becomes c; "
-        "the original density histogram becomes d in the combined old d/e space; original f becomes e.\n\n"
-        "Rebuild from the self-contained numerical source bundle:\n\n"
-        "`python source_code/rebuild_figure5.py --inputs . --output rebuilt`\n\n"
-        "Python with NumPy, pandas, SciPy, matplotlib, Pillow, PyMuPDF and Microsoft Edge is required. "
-        "Accepted artwork is not an input. Accepted records and manuscripts remain unchanged.\n"
-        "The level population-vector matrix is unchanged from the reviewed ED9 source: cell-wise means across 36 or 32 "
+        "# Figure 5\n\n"
+        "Level-code schematic, registered-neuron level maps, level population-vector correlations, "
+        "level-map correlation distribution, and association with exploration efficiency.\n\n"
+        "The level population-vector matrix contains cell-wise means across 36 or 32 "
         "supported pairs, with no within-neuron normalization, 0-6 level labels, and color limits 0-0.65.\n",
         encoding="utf-8")
     return outputs

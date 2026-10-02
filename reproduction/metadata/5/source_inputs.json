@@ -18,12 +18,8 @@
       "bytes": 5766
     },
     "source_code/frozen_main_rebuild_runtime.py": {
-      "sha256": "bd62175cd73dd4406f6b48ceb8d2f85e538e72d2d9f2b079d4d956dc9c512249",
-      "bytes": 19543
-    },
-    "source_data/figure5_bundle/figure5_pair_scope_audit.csv": {
-      "sha256": "31d8cd8d9e2eb215419e4d821f0622c9911a46d2ad4f43c0ef333fa5df2ab26b",
-      "bytes": 4717
+      "sha256": "61aa631183e7e8fa20030221ae2d5588c2cdf43fdf16f5c6c704b690fef533b3",
+      "bytes": 17701
     },
     "source_data/figure5_bundle/plot_data_cell228_level.npz": {
       "sha256": "9a222da8654d6b0ad439080901c646ecebceec55569057491dcfdfd430a1e1cb",
@@ -54,8 +50,8 @@
       "bytes": 182143
     },
     "source_code/rebuild_figure5.py": {
-      "sha256": "a5660e58a843e113549032687d787da341e8f971e33df5fd7e196a2145cd3554",
-      "bytes": 14832
+      "sha256": "4b9849d640b65ddc23266093e65c9b0c1f9a4b5975a5748fcd75be37bfe61c90",
+      "bytes": 14270
     }
   }
 }

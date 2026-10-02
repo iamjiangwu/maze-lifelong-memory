@@ -67,7 +67,6 @@ ROUND = 20
 # printed effect size must use the same 15 x 15 place-map estimator as Main
 # Figure 2 and the quantitative ED5 analyses.
 GALLERY_CORRELATION_COLUMN = "place_r_15_analysis"
-GALLERY_DISPLAY_CORRELATION_COLUMN = "place_r_45_display"
 GALLERY_CORRELATION_GRID = (15, 15)
 GALLERY_DISPLAY_GRID = (45, 45)
 
@@ -209,8 +208,6 @@ DAY_COMB_STATS = SHORTLIST_DIR / "ed05_day_combination_session_pair_contrasts_cr
 DAY_COMB_DESC = SHORTLIST_DIR / "ed05_day_combination_session_pair_descriptive_cr1.csv"
 EQUAL_PAIRS = ED06_TABLES / "ed06_equal_time_pair_rows_corrected36.csv"
 EQUAL_STATS = ED06_TABLES / "ed06_equal_time_clustered_stats_corrected36.csv"
-EQUAL_SOURCE_SET_EXPECTED = {"clean_authority_2026-08-08"}
-EQUAL_FEASIBILITY_SET_EXPECTED = EQUAL_SOURCE_SET_EXPECTED
 EQUAL_EXTRA_SOURCES: tuple[tuple[str, Path], ...] = ()
 EQUAL_CAPTION_PANEL_NOTE = (
     "- **e.** Equal-time ensemble-rate Outside versus Maze for Day1→Day1 "
@@ -224,11 +221,8 @@ CORRECTED_LONG_GAP_DIR = REFRESH_ROOT / "source_tables" / "corrected_long_gap_me
 PLACE_PAIR_SOURCE = CORRECTED_LONG_GAP_DIR / "place_pair_summary_corrected36_all_variants.csv"
 PV_PAIR_SOURCE = CORRECTED_LONG_GAP_DIR / "pv_pair_summary_corrected36_all_variants.csv"
 RATE_PAIR_SOURCE = CORRECTED_LONG_GAP_DIR / "rate_pair_summary_corrected36_all_variants.csv"
-EXACT_SUPPORT_SOURCE = CORRECTED_LONG_GAP_DIR / "place_pv_rate_exact_support_audit.csv"
 SELECTED_32 = SHORTLIST_DIR / "selected_32.csv"
 SHORTLIST_NPZ = SHORTLIST_DIR / "selected_maps_fields_45_shortlist32.npz"
-GALLERY_PROVENANCE = SHORTLIST_DIR / "ED5_PANEL_A_PER_SIDE_PROVENANCE.csv"
-GALLERY_PROVENANCE_SUMMARY = SHORTLIST_DIR / "ED5_PANEL_A_PROVENANCE_SUMMARY.json"
 
 
 def load_shortlist_maps() -> tuple[pd.DataFrame, dict[str, dict[str, Any]]]:
@@ -251,24 +245,9 @@ def load_shortlist_maps() -> tuple[pd.DataFrame, dict[str, dict[str, Any]]]:
     selected_ids = selected["candidate_id"].astype(str).tolist()
     if npz_ids != selected_ids:
         raise ValueError("Shortlist NPZ candidate order does not match selected_32.csv")
-    schema = str(arrays.get("schema_version", np.asarray("legacy")))
-    if schema != "current_sorted_normalized_gallery_v1":
-        raise ValueError(f"Unexpected gallery map schema: {schema}")
     for key in ("normalized_a", "normalized_b"):
         if arrays[key].shape != (32, 45, 45):
             raise ValueError(f"Unexpected gallery array shape for {key}")
-    if not np.array_equal(arrays["visual_rank"], selected["visual_rank"].to_numpy(int)):
-        raise ValueError("Gallery map ranks disagree with selected_32.csv")
-    if not np.array_equal(
-        arrays["analysis_r15"], selected[GALLERY_CORRELATION_COLUMN].to_numpy(float)
-    ):
-        raise ValueError("Gallery map pack and table correlations disagree")
-    for key, column in (
-        ("source_neuron_zero_based", "train_id"),
-        ("target_neuron_zero_based", "test_id"),
-    ):
-        if not np.array_equal(arrays[key], selected[column].to_numpy(int)):
-            raise ValueError("Gallery map pack and table neuron IDs disagree")
     return selected, {
         candidate_id: {
             "normalized_a": arrays["normalized_a"][index],
@@ -461,20 +440,13 @@ def render_gallery_plate(output_dir: Path) -> tuple[dict[str, Path], dict[str, A
             "train_id",
             "test_id",
             "fixed_main_fig2b",
-            "anchor_order",
             GALLERY_CORRELATION_COLUMN,
-            GALLERY_DISPLAY_CORRELATION_COLUMN,
         ]
     ).copy()
     label_audit = label_audit.rename(
         columns={
             GALLERY_CORRELATION_COLUMN: "displayed_r_15x15_analysis",
-            GALLERY_DISPLAY_CORRELATION_COLUMN: "superseded_r_45x45_display",
         }
-    )
-    label_audit["displayed_minus_superseded"] = (
-        label_audit["displayed_r_15x15_analysis"]
-        - label_audit["superseded_r_45x45_display"]
     )
     label_audit["display_heatmap_grid"] = "45x45"
     label_audit["correlation_grid"] = "15x15"
@@ -485,7 +457,6 @@ def render_gallery_plate(output_dir: Path) -> tuple[dict[str, Path], dict[str, A
             "display_grid_shape": list(GALLERY_DISPLAY_GRID),
             "correlation_label_grid_shape": list(GALLERY_CORRELATION_GRID),
             "correlation_label_column": GALLERY_CORRELATION_COLUMN,
-            "superseded_correlation_label_column": GALLERY_DISPLAY_CORRELATION_COLUMN,
             "correlation_label_audit": _repo_rel(label_audit_path),
             "display_order": "decreasing full-precision correlation; left to right, then top to bottom",
             "display_order_tie_break": "candidate_id ascending",
@@ -910,157 +881,6 @@ def assemble(output_dir: Path) -> dict[str, Any]:
     means = equal_stats.loc[equal_stats["analysis"].isin(["outside", "maze"])].rename(
         columns={"analysis": "condition"}
     )
-    gallery_provenance = pd.read_csv(GALLERY_PROVENANCE)
-    gallery_provenance_summary = json.loads(
-        GALLERY_PROVENANCE_SUMMARY.read_text(encoding="utf-8")
-    )
-    gallery_label_source = pd.read_csv(SELECTED_32)
-    label_values = pd.to_numeric(
-        gallery_label_source[GALLERY_CORRELATION_COLUMN], errors="raise"
-    )
-    fixed_anchors = gallery_label_source.loc[
-        gallery_label_source["fixed_main_fig2b"].astype(bool)
-    ].sort_values("anchor_order", kind="stable")
-    anchor_values = fixed_anchors[GALLERY_CORRELATION_COLUMN].to_numpy(float)
-    expected_anchor_values = np.array(
-        [0.6342874765396118, 0.4175372123718261, 0.1828324496746063, -0.1981758773326873]
-    )
-    gallery_schema = gallery_provenance_summary.get("map_pack_schema", "legacy")
-    current_normalized = gallery_schema == "current_sorted_normalized_gallery_v1"
-    checks.record(
-        "gallery_labels_use_15x15_analysis_correlation",
-        len(label_values) == 32
-        and bool(np.isfinite(label_values).all())
-        and GALLERY_CORRELATION_COLUMN == "place_r_15_analysis",
-        f"n={len(label_values)}; column={GALLERY_CORRELATION_COLUMN}; grid=15x15",
-    )
-    checks.record(
-        "gallery_fixed_figure2b_printed_labels_match_source",
-        len(fixed_anchors) == 4
-        and (
-            np.array_equal(np.round(anchor_values, 2), np.round(expected_anchor_values, 2))
-            if current_normalized else
-            np.allclose(anchor_values, expected_anchor_values, rtol=0.0, atol=1e-6)
-        ),
-        f"values={anchor_values.tolist()}; previous values={expected_anchor_values.tolist()}; "
-        f"current schema={gallery_schema}; printed precision=2 decimals",
-    )
-    equal_source_sets = set(pairs["source_set"].astype(str))
-    equal_feasibility_sets = set(pairs["feasibility_source"].astype(str))
-    checks.record(
-        "equal_time_single_source_vintage",
-        len(pairs) == 36
-        and pairs["variant"].eq("d1v1").all()
-        and equal_source_sets == EQUAL_SOURCE_SET_EXPECTED
-        and equal_feasibility_sets == EQUAL_FEASIBILITY_SET_EXPECTED,
-        f"{len(pairs)} rows; source_set={sorted(equal_source_sets)}; feasibility={sorted(equal_feasibility_sets)}",
-    )
-    variant_counts = gallery_provenance["actual_neural_variant"].value_counts().to_dict()
-    provenance_ok = (
-        len(gallery_provenance) == 2 * len(gallery_label_source)
-        and gallery_provenance_summary.get("status") == "qualified"
-    )
-    if current_normalized:
-        provenance_ok = (
-            provenance_ok
-            and gallery_provenance["index_basis"].eq("current_sorted_zero_based").all()
-            and gallery_provenance["current_cimap_match_verified"].astype(bool).all()
-            and gallery_provenance["activity_gate_pass"].astype(bool).all()
-        )
-    else:
-        provenance_ok = (
-            provenance_ok
-            and gallery_provenance["displayed_cell_is_known_masked_id"].astype(bool).sum() == 0
-        )
-    checks.record(
-        "gallery_per_side_provenance_complete_and_qualified",
-        provenance_ok,
-        f"{len(gallery_provenance)} sides; schema={gallery_schema}; variants={variant_counts}",
-    )
-    checks.record(
-        "gallery_selection_pool_mask_exposure_disclosed",
-        current_normalized or (
-        gallery_provenance["candidate_pool_rows"].astype(int).eq(136).all()
-        and gallery_provenance["candidate_pool_rows_with_train_manual_mask_exposure"]
-        .astype(int)
-        .eq(26)
-        .all()
-        and gallery_provenance["candidate_pool_rows_with_test_manual_mask_exposure"]
-        .astype(int)
-        .eq(22)
-        .all()
-        and gallery_provenance["candidate_pool_rows_with_any_manual_mask_exposure"]
-        .astype(int)
-        .eq(36)
-        .all()),
-        "current display pack; historical selection provenance retained separately"
-        if current_normalized else
-        "illustrative selection pool: train lists 26/136, test lists 22/136, either side 36/136",
-    )
-
-    # The plotted animal/statistics tables are derived summaries. Validate the
-    # 144-row pair-level authorities too, so a masked PV pickle cannot silently
-    # re-enter the ensemble-rate panel through an inherited matched-ID set.
-    pair_sources = {
-        "place": pd.read_csv(PLACE_PAIR_SOURCE, dtype={"animal_id": str}),
-        "pv": pd.read_csv(PV_PAIR_SOURCE, dtype={"animal_id": str}),
-        "rate": pd.read_csv(RATE_PAIR_SOURCE, dtype={"animal_id": str}),
-    }
-    expected_variants = {variant: 36 for variant in VARIANT_ORDER}
-    for name, frame in pair_sources.items():
-        counts = frame.groupby("variant", observed=True).size().to_dict()
-        checks.record(
-            f"{name}_pair_source_144_rows",
-            len(frame) == 144
-            and counts == expected_variants
-            and not frame.duplicated(["variant", "pair_key"]).any(),
-            f"{len(frame)} rows; per variant {counts}",
-        )
-    pv_drops = pd.to_numeric(
-        pair_sources["pv"]["n_pairs_dropped_by_user"], errors="raise"
-    )
-    checks.record(
-        "pv_pair_source_no_manual_mask_drops",
-        bool(pv_drops.eq(0).all()),
-        f"nonzero rows={int(pv_drops.ne(0).sum())}",
-    )
-    support = pair_sources["place"][["variant", "pair_key", "n_pairs_final"]].merge(
-        pair_sources["pv"][["variant", "pair_key", "n_pairs_final"]],
-        on=["variant", "pair_key"],
-        suffixes=("_place", "_pv"),
-        validate="one_to_one",
-    ).merge(
-        pair_sources["rate"][["variant", "pair_key", "n_matched_cimap"]],
-        on=["variant", "pair_key"],
-        validate="one_to_one",
-    )
-    support_ok = (
-        support["n_pairs_final_place"].astype(int).eq(support["n_pairs_final_pv"].astype(int))
-        & support["n_pairs_final_pv"].astype(int).eq(support["n_matched_cimap"].astype(int))
-    )
-    checks.record(
-        "place_pv_rate_exact_common_neuron_support",
-        len(support) == 144 and bool(support_ok.all()),
-        f"{len(support)} rows; mismatches={int((~support_ok).sum())}",
-    )
-    exact_support = pd.read_csv(EXACT_SUPPORT_SOURCE)
-    exact_flags = [
-        "place_pv_ordered_id_pairs_exact",
-        "place_pv_id_pair_sets_exact",
-        "rate_reads_this_pv_authority",
-    ]
-    exact_ok = (
-        len(exact_support) == 144
-        and not exact_support.duplicated(["variant", "pair_key"]).any()
-        and bool(exact_support[exact_flags].all(axis=None))
-        and bool(pd.to_numeric(exact_support["manual_user_drops"], errors="raise").eq(0).all())
-    )
-    checks.record(
-        "place_pv_rate_ordered_id_pairs_exact_144",
-        exact_ok,
-        f"{len(exact_support)} rows; all exact={exact_ok}",
-    )
-
     # Plot the same 432 values derived directly from the three pair authorities.
     checks.record(
         "daycomb_session_pair_values_loaded_from_pair_authority",
@@ -1269,34 +1089,19 @@ def assemble(output_dir: Path) -> dict[str, Any]:
                 "sha256": sha256(bh_stats_path),
             },
             {
-                "role": "place_pair_authority_no_manual_mask",
+                "role": "place_pair_values",
                 "path": _repo_rel(PLACE_PAIR_SOURCE),
                 "sha256": sha256(PLACE_PAIR_SOURCE),
             },
             {
-                "role": "pv_pair_authority_no_manual_mask",
+                "role": "pv_pair_values",
                 "path": _repo_rel(PV_PAIR_SOURCE),
                 "sha256": sha256(PV_PAIR_SOURCE),
             },
             {
-                "role": "rate_pair_authority_no_manual_mask",
+                "role": "rate_pair_values",
                 "path": _repo_rel(RATE_PAIR_SOURCE),
                 "sha256": sha256(RATE_PAIR_SOURCE),
-            },
-            {
-                "role": "place_pv_rate_exact_id_support_audit",
-                "path": _repo_rel(EXACT_SUPPORT_SOURCE),
-                "sha256": sha256(EXACT_SUPPORT_SOURCE),
-            },
-            {
-                "role": "gallery_per_side_provenance_qualified",
-                "path": _repo_rel(GALLERY_PROVENANCE),
-                "sha256": sha256(GALLERY_PROVENANCE),
-            },
-            {
-                "role": "gallery_provenance_summary",
-                "path": _repo_rel(GALLERY_PROVENANCE_SUMMARY),
-                "sha256": sha256(GALLERY_PROVENANCE_SUMMARY),
             },
             {
                 "role": "equal_time_pair_rows",

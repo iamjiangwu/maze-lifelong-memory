@@ -1,6 +1,3 @@
 file,format,columns_or_shape,sha256
-behavior_return_points.csv,.csv,"columns: nickname,month,animal_id",5361e9a4f498d0297af3ef73d6fe3e0faaeb0b4bcd643b0153762eb999145e65
-calcium_long_gap_pairs.csv,.csv,"columns: pair_key,animal_id,src,dst,transition",f89a992a31a4bec90a72bf03603b9f325b2b66aab4dd6574ba1478331008b029
-experiment_metafile.csv,.csv,"columns: ID,animal",e5c1c50a2c8590c0411bc952190809fff0e0c09336328e257143154ae113869c
 publication_notes.json,.json,list: 4 items,f1c0a7dca48bfd8127a8514c8e41b606b29cd3a446e8953b3be14f7bd8a58b96
-same_stage_candidate_universe_attrition.csv,.csv,"columns: canonical_animal_id,month_token,planned_stage,registry_day2_rows_found,session_day1,session_day2,registry_day2_video_paths",4b94d9241a5ce054902d94f3ffb6bc01b3904e99e9607f5a7ea8f730c5114e88
+recording_intervals.csv,.csv,"columns: Animal ID,Return month,Previous nominal month,Preceding Day i session,Preceding Day i+1 session,Preceding Day i+1 date,Return Day i session,Return Day i date,Interval (d),Fixed-month behavior return roster,Maintained calcium imaging,Pair key,Schedule note",b252a26476802f2e5522bec360d45f8fdb278dd425d3f2dd48ee083e51dc6ca4

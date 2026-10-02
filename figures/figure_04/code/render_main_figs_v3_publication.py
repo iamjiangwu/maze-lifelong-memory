@@ -1,8 +1,7 @@
 """Draw the Figure 4 method schematic and compose its SVG crop.
 
-build_figure4_standardized_pv supplies source paths and calls these
-helpers; the remaining panels have their own source renderers.
-Historical path defaults below are replaced by that launcher.
+build_figure4_standardized_pv supplies the schematic data path and style;
+the shared main figure driver uses the crop helper during assembly.
 """
 
 from __future__ import annotations
@@ -13,9 +12,7 @@ import math
 
 import os
 
-import pickle
-
-from dataclasses import asdict, dataclass, field, replace as dataclass_replace
+from dataclasses import dataclass
 
 from pathlib import Path
 
@@ -31,19 +28,11 @@ import numpy as np
 
 from matplotlib.colors import Normalize
 
-from ca_analysis.figure_panels import CORRELATION_MEASURE_COLORS, get_panel_maze
-
-from ca_analysis.figure_colors import get_correlation_experience_colors
+from ca_analysis.figure_panels import get_panel_maze
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 FIGURE4_PANEL_A_PPT_CROP = {"l": 12400, "t": 15055, "r": 9866, "b": 9331}
-
-FIGURE4_SCHEMATIC_PAIR = ("837day1", "837-3day1")
-
-
-
-
 
 FIGURE4_SCHEMATIC_TRACE_POINTS = 5000
 
@@ -54,39 +43,6 @@ XLINK_NS = "http://www.w3.org/1999/xlink"
 ET.register_namespace("", SVG_NS)
 
 ET.register_namespace("xlink", XLINK_NS)
-
-EXPERIENCE_ORDER = ("naive", "3mo", "6mo", "9mo", "12mo")
-
-FIGURE2_TOP_ROW_SHIFT_PX = 7.0
-
-FIGURE2_TOP_ROW_SHIFT_REFERENCE_DPI = 300.0
-
-FIGURE2_TOP_ROW_SHIFT_IN = FIGURE2_TOP_ROW_SHIFT_PX / FIGURE2_TOP_ROW_SHIFT_REFERENCE_DPI
-
-FIGURE2_PPT_TOP_SLOTS = {
-    "a": (0.048486439195100615, 0.04500218722659668 + FIGURE2_TOP_ROW_SHIFT_IN, 1.4323129921259843, 2.1070395888014),
-    "b_labels": (1.4199792213473317, FIGURE2_TOP_ROW_SHIFT_IN, 0.125, 2.3166218285214346),
-    "b1": (1.5450, FIGURE2_TOP_ROW_SHIFT_IN, 1.0791458880139984, 2.3166218285214346),
-    "b2": (2.7072189413823273, FIGURE2_TOP_ROW_SHIFT_IN, 1.0791458880139984, 2.3166218285214346),
-    "b3": (3.8293285214348205, FIGURE2_TOP_ROW_SHIFT_IN, 1.0791458880139984, 2.3166218285214346),
-    "b4": (4.946116579177603, FIGURE2_TOP_ROW_SHIFT_IN, 1.0791458880139984, 2.3166218285214346),
-}
-
-FIGURE2_PANEL_B_MIN_COLUMN_GAP_IN = min(
-    FIGURE2_PPT_TOP_SLOTS[f"b{index + 1}"][0]
-    - (FIGURE2_PPT_TOP_SLOTS[f"b{index}"][0] + FIGURE2_PPT_TOP_SLOTS[f"b{index}"][2])
-    for index in range(1, 4)
-)
-
-FIGURE3_FIRST30_EXPERIENCE_COLOR_GROUPS = {
-    index: group for index, group in enumerate(EXPERIENCE_ORDER)
-}
-
-FIGURE3_LONG_GAP_EXPERIENCE_COLOR_GROUPS = {
-    index: EXPERIENCE_ORDER[index] for index in range(1, len(EXPERIENCE_ORDER))
-}
-
-EXPERIENCE_INDEX = {label: index for index, label in enumerate(EXPERIENCE_ORDER)}
 
 @dataclass(frozen=True)
 class PublicationStyle:
@@ -99,76 +55,9 @@ class PublicationStyle:
     title_fontsize: float = 6.2
     legend_fontsize: float = 4.9
     annotation_fontsize: float = 5.4
-    panel_letter_fontsize: float = 10.5
-    panel_letter_weight: str = "bold"
     axis_linewidth: float = 0.65
-    tick_width: float = 0.55
-    tick_length: float = 1.8
-    grid_linewidth: float = 0.35
-    grid_alpha: float = 0.26
-    show_grid: bool = True
-    data_linewidth: float = 1.25
-    fit_linewidth: float = 1.10
-    sem_alpha: float = 0.07
-    point_size: float = 15.0
-    figure2_marker_scale: float = 1.0
-    figure2_pv_distribution_xlabel_x: float | None = None
-    point_alpha: float = 0.72
-    low_support_alpha: float = 0.24
-    low_support_linewidth: float = 0.65
-    figure_size: tuple[float, float] = (5.35, 7.25)
-    figure2_canvas_size: tuple[float, float] = (7.10, 6.18)
-    figure2_panel_a_slot: tuple[float, float, float, float] = (0.06, 0.04, 1.70, 2.24)
-    figure2_panel_b_slot: tuple[float, float, float, float] = (1.72, 0.03, 5.34, 2.26)
-    figure2_lower_slot: tuple[float, float, float, float] = (0.02, 2.30, 7.05, 3.84)
-    figure2_export_width_mm: float = 180.0
-    figure4_canvas_size: tuple[float, float] = (7.50, 4.00)
-    figure4_export_width_mm: float = 180.0
-    figure4_panel_a_slot: tuple[float, float, float, float] = (0.056, 0.127, 3.822, 1.646)
-    figure4_panel_b_slot: tuple[float, float, float, float] = (3.878, 0.000, 0.749, 2.089)
-    figure4_panel_c_slot: tuple[float, float, float, float] = (4.760, 0.205, 2.005, 1.490)
-    figure4_panel_d_slot: tuple[float, float, float, float] = (6.550, 0.000, 0.749, 2.089)
-    figure4_panel_e_slot: tuple[float, float, float, float] = (-0.030, 1.724, 4.899, 2.126)
-    figure4_panel_f_slot: tuple[float, float, float, float] = (4.720, 1.773, 2.650, 2.226)
-    figure3_top_bounds: tuple[float, float, float, float] = (0.145, 0.895, 0.785, 0.965)
-    figure3_lower_bounds: tuple[float, float, float, float] = (0.145, 0.895, 0.070, 0.724)
-    figure3_lower_wspace: float = 0.32
-    figure3_lower_hspace: float = 0.44
-    figure3_export_width_mm: float = 136.0
-    day2_template_xlim_min: float = 25.0
-    day2_template_xlim_max: float = 185.0
-    max_lower_panel_aspect: float = 0.95
     dpi: int = 300
     facecolor: str = "white"
-    max_blank_right_fraction: float = 0.12
-    max_blank_bottom_fraction: float = 0.12
-    figure3_metric_y_limits: dict[str, tuple[float, float]] = field(
-        default_factory=lambda: {
-            "place_map_correlation": (0.0, 0.65),
-            "pv_correlation": (0.0, 0.75),
-            "ensemble_rate_correlation": (0.0, 0.90),
-            "level_map_correlation": (0.0, 0.90),
-        }
-    )
-    figure3_metric_y_ticks: dict[str, tuple[float, ...]] = field(
-        default_factory=lambda: {
-            "place_map_correlation": (0.0, 0.2, 0.4, 0.6),
-            "pv_correlation": (0.0, 0.2, 0.4, 0.6),
-            "ensemble_rate_correlation": (0.2, 0.4, 0.6, 0.8),
-            "level_map_correlation": (0.2, 0.4, 0.6, 0.8),
-        }
-    )
-    metric_colors: dict[str, str] = field(
-        default_factory=lambda: {
-            "place_map_correlation": CORRELATION_MEASURE_COLORS["place_map_correlation"],
-            "pv_correlation": CORRELATION_MEASURE_COLORS["pv_correlation"],
-            "ensemble_rate_correlation": CORRELATION_MEASURE_COLORS["ensemble_rate_correlation"],
-            "level_map_correlation": CORRELATION_MEASURE_COLORS["level_map_correlation"],
-        }
-    )
-    day2_group_colors: dict[str, dict[str, str]] = field(
-        default_factory=get_correlation_experience_colors
-    )
 
     def rcparams(self) -> dict[str, object]:
         return {
@@ -186,22 +75,8 @@ class PublicationStyle:
             "savefig.facecolor": self.facecolor,
         }
 
-def _rel(path: Path) -> str:
-    try:
-        return path.relative_to(REPO_ROOT).as_posix()
-    except ValueError:
-        return str(path.resolve())
-
 def _svg_tag(name: str) -> str:
     return f"{{{SVG_NS}}}{name}"
-
-
-
-
-
-
-
-
 
 FIGURE4_SCHEMATIC_DATA_ROOT = REPO_ROOT / "illustration_data"
 

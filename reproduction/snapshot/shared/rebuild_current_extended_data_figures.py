@@ -10,15 +10,12 @@ Use the root reproduce.py command; see docs/CODE.md for the function map.
 from __future__ import annotations
 
 import contextlib
-import csv
-import hashlib
 import importlib.util
 import json
 import re
 import shutil
 import sys
 import tempfile
-import types
 from pathlib import Path
 from typing import Any, Iterator
 
@@ -29,58 +26,18 @@ import pandas as pd
 
 VOR_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = VOR_ROOT.parents[1]
-CONTRACT = VOR_ROOT / "SOURCE_REBUILD_ED_CONTRACT.json"
 FORMATS = ("svg", "pdf", "png", "tiff")
-
-
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for block in iter(lambda: stream.read(4 * 1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
-
-
-def load_contract() -> dict[str, Any]:
-    return json.loads(CONTRACT.read_text(encoding="utf-8"))
 
 
 @contextlib.contextmanager
 def frozen_stage(record: Path) -> Iterator[Path]:
-    # Keep the stage prefix short enough for the historical nested ED8 paths on
-    # Windows, where long manifest filenames can otherwise exceed MAX_PATH.
+    # Use a short temporary path so nested exports also work on Windows.
     with tempfile.TemporaryDirectory(prefix="edsrc_") as raw:
         stage = Path(raw)
         shutil.copytree(record / "source_code", stage / "scripts")
-        runtime_source = VOR_ROOT / load_contract()["shared_runtime"]["path"]
+        runtime_source = VOR_ROOT / "runtime"
         runtime_root = stage / "shared_runtime"
         shutil.copytree(runtime_source, runtime_root)
-        ed2_contract = load_contract()["artifacts"]["extended_data_figure_2"]
-        if record.name == ed2_contract["record"]:
-            # The current Round-26 adapter deliberately pins the exact Round-23
-            # base-renderer path. Recreate that repository shape inside the
-            # disposable stage from its VOR-local, hash-declared code sidecar.
-            # The real archive is never opened.
-            (stage / "docs/figure_version_records").mkdir(parents=True)
-            sidecars = ed2_contract.get("code_sidecars", [])
-            if len(sidecars) != 1:
-                raise RuntimeError(f"ED2 requires one Round-23 code sidecar: {sidecars}")
-            sidecar_contract = sidecars[0]
-            sidecar = VOR_ROOT / sidecar_contract["path"]
-            if (
-                not sidecar.is_file()
-                or sidecar.stat().st_size != int(sidecar_contract["bytes"])
-                or sha256(sidecar) != sidecar_contract["sha256"]
-            ):
-                raise RuntimeError("ED2 Round-23 base-renderer sidecar failed hash closure")
-            staged_base = (
-                stage
-                / "docs/figure_version_records_archive_2026-08-09"
-                / "extended_data_fig02_2026-08-12_round23_preceding_turn"
-                / "source_code/render_ed03_fixed_time_30min_full_story.py"
-            )
-            staged_base.parent.mkdir(parents=True)
-            shutil.copy2(sidecar, staged_base)
         inserted = [stage, stage / "scripts", runtime_root]
         for path in reversed(inserted):
             sys.path.insert(0, str(path))
@@ -126,7 +83,6 @@ def render_ed1(record: Path, output: Path, stage: Path) -> dict[str, Any]:
         "g-stats": plot / "ed02_tile_time_loglog_stats_current153.csv",
         "h-rows": plot / "ed01_panel_h_first30_session_rows_cap60.csv",
         "h-reference": plot / "ed01_panel_h_first30_group_summary_cap60.csv",
-        "i-selection": drawn / "PANEL_I_SELECTION_AUDIT_ROUND21.csv",
         "i-naive": drawn / "PANEL_I_END_NODE_SEQUENCE_ROUND21.csv",
         "i-return": drawn / "PANEL_I_CYCLE_SUMMARY_ROUND21.csv",
         "j": plot / "ed01_j_group_specific_80_time_session_bins.csv",
@@ -176,7 +132,6 @@ def render_ed1(record: Path, output: Path, stage: Path) -> dict[str, Any]:
         "speed_reference": pd.read_csv(source_map["h-reference"]),
         "example_sequence": pd.read_csv(drawn / "PANEL_I_END_NODE_SEQUENCE_ROUND21.csv"),
         "example_cycles": pd.read_csv(drawn / "PANEL_I_CYCLE_SUMMARY_ROUND21.csv"),
-        "example_selection": pd.read_csv(drawn / "PANEL_I_SELECTION_AUDIT_ROUND21.csv"),
         "efficiency_time": pd.read_csv(source_map["j"]),
         "efficiency_tile": pd.read_csv(source_map["k"]),
     }
@@ -188,198 +143,9 @@ def render_ed1(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     return display.render(m, data, output)
 
 
-@contextlib.contextmanager
-def _ed2_outer_tick_alignment() -> Iterator[None]:
-    """Keep the outer time labels inside ED2 f/i without affecting other figures."""
-    from matplotlib.figure import Figure
-
-    original = Figure.savefig
-
-    def save(fig, filename, *args, **kwargs):
-        if Path(filename).name.startswith(('ed02f_', 'ed02i_')):
-            for ax in fig.axes:
-                labels = ax.get_xticklabels()
-                if labels:
-                    labels[0].set_ha('left')
-                    labels[-1].set_ha('right')
-        return original(fig, filename, *args, **kwargs)
-
-    Figure.savefig = save
-    try:
-        yield
-    finally:
-        Figure.savefig = original
-
-
-@_ed2_outer_tick_alignment()
 def render_ed2(record: Path, output: Path, stage: Path) -> dict[str, Any]:
-    current_adapter = stage / "scripts/render_ed03_fixed_time_30min_full_story.py"
-
-    adapter_load_count = 0
-
-    def configure_caption_layer(caption_layer: Any, pass_name: str) -> None:
-        nonlocal adapter_load_count
-        caption_layer.REPO_ROOT = REPO_ROOT
-
-        def load_current_renderer(_record_root: Path) -> Any:
-            nonlocal adapter_load_count
-            adapter_load_count += 1
-            return load_module(
-                current_adapter,
-                f"ed2_current_round26_adapter_{pass_name}_{adapter_load_count}",
-            )
-
-        def initialize_caption_scratch(
-            path: Path,
-            _renderer: Any,
-            _tables: dict[str, dict[str, pd.DataFrame]],
-        ) -> None:
-            # Display wrappers require this generated scratch file. It is not
-            # a manuscript/source input and supplies no numerical values.
-            path.write_text("", encoding="utf-8")
-
-        caption_layer.load_frozen_renderer = load_current_renderer
-        caption_layer.write_caption_notes = initialize_caption_scratch
-
-    # Pass A preserves the accepted Round-23 display refinements while the
-    # staged Round-26 adapter supplies the current Round-25/26 science.
-    pass_a = output / "source_assembly"
-    round23 = load_module(
-        stage / "scripts/render_ed02_slide3_refinement_round21.py",
-        "ed2_source_rebuild_round23",
-    )
-    caption_a = round23.R18.BASE.BASE.R11.R10.R9.R8.R7.R6.R5.BASE
-    configure_caption_layer(caption_a, "round23")
-    round23_result = round23.render(record, pass_a, 600)
-
-    # Pass B reproduces the current matched-naive d/h panels in the exact
-    # Round-11 geometry. Round 28 changed only panel-h label placement.
-    pass_b = stage / "ed2_current_round11_pass"
-    round11 = load_module(
-        stage / "scripts/render_ed02_slide3_aligned_round11.py",
-        "ed2_source_rebuild_round11",
-    )
-    caption_b = round11.R10.R9.R8.R7.R6.R5.BASE
-    configure_caption_layer(caption_b, "round11")
-    original_panel_h = round11.build_panel_h
-    label_audit: dict[str, dict[str, float | str]] = {}
-
-    def build_panel_h_current(
-        renderer: Any,
-        frame: pd.DataFrame,
-    ) -> tuple[Any, dict[str, pd.DataFrame]]:
-        fig, tables = original_panel_h(renderer, frame)
-        rows = tables["four_vs_depth_gap"].set_index("model_norm")
-        specifications = {
-            "Four-policy": ("four_bias", "Four-\npolicy"),
-            r"Depth $P_{BS}$": (
-                "depth_stratified",
-                r"Depth $\mathrm{P}_{\mathrm{BS}}$",
-            ),
-        }
-        found: set[str] = set()
-        for label in fig.axes[0].texts:
-            source_text = label.get_text()
-            if source_text not in specifications:
-                continue
-            model, display_text = specifications[source_text]
-            interval_left = float(rows.loc[model, "delta_simulated_ci_low"])
-            label_x = interval_left - 0.018
-            label.set_text(display_text)
-            label.set_x(label_x)
-            label.set_ha("right")
-            if model == "four_bias":
-                label.set_linespacing(0.9)
-            label_audit[model] = {
-                "text": display_text,
-                "label_right_anchor": label_x,
-                "interval_left": interval_left,
-                "clearance_data_units": interval_left - label_x,
-            }
-            found.add(model)
-        if found != {"four_bias", "depth_stratified"}:
-            raise RuntimeError(f"Could not locate both current panel-h labels: {found}")
-        return fig, tables
-
-    round11.build_panel_h = build_panel_h_current
-    round11_result = round11.render(record, pass_b, 600)
-
-    replacements = {
-        "panels": ("ed02d_*", "ed02h_*"),
-        "plot_ready": ("panel_d_*", "panel_h_*"),
-        "ppt_vector": ("ed02d_*", "ed02h_*"),
-    }
-    replaced: list[str] = []
-    for dirname, patterns in replacements.items():
-        for pattern in patterns:
-            sources = sorted((pass_b / dirname).glob(pattern))
-            if not sources:
-                raise RuntimeError(f"ED2 pass B produced no {dirname}/{pattern}")
-            target_dir = pass_a / dirname
-            target_dir.mkdir(parents=True, exist_ok=True)
-            for source in sources:
-                target = target_dir / source.name
-                shutil.copy2(source, target)
-                replaced.append(target.relative_to(pass_a).as_posix())
-
-    def refresh_csv_manifest(name: str) -> None:
-        path = pass_a / name
-        with path.open(encoding="utf-8-sig", newline="") as stream:
-            rows = list(csv.DictReader(stream))
-        if not rows:
-            raise RuntimeError(f"ED2 manifest is empty: {name}")
-        fieldnames = list(rows[0])
-        for row in rows:
-            artifact = pass_a / row["path"]
-            if not artifact.is_file():
-                raise FileNotFoundError(artifact)
-            if "sha256" in row:
-                row["sha256"] = sha256(artifact)
-            if "bytes" in row:
-                row["bytes"] = str(artifact.stat().st_size)
-            if "rows" in row and artifact.suffix.lower() == ".csv":
-                row["rows"] = str(len(pd.read_csv(artifact)))
-        with path.open("w", encoding="utf-8", newline="") as stream:
-            writer = csv.DictWriter(stream, fieldnames=fieldnames)
-            writer.writeheader()
-            writer.writerows(rows)
-
-    for manifest_name in (
-        "PANEL_MANIFEST.csv",
-        "TABLE_MANIFEST.csv",
-        "PPT_VECTOR_MANIFEST.csv",
-    ):
-        refresh_csv_manifest(manifest_name)
-
-    exporter = load_module(
-        stage / "scripts/export_ed02_round11_vector_figure.py",
-        "ed2_source_rebuild_exporter",
-    )
-    composite = exporter.export(
-        pass_a,
-        output / "composite",
-        composite_stem="ed02_version_record",
-        review_round=int(re.search(r"_round(\d+)(?:_|$)", record.name).group(1)),
-        manifest_name="ED02_SOURCE_REBUILD_COMPOSITE_MANIFEST.json",
-    )
-    if composite["vector_audit"]["embedded_raster_images"] != 0:
-        raise RuntimeError("ED2 rebuilt composite unexpectedly embeds raster artwork")
-    if composite["png_audit"]["size"] != [4500, 4500]:
-        raise RuntimeError(f"ED2 rebuilt raster geometry drifted: {composite['png_audit']}")
-    if set(label_audit) != {"four_bias", "depth_stratified"} or not all(
-        abs(float(row["clearance_data_units"]) - 0.018) < 1e-12
-        for row in label_audit.values()
-    ):
-        raise RuntimeError(f"ED2 current panel-h label audit failed: {label_audit}")
-    return {
-        "status": "PASS",
-        "_source_renderer": "source_code/render_ed02_slide3_refinement_round21.py",
-        "round23_source_render": round23_result,
-        "round11_current_d_h_render": round11_result,
-        "replaced_from_round11_pass": replaced,
-        "panel_h_label_audit": label_audit,
-        "composite": composite,
-    }
+    module = load_module(stage / "scripts/render_ed2.py", "ed2_current_renderer")
+    return module.render(record, output, 600)
 
 
 def render_ed3(record: Path, output: Path, stage: Path) -> dict[str, Any]:
@@ -439,16 +205,11 @@ def render_ed5(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.DAY_COMB_DESC = plot / "ed05_day_combination_session_pair_descriptive_cr1.csv"
     m.EQUAL_PAIRS = plot / "ed05e_context_only_all_outside_pair_rows.csv"
     m.EQUAL_STATS = plot / "ed05e_context_only_all_outside_clustered_stats.csv"
-    m.EQUAL_SOURCE_SET_EXPECTED = {"context_only_all_outside_2026-08-20"}
-    m.EQUAL_FEASIBILITY_SET_EXPECTED = m.EQUAL_SOURCE_SET_EXPECTED
     m.PLACE_PAIR_SOURCE = plot / "place_pair_summary_corrected36_all_variants.csv"
     m.PV_PAIR_SOURCE = plot / "pv_pair_summary_corrected36_all_variants.csv"
     m.RATE_PAIR_SOURCE = plot / "rate_pair_summary_corrected36_all_variants.csv"
-    m.EXACT_SUPPORT_SOURCE = plot / "place_pv_rate_exact_support_audit.csv"
     m.SELECTED_32 = plot / "selected_32.csv"
     m.SHORTLIST_NPZ = plot / "selected_maps_fields_45_shortlist32.npz"
-    m.GALLERY_PROVENANCE = plot / "ED5_PANEL_A_PER_SIDE_PROVENANCE.csv"
-    m.GALLERY_PROVENANCE_SUMMARY = plot / "ED5_PANEL_A_PROVENANCE_SUMMARY.json"
     m.EQUAL_EXTRA_SOURCES = ()
     # The frozen renderer writes and rereads its publication-view companions in
     # ``output_dir.parent``. Nest its assembly directory so those fresh products
@@ -478,169 +239,85 @@ def render_ed6(record: Path, output: Path, stage: Path) -> dict[str, Any]:
 
 
 def render_ed7(record: Path, output: Path, stage: Path) -> dict[str, Any]:
-    import matplotlib
-    import matplotlib.pyplot as plt
     from ca_analysis.figure_colors import (
         CORRELATION_EXPERIENCE_COLORS,
         CORRELATION_MEASURE_COLORS,
     )
     from PIL import Image
 
-    # The accepted Round-17 display lives in the frozen PowerPoint-matched
-    # renderer. Its historical ``main`` imports recomputation code and prior
-    # display directories that are intentionally not rebuild inputs. Supply
-    # only the two small APIs used by its record-local plotting functions.
-    science = types.ModuleType("render_ed07_slide9_age_controls")
-
-    def configure_style() -> None:
-        matplotlib.rcParams.update(
-            {
-                "font.family": "Arial",
-                "font.sans-serif": ["Arial", "Liberation Sans", "DejaVu Sans"],
-                "font.size": 7.0,
-                "axes.titlesize": 7.5,
-                "axes.labelsize": 7.0,
-                "axes.linewidth": 0.65,
-                "axes.spines.top": False,
-                "axes.spines.right": False,
-                "xtick.labelsize": 6.3,
-                "ytick.labelsize": 6.3,
-                "xtick.major.width": 0.65,
-                "ytick.major.width": 0.65,
-                "xtick.major.size": 2.2,
-                "ytick.major.size": 2.2,
-                "legend.fontsize": 5.8,
-                "legend.frameon": False,
-                "lines.linewidth": 0.8,
-                "svg.fonttype": "none",
-                "pdf.fonttype": 42,
-                "ps.fonttype": 42,
-                "savefig.facecolor": "white",
-                "figure.facecolor": "white",
-            }
+    power = load_module(
+        stage / "scripts/render_ed07_slide9_powerpoint_matched.py",
+        "ed7_source_rebuild_powerpoint_matched",
+    )
+    plot = record / "plot_ready"
+    first30 = power.normalize_first30_plot(
+        pd.read_csv(
+            plot / "ED07_FIRST30_PLOT_READY_MAINTAINED59.csv",
+            dtype=str,
         )
+    )
+    first30 = first30.loc[
+        first30["source_scope"].eq(power.MAINTAINED_FIRST30_SCOPE)
+    ].copy()
+    first30_models = pd.read_csv(
+        plot / "ED07_FIRST30_AGE_MODELS_MAINTAINED59.csv"
+    )
+    long_gap = pd.read_csv(
+        plot / "ed09_long_gap_age_joined_corrected36.csv",
+        dtype={"animal_id": str},
+    )
+    long_models = pd.read_csv(
+        plot / "ed09_long_gap_age_transition_fixed_models_corrected36.csv"
+    )
+    displayed_metrics = {spec["metric"] for spec in power.METRICS}
+    long_gap = long_gap.loc[long_gap["metric"].isin(displayed_metrics)].copy()
+    long_models = long_models.loc[
+        long_models["metric"].isin(displayed_metrics)
+    ].copy()
 
-    def save_figure(figure: Any, stem: Path) -> list[Path]:
-        stem.parent.mkdir(parents=True, exist_ok=True)
-        paths: list[Path] = []
-        for extension in FORMATS:
-            path = stem.with_suffix(f".{extension}")
-            kwargs: dict[str, Any] = {
-                "format": extension,
-                "facecolor": "white",
-                "transparent": False,
-            }
-            if extension in {"png", "tiff"}:
-                kwargs["dpi"] = 600
-            if extension == "tiff":
-                kwargs["pil_kwargs"] = {"compression": "tiff_lzw"}
-            figure.savefig(path, **kwargs)
-            paths.append(path)
-        plt.close(figure)
-        return paths
-
-    science.configure_style = configure_style
-    science.save_figure = save_figure
-    palette_display = types.ModuleType("render_ed07_slide9_age_controls_display")
-    palette_display.FORBIDDEN_DATA_COLORS = {
-        "#777777",
-        "#aaa9c7",
-        "#8885b2",
-        "#67629a",
-        "#443f7a",
-        "#63666a",
-        "#3b82f6",
-        "#f97316",
-        "#8b5cf6",
+    stage_keys = {0: "naive", 1: "3mo", 2: "6mo", 3: "9mo", 4: "12mo"}
+    palettes = {
+        spec["key"]: {
+            index: CORRELATION_EXPERIENCE_COLORS[spec["metric"]][stage_key]
+            for index, stage_key in stage_keys.items()
+        }
+        for spec in power.METRICS
     }
-    stub_names = (science.__name__, palette_display.__name__)
-    previous_modules = {name: sys.modules.get(name) for name in stub_names}
-    sys.modules[science.__name__] = science
-    sys.modules[palette_display.__name__] = palette_display
-    try:
-        power = load_module(
-            stage / "scripts/render_ed07_slide9_powerpoint_matched.py",
-            "ed7_source_rebuild_powerpoint_matched",
-        )
-        plot = record / "plot_ready"
-        first30 = power.normalize_first30_plot(
-            pd.read_csv(
-                plot / "ED07_FIRST30_PLOT_READY_MAINTAINED59.csv",
-                dtype=str,
-            )
-        )
-        first30 = first30.loc[
-            first30["source_scope"].eq(power.MAINTAINED_FIRST30_SCOPE)
-        ].copy()
-        first30_models = pd.read_csv(
-            plot / "ED07_FIRST30_AGE_MODELS_MAINTAINED59.csv"
-        )
-        long_gap = pd.read_csv(
-            plot / "ed09_long_gap_age_joined_corrected36.csv",
-            dtype={"animal_id": str},
-        )
-        long_models = pd.read_csv(
-            plot / "ed09_long_gap_age_transition_fixed_models_corrected36.csv"
-        )
-        displayed_metrics = {spec["metric"] for spec in power.METRICS}
-        long_gap = long_gap.loc[long_gap["metric"].isin(displayed_metrics)].copy()
-        long_models = long_models.loc[
-            long_models["metric"].isin(displayed_metrics)
-        ].copy()
-
-        stage_keys = {0: "naive", 1: "3mo", 2: "6mo", 3: "9mo", 4: "12mo"}
-        palettes = {
-            spec["key"]: {
-                index: CORRELATION_EXPERIENCE_COLORS[spec["metric"]][stage_key]
-                for index, stage_key in stage_keys.items()
-            }
-            for spec in power.METRICS
-        }
-        bases = {
-            spec["key"]: CORRELATION_MEASURE_COLORS[spec["metric"]]
-            for spec in power.METRICS
-        }
-        configure_style()
-        top_stem = output / "ed07_panels_abc_first30_to_day2_maintained59_round17"
-        bottom_stem = output / "ed07_panels_def_long_gap_clean36_round17"
-        assembly_stem = output / "extended_data_figure7_source_rebuild"
-        top = power.render_first30_row(
-            first30,
-            first30_models,
-            palettes,
-            bases,
-            top_stem,
-            model_specification="maintained59_primary",
-            expected_rows=59,
-            expected_mice=22,
-        )
-        bottom = power.render_long_gap_row(
-            long_gap,
-            long_models,
-            palettes,
-            bases,
-            bottom_stem,
-            bottom_scope="clean36",
-        )
-        assembly = power.render_six_panel_assembly(
-            first30,
-            first30_models,
-            long_gap,
-            long_models,
-            palettes,
-            bases,
-            assembly_stem,
-            bottom_scope="clean36",
-            first30_model_specification="maintained59_primary",
-            expected_first30_rows=59,
-            expected_first30_mice=22,
-        )
-    finally:
-        for name, previous in previous_modules.items():
-            if previous is None:
-                sys.modules.pop(name, None)
-            else:
-                sys.modules[name] = previous
+    bases = {
+        spec["key"]: CORRELATION_MEASURE_COLORS[spec["metric"]]
+        for spec in power.METRICS
+    }
+    power.configure_style()
+    top_stem = output / "ed07_panels_abc_first30_to_day2_maintained59_round17"
+    bottom_stem = output / "ed07_panels_def_long_gap_clean36_round17"
+    assembly_stem = output / "extended_data_figure7_source_rebuild"
+    top = power.render_first30_row(
+        first30,
+        first30_models,
+        palettes,
+        bases,
+        top_stem,
+        model_specification="maintained59_primary",
+    )
+    bottom = power.render_long_gap_row(
+        long_gap,
+        long_models,
+        palettes,
+        bases,
+        bottom_stem,
+        bottom_scope="clean36",
+    )
+    assembly = power.render_six_panel_assembly(
+        first30,
+        first30_models,
+        long_gap,
+        long_models,
+        palettes,
+        bases,
+        assembly_stem,
+        bottom_scope="clean36",
+        first30_model_specification="maintained59_primary",
+    )
 
     expected_outputs = {
         stem.with_suffix(f".{extension}")
@@ -709,64 +386,12 @@ def render_ed7(record: Path, output: Path, stage: Path) -> dict[str, Any]:
 
 def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m = load_module(stage / "scripts/render_ed10_slide12_powerpoint_matched.py", "ed10_source_rebuild")
-    synthesis = record / "source_authority/fixed_neuron_synthesis"
-    m.REPO = REPO_ROOT
-    m.SYNTHESIS = synthesis
     m.TABLE_A = record / "plot_ready/POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv"
     m.TABLE_B = record / "plot_ready/REWARD_LEVEL_COMMONALITY.csv"
     m.PROFILE_TABLE = record / "plot_ready/REWARD_LEVEL_PROFILE_TESTS.csv"
     m.PAIR_AUDIT = record / "plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
-    m.SYNTHESIS_VALIDATION = synthesis / "VALIDATION.json"
-    m.SYNTHESIS_MANIFEST = synthesis / "SOURCE_MANIFEST.csv"
     m.TABLE_C = record / "plot_ready/level_policy_bridge_join_corrected36.csv"
     m.STATS_C = record / "plot_ready/level_policy_bridge_stats_corrected36.csv"
-    runtime_authority = output / "runtime_authorities"
-    runtime_authority.mkdir()
-    # Validate the included source tables used here.
-    maintained_sources = [
-        m.TABLE_A,
-        m.TABLE_B,
-        m.PROFILE_TABLE,
-        m.PAIR_AUDIT,
-        m.TABLE_C,
-        m.STATS_C,
-    ]
-    local_manifest = runtime_authority / "ED10_RECORD_LOCAL_SOURCE_MANIFEST.csv"
-    with local_manifest.open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.DictWriter(
-            stream,
-            fieldnames=("role", "path", "bytes", "mtime_ns", "sha256"),
-        )
-        writer.writeheader()
-        for source in maintained_sources:
-            writer.writerow(
-                {
-                    "role": "maintained_record_source",
-                    "path": source.resolve(),
-                    "bytes": source.stat().st_size,
-                    "mtime_ns": source.stat().st_mtime_ns,
-                    "sha256": sha256(source),
-                }
-            )
-    local_validation = runtime_authority / "ED10_RECORD_LOCAL_VALIDATION.json"
-    local_validation.write_text(
-        json.dumps(
-            {
-                "schema": "ed10-record-local-validation/v1",
-                "status": "PASS",
-                "outputs": {
-                    source.resolve().as_posix(): sha256(source)
-                    for source in maintained_sources
-                },
-            },
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
-    m.SYNTHESIS_MANIFEST = local_manifest
-    m.SYNTHESIS_VALIDATION = local_validation
-    m.ROUND6_SOURCE_VALIDATION = output / "ED10_SOURCE_REBUILD_VALIDATION.json"
     round_match = re.search(r"_(round\d+)(?:_|$)", record.name)
     if round_match is None:
         raise RuntimeError(f"Cannot derive ED10 output round from record name: {record.name}")

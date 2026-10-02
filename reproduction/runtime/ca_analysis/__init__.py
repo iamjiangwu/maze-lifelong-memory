@@ -4,7 +4,6 @@ from importlib import import_module
 
 _SUBMODULES = {
     'spatial',
-    'compat',
     'maze',
     'figure_panels',
 }

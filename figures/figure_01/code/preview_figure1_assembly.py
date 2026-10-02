@@ -16,7 +16,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from ca_analysis.compat import bootstrap_environment
 from ca_analysis.figure_panels import (
     END_NODE_LOWER_THRESHOLD,
     END_NODE_UPPER_THRESHOLD,
@@ -35,8 +34,7 @@ from ca_analysis.figure_panels import (
 )
 
 
-_COMPAT = bootstrap_environment()
-REPO_ROOT = Path(_COMPAT.repo_root)
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
 DEFAULT_OUTPUT_DIR = Path("docs/figure_panel_previews")
 DEFAULT_BASENAME = "figure1_assembly_preview"

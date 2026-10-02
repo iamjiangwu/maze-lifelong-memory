@@ -140,7 +140,7 @@ def render(source_renderer, data, output: Path):
     source_audit = []
     source_labels = {"b-c": "a-b", "d-e": "c-d", "f-rows": "e-rows", "f-stats": "e-stats",
                      "g-rows": "f-rows", "g-stats": "f-stats", "h-rows": "g-rows", "h-reference": "g-reference",
-                     "i-selection": "h-selection", "i-naive": "h-naive", "i-return": "h-return", "j": "i", "k": "j"}
+                     "i-naive": "h-naive", "i-return": "h-return", "j": "i", "k": "j"}
     for old, (path, stage) in source_renderer.SOURCE_FILES.items():
         source_audit.append({"panel": source_labels.get(old, "retired-a"), "old_panel": old,
                              "source_path": Path(path).relative_to(Path(path).parents[1]).as_posix(),

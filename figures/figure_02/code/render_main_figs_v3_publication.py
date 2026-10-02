@@ -1,8 +1,6 @@
 """Render Figure 2 from included derived Source Data.
 
-The supported build.py launcher supplies source paths and the two
-source-scope validation callbacks before calling render_figure2.
-Historical path defaults below are replaced by that launcher.
+The supported build.py launcher supplies the source paths before rendering.
 """
 
 from __future__ import annotations
@@ -55,50 +53,15 @@ from ca_analysis.figure_colors import get_correlation_experience_colors
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
-SORTED_ROOT = REPO_ROOT / "docs" / "sorted_data_full_figure_rerun_2026-06-11"
-
-EXAMPLE_SAVED_DIR = REPO_ROOT / "docs" / "example_neuron_candidates" / "saved_picks"
-
-FIGURE2_HELPER = REPO_ROOT / "scripts" / "preview_figure2_assembly.py"
-
-FIGURE2_DISTRIBUTION_DIR = (
-    SORTED_ROOT
-    / "figure2_distribution_shuffle_corrected_842_no_presort_exclusions_2026-08-03"
-)
-
-FIGURE2_DISTRIBUTION_PAIR_SUPPORT = FIGURE2_DISTRIBUTION_DIR / "pair_support_audit.csv"
-
-FIGURE2_GAP_CURVE = (
-    SORTED_ROOT
-    / "figure2_gap_anchor_pair_mean_no_manual_mask_2026-08-13"
-    / "gap_with_day1_day2_curve_data.csv"
-)
-
-FIGURE2_CONSECUTIVE_POINTS = (
-    SORTED_ROOT
-    / "figure2_consecutive_gap_clean_long_gap_corrected_2026-08-03"
-    / "consecutive_gap_clean_long_gap_corrected_points.csv"
-)
-
-FIGURE2_CONSECUTIVE_STATS = (
-    SORTED_ROOT
-    / "figure2_consecutive_gap_clean_long_gap_corrected_2026-08-03"
-    / "consecutive_gap_clean_long_gap_corrected_stats.csv"
-)
-
-FIGURE2_CONSECUTIVE_DIR = SORTED_ROOT / "figure2_consecutive_gap_clean_long_gap_corrected_2026-08-03"
-
-FIGURE2_CONSECUTIVE_CLEAN_SCOPE = FIGURE2_CONSECUTIVE_DIR / "consecutive_gap_clean_long_gap_22_chain_scope.csv"
-
-FIGURE2_RATE_CHAIN_DIR = SORTED_ROOT / "figure2_rate_chain_no_manual_mask_2026-08-07"
-
-FIGURE2_RATE_CHAIN_POINTS = (
-    FIGURE2_RATE_CHAIN_DIR / "session_pair_rate_consecutive_gap_points_clean_long_gap_no_manual_mask.csv"
-)
-
-FIGURE2_RATE_CHAIN_STATS = (
-    FIGURE2_RATE_CHAIN_DIR / "session_pair_rate_consecutive_gap_stats_clean_long_gap_no_manual_mask.csv"
-)
+# The supported builder binds the staged source paths.
+EXAMPLE_SAVED_DIR: Path
+FIGURE2_HELPER: Path
+FIGURE2_DISTRIBUTION_DIR: Path
+FIGURE2_GAP_CURVE: Path
+FIGURE2_CONSECUTIVE_POINTS: Path
+FIGURE2_CONSECUTIVE_STATS: Path
+FIGURE2_RATE_CHAIN_POINTS: Path
+FIGURE2_RATE_CHAIN_STATS: Path
 
 BROWSER_EXPORT_TIMEOUT_SECONDS = 180
 
@@ -135,32 +98,26 @@ FIGURE2_METRIC_SHORT = {
 FIGURE2_METRIC_NPZ = {
     "place_map_correlation": {
         "distribution": (
-            "figure2_panel_c_place_distribution_"
-            "corrected_842_no_presort_exclusions_36_no_1616_short.npz"
+            "place_map_distribution.npz"
         ),
         "mean": (
-            "figure2_panel_d_place_shuffle_mean_"
-            "corrected_842_no_presort_exclusions_36_no_1616_short.npz"
+            "place_map_shuffle_mean.npz"
         ),
     },
     "pv_correlation": {
         "distribution": (
-            "figure2_panel_e_pv_distribution_"
-            "corrected_842_no_presort_exclusions_36_no_1616_short.npz"
+            "pv_distribution.npz"
         ),
         "mean": (
-            "figure2_panel_f_pv_shuffle_mean_"
-            "corrected_842_no_presort_exclusions_36_no_1616_short.npz"
+            "pv_shuffle_mean.npz"
         ),
     },
     "ensemble_rate_correlation": {
         "distribution": (
-            "figure2_panel_g_rate_distribution_"
-            "corrected_842_no_presort_exclusions_36_no_1616_short.npz"
+            "ensemble_rate_distribution.npz"
         ),
         "mean": (
-            "figure2_panel_h_rate_shuffle_mean_"
-            "corrected_842_no_presort_exclusions_36_no_1616_short.npz"
+            "ensemble_rate_shuffle_mean.npz"
         ),
     },
 }
@@ -947,7 +904,7 @@ def _figure2_density_from_hist(counts: np.ndarray, edges: np.ndarray) -> np.ndar
     return np.asarray(counts, dtype=float) / (total * widths)
 
 def _draw_figure2_distribution_panel(ax: plt.Axes, metric: str, style: PublicationStyle) -> None:
-    data = np.load(_figure2_distribution_path(metric), allow_pickle=True)
+    data = np.load(_figure2_distribution_path(metric), allow_pickle=False)
     edges = np.asarray(data["hist_edges"], dtype=float)
     obs = np.asarray(data["obs"], dtype=float)
     color = style.metric_colors[metric]
@@ -1035,7 +992,7 @@ def _draw_figure2_distribution_panel(ax: plt.Axes, metric: str, style: Publicati
     _apply_figure2_axis_style(ax, style)
 
 def _draw_figure2_mean_panel(ax: plt.Axes, metric: str, style: PublicationStyle) -> None:
-    data = np.load(_figure2_mean_path(metric), allow_pickle=True)
+    data = np.load(_figure2_mean_path(metric), allow_pickle=False)
     null = np.asarray(data["null"], dtype=float)
     obs = float(np.asarray(data["obs"], dtype=float).ravel()[0])
     color = style.metric_colors[metric]
@@ -1762,7 +1719,6 @@ def _bh_q(p_values: list[float]) -> list[float]:
 
 def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
     out_dir.mkdir(parents=True, exist_ok=True)
-    distribution_scope_audit = _validate_figure2_distribution_sources()
     fig2 = _load_script_module("preview_figure2_assembly_source_render", FIGURE2_HELPER)
     canvas_w, canvas_h = FIGURE2_PPT_LAYOUT_CANVAS_SIZE
     figure_w_pt = canvas_w * 72.0
@@ -1811,7 +1767,6 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
         curve_df = pd.read_csv(FIGURE2_GAP_CURVE)
         points_df = pd.read_csv(FIGURE2_CONSECUTIVE_POINTS)
         stats_df = pd.read_csv(FIGURE2_CONSECUTIVE_STATS)
-        consecutive_scope_audit = _validate_figure2_clean_consecutive_scope(points_df, stats_df)
         consecutive_binned_curve = _figure2_binned_curve_audit(points_df)
         displayed_estimand_stats = _figure2_displayed_estimand_stats(stats_df)
         stats_df = stats_df.copy()
@@ -2028,19 +1983,17 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
             else _rel(_figure2_distribution_path(metric) if col == 0 else _figure2_mean_path(metric))
         )
         filters = (
-            "metrics place/PV/ensemble only; level excluded; corrected maintained scope; "
+            "metrics place/PV/ensemble; "
             "source-rendered lower-grid axis"
         )
         if col in (0, 1):
             filters += (
-                "; 10,000 neuron-ID shuffle repeats; corrected 842 0->3 CIMap; "
-                "no manual/pre-sort exclusions; excluded 1616day1 -> 1616bday1"
+                "; 10,000 neuron-ID shuffle repeats"
             )
         source_row_count = ""
         if col == 3:
             filters = (
-                "scope=clean_long_gap_day1_triplets; 22 chains from 11 animals; "
-                "unrestricted adjacency=23 with only special 1616 short-gap chain excluded"
+                "scope=clean_long_gap_day1_triplets; 22 chains from 11 animals"
             )
             source_row_count = "22 clean long-gap chains from 11 animals"
             if metric == "ensemble_rate_correlation":
@@ -2193,12 +2146,8 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                 "renderer": "render_main_figs_v3_publication._draw_figure2_distribution_panel; _draw_figure2_mean_panel",
                 "filters": {
                     "metrics": ["place_map_correlation", "pv_correlation", "ensemble_rate_correlation"],
-                    "excluded_metrics": ["level_map_correlation"],
-                    "excluded_transition": "1616day1 -> 1616bday1",
                     "shuffle_repeats": 10000,
                     "shuffle_type": "neuron-ID permutation of test-session side",
-                    "corrected_registration": "842day1 -> 842-3day1",
-                    "manual_presort_exclusions": "none",
                 },
                 "source_paths": {
                     metric: {
@@ -2207,8 +2156,6 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                     }
                     for metric in METRICS
                 },
-                "pair_support_audit": _rel(FIGURE2_DISTRIBUTION_PAIR_SUPPORT),
-                "scope_audit": distribution_scope_audit,
             },
             {
                 "panel": "figure2_gap_length_curves",
@@ -2216,7 +2163,7 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                 "visual_role": "gap-length correlation curves",
                 "renderer": "render_main_figs_v3_publication._draw_figure2_gap_curve",
                 "source_path": _rel(FIGURE2_GAP_CURVE),
-                "filters": {"metrics": ["place", "pv", "rate"], "excluded_metrics": ["level"]},
+                "filters": {"metrics": ["place", "pv", "rate"]},
             },
             {
                 "panel": "figure2_consecutive_gap",
@@ -2236,28 +2183,19 @@ def render_figure2(out_dir: Path, style: PublicationStyle) -> dict[str, object]:
                 "filters": {
                     "place_pv_metrics": ["place_map_correlation", "pv_correlation"],
                     "place_pv_source_scope": "22 clean long-gap Day-1 chains from corrected pair authorities",
-                    "explicitly_excluded_chain": "1616day1 -> 1616bday1 -> 1616b-3day1",
                     "ensemble_rate_scope": "clean_long_gap_day1_triplets",
                     "ensemble_rate_metric": "value_sorted",
                     "ensemble_rate_previous_gap_column": "value_sorted_ab",
                     "ensemble_rate_next_gap_column": "value_sorted_bc",
-                    "ensemble_rate_excluded_transition": "1616day1 -> 1616bday1",
-                    "excluded_metrics": ["level_map_correlation"],
                 },
-                "scope_audit": consecutive_scope_audit,
                 "binned_curve_audit": _rel(consecutive_binned_curve_path),
                 "displayed_estimand_bh4": _rel(displayed_estimand_stats_path),
-                "scope_sources": {
-                    "clean_22": _rel(FIGURE2_CONSECUTIVE_CLEAN_SCOPE),
-                },
             }
         ],
         "panel_verification": _rel(verification_path),
         "panel_geometry": _rel(geometry_path),
         "consecutive_gap_binned_curve_audit": _rel(consecutive_binned_curve_path),
         "consecutive_gap_displayed_estimand_bh4": _rel(displayed_estimand_stats_path),
-        "distribution_scope_audit": distribution_scope_audit,
-        "consecutive_scope_audit": consecutive_scope_audit,
     }
     _write_json(out_dir / "figure2_source_manifest.json", manifest)
     return manifest

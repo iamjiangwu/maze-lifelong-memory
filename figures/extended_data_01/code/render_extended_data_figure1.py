@@ -99,9 +99,6 @@ EXAMPLE_DIR = (
     / "extended_data_fig_02"
     / "illustrative_support_gap_closure_2026-07-14"
 )
-EXAMPLE_SELECTION_AUDIT = EXAMPLE_DIR / "ed02_efficiency_example_selection_audit.csv"
-EXAMPLE_NAIVE_TRAJECTORY = REPO / "mm-trajectories" / "451Rday1-tf"
-EXAMPLE_RETURN_TRAJECTORY = REPO / "mm-trajectories" / "451-9day1-tf"
 EFFICIENCY_DIR = (
     PANEL_ROOT
     / "extended_data_fig_02"
@@ -117,30 +114,9 @@ EFFICIENCY_CAPTION_NOTE = (
     "in the exported tables rather than below the axes."
 )
 
-SOURCE_FILES = {
-    "b-c": (ACCUMULATION, "session-level cumulative count curves"),
-    "d-e": (TILE_CURVES, "current153 grouped maze-transition curves"),
-    "f-rows": (ENDPOINT_ROWS, "session-level endpoint rows"),
-    "f-stats": (ENDPOINT_STATS, "endpoint statistics with standard errors clustered by animal"),
-    "g-rows": (TILE_TIME_ROWS, "session-level tile-time rows"),
-    "g-stats": (TILE_TIME_STATS, "log-log statistics with standard errors clustered by animal"),
-    "h-rows": (SPEED_ROWS, "first-30-min session-level speed rows"),
-    "h-reference": (SPEED_REFERENCE, "first-30-min grouped-summary parity target"),
-    "i-selection": (
-        EXAMPLE_SELECTION_AUDIT,
-        "selected animal and cycle-complete example support",
-    ),
-    "i-naive": (
-        EXAMPLE_NAIVE_TRAJECTORY,
-        "raw maintained trajectory for selected naive example",
-    ),
-    "i-return": (
-        EXAMPLE_RETURN_TRAJECTORY,
-        "raw maintained trajectory for selected return example",
-    ),
-    "j": (EFFICIENCY_TIME, "session-first time-bin efficiency rows"),
-    "k": (EFFICIENCY_TILE, "session-first transition-bin efficiency rows"),
-}
+# The supported launcher binds this mapping to included publication inputs
+# before rendering; it supplies no raw trajectory paths.
+SOURCE_FILES: dict[str, tuple[Path, str]]
 PANEL_SCOPE = {
     "b-c": ("ED1", "maintained current153 primary evidence"),
     "d-e": ("ED1", "maintained current153 primary evidence"),
@@ -150,7 +126,6 @@ PANEL_SCOPE = {
     "g-stats": ("ED2 retained on supplied slide", "caption-only statistics"),
     "h-rows": ("ED2 retained on supplied slide", "maintained locomotor control"),
     "h-reference": ("ED2 retained on supplied slide", "summary parity target"),
-    "i-selection": ("ED2 retained on supplied slide", "maintained illustrative example"),
     "i-naive": ("ED2 retained on supplied slide", "raw selected trajectory"),
     "i-return": ("ED2 retained on supplied slide", "raw selected trajectory"),
     "j": ("ED2 retained on supplied slide", "candidate axis option; not promoted primary"),

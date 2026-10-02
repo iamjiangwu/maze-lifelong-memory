@@ -36,15 +36,10 @@ def build(bundle, output):
     sys.modules[spec.name] = driver
     spec.loader.exec_module(driver)
     driver.REPO_ROOT = bundle
-    # The source package supplies one shared contract/runtime, rather than a
-    # second ED10-specific copy of the same contract.
+    # All figures share the same plotting runtime.
     shared = bundle.parents[1] / "shared"
-    if (shared / "SOURCE_REBUILD_ED_CONTRACT.json").is_file():
-        driver.VOR_ROOT = shared
-        driver.CONTRACT = shared / "SOURCE_REBUILD_ED_CONTRACT.json"
+    driver.VOR_ROOT = shared
     output.mkdir(parents=True, exist_ok=True)
-    if (output / "runtime_authorities").exists():
-        raise FileExistsError("Use a fresh output directory")
     frozen = bundle / "frozen_source/extended_data_fig10_round18_inputs"
     with driver.frozen_stage(frozen) as stage:
         result = driver.render_ed10(frozen, output, stage)

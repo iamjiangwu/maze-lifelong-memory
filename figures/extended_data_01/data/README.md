@@ -9,7 +9,7 @@ Reward and exploration measurements. The mappings below use the current a–j pa
 | e | `endpoint_axis_session_rows.csv` and `endpoint_axis_cluster_stats.csv`: one session × endpoint outcome, in maze time and tile transitions, and the group contrasts. |
 | f | `tile_time_loglog_rows.csv` and its statistics file: elapsed maze time and tile transitions to the first long bout. |
 | g | `panel_h_first30_session_rows_cap60.csv` and its summary: first-30-min speed per session. |
-| h | `panel_i_end_node_sequence.csv`, `panel_i_cycle_summary.csv`, `panel_i_selection_audit.csv`: displayed coverage-bout examples and their selection. |
+| h | `panel_i_end_node_sequence.csv` and `panel_i_cycle_summary.csv`: displayed coverage-bout examples. |
 | i–j | `j_*_time_session_bins.csv`, `k_*_tile_session_bins.csv`: efficiency per session and time/tile bin. |
 
 `time_minutes` is time in the maze; `maze_time_s` is seconds; tile values count transitions, not physical distance. `mode_time_distance_rate_cm_s` is speed in cm/s from retained continuous body-position pairs with the saved 60 cm/s segment cap. A coverage bout ends after reaching 32 distinct end nodes; efficiency is `32 / steps_in_cycle`, where steps count end-node visits. These coverage-bout indices are not recording cycles.
@@ -28,6 +28,5 @@ Reward and exploration measurements. The mappings below use the current a–j pa
 | [panel_h_first30_session_rows_cap60.csv](panel_h_first30_session_rows_cap60.csv) | .csv |
 | [panel_i_cycle_summary.csv](panel_i_cycle_summary.csv) | .csv |
 | [panel_i_end_node_sequence.csv](panel_i_end_node_sequence.csv) | .csv |
-| [panel_i_selection_audit.csv](panel_i_selection_audit.csv) | .csv |
 | [tile_time_loglog_rows.csv](tile_time_loglog_rows.csv) | .csv |
 | [tile_time_loglog_statistics.csv](tile_time_loglog_statistics.csv) | .csv |

@@ -42,6 +42,10 @@ def main():
                     row['valid_pdf'] = len(document) == 1 and 'Maze export check' in document[0].get_text()
             results.append(row)
             print(json.dumps(row), flush=True)
+        # A successful preferred exporter is sufficient, as in figure builds.
+        # Do not launch unrelated installed browsers after the check succeeds.
+        if row.get('exit_code') == 0 and row['valid_pdf']:
+            break
     assert any(row.get('exit_code') == 0 and row['valid_pdf'] for row in results), results
 
 

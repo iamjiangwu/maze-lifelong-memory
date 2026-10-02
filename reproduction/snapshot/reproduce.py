@@ -1,4 +1,4 @@
-"""Portable source-only figure/table runner. Copied into each dated release."""
+"""Portable figure/table runner for the included plotting and statistical inputs."""
 from __future__ import annotations
 
 import argparse
@@ -64,10 +64,7 @@ def native_build(artifact, shared, out, config):
         m = load(shared / 'rebuild_current_extended_data_figures.py', 'release_ed')
         m.REPO_ROOT = artifact.parent
         m.VOR_ROOT = shared
-        m.CONTRACT = shared / 'SOURCE_REBUILD_ED_CONTRACT.json'
-        # Preserve the original record name used to dispatch the frozen ED2/ED5 adapters.
-        record = artifact / config['record_name']
-        shutil.copytree(source, record)
+        record = source
         with m.frozen_stage(record) as stage:
             result = getattr(m, 'render_ed' + config['artifact_id'].rsplit('_', 1)[-1])(record, out, stage)
         assert result['status'] == 'PASS', result

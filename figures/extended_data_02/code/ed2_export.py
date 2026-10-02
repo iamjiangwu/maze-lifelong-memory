@@ -1,7 +1,7 @@
-"""Export the approved ED2 Round 11 page as vector PDF/SVG and 600-dpi rasters.
+"""Export the ED2 page as vector PDF/SVG and 600-dpi rasters.
 
 The nine scientific panels and shared b/c legend are placed from their
-recorded vector PDFs using the exact 720-unit Round 11 PowerPoint frame map.
+recorded vector PDFs using the exact 720-unit panel frame map.
 No screenshot or PowerPoint raster is used to build the publication figure.
 """
 
@@ -28,7 +28,7 @@ PAGE_UNITS = 720.0
 PAGE_INCHES = 7.5
 POINTS_PER_UNIT = PAGE_INCHES * 72.0 / PAGE_UNITS
 PANEL_ORDER = tuple("abcdefghi")
-COMPOSITE_STEM = "ed02_round11_axis_aligned_version_record"
+COMPOSITE_STEM = "ed02_version_record"
 
 
 def sha256(path: Path) -> str:
@@ -81,18 +81,17 @@ def export(
     output_root: Path,
     *,
     composite_stem: str = COMPOSITE_STEM,
-    review_round: int = 11,
-    manifest_name: str = "ED02_ROUND11_COMPOSITE_MANIFEST.json",
+    manifest_name: str = "ED02_COMPOSITE_MANIFEST.json",
 ) -> dict[str, Any]:
     if not ARIAL_BOLD.is_file():
         raise FileNotFoundError(f"Arial Bold font not found: {ARIAL_BOLD}")
     source_manifest = load_json(source_root / "SOURCE_MANIFEST.json")
-    layout = source_manifest["layout_contract_round11"]
+    layout = source_manifest["layout"]
     frames = layout["panel_frames_720"]
     labels = layout["panel_label_frames_720"]
     legend = source_manifest["shared_bc_legend"]
     panel_pdfs = panel_pdf_map(source_root)
-    legend_pdf = source_root / "shared_assets" / "ed02_shared_bc_experience_legend_round11.pdf"
+    legend_pdf = source_root / "shared_assets" / "ed02_shared_bc_experience_legend.pdf"
     if not legend_pdf.is_file():
         raise FileNotFoundError(legend_pdf)
 
@@ -163,7 +162,7 @@ def export(
         {
             "title": "Extended Data Figure 2 | experience-dependent route policies",
             "author": "Python source-vector assembly",
-            "subject": f"Round {review_round} immutable version-record candidate",
+            "subject": "First-30-minute route policies and saved simulation results",
             "keywords": "Extended Data Figure 2, vector, fixed 30 min, route policy",
         }
     )
@@ -213,7 +212,6 @@ def export(
     manifest = {
         "status": "pass",
         "figure": "Extended Data Figure 2",
-        "review_round": review_round,
         "backend": "Python with PyMuPDF vector placement from matplotlib panel PDFs",
         "page_inches": [PAGE_INCHES, PAGE_INCHES],
         "panel_order": list(PANEL_ORDER),

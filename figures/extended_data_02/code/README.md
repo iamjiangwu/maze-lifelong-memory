@@ -1,24 +1,31 @@
 # Extended Data Figure 2: code
 
-See the [code reading map](../../../docs/CODE.md) for the wrapper, drawing functions and statistical entry points.
+Run [../build.py](../build.py) through the repository's supported launcher. The
+build reads the included first-30-minute policy tables and saved biased-walk
+simulation results; it does not refit policies or rerun stochastic walks.
+See the [panel/data mapping](../data/README.md) and
+[environment/setup guide](../../../docs/REPRODUCING.md).
 
-The supported entry point is [../build.py](../build.py), run from the repository root. The shared base renderer reads first-30-minute session and saved simulation results; the local drawing modules successively define the component plots, typography and current a–i layout. `export_ed02_vector_figure.py` supplies vector export. These modules form an import chain, not alternative analyses to run separately. See the [panel/data mapping](../data/README.md).
+The current implementation has three modules:
 
-These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
+- [render_ed2.py](render_ed2.py): loads the derived inputs, draws each of the nine
+  final panels once, places the model labels in panel h, and assembles the page.
+- [ed2_panels.py](ed2_panels.py): panel drawing, display transforms, table loading
+  and cohort/support checks. Start with `build_panel_a`, `build_policy_scatter`,
+  `build_panel_d` through `build_panel_h`, and `build_calibration` for f/i. The
+  named private helpers apply axes, typography, marker and label placement.
+- [ed2_export.py](ed2_export.py): places panel PDFs and the shared legend using
+  the explicit page frames, then exports the vector page and raster formats.
 
-The [ED driver](../../../reproduction/snapshot/shared/rebuild_current_extended_data_figures.py) combines two drawing passes: `refinement.render()` supplies the assembly, and `aligned.render()` supplies matched-naïve panels d/h. Both use the same current numerical inputs. The import chain, from outer wrapper to base drawing functions, is:
+The panel-i depth-varying calibration uses the same all-depth-strata support as
+g/h: at least 10 P_BS events in each shallow, middle and deep stratum. Its
+Naive/Return/Second-day cohort counts are 22/58/74; the four-policy calibration
+in f retains 23/58/74. `depth_supported`, `validate_source_cohorts` and
+`prepare_calibration` enforce these contracts. All windows are the first 30
+cumulative TimeInMaze minutes; Explore-mode junction decisions define policies.
 
-1. [refinement](render_ed02_slide3_refinement.py)
-2. [upright policy labels](../../../figures/extended_data_02/code/render_ed02_slide3_upright_policy.py)
-3. [panel-g labels](render_ed02_slide3_panel_g_labels.py)
-4. [schematic placement](render_ed02_slide3_schematic_g_fix.py)
-5. [aligned layout](render_ed02_slide3_aligned.py)
-6. [compact layout](render_ed02_slide3_compact.py)
-7. [marker consistency](render_ed02_slide3_marker_consistent.py)
-8. [shared legend](render_ed02_slide3_shared_legend.py)
-9. [typography](render_ed02_slide3_typography.py)
-10. [visible alignment](render_ed02_slide3_visible_alignment.py)
-11. [panel layout](render_ed02_slide3_layout_optimized.py)
-12. [component plots](render_ed02_slide3_caption_minimal.py)
-
-The last layer loads the [depth-support adapter](../../../figures/extended_data_02/code/render_ed02_depth_common_i_adapter.py), which provides the [base renderer](../../../reproduction/snapshot/shared/SOURCE_REBUILD_ED2_ROUND23_BASE_RENDERER.py). The adapter applies the same all-depth-strata support to panel i as to g/h. [export_ed02_vector_figure.py](export_ed02_vector_figure.py) handles vector assembly/export. These layers control drawing or cohort support; they do not introduce additional behavioral windows or statistical families.
+Recompute the figure's inferential results with the other recorded analyses via
+`python reproduce.py --statistics-only --output-dir outputs/statistics`.
+The [code reading map](../../../docs/CODE.md) identifies the statistical replay
+entry points. No intermediate full-figure rendering or revision-specific
+import chain is needed by this builder.

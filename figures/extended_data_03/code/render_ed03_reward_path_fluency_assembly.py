@@ -1,13 +1,12 @@
 """Assemble Extended Data Figure 3 (reward-path fluency and first-visit choices).
 
-Panels a-d use the included fluency tables and ``draw_claim_panel``. Panel e
+Panels a-d use the included fluency tables and ``draw_claim_bar_panel``. Panel e
 shows the six scored decisions of the first-visit route; panel f shows the
 depth-specific choices. All panels use the Main Figure 1 condition palette.
 """
 
 from __future__ import annotations
 
-import argparse
 import hashlib
 import importlib.util
 import json
@@ -34,29 +33,11 @@ from ca_analysis.figure_panels import (
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-REFRESH_ROOT = REPO_ROOT / "docs" / "extended_data_figure_panel_refresh_2026-07-12"
-SOURCE_TABLES = (
-    REFRESH_ROOT
-    / "extended_data_figures"
-    / "extended_data_fig_04"
-    / "04_source_tables"
-)
-ROUTE_TABLES = REFRESH_ROOT / "source_tables"
-FLUENCY_ROWS = SOURCE_TABLES / "fluency_plot_rows.csv"
-FLUENCY_STATS = SOURCE_TABLES / "fluency_statistics.csv"
-DEPTH_TABLE = ROUTE_TABLES / "ed04_depth_small_multiples_current_plus_new12.csv"
-ROUTE_DEFINITION = ROUTE_TABLES / "ed04_route_definition_current_plus_new12.csv"
-
-# Deliberately not under source_rendered_new/extended_data_fig_03: that directory holds
-# the OLD Extended Data Figure 3 (branch-policy / fixed-30-minute exploration), which is
-# slide 3 and becomes Figure 2 under the merged numbering.
-DEFAULT_OUTPUT_DIR = (
-    REPO_ROOT
-    / "docs"
-    / "extended_data_supplement_v2_rebuild_2026-08-05"
-    / "ed03_reward_path_fluency"
-    / "assembly"
-)
+DATA_ROOT = Path(__file__).resolve().parents[1] / "data"
+FLUENCY_ROWS = DATA_ROOT / "fluency_plot_rows.csv"
+FLUENCY_STATS = DATA_ROOT / "fluency_statistics.csv"
+DEPTH_TABLE = DATA_ROOT / "depth_small_multiples.csv"
+ROUTE_DEFINITION = DATA_ROOT / "route_definition.csv"
 
 FORMATS = ("svg", "pdf", "png", "tiff")
 
@@ -191,8 +172,8 @@ def configure_main_figure_typography() -> None:
 
 
 def load_fluency_module() -> Any:
-    """Import the maintained ED4 fluency renderer for its drawing contract."""
-    path = REPO_ROOT / "scripts" / "render_ed04_fluency_story_current.py"
+    """Import the sibling dwell-mean and confidence-interval helpers."""
+    path = Path(__file__).with_name("render_ed04_fluency_story_current.py")
     spec = importlib.util.spec_from_file_location("ed04_fluency_story", path)
     if spec is None or spec.loader is None:
         raise RuntimeError(f"Could not load {path}")
@@ -834,21 +815,3 @@ def run(output_dir: Path) -> dict[str, Any]:
     )
     pd.DataFrame(checks).to_csv(output_dir / "ED03_VALIDATION.csv", index=False)
     return manifest
-
-
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
-    return parser.parse_args()
-
-
-def main() -> None:
-    manifest = run(parse_args().output_dir)
-    failed = [c for c in manifest["validation"] if c["status"] != "PASS"]
-    print(json.dumps({"validation_status": manifest["validation_status"], "checks": len(manifest["validation"]), "failed": failed}, indent=2))
-    if failed:
-        raise SystemExit(1)
-
-
-if __name__ == "__main__":
-    main()

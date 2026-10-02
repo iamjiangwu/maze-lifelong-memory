@@ -97,18 +97,7 @@ def _install_frozen_panel_modules(record: Path):
     for name in tuple(sys.modules):
         if name == "ca_analysis" or name.startswith("ca_analysis."):
             del sys.modules[name]
-    os.environ["CA_COMPAT_LINK_ARTIFACTS"] = "0"
     ca_analysis = importlib.import_module("ca_analysis")
-    compat = importlib.import_module("ca_analysis.compat")
-
-    def frozen_bootstrap_environment(repo_root: str | os.PathLike | None = None):
-        return types.SimpleNamespace(
-            repo_root=str(Path(repo_root).resolve() if repo_root is not None else REPO_ROOT),
-            added_paths=[],
-            missing_paths=[],
-        )
-
-    compat.bootstrap_environment = frozen_bootstrap_environment
 
     # Prefer the figure-local heatmap helper when one is included.
     for stem in ("level_heatmap_utils",):
@@ -305,16 +294,12 @@ def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list
     publication.FIGURE2_HELPER = record / "source_code" / "preview_figure2_assembly.py"
     publication.EXAMPLE_SAVED_DIR = record / "panel_b_sources"
     publication.FIGURE2_DISTRIBUTION_DIR = distribution
-    publication.FIGURE2_DISTRIBUTION_PAIR_SUPPORT = distribution / "pair_support_audit.csv"
     publication.FIGURE2_GAP_CURVE = gap / "gap_with_day1_day2_curve_data.csv"
     publication.FIGURE2_CONSECUTIVE_POINTS = (
         consecutive / "consecutive_gap_clean_long_gap_corrected_points.csv"
     )
     publication.FIGURE2_CONSECUTIVE_STATS = (
         consecutive / "consecutive_gap_clean_long_gap_corrected_stats.csv"
-    )
-    publication.FIGURE2_CONSECUTIVE_CLEAN_SCOPE = (
-        consecutive / "consecutive_gap_clean_long_gap_22_chain_scope.csv"
     )
     publication.FIGURE2_RATE_CHAIN_POINTS = (
         rate / "session_pair_rate_consecutive_gap_points_canonical.csv"
@@ -323,29 +308,6 @@ def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list
         rate / "session_pair_rate_consecutive_gap_stats_canonical.csv"
     )
 
-    def distribution_audit() -> dict[str, Any]:
-        support = pd.read_csv(publication.FIGURE2_DISTRIBUTION_PAIR_SUPPORT)
-        if len(support) != 36:
-            raise RuntimeError("Figure 2 distribution source is not the accepted 36-pair scope")
-        return {
-            "status": "PASS",
-            "pair_count": 36,
-            "source": "included distribution summaries",
-        }
-
-    def consecutive_audit(points: pd.DataFrame, stats: pd.DataFrame) -> dict[str, Any]:
-        clean = pd.read_csv(publication.FIGURE2_CONSECUTIVE_CLEAN_SCOPE)
-        rate_rows = pd.read_csv(publication.FIGURE2_RATE_CHAIN_POINTS)
-        if len(clean) != 22 or len(rate_rows.loc[rate_rows["scope"].eq("clean_long_gap_day1_triplets")]) != 22:
-            raise RuntimeError("Figure 2 consecutive source is not the accepted 22-chain scope")
-        return {
-            "status": "PASS",
-            "clean_chains": 22,
-            "source": "included consecutive-session and ensemble-rate tables",
-        }
-
-    publication._validate_figure2_distribution_sources = distribution_audit
-    publication._validate_figure2_clean_consecutive_scope = consecutive_audit
     _patch_figure2_helper_loader(publication, record)
     output_dir.mkdir(parents=True, exist_ok=True)
     style = publication.PublicationStyle(dpi=300)

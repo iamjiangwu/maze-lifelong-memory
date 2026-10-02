@@ -10,7 +10,7 @@ Level-code persistence, controls and experience trends. The mappings use the cur
 | g–h | `maze_cells.csv`/`maze_walls.csv`: partition schematic; `pair_values.csv`, `paired_contrasts.csv`, `statistics.csv`: horizontal/vertical eight-bin map correlations, seven-level map correlations and their contrasts per session pair. |
 | i | `joint_cloud.csv`: one neuron pair's place-map and level-map correlation. |
 | j | `within_level_pairs.csv` retains the 36 pair-level observed/null correlations used by the paired plot and test. `within_level_nulls.csv` supplies 1,000 cohort-mean null draws for the histogram; `within_level_stats.csv` records the test. |
-| k–l | `gap.csv`/`level_gap_pair_values.csv`: means by Days apart and their pair inputs. Panel l reads the level-map rows of Figure 2's [consecutive-gap observations](../../figure_02/data/consecutive_gap_points.csv), with its [session-chain scope](../../figure_02/data/consecutive_pair_scope.csv); `consecutive_stats.csv` gives the fit. |
+| k–l | `gap.csv`/`level_gap_pair_values.csv`: means by Days apart and their pair inputs. Panel l reads the level-map rows of Figure 2's [consecutive-gap observations and chain identifiers](../../figure_02/data/consecutive_gap_points.csv); `consecutive_stats.csv` gives the fit. |
 | m | `learning.csv`: mean, s.e.m., animal count and support mask for within-session level-reference curves. |
 | n–o | Level-map rows from Figure 3's [first-30-min observations](../../figure_03/data/combined_first30_points_all_metrics.csv) and [successive-cycle pair observations](../../figure_03/data/long_gap_experience_points.csv). `first30_stats.csv` and `cycles_stats.csv` give the corresponding fits. |
 

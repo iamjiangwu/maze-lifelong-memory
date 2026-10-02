@@ -1,8 +1,0 @@
-{
-  "status": "qualified",
-  "map_pack_schema": "current_sorted_normalized_gallery_v1",
-  "pair_count": 32,
-  "side_count": 64,
-  "index_basis": "current_sorted_zero_based",
-  "all_current_cimap_matches_verified": true
-}

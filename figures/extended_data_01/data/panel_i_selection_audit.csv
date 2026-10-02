@@ -1,2 +1,0 @@
-animal_id,naive_session,naive_efficiency,return_session,return_efficiency,efficiency_ratio_return_over_naive,naive_complete_cycles,return_complete_cycles,eligible_for_five_cycle_display,selected_round6,round6_selection_rule
-451,451Rday1,0.074074074074074,451-9day1,0.5818181818181818,7.854545454545462,13,11,True,True,largest return/naive first-cycle efficiency ratio among same-mouse pairs with at least five complete cycles in both sessions

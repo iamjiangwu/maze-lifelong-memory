@@ -6,12 +6,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
-
-
-EXPECTED_LEDGER_SHA256 = "b252a26476802f2e5522bec360d45f8fdb278dd425d3f2dd48ee083e51dc6ca4"
 
 
 def sha256(path: Path) -> str:
@@ -42,30 +40,17 @@ def main() -> None:
     ledger = output / "comprehensive_interval_ledger.csv"
     ledger_manifest = output / "comprehensive_interval_ledger_manifest.json"
 
-    run(
-        [
-            sys.executable,
-            str(code / "build_source.py"),
-            "--behavior-points",
-            "source_data/behavior_return_points.csv",
-            "--candidate-registry",
-            "source_data/same_stage_candidate_universe_attrition.csv",
-            "--experiment-metafile",
-            "source_data/experiment_metafile.csv",
-            "--calcium-source",
-            "source_data/calcium_long_gap_pairs_corrected36.csv",
-            "--output-csv",
-            str(ledger),
-            "--manifest",
-            str(ledger_manifest),
-        ],
-        cwd=record,
-    )
+    # The finalized dated intervals are Source Data. The workbook computes the
+    # date differences and summary statistics; no session selection is repeated.
+    source_table = record / "source_data/recording_intervals.csv"
+    shutil.copyfile(source_table, ledger)
     observed_ledger_hash = sha256(ledger)
-    if observed_ledger_hash != EXPECTED_LEDGER_SHA256:
-        raise RuntimeError(
-            f"Ledger hash mismatch: expected {EXPECTED_LEDGER_SHA256}, observed {observed_ledger_hash}"
-        )
+    ledger_manifest.write_text(json.dumps({
+        "artifact": "Supplementary Table 2 intervals",
+        "interval_definition": "Return Day i calendar date minus preceding Day i+1 calendar date, in days",
+        "source_files": [{"path": "source_data/recording_intervals.csv", "sha256": observed_ledger_hash}],
+        "output_csv_sha256": observed_ledger_hash,
+    }, indent=2) + "\n", encoding="utf-8")
 
     run(
         [sys.executable, "-B", str(code / "build_workbook.py"), str(output), str(output)],

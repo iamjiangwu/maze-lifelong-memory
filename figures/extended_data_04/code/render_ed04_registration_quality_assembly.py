@@ -1,7 +1,7 @@
 """Assemble Extended Data Figure 4 (cross-session neuron-matching quality).
 
-Panels a and b use the included field-of-view images. Panels c-h use the
-included CellReg-derived and physical-alignment tables. Cumulative drift is in
+Panels a and b use the included field-of-view images. Panels c-e use the
+physical-alignment table; panels f-i read saved histogram bins and counts. Cumulative drift is in
 microns; alignment displacement is a percentage of the source FOV diagonal.
 
 Formatting follows the main figures for typography only -- family, sizes, weights,
@@ -106,19 +106,20 @@ def letter_y(y_top: float) -> float:
 
 
 def step_histogram(
-    ax, frame: pd.DataFrame, value: str, bins: np.ndarray, canvas: Canvas
+    ax, frame: pd.DataFrame, value: str, canvas: Canvas
 ) -> dict[str, Any]:
-    """Draw the two candidate classes as step histograms, closest over other."""
+    """Draw saved candidate-class counts, closest over other."""
     counts: dict[str, Any] = {}
     for klass, color in (
         ("other_within_radius", OTHER_COLOR),
         ("closest_by_centroid", CLOSEST_COLOR),
     ):
-        values = frame.loc[frame["candidate_class"].eq(klass), value].to_numpy(float)
-        values = values[np.isfinite(values)]
-        hist, edges = np.histogram(values, bins=bins)
+        bins = frame.loc[
+            frame["candidate_class"].eq(klass) & frame["measure"].eq(value)
+        ].sort_values("bin_left", kind="stable")
+        hist = bins["count"].to_numpy(int)
         ax.step(
-            edges[:-1],
+            bins["bin_left"].to_numpy(float),
             hist,
             where="post",
             color=color,
@@ -248,13 +249,15 @@ def draw_joint_with_marginals(
     y0: float,
     width: float,
     height: float,
+    n_registered_pairs: int,
 ) -> dict[str, Any]:
-    """Registered-pair joint density with both marginal count distributions."""
-    x = registered["centroid_distance_um"].to_numpy(float)
-    y = registered["spatial_footprint_correlation"].to_numpy(float)
-    x_bins = np.linspace(0.0, 14.0, 41)
-    y_bins = np.linspace(0.0, 1.0, 41)
-    hist, xedges, yedges = np.histogram2d(x, y, bins=[x_bins, y_bins])
+    """Draw saved joint counts and their two marginal count distributions."""
+    joint = registered.pivot(
+        index="distance_left_um", columns="correlation_left", values="count"
+    ).sort_index().sort_index(axis=1)
+    hist = joint.to_numpy(float)
+    xedges = np.r_[joint.index.to_numpy(float), registered["distance_right_um"].max()]
+    yedges = np.r_[joint.columns.to_numpy(float), registered["correlation_right"].max()]
 
     main_w = width - JOINT_MARGIN - JOINT_GAP
     main_h = height - JOINT_MARGIN - JOINT_GAP
@@ -316,15 +319,16 @@ def draw_joint_with_marginals(
     bar.outline.set_linewidth(canvas.axes_linewidth * 0.8)
     bar.set_label("Pairs", fontsize=canvas.tick_label * 0.85, labelpad=1.5)
     return {
-        "n_registered_pairs": int(registered.shape[0]),
+        "n_registered_pairs": int(n_registered_pairs),
         "max_bin_count": int(hist.max()),
         "has_marginals": True,
     }
 
 
 def build(output_dir: Path) -> dict[str, Any]:
-    candidates = pd.read_csv(SOURCE / "ed04_candidate_features_directed_long.csv")
-    registered = pd.read_csv(SOURCE / "ed04_registered_pair_features_long.csv")
+    candidates = pd.read_csv(SOURCE / "candidate_histograms.csv", float_precision="round_trip")
+    registered = pd.read_csv(SOURCE / "registered_joint_histogram.csv", float_precision="round_trip")
+    scores = pd.read_csv(SOURCE / "registered_score_histogram.csv", float_precision="round_trip")
     physical = pd.read_csv(
         ALIGNMENT / "physical_fov_exact_36_source.csv", dtype={"animal": str}
     )
@@ -489,7 +493,7 @@ def build(output_dir: Path) -> dict[str, Any]:
         ROW_D_COLUMNS[0], y_bottom(ROW_D_TOP, ROW_D_HEIGHT), ROW_D_WIDTH, ROW_D_HEIGHT
     )
     counts_f = step_histogram(
-        ax, candidates, "centroid_distance_um", np.linspace(0.0, 14.0, 41), canvas
+        ax, candidates, "centroid_distance_um", canvas
     )
     ax.set_xlabel("Centroid distance (" + MICRON + ")")
     ax.legend(
@@ -506,17 +510,14 @@ def build(output_dir: Path) -> dict[str, Any]:
     ax = canvas.axes(
         ROW_D_COLUMNS[1], y_bottom(ROW_D_TOP, ROW_D_HEIGHT), ROW_D_WIDTH, ROW_D_HEIGHT
     )
-    plotted = candidates.loc[candidates["correlation_in_0_to_1_plot"].astype(bool)]
     counts_g = step_histogram(
-        ax, plotted, "spatial_footprint_correlation", np.linspace(0.0, 1.0, 41), canvas
+        ax, candidates, "spatial_footprint_correlation", canvas
     )
     ax.set_xlabel("Spatial footprint correlation")
     canvas.panel_letter(ROW_D_COLUMNS[1] - LETTER_OFFSET, letter_y(ROW_D_TOP), "g")
     panels["g"] = {
         "counts": counts_g,
-        "excluded_negative_correlations": int(
-            (~candidates["correlation_in_0_to_1_plot"].astype(bool)).sum()
-        ),
+        "excluded_negative_correlations": summary["n_candidate_correlations_outside_display_range"],
     }
 
     # -- h: registered-pair joint distribution with marginals ---------------
@@ -527,6 +528,7 @@ def build(output_dir: Path) -> dict[str, Any]:
         y_bottom(ROW_D_TOP, ROW_D_HEIGHT),
         JOINT_WIDTH,
         ROW_D_HEIGHT,
+        summary["n_registered_pairs"],
     )
     canvas.panel_letter(ROW_D_COLUMNS[2] - LETTER_OFFSET, letter_y(ROW_D_TOP), "h")
 
@@ -534,10 +536,8 @@ def build(output_dir: Path) -> dict[str, Any]:
     ax = canvas.axes(
         ROW_D_COLUMNS[3], y_bottom(ROW_D_TOP, ROW_D_HEIGHT), ROW_D_WIDTH, ROW_D_HEIGHT
     )
-    scores = registered["cellreg_registration_score"].to_numpy(float)
-    finite = scores[np.isfinite(scores)]
-    non_negative = finite[finite >= 0.0]
-    hist_h, edges_h = np.histogram(non_negative, bins=np.linspace(0.0, 1.0, 51))
+    hist_h = scores["count"].to_numpy(int)
+    edges_h = np.r_[scores["bin_left"].to_numpy(float), scores["bin_right"].iloc[-1]]
     ax.step(
         edges_h[:-1],
         hist_h,
@@ -554,11 +554,7 @@ def build(output_dir: Path) -> dict[str, Any]:
     ax.set_xlim(0, 1)
     ax.set_ylim(bottom=0)
     canvas.panel_letter(ROW_D_COLUMNS[3] - LETTER_OFFSET, letter_y(ROW_D_TOP), "i")
-    panels["i"] = {
-        "n_scored": int(finite.size),
-        "n_negative_excluded": int((finite < 0).sum()),
-        "median": float(np.median(finite)),
-    }
+    panels["i"] = summary["registration_score"]
 
     stem = output_dir / "ed04_registration_quality_assembly"
     # Keep the two maintained FOV plates and the compact density colour scale
@@ -601,11 +597,11 @@ def build(output_dir: Path) -> dict[str, Any]:
         f"{summary['n_session_pairs']} pairs / {summary['n_animals']} animals",
     )
     checks.record(
-        "raw_candidate_and_registered_totals",
+        "candidate_and_registered_totals",
         summary["n_directed_candidate_pairs"] == 119444
-        and summary["n_registered_pairs_before_activity_gate"] == 21412,
+        and summary["n_registered_pairs"] == 21412,
         f"{summary['n_directed_candidate_pairs']} candidates, "
-        f"{summary['n_registered_pairs_before_activity_gate']} registered",
+        f"{summary['n_registered_pairs']} registered",
     )
     checks.record("panel_count", len(panels) == 9, f"{len(panels)} panels (a-i)")
     checks.record(

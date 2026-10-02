@@ -10,11 +10,9 @@ Long-gap neural correlations, saved neuron-ID null distributions and example neu
 | f, k, p | `gap_with_day1_day2_curve_data.csv` contains means and 95% intervals by Days apart. `same_stage_*`, `long_gap_pair_rows.csv` and the ensemble-rate pair tables supply the corresponding observations. |
 | g, l, q | `consecutive_gap_points.csv` contains one preceding/following gap comparison per spatial bin within a three-session chain for g, and per matched neuron within a chain for l. The canonical ensemble-rate consecutive-gap table has one observation per chain for q. Statistics and `displayed_estimand_bh4.csv` supply the fitted tests, with standard errors clustered by animal. |
 
-All correlation values are dimensionless. Distribution observations have different units from cohort means: the latter equally weight session-pair means. `n_pairs_final`, finite neuron/bin counts and `distribution_pair_support.csv` record support; `consecutive_pair_scope.csv` records eligible triplets. BH4 also includes the displayed level-map association in ED9l.
+All correlation values are dimensionless. Distribution observations have different units from cohort means: the latter equally weight session-pair means. Pair and triplet identifiers are supplied with their measurements. BH4 also includes the displayed level-map association in ED9l.
 
-In `distribution_pair_support.csv`, `n_pairs_final` counts matched-neuron pairs within a session pair. `n_pairs_dropped_by_user` counts manually excluded matched-neuron pairs; every supplied row is zero. Neither field counts mice or recording-session pairs.
-
-In neuron-example NPZs, A/B identify source/target sessions. `*_traj_x`/`*_traj_y` contain the displayed trajectory; `*_px`/`*_py` and `*_ex`/`*_ey` give body and nose coordinates for each displayed activity arrow. Coordinates use maze-grid units with the displayed y orientation. `place_r` is the displayed 15 × 15 place-map correlation. The files contain no neural traces, and reproduction does not reselect activity events.
+In neuron-example NPZs, A/B identify source/target sessions. `*_traj_x`/`*_traj_y` contain the displayed trajectory; `*_px`/`*_py` and `*_ex`/`*_ey` give body and nose coordinates for each displayed activity arrow. Coordinates use maze-grid units with the displayed y orientation. `place_r` is the displayed 15 × 15 place-map correlation. Upstream arrow selection used activity above five times the Welch noise estimate and collapsed events within four frames. The files contain no neural traces, and reproduction does not reselect activity events.
 
 | File | Format |
 |---|---|
@@ -28,9 +26,7 @@ In neuron-example NPZs, A/B identify source/target sessions. `*_traj_x`/`*_traj_
 | [canonical_ensemble_rate_all_gap_pair_values.csv](canonical_ensemble_rate_all_gap_pair_values.csv) | .csv |
 | [consecutive_gap_points.csv](consecutive_gap_points.csv) | .csv |
 | [consecutive_gap_statistics.csv](consecutive_gap_statistics.csv) | .csv |
-| [consecutive_pair_scope.csv](consecutive_pair_scope.csv) | .csv |
 | [displayed_estimand_bh4.csv](displayed_estimand_bh4.csv) | .csv |
-| [distribution_pair_support.csv](distribution_pair_support.csv) | .csv |
 | [ensemble_rate_distribution.npz](ensemble_rate_distribution.npz) | .npz |
 | [ensemble_rate_shuffle_mean.npz](ensemble_rate_shuffle_mean.npz) | .npz |
 | [gap_with_day1_day2_curve_data.csv](gap_with_day1_day2_curve_data.csv) | .csv |
