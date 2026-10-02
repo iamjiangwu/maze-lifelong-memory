@@ -49,8 +49,8 @@ def _executable(path: Path) -> bool:
     return path.is_file() and (sys.platform == "win32" or os.access(path, os.X_OK))
 
 
-def find_browser(preferred: tuple[str, ...] = ("chrome", "edge", "chromium")) -> Path:
-    """Resolve an export browser, honoring an explicit MAZE_BROWSER first.
+def find_browsers(preferred: tuple[str, ...] = ("chrome", "edge", "chromium")) -> list[Path]:
+    """Resolve installed exporters in preference order, or only MAZE_BROWSER.
 
     An invalid override fails clearly rather than silently using another browser.
     The preference order lets established renderers retain their export engine.
@@ -59,18 +59,41 @@ def find_browser(preferred: tuple[str, ...] = ("chrome", "edge", "chromium")) ->
     if override:
         candidate = Path(shutil.which(override) or override).expanduser()
         if _executable(candidate):
-            return candidate.resolve()
+            return [candidate.resolve()]
         raise FileNotFoundError("MAZE_BROWSER must name an executable Chrome, Chromium or Edge browser.")
+    found = []
     for browser in dict.fromkeys((*preferred, *_COMMANDS)):
         if browser not in _COMMANDS:
             raise ValueError(f"Unknown browser preference: {browser}")
-        for command in _COMMANDS[browser]:
-            if (location := shutil.which(command)) and _executable(Path(location)):
-                return Path(location).resolve()
-        for candidate in _application_paths(browser):
+        candidates = [Path(location) for command in _COMMANDS[browser]
+                      if (location := shutil.which(command))]
+        for candidate in [*candidates, *_application_paths(browser)]:
             if _executable(candidate):
-                return candidate.resolve()
+                resolved = candidate.resolve()
+                if resolved not in found:
+                    found.append(resolved)
+                break
+    if found:
+        return found
     raise FileNotFoundError(
         "Figure PDF export requires Google Chrome, Chromium or Microsoft Edge. "
         "Install one, place its executable on PATH, or set MAZE_BROWSER to its executable path."
     )
+
+
+def find_browser(preferred: tuple[str, ...] = ("chrome", "edge", "chromium")) -> Path:
+    """Return the preferred installed exporter for single-browser callers."""
+    return find_browsers(preferred)[0]
+
+
+def platform_headless_flags() -> list[str]:
+    """Avoid interactive macOS keychain/first-run dialogs in disposable profiles.
+
+    Chromium's own test launcher uses the mock keychain to prevent blocking
+    permissions dialogs. These flags never access an existing browser profile:
+    https://github.com/GoogleChrome/chrome-launcher/blob/main/docs/chrome-flags-for-tools.md
+    """
+    if sys.platform == 'darwin':
+        return ['--use-mock-keychain', '--password-store=basic',
+                '--no-first-run', '--no-default-browser-check']
+    return []

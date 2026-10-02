@@ -198,7 +198,7 @@ def build(inputs: Path, output: Path):
 
     assert all(sha(data_dir / row["frozen_file"]) == row["sha256"] for row in input_audit)
 
-    comparison_manifest = json.loads((comparison_dir / "manifest.json").read_text(encoding="utf-8"))
+    comparison_manifest = json.loads((comparison_dir / "MANIFEST.json").read_text(encoding="utf-8"))
 
     assert comparison_manifest["status"] == "PASS"
 

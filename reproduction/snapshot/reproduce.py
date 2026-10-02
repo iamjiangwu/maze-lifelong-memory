@@ -229,7 +229,9 @@ def main():
             raise FileExistsError('Use a fresh output directory: ' + str(art_out))
         print('BUILD ' + entry['artifact_id'], flush=True)
         with tempfile.TemporaryDirectory(prefix='vor_') as temp:
-            stage = Path(temp)
+            # Resolve Windows short (8.3) temporary-directory aliases before
+            # renderers compare paths resolved by their own entry points.
+            stage = Path(temp).resolve()
             staged_artifact = stage / entry['artifact_id']
             shutil.copytree(release / entry['artifact_id'] / 'source', staged_artifact / 'source')
             shutil.copytree(release / 'shared', stage / 'shared')
@@ -261,7 +263,7 @@ def main():
                             report['comparisons'][expected['name']] = {'pass': False, 'error': 'Missing rebuilt output', 'expected': str(target)}
                             continue
                     report['comparisons'][expected['name']] = compare(ref, target)
-            else:
+            elif result.returncode != 0:
                 report['failure_tail'] = result.stdout[-6000:]
             report['status'] = 'PASS' if result.returncode == 0 and all(x['pass'] for x in report['comparisons'].values()) else 'FAIL'
             write(art_out / 'REPRODUCTION_VALIDATION.json', report)
@@ -281,7 +283,7 @@ def run_statistics(release,output,manifest):
     if output.exists():
         raise FileExistsError('Use a fresh statistics output directory: '+str(output))
     with tempfile.TemporaryDirectory(prefix='vorstat_') as temp:
-        stage=Path(temp)
+        stage=Path(temp).resolve()
         for entry in manifest['artifacts']:
             shutil.copytree(release/entry['artifact_id']/'source',stage/entry['artifact_id']/'source')
         shutil.copytree(release/'shared',stage/'shared')

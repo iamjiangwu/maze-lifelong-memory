@@ -76,6 +76,7 @@ def export_individual_panels(builder, runtime, native, image, bounds, output):
         jobs.append((letter,stem,width,height))
 
     def export(job):
+        from ca_analysis.browser_export import platform_headless_flags
         letter,stem,width,height = job
         html = stem.with_suffix(".html")
         html.write_text("<!doctype html><html><head><meta charset='utf-8'><style>"
@@ -85,7 +86,7 @@ def export_individual_panels(builder, runtime, native, image, bounds, output):
         pdf=stem.with_suffix(".pdf")
         with tempfile.TemporaryDirectory(prefix=f"figure1_panel_{letter}_") as temporary:
             fresh=Path(temporary)/"fresh.pdf"
-            subprocess.run([str(runtime._find_chrome()),"--headless=new","--disable-gpu","--no-sandbox","--disable-software-rasterizer","--no-pdf-header-footer","--print-to-pdf-no-header",f"--user-data-dir={Path(temporary)/'browser'}",f"--print-to-pdf={fresh}",html.as_uri()],check=True,capture_output=True,timeout=120)
+            subprocess.run([str(runtime._find_chrome()),*platform_headless_flags(),"--headless=new","--disable-gpu","--no-sandbox","--disable-software-rasterizer","--no-pdf-header-footer","--print-to-pdf-no-header",f"--user-data-dir={Path(temporary)/'browser'}",f"--print-to-pdf={fresh}",html.as_uri()],check=True,capture_output=True,timeout=120)
             runtime._wait_for_file(fresh)
             shutil.copy2(fresh,pdf)
         with fitz.open(pdf) as doc:
@@ -163,7 +164,7 @@ def rebuild(record: Path, output: Path) -> list[Path]:
         raster.save(output / "figure1_version_record_600dpi.tiff", dpi=(600,600), compression="tiff_lzw")
     metadata = {
         "status":"PASS", "schema":"figure1_ten_panel_native_rebuild/v1",
-        "source_inputs":inputs, "source_record":str(record),
+        "source_inputs":inputs,
         "panel_letters":list("abcdefghij"), "geometry":geometry,
         "axes":builder.AXES_MM, "panel_slots":builder.SLOTS_MM,
         "quantitative_display_adjustments":builder.DISPLAY_ADJUSTMENTS,

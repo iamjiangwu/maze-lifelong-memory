@@ -204,6 +204,8 @@ def _export_svg_bundle(source_svg: Path, output_stem: Path) -> list[Path]:
         f"--print-to-pdf={pdf}",
         html.resolve().as_uri(),
     ]
+    from ca_analysis.browser_export import platform_headless_flags
+    command[1:1] = platform_headless_flags()
     result = subprocess.run(command, check=False, capture_output=True, text=True, timeout=180)
     if result.returncode != 0:
         raise RuntimeError(

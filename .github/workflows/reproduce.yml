@@ -48,3 +48,6 @@ jobs:
             outputs/reproduction/REPRODUCTION_REPORT.json
             outputs/reproduction/*/BUILD.log
             outputs/reproduction/statistics/STATISTICS_REPORT.json
+            outputs/reproduction/main_figure_1/figure1_version_record_600dpi.png
+            outputs/reproduction/extended_data_figure_2/ed02_version_record_600dpi.png
+            outputs/reproduction/extended_data_figure_8/ed8_standardized_pv_300dpi.png

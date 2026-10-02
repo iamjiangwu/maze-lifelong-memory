@@ -59,6 +59,21 @@ class BrowserDiscoveryTests(unittest.TestCase):
             with self.assertRaisesRegex(FileNotFoundError, "Install one"):
                 browser.find_browser()
 
+    def test_multiple_exporters_keep_preference_for_failure_fallback(self):
+        with patch.dict(browser.os.environ, {}, clear=True), \
+                patch.object(browser.shutil, "which", side_effect=lambda name:
+                    "/test/" + name if name in ("google-chrome", "msedge") else None), \
+                patch.object(browser, "_application_paths", return_value=[]), \
+                patch.object(browser, "_executable", return_value=True):
+            self.assertEqual(browser.find_browsers(preferred=("edge", "chrome")),
+                             [Path('/test/msedge').resolve(), Path('/test/google-chrome').resolve()])
+
+    def test_macos_flags_do_not_change_windows_export_commands(self):
+        with patch.object(browser.sys, 'platform', 'win32'):
+            self.assertEqual(browser.platform_headless_flags(), [])
+        with patch.object(browser.sys, 'platform', 'darwin'):
+            self.assertIn('--use-mock-keychain', browser.platform_headless_flags())
+
 
 if __name__ == "__main__":
     unittest.main()

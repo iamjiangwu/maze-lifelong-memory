@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Complete ED8: accepted a-c and finalized v4 standardized route PV controls.
+"""Extended Data Figure 8: reward decoding and route PV controls.
 
 Every build reads the included frozen source_data directory (no raw recordings).
 """
@@ -323,6 +323,30 @@ def bounds(fig,letter):
         if b.x0< -1 or b.y0< -1 or b.x1>fig.bbox.width+1 or b.y1>fig.bbox.height+1:
             failures.append(dict(panel=letter,text=t.get_text(),bbox=list(b.bounds)))
     return failures
+
+def fit_ylabel_margins(fig):
+    """Reserve extra left margin only if substituted fonts overflow the panel.
+
+    Keep the original Arial geometry when it fits. Moving each axis's left edge
+    by the same amount preserves paired-axis widths and fixed right boundaries;
+    limits, plotted values, and font sizes are unchanged. Bounds are still tested
+    on the final artwork below rather than accepting clipped labels.
+    """
+    adjustments=[]
+    for _ in range(3):
+        fig.canvas.draw(); renderer=fig.canvas.get_renderer()
+        labels=[ax.yaxis.label for ax in fig.axes
+                if ax.yaxis.label.get_visible() and ax.yaxis.label.get_text()]
+        left=min((label.get_window_extent(renderer).x0 for label in labels),default=0.)
+        if left >= -1.: break
+        shift=(1.-left)/fig.bbox.width
+        for ax in fig.axes:
+            pos=ax.get_position()
+            if pos.width-shift <= .1:
+                raise RuntimeError('Fallback font leaves insufficient room for the ED8 axis')
+            ax.set_position([pos.x0+shift,pos.y0,pos.width-shift,pos.height])
+        adjustments.append(dict(left_overflow_px=-left,axis_shift_fraction=shift))
+    return adjustments
 def compose(out):
     doc=fitz.open(); page=doc.new_page(width=CANVAS[0]*72,height=CANVAS[1]*72)
     ns='http://www.w3.org/2000/svg'; ET.register_namespace('',ns)
@@ -346,30 +370,29 @@ def compose(out):
             if dpi==600: im.save(out/'ed8_standardized_pv_600dpi.tiff',dpi=(dpi,dpi),compression='tiff_lzw')
 
 def documentation(out,pair,records):
-    (out/'README.md').write_text('''# Complete ED8: finalized standardized route PV
+    (out/'README.md').write_text('''# Extended Data Figure 8
 
-This source-built three-row figure preserves accepted panels a–c, uses the approved cividis scale in a, and replaces the route panels with the finalized v4 S-map analysis. Panel c remains unstandardized C. No density or speed-control panel is included. Panel h restores the previous source-native route schematic with black walls, gray corridors, home/water icons and a starting-node legend. Observed values use orange #E29957 and darker orange #B96B2C, with direction also distinguished by marker or line style. Starting routes retain the previous schematic codes: Home #587785, Node 2 #5B8E7D and Node 3 #9C8060, matched by i's headings. The primary control/shuffle gray is #C4C4C4; both orange and gray heatmap outlines have a matching white under-outline, with map centers unfilled. The water symbol remains blue as in Figure 4. Explicit zero guidelines are omitted; the measured neuron-ID shuffle in j remains visible. Visible analysis terminology uses Reward, aligned with Figure 4; numerical source columns retain port.
+Panels a–c show reward decoding and unstandardized maze PV correlation. Route panels use standardized S maps; panel c uses unstandardized C. Orange marks observed measurements and gray marks controls or shuffles. Direction is also distinguished by marker or line style. The route schematic shows home, water and the starting nodes. Visible labels use Reward; numerical source columns retain port.
 
-Final rows are a/b/c, d/e/f/g, and h/i/j. Panel d contains side-by-side first-/second-day comparisons with identical mouse order and axis limits, explicit day-pair titles, filled direction symbols and shared 6-point labels/legend. animal_daypair_display.csv contains both day-pair columns and their shared order. PANEL_CROSSWALK.csv maps original analysis keys to display letters: original i (reward delivery) is g, g (schematic) is h, and h (node controls) is i. Numerical CSVs retain original analysis keys; individual panel filenames use final display letters. Panel b's title and legend are centered over its plotting area.
+Rows are a/b/c, d/e/f/g, and h/i/j. Panel d contains first-/second-day comparisons with identical animal order and axis limits. animal_daypair_display.csv contains both comparisons. PANEL_CROSSWALK.csv maps numerical analysis keys to display letters: i (reward delivery) is g, g (schematic) is h, and h (node controls) is i. Individual-panel filenames use display letters.
 
 ## Rebuild without raw recordings
 
-From this folder: `python source_code/build_ed8_standardized_pv.py --output-dir .`
-To verify a fresh output directory: `python source_code/build_ed8_standardized_pv.py --output-dir PATH --inputs-from .`
+From the repository root, run `python reproduce.py --figure ed8 --output-dir outputs/ed8` with a new output directory.
 
-The user-selected lighter gray is the default. An optional dark-gray rendering uses `--control-gray dark` in a separate output folder with the same frozen inputs.
+The default control/shuffle gray is #C4C4C4.
 
-Only Python, NumPy, pandas, scipy, Matplotlib, Pillow and PyMuPDF are needed. The builder reads the frozen CSV/JSON source data and checks INPUT_MANIFEST.json. No accepted composite or raw neural/behavior file is a rebuild input. The original accepted renderer chain was used once to export canonical maze-wall vertices from its source; reference producer scripts are retained for provenance.
+The builder reads the included CSV/JSON data and checks INPUT_MANIFEST.json. No finished composite or raw neural/behavior recording is a rebuild input. Software requirements are listed in the repository's reproduction guide.
 
 ## Validation and statistical scope
 
-route_animal_values.csv preserves all source animal values, including the undefined departure reward ratio for mouse 434. route_paired_display_values.csv uses identical animals for both paired means: reliability panel e contains 13 mice in each direction. route_statistics_verified.csv independently recomputes current route estimates, intervals, exact sign-flip tests and correction families. Panel d's second-day replication and j's profiles are rebuilt from their frozen pair/bin rows. Accepted b/c inference is preserved from accepted source tables; descriptive plotted values are calculated anew.
+route_animal_values.csv includes the undefined departure reward ratio for mouse 434. route_paired_display_values.csv uses identical animals for both paired means: reliability panel e contains 13 mice in each direction. route_statistics_verified.csv recalculates route estimates, intervals, exact sign-flip tests and correction families. Panel d's second-day comparison and j's profiles are built from the included pair/bin rows. Panel b/c statistical annotations use the supplied result tables; the top-level statistics command independently replays their tests.
 
-The route families are Figure4e/d (two directions), replication/d (two directions), and e/f/i (eight contrasts). The g rewarded-minus-timeout and j cross-direction contrasts are separate single tests. Error bars are 95% Student-t intervals across animals for route panels. Panel c retains accepted pair-level points and intervals, with standard errors clustered by animal. Accepted b uses one-sided exact sign-flip tests on animal means with BH4; route tests are two-sided.
+The route families use numerical source keys: Figure4e/d (two directions), replication/d (two directions), and e/f/i (eight contrasts). Display panel g's rewarded-minus-timeout and panel j's cross-direction contrasts are separate single tests. Error bars are 95% Student-t intervals across animals for route panels. Panel c uses pair-level points and intervals, with standard errors clustered by animal. Panel b uses one-sided exact sign-flip tests on animal means with BH4; route tests are two-sided.
 
 ## Files
 
-PDF and SVG contain all ten panels; PNGs are 300 and 600 dpi and TIFF is 600 dpi LZW. Individual PDF/SVG/PNG panels are in individual_panels. DISPLAY_VALIDATION.json and VISUAL_QA.md document the actual rendered result. Transparent vector margins permit compact placement without masking neighboring labels. These outputs are generated from the included source inputs.
+PDF and SVG contain all ten panels; PNGs are 300 and 600 dpi and TIFF is 600 dpi LZW. Individual panels are in individual_panels. DISPLAY_VALIDATION.json and TEXT_BOUNDS.json record export and text-bound checks; they do not replace visual inspection.
 ''',encoding='utf-8')
 
 def main():
@@ -391,6 +414,7 @@ def main():
         for label in fig.findobj(match=matplotlib.text.Text):
             value=re.sub(r'\bPort\b','Reward',label.get_text())
             label.set_text(re.sub(r'\bport\b','reward',value))
+    font_layout={letter:fit_ylabel_margins(fig) for letter,fig in figs.items()}
     da=figs['d'].axes
     assert len(da)==2 and da[0].get_xlim()==da[1].get_xlim() and da[0].get_ylim()==da[1].get_ylim()
     assert not any(t.get_visible() for t in da[1].get_yticklabels())
@@ -429,7 +453,7 @@ def main():
     receipt=dict(status='RENDERED_AWAITING_VISUAL_QA' if not failures else 'TEXT_BOUNDS_FAILED',
         panel_count=len(PANELS),pdf_pages=pages,canvas_inches=CANVAS,native_font='Arial',route_rule_version='2026-09-27-uniform-port-grid-v4',
         route_statistic_checks=len(records),paired_reliability_mice={'toward':13,'away':13},reliability_display_panel=DISPLAY['e'],text_bounds_failures=failures,
-        control_gray=COL['mid'],palette=COL,source_sha256=sha(HERE),pdf_image_count=image_count,outputs={p.name:sha(p) for p in out.glob('ed8_standardized_pv*') if p.is_file()})
+        font_margin_adjustments=font_layout,control_gray=COL['mid'],palette=COL,source_sha256=sha(HERE),pdf_image_count=image_count,outputs={p.name:sha(p) for p in out.glob('ed8_standardized_pv*') if p.is_file()})
     (out/'DISPLAY_VALIDATION.json').write_text(json.dumps(receipt,indent=2))
     print(json.dumps(receipt,indent=2)); assert not failures
 

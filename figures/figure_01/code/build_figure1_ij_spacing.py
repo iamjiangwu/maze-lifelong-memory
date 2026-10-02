@@ -113,7 +113,7 @@ def build(output, record=None, *, skip_individual=False):
                         new = old * BAR_WIDTH_FACTOR
                         bar.set_width(new)
                         bar.set_x(center-new/2)
-                        widths.append({"center": center, "old_width_data": old, "new_width_data": new})
+                        widths.append({"center": center, "source_width_data": old, "display_width_data": new})
                     after = snapshot(ax)
                     # Floating point center round-off is at most machine precision.
                     for a, b in zip(before["bar_centers_heights_bottoms_colors"], after["bar_centers_heights_bottoms_colors"], strict=True):
@@ -121,8 +121,8 @@ def build(output, record=None, *, skip_individual=False):
                     for key in before:
                         if key != "bar_centers_heights_bottoms_colors":
                             assert before[key] == after[key], (letter, key)
-                    artist_audit[letter] = {"authorized_width_changes": widths, "all_other_data_artists_exact": True,
-                        "bar_centers_heights_colors_unchanged": True, "before": before, "after": after}
+                    artist_audit[letter] = {"bar_widths": widths, "all_other_data_artists_exact": True,
+                        "source_bar_centers_heights_colors_match": True, "source_artists": before, "display_artists": after}
                     return fig
 
                 module.PANEL_RENDERERS[letter] = narrower
@@ -165,7 +165,7 @@ def build(output, record=None, *, skip_individual=False):
         assert geometry_audit[letter]["label_font_sizes_pt"] == [[6.5, 6.5]]
         geometry_audit[letter]["ylabel_left_clearance_inside_slot_mm"] = box[0] - left
         geometry_audit[letter]["bottom_axis_mm"] = NEW_AXES[letter][0][1]+NEW_AXES[letter][0][3]
-        geometry_audit[letter]["bar_physical_width_ratio_to_accepted"] = BAR_WIDTH_FACTOR * 39.7 / 47
+        geometry_audit[letter]["source_to_display_bar_width_scale"] = BAR_WIDTH_FACTOR * 39.7 / 47
     geometry_audit["h_to_ij_axes_clearance_mm"] = 156-max(box[3] for box in geometry_audit["h"]["xlabel_bounds_mm"])
     geometry_audit["i_ylabel_clearance_from_g_right_axis_mm"] = geometry_audit["i"]["ylabel_bounds_mm"][0][0]-67
     geometry_audit["j_ylabel_clearance_from_i_right_axis_mm"] = geometry_audit["j"]["ylabel_bounds_mm"][0][0]-121
@@ -182,31 +182,29 @@ def build(output, record=None, *, skip_individual=False):
     with fitz.open(output / "figure1_version_record.pdf") as pdf:
         assert len(pdf) == 1
         font_sizes = sorted(set(round(span["size"], 2) for block in pdf[0].get_text("dict")["blocks"] if "lines" in block for line in block["lines"] for span in line["spans"]))
-    review = {"status": "PASS", "scope": "Native widths, bar widths and upward height extension of panels i/j only",
-        "accepted_record": str(record) if record else None, "frozen_input_count": len(entrypoint.verify_inputs(frozen)),
+    review = {"status": "PASS", "scope": "Figure 1 i/j geometry and source-to-display artist checks",
+        "frozen_input_count": len(entrypoint.verify_inputs(frozen)),
         "axes_mm": NEW_AXES, "slots_mm": NEW_SLOTS, "bar_width_factor_data": BAR_WIDTH_FACTOR,
         "bar_physical_width_factor": BAR_WIDTH_FACTOR*39.7/47,
-        "unchanged_panels": unchanged, "pdf_font_sizes_pt": font_sizes,
-        "data_errorbars_mean_markers_significance_tokens_unchanged": True,
-        "export_scale": 1, "promoted": False}
+        "source_panel_parity": unchanged, "pdf_font_sizes_pt": font_sizes,
+        "source_data_artists_match": True,
+        "export_scale": 1}
     write_json(output / "REVIEW_VALIDATION.json", review)
     script_copy = output / "source_code/build_figure1_ij_spacing.py"
     script_copy.parent.mkdir(exist_ok=True)
     if Path(__file__).resolve() != script_copy.resolve():
         shutil.copy2(__file__, script_copy)
     (output / "README.md").write_text(
-        "# Figure 1 i/j spacing review\n\n"
-        "Only panels i and j change. Their native plot widths decrease from 47 to 39.7 mm; "
-        "their tops rise from 160 to 156 mm while the shared baseline remains 187 mm, increasing height from 27 to 31 mm. "
-        "Bars retain their centers and heights but are 15% narrower in data coordinates. "
-        "All point/errorbar artists, statistical comparisons, colors and 6.5 pt typography are preserved. "
-        "The y-axis titles fit inside their own slots. Panels a-h retain identical native SVG artists.\n\n"
+        "# Figure 1 i/j display geometry\n\n"
+        "Panels i and j have native plot widths of 39.7 mm, tops at 156 mm and a shared baseline at 187 mm. "
+        "Their axes height is 31 mm and bar widths are scaled by 0.85 in data coordinates. "
+        "Point/errorbar values, statistical comparisons and colors match the source panels; typography is 6.5 pt. "
+        "The y-axis titles fit inside their own slots.\n\n"
         "Source-only replay (writes to a new directory):\n\n"
         "```powershell\n"
         "python source_code/build_figure1_ij_spacing.py --frozen-source frozen_source --output-dir <new directory>\n"
         "```\n\n"
-        "The frozen source is copied verbatim from the accepted Round 13 declared inputs; "
-        "no composite artwork is used to draw the figure. Accepted artwork is read only for the unrelated-panel QA comparison. "
+        "No composite artwork is used to draw the figure. "
         "REVIEW_VALIDATION.json, IJ_ARTIST_PARITY.json and IJ_GEOMETRY_QA.json contain the checks. "
         "Only the requested output directory is written.\n",
         encoding="utf-8",

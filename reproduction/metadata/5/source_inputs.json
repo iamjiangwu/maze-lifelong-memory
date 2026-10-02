@@ -14,12 +14,12 @@
       "bytes": 4460
     },
     "source_code/render_main_figs_v3_publication.py": {
-      "sha256": "27c7cc2eeeac63e5724427c8ab9e6b10ae44b5c70e1525407bd61a3012198cc5",
-      "bytes": 5658
+      "sha256": "2d08fdbef9bc711c4ce8e90b63242c86bec841197ede1ee5ec8431343db9c2b2",
+      "bytes": 5783
     },
     "source_code/frozen_main_rebuild_runtime.py": {
-      "sha256": "a3dd94164d85101ea1feacd706f85091801bb1587fbffec5457c701bcabb9cb9",
-      "bytes": 19866
+      "sha256": "99494242b649bf9f03b0bf6f48b2b358d5a52984501df7aa525bec30f9ae7cfb",
+      "bytes": 19978
     },
     "source_data/figure5_bundle/figure5_pair_scope_audit.csv": {
       "sha256": "94bfcf35d1f13af054ecf659deb68ca8b7aa44d2dacbc5a9ad9b7f4d162b1fa2",

@@ -32,10 +32,10 @@ ET.register_namespace("", SVG_NS)
 
 ET.register_namespace("xlink", XLINK_NS)
 
-def _find_chrome_executable() -> Path:
-    from ca_analysis.browser_export import find_browser
+def _find_browser_executables() -> list[Path]:
+    from ca_analysis.browser_export import find_browsers
 
-    return find_browser(preferred=("edge", "chrome", "chromium"))
+    return find_browsers(preferred=("edge", "chrome", "chromium"))
 
 def _write_svg_browser_wrapper(svg_path: Path, html_path: Path, *, width_mm: float, height_mm: float) -> None:
     svg_text = svg_path.read_text(encoding="utf-8")
@@ -66,7 +66,8 @@ def _export_svg_with_chrome(
     height_mm: float,
     dpi: int,
 ) -> Path:
-    browsers = [_find_chrome_executable()]
+    from ca_analysis.browser_export import platform_headless_flags
+    browsers = _find_browser_executables()
     html_path = svg_path.with_suffix(".html")
     _write_svg_browser_wrapper(svg_path, html_path, width_mm=width_mm, height_mm=height_mm)
     css_width_px = max(1, int(round(width_mm / 25.4 * 96.0)))
@@ -86,6 +87,7 @@ def _export_svg_with_chrome(
             with tempfile.TemporaryDirectory(prefix=f"figure_export_{browser.stem}_") as profile_dir:
                 common = [
                     str(browser),
+                    *platform_headless_flags(),
                     "--headless=new",
                     "--disable-gpu",
                     "--hide-scrollbars",

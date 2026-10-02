@@ -67,6 +67,39 @@ LAST_G_SAVE_GEOMETRY: dict[str, Any] = {}
 LAST_E_GEOMETRY: dict[str, Any] = {}
 
 
+def _fit_annotation_clearance(fig, annotation, obstacles, *, minimum_px=1.0):
+    """Move only a colliding label by the smallest clear display-space shift."""
+    text_box = annotation.get_window_extent(fig.canvas.get_renderer())
+
+    def clear(box, obstacle):
+        dx = max(obstacle.x0 - box.x1, box.x0 - obstacle.x1, 0.0)
+        dy = max(obstacle.y0 - box.y1, box.y0 - obstacle.y1, 0.0)
+        return math.hypot(dx, dy) >= minimum_px
+
+    collisions = [box for box in obstacles if not clear(text_box, box)]
+    if not collisions:
+        return False
+    gap = minimum_px + 0.05
+    shifts = []
+    for box in collisions:
+        shifts.extend(((0.0, box.y1 + gap - text_box.y0),
+                       (0.0, box.y0 - gap - text_box.y1),
+                       (box.x1 + gap - text_box.x0, 0.0),
+                       (box.x0 - gap - text_box.x1, 0.0)))
+    for dx, dy in sorted(shifts, key=lambda shift: math.hypot(*shift)):
+        moved = text_box.translated(dx, dy)
+        inside = (moved.x0 >= fig.bbox.x0 and moved.x1 <= fig.bbox.x1
+                  and moved.y0 >= fig.bbox.y0 and moved.y1 <= fig.bbox.y1)
+        if inside and all(clear(moved, box) for box in obstacles):
+            transform = annotation.get_transform()
+            position = transform.transform(annotation.get_position())
+            annotation.set_position(transform.inverted().transform(
+                (position[0] + dx, position[1] + dy)))
+            fig.canvas.draw()
+            return True
+    raise RuntimeError("Panel-a label cannot clear arrow/boxes within the canvas")
+
+
 def build_panel_a(renderer: Any):
     global LAST_A_GEOMETRY
     fig, tables = PARENT_BUILD_A(renderer)
@@ -114,6 +147,11 @@ def build_panel_a(renderer: Any):
         dy = max(second.y0 - first.y1, first.y0 - second.y1, 0.0)
         return math.hypot(dx, dy)
 
+    if _fit_annotation_clearance(
+        fig, annotation, [grey_arrows[0].get_extents(), *(box.get_extents() for box in boxes)]
+    ):
+        shifted_data = annotation.get_position()
+        text_box = annotation.get_window_extent(fig.canvas.get_renderer())
     box_clearances = [
         (clearance(text_box, box.get_extents()), list(box.get_extents().bounds))
         for box in boxes
@@ -121,7 +159,7 @@ def build_panel_a(renderer: Any):
     nearest_box_clearance, nearest_box_bbox = min(box_clearances, key=lambda row: row[0])
     LAST_A_GEOMETRY = {
         "base_xy_data": [PANEL_A_ANNOTATION_BASE_X, PANEL_A_ANNOTATION_Y],
-        "final_xy_data": [float(shifted_data[0]), PANEL_A_ANNOTATION_Y],
+        "final_xy_data": [float(shifted_data[0]), float(shifted_data[1])],
         "two_character_sample": PANEL_A_ANNOTATION_TWO_CHARACTER_SAMPLE,
         "two_character_shift_px": two_character_width_px,
         "actual_left_shift_px": float(base_display[0] - axis.transData.transform(shifted_data)[0]),

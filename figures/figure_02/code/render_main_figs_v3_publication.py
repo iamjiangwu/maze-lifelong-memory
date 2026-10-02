@@ -521,10 +521,10 @@ def _load_script_module(module_name: str, path: Path):
     spec.loader.exec_module(module)
     return module
 
-def _find_chrome_executable() -> Path:
-    from ca_analysis.browser_export import find_browser
+def _find_browser_executables() -> list[Path]:
+    from ca_analysis.browser_export import find_browsers
 
-    return find_browser(preferred=("edge", "chrome", "chromium"))
+    return find_browsers(preferred=("edge", "chrome", "chromium"))
 
 def _svg_tag(name: str) -> str:
     return f"{{{SVG_NS}}}{name}"
@@ -724,7 +724,8 @@ def _export_svg_with_chrome(
     height_mm: float,
     dpi: int,
 ) -> Path:
-    browsers = [_find_chrome_executable()]
+    from ca_analysis.browser_export import platform_headless_flags
+    browsers = _find_browser_executables()
     html_path = svg_path.with_suffix(".html")
     _write_svg_browser_wrapper(svg_path, html_path, width_mm=width_mm, height_mm=height_mm)
     css_width_px = max(1, int(round(width_mm / 25.4 * 96.0)))
@@ -744,6 +745,7 @@ def _export_svg_with_chrome(
             with tempfile.TemporaryDirectory(prefix=f"figure_export_{browser.stem}_") as profile_dir:
                 common = [
                     str(browser),
+                    *platform_headless_flags(),
                     "--headless=new",
                     "--disable-gpu",
                     "--hide-scrollbars",

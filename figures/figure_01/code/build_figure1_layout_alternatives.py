@@ -1,8 +1,7 @@
-"""Source-render the author's Day 1 / Day 91 Figure 1 layout.
+"""Render the Day 1 / Day 91 Figure 1 layout from included source panels.
 
-Reuse frozen accepted renderers and values. No analysis, selection or current
-record is changed. The supplied PNG is embedded byte-for-byte; its surrounding
-fully transparent margin is excluded by an SVG viewport, with no pixel edits.
+The supplied PNG is embedded byte-for-byte; its surrounding fully transparent
+margin is excluded by an SVG viewport, with no pixel edits.
 """
 from __future__ import annotations
 
@@ -48,7 +47,7 @@ ET.register_namespace("", NS)
 ET.register_namespace("xlink", XLINK)
 MM = 72 / 25.4
 WIDTH, HEIGHT = 180 * MM, 196 * MM
-# Actual accepted main-figure export: 180 mm wide, SVG viewBox width 576.
+# Convert the source SVG viewBox width of 576 units to a 180 mm export width.
 OLD_EXPORT_SCALE = 180 * MM / 576
 OLD_TIMELINE_SCALE = 1.0098194403820917 * OLD_EXPORT_SCALE
 TIMELINE_AXES_HEIGHT_RATIO = 0.28
@@ -133,6 +132,26 @@ def tag(name):
     return f"{{{NS}}}{name}"
 
 
+def _fit_ylabels_inside_canvas(fig):
+    """Translate overflowing y-labels inward without changing font or axes size."""
+    renderer = fig.canvas.get_renderer()
+    adjusted = False
+    for ax in fig.axes:
+        label = ax.yaxis.label
+        if not label.get_visible() or not label.get_text():
+            continue
+        box = label.get_window_extent(renderer)
+        if ax.yaxis.get_label_position() == "left" and box.x0 < fig.bbox.x0:
+            # Points are used by labelpad; a 0.05 mm margin avoids round-off
+            # at the boundary after the fallback font is serialized to SVG.
+            shift_px = fig.bbox.x0 - box.x0 + 0.05 * fig.dpi / 25.4
+            ax.yaxis.labelpad -= shift_px * 72.0 / fig.dpi
+            adjusted = True
+    if adjusted:
+        fig.canvas.draw()
+    return adjusted
+
+
 def panel_at_final_size(preview, fig, letter):
     """Native point-sized artists; no scaling of an exported panel."""
     sx, sy, sw, sh = SLOTS_MM[letter]
@@ -191,6 +210,8 @@ def panel_at_final_size(preview, fig, letter):
                     artist.set_zorder(4)
                     artist.set_gid(f"errorbar_{letter}_{idx}_{part}")
     fig.canvas.draw()
+    if letter in {"i", "j"}:
+        _fit_ylabels_inside_canvas(fig)
     renderer = fig.canvas.get_renderer()
     axes = []
     for ax in fig.axes:
@@ -200,6 +221,10 @@ def panel_at_final_size(preview, fig, letter):
     buffer = io.StringIO()
     with matplotlib.rc_context({"savefig.bbox": None, "savefig.pad_inches": 0}):
         fig.savefig(buffer, format="svg", transparent=True, bbox_inches=None, metadata={"Date": None})
+    if letter in {"i", "j"}:
+        # SVG uses 72 dpi and updates automatic label positions. Restore the
+        # canvas renderer before the caller measures pixel bounds for QA.
+        fig.canvas.draw()
     plt.close(fig)
     root = ET.fromstring(buffer.getvalue())
     actual = [float(v) for v in root.attrib["viewBox"].split()]
@@ -245,7 +270,7 @@ def repack_significance(ax, letter, height_mm):
         assert glyph_top < height_mm, (letter, glyph_top, height_mm)
         rows.append({"groups": [x1, x2], "stars": star, "bracket_height_mm": line_mm, "star_gap_mm": .30, "visible_star_height_mm": glyph.height/MM, "pitch_mm": None if previous is None else line_mm-previous, "endpoints_at_bar_centers": True})
         previous = line_mm
-    SIGNIFICANCE_AUDIT[letter] = {"original_comparisons_and_star_tokens": pairs, "placements": rows, "axis_ylim": [ymin, ymax], "data_unchanged": True}
+    SIGNIFICANCE_AUDIT[letter] = {"source_comparisons_and_star_tokens": pairs, "placements": rows, "axis_ylim": [ymin, ymax], "source_values_match": True}
 
 
 
@@ -267,7 +292,7 @@ def native_panels(rebuilder, output, audit):
     reverse = {key: letter for letter, key in MAPPING.items()}
     for key, renderer in preview.PANEL_RENDERERS.items():
         if key == "b":
-            continue  # Replaced by the author's requested horizontal timeline.
+            continue  # The horizontal session timeline is assembled separately.
         size = preview.PANEL_SIZES[key]
         fig = renderer(size)
         def values():
@@ -292,16 +317,16 @@ def native_panels(rebuilder, output, audit):
         old_axes_h = fig.axes[0].get_position().height * fig.get_size_inches()[1] * 25.4 * OLD_TIMELINE_SCALE
         panels[key] = panel_at_final_size(preview, fig, reverse[key])
         assert before == values()
-        DISPLAY_ADJUSTMENTS[key] = {"data_and_annotation_hash_before": hashlib.sha256(before.encode()).hexdigest(), "data_and_annotation_hash_after": hashlib.sha256(values().encode()).hexdigest(), "data_bars_errorbars_xlimits_annotations_unchanged": True, "export_scale": 1.0, "axes_final_mm": panels[key]["axes_final_mm"], "font_sizes_pt": panels[key]["font_sizes_pt"]}
+        DISPLAY_ADJUSTMENTS[key] = {"source_data_and_annotation_hash": hashlib.sha256(before.encode()).hexdigest(), "display_data_and_annotation_hash": hashlib.sha256(values().encode()).hexdigest(), "source_data_artists_match": True, "export_scale": 1.0, "axes_final_mm": panels[key]["axes_final_mm"], "font_sizes_pt": panels[key]["font_sizes_pt"]}
         if key in {"c", "h"}:
             bounds = panels[key]["content_bounds_mm"]
             new_height = bounds[3] - bounds[1]
-            audit[key] = {"old_figure_panel_height_mm": old_height, "new_figure_panel_height_mm": new_height, "overall_height_ratio": new_height/old_height, "old_figure_axes_height_mm": old_axes_h, "new_figure_axes_height_mm": 19, "axes_height_ratio": 19/old_axes_h, "source_values_changed": False, "font_sizes_pt": {"axis_labels_and_titles": 6.5, "ticks": 6.5}, "author_refinement": "Moderate compression of e/h from 22 to 19 mm, not the rejected 10.5 mm."}
+            audit[key] = {"panel_height_mm": new_height, "axes_height_mm": 19, "source_values_match": True, "font_sizes_pt": {"axis_labels_and_titles": 6.5, "ticks": 6.5}}
     return preview, panels
 
 
 def trajectories(preview, ed, data, cases, name):
-    # Author's sketch places examples above the right-hand timeline column.
+    # Examples occupy the row above the right-hand timeline column.
     plt.rcParams.update({"font.family": "Arial", "font.size": 7.0, "svg.fonttype": "none", "pdf.fonttype": 42})
     count = len(cases)
     width, height = 116 / 25.4, 47 / 25.4
@@ -429,6 +454,7 @@ def add_panel_a_water_port(root):
 
 
 def export(svg, stem):
+    from ca_analysis.browser_export import platform_headless_flags
     # Browser SVG export is the repository precedent: PyMuPDF's SVG importer
     # does not preserve matplotlib CSS font shorthand and nested clipping.
     rebuilder = sys.modules.get("figure1_frozen_rebuilder") or load(VOR / "rebuild_current_main_figures.py", "figure1_frozen_rebuilder")
@@ -441,6 +467,7 @@ def export(svg, stem):
     with tempfile.TemporaryDirectory(prefix="fig1_pdf_") as profile:
         fresh_pdf = Path(profile) / "fresh_export.pdf"
         command = [str(rebuilder._find_chrome()), "--headless=new", "--disable-gpu", "--no-sandbox", "--disable-software-rasterizer", "--no-pdf-header-footer", "--print-to-pdf-no-header", f"--user-data-dir={Path(profile)/'browser'}", f"--print-to-pdf={fresh_pdf}", html.resolve().as_uri()]
+        command[1:1] = platform_headless_flags()
         subprocess.run(command, check=True, capture_output=True, text=True, timeout=120)
         rebuilder._wait_for_file(fresh_pdf)
         with fitz.open(fresh_pdf) as fresh:

@@ -160,7 +160,7 @@ def build(output):
                         audit["tree_slot_mm"]=[58.5+PANEL_A_SHIFT_MM,5,tw,th]
                         audit["panel_a_artwork_shift_mm"]=PANEL_A_SHIFT_MM
                         audit["tree_horizontal_coordinate_scale"]=.8
-                        audit["tree_height_and_linewidth_unchanged"]=True
+                        audit["tree_linewidth_pt"]=.6
                     m.maze_image=maze
                     def trajectories(preview,ed,data,cases,name):
                         plt.rcParams.update({"font.family":"Arial","font.size":6.5,"svg.fonttype":"none","pdf.fonttype":42})
@@ -169,7 +169,7 @@ def build(output):
                         norm=Normalize(0,float(data.elapsed_minutes.max()))
                         counts={};artists={}
                         for i,(session,title) in enumerate(cases):
-                            # Reclaim space from the narrower tree and inter-panel gaps.
+                            # Position the two trajectory axes in millimetre-derived slots.
                             ax=fig.add_axes([i*48.2/width,(height-3-49.25*15.2/17.8)/height,49.25/width,(49.25*15.2/17.8)/height])
                             rows=data.loc[data.nickname.eq(session)]
                             ed.draw_trajectory(ax,rows,title,norm)
@@ -186,10 +186,7 @@ def build(output):
                         cb.set_label("Time in maze (min)",fontsize=6.5,labelpad=-8.5)
                         audit["trajectory_artists_hashes"]=artists
                         audit["trajectory_color_range"]=[0,norm.vmax]
-                        audit["colorbar"]="vertical on the right; title labelpad -8.5pt (previous right-side title 2pt)"
-                        audit["trajectory_width_ratio_to_accepted"]=49.25/52
-                        audit["trajectory_width_ratio_to_first_draft"]=49.25/45
-                        audit["spacing_first_priority"]="Tree narrowed and gaps tightened before a residual 5.3% reduction from accepted 52mm trajectory axes; larger than rejected first draft."
+                        audit["colorbar"]="vertical on the right; title labelpad -8.5 pt"
                         result=m.panel_at_final_size(preview,fig,"b")
                         audit["trajectory_axes_mm"]=result["axes_final_mm"]
                         return result,counts
