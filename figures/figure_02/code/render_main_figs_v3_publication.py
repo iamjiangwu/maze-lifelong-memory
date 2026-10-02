@@ -724,7 +724,7 @@ def _export_svg_with_chrome(
     height_mm: float,
     dpi: int,
 ) -> Path:
-    from ca_analysis.browser_export import platform_headless_flags
+    from ca_analysis.browser_export import platform_headless_flags, run_browser
     browsers = _find_browser_executables()
     html_path = svg_path.with_suffix(".html")
     _write_svg_browser_wrapper(svg_path, html_path, width_mm=width_mm, height_mm=height_mm)
@@ -761,7 +761,7 @@ def _export_svg_with_chrome(
                     f"--screenshot={tmp_png.resolve()}",
                     html_path.resolve().as_uri(),
                 ]
-                subprocess.run(
+                run_browser(
                     screenshot_cmd,
                     check=True,
                     capture_output=True,
@@ -775,7 +775,7 @@ def _export_svg_with_chrome(
                     f"--print-to-pdf={tmp_pdf.resolve()}",
                     html_path.resolve().as_uri(),
                 ]
-                subprocess.run(
+                run_browser(
                     pdf_cmd,
                     check=True,
                     capture_output=True,

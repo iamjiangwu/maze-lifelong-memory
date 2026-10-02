@@ -582,7 +582,7 @@ svg {{ display:block; width:{width_mm:.6f}mm !important; height:{height_mm:.6f}m
     css_width = max(1, int(round(width_mm / 25.4 * 96.0)))
     css_height = max(1, int(round(height_mm / 25.4 * 96.0)))
     scale = DPI / 96.0
-    from ca_analysis.browser_export import platform_headless_flags
+    from ca_analysis.browser_export import platform_headless_flags, run_browser
     with tempfile.TemporaryDirectory(prefix="fig4_chrome_", dir=str(svg_path.parent)) as profile:
         common = [
             str(browser),
@@ -595,7 +595,7 @@ svg {{ display:block; width:{width_mm:.6f}mm !important; height:{height_mm:.6f}m
             "--virtual-time-budget=1000",
             f"--user-data-dir={Path(profile).resolve()}",
         ]
-        subprocess.run(
+        run_browser(
             [
                 *common,
                 f"--window-size={css_width},{css_height}",
@@ -609,7 +609,7 @@ svg {{ display:block; width:{width_mm:.6f}mm !important; height:{height_mm:.6f}m
             timeout=BROWSER_EXPORT_TIMEOUT_SECONDS,
         )
         _wait_stable(png_path)
-        subprocess.run(
+        run_browser(
             [
                 *common,
                 "--no-pdf-header-footer",

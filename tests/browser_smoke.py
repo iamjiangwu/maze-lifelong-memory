@@ -29,7 +29,7 @@ def main():
                        f'--print-to-pdf={pdf}', html.as_uri()]
             row = dict(browser=str(executable))
             try:
-                process = subprocess.run(command, capture_output=True, timeout=30)
+                process = browser['run_browser'](command, capture_output=True, timeout=30)
                 row.update(exit_code=process.returncode,
                            stderr=process.stderr.decode('utf-8', errors='replace')[-2000:])
             except subprocess.TimeoutExpired as error:

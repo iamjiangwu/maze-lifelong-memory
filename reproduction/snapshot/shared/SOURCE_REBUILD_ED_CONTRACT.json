@@ -6,7 +6,7 @@
     "files": {
       "ca_analysis/__init__.py": "845dfaa541d997cd49eeeff9ca0acc7ff9bbff3fc1e49babfe2e000c03b96338",
       "ca_analysis/behavior_figure_colors.py": "0bd8386cd3454530faf4d9394bdc6c652fb07db14eb35931c8df695cf70c0bdb",
-      "ca_analysis/browser_export.py": "99a5044b1d85c7b834e238b5261aab7072f6745e7a4156048134e76d3c976033",
+      "ca_analysis/browser_export.py": "4f0b820899da860af8d3a37fab3d0ba5f2f12d80effc2caa6a3a060d582a3504",
       "ca_analysis/compat.py": "05d7d8f63e59e7c289efcf625de0a47ec277ec3fc0821866f2d7cec11405f607",
       "ca_analysis/config.py": "e8c88635995f2ee9403b82fc95f4b6a179902a8943430808062fda93eb8378a1",
       "ca_analysis/ed06_example_candidates.py": "5fc8ca63a5825789ea87e1aaa0b7b37a9310f54fe7f06bb4f5bc86d29d8bd2e2",

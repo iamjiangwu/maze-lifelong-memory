@@ -76,7 +76,7 @@ def export_individual_panels(builder, runtime, native, image, bounds, output):
         jobs.append((letter,stem,width,height))
 
     def export(job):
-        from ca_analysis.browser_export import platform_headless_flags
+        from ca_analysis.browser_export import platform_headless_flags, run_browser
         letter,stem,width,height = job
         html = stem.with_suffix(".html")
         html.write_text("<!doctype html><html><head><meta charset='utf-8'><style>"
@@ -86,7 +86,7 @@ def export_individual_panels(builder, runtime, native, image, bounds, output):
         pdf=stem.with_suffix(".pdf")
         with tempfile.TemporaryDirectory(prefix=f"figure1_panel_{letter}_") as temporary:
             fresh=Path(temporary)/"fresh.pdf"
-            subprocess.run([str(runtime._find_chrome()),*platform_headless_flags(),"--headless=new","--disable-gpu","--no-sandbox","--disable-software-rasterizer","--no-pdf-header-footer","--print-to-pdf-no-header",f"--user-data-dir={Path(temporary)/'browser'}",f"--print-to-pdf={fresh}",html.as_uri()],check=True,capture_output=True,timeout=120)
+            run_browser([str(runtime._find_chrome()),*platform_headless_flags(),"--headless=new","--disable-gpu","--no-sandbox","--disable-software-rasterizer","--no-pdf-header-footer","--print-to-pdf-no-header",f"--user-data-dir={Path(temporary)/'browser'}",f"--print-to-pdf={fresh}",html.as_uri()],check=True,capture_output=True,timeout=120)
             runtime._wait_for_file(fresh)
             shutil.copy2(fresh,pdf)
         with fitz.open(pdf) as doc:

@@ -2,6 +2,8 @@
 import importlib.util
 from pathlib import Path
 import tempfile
+import subprocess
+import sys
 import unittest
 from unittest.mock import patch
 
@@ -73,6 +75,20 @@ class BrowserDiscoveryTests(unittest.TestCase):
             self.assertEqual(browser.platform_headless_flags(), [])
         with patch.object(browser.sys, 'platform', 'darwin'):
             self.assertIn('--use-mock-keychain', browser.platform_headless_flags())
+
+    def test_export_does_not_wait_for_inherited_diagnostic_handles(self):
+        # The parent exits immediately; its background child holds stderr open.
+        command = [sys.executable, '-c',
+                   'import subprocess,sys; '
+                   'subprocess.Popen([sys.executable,"-c","import time; time.sleep(2)"]); '
+                   'print("export complete",file=sys.stderr)']
+        result = browser.run_browser(command, check=True, text=True, timeout=1.5)
+        self.assertEqual(result.returncode, 0)
+        self.assertIn('export complete', result.stderr)
+
+    def test_failed_export_is_not_accepted(self):
+        with self.assertRaises(subprocess.CalledProcessError):
+            browser.run_browser([sys.executable, '-c', 'raise SystemExit(2)'], check=True)
 
 
 if __name__ == "__main__":

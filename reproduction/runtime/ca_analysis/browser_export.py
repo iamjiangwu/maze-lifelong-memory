@@ -10,7 +10,9 @@ from __future__ import annotations
 import os
 from pathlib import Path
 import shutil
+import subprocess
 import sys
+import tempfile
 
 
 _COMMANDS = {
@@ -97,3 +99,28 @@ def platform_headless_flags() -> list[str]:
         return ['--use-mock-keychain', '--password-store=basic',
                 '--no-first-run', '--no-default-browser-check']
     return []
+
+
+def run_browser(command, *, check=False, capture_output=True, text=False, timeout=180):
+    """Wait for the exporter, not background updaters that inherit its stderr.
+
+    On macOS a browser's updater can retain a pipe after the exporting process
+    exits. Capture combined diagnostics in a temporary file instead: process
+    exit, timeout and caller checks of the produced PDF/PNG remain mandatory.
+    Only this explicitly launched process is waited for; no other browser or
+    updater is terminated. The temporary log is not a published source input.
+    """
+    if not capture_output:
+        raise ValueError('Browser diagnostics must be captured')
+    with tempfile.TemporaryFile() as diagnostics:
+        completed = subprocess.run(command, stdout=diagnostics, stderr=subprocess.STDOUT,
+                                   timeout=timeout, check=False)
+        diagnostics.seek(0)
+        logs = diagnostics.read()
+    if text:
+        logs = logs.decode('utf-8', errors='replace')
+    result = subprocess.CompletedProcess(command, completed.returncode,
+                                         stdout='' if text else b'', stderr=logs)
+    if check:
+        result.check_returncode()
+    return result

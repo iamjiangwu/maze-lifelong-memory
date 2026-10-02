@@ -454,7 +454,7 @@ def add_panel_a_water_port(root):
 
 
 def export(svg, stem):
-    from ca_analysis.browser_export import platform_headless_flags
+    from ca_analysis.browser_export import platform_headless_flags, run_browser
     # Browser SVG export is the repository precedent: PyMuPDF's SVG importer
     # does not preserve matplotlib CSS font shorthand and nested clipping.
     rebuilder = sys.modules.get("figure1_frozen_rebuilder") or load(VOR / "rebuild_current_main_figures.py", "figure1_frozen_rebuilder")
@@ -468,7 +468,7 @@ def export(svg, stem):
         fresh_pdf = Path(profile) / "fresh_export.pdf"
         command = [str(rebuilder._find_chrome()), "--headless=new", "--disable-gpu", "--no-sandbox", "--disable-software-rasterizer", "--no-pdf-header-footer", "--print-to-pdf-no-header", f"--user-data-dir={Path(profile)/'browser'}", f"--print-to-pdf={fresh_pdf}", html.resolve().as_uri()]
         command[1:1] = platform_headless_flags()
-        subprocess.run(command, check=True, capture_output=True, text=True, timeout=120)
+        run_browser(command, check=True, capture_output=True, text=True, timeout=120)
         rebuilder._wait_for_file(fresh_pdf)
         with fitz.open(fresh_pdf) as fresh:
             assert len(fresh)==1
