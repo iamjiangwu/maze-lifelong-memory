@@ -7,13 +7,13 @@ import tempfile
 
 runtime = runpy.run_path(str(Path(__file__).resolve().parents[1] / 'reproduction/runtime/ca_analysis/browser_export.py'))
 browser = runtime['find_browser']()
-for extra in ([], ['--disable-background-mode', '--disable-background-networking', '--disable-component-update']):
+for extra in (['--test-type'], ['--no-startup-window'], ['--headless']):
     with tempfile.TemporaryDirectory(prefix='maze_browser_diagnosis_') as raw:
         root = Path(raw).resolve()
         html = root / 'test.html'
         html.write_text('<html><body>Browser diagnostic</body></html>')
-        command = [str(browser), *runtime['platform_headless_flags'](), *extra,
-                   '--headless=new', '--disable-gpu', '--no-sandbox',
+        command = [str(browser), *runtime['platform_headless_flags'](),
+                   '--headless=new', *extra, '--disable-gpu', '--no-sandbox',
                    f'--user-data-dir={root / "profile"}', f'--print-to-pdf={root / "test.pdf"}', html.as_uri()]
         with (root / 'browser.log').open('wb') as log:
             process = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT)
