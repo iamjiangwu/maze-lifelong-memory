@@ -32,7 +32,7 @@ python3.10 -m venv .venv
 .venv/bin/python reproduce.py --figure 2 --output-dir outputs/figure2
 ```
 
-Activation is optional. In subsequent commands, substitute your environment's Python executable for `python`. If a browser is not discovered, set `MAZE_BROWSER` to its executable path; it can also select one browser consistently for all figures. For example, with Chromium on `PATH`, use `$env:MAZE_BROWSER = "chromium"` in PowerShell or `export MAZE_BROWSER=chromium` in a POSIX shell. An invalid override produces an error rather than silently choosing another browser. Statistical replay (`--statistics-only`) does not require a browser or Arial.
+Activation is optional. In subsequent commands, substitute your environment's Python executable for `python`. If a browser is not discovered, set `MAZE_BROWSER` to its executable path; it can also select one browser consistently for all figures. For example, after installing native Google Chrome on Linux, use `export MAZE_BROWSER=/usr/bin/google-chrome` if that is its installed path. Avoid Ubuntu's Snap-backed Chromium launcher. An invalid override produces an error rather than silently choosing another browser. Statistical replay (`--statistics-only`) does not require a browser or Arial.
 
 Small text-rasterization or layout differences can occur between Matplotlib binary distributions, even at the same version. The original exports used Matplotlib 3.7.0 with FreeType 2.12.1; the tested PyPI wheel bundles FreeType 2.6.1. The statistical results are checked numerically, independently of image pixels.
 
