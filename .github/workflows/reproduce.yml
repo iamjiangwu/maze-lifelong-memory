@@ -2,9 +2,15 @@ name: Reproduce figures and statistics
 
 on:
   workflow_dispatch:
+  pull_request:
+  release:
+    types: [published]
   push:
     branches:
+      - main
       - 'codex/portable-source-reproduction'
+    tags:
+      - 'v*'
 
 permissions:
   contents: read
@@ -36,7 +42,14 @@ jobs:
           python reproduce.py --check-only
           python -m unittest discover -s tests -v
       - name: Check browser PDF export
+        if: runner.os != 'macOS'
         run: python tests/browser_smoke.py
+      - name: Diagnose native macOS shutdown
+        if: runner.os == 'macOS'
+        run: python tests/macos_browser_diagnostic.py
+      - name: Recompute all statistical groups without a browser
+        if: always()
+        run: python reproduce.py --statistics-only --output-dir outputs/statistics-only
       - name: Reproduce all figures, tables and statistical tests
         run: python reproduce.py --output-dir outputs/reproduction
       - name: Save run reports
@@ -50,6 +63,8 @@ jobs:
             outputs/reproduction/REPRODUCTION_REPORT.json
             outputs/reproduction/*/BUILD.log
             outputs/reproduction/statistics/STATISTICS_REPORT.json
+            outputs/statistics-only/BUILD_SOURCE_AUTHORITY.json
+            outputs/statistics-only/statistics/STATISTICS_REPORT.json
             outputs/reproduction/main_figure_1/figure1_version_record_600dpi.png
             outputs/reproduction/extended_data_figure_2/composite/ed02_version_record_600dpi.png
             outputs/reproduction/extended_data_figure_8/ed8_standardized_pv_300dpi.png

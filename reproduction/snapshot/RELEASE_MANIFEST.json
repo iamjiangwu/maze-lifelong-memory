@@ -1989,7 +1989,7 @@
     },
     {
       "path": "shared/SOURCE_REBUILD_ED_CONTRACT.json",
-      "sha256": "8afcfaffea8b7784d2b3867eb08b7eddc3930d5dc736188fb6c23d25267abb58",
+      "sha256": "90249dacefa169dc4a876f10794d1ebb2f3893b6425217d8bc141e5dcf032971",
       "bytes": 8812,
       "role": "source_or_code"
     },
@@ -2247,8 +2247,8 @@
     },
     {
       "path": "shared/runtime/ca_analysis/browser_export.py",
-      "sha256": "4f0b820899da860af8d3a37fab3d0ba5f2f12d80effc2caa6a3a060d582a3504",
-      "bytes": 5703,
+      "sha256": "91c06cdbf5f203fd646d715a61773db9109d5851adcfa982e59cfcab301bb6e3",
+      "bytes": 6786,
       "role": "source_or_code"
     },
     {

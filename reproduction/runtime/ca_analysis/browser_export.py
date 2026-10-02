@@ -42,13 +42,22 @@ def _application_paths(browser: str) -> list[Path]:
         suffix = Path(f"{app}.app/Contents/MacOS/{executable}")
         return [Path("/Applications") / suffix, Path.home() / "Applications" / suffix]
     # Distribution packages normally expose an executable on PATH. Include
-    # common package/Snap locations for minimal shell environments as well.
-    return [Path(root) / command for root in ("/usr/bin", "/usr/local/bin", "/snap/bin")
+    # Common native-package locations; confined Snap/Flatpak builds cannot read
+    # the disposable export folders used here.
+    return [Path(root) / command for root in ("/usr/bin", "/usr/local/bin")
             for command in _COMMANDS[browser] if not command.endswith(".exe")]
 
 
 def _executable(path: Path) -> bool:
     return path.is_file() and (sys.platform == "win32" or os.access(path, os.X_OK))
+
+
+def _confined_browser(path: Path) -> bool:
+    """Recognize package launchers whose confinement hides temporary inputs."""
+    resolved = path.resolve()
+    return (any(part in ('snap', '.flatpak', 'flatpak') for part in path.parts)
+            or any(part in ('snap', '.flatpak', 'flatpak') for part in resolved.parts)
+            or resolved.name in ('snap', 'flatpak'))
 
 
 def find_browsers(preferred: tuple[str, ...] = ("chrome", "edge", "chromium")) -> list[Path]:
@@ -61,25 +70,31 @@ def find_browsers(preferred: tuple[str, ...] = ("chrome", "edge", "chromium")) -
     if override:
         candidate = Path(shutil.which(override) or override).expanduser()
         if _executable(candidate):
-            return [candidate.resolve()]
+            if _confined_browser(candidate):
+                raise ValueError('MAZE_BROWSER selects a Snap/Flatpak browser; install a native browser package instead.')
+            return [candidate.absolute()]
         raise FileNotFoundError("MAZE_BROWSER must name an executable Chrome, Chromium or Edge browser.")
-    found = []
+    found, resolved_paths = [], set()
     for browser in dict.fromkeys((*preferred, *_COMMANDS)):
         if browser not in _COMMANDS:
             raise ValueError(f"Unknown browser preference: {browser}")
         candidates = [Path(location) for command in _COMMANDS[browser]
                       if (location := shutil.which(command))]
         for candidate in [*candidates, *_application_paths(browser)]:
-            if _executable(candidate):
+            if _executable(candidate) and not _confined_browser(candidate):
                 resolved = candidate.resolve()
-                if resolved not in found:
-                    found.append(resolved)
+                if resolved not in resolved_paths:
+                    # Preserve launcher identity; resolving a symlink can change
+                    # argv[0] or bypass a package's executable wrapper.
+                    found.append(candidate.absolute())
+                    resolved_paths.add(resolved)
                 break
     if found:
         return found
     raise FileNotFoundError(
         "Figure PDF export requires Google Chrome, Chromium or Microsoft Edge. "
-        "Install one, place its executable on PATH, or set MAZE_BROWSER to its executable path."
+        "Install one as a native package (not Snap/Flatpak), place its executable on PATH, "
+        "or set MAZE_BROWSER to its executable path."
     )
 
 
@@ -113,8 +128,13 @@ def run_browser(command, *, check=False, capture_output=True, text=False, timeou
     if not capture_output:
         raise ValueError('Browser diagnostics must be captured')
     with tempfile.TemporaryFile() as diagnostics:
-        completed = subprocess.run(command, stdout=diagnostics, stderr=subprocess.STDOUT,
-                                   timeout=timeout, check=False)
+        try:
+            completed = subprocess.run(command, stdout=diagnostics, stderr=subprocess.STDOUT,
+                                       timeout=timeout, check=False)
+        except subprocess.TimeoutExpired as error:
+            diagnostics.seek(0)
+            error.stderr = diagnostics.read()
+            raise
         diagnostics.seek(0)
         logs = diagnostics.read()
     if text:

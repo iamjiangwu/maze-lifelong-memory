@@ -36,7 +36,7 @@ class BrowserDiscoveryTests(unittest.TestCase):
                 patch.object(browser.shutil, "which", side_effect=lambda name: "/usr/bin/chromium" if name == "chromium" else None), \
                 patch.object(browser, "_executable", side_effect=lambda path: path.as_posix() == "/usr/bin/chromium"):
             # Some Linux distributions make chromium a symlink to chrome.
-            self.assertEqual(browser.find_browser(), Path("/usr/bin/chromium").resolve())
+            self.assertEqual(browser.find_browser(), Path("/usr/bin/chromium").absolute())
 
     def test_macos_application_discovery(self):
         expected = Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
@@ -75,6 +75,33 @@ class BrowserDiscoveryTests(unittest.TestCase):
             self.assertEqual(browser.platform_headless_flags(), [])
         with patch.object(browser.sys, 'platform', 'darwin'):
             self.assertIn('--use-mock-keychain', browser.platform_headless_flags())
+
+    def test_confined_override_is_rejected(self):
+        with patch.dict(browser.os.environ, {'MAZE_BROWSER': '/snap/bin/chromium'}, clear=True), \
+                patch.object(browser.shutil, 'which', return_value=None), \
+                patch.object(browser, '_executable', return_value=True):
+            with self.assertRaisesRegex(ValueError, 'native browser package'):
+                browser.find_browser()
+
+    def test_discovery_preserves_launcher_symlink(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            target = Path(temporary) / 'native-browser'
+            target.touch()
+            launcher = Path(temporary) / 'chromium'
+            try:
+                launcher.symlink_to(target)
+            except OSError:
+                self.skipTest('Creating symlinks requires permission on this host')
+            with patch.dict(browser.os.environ, {'MAZE_BROWSER': str(launcher)}, clear=True), \
+                    patch.object(browser, '_executable', return_value=True):
+                self.assertEqual(browser.find_browser(), launcher.absolute())
+
+    def test_timeout_preserves_diagnostics(self):
+        with self.assertRaises(subprocess.TimeoutExpired) as caught:
+            browser.run_browser([sys.executable, '-c',
+                                 'import sys,time; print("started",file=sys.stderr,flush=True); time.sleep(3)'],
+                                timeout=0.5)
+        self.assertIn(b'started', caught.exception.stderr)
 
     def test_export_does_not_wait_for_inherited_diagnostic_handles(self):
         # The parent exits immediately; its background child holds stderr open.
