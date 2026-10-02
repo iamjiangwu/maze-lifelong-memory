@@ -57,7 +57,6 @@ def build(output):
         module=original_load(name,path)
         if name=="ij_review_frozen_entrypoint":
             native_load=module.load
-            module.export_individual_panels=lambda *args:None
             def native(name,path):
                 m=native_load(name,path)
                 if name=="figure1_approved_layout":
@@ -194,7 +193,7 @@ def build(output):
             module.load=native
         return module
     base.load=scoped_load
-    base.build(output,record=None,skip_individual=True)
+    base.build(output,record=None)
     audit.update(status="PASS", source_manifest_sha256=sha(frozen/"SOURCE_INPUTS.csv"), reference_sources=reference_hashes)
     dump(output/"PREVIEW_VALIDATION.json",audit)
     shutil.copy2(__file__,output/"source_code"/Path(__file__).name)

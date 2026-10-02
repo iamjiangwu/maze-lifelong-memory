@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "frozen_source/source_code/figure_panels.py",
-      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd"
+      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd"
     },
     {
       "path": "frozen_source/source_code/render_main_figs_v3_publication.py",
@@ -38,7 +38,7 @@
     },
     {
       "path": "source_code/rebuild_current_main_figures.py",
-      "sha256": "61aa631183e7e8fa20030221ae2d5588c2cdf43fdf16f5c6c704b690fef533b3"
+      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40"
     }
   ]
 }

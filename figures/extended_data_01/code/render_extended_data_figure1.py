@@ -23,67 +23,6 @@ import pandas as pd
 
 
 
-REPO = Path(__file__).resolve().parents[1]
-REFRESH = REPO / "docs" / "extended_data_figure_panel_refresh_2026-07-12"
-PANEL_ROOT = REFRESH / "source_rendered_new"
-TABLE_ROOT = REFRESH / "source_tables"
-OUTPUT = (
-    REPO
-    / "docs"
-    / "extended_data_figure1_source_rebuild_2026-08-05_round4_layout_clean"
-)
-ROUND = 10
-GENERATED = "2026-08-11"
-STEM = OUTPUT / f"extended_data_figure1_source_rerender_round{ROUND}"
-SOURCE_AUDIT = OUTPUT / f"SOURCE_DATA_AUDIT_ROUND{ROUND}.csv"
-LAYOUT_AUDIT = OUTPUT / f"LAYOUT_AUDIT_ROUND{ROUND}.csv"
-AXIS_SCALE_AUDIT = OUTPUT / f"AXIS_SCALE_AUDIT_ROUND{ROUND}.csv"
-CAPTION_NOTES = OUTPUT / f"CAPTION_NOTES_ROUND{ROUND}.md"
-RENDER_VALIDATION = OUTPUT / f"RENDER_VALIDATION_ROUND{ROUND}.json"
-MANIFEST = OUTPUT / f"MANIFEST_ROUND{ROUND}.json"
-
-ACCUMULATION = (
-    PANEL_ROOT
-    / "extended_data_fig_01"
-    / "month_source_coverage_gap_closure_2026-07-14"
-    / "ed01_accumulation_session_curves_display_window_current153.csv.gz"
-)
-ACQUISITION_DIR = (
-    PANEL_ROOT
-    / "extended_data_fig_01"
-    / "acquisition_endpoint_axes_2026-07-16"
-)
-CURRENT_ED1_RECORD = (
-    REPO
-    / "docs"
-    / "figure_version_records"
-    / "extended_data_fig01_2026-08-17_round20_canonical_animal_release"
-)
-TILE_CURVES = (
-    ACQUISITION_DIR
-    / "ed01_tile_accumulation_by_return_month_group_curves_current153.csv"
-)
-ENDPOINT_ROWS = CURRENT_ED1_RECORD / "plot_ready/ed01_endpoint_axis_session_rows_current153.csv"
-ENDPOINT_STATS = CURRENT_ED1_RECORD / "plot_ready/ed01_endpoint_axis_cluster_stats_current153.csv"
-TILE_TIME_DIR = (
-    TABLE_ROOT
-    / "extended_data_fig_02"
-    / "tile_time_loglog_current153_2026-07-15"
-)
-TILE_TIME_ROWS = CURRENT_ED1_RECORD / "plot_ready/ed02_tile_time_loglog_rows_current153.csv"
-TILE_TIME_STATS = CURRENT_ED1_RECORD / "plot_ready/ed02_tile_time_loglog_stats_current153.csv"
-SPEED_ROWS = (
-    REPO
-    / "docs"
-    / "ed01_panel_h_window_sensitivity_2026-08-15"
-    / "speed_by_session_window.csv"
-)
-SPEED_REFERENCE = (
-    REPO
-    / "docs"
-    / "ed01_panel_h_window_sensitivity_2026-08-15"
-    / "group_summary.csv"
-)
 SPEED_WINDOW_ID = "first_30_min"
 SPEED_SUMMARY_VARIANT = "exact_current_mode_rule"
 TIME_CURVE_CAPTION_NOTE = (
@@ -94,19 +33,6 @@ TILE_CURVE_CAPTION_NOTE = (
     "Mean ± SEM across all 153 sessions over the fully observed common "
     "0-5,200-transition range; group counts are 23, 17, 17, 12, 10 and 74."
 )
-EXAMPLE_DIR = (
-    PANEL_ROOT
-    / "extended_data_fig_02"
-    / "illustrative_support_gap_closure_2026-07-14"
-)
-EFFICIENCY_DIR = (
-    PANEL_ROOT
-    / "extended_data_fig_02"
-    / "exploration_efficiency_axis_options_2026-07-16"
-    / "source_data"
-)
-EFFICIENCY_TIME = EFFICIENCY_DIR / "current_plus_new12_time_session_bins.csv"
-EFFICIENCY_TILE = EFFICIENCY_DIR / "current_plus_new12_tile_session_bins.csv"
 EFFICIENCY_CAPTION_NOTE = (
     "Session-first mean ± SEM in fixed completion-coordinate bins; only bins "
     "with at least five sessions are drawn. The plotted y-axis wording is "

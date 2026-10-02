@@ -1,29 +1,23 @@
 """Rebuild the approved ten-panel Figure 1 using only record-local inputs.
 
-The composite and individual panels are generated from native plotting artists.
+The composite is generated from native plotting artists.
 Accepted artwork is never an input. The sole supplied bitmap is the declared
 physical-maze illustration; quantitative panels use frozen numerical tables.
 """
 from __future__ import annotations
 
 import argparse
-from concurrent.futures import ThreadPoolExecutor
-from copy import deepcopy
 import csv
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
 import sys
-import shutil
-import subprocess
-import tempfile
 import xml.etree.ElementTree as ET
 
 sys.dont_write_bytecode = True
 
 import fitz
-import numpy as np
 import pandas as pd
 from PIL import Image
 
@@ -47,60 +41,6 @@ def verify_inputs(record):
         path.relative_to(record.resolve())
         assert sha(path) == row["sha256"] and path.stat().st_size == int(row["bytes"]), path
     return rows
-
-
-def export_individual_panels(builder, runtime, native, image, bounds, output):
-    """Export isolated native source artists, retaining their physical sizes."""
-    folder = output / "figure1_individual_panels"
-    folder.mkdir(parents=True, exist_ok=True)
-    jobs = []
-    for letter in "abcdefghij":
-        sx, sy, sw, sh = builder.SLOTS_MM[letter]
-        if letter == "a":
-            left, top, right, bottom = sx-2.5, 0, sx+sw+.5, sy+sh+.5
-        else:
-            bx0, by0, bx1, by1 = native[letter]["content_bounds_mm"]
-            label_y = {"d":69.5, "e":69.5, "f":124.5, "h":124.5}.get(letter, max(sy-1,3.8))
-            left = min(sx+bx0, sx-2)-.6
-            top = min(sy+sh-by1, label_y-3.3)-.6
-            right, bottom = sx+bx1+.6, sy+sh-by0+.6
-        width, height = right-left, bottom-top
-        root = ET.Element(builder.tag("svg"), {"width":f"{width}mm", "height":f"{height}mm", "viewBox":f"{left*builder.MM} {top*builder.MM} {width*builder.MM} {height*builder.MM}", "version":"1.1"})
-        ET.SubElement(root,builder.tag("rect"),{"x":str(left*builder.MM),"y":str(top*builder.MM),"width":str(width*builder.MM),"height":str(height*builder.MM),"fill":"white"})
-        if letter == "a":
-            builder.maze_image(root,image,bounds)
-        else:
-            builder.place(root,native[letter],letter,builder.SLOTS_MM[letter])
-        stem = folder / f"figure1_panel_{letter}"
-        ET.ElementTree(root).write(stem.with_suffix(".svg"),encoding="utf-8",xml_declaration=True)
-        jobs.append((letter,stem,width,height))
-
-    def export(job):
-        from ca_analysis.browser_export import platform_headless_flags, run_browser
-        letter,stem,width,height = job
-        html = stem.with_suffix(".html")
-        html.write_text("<!doctype html><html><head><meta charset='utf-8'><style>"
-            f"@page{{size:{width}mm {height}mm;margin:0}}html,body{{margin:0;width:{width}mm;height:{height}mm;overflow:hidden}}"
-            f"body>svg{{display:block;width:{width}mm!important;height:{height}mm!important}}"
-            "</style></head><body>"+stem.with_suffix(".svg").read_text(encoding="utf-8")+"</body></html>",encoding="utf-8")
-        pdf=stem.with_suffix(".pdf")
-        with tempfile.TemporaryDirectory(prefix=f"figure1_panel_{letter}_") as temporary:
-            fresh=Path(temporary)/"fresh.pdf"
-            run_browser([str(runtime._find_chrome()),*platform_headless_flags(),"--headless=new","--disable-gpu","--no-sandbox","--disable-software-rasterizer","--no-pdf-header-footer","--print-to-pdf-no-header",f"--user-data-dir={Path(temporary)/'browser'}",f"--print-to-pdf={fresh}",html.as_uri()],check=True,capture_output=True,timeout=120)
-            runtime._wait_for_file(fresh)
-            shutil.copy2(fresh,pdf)
-        with fitz.open(pdf) as doc:
-            assert len(doc)==1
-            assert np.allclose([doc[0].rect.width/builder.MM,doc[0].rect.height/builder.MM],[width,height],atol=.4)
-            pix=doc[0].get_pixmap(dpi=600,alpha=False)
-            raster=Image.frombytes("RGB",(pix.width,pix.height),pix.samples)
-            raster.save(stem.with_suffix(".png"),dpi=(600,600),optimize=True)
-            raster.save(stem.with_suffix(".tiff"),dpi=(600,600),compression="tiff_lzw")
-        return letter,{ext:str(stem.with_suffix('.'+ext).relative_to(output)) for ext in ["svg","pdf","png","tiff"]}
-
-    with ThreadPoolExecutor(max_workers=3) as pool:
-        manifest=dict(pool.map(export,jobs))
-    (output/"figure1_individual_panels_manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
 
 
 def rebuild(record: Path, output: Path) -> list[Path]:
@@ -173,9 +113,6 @@ def rebuild(record: Path, output: Path) -> list[Path]:
         "no_master_artwork_read":True, "fixed_illustration":"source_data/maze_3d_original.png",
     }
     (output / "NATIVE_REBUILD.json").write_text(json.dumps(metadata, indent=2)+"\n", encoding="utf-8")
-    native = {letter:panels[key] for letter,key in builder.MAPPING.items()}
-    native["b"] = trajectory
-    export_individual_panels(builder,runtime,native,image,bounds,output)
     verify_inputs(record)
     return sorted(p for p in output.rglob("*") if p.is_file())
 

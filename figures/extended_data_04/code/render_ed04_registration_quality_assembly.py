@@ -12,7 +12,6 @@ main-figure condition palette would imply a contrast the data does not have.
 
 from __future__ import annotations
 
-import argparse
 import csv
 import json
 from pathlib import Path
@@ -27,36 +26,16 @@ import pandas as pd
 from matplotlib.colors import LogNorm
 from PIL import Image
 
-from ed_supplement_common import REBUILD_ROOT, REPO_ROOT, Canvas, Checks, sha256
+from ed_supplement_common import Canvas, Checks, sha256
 
-ED04_ROOT = REBUILD_ROOT / "ed04_registration_quality"
-SOURCE = ED04_ROOT / "source_from_raw"
-ALIGNMENT = SOURCE / "alignment"
-DEFAULT_OUTPUT_DIR = ED04_ROOT / "assembly"
-
-ED05 = (
-    REPO_ROOT
-    / "docs"
-    / "extended_data_figure_panel_refresh_2026-07-12"
-    / "extended_data_figures"
-    / "extended_data_fig_05"
-)
-SOURCE_RENDERED = (
-    REPO_ROOT
-    / "docs"
-    / "extended_data_figure_panel_refresh_2026-07-12"
-    / "source_rendered_new"
-    / "extended_data_fig_05"
-)
-LOCAL_CORRELATION_IMAGE = (
-    SOURCE_RENDERED
-    / "registration_flow_and_four_session"
-    / "ed05_four_session_418_local_correlation_paper.png"
-)
-COREGISTRATION_IMAGE = (
-    ED05 / "03_illustrative_examples" / "ed05_four_session_418_coregistration_paper.png"
-)
-LEGACY_FOV_PANEL = ED05 / "99_legacy_audit_only" / "ed05_panel_a_fov_displacement.png"
+# The public launcher binds these to the included data and export directory
+# before calling build(); no external research checkout is required.
+REPO_ROOT: Path
+SOURCE: Path
+ALIGNMENT: Path
+LOCAL_CORRELATION_IMAGE: Path
+COREGISTRATION_IMAGE: Path
+LEGACY_FOV_PANEL: Path
 
 FIGURE_WIDTH_IN = 7.5
 FIGURE_HEIGHT_IN = 6.54
@@ -718,27 +697,3 @@ def build(output_dir: Path) -> dict[str, Any]:
         writer.writeheader()
         writer.writerows(checks.rows)
     return manifest
-
-
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
-    args = parser.parse_args()
-    result = build(args.output_dir)
-    failed = [c for c in result["validation"] if c["status"] not in ("PASS", "DEVIATION")]
-    print(
-        json.dumps(
-            {
-                "validation_status": result["validation_status"],
-                "checks": len(result["validation"]),
-                "failed": failed,
-            },
-            indent=2,
-        )
-    )
-    if failed:
-        raise SystemExit(1)
-
-
-if __name__ == "__main__":
-    main()

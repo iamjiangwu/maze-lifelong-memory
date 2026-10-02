@@ -22,7 +22,7 @@ For panel m, the renderer first retains rows passing `passes_support_mask`, then
 
 Panels n/o show 95% fitted-mean bands from the animal-level sandwich covariance with the finite-sample adjustment and t(G−1) reference; they are not the ordinary least-squares bands used in Figure 3. Panel d uses a nominal one-sided observed-minus-shuffled accuracy test. Panel h uses BH2 over one-sided level-minus-horizontal/vertical contrasts; panel j uses a nominal one-sided observed-minus-within-level-shuffle test. These tests use session-pair effects with standard errors clustered by animal. [All correction families](../../../docs/STATISTICS.md).
 
-Shared observation files for l/n/o contain all relevant neural metrics; the ED9 renderer selects `metric=level_map_correlation`. For l, `reward_context_chain` is joined from the session-chain scope by the three session identifiers. For o, `pair_key` is formed from `src` and `dst`. No duplicate copies of these observations are needed in this folder.
+Shared observation files for l/n/o contain all relevant neural metrics; the ED9 renderer selects `metric=level_map_correlation`. For l, the final observations are rewarded session chains; the same rows supply the point cloud and trend line. For o, `pair_key` is formed from `src` and `dst`. No duplicate copies of these observations are needed in this folder.
 
 `source_bundles` in the learning summaries identifies the preprocessing cohorts contributing to each row; semicolon-separated labels mark pooled cohorts. See [source-label definitions](../../../docs/DATA.md#source-labels).
 

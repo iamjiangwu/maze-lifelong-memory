@@ -219,72 +219,6 @@ def _load_publication_renderer(record: Path, name: str):
     )
 
 
-def _patch_figure2_helper_loader(publication, record: Path) -> None:
-    helper_path = record / "source_code" / "preview_figure2_assembly.py"
-    panel_a_top = record / "panel_a_sources" / "422_corr.npz"
-    panel_a_bottom = record / "panel_a_sources" / "422-3_corr.npz"
-    original_loader = publication._load_script_module
-
-    def load(name: str, path: Path):
-        module = original_loader(name, path)
-        if Path(path).resolve() != helper_path.resolve():
-            return module
-
-        def render_panel_a(size: tuple[float, float]):
-            module._set_common_rc()
-            fig, axes, _data, _paths = module.render_stacked_local_correlation_panel(
-                top_fig_path=panel_a_top,
-                bottom_fig_path=panel_a_bottom,
-                panel_size=size,
-                layout={**module.PANEL_LAYOUT, "panel_size": size, "grid_hspace": 0.05},
-                style={
-                    "origin": "upper",
-                    "shared_clim": True,
-                    "shared_vmin": None,
-                    "shared_vmax": None,
-                    "show_axes": False,
-                    "show_colorbars": False,
-                    "show_panel_title": False,
-                    "show_subplot_titles": False,
-                    "side_label_transform": "axes",
-                    "side_label_rotation": 90,
-                    "side_label_ha": "center",
-                    "side_label_va": "center",
-                    "side_label_fontsize": 8.0,
-                    "side_label_fontweight": "normal",
-                    "top_side_label_xy": (-0.060, 0.50),
-                    "bottom_side_label_xy": (-0.060, 0.50),
-                    "show_scale_bar": True,
-                    "scale_bar_panel": "bottom",
-                    "scale_bar_xy": (295.0, 278.0),
-                    "scale_bar_length_px": 60.0,
-                    "scale_bar_linewidth": 2.4,
-                    "scale_bar_color": "white",
-                    "scale_bar_text_color": "white",
-                    "scale_bar_text_offset_px": -10.0,
-                    "scale_bar_fontsize": 6.4,
-                    "scale_bar_fontweight": "normal",
-                },
-                labels={
-                    "top_side_label": "Day 1",
-                    "bottom_side_label": "Day 91",
-                    "scale_bar_label": "100 µm",
-                },
-                save=False,
-            )
-            axes_flat = list(axes.ravel()) if hasattr(axes, "ravel") else list(axes)
-            if len(axes_flat) >= 2:
-                axes_flat[0].set_position([0.055, 0.506, 0.940, 0.492])
-                axes_flat[1].set_position([0.055, 0.006, 0.940, 0.492])
-            module._standardize_axes_text(fig)
-            return fig
-
-        module._render_panel_a = render_panel_a
-        return module
-
-    publication._load_script_module = load
-
-
 def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list[Path]:
     publication = _load_publication_renderer(record, "record_local_main2_publication")
     distribution = record / "source_data" / "distribution"
@@ -308,7 +242,6 @@ def _render_main2(record: Path, output_dir: Path, check: dict[str, Any]) -> list
         rate / "session_pair_rate_consecutive_gap_stats_canonical.csv"
     )
 
-    _patch_figure2_helper_loader(publication, record)
     output_dir.mkdir(parents=True, exist_ok=True)
     style = publication.PublicationStyle(dpi=300)
     manifest = publication.render_figure2(output_dir, style)

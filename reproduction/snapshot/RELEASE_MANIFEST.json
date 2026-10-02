@@ -471,8 +471,8 @@
     },
     {
       "path": "extended_data_figure_1/source/source_code/render_extended_data_figure1_round4.py",
-      "sha256": "2e0c970960615dc99a1fad360f4a5847c6e04b6fb143f784094e6bd232f66b4e",
-      "bytes": 52402,
+      "sha256": "920568d69e86fb602deccea1b62091ccd0ba8cf9fc106536b69cbc8922fe62c5",
+      "bytes": 49907,
       "role": "source_or_code"
     },
     {
@@ -687,8 +687,8 @@
     },
     {
       "path": "extended_data_figure_4/source/source_code/render_ed04_registration_quality_assembly.py",
-      "sha256": "a37bf699315fd17133dbad347275a66fe1a29d2935877c8eeb82d9ff6d0945c6",
-      "bytes": 28827,
+      "sha256": "aeae11ef9fd34571f9405d8b37c0381a6dcd99737af5a16364167700c492d88f",
+      "bytes": 27524,
       "role": "source_or_code"
     },
     {
@@ -1245,26 +1245,26 @@
     },
     {
       "path": "main_figure_1/source/frozen_source/source_code/build_figure1_layout_alternatives.py",
-      "sha256": "19120a4f0c22b5911500967025af3b08841056dbd655ede0e5b890471c41fb87",
-      "bytes": 25939,
+      "sha256": "8e501278c0acd7669c8aff0b344c1da16250d88f6e64059ff1bfb73f09b62aa2",
+      "bytes": 25357,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_1/source/frozen_source/source_code/figure_panels.py",
-      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
-      "bytes": 140717,
+      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd",
+      "bytes": 127926,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_1/source/frozen_source/source_code/preview_figure1_assembly.py",
-      "sha256": "49a4919b05fe46c4a60c2493d8ce64d13700a0586c5664269964b58cc82aae92",
-      "bytes": 46671,
+      "sha256": "1a9df387cdff2de03b587b3a70803a697c7cf53d93a8251cad77d5e0f12ae6c6",
+      "bytes": 25357,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_1/source/frozen_source/source_code/rebuild_figure1.py",
-      "sha256": "14461145ac63e5948f6ca9db89f31a9c32ee6c2b02e629182401c9069c530bfe",
-      "bytes": 10413,
+      "sha256": "c6c3aa90c952e6efb4644f3601436df6b3d83173ec074b1b6cf33692c0a830ab",
+      "bytes": 6488,
       "role": "source_or_code"
     },
     {
@@ -1293,20 +1293,20 @@
     },
     {
       "path": "main_figure_1/source/frozen_source/SOURCE_INPUTS.csv",
-      "sha256": "e04272ecb7b5d08462f518bd5e27bf996a5f8c847e3576e8155d400073044bb5",
-      "bytes": 2452,
+      "sha256": "70636963477dd937f867447f96aa1b0fcc7f1a81fda4b94ef3ea8db4878f44cf",
+      "bytes": 2451,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_1/source/source_code/build_figure1_binary_tree_preview.py",
-      "sha256": "02b00233bb932914acee64fe19e54834fa68aac4fb52aff7996154d7c58e2a64",
-      "bytes": 14298,
+      "sha256": "264c245b2cddd956d570c6cda73e9519ff198f37fd4341b5e17418a675a82da7",
+      "bytes": 14009,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_1/source/source_code/build_figure1_ij_spacing.py",
-      "sha256": "5408b56bdad98bce2b2794215200cfb3e5b945d62a5338a57a5970a3e2d4e39c",
-      "bytes": 11361,
+      "sha256": "3943e32621a8699d12419553788757f65ff7df095e2bb956e015a953126fdcf0",
+      "bytes": 8077,
       "role": "source_or_code"
     },
     {
@@ -1347,8 +1347,8 @@
     },
     {
       "path": "main_figure_2/source/source_code/figure_panels.py",
-      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
-      "bytes": 140717,
+      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd",
+      "bytes": 127926,
       "role": "source_or_code"
     },
     {
@@ -1479,8 +1479,8 @@
     },
     {
       "path": "main_figure_3/source/frozen_source/source_code/figure_panels.py",
-      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
-      "bytes": 140717,
+      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd",
+      "bytes": 127926,
       "role": "source_or_code"
     },
     {
@@ -1539,19 +1539,19 @@
     },
     {
       "path": "main_figure_3/source/source_code/rebuild_current_main_figures.py",
-      "sha256": "61aa631183e7e8fa20030221ae2d5588c2cdf43fdf16f5c6c704b690fef533b3",
-      "bytes": 17701,
+      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
+      "bytes": 14780,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_3/source/SOURCE_INPUTS.json",
-      "sha256": "8a2cc3998fb1f47925be2802f85ff030c528036edbb0045c98a79ce865694453",
+      "sha256": "00f72d78ca695cbffe261866634d7eae3b6d6f2fa7196311a6dcf29b0200ffc0",
       "bytes": 1846,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_4/source/INPUT_HASHES.json",
-      "sha256": "e27665f25c782ee6efecfaa4bc2259a88d87b1dcac59dd355e0e0431031df2b3",
+      "sha256": "49c0d4e7e6b115dd4030d85d0b8b4773c2503a7936d8b7e1da955de61faa8142",
       "bytes": 2447,
       "role": "source_or_code"
     },
@@ -1623,8 +1623,8 @@
     },
     {
       "path": "main_figure_4/source/reference_record/source_code/figure_panels.py",
-      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
-      "bytes": 140717,
+      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd",
+      "bytes": 127926,
       "role": "source_or_code"
     },
     {
@@ -1665,20 +1665,20 @@
     },
     {
       "path": "main_figure_4/source/source_code/rebuild_current_main_figures.py",
-      "sha256": "61aa631183e7e8fa20030221ae2d5588c2cdf43fdf16f5c6c704b690fef533b3",
-      "bytes": 17701,
+      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
+      "bytes": 14780,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_5/source/source_code/figure_panels.py",
-      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
-      "bytes": 140717,
+      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd",
+      "bytes": 127926,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_5/source/source_code/frozen_main_rebuild_runtime.py",
-      "sha256": "61aa631183e7e8fa20030221ae2d5588c2cdf43fdf16f5c6c704b690fef533b3",
-      "bytes": 17701,
+      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
+      "bytes": 14780,
       "role": "source_or_code"
     },
     {
@@ -1689,14 +1689,14 @@
     },
     {
       "path": "main_figure_5/source/source_code/preview_figure3_assembly.py",
-      "sha256": "2d5f4c7ca6ad7dded92c56be4af1da85deeef8a2066c14287fea7b57e9f8cc47",
-      "bytes": 17748,
+      "sha256": "db279531bb38cbe8b4ee2b3625eda7b92192e59248aa7b66e7496b847da1e6c5",
+      "bytes": 17553,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_5/source/source_code/rebuild_figure5.py",
-      "sha256": "4b9849d640b65ddc23266093e65c9b0c1f9a4b5975a5748fcd75be37bfe61c90",
-      "bytes": 14270,
+      "sha256": "89cba11cfa19d7025223e033a6f0b0987d61dc3a27833739fcf77ec55ba80181",
+      "bytes": 14220,
       "role": "source_or_code"
     },
     {
@@ -1749,7 +1749,7 @@
     },
     {
       "path": "main_figure_5/source/SOURCE_INPUTS.json",
-      "sha256": "7659bf383697f5a4f9957082fe887b9f66e95eb4f799811ceb50d7630bc9136e",
+      "sha256": "98674d36c8f0409d110dceb8ef7875fdeb05b13e2d602cf28d96b903fc5c3d4c",
       "bytes": 2280,
       "role": "source_or_code"
     },
@@ -1785,8 +1785,8 @@
     },
     {
       "path": "shared/rebuild_current_main_figures.py",
-      "sha256": "61aa631183e7e8fa20030221ae2d5588c2cdf43fdf16f5c6c704b690fef533b3",
-      "bytes": 17701,
+      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
+      "bytes": 14780,
       "role": "source_or_code"
     },
     {
@@ -1899,8 +1899,8 @@
     },
     {
       "path": "shared/runtime/ca_analysis/figure_panels.py",
-      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
-      "bytes": 140717,
+      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd",
+      "bytes": 127926,
       "role": "source_or_code"
     },
     {
@@ -1917,8 +1917,8 @@
     },
     {
       "path": "shared/runtime/ca_analysis/spatial.py",
-      "sha256": "a055a73ae38d7a7cdf3f3430cfe38f184bb63003dd1e0b525d9024e22af5ccb5",
-      "bytes": 4419,
+      "sha256": "c88539d0e588721424f2a1a41d850972aad87603c4203675b97bbb7584970af0",
+      "bytes": 1642,
       "role": "source_or_code"
     },
     {

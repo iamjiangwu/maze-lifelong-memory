@@ -235,7 +235,6 @@ def _render_panel_b(size: tuple[float, float]):
 def _render_panel_e(
     size: tuple[float, float],
     *,
-    ordering_method: str = "preferred_level_similarity",
     refined_order_path: Path | None = None,
     refined_order_sha256: str | None = None,
     return_data: bool = False,
@@ -297,13 +296,9 @@ def _render_panel_e(
         colors={"heatmap": HEATMAP_CMAP},
         style={
             "normalize_mode": "l2",
-            "ordering_method": ordering_method,
             "plot_ready_sha256": FIGURE5_LEVEL_HEATMAP_PLOT_READY_SHA256,
             "refined_order_path": refined_order_path,
             "refined_order_sha256": refined_order_sha256,
-            "lam_index": 1.0,
-            "lam_sim": 1.0,
-            "refine_eps": 1e-6,
             "tick_labelsize": 7.0,
             "label_fontsize": 9.0,
             "title_fontsize": 8.0,

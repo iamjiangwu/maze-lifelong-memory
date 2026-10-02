@@ -273,10 +273,6 @@ def repack_significance(ax, letter, height_mm):
     SIGNIFICANCE_AUDIT[letter] = {"source_comparisons_and_star_tokens": pairs, "placements": rows, "axis_ylim": [ymin, ymax], "source_values_match": True}
 
 
-
-
-
-
 def native_panels(rebuilder, output, audit):
     # The public entrypoint supplies the included six-session event table.
     preview = sys.modules["record_local_main1_preview"]
@@ -291,8 +287,6 @@ def native_panels(rebuilder, output, audit):
     panels = {}
     reverse = {key: letter for letter, key in MAPPING.items()}
     for key, renderer in preview.PANEL_RENDERERS.items():
-        if key == "b":
-            continue  # The horizontal session timeline is assembled separately.
         size = preview.PANEL_SIZES[key]
         fig = renderer(size)
         def values():

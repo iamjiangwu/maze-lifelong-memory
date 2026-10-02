@@ -2,12 +2,12 @@
   "status": "PASS",
   "sources": {
     "source_code/preview_figure3_assembly.py": {
-      "sha256": "2d5f4c7ca6ad7dded92c56be4af1da85deeef8a2066c14287fea7b57e9f8cc47",
-      "bytes": 17748
+      "sha256": "db279531bb38cbe8b4ee2b3625eda7b92192e59248aa7b66e7496b847da1e6c5",
+      "bytes": 17553
     },
     "source_code/figure_panels.py": {
-      "sha256": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
-      "bytes": 140717
+      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd",
+      "bytes": 127926
     },
     "source_code/level_heatmap_utils.py": {
       "sha256": "890b68e4df15500acb8fb96fb35ff7087491f112ad3ec43ffb5b4f36ec91696c",
@@ -18,8 +18,8 @@
       "bytes": 5766
     },
     "source_code/frozen_main_rebuild_runtime.py": {
-      "sha256": "61aa631183e7e8fa20030221ae2d5588c2cdf43fdf16f5c6c704b690fef533b3",
-      "bytes": 17701
+      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
+      "bytes": 14780
     },
     "source_data/figure5_bundle/plot_data_cell228_level.npz": {
       "sha256": "9a222da8654d6b0ad439080901c646ecebceec55569057491dcfdfd430a1e1cb",
@@ -50,8 +50,8 @@
       "bytes": 182143
     },
     "source_code/rebuild_figure5.py": {
-      "sha256": "4b9849d640b65ddc23266093e65c9b0c1f9a4b5975a5748fcd75be37bfe61c90",
-      "bytes": 14270
+      "sha256": "89cba11cfa19d7025223e033a6f0b0987d61dc3a27833739fcf77ec55ba80181",
+      "bytes": 14220
     }
   }
 }

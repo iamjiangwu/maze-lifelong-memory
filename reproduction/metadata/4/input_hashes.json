@@ -10,12 +10,12 @@
   "reference_record/plot_ready/panel_c_example_map_rows.csv": "a9bbd76a8efc3a2c4a98741505ec9afc1b536a6778d6ba889beeece20600bc73",
   "reference_record/plot_ready/panel_d_native_reference_rows.csv": "467f5812d7c769d0182ffab7aa517b5f73c20ee078329aecb4797ff1bb109de7",
   "reference_record/plot_ready/panel_f_matched_pair_means.csv": "0dedf2715de4f553f24a119e01b8f2b639758f189c2c332e30a7cd34988732c3",
-  "reference_record/source_code/figure_panels.py": "4f2d3eedf051fe0c639a8bc63997eb324725d928c15dd65a2b17b0a6f265f0bd",
+  "reference_record/source_code/figure_panels.py": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd",
   "reference_record/source_code/render_figure4_day_source_comparison.py": "22b7482a66ae16bd6db87a7800beed33ad8926f35f156c34406a3364163b8e65",
   "reference_record/source_code/render_main_figs_v3_publication.py": "fdc67aff9b9c92e56e952530f2a8e4619ee24200b067340aaf8e5cc98a52b12d",
   "reference_record/source_code/render_main_figure4_panel_f_ed10_k166.py": "e795099196310c9bbabbb0cf5a86e6ab44762c67cd4f2ec7a3795f0b2a702959",
   "reference_record/source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_pair_summary.csv": "de16a470f3bbf025cdac966c4aa7b57c18752caf85c821ec789c1b4115ea863e",
   "reference_record/source_data/neuron_id_shuffle/figure4b_neuron_id_shuffle_statistics.json": "c8a8a0c4e441e9d72875b2fe389b67b1ebc7d2bfba9f1c611ad5b4b53ca1b74c",
   "source_code/build_figure4_standardized_pv.py": "b6f4c80d715cb89d70a51257d276ebb3d398fd1a774bcb34ab0f3b663fd3c0a2",
-  "source_code/rebuild_current_main_figures.py": "61aa631183e7e8fa20030221ae2d5588c2cdf43fdf16f5c6c704b690fef533b3"
+  "source_code/rebuild_current_main_figures.py": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40"
 }

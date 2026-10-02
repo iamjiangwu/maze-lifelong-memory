@@ -58,7 +58,6 @@ def configure(inputs: Path):
     engine = load("exchange_frozen_main_runtime", inputs / "source_code/frozen_main_rebuild_runtime.py")
     engine.VOR_ROOT = inputs / "source_data"
     engine.REPO_ROOT = inputs
-    engine._install_frozen_panel_modules(inputs)
     publication = engine._load_publication_renderer(inputs, "exchange_frozen_publication")
     module = engine._load_module("exchange_frozen_main5", inputs / "source_code/preview_figure3_assembly.py")
     bundle = inputs / "source_data/figure5_bundle"
