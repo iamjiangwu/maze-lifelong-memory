@@ -1,20 +1,17 @@
 """Build the complete Figure 4 from compact, frozen numerical sources.
 
-Use --freeze once inside the repository to create the dated source bundle.
-Thereafter --bundle B --output-dir O rebuilds solely from B, without sessions,
-registrations, the analysis folder, or the current figure registry.
+The supported figure build.py launcher supplies --bundle and --output-dir.
+Rendering uses only included numerical sources, without recordings or a
+research-repository checkout.
 """
 from __future__ import annotations
 
 import argparse
-import ast
 import hashlib
 import importlib.util
 import io
 import json
-import shutil
 import sys
-import zipfile
 from pathlib import Path
 
 sys.dont_write_bytecode = True
@@ -24,12 +21,9 @@ import matplotlib.pyplot as plt
 from matplotlib.image import AxesImage
 import numpy as np
 import pandas as pd
-from scipy import stats
 import fitz
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parents[1]
-REL = "output/figures/figure4_native_bins_2026-09-29"
 RECORD_NAME = "main_figure4_2026-09-07_round9_numeric_schematic"
 RULE = "2026-09-27-uniform-port-grid-v4"
 ORANGE, GRAY = "#e29957", "#C4C4C4"
@@ -102,167 +96,6 @@ def native_schematic_bins(fig):
         im.set_resample(False)
 
 
-def ci(values):
-    a = np.asarray(values, float)
-    a = a[np.isfinite(a)]
-    m = a.mean()
-    e = stats.t.ppf(.975, len(a)-1) * stats.sem(a)
-    return m, m-e, m+e
-
-
-def freeze(bundle, repo):
-    route = repo / "output/analysis/route_density_vs_pv_explained_2026-09-24"
-    vor = repo / "docs/figure_version_records"
-    record = vor / RECORD_NAME
-    bundle.mkdir(parents=True, exist_ok=True)
-    for d in ["source_code", "plot_ready", "provenance"]:
-        (bundle / d).mkdir(exist_ok=True)
-    source_rows = []
-
-    def copy(source, relative):
-        target = bundle / relative
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, target)
-        source_rows.append(dict(source=source.as_posix(), frozen=relative,
-                                sha256=sha(source), bytes=source.stat().st_size))
-
-    helper = load("figure4_freeze_helper", vor / "rebuild_current_main_figures.py")
-    check = helper.check_artifact("main_figure_4")
-    assert helper._pointer_records()["main_figure_4"].name == RECORD_NAME
-    dump(bundle / "provenance/ACCEPTED_SOURCE_CHECK.json", check)
-    helper._load_publication_renderer(record, "figure4_freeze_publication")
-    # Use the current candidate's exact helpers but never execute its renderer.
-    common = load("figure4_freeze_route_common", route / "route_common.py")
-    from ca_analysis.linearized_pf_utils import peak_normalize, rowwise_corr
-    from ca_analysis.figure_panels import _order_linearized_heatmaps_by_earlier_peak
-    candidate = route / "candidate_panels.py"
-    node = next(n for n in ast.parse(candidate.read_text(encoding="utf-8")).body
-                if isinstance(n, ast.FunctionDef) and n.name == "heat_data")
-    ns = dict(np=np, SMD=route / "signal_maps_primary", fig4e_pairs=common.fig4e_pairs,
-              full_cimap=common.full_cimap, rowwise_corr=rowwise_corr, peak_normalize=peak_normalize,
-              _order_linearized_heatmaps_by_earlier_peak=_order_linearized_heatmaps_by_earlier_peak)
-    exec(compile(ast.Module(body=[node], type_ignores=[]), str(candidate), "exec"), ns)
-    maps, membership, comparisons, map_sources = {}, [], [], {}
-    for direction, group, key in [("home_to_water", "home_to_reward", "h2r"),
-                                  ("water_to_home", "reward_to_home", "r2h")]:
-        aa, bb, rows = [], [], []
-        for pair in common.fig4e_pairs(direction):
-            sources = [route / "signal_maps_primary" / (pair[k] + ".npz") for k in ["id1", "id2"]]
-            zz = [np.load(p, allow_pickle=False) for p in sources]
-            for p, z in zip(sources, zz):
-                info = json.loads(str(z["info"].item()))
-                assert info["rule_version"] == RULE
-                assert np.array_equal(z[key + "__canonical_edges_tiles"], np.arange(23))
-                map_sources[p.as_posix()] = sha(p)
-            a_all, b_all = [z[key + "__all__S_rate"].astype(float) for z in zz]
-            ids = common.full_cimap(pair["id1"], pair["id2"], len(a_all), len(b_all))
-            a, b = a_all[ids[:, 0]], b_all[ids[:, 1]]
-            keep = (np.sum(~np.isnan(a), axis=1) >= 11) & (np.nanmax(np.where(np.isnan(a), -np.inf, a), axis=1) > 0)
-            keep &= np.isfinite(rowwise_corr(np.nan_to_num(a), np.nan_to_num(b)))
-            assert np.isfinite(a[keep]).all() and np.isfinite(b[keep]).all(), "Primary heatmaps must have complete spatial support"
-            a, b = np.nan_to_num(peak_normalize(a[keep])), np.nan_to_num(peak_normalize(b[keep]))
-            if key == "r2h":
-                a, b = a[:, ::-1], b[:, ::-1]
-            aa.append(a); bb.append(b)
-            for n1, n2 in ids[keep]:
-                rows.append(dict(group=group, id1=pair["id1"], id2=pair["id2"],
-                                 source_neuron_zero_based=int(n1), target_neuron_zero_based=int(n2)))
-            comparisons.append(dict(group=group, id1=pair["id1"], id2=pair["id2"], n_neurons=int(keep.sum())))
-            for z in zz:
-                z.close()
-        a, b = np.vstack(aa), np.vstack(bb)
-        order = np.argsort(np.nanargmax(a, axis=1))[::-1]
-        maps[key + "_day_i"], maps[key + "_day_i90"] = a[order], b[order]
-        expected = ns["heat_data"](direction)
-        assert np.array_equal(a[order], expected[0]) and np.array_equal(b[order], expected[1])
-        for display_row, index in enumerate(order):
-            membership.append({**rows[index], "display_row_bottom_zero": display_row,
-                               "day_i_peak_home_oriented_bin": int(np.argmax(a[index]))})
-    np.savez_compressed(bundle / "plot_ready/panel_e_heatmaps.npz", **maps)
-    pd.DataFrame(membership).to_csv(bundle / "plot_ready/panel_e_neuron_membership.csv", index=False)
-    pd.DataFrame(comparisons).to_csv(bundle / "plot_ready/panel_e_pair_counts.csv", index=False)
-    profiles = pd.read_csv(route / "signal_profiles_primary.csv", dtype={"animal": str})
-    profiles = profiles[(profiles.signal == "S") & (profiles.norm == "normalized")]
-    profiles.to_csv(bundle / "plot_ready/panel_e_pair_profiles.csv", index=False)
-    animals = profiles.groupby(["group", "animal", "bin"], as_index=False)[["pv", "pv_sh"]].mean()
-    animals.to_csv(bundle / "plot_ready/panel_e_animal_profiles.csv", index=False)
-    numbers = pd.read_csv(route / "signal_comparison_primary_numbers.csv")
-    numbers = numbers[(numbers.panel == "main") & (numbers.signal == "S") & (numbers.norm == "normalized")]
-    numbers.to_csv(bundle / "plot_ready/panel_e_statistics.csv", index=False)
-    curve = []
-    for group, g in animals.groupby("group"):
-        for b, v in g.groupby("bin"):
-            mean, lo, hi = ci(v.pv)
-            curve.append(dict(group=group, bin=int(b), mean=mean, lo=lo, hi=hi,
-                              shuffle=v.pv_sh.mean(), n_mice=len(v)))
-        x = g.pivot(index="animal", columns="bin", values="pv")
-        contrast = x[21] - x.loc[:, 0:20].mean(axis=1)
-        row = numbers[(numbers.group == group) & (numbers.item == "port minus elsewhere")].iloc[0]
-        assert np.isclose(contrast.mean(), row["mean"], atol=1e-12)
-        assert len(contrast) == int(row.n_mice)
-    pd.DataFrame(curve).to_csv(bundle / "plot_ready/panel_e_curve.csv", index=False)
-    for name in ["render_main_figs_v3_publication.py", "figure_panels.py", "render_figure4_day_source_comparison.py",
-                 "render_main_figure4_panel_f_ed10_k166.py"]:
-        copy(record / "source_code" / name, "reference_record/source_code/" + name)
-    for name in ["panel_c_example_map_rows.csv", "panel_d_native_reference_rows.csv", "panel_f_matched_pair_means.csv", "figure4_day_source_statistics.csv"]:
-        copy(record / "plot_ready" / name, "reference_record/plot_ready/" + name)
-    for name in ["figure4b_neuron_id_shuffle_pair_summary.csv", "figure4b_neuron_id_shuffle_statistics.json"]:
-        copy(record / "source_data/neuron_id_shuffle" / name, "reference_record/source_data/neuron_id_shuffle/" + name)
-    for p in (record / "illustration_data").rglob("*"):
-        if p.is_file():
-            copy(p, "reference_record/illustration_data/" + p.relative_to(record / "illustration_data").as_posix())
-    copy(vor / "rebuild_current_main_figures.py", "source_code/rebuild_current_main_figures.py")
-    copy(vor / "SOURCE_REBUILD_MAIN_RUNTIME.zip", "source_code/SOURCE_REBUILD_MAIN_RUNTIME.zip")
-    copy(Path(__file__).resolve(), "source_code/build_figure4_standardized_pv.py")
-    copy(repo / "output/figures/figure4_palette_options_2026-09-25/PALETTE_SELECTION.json", "provenance/PALETTE_SELECTION.json")
-    dump(bundle / "provenance/CONTROL_COLOR_SELECTION.json", dict(status="AUTHOR_SELECTED", color="#C4C4C4",
-        description="Lighter gray controls", user_selection="User selected the lighter gray full-figure version",
-        scope="Neuron-ID shuffle in b/e, matched spatial controls in c/d; orange data and cividis maps retained",
-        boundaries="Identical white under-outline on the orange reward and gray control squares in c",
-        significance="Panel f stars black"))
-    for name in ["candidate_panels.py", "route_common.py", "signal_profiles_primary.csv", "signal_comparison_primary_numbers.csv"]:
-        source_rows.append(dict(source=(route / name).as_posix(), sha256=sha(route / name), bytes=(route / name).stat().st_size))
-    dump(bundle / "provenance/SOURCE_PROVENANCE.json", dict(rule_version=RULE, sources=source_rows, maps=map_sources,
-         heatmap_parity="Exact array equality with current candidate_panels.heat_data for both directions",
-         heatmap_support="All displayed selected maps are finite in all 22 spatial bins",
-         display_scaling="Each neuron/session map divided by its own peak; colour saturation at 0.6",
-         pv_scaling="Each neuron/session map mean-subtracted and divided by SD across 22 equally weighted positions",
-         null="100 within-pair neuron-ID shuffles, from the saved primary analysis",
-         aggregation="Recording pairs averaged within animal, then animals equally weighted; 95% t intervals",
-         grid="22 equal 3.8 cm bins along 83.6 cm home-port path; bin 0 home, bin 21 port"))
-    # Preserve the complete existing caption, replacing only its e passage.
-    author = (route / "manuscript_input_frozen.tex").read_text(encoding="utf-8")
-    start = author.index("\\textbf{The reward location anchors selective place stability.}")
-    end = author.index("\n}", start)
-    caption = author[start:end]
-    old_start, old_end = caption.index("\\textbf{e,}"), caption.index("\\textbf{f,}")
-    proposal = (route / "manuscript_replacement_proposal.md").read_text(encoding="utf-8")
-    p = proposal.split("## 4. Figure 4 caption, panel e", 1)[1].split("**Proposed**", 1)[1]
-    proposed = p.split("```latex", 1)[1].split("```", 1)[0].strip()
-    proposed = proposed.replace("Line plots show the population vector correlation", "Line plots show standardized population vector (PV) correlation")
-    proposed = proposed.replace("after each neuron's map was standardized", "after subtracting each neuron's mean across route bins and dividing by its standard deviation, separately in each session")
-    caption = caption[:old_start] + proposed + " \\\\\n" + caption[old_end:]
-    caption = caption.replace("gray outlined bins are matched controls", "light gray outlined bins are matched controls")
-    (bundle / "figure4_caption.tex").write_text(caption + "\n", encoding="utf-8")
-    (bundle / "README.md").write_text(
-        "# Figure 4: standardized PV at the reward port\n\n"
-        "Complete Figure 4, 180 × 96 mm. Panels a–d/f retain the accepted numerical inputs and source drawing functions. "
-        "Palette B (cividis) applies to all continuous maps/colorbars in a/c/e; orange data remain. The author-selected light gray (#C4C4C4) marks neuron-ID shuffles in b/e and matched spatial controls in c/d. Both the unfilled orange reward square and gray control squares in c have the same thin white outer edge for contrast. Panel f significance stars are black. "
-        "Panel e uses the final v4 S analysis, not the earlier palette-preview analysis.\n\n"
-        "## Rebuild from the frozen bundle\n\n"
-        "`python source_code/build_figure4_standardized_pv.py --bundle . --output-dir rebuilt`\n\n"
-        "Run from this folder, or pass absolute paths. Python requires NumPy, pandas, SciPy, Matplotlib, PyMuPDF, Pillow and statsmodels; "
-        "the established exporter uses installed Chrome. No raw recordings, CIMaps, repository checkout or analysis rerun is needed. "
-        "The frozen ca_analysis runtime is verified against its archive checksum before use.\n\n"
-        "`plot_ready` contains heatmaps, row identities, pair counts, pair/animal PV profiles, plotted intervals and statistics. "
-        "The maps are peak-normalized for display; the PV maps are standardized separately across spatial bins. "
-        "`provenance` binds these compact inputs to the original maps and accepted sources. The full caption retains a–d/f text and replaces e. "
-        "Input hashes are checked before every rebuild. `RENDER_VALIDATION.json` records artist parity, statistics and export checks. "
-        "For the retained darker-gray alternative, add `--control-color '#454545' --output-dir darker_gray_option`. "
-        "The default is the selected light gray; both versions have black panel f stars.\n",
-        encoding="utf-8")
-    inputs = [p for top in ["source_code", "reference_record", "plot_ready", "provenance"] for p in (bundle / top).rglob("*") if p.is_file()]
-    dump(bundle / "INPUT_HASHES.json", {p.relative_to(bundle).as_posix(): sha(p) for p in sorted(inputs)})
 
 
 def route_panel(bundle, size):
@@ -437,17 +270,12 @@ def render(bundle, out):
 def main():
     global GRAY
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--freeze", action="store_true")
-    parser.add_argument("--repo-root", type=Path, default=ROOT)
-    parser.add_argument("--bundle", type=Path)
-    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--bundle", type=Path, required=True)
+    parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--control-color", default="#C4C4C4", choices=["#454545", "#C4C4C4"])
     args = parser.parse_args()
     GRAY = args.control_color
-    bundle = (args.bundle or args.repo_root / REL).resolve()
-    if args.freeze:
-        freeze(bundle, args.repo_root.resolve())
-    render(bundle, (args.output_dir or bundle).resolve())
+    render(args.bundle.resolve(), args.output_dir.resolve())
 
 
 if __name__ == "__main__":

@@ -20,8 +20,8 @@
   {
     "frozen_file": "joint_cloud.csv",
     "source": "docs/figure_version_records/extended_data_fig09_2026-09-08_round40_panel_c_count_axis/source_history/round4_powerpoint_parity/source_data/be_roles/E1_MAXIMAL42_CONTINUOUS_CLOUD_INPUT.csv",
-    "sha256": "5d76a9e2c057abfd1e94b17ce53b3d30cea0e2835cf916047f42dbe1ad5b2426",
-    "bytes": 11943897
+    "sha256": "03b1cdf6057d8901ea5a611ef6730cbb61d3b8b5542c67acd26970d78dfa1aaa",
+    "bytes": 3905630
   },
   {
     "frozen_file": "consecutive_points.csv",

@@ -76,15 +76,6 @@ from scripts.ed_supplement_common import (  # noqa: E402
 COVERAGE_ROOT = REPO_ROOT / "docs" / "coverage5min_window_reanalysis_2026-08-05"
 FIXED_DIR = COVERAGE_ROOT / "rendered" / "ed07_fixed_time_tile"
 PIVOT_DIR = COVERAGE_ROOT / "rendered" / "ed07_pivot"
-HISTORICAL_FIXED_DIR = (
-    REPO_ROOT
-    / "docs"
-    / "extended_data_figure_panel_refresh_2026-07-12"
-    / "source_rendered_new"
-    / "extended_data_fig_07"
-    / "fixed_reference_time_tile_current59_2026-07-14"
-)
-
 FIXED_CURVES = FIXED_DIR / "ed07_current59_group_curve_summary.csv"
 FIXED_STATS = FIXED_DIR / "ed07_current59_clustered_stats.csv"
 FIXED_SUPPORT = FIXED_DIR / "ed07_current59_curve_support_mask.csv"
@@ -771,44 +762,6 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
         "slopes and SD differences use each recording cycle's complete finite-in-both-days pivot curve",
     )
 
-    # ---- five-minute gate: which displayed columns move ----------------------
-    historical = pd.read_csv(HISTORICAL_FIXED_DIR / "ed07_current59_group_curve_summary.csv")
-    join_keys = ["metric", "window_type", "window_size", "experience_group", "x_plot"]
-    merged = fixed_curves.merge(
-        historical, on=join_keys, how="outer", suffixes=("_new", "_old"), indicator=True
-    )
-    gate_impact: dict[str, dict[str, Any]] = {}
-    for column in FIXED_COLUMNS:
-        subset = merged[
-            merged["window_type"].eq(column["window_type"])
-            & np.isclose(merged["window_size"], column["window_size"])
-        ]
-        both = subset[subset["_merge"].eq("both")]
-        delta = float(np.nanmax(np.abs(both["mean_new"] - both["mean_old"]))) if len(both) else 0.0
-        new_rows = int((subset["_merge"] == "left_only").sum())
-        gate_impact[column["title"]] = {
-            "newly_admitted_curve_rows": new_rows,
-            "max_abs_mean_change": delta,
-            "changed_under_five_minute_gate": bool(new_rows or delta > 0.0),
-        }
-    checks.record(
-        "gate_impact_10min_unchanged",
-        not gate_impact["10-min window"]["changed_under_five_minute_gate"],
-        "10-min maze-time curves identical to the 2026-07-14 bundle; the 10-min window "
-        "already required 5 min of selected data",
-    )
-    checks.record(
-        "gate_impact_20min_changed",
-        gate_impact["20-min window"]["changed_under_five_minute_gate"],
-        f"{gate_impact['20-min window']['newly_admitted_curve_rows']} newly admitted curve "
-        f"rows, max |dmean| {gate_impact['20-min window']['max_abs_mean_change']:.3f}",
-    )
-    checks.record(
-        "gate_impact_tile_unchanged",
-        not gate_impact["3,000-tile window"]["changed_under_five_minute_gate"],
-        "tile-change curves identical; no fractional time-coverage gate applies",
-    )
-
     # ---- canvas -------------------------------------------------------------
     canvas = Canvas(
         FIGURE_WIDTH_IN,
@@ -1258,15 +1211,6 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
                 ("pivot_display_limits", "pivot_limits", PIVOT_LIMITS),
             )
         },
-        "gate_comparison_reference": {
-            "path": _repo_relative(
-                HISTORICAL_FIXED_DIR / "ed07_current59_group_curve_summary.csv"
-            ),
-            "sha256": sha256(HISTORICAL_FIXED_DIR / "ed07_current59_group_curve_summary.csv"),
-            "role": "2026-07-14 fifty-percent-gate bundle, used only to prove which "
-            "displayed columns move",
-        },
-        "gate_impact_on_displayed_columns": gate_impact,
         "slide_corrections": [
             "the slide's PowerPoint crops of one wide three-window image are replaced by "
             "real axes for the displayed windows",
@@ -1299,13 +1243,12 @@ def render(out_dir: Path, round_number: int = 1) -> dict[str, Any]:
         out_dir / f"ED06_DISPLAYED_STATISTICS_ROUND{round_number}.csv", index=False
     )
     caption_dir = FIGURE_ROOT if out_dir == DEFAULT_OUT else out_dir
-    _write_caption_notes(displayed_stats, gate_impact, round_number, caption_dir)
+    _write_caption_notes(displayed_stats, round_number, caption_dir)
     return manifest
 
 
 def _write_caption_notes(
     displayed_stats: list[dict[str, Any]],
-    gate_impact: dict[str, dict[str, Any]],
     round_number: int,
     caption_dir: Path,
 ) -> None:
@@ -1333,21 +1276,6 @@ def _write_caption_notes(
         "- Pivot windows are placed on cumulative TimeInMaze, not on selected-sample time.",
         "- Curves are drawn only where the maintained support mask passes; shading is ± SEM"
         " across animals.",
-        "",
-        "## Gate impact on the displayed columns",
-        "",
-        "| Column | Newly admitted curve rows | Max change in group mean |",
-        "|---|---:|---:|",
-    ]
-    for title, impact in gate_impact.items():
-        lines.append(
-            f"| {title} | {impact['newly_admitted_curve_rows']} | "
-            f"{impact['max_abs_mean_change']:.3f} |"
-        )
-    lines += [
-        "",
-        "The 10-min window already required 5 min of selected data, so it is unchanged;",
-        "tile-change windows carry no fractional time-coverage gate.",
         "",
         "## Exact statistics",
         "",
@@ -1410,7 +1338,6 @@ def main() -> None:
                 "figure_size_inches": manifest["figure_size_inches"],
                 "checks": len(manifest["validation"]),
                 "status": manifest["validation_status"],
-                "gate_impact": manifest["gate_impact_on_displayed_columns"],
                 "failed": failed,
             },
             indent=2,

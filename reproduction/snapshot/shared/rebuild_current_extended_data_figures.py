@@ -129,7 +129,7 @@ def scientific_inputs(artifact: str, record: Path) -> list[Path]:
         3: ("plot_ready",),
         4: ("source_from_raw", "embedded_sources"),
         5: ("plot_ready",),
-        6: ("plot_ready", "gate_reference"),
+        6: ("plot_ready",),
         7: ("plot_ready", "source_authority", "palette_authority"),
         8: (
             "plot_ready",
@@ -801,12 +801,6 @@ def render_ed5(record: Path, output: Path, stage: Path) -> dict[str, Any]:
 def render_ed6(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m = load_module(stage / "scripts/render_ed06_within_session_convergence_assembly.py", "ed6_source_rebuild")
     plot = record / "plot_ready"
-    history = stage / "historical_fixed"
-    history.mkdir()
-    shutil.copy2(
-        record / "gate_reference/ed07_current59_group_curve_summary_50pct_gate_2026-07-14.csv",
-        history / "ed07_current59_group_curve_summary.csv",
-    )
     m.REPO_ROOT = REPO_ROOT
     m.FIXED_CURVES = plot / "ed07_current59_group_curve_summary.csv"
     m.FIXED_STATS = plot / "ed07_current59_clustered_stats.csv"
@@ -814,7 +808,6 @@ def render_ed6(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m.PIVOT_CURVES = plot / "ed07_pivot_experience_group_curve_summary_current59.csv"
     m.PIVOT_STATS = plot / "ed06_available_curve_clustered_stats.csv"
     m.PIVOT_LIMITS = plot / "ed07_pivot_experience_display_limits_current59.csv"
-    m.HISTORICAL_FIXED_DIR = history
     m.FIGURE_ROOT = output
     m.DEFAULT_OUT = output
     result = m.render(output, 7)

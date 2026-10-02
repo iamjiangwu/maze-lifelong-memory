@@ -468,7 +468,7 @@ FIGURE2_SCHEMATIC_HEADER_HEIGHT = 0.14
 FIGURE2_SCHEMATIC_HEADER_SIDE_PADDING_PT = 5.0
 FIGURE2_SCHEMATIC_TITLES = {
     "place_map_correlation": "Place map",
-    "pv_correlation": "PV",
+    "pv_correlation": "Population vector (PV)",
     "ensemble_rate_correlation": "Ensemble rate",
 }
 FIGURE2_COMPACT_DISTRIBUTION_XLABEL = "Correlation"
@@ -3210,7 +3210,7 @@ def _figure2_schematic_header_bounds(
     longest_title_width_pt = float(
         TextPath(
             (0.0, 0.0),
-            "Population vector",
+            "Population vector (PV)",
             prop=title_font,
             usetex=False,
         ).get_extents().width

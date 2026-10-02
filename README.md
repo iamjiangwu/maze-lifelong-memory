@@ -20,7 +20,7 @@ tables/table_01/ ... table_02/
 
 Each folder has a guide, a `build.py`, `data/` and `code/`. Data include derived neuron, session, pair and animal measurements; plotted summaries; example maps; and saved simulation/shuffle values. Formats are CSV, compressed CSV, numerical arrays and JSON. [Data guide](docs/DATA.md).
 
-The code rebuilds artwork and tables and recalculates the recorded statistical analyses. Individual measurements are retained where needed to calculate means, uncertainty and tests. For example, Figure 3 includes animal/pair window values as well as the mean curves and s.e.m.; Figure 5 includes both level representations and their association with later exploration efficiency. [Analysis definitions and correction families](docs/STATISTICS.md).
+The code rebuilds artwork and tables and recalculates the recorded statistical analyses. Plotted summary curves are supplied as means, uncertainty and support counts; individual measurements are retained for scatter plots and statistical tests. For example, Figure 3's first-column curves use saved means and s.e.m., whereas its experience-trend panels retain the observations used in their fits. Each data guide maps files to panels and explains their units. [Analysis definitions and correction families](docs/STATISTICS.md).
 
 Raw imaging movies and behavior videos are not included. Tracking, neural extraction, registration, map estimation and decoder fitting are not rerun here.
 

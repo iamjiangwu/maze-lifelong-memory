@@ -10,6 +10,18 @@ Figure vector exports require **Microsoft Edge and Arial**. Supplementary tables
 
 A plain Python installation alone is not enough for every export. These are software requirements; no external scientific-data drive is needed.
 
+After downloading or cloning the repository, open PowerShell in its root folder. With Python 3.10 installed, create an isolated environment and install the listed packages:
+
+```powershell
+py -3.10 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe reproduce.py --check-only
+.\.venv\Scripts\python.exe reproduce.py --figure 2 --output-dir outputs/figure2
+```
+
+This does not require activating the environment or changing PowerShell's execution policy. In the commands below, use `.\.venv\Scripts\python.exe` in place of `python` when using this environment. Install Microsoft Edge and ensure Arial is available before generating figure exports. Other Python versions or operating systems have not been verified for identical artwork.
+
 ## Choose what to build
 
 | Task | Command |
@@ -27,6 +39,8 @@ The same build entry point is available in every figure/table folder. For exampl
 ```powershell
 python figures/figure_02/build.py --output-dir outputs/figure2
 ```
+
+Use these launchers rather than running individual files in `code/` directly: the launchers arrange the bundled inputs and shared imports those modules expect.
 
 The PowerShell alternative is `.\reproduce.ps1 -Figure 2 -OutputDir outputs/figure2`.
 

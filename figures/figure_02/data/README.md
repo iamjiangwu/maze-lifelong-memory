@@ -1,6 +1,18 @@
 # Figure 2: data
 
-Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
+Long-gap neural correlations, saved neuron-ID null distributions and example neurons. [Column and array index](index.csv).
+
+| Panels | Inputs and observation unit |
+|---|---|
+| a–c, h, m | `*_corr.npz` supplies example local-correlation images; the four neuron-example NPZs supply registered-neuron trajectories and signals used in the examples. Representation schematics are drawn by code. |
+| d, i, n | `*_distribution.npz`: observed place-map correlations per neuron, PV correlations per spatial bin, or ensemble-rate correlations per session pair, with saved shuffle histograms/values. |
+| e, j, o | `*_shuffle_mean.npz`: null draws of the cohort mean and the observed mean; `pair_metric_summary.csv` and `metric_summary.csv` give the pair/cohort summaries. |
+| f, k, p | `gap_with_day1_day2_curve_data.csv` contains means and 95% intervals by Days apart. `same_stage_*`, `long_gap_pair_rows.csv` and the ensemble-rate pair tables supply the corresponding observations. |
+| g, l, q | `consecutive_gap_points.csv` and the canonical ensemble-rate consecutive-gap table contain one preceding/following gap comparison per eligible session triplet. Statistics and `displayed_estimand_bh4.csv` supply the fitted tests. |
+
+All correlation values are dimensionless. Distribution observations have different units from cohort means: the latter equally weight session-pair means. `n_pairs_final`, finite neuron/bin counts and `distribution_pair_support.csv` record support; `consecutive_pair_scope.csv` records eligible triplets. BH4 also includes the displayed level-map association in ED9l.
+
+In neuron NPZs, A/B identify source/target sessions; `*_frame` indexes the saved signal trace, while the shorter coordinate arrays contain retained position samples. Do not align these by row number without `*_frame`. Positions are normalized maze coordinates (approximately 0–1), `dt` is seconds per frame, `Craw` is the calcium trace and `S` the inferred activity signal. `place_r` is the 15 × 15 place-map correlation and `place_support_15` its spatial support count. Cell identifiers are indices within the named sessions, not animal-wide neuron IDs.
 
 | File | Format |
 |---|---|

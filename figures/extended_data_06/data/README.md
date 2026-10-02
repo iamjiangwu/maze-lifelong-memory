@@ -1,13 +1,24 @@
 # Extended Data Figure 6: data
 
-Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
+Fixed Day-2-reference and sliding-pivot correlations. [Column and format index](index.csv).
+
+| Panels | Inputs and observation unit |
+|---|---|
+| a–b | Fixed-reference and sliding-pivot schematics drawn by code. |
+| c, e, g | `day2_template_curve_summary.csv` and `day2_template_curve_support.csv`: cohort mean, s.e.m. and support by curve position, metric and exposure definition. `day2_template_pair_slopes.csv` supplies recording-pair observations for the fixed-reference tests; `day2_template_clustered_statistics.csv` contains the results. |
+| d, f, h | `pivot_experience_group_curve_summary.csv` and `pivot_experience_display_limits.csv`: Day-1/Day-2 local-correlation curves and their supported display ranges. `pivot_available_curve_pair_summaries.csv` supplies one recording cycle × metric's slopes and within-curve standard deviations; its statistics CSV contains the tests. |
+
+Correlations are dimensionless. Fixed-reference windows shown here are 10 or 20 minutes and 3,000 tile transitions; the 30-minute definition is shown in Figure 3 and is part of the same BH12 family. `x_plot_unit` identifies minutes or thousands of tile transitions (the latter is multiplied by 1,000 for display). `slope_per_hour_or_ktile` is correlation per hour or per 1,000 transitions. Support masks require the recorded minimum number of animals at each point.
+
+Sliding-pivot statistics use the jointly available curve within each recording cycle. `day_i1_minus_day_i_sd` is Day-2 minus Day-1 within-curve standard deviation, not a difference in fitted slopes. Slopes are correlation per hour. Three separate BH3 families cover Day-1 slopes, Day-2 slopes and the variability differences; repeated cycles remain grouped by animal.
 
 | File | Format |
 |---|---|
 | [day2_template_clustered_statistics.csv](day2_template_clustered_statistics.csv) | .csv |
-| [day2_template_curve_gate_reference.csv](day2_template_curve_gate_reference.csv) | .csv |
 | [day2_template_curve_summary.csv](day2_template_curve_summary.csv) | .csv |
 | [day2_template_curve_support.csv](day2_template_curve_support.csv) | .csv |
 | [day2_template_pair_slopes.csv](day2_template_pair_slopes.csv) | .csv |
+| [pivot_available_curve_clustered_statistics.csv](pivot_available_curve_clustered_statistics.csv) | .csv |
+| [pivot_available_curve_pair_summaries.csv](pivot_available_curve_pair_summaries.csv) | .csv |
 | [pivot_experience_display_limits.csv](pivot_experience_display_limits.csv) | .csv |
 | [pivot_experience_group_curve_summary.csv](pivot_experience_group_curve_summary.csv) | .csv |

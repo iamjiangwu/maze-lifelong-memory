@@ -293,35 +293,9 @@ def main3(root: Path,audit: Audit):
             cols=["intercept","slope","slope_se","slope_t","df","p_two_sided","p_less","p_greater","r2","pearson_r","n_rows","n_animals","q_bh_two_sided"]
         audit.compare("main3_"+folder+"_experience_trends",result,saved,["metric"],cols,
                       unit="pair/animal–experience rows; standard errors clustered by animal",family="separate four-representation BH4 family; decoder sensitivities excluded")
-    # Recreate the plotted 30-min primary curves, including their SEM, from
-    # compact per-pair window values. Preserve the producer's two-stage pooling
-    # (within source cohort then pool mean/variance), including its n definition.
-    windows=read(root/"main_figure_3/source/statistical_inputs/day2_template_window_values.csv.gz")
-    displayed_metrics=["place_map_correlation","pv_correlation","ensemble_rate_correlation"]
-    windows=windows.loc[windows.metric.isin(displayed_metrics)]
-    keys=["experience_group","metric","map_type","support_policy","window_type","window_size","window_size_label","x_value","x_unit"]
-    animal=windows.groupby(["source_bundle","animal",*keys],dropna=False,as_index=False).agg(
-        sim_mean=("sim_mean","mean"),common_bins=("common_bins","mean"),finite_neuron_fraction=("finite_neuron_fraction","mean"))
-    cohort=[]
-    for key,sub in animal.groupby(["source_bundle",*keys],dropna=False,sort=False):
-        values=sub.sim_mean.to_numpy(float);finite=values[np.isfinite(values)]
-        cohort.append(dict(zip(["source_bundle",*keys],key),mean=float(np.mean(finite)) if len(finite) else np.nan,
-                           sem=float(stats.sem(finite)) if len(finite)>1 else np.nan,n_animals=sub.animal.nunique()))
-    cohort=pd.DataFrame(cohort);rows=[]
-    for key,sub in cohort.groupby(keys,dropna=False,sort=False):
-        n=sub.n_animals.to_numpy(float);m=sub["mean"].to_numpy(float);s=sub["sem"].to_numpy(float)
-        keep=(n>0)&np.isfinite(m);n,m,s=n[keep],m[keep],s[keep]
-        nt=int(n.sum());mean=np.sum(n*m)/nt if nt else np.nan
-        within=np.where(n>1,(n-1)*(s*np.sqrt(n))**2,0)
-        variance=np.sum(within+n*(m-mean)**2)/(nt-1) if nt>1 else np.nan
-        rows.append(dict(zip(keys,key),mean=mean,sem=np.sqrt(variance/nt) if nt>1 else np.nan,n_animals=nt))
-    result=pd.DataFrame(rows)
-    saved=read(p/"first30/day2_template_group_curve_summary.csv")
-    policies={"place_map_correlation":"scaled_nonoverlap","pv_correlation":"scaled_nonoverlap", "level_map_correlation":"scaled_nonoverlap","ensemble_rate_correlation":"not_applicable"}
-    saved=saved.loc[saved.metric.isin(displayed_metrics)&saved.window_type.eq("maze_time")&saved.window_size.eq(30)&saved.support_policy.eq(saved.metric.map(policies))]
-    audit.compare("main3_day2_template_curve_mean_sem",result,saved,keys,["mean","sem","n_animals"],
-                  unit="pairs averaged within animal in each source cohort; pooled cohort animal mean/variance",family="none; mean ± SEM descriptive curves",
-                  note="Only plotted 30-min primary-policy curve inputs are distributed, not upstream maps or other window sensitivities.")
+    # The descriptive curves are supplied as mean/SEM/support Source Data.
+    # No inferential test uses the full per-animal time courses. The observation
+    # tables above retain both first-window and long-gap regression inputs.
 
 
 def main4(root: Path,audit: Audit):

@@ -134,9 +134,6 @@ def rebuild(record: Path, output: Path) -> list[Path]:
         return rows.endnode.to_numpy(int), rows.time_in_maze_s.to_numpy(float)
 
     frozen_panels.extract_endnode_timeline = extract
-    # The approved layout adapter expects this initializer. All initialization
-    # above binds frozen tables directly, so no legacy assembly is necessary.
-    runtime._render_main1 = lambda *_args, **_kwargs: []
     load("figure1_complete_timeline_source", record / "source_code/figure1_complete_timeline_source.py")
     builder = load("figure1_approved_layout", record / "source_code/build_figure1_layout_alternatives.py")
     builder.MAIN = record

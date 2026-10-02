@@ -1,6 +1,8 @@
 # Figure 1: code
 
-Run [../build.py](../build.py) from the repository root. Shared helpers are linked below.
+The supported entry point is [../build.py](../build.py), run from the repository root. `rebuild_figure1.py` assembles the example and quantitative panels; the timeline, trajectory and layout modules provide its drawing functions. They consume the files mapped in the [data guide](../data/README.md).
+
+These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
 
 - [build_figure1_binary_tree_preview.py](build_figure1_binary_tree_preview.py)
 - [build_figure1_ij_spacing.py](build_figure1_ij_spacing.py)
@@ -10,7 +12,7 @@ Run [../build.py](../build.py) from the repository root. Shared helpers are link
 - [rebuild_figure1.py](rebuild_figure1.py)
 - [source_runtime.py](source_runtime.py)
 - [trajectory_panel.py](trajectory_panel.py)
-- [SOURCE_REBUILD_MAIN_RUNTIME.zip](../../../reproduction/library/SOURCE_REBUILD_MAIN_RUNTIME.zip)
+- [SOURCE_REBUILD_MAIN_RUNTIME.zip](../../../reproduction/snapshot/shared/SOURCE_REBUILD_MAIN_RUNTIME.zip)
 - [figure_panels.py](../../../reproduction/library/figure_panels.py)
 - [figure_panels__5697d9ffa6.py](../../../reproduction/library/figure_panels__5697d9ffa6.py)
 - [preview_figure3_assembly__453e69706c.py](../../../reproduction/library/preview_figure3_assembly__453e69706c.py)

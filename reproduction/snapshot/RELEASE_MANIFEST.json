@@ -1,6 +1,6 @@
 {
   "schema": "source-data-release/v1",
-  "date": "2026-10-01",
+  "date": "2026-10-02",
   "original_repository": "D:\\combineddata\\github_clean_repo",
   "source_boundary": "maintained derived numerical data and fixed illustrative assets; no raw acquisition",
   "accepted_artwork_is_input": false,
@@ -12,37 +12,37 @@
       "accepted_outputs": [
         {
           "name": "figure1_version_record.pdf",
-          "sha256": "5af350524e693905c873d28c984ab0aa54bdf007a8c1dccdd88aabd87c667820"
+          "sha256": "ab0a92025ef847c84ce6764c4a09d127b9d1185b617b29a6e391ceec6f99d1a5"
         },
         {
           "name": "figure1_version_record.svg",
-          "sha256": "e7fc483777abe7bb62acc5dd99eb7796fdca43f46eea0566bd72d912f9589b0a"
+          "sha256": "5955fee94000489f6cfec18729dfaa566e969142cc53e50072d7712878cbef1d"
         },
         {
           "name": "figure1_version_record_600dpi.png",
-          "sha256": "3f9af9e310b3a79efbf8a0e49137a980d16530aa295eeb2675426f7199d702d8"
+          "sha256": "1a318e27cdacd9922dffbbea066d1de3e8035c887130058f54761a6c2f92f56c"
         },
         {
           "name": "figure1_version_record_600dpi.tiff",
-          "sha256": "902aaa8186a1b3272a302c3e224723d0be2e8b5c665cff85834f5f3e2e34bbf5"
+          "sha256": "929098f9966b1deabd07ddf210b27721b75de356e24f240e66820e1f3b127d9b"
         }
       ],
       "authority": {
-        "folder": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_binary_tree_preview_2026-09-30\\v7_panel_a_left",
-        "pdf": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_binary_tree_preview_2026-09-30\\v7_panel_a_left\\figure1_version_record.pdf",
-        "svg": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_binary_tree_preview_2026-09-30\\v7_panel_a_left\\figure1_version_record.svg",
-        "complete_600dpi_png": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_binary_tree_preview_2026-09-30\\v7_panel_a_left\\figure1_version_record_600dpi.png",
-        "tiff": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_binary_tree_preview_2026-09-30\\v7_panel_a_left\\figure1_version_record_600dpi.tiff",
-        "source_builder": "D:\\combineddata\\github_clean_repo\\scripts\\build_figure1_binary_tree_preview.py",
-        "source_receipt": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_binary_tree_preview_2026-09-30\\v7_panel_a_left\\NATIVE_REBUILD.json",
-        "validation_receipt": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_binary_tree_preview_2026-09-30\\v7_panel_a_left\\PREVIEW_VALIDATION.json",
+        "folder": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_1\\accepted_outputs",
+        "pdf": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_1\\accepted_outputs\\figure1_version_record.pdf",
+        "svg": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_1\\accepted_outputs\\figure1_version_record.svg",
+        "complete_600dpi_png": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_1\\accepted_outputs\\figure1_version_record_600dpi.png",
+        "tiff": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_1\\accepted_outputs\\figure1_version_record_600dpi.tiff",
+        "source_builder": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels_reader\\figures\\figure_01\\code\\build_figure1_binary_tree_preview.py",
+        "source_receipt": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_title_gap_2026-10-01\\reader_rebase\\REBASE_SOURCE_AUDIT.json",
+        "validation_receipt": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_title_gap_2026-10-01\\reader_rebase\\READER_REBASE_VERIFICATION.json",
         "hashes": {
-          "figure1_version_record.pdf": "5af350524e693905c873d28c984ab0aa54bdf007a8c1dccdd88aabd87c667820",
-          "figure1_version_record.svg": "e7fc483777abe7bb62acc5dd99eb7796fdca43f46eea0566bd72d912f9589b0a",
-          "figure1_version_record_600dpi.png": "3f9af9e310b3a79efbf8a0e49137a980d16530aa295eeb2675426f7199d702d8",
-          "figure1_version_record_600dpi.tiff": "902aaa8186a1b3272a302c3e224723d0be2e8b5c665cff85834f5f3e2e34bbf5"
+          "figure1_version_record.pdf": "ab0a92025ef847c84ce6764c4a09d127b9d1185b617b29a6e391ceec6f99d1a5",
+          "figure1_version_record.svg": "5955fee94000489f6cfec18729dfaa566e969142cc53e50072d7712878cbef1d",
+          "figure1_version_record_600dpi.png": "1a318e27cdacd9922dffbbea066d1de3e8035c887130058f54761a6c2f92f56c",
+          "figure1_version_record_600dpi.tiff": "929098f9966b1deabd07ddf210b27721b75de356e24f240e66820e1f3b127d9b"
         },
-        "update": "User-approved binary tree with correct L-R-R-L-R-L reward route; compact first-row spacing, vertical colorbar, and panel-a artwork shifted 1.5 mm left. Quantitative source values and panels c-j unchanged."
+        "update": "Only six e/h title y positions changed; fonts, titles, axes, illustrations, data and all other panels preserved."
       },
       "panels": 10
     },
@@ -53,36 +53,37 @@
       "accepted_outputs": [
         {
           "name": "main_figure_2_source_rebuild.pdf",
-          "sha256": "50baea83391350b4b81d1bd259052c281d729d8e4dd73f17b7f5633a60d60082"
+          "sha256": "676866cf0111030f4b2a80d8e6b0b6a68e597d2b67c41284bd2aab60eaf3dca2"
         },
         {
           "name": "main_figure_2_source_rebuild.svg",
-          "sha256": "851866f7161ecd66e699daf54e688627ce495ce1846f01d0116cfe65f6fb4c04"
+          "sha256": "9b3b866656ea30f9e59eba024489580e1670e2690dcd5a7df8c304e1e1e00d0e"
         },
         {
           "name": "main_figure_2_source_rebuild_600dpi.png",
-          "sha256": "fdcd51adad8b103a387feef90669cc386ae7ae91f97af0ec22ebfea332544467"
+          "sha256": "a52b2a49b1c1fb100acbadbdbbed5860c9f6d6b6901c1ec8d9b6935c52b5ba2e"
         },
         {
           "name": "main_figure_2_source_rebuild_600dpi.tiff",
-          "sha256": "9f60bbd4545f95db20e7545f706f447c85254b514e178fbce74a552128c8c2e9"
+          "sha256": "75eecee095b1e40f26af977f3fe3cdbdc07a9dacd007f768603faa5b4b33e13f"
         }
       ],
       "authority": {
-        "folder": "D:\\combineddata\\github_clean_repo\\output\\figures\\axis_names_2026-09-29\\artifacts\\main_figure_2",
-        "pdf": "D:\\combineddata\\github_clean_repo\\output\\figures\\axis_names_2026-09-29\\artifacts\\main_figure_2\\main_figure_2_source_rebuild.pdf",
-        "svg": "D:\\combineddata\\github_clean_repo\\output\\figures\\axis_names_2026-09-29\\artifacts\\main_figure_2\\main_figure_2_source_rebuild.svg",
-        "complete_600dpi_png": "D:\\combineddata\\github_clean_repo\\output\\figures\\axis_names_2026-09-29\\artifacts\\main_figure_2\\main_figure_2_source_rebuild_600dpi.png",
-        "tiff": "D:\\combineddata\\github_clean_repo\\output\\figures\\axis_names_2026-09-29\\artifacts\\main_figure_2\\main_figure_2_source_rebuild_600dpi.tiff",
-        "source_receipt": "D:\\combineddata\\github_clean_repo\\output\\figures\\axis_names_2026-09-29\\SOURCE_MANIFEST.json",
-        "validation_receipt": "D:\\combineddata\\github_clean_repo\\output\\figures\\axis_names_2026-09-29\\VALIDATION.json",
+        "folder": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_2\\accepted_outputs",
+        "pdf": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_2\\accepted_outputs\\main_figure_2_source_rebuild.pdf",
+        "svg": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_2\\accepted_outputs\\main_figure_2_source_rebuild.svg",
+        "complete_600dpi_png": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_2\\accepted_outputs\\main_figure_2_source_rebuild_600dpi.png",
+        "tiff": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels\\main_figure_2\\accepted_outputs\\main_figure_2_source_rebuild_600dpi.tiff",
+        "source_builder": "D:\\combineddata\\github_clean_repo\\docs\\figure_version_records\\source_data_release_2026-10-01_figure_labels_reader\\figures\\figure_02\\code\\render_main_figs_v3_publication.py",
+        "source_receipt": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_title_gap_2026-10-01\\reader_rebase\\REBASE_SOURCE_AUDIT.json",
+        "validation_receipt": "D:\\combineddata\\github_clean_repo\\output\\figures\\figure1_title_gap_2026-10-01\\reader_rebase\\READER_REBASE_VERIFICATION.json",
         "hashes": {
-          "main_figure_2_source_rebuild.svg": "851866f7161ecd66e699daf54e688627ce495ce1846f01d0116cfe65f6fb4c04",
-          "main_figure_2_source_rebuild.pdf": "50baea83391350b4b81d1bd259052c281d729d8e4dd73f17b7f5633a60d60082",
-          "main_figure_2_source_rebuild_600dpi.png": "fdcd51adad8b103a387feef90669cc386ae7ae91f97af0ec22ebfea332544467",
-          "main_figure_2_source_rebuild_600dpi.tiff": "9f60bbd4545f95db20e7545f706f447c85254b514e178fbce74a552128c8c2e9"
+          "main_figure_2_source_rebuild.pdf": "676866cf0111030f4b2a80d8e6b0b6a68e597d2b67c41284bd2aab60eaf3dca2",
+          "main_figure_2_source_rebuild.svg": "9b3b866656ea30f9e59eba024489580e1670e2690dcd5a7df8c304e1e1e00d0e",
+          "main_figure_2_source_rebuild_600dpi.png": "a52b2a49b1c1fb100acbadbdbbed5860c9f6d6b6901c1ec8d9b6935c52b5ba2e",
+          "main_figure_2_source_rebuild_600dpi.tiff": "75eecee095b1e40f26af977f3fe3cdbdc07a9dacd007f768603faa5b4b33e13f"
         },
-        "update": "Source-rendered Days apart label; ED9b Mean level PV correlation. All other labels, plotted values and nontext geometry unchanged."
+        "update": "Only c title and shared c/h/m header rectangle widths changed; fonts, data, axes and remaining artwork preserved."
       },
       "panels": 17
     },
@@ -760,8 +761,8 @@
     },
     {
       "path": "extended_data_figure_10/source/source_code/rebuild_current_extended_data_figures.py",
-      "sha256": "4cacc73dc282628f76c400dd6fed1fb90d46f0cd7478fbab00bdfcf099b20cb5",
-      "bytes": 63337,
+      "sha256": "69f2297300b1cd061694f71b1e7ed6fbc5a0ff9fee4b0236ba134a9a78e43c6f",
+      "bytes": 63042,
       "role": "source_or_code"
     },
     {
@@ -772,7 +773,7 @@
     },
     {
       "path": "extended_data_figure_10/source/SOURCE_INPUTS.json",
-      "sha256": "c3188012a2bd2e36716c520e8be79175123c800ef41271276f89b8e72218cc39",
+      "sha256": "507d2664e8dce7326ff1002872b1e9becd3499154ced3e3289e935373204a2eb",
       "bytes": 4865,
       "role": "source_or_code"
     },
@@ -1018,14 +1019,14 @@
     },
     {
       "path": "extended_data_figure_4/source/source_from_raw/ed04_candidate_features_directed_long.csv",
-      "sha256": "0b043bebf5df3b7f95095ac7258a25b3a4490f666e6548b282772213df9e0593",
-      "bytes": 20313596,
+      "sha256": "4b737dceeb1647836602d54e2695ce8925a971c874725be7a798570912d3685e",
+      "bytes": 16717065,
       "role": "source_or_code"
     },
     {
       "path": "extended_data_figure_4/source/source_from_raw/ed04_registered_pair_features_long.csv",
-      "sha256": "bc1cdf7314a7e71bc19c37c77360fafc53d17a029570662e3f920532f9d43d3b",
-      "bytes": 3666348,
+      "sha256": "39e36ad2d77ed07f63a67fc8093f73b5e339fa5d41a785b074cc8e4721b2996c",
+      "bytes": 2514242,
       "role": "source_or_code"
     },
     {
@@ -1155,12 +1156,6 @@
       "role": "source_or_code"
     },
     {
-      "path": "extended_data_figure_6/source/gate_reference/ed07_current59_group_curve_summary_50pct_gate_2026-07-14.csv",
-      "sha256": "11d83ddb93225b96d5db0ab7c82135867589569ddf82643dd4648c8c2d1b5288",
-      "bytes": 2061746,
-      "role": "source_or_code"
-    },
-    {
       "path": "extended_data_figure_6/source/plot_ready/ed07_current59_clustered_stats.csv",
       "sha256": "a74f97887c38884a876f571c4cc1b337e6123b29b17d4670fc7965247d50b677",
       "bytes": 7052,
@@ -1198,8 +1193,8 @@
     },
     {
       "path": "extended_data_figure_6/source/source_code/render_ed06_within_session_convergence_assembly.py",
-      "sha256": "6153bff40afe3875686628b2d4df369fb91fdf2f7de6b5543ab0c58b76eb8b99",
-      "bytes": 56209,
+      "sha256": "10f5ab6e1dd3238a3c0c9a98199dab32c8774b785a8cc650d3d7b0fec7cb6756",
+      "bytes": 52858,
       "role": "source_or_code"
     },
     {
@@ -1438,8 +1433,8 @@
     },
     {
       "path": "extended_data_figure_9/source/source_data/frozen/joint_cloud.csv",
-      "sha256": "5d76a9e2c057abfd1e94b17ce53b3d30cea0e2835cf916047f42dbe1ad5b2426",
-      "bytes": 11943897,
+      "sha256": "03b1cdf6057d8901ea5a611ef6730cbb61d3b8b5542c67acd26970d78dfa1aaa",
+      "bytes": 3905630,
       "role": "source_or_code"
     },
     {
@@ -1552,8 +1547,8 @@
     },
     {
       "path": "extended_data_figure_9/source/SOURCE_INPUTS.json",
-      "sha256": "83f1ca9ddd56fa1433a72705a17fa2b8b6ddc057559eda18ed1dd17e8d672d35",
-      "bytes": 5570,
+      "sha256": "be7afe629bfd068d816644a84cdd42f7be98f1a1b753d784ca9fd3d353ae7f50",
+      "bytes": 5569,
       "role": "source_or_code"
     },
     {
@@ -1636,8 +1631,8 @@
     },
     {
       "path": "main_figure_1/source/frozen_source/source_code/build_figure1_layout_alternatives.py",
-      "sha256": "eb55e2276f69487fee4df0bec9b33146ed74101719c80eaf10a645ad9dc20bee",
-      "bytes": 25493,
+      "sha256": "fa76b0a936611904562ccc750ae732296aa12584d0c0fe61b39e999149c92a7a",
+      "bytes": 25217,
       "role": "source_or_code"
     },
     {
@@ -1660,14 +1655,14 @@
     },
     {
       "path": "main_figure_1/source/frozen_source/source_code/rebuild_figure1.py",
-      "sha256": "58cee82a0ddaacf5c905905c282f2c17ab091f2ea74385e040c8ac131e1289d4",
-      "bytes": 10784,
+      "sha256": "51e4b9c5af9168a843b4b5238a76ebdd8ea2fd9b82f50d44e0ae688b1a0b2b34",
+      "bytes": 10570,
       "role": "source_or_code"
     },
     {
       "path": "main_figure_1/source/frozen_source/source_code/source_runtime.py",
-      "sha256": "6c530503094559e5d2be7beae57cd04d7eb7095c5973a5ebbea973d831aa6a85",
-      "bytes": 80351,
+      "sha256": "574730743ae1ccbe5ac2a2d1961b0d9b0c8ac5645f4c95decf28031bc95df519",
+      "bytes": 10359,
       "role": "source_or_code"
     },
     {
@@ -1696,7 +1691,7 @@
     },
     {
       "path": "main_figure_1/source/frozen_source/SOURCE_INPUTS.csv",
-      "sha256": "8d3fc7c1620b092b36edcc44e6ba34118a79eee415499cce7a8fe0ab8b0770d4",
+      "sha256": "758ae2bc92e3312fe39604c4aff345c9b7d3627833600d3265085d02f2e582e6",
       "bytes": 2689,
       "role": "source_or_code"
     },
@@ -1714,8 +1709,8 @@
     },
     {
       "path": "main_figure_1/source/source_code/build_figure1_binary_tree_preview.py",
-      "sha256": "e6e2ea73141bbac928a2678bac25d1c8c3edab26ff26a956cb196a301eb01daf",
-      "bytes": 16126,
+      "sha256": "45ab33e616095e2972f6cab0eb2eb7880feadc4cc5af4f0b572a99830311bea5",
+      "bytes": 17023,
       "role": "source_or_code"
     },
     {
@@ -1774,8 +1769,8 @@
     },
     {
       "path": "main_figure_2/source/source_code/render_main_figs_v3_publication.py",
-      "sha256": "e8ac0ba8a81924239fe25fcf64c4d7f36760f8ed6af26ebef66321d6f0fc3d98",
-      "bytes": 362747,
+      "sha256": "a5aa52dbfd3de2f1308565f7e58e8d9fcbaf4f79b5904db78c44e3e5d834ffc6",
+      "bytes": 362772,
       "role": "source_or_code"
     },
     {
@@ -1918,8 +1913,8 @@
     },
     {
       "path": "main_figure_3/source/frozen_source/source_code/render_main_figs_v3_publication.py",
-      "sha256": "79a5e4dc385ad61a839f017e48f3d5a9075468a813e8f49aaf0eb7773c0ca0af",
-      "bytes": 362249,
+      "sha256": "f5940bf8fb24e9c0e46f7b3862b550a16d5fd52180106e38dbe732362462b727",
+      "bytes": 104108,
       "role": "source_or_code"
     },
     {
@@ -1966,8 +1961,8 @@
     },
     {
       "path": "main_figure_3/source/rebuild_figure.py",
-      "sha256": "12f050843a9d7989d06c81a27afbc9a239eb8b74208c93fbbb765a2f0456cee5",
-      "bytes": 6466,
+      "sha256": "77fdd2871bad2d54023c8373ca37e56a1737e8d9387b57396466a9ac974b340a",
+      "bytes": 1380,
       "role": "source_or_code"
     },
     {
@@ -1984,19 +1979,13 @@
     },
     {
       "path": "main_figure_3/source/SOURCE_INPUTS.json",
-      "sha256": "25cff4f5a7bdeac491aee3445ffb1ff7e4fdd041e52f62ec20b128b513ab66db",
+      "sha256": "fe2d9abd584218c3d2b1da0ae569ce4811fef3c4d3f75ecb06ab3ea7466d0815",
       "bytes": 2051,
       "role": "source_or_code"
     },
     {
-      "path": "main_figure_3/source/statistical_inputs/day2_template_window_values.csv.gz",
-      "sha256": "f02c873cb0b91e86e38fd75d71dca3e4462471025cf78df0c9c450d29bfd2e97",
-      "bytes": 392640,
-      "role": "source_or_code"
-    },
-    {
       "path": "main_figure_4/source/INPUT_HASHES.json",
-      "sha256": "a01f6beeb7a99b81294da1c821ed1be200d464e143b71830115cc8debfb2196d",
+      "sha256": "81c72b51439409be62449d08e9dd95dae6c5fffc378b97d90465d7fc6d5d7a1f",
       "bytes": 2586,
       "role": "source_or_code"
     },
@@ -2104,8 +2093,8 @@
     },
     {
       "path": "main_figure_4/source/source_code/build_figure4_standardized_pv.py",
-      "sha256": "e7cfc619ccaa6126a3a88db48efbda88e5d44160b4edcff90b08dd457c8273bb",
-      "bytes": 28232,
+      "sha256": "b6f4c80d715cb89d70a51257d276ebb3d398fd1a774bcb34ab0f3b663fd3c0a2",
+      "bytes": 15166,
       "role": "source_or_code"
     },
     {
@@ -2146,8 +2135,8 @@
     },
     {
       "path": "main_figure_5/source/source_code/rebuild_figure5.py",
-      "sha256": "b4d7ebed133f0bd92ec3d503d9b1f8aafc47b7e308d41462376526dd71431c27",
-      "bytes": 17788,
+      "sha256": "508fa531ee4fb0ee4a95cac85173fdecb6a6e40a47485d78e3c882f020ac1288",
+      "bytes": 15106,
       "role": "source_or_code"
     },
     {
@@ -2212,7 +2201,7 @@
     },
     {
       "path": "main_figure_5/source/SOURCE_INPUTS.json",
-      "sha256": "8e61ddba2da4cdf598d6cdf9b1a84d9afc16b56ee8f3b1ab8c3cbd6e77ee023f",
+      "sha256": "65f5298de9369db732c3a3eb35697894e737f74a82aa3c06efb8358860eb2eae",
       "bytes": 5571,
       "role": "source_or_code"
     },
@@ -2242,8 +2231,8 @@
     },
     {
       "path": "shared/rebuild_current_extended_data_figures.py",
-      "sha256": "4cacc73dc282628f76c400dd6fed1fb90d46f0cd7478fbab00bdfcf099b20cb5",
-      "bytes": 63337,
+      "sha256": "69f2297300b1cd061694f71b1e7ed6fbc5a0ff9fee4b0236ba134a9a78e43c6f",
+      "bytes": 63042,
       "role": "source_or_code"
     },
     {
@@ -2290,8 +2279,8 @@
     },
     {
       "path": "shared/source_release_main_statistics.py",
-      "sha256": "5ccaa1d71919a9bb7b83ddde8a1f9b17fcad6506cdde08f5049905f2bf269cdb",
-      "bytes": 33501,
+      "sha256": "771c7d9a42ae2efa8f841a14594d1df9220c8ed4363d11bacc936610c55e60a2",
+      "bytes": 31051,
       "role": "source_or_code"
     },
     {
@@ -2413,5 +2402,11 @@
       "ED7": "BH4 retained, including level code"
     },
     "validation": "New hashes establish the revised source authority, not manuscript-wide statistical agreement"
+  },
+  "packaging_revision": {
+    "base_commit": "b7a9c96ced98c722348af08843646d99d133fa48",
+    "scope": "Minimal derived Source Data, reader guides and current accepted figure labels",
+    "descriptive_curve_boundary": "Saved means, SEM and support; no full individual time courses",
+    "inferential_definitions_unchanged": true
   }
 }

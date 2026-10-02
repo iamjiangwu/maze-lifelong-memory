@@ -1,6 +1,18 @@
 # Figure 5: data
 
-Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
+Level representations and their association with exploration efficiency. [Column and array index](index.csv).
+
+| Panel | Inputs and observation unit |
+|---|---|
+| a | Level-code schematic drawn by code. |
+| b | `level_map_neuron_vectors.csv`: one registered neuron pair per row with source/target values at levels 0–6. `neuron_display_order.npy` fixes the heatmap order. |
+| c | `level_pv_pair_matrices.csv`: one session pair × source level × target level per row; `level_pv_matrix.csv` supplies the displayed mean matrix. |
+| d | `level_map_distribution.npz`: neuron-level observed correlations and a saved shuffle histogram with bin edges. |
+| e | `level_map_exploration_rows.csv`: one long-gap session pair's level-map correlation and later exploration efficiency; the JSON contains fit results. |
+
+Levels 0–6 index the seven tree depths, not horizontal/vertical spatial partitions. `train_level_*`/`test_level_*` contain source/target level activity values; `level_corr` is their correlation. Level PV correlations instead compare neural population vectors across source/target depths. `supported`, `valid_count`, `n_common_levels` and `included_in_primary` describe the corresponding support and eligibility. Undefined values are excluded, not zero-filled.
+
+`exploration_efficiency` is 32 divided by end-node visits needed to reach 32 distinct end nodes on return. `level_map_pair_scope.csv` identifies the pair cohort. Neuron-level distributions, cell-wise matrix means and pair-level behavioral fits have different averaging units; the panel-e test uses standard errors clustered by animal.
 
 | File | Format |
 |---|---|

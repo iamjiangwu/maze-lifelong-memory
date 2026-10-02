@@ -1,6 +1,6 @@
 # Supplementary Table 2: code
 
-Run [../build.py](../build.py) from the repository root. The workbook uses openpyxl; its formulas and cached results are derived from the interval ledger. The publication PDF uses matplotlib.
+Run [../build.py](../build.py) from the repository root. `build_source.py` derives a calendar-interval ledger and analysis membership from the [included session metadata](../data/README.md). `build_workbook.py` creates the editable XLSX with openpyxl; `render_publication_table.py` creates the PDF with Matplotlib. `rebuild.py` coordinates the build and `validate_workbook.py` checks workbook values/formulas. No recording files or spreadsheet application are needed. [Environment/setup](../../../docs/REPRODUCING.md).
 
 - [build_source.py](build_source.py)
 - [build_workbook.py](build_workbook.py)

@@ -256,10 +256,6 @@ def repack_significance(ax, letter, height_mm):
 def native_panels(rebuilder, output, audit):
     # The maintained entrypoint binds every path to the frozen record and
     # replaces the timeline loader with the frozen six-session CSV.
-    saved_export = rebuilder._export_svg_bundle
-    rebuilder._export_svg_bundle = lambda svg, stem: [svg]
-    rebuilder._render_main1(MAIN, output / "source_rebuild", {"selected_record": MAIN.relative_to(ROOT).as_posix()})
-    rebuilder._export_svg_bundle = saved_export
     preview = sys.modules["record_local_main1_preview"]
     rewarded, _ = build_complete_rewarded_timelines(MAIN)
     archived = pd.read_csv(MAIN / "plot_ready/figure1_endnode_timelines.csv")

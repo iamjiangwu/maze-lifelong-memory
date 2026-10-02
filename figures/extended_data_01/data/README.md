@@ -1,6 +1,20 @@
 # Extended Data Figure 1: data
 
-Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
+Reward and exploration measurements. The mappings below use the current a–j panel letters; some filenames retain earlier letters. [Column and format index](index.csv).
+
+| Panels | Inputs and observation unit |
+|---|---|
+| a–b | `bc_group_specific_80_session_curves.csv.gz`: cumulative rewards/long bouts for each session at each time point. |
+| c–d | `de_group_specific_80_group_curves.csv`: group means and s.e.m. against maze tile transitions. |
+| e | `endpoint_axis_session_rows.csv` and `endpoint_axis_cluster_stats.csv`: one session × endpoint outcome, in maze time and tile transitions, and the group contrasts. |
+| f | `tile_time_loglog_rows.csv` and its statistics file: elapsed maze time and tile transitions to the first long bout. |
+| g | `panel_h_first30_session_rows_cap60.csv` and its summary: first-30-min speed per session. |
+| h | `panel_i_end_node_sequence.csv`, `panel_i_cycle_summary.csv`, `panel_i_selection_audit.csv`: displayed coverage-bout examples and their selection. |
+| i–j | `j_*_time_session_bins.csv`, `k_*_tile_session_bins.csv`: efficiency per session and time/tile bin. |
+
+`time_minutes` is time in the maze; `maze_time_s` is seconds; tile values count transitions, not physical distance. `mode_time_distance_rate_cm_s` is speed in cm/s from retained continuous body-position pairs with the saved 60 cm/s segment cap. A coverage bout ends after reaching 32 distinct end nodes; efficiency is `32 / steps_in_cycle`, where steps count end-node visits. These coverage-bout indices are not recording cycles.
+
+`endpoint_reached`, `display_coverage_ok` and support fractions identify valid measurements/display ranges. `animal_id` groups repeated sessions for inference. The endpoint tests form BH18 over the displayed comparisons and axes; saved `load_ok` or missing values must not be interpreted as zero outcomes.
 
 | File | Format |
 |---|---|

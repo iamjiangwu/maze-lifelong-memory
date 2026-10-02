@@ -28,7 +28,7 @@ BH denotes Benjamini–Hochberg correction; the number states the family size. C
 | ED7d–f | BH4 includes age associations for place maps, PVs, ensemble rates and level maps. Level code is part of the manuscript's neural analyses and remains in this family. The ensemble-rate adjusted p remains 0.066. |
 | ED5e | One maze-versus-outside comparison for Day i versus Day i+90; nominal p. The other three day combinations are not included in this context test. |
 | ED6 fixed reference | BH12 across three neural measures and four displayed exposure definitions: 10, 20 and 30 minutes, and 3,000 tile changes. The 30-minute definition is shown in Figure 3. Unshown 1,000- and 2,000-tile definitions are excluded. |
-| ED6 sliding pivot | Full jointly available curves, with three separate BH3 families across the neural measures: Day 1 slopes, Day 2 slopes and Day 1–Day 2 differences in within-curve standard deviation. |
+| ED6 sliding pivot | Full jointly available curves, with three separate BH3 families across the neural measures: Day 1 slopes, Day 2 slopes and Day 2 minus Day 1 differences in within-curve standard deviation. |
 | ED10a | Each neural-measure row forms a BH3 family over its three behavioral outcomes. Stars use regression tests with standard errors clustered by animal, not ordinary Pearson tests. |
 | ED10b | Three exact animal-score sign-flip tests with BH3: the reward-versus-level difference for each behavior and their cross-behavior difference. Commonality bars partition explained variance and are not themselves these profile tests. |
 | ED10c | BH4 across the four displayed first-30-min turning biases. All four annotations use the same family. |

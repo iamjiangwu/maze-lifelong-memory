@@ -83,7 +83,19 @@ def build(output):
                     def panel(preview,fig,letter):
                         if letter=="e":
                             for ax in fig.axes:ax.set_title(TITLE_MAP[ax.get_title()])
-                        return old_panel(preview,fig,letter)
+                        if letter in {"e","h"}:
+                            for ax in fig.axes:ax.set_title(ax.get_title(),pad=2.8)
+                        result=old_panel(preview,fig,letter)
+                        if letter in {"b","e","h"}:
+                            renderer=fig.canvas.get_renderer()
+                            values=[]
+                            for ax in fig.axes:
+                                if not ax.get_title():continue
+                                axis=ax.get_window_extent(renderer)
+                                title=ax.title.get_window_extent(renderer)
+                                values.append(dict(title=ax.get_title(),gap_pt=(title.y0-axis.y1)*72/fig.dpi,font_size_pt=ax.title.get_fontsize(),axis_bounds_pixels=list(axis.bounds),title_bounds_pixels=list(title.bounds)))
+                            audit.setdefault("day_title_spacing",{})[letter]=values
+                        return result
                     m.panel_at_final_size=panel
                     old_maze=m.maze_image
                     def maze(root,image,bounds):

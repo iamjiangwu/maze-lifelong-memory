@@ -1,8 +1,22 @@
 # Extended Data Figure 9: data
 
-Inputs for the current figure or table and its statistics. [Column and format index](index.csv).
+Level-code persistence, controls and experience trends. The mappings use the current 15-panel a–o layout. [Column and array index](index.csv).
 
-Preferred-level tests use 36 recording-pair observations from 14 animals, with standard errors clustered by animal and BH correction across the two one-sided tests. The shift-distance curve pools neurons that changed preferred level; inference gives each recording pair equal weight.
+| Panels | Inputs and observation unit |
+|---|---|
+| a–c | `plot_data.npz` contains level-PV observations and shuffle histogram; `null_draws.csv` contains cohort-mean PV null draws; `mean_null.npz` contains the level-map mean null. `pair_summary.csv` and `summary.json` describe their support and weighting. |
+| d | `decoder_points.csv`: observed/shuffled decoding accuracy per session pair; `decoder_summary.csv` and `decoder_stats.json` contain summaries and the paired test. |
+| e–f | `transition.csv`, `shift.csv`: preferred-level transition/shift distributions. `preferred_level_pair_observations.csv` and its statistics file supply pair-level inputs and tests. |
+| g–h | `maze_cells.csv`/`maze_walls.csv`: partition schematic; `pair_values.csv`, `paired_contrasts.csv`, `statistics.csv`: horizontal, level and vertical eight-bin correlations and contrasts per session pair. |
+| i | `joint_cloud.csv`: one neuron pair's place-map and level-map correlation. |
+| j | `within_level_pairs.csv`, `within_level_nulls.csv`, `within_level_stats.csv`: pair-level observed correlations, saved within-level shuffle draws and tests. |
+| k–l | `gap.csv`/`level_gap_pair_values.csv`: means by Days apart and their pair inputs; `consecutive_points.csv`/`consecutive_stats.csv`: preceding-versus-following gap observations and fits. |
+| m | `learning.csv`: mean, s.e.m., animal count and support mask for within-session level-reference curves. |
+| n–o | `first30_points.csv`/`first30_stats.csv`: animal-by-cycle early alignment; `cycles.csv`/`cycles_stats.csv`: long-gap pair correlations by cycle. |
+
+Correlations and decoding accuracy (fraction correct) are dimensionless. Levels are tree-depth categories; a shift distance is a number of levels, not physical distance. Preferred-level transitions exclude the diagonal where marked. Shift curves pool neurons that changed preference, whereas their tests equally weight 36 session-pair observations from 14 animals, with standard errors clustered by animal and BH2 across two one-sided tests.
+
+`continuous_cloud_included`, support counts and explicit masks determine eligibility. Null draws are saved technical repetitions, not independent animals. Gap means equally weight session pairs and use descriptive 95% Student's t intervals. Panels l, n and o each share their four-measure correction family with the corresponding Figure 2 or Figure 3 panels; they are not extra unshown tests. Curve times use the stated seconds/minutes fields, and cycle indices are not calendar age.
 
 | File | Format |
 |---|---|

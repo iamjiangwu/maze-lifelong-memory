@@ -1,17 +1,15 @@
-"""Source-native Figure 5 review: exchange the requested Figure 5 / ED9 panels.
+"""Build Figure 5 from the included level-code and neural-behavior Source Data.
 
-Freeze once with --freeze; subsequent rebuilds need only the resulting folder.
-No accepted artwork, biological refit, current pointer, or manuscript is changed.
+The supported figure build.py launcher supplies the staged inputs and output
+directory. No accepted artwork or raw-data processing is used.
 """
 from __future__ import annotations
 
 import argparse
-import csv
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
-import shutil
 import sys
 import xml.etree.ElementTree as ET
 
@@ -26,9 +24,7 @@ import pandas as pd
 from PIL import Image
 import fitz
 
-REPO = Path(__file__).resolve().parents[1]
 RECORD_NAME = "main_figure5_2026-09-25_round10_black_stars"
-DEFAULT = REPO / "output/figures/figure5_level_population_vector_label_2026-09-26"
 SVG = "{http://www.w3.org/2000/svg}"
 
 
@@ -52,45 +48,6 @@ def load(name: str, path: Path):
     return module
 
 
-def freeze(destination: Path) -> None:
-    record = REPO / "docs/figure_version_records" / RECORD_NAME
-    ed9 = REPO / "output/figures/ed9_three_row_level_pv_2026-09-25"
-    if destination.exists():
-        raise FileExistsError(f"Refusing to overwrite source bundle: {destination}")
-    inventory = {}
-    destination.mkdir(parents=True)
-
-    def copy(source: Path, relative: str) -> None:
-        target = destination / relative
-        target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(source, target)
-        assert sha(target) == sha(source)
-        inventory[relative] = {**info(target), "source": source.as_posix()}
-
-    for name in ("preview_figure3_assembly.py", "figure_panels.py",
-                 "level_heatmap_utils.py", "render_main_figs_v3_publication.py"):
-        copy(record / "source_code" / name, "source_code/" + name)
-    copy(REPO / "docs/figure_version_records/rebuild_current_main_figures.py",
-         "source_code/frozen_main_rebuild_runtime.py")
-    copy(REPO / "docs/figure_version_records/SOURCE_REBUILD_MAIN_RUNTIME.zip",
-         "source_data/SOURCE_REBUILD_MAIN_RUNTIME.zip")
-    copy(Path(__file__).resolve(), "source_code/rebuild_figure5.py")
-    # Include the transferred d/e inputs for an explicit, portable exchange ledger.
-    for folder in ("figure5_bundle", "neuron_id_shuffle"):
-        for source in sorted((record / "source_data" / folder).iterdir()):
-            if source.suffix.lower() in {".csv", ".json", ".npz"}:
-                copy(source, f"source_data/{folder}/{source.name}")
-    copy(record / "source_data/level_vectors_tree_depth7_corrected36_d1v1.csv",
-         "source_data/level_vectors_tree_depth7_corrected36_d1v1.csv")
-    copy(record / "source_validation/refinement_2026_08_12/figure5b_historical_hierarchical_refined_order.npy",
-         "source_data/figure5b_historical_hierarchical_refined_order.npy")
-    for name in ("level_pv_matrix.csv", "level_pv_pair_matrices.csv"):
-        copy(ed9 / "source_data/frozen" / name, "source_data/level_pv/" + name)
-    write_json(destination / "SOURCE_INPUTS.json", {
-        "status": "PASS", "base_record": RECORD_NAME, "sources": inventory,
-        "scientific_inputs": "Only CSV/JSON/NPZ/NPY numerical sources and frozen Python/runtime; no accepted artwork.",
-        "raw_analysis_runs": 0,
-    })
 
 
 def configure(inputs: Path):
@@ -299,14 +256,11 @@ def rebuild(inputs: Path, output: Path) -> list[Path]:
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--freeze",action="store_true")
-    parser.add_argument("--inputs",type=Path,default=DEFAULT)
-    parser.add_argument("--output",type=Path)
+    parser.add_argument("--inputs",type=Path,required=True)
+    parser.add_argument("--output",type=Path,required=True)
     args=parser.parse_args()
-    if args.freeze:
-        freeze(args.inputs.resolve())
-    files=rebuild(args.inputs,args.output or args.inputs)
-    print(json.dumps({"status":"PASS","output":str((args.output or args.inputs).resolve()),"artifacts":len(files)}))
+    files=rebuild(args.inputs,args.output)
+    print(json.dumps({"status":"PASS","output":str(args.output.resolve()),"artifacts":len(files)}))
 
 
 if __name__=="__main__":
