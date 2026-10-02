@@ -180,10 +180,18 @@ def run_browser(command, *, check=False, capture_output=True, text=False, timeou
     """
     if not capture_output:
         raise ValueError('Browser diagnostics must be captured')
+    is_export = any(str(arg).startswith(('--print-to-pdf=', '--screenshot=')) for arg in command)
+    if is_export and not any(str(arg).startswith('--user-data-dir=') for arg in command):
+        # Older callers supplied no profile. Isolate every export instead of
+        # opening or closing a user's normal browser session.
+        with tempfile.TemporaryDirectory(prefix='maze_browser_profile_') as profile:
+            isolated = [command[0], f'--user-data-dir={Path(profile).resolve()}', *command[1:]]
+            return run_browser(isolated, check=check, capture_output=capture_output,
+                               text=text, timeout=timeout)
     log_factory = tempfile.NamedTemporaryFile if sys.platform == 'darwin' else tempfile.TemporaryFile
     with log_factory() as diagnostics:
         try:
-            if sys.platform == 'darwin' and any(str(arg).startswith(('--print-to-pdf=', '--screenshot=')) for arg in command):
+            if sys.platform == 'darwin' and is_export:
                 completed = _run_macos_export(command, diagnostics, Path(diagnostics.name), timeout)
             else:
                 completed = subprocess.run(command, stdout=diagnostics, stderr=subprocess.STDOUT,

@@ -118,6 +118,15 @@ class BrowserDiscoveryTests(unittest.TestCase):
         with self.assertRaises(subprocess.CalledProcessError):
             browser.run_browser([sys.executable, '-c', 'raise SystemExit(2)'], check=True)
 
+    def test_export_without_profile_gets_disposable_profile(self):
+        with patch.object(browser.sys, 'platform', 'win32'), \
+                patch.object(browser.subprocess, 'run', return_value=subprocess.CompletedProcess([], 0)) as run:
+            browser.run_browser(['browser', '--print-to-pdf=unused.pdf'], check=True)
+            launched = run.call_args.args[0]
+            profiles = [Path(arg.split('=', 1)[1]) for arg in launched if arg.startswith('--user-data-dir=')]
+            self.assertEqual(len(profiles), 1)
+            self.assertFalse(profiles[0].exists())
+
     @unittest.skipIf(os.name == 'nt', 'POSIX descriptor protocol used only on macOS')
     def test_macos_close_requests_normal_exit_after_export_marker(self):
         with tempfile.TemporaryDirectory() as temporary:

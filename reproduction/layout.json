@@ -1,7 +1,7 @@
 {
   "schema": "reader-layout/v1",
   "snapshot_manifest": "reproduction/snapshot/RELEASE_MANIFEST.json",
-  "snapshot_manifest_sha256": "47b2c34813c076f9f5ed03b6c46ceca782c06eae6ee289ef8342bfad61526282",
+  "snapshot_manifest_sha256": "37efd76c424de076995b93ffdc5cf7c77b7c3572bdd68f46b480a87a3fe8ca1c",
   "artifacts": [
     {
       "artifact_id": "main_figure_1",
@@ -2011,7 +2011,7 @@
     {
       "snapshot_path": "shared/SOURCE_REBUILD_ED_CONTRACT.json",
       "repository_path": "reproduction/snapshot/shared/SOURCE_REBUILD_ED_CONTRACT.json",
-      "sha256": "bc760c06ac3df10e580f2fda0c591c38e420ca163127ce3937a8ed9b9c9be3be",
+      "sha256": "a1eca186720174745e5de32cb4644a8ed4ff10bbbe87cf881e1b12d63b22b999",
       "bytes": 8812
     },
     {
@@ -2113,8 +2113,8 @@
     {
       "snapshot_path": "RELEASE_MANIFEST.json",
       "repository_path": "reproduction/snapshot/RELEASE_MANIFEST.json",
-      "sha256": "47b2c34813c076f9f5ed03b6c46ceca782c06eae6ee289ef8342bfad61526282",
-      "bytes": 91722
+      "sha256": "37efd76c424de076995b93ffdc5cf7c77b7c3572bdd68f46b480a87a3fe8ca1c",
+      "bytes": 91723
     },
     {
       "snapshot_path": "main_figure_1/source/frozen_source/plot_ready/return_experience_statistics.csv",
@@ -2275,8 +2275,8 @@
     {
       "snapshot_path": "shared/runtime/ca_analysis/browser_export.py",
       "repository_path": "reproduction/runtime/ca_analysis/browser_export.py",
-      "sha256": "42e919b3d252268b9b2940d1f9fe577f106cf4add255d0c91715e1f54b678fc5",
-      "bytes": 9889
+      "sha256": "dcf22e207f468dfc8afdf5fd59d627b73971dcaf9a3e4675f0ff8e71ba8e8382",
+      "bytes": 10469
     },
     {
       "snapshot_path": "shared/runtime/ca_analysis/level_ordering.py",
