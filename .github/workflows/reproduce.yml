@@ -35,6 +35,8 @@ jobs:
           python -c "import runpy; print(runpy.run_path('reproduction/runtime/ca_analysis/browser_export.py')['find_browser']())"
           python reproduce.py --check-only
           python -m unittest discover -s tests -v
+      - name: Check browser PDF export
+        run: python tests/browser_smoke.py
       - name: Reproduce all figures, tables and statistical tests
         run: python reproduce.py --output-dir outputs/reproduction
       - name: Save run reports
@@ -49,5 +51,5 @@ jobs:
             outputs/reproduction/*/BUILD.log
             outputs/reproduction/statistics/STATISTICS_REPORT.json
             outputs/reproduction/main_figure_1/figure1_version_record_600dpi.png
-            outputs/reproduction/extended_data_figure_2/ed02_version_record_600dpi.png
+            outputs/reproduction/extended_data_figure_2/composite/ed02_version_record_600dpi.png
             outputs/reproduction/extended_data_figure_8/ed8_standardized_pv_300dpi.png
