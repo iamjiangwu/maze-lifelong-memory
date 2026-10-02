@@ -33,7 +33,8 @@ class BrowserDiscoveryTests(unittest.TestCase):
                 patch.object(browser.sys, "platform", "linux"), \
                 patch.object(browser.shutil, "which", side_effect=lambda name: "/usr/bin/chromium" if name == "chromium" else None), \
                 patch.object(browser, "_executable", side_effect=lambda path: path.as_posix() == "/usr/bin/chromium"):
-            self.assertEqual(browser.find_browser().name, "chromium")
+            # Some Linux distributions make chromium a symlink to chrome.
+            self.assertEqual(browser.find_browser(), Path("/usr/bin/chromium").resolve())
 
     def test_macos_application_discovery(self):
         expected = Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")

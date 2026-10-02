@@ -190,6 +190,3 @@ def set_axes(axes, xlabel, ylabel, legend, loc, xlim, ylim, xscale, yscale,
     #         axes.legend(legend, prop={"size":12, "family":'Arial'})
     #     For options on legend placement see https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot
 
-    
-
-    

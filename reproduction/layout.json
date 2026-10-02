@@ -1,7 +1,7 @@
 {
   "schema": "reader-layout/v1",
   "snapshot_manifest": "reproduction/snapshot/RELEASE_MANIFEST.json",
-  "snapshot_manifest_sha256": "71b35c9e96c2f59a2fafe803ff8a6a66e62691556549b9edcffcae32221911d6",
+  "snapshot_manifest_sha256": "7b861d6fe9fb7e1b72c6149a8e5fa34321f3d91c70edc2dfabeb446e61fe4cd2",
   "artifacts": [
     {
       "artifact_id": "main_figure_1",
@@ -2023,7 +2023,7 @@
     {
       "snapshot_path": "shared/SOURCE_REBUILD_ED_CONTRACT.json",
       "repository_path": "reproduction/snapshot/shared/SOURCE_REBUILD_ED_CONTRACT.json",
-      "sha256": "1dd72752f9ac9c193b92ef2b79a2e980d41814238c4620babd06b386b3681097",
+      "sha256": "89bd7d16c1cb2bd4704f807d156fe03fbadd9b95074184ebf5352c9f9ac374fe",
       "bytes": 8812
     },
     {
@@ -2125,7 +2125,7 @@
     {
       "snapshot_path": "RELEASE_MANIFEST.json",
       "repository_path": "reproduction/snapshot/RELEASE_MANIFEST.json",
-      "sha256": "71b35c9e96c2f59a2fafe803ff8a6a66e62691556549b9edcffcae32221911d6",
+      "sha256": "7b861d6fe9fb7e1b72c6149a8e5fa34321f3d91c70edc2dfabeb446e61fe4cd2",
       "bytes": 92318
     },
     {
@@ -2167,8 +2167,8 @@
     {
       "snapshot_path": "shared/runtime/ca_analysis/config.py",
       "repository_path": "reproduction/runtime/ca_analysis/config.py",
-      "sha256": "ca0d8548aa56d37bc51f558b6c1c0e4dc06f136e16f7c8b2481677ca91a351d5",
-      "bytes": 185
+      "sha256": "e8c88635995f2ee9403b82fc95f4b6a179902a8943430808062fda93eb8378a1",
+      "bytes": 184
     },
     {
       "snapshot_path": "shared/runtime/ca_analysis/ed06_example_candidates.py",
@@ -2239,8 +2239,8 @@
     {
       "snapshot_path": "shared/runtime/ca_analysis/mm_plot_utils.py",
       "repository_path": "reproduction/runtime/ca_analysis/mm_plot_utils.py",
-      "sha256": "6d7ed458f57b2a0cd9084a18a5f9fdaba8bba576e419e98c3ab2b2906788fb03",
-      "bytes": 7904
+      "sha256": "9643329f8317165583ea1e586c50a82f6b8fe73609daa7efe6a376f6df8597a9",
+      "bytes": 7890
     },
     {
       "snapshot_path": "shared/runtime/ca_analysis/session_loader_tools.py",
