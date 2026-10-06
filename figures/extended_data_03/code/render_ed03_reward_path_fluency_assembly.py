@@ -530,6 +530,14 @@ def build_figure(
         )
         subset = rows.loc[rows["claim_id"].eq(claim["claim_id"])]
         statistic = raw_stats.loc[claim["claim_id"]]
+        # CR1 fit (return minus latent, clustered by mouse) of the session rows drawn in
+        # this panel; validate() checks the displayed statistic against it.
+        drawn = subset.dropna(subset=["mean_decision_time_s", "condition", "animal"])
+        data_fit = fluency.cluster_fit(
+            pd.to_numeric(drawn["mean_decision_time_s"], errors="coerce").to_numpy(dtype=float),
+            np.column_stack([np.ones(len(drawn)), drawn["condition"].eq("return").to_numpy(dtype=float)]),
+            drawn["animal"].astype(str).to_numpy(),
+        )
         draw_claim_bar_panel(ax, subset, claim, fluency, rng)
 
         low, high = ax.get_ylim()
@@ -552,6 +560,9 @@ def build_figure(
             "beta": float(statistic["estimate_return_minus_latent"]),
             "p_cluster_two_sided": float(statistic["p_cluster_two_sided"]),
             "q_bh4_displayed_story": float(statistic["q_bh4_displayed_story"]),
+            "data_beta": float(data_fit["beta"][1]),
+            "data_n_rows": int(data_fit["n_rows"]),
+            "data_n_mice": int(data_fit["n_mice"]),
         }
 
     schematic_ax = fig.add_axes(rect(*SCHEMATIC_RECT_IN))
@@ -632,11 +643,15 @@ def validate(outputs: list[Path], audit: dict[str, Any]) -> list[dict[str, Any]]
     )
 
     claims = audit["panels"]["a-d"]
+    # Each displayed statistic must equal the CR1 fit of the session rows drawn in its panel.
     expected = {
-        "ed4_broad_pre_reward_explore": (-0.307587, 63, 20),
-        "ed4_broad_post_reward_explore": (-0.082389, 65, 21),
-        "ed4_pre_reward_direct_chain_specificity_check": (0.181756, 61, 20),
-        "ed4_reward_approach_after_reward": (-0.186428, 65, 21),
+        claim_id: (claims[claim_id]["data_beta"], claims[claim_id]["data_n_rows"], claims[claim_id]["data_n_mice"])
+        for claim_id in (
+            "ed4_broad_pre_reward_explore",
+            "ed4_broad_post_reward_explore",
+            "ed4_pre_reward_direct_chain_specificity_check",
+            "ed4_reward_approach_after_reward",
+        )
     }
     for claim_id, (beta, n_rows, n_mice) in expected.items():
         got = claims[claim_id]

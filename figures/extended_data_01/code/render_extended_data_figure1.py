@@ -240,6 +240,19 @@ def draw_endpoint_grid(
         ("maze_tiles", "Maze tile transitions"),
     )
     for row_index, (axis_key, ylabel) in enumerate(axis_specs):
+        # The three columns of a row share one y range because only the first
+        # column has tick labels; bracket spacing follows the largest point in the row.
+        row_values = pd.to_numeric(
+            rows.loc[
+                rows["endpoint_key"].isin(endpoints)
+                & rows["group_key"].isin(GROUP_ORDER),
+                axis_key,
+            ],
+            errors="coerce",
+        ).dropna()
+        span = max(float(row_values.max()), 1.0)
+        row_axes: list[plt.Axes] = []
+        row_top = 0.0
         for col_index, (endpoint, endpoint_label) in enumerate(
             zip(endpoints, endpoint_labels, strict=True)
         ):
@@ -290,7 +303,6 @@ def draw_endpoint_grid(
                 )
             ax.set_xlim(-0.55, 2.55)
             raw_max = max(all_values)
-            span = max(raw_max, 1.0)
             base = raw_max + 0.055 * span
             step = F_BRACKET_STEP_FRACTION * span
             tick_height = 0.022 * span
@@ -324,7 +336,8 @@ def draw_endpoint_grid(
             annotation_top = (
                 base + max(annotations - 1, 0) * step + tick_height + 0.22 * span
             )
-            ax.set_ylim(0, max(raw_max * 1.08, annotation_top))
+            row_top = max(row_top, raw_max * 1.08, annotation_top)
+            row_axes.append(ax)
             ax.grid(False)
             if row_index == 0:
                 ax.set_title(endpoint_label, pad=4.0)
@@ -340,6 +353,8 @@ def draw_endpoint_grid(
                 ax.set_ylabel(ylabel)
             else:
                 ax.tick_params(axis="y", labelleft=False)
+        for row_ax in row_axes:
+            row_ax.set_ylim(0, row_top)
     return axes, annotation_counts
 
 

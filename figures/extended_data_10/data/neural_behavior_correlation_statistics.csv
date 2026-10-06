@@ -1,19 +1,19 @@
 block,block_label,outcome,outcome_label,pooled_pearson_r,pairwise_nominal_p_descriptive,behavior_endpoint_id,n_pairs,n_animals
-reward_location,Reward decoding,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.4366974286094762,0.01583066599081387,log_reward_over_pooled,30,14
-reward_location,Reward decoding,first_long_bout_time,First long bout time,-0.45833825499289343,0.01085853465188098,first_long_bout_time_s,30,14
-reward_location,Reward decoding,exploration_efficiency,Exploration efficiency,0.44213464981013617,0.014431555248659836,exploration_efficiency_raw,30,14
-whole_decoder,Whole-maze decoding,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.5549864247313784,0.0014568893565092386,log_reward_over_pooled,30,14
-whole_decoder,Whole-maze decoding,first_long_bout_time,First long bout time,-0.47854156612751186,0.007471750181563649,first_long_bout_time_s,30,14
-whole_decoder,Whole-maze decoding,exploration_efficiency,Exploration efficiency,0.6328784637120959,0.00017469114118343835,exploration_efficiency_raw,30,14
-place_map,Place map,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.3604829869769003,0.05035790680566101,log_reward_over_pooled,30,14
-place_map,Place map,first_long_bout_time,First long bout time,-0.42624668310375785,0.01883690787777573,first_long_bout_time_s,30,14
-place_map,Place map,exploration_efficiency,Exploration efficiency,0.694267053129717,2.0847880358144262e-05,exploration_efficiency_raw,30,14
-structure,Level map,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.21572789293610378,0.2522393509000761,log_reward_over_pooled,30,14
-structure,Level map,first_long_bout_time,First long bout time,-0.3346883744659785,0.07063597293249062,first_long_bout_time_s,30,14
-structure,Level map,exploration_efficiency,Exploration efficiency,0.7242382033185617,6.0552829912434255e-06,exploration_efficiency_raw,30,14
-pv_map,Population vector,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.21068052478387778,0.2637753767537956,log_reward_over_pooled,30,14
-pv_map,Population vector,first_long_bout_time,First long bout time,-0.33733947676660175,0.06829882692537509,first_long_bout_time_s,30,14
-pv_map,Population vector,exploration_efficiency,Exploration efficiency,0.5734857899143073,0.000923061214857277,exploration_efficiency_raw,30,14
-rate,Ensemble rate,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,-0.4202577848549636,0.020762470511851254,log_reward_over_pooled,30,14
-rate,Ensemble rate,first_long_bout_time,First long bout time,0.028046586323089123,0.8830383215719829,first_long_bout_time_s,30,14
-rate,Ensemble rate,exploration_efficiency,Exploration efficiency,0.03960823169527239,0.83538024593451,exploration_efficiency_raw,30,14
+reward_location,Reward decoding,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.3855324185218725,0.035375447168283725,log_reward_over_pooled,30,14
+reward_location,Reward decoding,first_long_bout_time,First long bout time,-0.511951109154554,0.0038282457047157346,first_long_bout_time_s,30,14
+reward_location,Reward decoding,exploration_efficiency,Exploration efficiency,0.40885230221232516,0.02487801175642214,exploration_efficiency_raw,30,14
+whole_decoder,Whole-maze decoding,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.5428393865716549,0.0019385897746270052,log_reward_over_pooled,30,14
+whole_decoder,Whole-maze decoding,first_long_bout_time,First long bout time,-0.5134562375840251,0.0037087540027874303,first_long_bout_time_s,30,14
+whole_decoder,Whole-maze decoding,exploration_efficiency,Exploration efficiency,0.5866037803243692,0.0006568590471815903,exploration_efficiency_raw,30,14
+place_map,Place map,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.3659843762070607,0.04669932172071849,log_reward_over_pooled,30,14
+place_map,Place map,first_long_bout_time,First long bout time,-0.4814008328933888,0.0070740310886144185,first_long_bout_time_s,30,14
+place_map,Place map,exploration_efficiency,Exploration efficiency,0.6700371488073792,5.1136901608100156e-05,exploration_efficiency_raw,30,14
+structure,Level map,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.24147417833059323,0.19860634818512804,log_reward_over_pooled,30,14
+structure,Level map,first_long_bout_time,First long bout time,-0.3485098278862779,0.0591044146748455,first_long_bout_time_s,30,14
+structure,Level map,exploration_efficiency,Exploration efficiency,0.7215030930212897,6.822575427696341e-06,exploration_efficiency_raw,30,14
+pv_map,Population vector,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,0.21481709649603603,0.25429603094050884,log_reward_over_pooled,30,14
+pv_map,Population vector,first_long_bout_time,First long bout time,-0.44002491088004186,0.014961676792689057,first_long_bout_time_s,30,14
+pv_map,Population vector,exploration_efficiency,Exploration efficiency,0.5665776483988687,0.0010979803557960093,exploration_efficiency_raw,30,14
+rate,Ensemble rate,whole_session_reward_approach_speed_advantage,Reward-approach speed advantage,-0.37268675775677557,0.04253113970143521,log_reward_over_pooled,30,14
+rate,Ensemble rate,first_long_bout_time,First long bout time,-0.005951299902885069,0.9751006817671438,first_long_bout_time_s,30,14
+rate,Ensemble rate,exploration_efficiency,Exploration efficiency,0.06898931564790607,0.7171683302214951,exploration_efficiency_raw,30,14

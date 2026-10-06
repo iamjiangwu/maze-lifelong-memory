@@ -43,9 +43,7 @@
         "1616",
         "1632"
       ],
-      "note": "Mouse 1616 followed a special recording sequence outside the fixed month groups; both special return sessions were included in the pooled ED2 analyses.",
-      "old_excel_row": 4,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 4"
+      "note": "Mouse 1616 followed a special recording sequence outside the fixed month groups; both special return sessions were included in the pooled ED2 analyses."
     },
     {
       "analysis": "Speed during exploration and reward directed behavior",
@@ -81,9 +79,7 @@
         "1616",
         "1632"
       ],
-      "note": "Samples during reward directed behavior were unavailable in 418RRday1, 618day1 and 628day1. Mice 15, 202, 628, 1603 and 1608 had no matched Day 2 session.",
-      "old_excel_row": 5,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 5"
+      "note": "Samples during reward directed behavior were unavailable in 418RRday1, 618day1 and 628day1. Mice 15, 202, 628, 1603 and 1608 had no matched Day 2 session."
     },
     {
       "analysis": "Exploration efficiency, junction turning biases and biased walk simulations",
@@ -119,9 +115,7 @@
         "1616",
         "1632"
       ],
-      "note": "Session 646-9day2 did not reach 32 distinct end nodes. Depth-specific stemward exit probabilities used at least 10 qualifying events per depth range to avoid estimates based on very sparse sampling; 640day1 had 2 shallow events.",
-      "old_excel_row": 6,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 6"
+      "note": "Session 646-9day2 did not reach 32 distinct end nodes. Depth-specific stemward exit probabilities used at least 10 qualifying events per depth range to avoid estimates based on very sparse sampling; 640day1 had 2 shallow events."
     },
     {
       "analysis": "Latent learning and first visit route choices",
@@ -161,9 +155,7 @@
         "1632",
         "1636"
       ],
-      "note": "",
-      "old_excel_row": 7,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 7"
+      "note": ""
     },
     {
       "analysis": "Junction dwell during exploration and reward directed approaches",
@@ -191,9 +183,7 @@
         "862",
         "1636"
       ],
-      "note": "Sessions 468-9day1 and 769day2 had no eligible exploratory junction events before first reward. Sessions 488-3day1 and 842-9day1 had reward path events but no other junction events, so the comparison could not be calculated.",
-      "old_excel_row": 8,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 8"
+      "note": "Sessions 468-9day1 and 769day2 had no eligible exploratory junction events before first reward. Sessions 488-3day1 and 842-9day1 had reward path events but no other junction events, so the comparison could not be calculated."
     },
     {
       "analysis": "Field of view, place map and spatial decoding examples",
@@ -211,9 +201,7 @@
         "842",
         "862"
       ],
-      "note": "Illustrative examples only. Fields of view: mice 418 and 422; decoding-error map (Fig. 4c): mouse 579; spatial-decoding illustration (Fig. 4a): mouse 837.",
-      "old_excel_row": 9,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 9"
+      "note": "Illustrative examples only. Fields of view: mice 418 and 422; decoding-error map (Fig. 4c): mouse 579; spatial-decoding illustration (Fig. 4a): mouse 837."
     },
     {
       "analysis": "Long gap neural stability, decoding, cell registration and associations with age and behavior",
@@ -234,9 +222,7 @@
         "862",
         "1616"
       ],
-      "note": "The 14-day pair from mouse 1616 was omitted from the fixed-month analyses; its other long-gap pairs remain included. Level population vectors had 248 supported level comparisons across all 36 pairs; level 6 lacked support in one pair each from mice 418, 422, 837 and 839.",
-      "old_excel_row": 10,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 10"
+      "note": "The 14-day pair from mouse 1616 was omitted from the fixed-month analyses; its other long-gap pairs remain included. Level population vectors had 248 supported level comparisons across all 36 pairs; level 6 lacked support in one pair each from mice 418, 422, 837 and 839."
     },
     {
       "analysis": "PV, place map, level map and ensemble rate correlations across session intervals",
@@ -257,9 +243,7 @@
         "862",
         "1616"
       ],
-      "note": "",
-      "old_excel_row": 11,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 11"
+      "note": ""
     },
     {
       "analysis": "Neural correlations across successive recording cycles",
@@ -280,9 +264,7 @@
         "862",
         "1616"
       ],
-      "note": "All 14 mice contributed 37 pairs, including the special 14-day pair from mouse 1616; cycle-based analyses do not use the fixed-month exclusion.",
-      "old_excel_row": 12,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 12"
+      "note": "All 14 mice contributed 37 pairs, including the special 14-day pair from mouse 1616; cycle-based analyses do not use the fixed-month exclusion."
     },
     {
       "analysis": "Reward location decoding and PV correlation, and neural-behavior associations",
@@ -303,9 +285,7 @@
         "862",
         "1616"
       ],
-      "note": "Reward-experienced Day i sources: 30 pairs from 14 mice; six pairs from mice 422, 837, 838, 839, 842 and 862 were omitted. ED8b,c Day i+1 sources: 36 pairs. ED8b required at least 20 frames per location in both sessions, with no visit minimum; control bin 133 was omitted for 451-6day2 to 451-9day1 and 468Lday2 to 468-3day1.",
-      "old_excel_row": 13,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 13"
+      "note": "Reward-experienced Day i sources: 30 pairs from 14 mice; six pairs from mice 422, 837, 838, 839, 842 and 862 were omitted. ED8b,c Day i+1 sources: 36 pairs. ED8b required at least 20 frames per location in both sessions, with no visit minimum; control bin 133 was omitted for 451-6day2 to 451-9day1 and 468Lday2 to 468-3day1."
     },
     {
       "analysis": "Standardized route PV correlation, second-day comparisons and equal-frame controls",
@@ -326,8 +306,7 @@
         "862",
         "1616"
       ],
-      "note": "For each direction, both sessions required at least five traversals. Home to reward: 29 pairs, 13 mice (excluding 434); reward to home: 28 pairs, all 14 mice. The second-day comparison had the same counts.",
-      "evidence": "route_audit/ROUTE_COHORT_AUDIT.json proposed_S1_rows[0]"
+      "note": "For each direction, both sessions required at least five traversals. Home to reward: 28 pairs, 13 mice (excluding 434); reward to home: 27 pairs, all 14 mice. The second-day comparison had the same counts."
     },
     {
       "analysis": "Standardized PV correlation along node 2 and node 3 routes",
@@ -348,8 +327,7 @@
         "862",
         "1616"
       ],
-      "note": "Node 2 routes: 30 pairs; node 3 routes: 29 pairs, with all 14 mice in each direction. Day i sources required reward experience and sufficient route-specific traversals.",
-      "evidence": "route_audit/ROUTE_COHORT_AUDIT.json proposed_S1_rows[2]"
+      "note": "Node 2 routes: 30 pairs; node 3 routes: 29 pairs, with all 14 mice in each direction. Day i sources required reward experience and sufficient route-specific traversals."
     },
     {
       "analysis": "Standardized route PV correlation relative to within-day reliability",
@@ -369,8 +347,7 @@
         "862",
         "1616"
       ],
-      "note": "Both location ratios had to be defined: 13 mice in each direction (29 approach and 27 departure pairs). Mouse 434 lacked a supported approach pair; its departure ratio was undefined because the target-session within-day reward correlation was nonpositive.",
-      "evidence": "route_audit/ROUTE_COHORT_AUDIT.json proposed_S1_rows[1]"
+      "note": "Both location ratios had to be defined: 13 mice in each direction (28 approach and 26 departure pairs). Mouse 434 lacked a supported approach pair; its departure ratio was undefined because the target-session within-day reward correlation was nonpositive."
     },
     {
       "analysis": "Standardized route PV correlation between approach and departure",
@@ -390,8 +367,7 @@
         "862",
         "1616"
       ],
-      "note": "Only pairs supported in both directions: 27 pairs from 13 mice, excluding mouse 434. The same matched neurons contributed to all curves.",
-      "evidence": "route_audit/ROUTE_COHORT_AUDIT.json proposed_S1_rows[3]"
+      "note": "Only pairs supported in both directions: 26 pairs from 13 mice, excluding mouse 434. The same matched neurons contributed to all curves."
     },
     {
       "analysis": "Recurrence of neural correlations across consecutive long gaps",
@@ -409,9 +385,7 @@
         "842",
         "862"
       ],
-      "note": "Consecutive-gap recurrence requires three eligible successive cycles. Mice 434, 579 and 1616 lacked three eligible long-gap cycles, but remained in single-gap analyses; the short-gap 1616 chain was excluded.",
-      "old_excel_row": 15,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 15"
+      "note": "Consecutive-gap recurrence requires three eligible successive cycles. Mice 434, 579 and 1616 lacked three eligible long-gap cycles, but remained in single-gap analyses; the short-gap 1616 chain was excluded."
     },
     {
       "analysis": "Within-session convergence, early alignment and local stability",
@@ -440,9 +414,7 @@
         "1637",
         "1639"
       ],
-      "note": "Within-cycle analyses, including comparisons of adjacent nonoverlapping windows (ED Fig. 6d,f,h), used 59 Day i/Day i+1 pairs from 22 mice.",
-      "old_excel_row": 16,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 16"
+      "note": "Within-cycle analyses, including comparisons of adjacent nonoverlapping windows (ED Fig. 6d,f,h), used 59 Day i/Day i+1 pairs from 22 mice."
     },
     {
       "analysis": "Age and early within-cycle neural correlations",
@@ -471,9 +443,7 @@
         "1637",
         "1639"
       ],
-      "note": "",
-      "old_excel_row": 17,
-      "evidence": "panel_mapping_audit/PANEL_MAPPING_AUDIT.json row 17"
+      "note": ""
     },
     {
       "analysis": "Port advantage on rewarded and timeout approaches",
@@ -492,9 +462,8 @@
         "862",
         "1616"
       ],
-      "note": "Each session required at least five traversals of each outcome: 25 pairs from 12 mice. Mice 422 and 434 had no eligible pair; other unsupported pairs were omitted.",
-      "evidence": "route_audit/ROUTE_COHORT_AUDIT.json proposed_S1_rows[4]"
+      "note": "Each session required at least five traversals of each outcome: 25 pairs from 12 mice. Mice 422 and 434 had no eligible pair; other unsupported pairs were omitted."
     }
   ],
-  "authority": "Current 15 figures uploaded on 2026-09-28; task-local independent panel and source-cohort audits."
+  "authority": "Current 15 figures uploaded on 2026-09-28; task-local independent panel and source-cohort audits; route cohort counts updated on 2026-10-05 from the corrected outputs after latent day1 source sessions were excluded from the home-route analyses."
 }

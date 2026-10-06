@@ -54,11 +54,11 @@ def build(bundle, output):
     display = pd.read_csv(output / "source_data/ED10_PANEL_A_ABSOLUTE_DISPLAY.csv", keep_default_na=False)
     assert len(display) == 18
     assert (display.absolute_pearson_r == display.pooled_pearson_r.abs()).all()
-    assert display.stars.ne("").sum() == 12
+    assert display.stars.ne("").sum() == 13
     assert display.absolute_pearson_r.between(0, .8).all()
     write_json(output / "DISPLAY_VALIDATION.json", {
         "status": "PASS", "cell_count": 18, "all_values_exact_absolute_correlations": True,
-        "star_count": 12, "scale": [0, .8], "label": "Absolute Pearson correlation",
+        "star_count": 13, "scale": [0, .8], "label": "Absolute Pearson correlation",
         "renderer_audit_status": result["status"], "all_frozen_input_hashes_verified": True,
     })
     print(json.dumps({"status": "PASS", "output": str(output)}))

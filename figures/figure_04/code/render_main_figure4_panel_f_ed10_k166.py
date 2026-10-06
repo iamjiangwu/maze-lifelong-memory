@@ -59,8 +59,8 @@ def fit_statistics(rows: pd.DataFrame) -> dict[str, Any]:
     behavior_z = (behavior - behavior.mean()) / behavior.std(ddof=1)
     neural_z = (neural - neural.mean()) / neural.std(ddof=1)
     # Match ED10a's inferential direction exactly: behavior ~ neural measure.
-    # The display keeps behavior on x and the neural measure on y, while Pearson
-    # r and the standardized slope are symmetric point estimates.
+    # The display draws the neural measure on x and behavior on y, with the same
+    # behavior-on-neural line and whole-animal bootstrap band.
     model = sm.OLS(
         behavior_z, sm.add_constant(neural_z, has_constant="add")
     ).fit()
@@ -90,8 +90,8 @@ def fit_statistics(rows: pd.DataFrame) -> dict[str, Any]:
 def cluster_bootstrap_band(
     rows: pd.DataFrame, xfit: np.ndarray, *, seed: int = BOOTSTRAP_SEED
 ) -> tuple[np.ndarray, np.ndarray]:
-    x = rows["first_long_bout_time_s"].to_numpy(dtype=float)
-    y = rows["d1_reward_proxy_error"].to_numpy(dtype=float)
+    x = rows["d1_reward_proxy_error"].to_numpy(dtype=float)
+    y = rows["first_long_bout_time_s"].to_numpy(dtype=float)
     animal = rows["animal_id"].astype(str).to_numpy()
     mice = np.asarray(sorted(set(animal)))
     rng = np.random.default_rng(seed)
@@ -116,8 +116,8 @@ def render_panel(
     """Draw the accepted Main Figure 4f grammar with the ED10 K=166 fit."""
 
     result = fit_statistics(rows)
-    x = rows["first_long_bout_time_s"].to_numpy(dtype=float)
-    y = rows["d1_reward_proxy_error"].to_numpy(dtype=float)
+    x = rows["d1_reward_proxy_error"].to_numpy(dtype=float)
+    y = rows["first_long_bout_time_s"].to_numpy(dtype=float)
     if shared_limits is None:
         shared_limits = ((0.0, float(x.max() * 1.08)), (0.0, float(y.max() * 1.10)))
     xfit = np.linspace(shared_limits[0][0], shared_limits[0][1], 200)
@@ -148,8 +148,8 @@ def render_panel(
         va="bottom",
         fontsize=5.4,
     )
-    ax.set_xlabel("First long bout time (s)")
-    ax.set_ylabel("Reward decoding error (bins)", labelpad=1.0)
+    ax.set_xlabel("Reward decoding error (bins)")
+    ax.set_ylabel("First long bout time (s)", labelpad=1.0)
     ax.set_xlim(*shared_limits[0])
     ax.set_ylim(*shared_limits[1])
     ax.spines["top"].set_visible(False)

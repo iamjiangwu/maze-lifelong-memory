@@ -1,4 +1,4 @@
-definition,variant,analysis,n_pair_rows,n_animals,cluster_df,beta,cluster_se,ci95_low,ci95_high,t_stat,pvalue
-"Context-only, all outside",d1v1,outside,36,14,13,0.3625965148757885,0.0336336952388375,0.2899353338808419,0.435257695870735,10.780751633174424,
-"Context-only, all outside",d1v1,maze,36,14,13,0.4976818427937508,0.0359706145756276,0.4199720545109252,0.5753916310765764,13.835789259240563,
-"Context-only, all outside",d1v1,maze_minus_outside,36,14,13,0.1350853279179621,0.0185602156446441,0.0949884197821155,0.1751822360538087,7.27821974185645,6.197040371302975e-06
+definition,variant,analysis,n_pair_rows,n_animals,cluster_df,beta,cluster_se,ci95_low,ci95_high,t_stat,pvalue,neuron_population
+"Context-only, all outside",d1v1,outside,36,14,13,0.37050148337068434,0.03324608393261776,0.29867768569258485,0.4423252810487838,11.144214281646116,,All current-primary registered neurons; finite context C rates and not zero in both sessions; no S qualification
+"Context-only, all outside",d1v1,maze,36,14,13,0.5192021835756555,0.03475512351677508,0.44411830407858355,0.5942860630727275,14.938867454320938,,All current-primary registered neurons; finite context C rates and not zero in both sessions; no S qualification
+"Context-only, all outside",d1v1,maze_minus_outside,36,14,13,0.14870070020497117,0.018492259536259388,0.10875060231569413,0.18865079809424823,8.041240169347653,2.1136643744784655e-06,All current-primary registered neurons; finite context C rates and not zero in both sessions; no S qualification

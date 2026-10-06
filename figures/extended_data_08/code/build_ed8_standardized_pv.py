@@ -256,6 +256,17 @@ def draw_route(animal,rep,xp,records,data):
         loc='upper center',bbox_to_anchor=(.57,.99),ncol=2,fontsize=6.,handletextpad=.25,columnspacing=.6,borderaxespad=.2,frameon=False)
     fig.text(.55,.025,'Port − elsewhere\n(Standardized PV correlation)',ha='center',va='bottom',fontsize=6.)
     def block(fig,panel,groups,rect,ylabel,ylim,star_y,title):
+        # When a plotted mouse value or 95% interval reaches the bracket feet, raise the bracket
+        # and the upper axis limit together in steps of 5% of the original span (at most six).
+        # Data below the bracket render exactly as before.
+        values=[]
+        for group,_,_ in groups:
+            g=animal[animal.panel.eq(panel)&animal.group.eq(group)]
+            for column in ('away','port'): values+=list(g[column].to_numpy(float))+[ci(g[column])[2]]
+        top,step,steps=float(np.nanmax(values)),.05*(ylim[1]-ylim[0]),0
+        while top>=star_y-.023*(ylim[1]-ylim[0]):
+            steps+=1; assert steps<=6, f'Bracket cannot clear the data in panel {panel}'
+            ylim,star_y=(ylim[0],ylim[1]+step),star_y+step
         ax=axis(fig,*rect); ax.set(ylim=ylim,xlim=(-.65,3.65),ylabel=ylabel)
         for k,(group,color,label) in enumerate(groups):
             g=animal[animal.panel.eq(panel)&animal.group.eq(group)]

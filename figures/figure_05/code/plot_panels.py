@@ -13,6 +13,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from scipy import stats
 
 from ca_analysis.figure_panels import (
     CORRELATION_MEASURE_COLORS,
@@ -332,6 +333,22 @@ def _render_panel_e(
     return fig
 
 
+def _animal_bootstrap_association_band(x, y, animals, xfit):
+    """5,000 whole-animal bootstrap draws; 2.5th to 97.5th percentile of the fitted means."""
+    groups = np.asarray(animals).astype(str)
+    mice = np.asarray(sorted(set(groups)))
+    rng = np.random.default_rng(202608041)
+    fitted_lines = []
+    for _ in range(5_000):
+        sampled = rng.choice(mice, size=len(mice), replace=True)
+        indices = np.concatenate([np.flatnonzero(groups == mouse) for mouse in sampled])
+        if np.unique(x[indices]).size < 2:
+            continue
+        fit = stats.linregress(x[indices], y[indices])
+        fitted_lines.append(fit.intercept + fit.slope * xfit)
+    return np.quantile(np.asarray(fitted_lines), (0.025, 0.975), axis=0)
+
+
 def _render_panel_f(size: tuple[float, float]):
     _set_common_rc()
     base_size = (3.16, 2.62)
@@ -343,8 +360,8 @@ def _render_panel_f(size: tuple[float, float]):
             encoding="utf-8"
         )
     )
-    x = pd.to_numeric(rows["exploration_efficiency"], errors="coerce").to_numpy(dtype=float)
-    y = pd.to_numeric(rows["level_map_correlation"], errors="coerce").to_numpy(dtype=float)
+    x = pd.to_numeric(rows["level_map_correlation"], errors="coerce").to_numpy(dtype=float)
+    y = pd.to_numeric(rows["exploration_efficiency"], errors="coerce").to_numpy(dtype=float)
     keep = np.isfinite(x) & np.isfinite(y)
     x = x[keep]
     y = y[keep]
@@ -357,14 +374,10 @@ def _render_panel_f(size: tuple[float, float]):
     yfit = intercept + slope * xfit
     ax.plot(xfit, yfit, color=LEVEL_COLOR, linestyle="-", linewidth=1.1 * style_scale, zorder=3)
     if x.size > 2:
-        resid = y - (intercept + slope * x)
-        s_err = np.sqrt(np.sum(resid**2) / max(x.size - 2, 1))
-        x_mean = float(np.mean(x))
-        sxx = float(np.sum((x - x_mean) ** 2))
-        if sxx > 0:
-            se = s_err * np.sqrt(1.0 / x.size + (xfit - x_mean) ** 2 / sxx)
-            ci = 1.96 * se
-            ax.fill_between(xfit, yfit - ci, yfit + ci, color=LEVEL_COLOR, alpha=0.18, linewidth=0, zorder=1)
+        low, high = _animal_bootstrap_association_band(
+            x, y, rows.loc[keep, "animal_id"].astype(str).to_numpy(), xfit
+        )
+        ax.fill_between(xfit, low, high, color=LEVEL_COLOR, alpha=0.18, linewidth=0, zorder=1)
     ax.text(
         0.08,
         0.92,
@@ -386,8 +399,8 @@ def _render_panel_f(size: tuple[float, float]):
         fontsize=7.2 * style_scale,
         color="black",
     )
-    ax.set_xlabel("Exploration efficiency")
-    ax.set_ylabel("Level map correlation")
+    ax.set_xlabel("Level map correlation")
+    ax.set_ylabel("Exploration efficiency")
     ax.set_position([0.18, 0.22, 0.77, 0.72])
     ax.grid(False)
     ax.spines["top"].set_visible(False)
