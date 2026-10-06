@@ -35,11 +35,11 @@ LABEL_FRAMES = {
 
 
 def build_panel_h(renderer, frame):
-    """Keep the two model labels 0.018 data units left of their intervals."""
+    """Centre the four-parameter label above its marker; keep the depth label 0.018 data units left of its interval."""
     fig, tables = panels.build_panel_h(renderer, frame)
     rows = tables['four_vs_depth_gap'].set_index('model_norm')
     specifications = {
-        'Four-policy': ('four_bias', 'Four-\npolicy'),
+        'Four-parameter': ('four_bias', 'Four-parameter'),
         r'Depth $P_{BS}$': ('depth_stratified', r'Depth $\mathrm{P}_{\mathrm{BS}}$'),
     }
     found = set()
@@ -48,13 +48,19 @@ def build_panel_h(renderer, frame):
         if source_text not in specifications:
             continue
         model, display_text = specifications[source_text]
+        label.set_text(display_text)
+        if model == 'four_bias':
+            # One line, centred just above the marker; a wrapped label left of the marker would pass the panel edge.
+            label.set_x(float(rows.loc[model, 'delta_simulated']))
+            label.set_y(1.14)
+            label.set_ha('center')
+            label.set_va('bottom')
+            found.add(model)
+            continue
         interval_left = float(rows.loc[model, 'delta_simulated_ci_low'])
         label_x = interval_left - 0.018
-        label.set_text(display_text)
         label.set_x(label_x)
         label.set_ha('right')
-        if model == 'four_bias':
-            label.set_linespacing(0.9)
         if abs((interval_left - label_x) - 0.018) >= 1e-12:
             raise RuntimeError('Panel-h model-label clearance changed')
         found.add(model)

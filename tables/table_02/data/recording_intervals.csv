@@ -55,5 +55,5 @@ Animal ID,Return month,Previous nominal month,Preceding Day i session,Preceding 
 842,9,6,842-6day1,842-6day2,2025-12-01,842-9day1,2026-03-01,90,True,True,842-6day1->842-9day1,
 862,3,0,862day1,862day2,2025-06-16,862-3day1,2025-09-14,90,True,True,862day1->862-3day1,
 862,6,3,862-3day1,862-3day2,2025-09-15,862-6day1,2025-12-13,89,True,True,862-3day1->862-6day1,
-1616,Short,0,1616day1,1616day2,2022-10-30,1616bday1,2022-11-13,14,False,True,1616day1->1616bday1,"Short return. Behavior included in pooled-return ED Fig. 2b-i; pair included in Fig. 3g,j,m and ED Fig. 9o. Excluded from fixed-month and approximately 3-month summaries."
+1616,Short,0,1616day1,1616day2,2022-10-30,1616bday1,2022-11-13,14,False,True,1616day1->1616bday1,"Short return. Behavior included in pooled-return ED Fig. 2b–i; pair included in Fig. 3g,j,m and ED Fig. 9o. Excluded from fixed-month and approximately 3-month summaries."
 1616,6,Nonstandard,1616bday1,1616bday2,2022-11-14,1616b-3day1,2023-03-04,110,False,True,1616bday1->1616b-3day1,Displayed under the 6-month return; additional calcium interval outside the fixed-month behavior roster. The separate 14-d interval is listed under Other intervals.

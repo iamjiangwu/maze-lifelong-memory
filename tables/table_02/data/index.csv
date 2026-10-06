@@ -1,3 +1,3 @@
 file,format,columns_or_shape,sha256
-publication_notes.json,.json,list: 4 items,f1c0a7dca48bfd8127a8514c8e41b606b29cd3a446e8953b3be14f7bd8a58b96
-recording_intervals.csv,.csv,"columns: Animal ID,Return month,Previous nominal month,Preceding Day i session,Preceding Day i+1 session,Preceding Day i+1 date,Return Day i session,Return Day i date,Interval (d),Fixed-month behavior return roster,Maintained calcium imaging,Pair key,Schedule note",b252a26476802f2e5522bec360d45f8fdb278dd425d3f2dd48ee083e51dc6ca4
+publication_notes.json,.json,list: 4 items,c4f21f3553acada890221cfbb398556ee56506d151df836559ea9318abfb6cff
+recording_intervals.csv,.csv,"columns: Animal ID,Return month,Previous nominal month,Preceding Day i session,Preceding Day i+1 session,Preceding Day i+1 date,Return Day i session,Return Day i date,Interval (d),Fixed-month behavior return roster,Maintained calcium imaging,Pair key,Schedule note",1ef7cc6ca6dfdad7de40eebb0a7bc663610ba284a71c4c69e63f1003bf12088f

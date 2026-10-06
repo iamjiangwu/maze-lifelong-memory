@@ -1148,8 +1148,8 @@ def draw_endnode_timeline_axes(
     xlim=(0, 3600),
     ylim=None,
     xticks=(0, 600, 1200, 1800, 2400, 3000, 3600),
-    ylabel: str | None = "End Nodes",
-    xlabel: str | None = "Time in Maze (s)",
+    ylabel: str | None = "End nodes",
+    xlabel: str | None = "Time in maze (s)",
     display_title: str | None = None,
     endnode_marker: dict | None = None,
 ):
@@ -1268,8 +1268,8 @@ def render_endnode_timeline_grid_panel(
                 xlim=xlim,
                 ylim=ylim,
                 xticks=xticks,
-                ylabel="End Nodes" if col_idx == 0 else None,
-                xlabel="Time in Maze (s)" if row_idx == n_rows - 1 else None,
+                ylabel="End nodes" if col_idx == 0 else None,
+                xlabel="Time in maze (s)" if row_idx == n_rows - 1 else None,
                 display_title=session_spec.get("display_title"),
                 endnode_marker=session_spec.get("endnode_marker", endnode_marker),
             )

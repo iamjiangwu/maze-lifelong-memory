@@ -1155,7 +1155,7 @@ def _draw_calibration(
         ax.set_yticks((0, 0.4, 0.8))
         clean_axes(ax)
     model_title = (
-        "Four-policy model"
+        "Four-parameter model"
         if model == "four_bias"
         else r"Depth-varying $P_{BS}$ model"
     )
@@ -1805,7 +1805,7 @@ def _style_reconstruction_gap(
         rows["model_norm"], ("four_bias", "depth_stratified"), ordered=True
     )
     rows = rows.sort_values("model_norm").reset_index(drop=True)
-    labels = ("Four-policy", r"Depth $P_{BS}$")
+    labels = ("Four-parameter", r"Depth $P_{BS}$")
     for yi, row, label in zip((1, 0), rows.itertuples(index=False), labels):
         value = float(row.delta_simulated)
         ax.text(
