@@ -21,12 +21,12 @@
   },
   {
     "frozen_file": "consecutive_points.csv",
-    "sha256": "fb4fd2654b9d1c6d6cbf982ee54210a060521734ce32add69cb45f173c3fa710",
-    "bytes": 3306240
+    "sha256": "f2ee8ae00c9c6b9032514d7b257959285ec8867ba43987ba7cc79e95c5327876",
+    "bytes": 2597352
   },
   {
     "frozen_file": "consecutive_stats.csv",
-    "sha256": "a3b703198546f25cc3e759bb886c61f208ca2488e7f743cfd4a9fff2a7c07019",
+    "sha256": "074cac70e609dd46e42e2cf3a7216febbed65d01b48e88026f1965fcc3ac76e2",
     "bytes": 739
   },
   {
