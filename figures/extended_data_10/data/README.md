@@ -25,7 +25,7 @@ Thus higher decoder and earlier-bout readouts indicate better decoding and earli
 
 Panel a displays absolute Pearson r, but its stars test slopes with standard errors clustered by animal and BH3 over the three behaviors in each neural row. Panel b's `unique_a`, `shared`, `unique_b` partition R² for reward decoding and level maps; these bars are not the profile tests. The profile estimands are reward-minus-level association for earlier first long bout, reward-minus-level association for exploration, and the difference between those two contrasts. Their exact animal-score sign-flip p values form BH3.
 
-Panel-a regressions use behavior as response and the neural measure as predictor. The level × exploration cell uses the 30-pair common-support cohort. [Figure 5e](../../figure_05/data/README.md) instead uses 36 pairs, reverses response/predictor and reports a nominal p value; its fit is not the same test with correction removed.
+Panel-a regressions use behavior as response and the neural measure as predictor. The level × exploration cell uses the 30-pair common-support cohort. [Figure 5e](../../figure_05/data/README.md) uses the same response and predictor in 36 pairs and reports a nominal p value; because the cohorts differ, its fit is not the same test with correction removed.
 
 In panel c, `Bf`, `Ba`, `Lf`, `Lo_depth_weighted` correspond to P_SF, P_SA, P_BF and depth-weighted P_BS; they are probabilities, not separate behavioral windows. `policy_supported` records eligibility. See [statistical definitions](../../../docs/STATISTICS.md) for the correction families.
 

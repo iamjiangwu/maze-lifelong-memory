@@ -13,11 +13,11 @@ The package includes derived observations, plotted summaries, example maps and s
 
 Each data folder contains the inputs for the panels and statistics. Correction families may span main and Extended Data panels; see the [statistics guide](STATISTICS.md). The launcher maps these files to the relative names expected by the rendering code.
 
-Animal/session IDs identify the observations. In column names, `policy` refers to junction turning biases, `lb0` to first long bout time, and `rate` to ensemble rate measurements. Correlations between session representations and associations with behavior are different analyses; similar column names do not establish the statistical unit or correction family.
+Animal/session IDs identify the observations. Session IDs beginning with 1616b belong to mouse 1616's second series, which began 14 days after 1616day1. In column names, `policy` refers to junction turning biases, `lb0` to first long bout time, and `rate` to ensemble rate measurements. Correlations between session representations and associations with behavior are different analyses; similar column names do not establish the statistical unit or correction family.
 
 Each `data/README.md` identifies panel inputs and the observation unit. CSV empty numeric cells and numerical `NaN` values denote unavailable or undefined values, not zero. Explicit support/inclusion columns determine which observations enter each plot or test; do not replace excluded values with zero or treat every row as eligible. `n_pairs`, `n_animals` and neuron/bin counts are different denominators. Correlations, probabilities and efficiency ratios are dimensionless; time, distance and speed units are specified in the local guide or column name.
 
-Session identifiers and selection hashes record provenance. Within one observation table, preserve animal identifiers when recalculating tests with standard errors clustered by animal. Numeric `q_*` columns store adjusted p values; columns ending `_family`, such as `q_bh4_family`, can instead contain the family's text identifier. The [statistics guide](STATISTICS.md) identifies the reported tests and families.
+Session identifiers record provenance. Within one observation table, preserve animal identifiers when recalculating tests with standard errors clustered by animal. Numeric `q_*` columns store adjusted p values; columns ending `_family`, such as `q_bh4_family`, can instead contain the family's text identifier. The [statistics guide](STATISTICS.md) identifies the reported tests and families.
 
 ## Source labels
 

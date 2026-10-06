@@ -3,31 +3,31 @@
   "files": [
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv",
-      "sha256": "c803bc76af8b8fbfa0d90e893a1123c9a2fe1fb790a9de8a31a71a0094132a52"
+      "sha256": "72ece8027b747cda66a986321fcb6de02b3c3ddbbc25f34d94f79a33b221945c"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/REWARD_LEVEL_COMMONALITY.csv",
-      "sha256": "4fb74583b126754ad78f2ae41e912024d518beeb21c5b8f58f28246688f3e8ec"
+      "sha256": "ad00e885bf3cee9a3d7f824650dd3a0a18fe9255edc11f2237fecd51c8e5e3e5"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/REWARD_LEVEL_PROFILE_TESTS.csv",
-      "sha256": "ca30de4b08d838b1bcef8f594d4e7f71991ecdfb1b0108008176e2aa0289f66f"
+      "sha256": "036569f85c6196cc65b6c7e8617bb6c348a759e073af66975c8ab06eadddeb93"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv",
-      "sha256": "9b06721c532308c48045b35a06fa14d0cda9ae511bc40324855e957a252c3664"
+      "sha256": "77a87d6ead7f9847f66c9ab635846219c71d9f5e66431dc68331ce41c86b82b6"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/level_policy_bridge_join_corrected36.csv",
-      "sha256": "56457a842be09afa19edd90dfaeabf5df2c2ab63ea97dcbc45d8380e94f81ba3"
+      "sha256": "7654dcdfc61914069a2d2fc0e730e6d51e1bc86b2616cb1ac111c6faaf5ff11a"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/level_policy_bridge_stats_corrected36.csv",
-      "sha256": "299f487a50fc30fc18f907ae8b526213ea61a3d0a75d61af0ec5b24415dcef3d"
+      "sha256": "9873350e277b1fb8852a05212f418124fdf0c732f820fec5f15509bc7ddb1338"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/render_ed10_slide12_powerpoint_matched.py",
-      "sha256": "a0a74a54fd0a0164af564cd27b4ab37a346505dfa463da7ce5c7e59605c5dd6e"
+      "sha256": "a423f2623fa67511f430904681d1487dd5a3964aa5d44f70d7cfbfed9b029b9b"
     },
     {
       "path": "source_code/rebuild_current_extended_data_figures.py",

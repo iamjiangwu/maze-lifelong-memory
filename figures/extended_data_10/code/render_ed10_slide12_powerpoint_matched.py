@@ -568,32 +568,44 @@ def add_collision_aware_r_label(
     ax: plt.Axes, x: np.ndarray, y: np.ndarray, pearson_r: float, column: str
 ) -> mpl.text.Text:
     candidates = [(0.94, 0.08), (0.94, 0.16), (0.82, 0.08), (0.82, 0.16), (0.94, 0.24)]
-    points_px = ax.transData.transform(np.column_stack([x, y]))
     marker_radius_px = (np.sqrt(10.0) / 2.0) * ax.figure.dpi / 72.0
     best: tuple[float, mpl.text.Text] | None = None
-    for x_axes, y_axes in candidates:
-        label = ax.text(
-            x_axes,
-            y_axes,
-            f"r={pearson_r:.2f}",
-            transform=ax.transAxes,
-            ha="right",
-            va="bottom",
-            fontsize=7.2,
-            color="black",
-            zorder=5,
-        )
-        label.set_gid(f"policy_pearson_r_{column}")
-        ax.figure.canvas.draw()
-        bbox = label.get_window_extent(ax.figure.canvas.get_renderer())
-        clearance = _point_to_bbox_clearance_px(points_px, bbox, marker_radius_px)
-        if best is None or clearance > best[0]:
-            if best is not None:
-                best[1].remove()
-            best = (clearance, label)
-        else:
-            label.remove()
-        if clearance >= 2.0:
+    # When no lower-right candidate clears the points by 2 px, lower the y-axis floor
+    # in 5% steps and retry the same candidates. Data that clear on the first pass
+    # render exactly as before.
+    floor_extensions = 0
+    for floor_extensions in range(7):
+        if floor_extensions:
+            best[1].remove()
+            best = None
+            bottom, top = ax.get_ylim()
+            ax.set_ylim(bottom - 0.05 * (top - bottom), top)
+        points_px = ax.transData.transform(np.column_stack([x, y]))
+        for x_axes, y_axes in candidates:
+            label = ax.text(
+                x_axes,
+                y_axes,
+                f"r={pearson_r:.2f}",
+                transform=ax.transAxes,
+                ha="right",
+                va="bottom",
+                fontsize=7.2,
+                color="black",
+                zorder=5,
+            )
+            label.set_gid(f"policy_pearson_r_{column}")
+            ax.figure.canvas.draw()
+            bbox = label.get_window_extent(ax.figure.canvas.get_renderer())
+            clearance = _point_to_bbox_clearance_px(points_px, bbox, marker_radius_px)
+            if best is None or clearance > best[0]:
+                if best is not None:
+                    best[1].remove()
+                best = (clearance, label)
+            else:
+                label.remove()
+            if clearance >= 2.0:
+                break
+        if best is not None and best[0] >= 2.0:
             break
     if best is None or best[0] < 2.0:
         raise AssertionError(
@@ -601,6 +613,22 @@ def add_collision_aware_r_label(
             f"best clearance={None if best is None else best[0]:.3f}px"
         )
     best[1]._ed10_point_clearance_px = best[0]
+    best[1]._ed10_floor_extensions = floor_extensions
+    if floor_extensions:
+        # A lower floor moves every point; refresh the recorded clearance of
+        # the upper-left significance annotation and fail closed if too close.
+        ax.figure.canvas.draw()
+        points_px = ax.transData.transform(np.column_stack([x, y]))
+        for text in ax.texts:
+            if str(text.get_gid() or "").startswith("policy_significance_"):
+                clearance = _point_to_bbox_clearance_px(
+                    points_px, text.get_window_extent(ax.figure.canvas.get_renderer()), marker_radius_px
+                )
+                if clearance < 2.0:
+                    raise AssertionError(
+                        f"Lowered floor brings points within 2 px of the annotation for {column}: {clearance:.3f}px"
+                    )
+                text._ed10_point_clearance_px = clearance
     return best[1]
 
 
@@ -1145,8 +1173,8 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         validate="one_to_one",
     )
     if not (
-        int(multiplicity_audit["cr1_nominal_star"].ne("").sum()) == 14
-        and int(multiplicity_audit["cr1_bh3_star"].ne("").sum()) == 12
+        int(multiplicity_audit["cr1_nominal_star"].ne("").sum()) == 13
+        and int(multiplicity_audit["cr1_bh3_star"].ne("").sum()) == 13
     ):
         raise AssertionError("ED10 panel-a Pearson/CR1/BH significance counts drifted")
     if len(c) != 36 or c["pair_key"].nunique() != 36 or c["animal_id"].nunique() != 14:
@@ -1210,7 +1238,7 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
                     "mouse_cr1_neural_row_bh3": {
                         "number_of_families": 6,
                         "tests_per_family": 3,
-                        "significant_cells": 12,
+                        "significant_cells": 13,
                         "changed_from_nominal_cr1": cr1_bh3_changed[
                             [
                                 "block_label",
@@ -1317,7 +1345,7 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         bh3_cr1_stars = audit["panel_a_star_contract"]
         if not (
             [row["text"] for row in bh3_cr1_stars]
-            == ["*", "*", "*", "**", "**", "**", "**", "**", "***", "*", "***", "*"]
+            == ["**", "*", "*", "**", "**", "*", "**", "***", "*", "***", "*", "*", "*"]
             and all(row["color"] == "#000000" for row in bh3_cr1_stars)
             and all(row["fontweight"] == "bold" for row in bh3_cr1_stars)
             and all(float(row["horizontal_clearance_from_r_px"]) >= 2.0 for row in bh3_cr1_stars)
@@ -1381,7 +1409,7 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
             "panel_a_neural_measure_labels_all_black": True,
             "panel_a_neural_measure_labels_all_normal_weight": True,
             "panel_a_18_correlation_values_all_black_normal_weight": True,
-            "panel_a_12_mouse_cr1_bh3_stars_upper_right_of_r": True,
+            "panel_a_13_mouse_cr1_bh3_stars_upper_right_of_r": True,
             "panel_a_cr1_covariance_clustered_by_mouse": True,
             "panel_a_cr1_nominal_and_bh3_exported": True,
             "panel_a_uses_elapsed_first_long_bout_time": True,

@@ -183,7 +183,6 @@ def _export_svg_bundle(source_svg: Path, output_stem: Path) -> list[Path]:
         str(_find_chrome()),
         "--headless=new",
         "--disable-gpu",
-        "--no-sandbox",
         "--disable-software-rasterizer",
         "--print-to-pdf-no-header",
         f"--print-to-pdf={pdf}",

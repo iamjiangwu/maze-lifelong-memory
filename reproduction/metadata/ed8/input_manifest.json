@@ -2,39 +2,39 @@
   "files": [
     {
       "frozen": "source_data/signal_comparison_primary_pairs.csv",
-      "sha256": "dd933a207fbfefd858ca3b4e7062085fe0cbef27cf878ae40b49b940044c8da8"
+      "sha256": "bb47489ab67e684e4e4d03d1789a988a3be53898a5e7aaffaf3ff57dd013dd1a"
     },
     {
       "frozen": "source_data/signal_comparison_primary_numbers.csv",
-      "sha256": "dc12120998b7f24a0db3e4c7611057f8a1eb6851cabf5aca343a351a73045cd5"
+      "sha256": "f28e7906117c930b809b50fe5e0c806a4eed7749eb939dfc121ef1c9935d41ea"
     },
     {
       "frozen": "source_data/replication_day2_pairs.csv",
-      "sha256": "ef58ba1c7e8ff56945da6e37521daa37029e9444d85a2661fdd73870dc6388c1"
+      "sha256": "224990e26c1e8eb3742421e361d087b5330b8c8419726c31f1770075721eeafd"
     },
     {
       "frozen": "source_data/replication_day2_numbers.csv",
-      "sha256": "1444d100b4b3caac080a6ec5505918c0141b22ad2ee27d4b3a90c5a3c934e51a"
+      "sha256": "af5cefa9b3e52fe6291b32c0cca47e9eafac18afbf4ead95d35c5bcfd99f6bc9"
     },
     {
       "frozen": "source_data/strength_checks_profiles.csv",
-      "sha256": "e62b6c6d3c4b3be95fa7f14c77a1446b6c6e3a72e5e1c8ccc6431b0e8ab1570d"
+      "sha256": "dc5bd5d609be718d062d6c84c1d4b0dbc13a5baf8dbaa8915725b2d37c053355"
     },
     {
       "frozen": "source_data/strength_checks_numbers.csv",
-      "sha256": "a3efc1b1adce55357741af816ad40a0e96fc4a2a05f08c252fc262ed05b1d1ec"
+      "sha256": "90b5f9d10a95de90d372a6079d01fb8f847ee1e853524dec539e9d67bd0d8baa"
     },
     {
       "frozen": "source_data/candidate_paired_display_summary.csv",
-      "sha256": "6587848317a0665e89848d4e1f33208d62694f1ee11880ecf5073a36980be9e2"
+      "sha256": "e4cf6cade7b56df258eb327eeb49548bc03d3b32ccddcd7ce443908031d789d3"
     },
     {
       "frozen": "source_data/accepted_h.csv",
-      "sha256": "5e019a01bb7efb1e1f42b2fdbeca82cf837d31ac26cbe8422f1acc16bfc32d3c"
+      "sha256": "3a3df4ee9b57434f2388721392ecd6437f9b970245195b34be10f71226f5ec20"
     },
     {
       "frozen": "source_data/accepted_c.csv",
-      "sha256": "f27a31ef3ae5beb8955dc125d5584afe1e73967e7dde7abe11408218302c7ef1"
+      "sha256": "33ea69c5ea74cc6fb2fcd3a3847e26d3f5c436f65dfba39b4b3af2475b2db629"
     },
     {
       "frozen": "source_data/accepted_routes.csv",
@@ -42,11 +42,11 @@
     },
     {
       "frozen": "source_data/accepted_stats.csv",
-      "sha256": "aad7e79d2f8306bb177d23b0a3f9aae120c7559224c9552b5cea0b6961975ef9"
+      "sha256": "52fc098e9567d6d8becb47734fe91a10f37ef037c6146eaedf0b1961a640dc84"
     },
     {
       "frozen": "source_data/accepted_b.csv",
-      "sha256": "625176e275686adde6aa7f51e5c7d728a9f3fb0eab449afb6dba197692000acc"
+      "sha256": "b315bda7c9268ad19c83b59721eb0f9f1638b86d31ede55bb23d04af6bb08584"
     },
     {
       "frozen": "source_data/accepted_maze_wall.csv",

@@ -13,9 +13,9 @@ The upper panels test age associations in three early-alignment measures—place
 
 The fitted models weight the included observations equally and use standard errors clustered by animal; they do not first average all of an animal's pairs into one point. `age_control_included`, exclusions and model specification fields record eligibility.
 
-The fourth lower-family member, the level-map age association, is tabulated in `long_gap_age_transition_fixed_models.csv` but not plotted in ED7: slope −0.00113 per 30 days, raw p = 0.883, BH4-adjusted p = 0.883. It remains in BH4; the ensemble-rate adjusted p is 0.066. This differs from Figure 3/ED9n's early-alignment **experience** family, which includes level maps; age and experience tests are not interchangeable.
+The fourth lower-family member, the level-map age association, is tabulated in `long_gap_age_transition_fixed_models.csv` but not plotted in ED7: slope −0.00102 per 30 days, raw p = 0.894, BH4-adjusted p = 0.894. It remains in BH4; the ensemble-rate adjusted p is 0.092. This differs from Figure 3/ED9n's early-alignment **experience** family, which includes level maps; age and experience tests are not interchangeable.
 
-`source_bundles` identifies sorted-neuron cohorts or original-neuron naïve fallbacks. The renderer checks the fallback labels against Figure 3's shared first-30-minute observations. See [source-label definitions](../../../docs/DATA.md#source-labels).
+`source_bundles` identifies sorted-neuron cohorts or original-neuron naïve fallbacks; it is a label for readers, not a renderer input. See [source-label definitions](../../../docs/DATA.md#source-labels).
 
 | File | Format |
 |---|---|

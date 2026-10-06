@@ -1,4 +1,7 @@
-"""Render the current source-backed S1 workbook as a one-page publication table."""
+"""Render the current source-backed S1 workbook as a publication table of one or two pages.
+
+Rows that share a merged mouse list stay on one page; the header repeats on the second page and the footnote
+follows the table."""
 import argparse
 import hashlib
 import json
@@ -10,7 +13,7 @@ from openpyxl import load_workbook
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, landscape
 from reportlab.lib.styles import ParagraphStyle
-from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -52,11 +55,17 @@ def main():
         if bold_first and lines:
             lines[0] = '<b>' + lines[0] + '</b>'
         return Paragraph('<br/>'.join(lines), style)
-    data = [[paragraph(v, header) for v in source['headers']]]
-    data += [[paragraph(v, [body, body, mice, body][c], c == 2) for c, v in enumerate(row)] for row in rows]
+    note_style = ParagraphStyle('Footnote', parent=body, fontName='Helvetica-Oblique')
+    body_rows = [[paragraph(v, [body, body, mice, body][c], c == 2) for c, v in enumerate(row)] for row in rows]
+    spans = {m.min_row - 4: m.max_row - 4 for m in merges if m.min_col == 3}
+    groups, first = [], 0
+    while first < len(body_rows):
+        last = spans.get(first, first)
+        groups.append((first, last))
+        first = last + 1
     available = page[0] - 42
-    table = Table(data, colWidths=[152, 123, 172, available - 447], hAlign='LEFT', repeatRows=1)
-    style = TableStyle([
+    widths = [152, 123, 172, available - 447]
+    base = [
         ('BACKGROUND', (0,0),(-1,0), colors.HexColor('#E4E4E4')),
         ('VALIGN',(0,0),(-1,-1),'TOP'),
         ('LEFTPADDING',(0,0),(-1,-1),3),('RIGHTPADDING',(0,0),(-1,-1),3),
@@ -64,23 +73,53 @@ def main():
         ('GRID',(0,0),(-1,-1),0.22,colors.HexColor('#C8C8C8')),
         ('BOX',(0,0),(-1,-1),0.55,colors.HexColor('#444444')),
         ('LINEBELOW',(0,0),(-1,0),0.55,colors.HexColor('#444444')),
-    ])
-    for merged in merges:
-        start=(merged.min_col-1, merged.min_row-3)
-        end=(merged.max_col-1, merged.max_row-3)
-        style.add('SPAN',start,end)
-        if merged.min_col == 3:
-            style.add('VALIGN',start,end,'MIDDLE')
-    table.setStyle(style)
-    width, height = table.wrap(available, page[1]-70)
-    assert height <= page[1]-85, f'Table too tall: {height:.1f} pt'
-    doc.build([paragraph(source['title'],title_style),Spacer(1,6),table])
+    ]
+    def make(first, last):
+        data = [[paragraph(v, header) for v in source['headers']]] + body_rows[first:last + 1]
+        table = Table(data, colWidths=widths, hAlign='LEFT')
+        style = TableStyle(base)
+        for start, end in spans.items():
+            if first <= start and end <= last:
+                style.add('SPAN', (2, start - first + 1), (2, end - first + 1))
+                style.add('VALIGN', (2, start - first + 1), (2, end - first + 1), 'MIDDLE')
+        table.setStyle(style)
+        return table
+    footnote = paragraph(source.get('footnote', ''), note_style) if source.get('footnote') else None
+    title_height = paragraph(source['title'], title_style).wrap(available, page[1])[1] + 6
+    frame_height = page[1] - 46 - 12
+    footnote_height = footnote.wrap(available, page[1])[1] + 6 if footnote else 0
+    pages, current = [], []
+    for group in groups:
+        trial = current + [group]
+        height = make(trial[0][0], trial[-1][1]).wrap(available, page[1])[1]
+        if current and height > frame_height - title_height:
+            pages.append(current)
+            current = [group]
+        else:
+            current = trial
+    pages.append(current)
+    heights = [make(p[0][0], p[-1][1]).wrap(available, page[1])[1] for p in pages]
+    assert all(h <= frame_height - title_height for h in heights), f'Table too tall: {heights}'
+    if footnote and heights[-1] + footnote_height > frame_height - title_height:
+        raise AssertionError('Footnote does not fit below the last table page')
+    story = []
+    for number, groups_on_page in enumerate(pages):
+        heading = source['title'] if number == 0 else source['title'] + ' (continued)'
+        story += [paragraph(heading, title_style), Spacer(1, 6), make(groups_on_page[0][0], groups_on_page[-1][1])]
+        if number < len(pages) - 1:
+            story.append(PageBreak())
+    if footnote:
+        story += [Spacer(1, 6), footnote]
+    doc.build(story)
+    height = heights
     document=fitz.open(pdf)
-    assert len(document)==1, 'S1 must remain one page'
-    document[0].get_pixmap(matrix=fitz.Matrix(2.5,2.5)).save(output/'Supplementary_Table_S1_publication.png')
-    text=document[0].get_text()
+    assert 1 <= len(document) <= 2 and len(document) == len(pages), 'S1 must fit one or two pages'
+    for number in range(len(document)):
+        name = 'Supplementary_Table_S1_publication.png' if number == 0 else f'Supplementary_Table_S1_publication_page{number + 1}.png'
+        document[number].get_pixmap(matrix=fitz.Matrix(2.5,2.5)).save(output/name)
+    text=''.join(page.get_text() for page in document)
     (output/'publication_text.txt').write_text(text,encoding='utf-8')
-    validation={'status':'PASS_PENDING_VISUAL_QA','rows':count,'source_cell_checks':len(checks),'pages':1,'table_height_pt':height,'body_font_pt':6.8,'pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'workbook_sha256':hashlib.sha256(source_xlsx.read_bytes()).hexdigest()}
+    validation={'status':'PASS_PENDING_VISUAL_QA','rows':count,'source_cell_checks':len(checks),'pages':len(document),'table_height_pt':height,'body_font_pt':6.8,'pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'workbook_sha256':hashlib.sha256(source_xlsx.read_bytes()).hexdigest()}
     (output/'PDF_BUILD_VALIDATION.json').write_text(json.dumps(validation,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(validation,indent=2))
 

@@ -444,7 +444,11 @@ def build(inputs: Path, output: Path):
 
     ax.plot(shift.distance, shift.observed_fraction_shifted, color=LEVEL, marker="o", ms=3, lw=1.1, label="Observed")
 
-    ax.errorbar(shift.distance, shift.null_mean_fraction_shifted, yerr=shift.null_sd_fraction_shifted, color=GRAY, marker="o", mfc="white", mec=GRAY, ms=2.7, lw=.9, ls="--", capsize=1.4, label="ID null")
+    # Error bar = (97.5th - 2.5th percentile of the permutation fractions) / 3.92.
+
+    shift_error=(shift.null_ci95_high_fraction_shifted-shift.null_ci95_low_fraction_shifted)/3.92
+
+    ax.errorbar(shift.distance, shift.null_mean_fraction_shifted, yerr=shift_error, color=GRAY, marker="o", mfc="white", mec=GRAY, ms=2.7, lw=.9, ls="--", capsize=1.4, label="ID null")
 
     ax.set(xticks=range(1,7), xlabel="Level shift distance", ylabel="Fraction of shifted cells", ylim=(.04,.365))
 
@@ -620,8 +624,7 @@ def build(inputs: Path, output: Path):
 
     consecutive=read("consecutive_points.csv").query("metric == 'level_map_correlation'").reset_index(drop=True)
 
-    # The final source contains only rewarded session chains, for both the
-    # point cloud and trend. No upstream cohort-selection table is needed.
+    # The trend uses every chain, as does the panel l statistic.
     fit=consecutive
 
     ax.scatter(consecutive.prev_gap_correlation,consecutive.next_gap_correlation,s=4,color=LEVEL,alpha=.035,edgecolors="none",rasterized=True)

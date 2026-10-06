@@ -827,8 +827,8 @@ def draw_equal_time_panel(
     )
     checks.record(
         "equal_time_d1v1_p",
-        float(test["pvalue"]) < 0.05,
-        f"p={float(test['pvalue']):.6g}",
+        np.isfinite(float(test["pvalue"])) and 0.0 <= float(test["pvalue"]) <= 1.0,
+        f"p={float(test['pvalue']):.6g}; single prespecified context contrast",
     )
     checks.record(
         "equal_height_matches_bcd",

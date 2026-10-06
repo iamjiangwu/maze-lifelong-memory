@@ -254,8 +254,8 @@ def main2(root: Path,audit: Audit):
                   unit="equal pair means; supplied 10,000 technical null draws; one-sided plus-one Monte Carlo",family="none",
                   note="Place/PV null arrays are frozen float32, so their descriptive moments use 5e-8 absolute tolerance. Monte Carlo p-values are exact.")
     s=root/"main_figure_2/source/statistical_inputs"
-    same=read(s/"same_stage_correlations.csv");same=same.loc[~truth(same.descriptive_only)&same.experience_index.isin([0,1,2,3])]
-    sh=read(s/"same_stage_shuffle.csv");sh=sh.loc[~truth(sh.descriptive_only)&sh.experience_index.isin([0,1,2,3])]
+    same=read(s/"same_stage_correlations.csv");same=same.loc[~truth(same.descriptive_only)&same.experience_index.isin([0,1,2,3,4])]
+    sh=read(s/"same_stage_shuffle.csv");sh=sh.loc[~truth(sh.descriptive_only)&sh.experience_index.isin([0,1,2,3,4])]
     long=read(s/"long_gap_pair_rows.csv")
     curve=read(p/"gap_curve/gap_with_day1_day2_curve_data.csv")
     rows=[]
@@ -367,9 +367,9 @@ def main5(root: Path,audit: Audit):
     p=root/"main_figure_5/source/source_data/figure5_bundle"
     points=read(p/"level_map_vs_exploration_efficiency_primary_clean_rows.csv")
     saved=json.loads((p/"level_map_vs_exploration_efficiency_primary_clean_stats.json").read_text())
-    # Preserve the estimator direction from the saved producer: neural level
-    # correlation as response, exploration efficiency as predictor.
-    row=regression(points,"exploration_efficiency","level_map_correlation","animal_id")
+    # Neural level stability across the gap predicts exploration efficiency in the
+    # later session (response: exploration efficiency; predictor: level map correlation).
+    row=regression(points,"level_map_correlation","exploration_efficiency","animal_id")
     result=pd.DataFrame([dict(analysis="level_exploration",cluster_ols_slope=row["slope"],cluster_ols_se=row["slope_se"],cluster_ols_t=row["slope_t"],
                              cluster_ols_df=row["df"],cluster_ols_p=row["p_two_sided"],ols_intercept=row["intercept"],pearson_r=row["pearson_r"],
                              n_pairs=row["n_rows"],n_animals=row["n_animals"])])
@@ -392,20 +392,22 @@ def ed1(root: Path,audit: Audit):
     rows=[]
     for row in saved.itertuples():
         sub=points.loc[points.endpoint_key.eq(row.endpoint_key)&points.group_key.isin([row.group_a,row.group_b])].copy()
-        v=pd.to_numeric(sub[row.axis_key],errors="coerce");sub=sub.loc[np.isfinite(v)&v.ge(0)].copy()
-        y=np.log1p(sub[row.axis_key].to_numpy(float));b=sub.group_key.eq(row.group_b).to_numpy(float)
+        v=pd.to_numeric(sub[row.axis_key],errors="coerce");sub=sub.loc[np.isfinite(v)].copy()
+        if (sub[row.axis_key] <= 0).any():
+            raise ValueError("ED1 natural-log outcomes must be positive")
+        y=np.log(sub[row.axis_key].to_numpy(float));b=sub.group_key.eq(row.group_b).to_numpy(float)
         c=contrast(fit(y,np.column_stack([np.ones(len(y)),b]),sub.animal_id),[0,1])
         avalues=sub.loc[sub.group_key.eq(row.group_a),row.axis_key];bvalues=sub.loc[sub.group_key.eq(row.group_b),row.axis_key]
         rows.append(dict(endpoint_key=row.endpoint_key,axis_key=row.axis_key,group_a=row.group_a,group_b=row.group_b,
                          n_sessions_group_a=len(avalues),n_sessions_group_b=len(bvalues),n_sessions=c["n_rows"],n_mice=c["n_animals"],
                          mean_group_a=avalues.mean(),mean_group_b=bvalues.mean(),raw_mean_diff_group_b_minus_a=bvalues.mean()-avalues.mean(),
-                         coef_log1p_group_b_minus_a=c["estimate"],effect_ratio_plus_one=np.exp(c["estimate"]),cluster_t=c["t"],cluster_p_two_sided=c["p"],cluster_df=c["df"]))
+                         coef_log_group_b_minus_a=c["estimate"],geometric_mean_ratio_group_b_over_a=np.exp(c["estimate"]),cluster_t=c["t"],cluster_p_two_sided=c["p"],cluster_df=c["df"]))
     result=pd.DataFrame(rows)
     if len(result)!=18:
         raise AssertionError("ED1 acquisition family must contain 18 displayed time/tile contrasts")
     result["p_bh18"]=bh(result.cluster_p_two_sided)
     audit.compare("ed1_endpoint_bh18",result,saved,["endpoint_key","axis_key","group_a","group_b"],list(result.columns[4:]),
-                  unit="eligible session rows, log1p outcomes, standard errors clustered by animal",family="18 displayed endpoint×time/tile-axis×group contrasts BH18")
+                  unit="eligible session rows, natural-log outcomes, standard errors clustered by animal",family="18 displayed endpoint×time/tile-axis×group contrasts BH18")
     points=read(p/"ed02_tile_time_loglog_rows_current153.csv");points=points.loc[truth(points.included_in_loglog_model)]
     row=regression(points,"log_elapsed_time_s","log_tile_transitions","animal_id")
     result=pd.DataFrame([dict(analysis="tile_time",intercept_log_scale=row["intercept"],slope_loglog=row["slope"],cluster_se=row["slope_se"],t_cluster=row["slope_t"],

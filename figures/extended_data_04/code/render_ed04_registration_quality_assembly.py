@@ -656,7 +656,7 @@ def build(output_dir: Path) -> dict[str, Any]:
         (
             "deviation_figure2_cross_check_not_applied",
             "the Main Figure 2 similarity cross-check and activity gate are not applied; "
-            "they re-derive the 21,412 -> 16,901 denominator, which the Methods describe "
+            "they re-derive the 21,412 -> 16,902 denominator, which the Methods describe "
             "and which is unrelated to matching quality",
         ),
     ):

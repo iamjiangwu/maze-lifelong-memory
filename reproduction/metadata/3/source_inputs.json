@@ -2,35 +2,35 @@
   "files": [
     {
       "path": "frozen_source/source_code/figure_panels.py",
-      "sha256": "0ce5bfcac7206015313a079731be0db6c11ac02bc70d358dd52656eaeef5f8cd"
+      "sha256": "5d8a6d2708a21530f22560a0173c1bc7ba1e1c01f22a26c0d6f5b74b380e019a"
     },
     {
       "path": "frozen_source/source_code/render_main_figs_v3_publication.py",
-      "sha256": "a47925328af6a78069af8322eb32087ce2436320ad67d4942d858cef04719dda"
+      "sha256": "e9feececd2991c604d97b4abc0691e6179304f701c560d31a36ccb67a0a63779"
     },
     {
       "path": "frozen_source/source_data/example/451-3day1_to_451-6day1__row0161_A190_B267.npz",
-      "sha256": "4a390d5ab6638d94e6eb3c602fa044ea1fed12381f7ef6950d38730eda0f045e"
+      "sha256": "e14d673f0b36a90098ea32f61dfc74f5fb57eab4666ec951b0f8322875190b33"
     },
     {
       "path": "frozen_source/source_data/first30/combined_first30_points_all_metrics.csv",
-      "sha256": "4f9848193d758e65fd11c7a2fb1b82574fad010a4096b86af30a16095294bdb9"
+      "sha256": "051c3c811d7cb0ccdafab04347cf0acbae822bfc308956f9cf08c7f77744913f"
     },
     {
       "path": "frozen_source/source_data/first30/combined_first30_stats_all_metrics.csv",
-      "sha256": "0692c1c6160771663ff6bcbf2f735238b757ab35d6cec9a549102b205f32da3f"
+      "sha256": "42d1d7e20651d5554ecd719a80032104227d2a8cd4097a494ab787fad6a2b80f"
     },
     {
       "path": "frozen_source/source_data/first30/day2_template_group_curve_summary.csv",
-      "sha256": "9b47eb8eb4f4c941ef3ceeab5ae620e14889e691dfd7f463a81bf59dee7f3eda"
+      "sha256": "2e9e6d2b499e41c18fe481e2a1a8f3572eae5f6d28b0d38af277096b7f5e5307"
     },
     {
       "path": "frozen_source/source_data/long_gap/main3_experience_trend_clustered_stats_no_manual_mask.csv",
-      "sha256": "c5845767f7cc2c98199ca99d4813e50e1458d9ccaf5375eb460766dc32686683"
+      "sha256": "cf45072408ec48b8e3409d05e7cb16e01915eed14251d0310a2abb459512fed9"
     },
     {
       "path": "frozen_source/source_data/long_gap/main3_experience_trend_points_no_manual_mask.csv",
-      "sha256": "0211b82ebe7ef0e5e99523f12e7c159fbb81b6aec84390bb5acf5d1269f219dd"
+      "sha256": "019eee390762b3485faf18c4aceabb0b002a4e4ee045a648789914ba276ccff5"
     },
     {
       "path": "frozen_source/source_data/support/ed07_current59_curve_support_mask.csv",
@@ -38,7 +38,7 @@
     },
     {
       "path": "source_code/rebuild_current_main_figures.py",
-      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40"
+      "sha256": "eb4b4a842107cf7fe48d271d71c20d1dc5209fa52daf2ff191086eaa8072ceff"
     }
   ]
 }

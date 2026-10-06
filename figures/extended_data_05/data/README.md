@@ -12,6 +12,10 @@ Day codes `d1–d1`, `d1–d2`, `d2–d1`, `d2–d2` mean Day i/i+90, i/i+91, i+
 
 The three pair tables use `place_map_mean_all`, `data_mean` and `pearson_raw_r` for place-map, PV and ensemble-rate correlation, respectively. Session and animal identifiers link the four day combinations.
 
+The ensemble-rate correlation uses the primary ensemble-rate population. It retains registered neurons with finite mean calcium activity in both sessions, including neurons silent on one visit, and excludes neurons silent on both; no deconvolved-activity rate gate is applied. Place-map and PV comparisons keep their deconvolved-activity selection.
+
+The panel e comparison of maze and outside activity starts from the same registered neurons, with finite calcium means and exclusion only of neurons silent in both visits. All 21,412 registered pair-neuron observations have finite activity and none is silent in both visits, so the retained population is the same for the outside vector and all 20 matched-count maze draws. `neuron_population`, `outside_used`, `maze_used_min`, `maze_used_max`, `outside_both_zero` and `outside_one_session_zero` in the pair-row table record this population. Frame selection, draw seeds, the 36 session pairs and the 14 animal clusters define the comparison.
+
 Panels b–d equally weight session-pair values for cohort means. Confidence intervals use standard errors clustered by animal; the three contrasts within each metric use exact sign-flips with every pair of an animal flipped together, then BH3. Their plotted p values are `p_bh3_within_metric_exact_cluster_signflip`, not the separately recorded regression p values. `feasible` and frame counts describe equal-sampling support in panel e; only the displayed day combination enters its test.
 
 | File | Format |

@@ -366,7 +366,7 @@ def write_outputs(
         "excluded mouse 1616's 14-d interval",
         "56 intervals from 17 mice",
         "36 long-gap intervals",
-        "Extended Data Fig. 2b-i",
+        "Extended Data Fig. 2b–i",
         "Other intervals",
     ]
     svg_text = paths["svg"].read_text(encoding="utf-8")

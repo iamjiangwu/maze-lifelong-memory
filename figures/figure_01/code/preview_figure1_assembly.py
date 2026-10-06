@@ -395,7 +395,7 @@ def _render_panel_exploration(size: tuple[float, float]):
             "yticks": None,
         },
         labels={
-            "xlabel": "Exploration Efficiency",
+            "xlabel": "Exploration efficiency",
             "ylabel": "Fraction of sessions",
             "group_labels": {
                 "Naive D1 (rewarded)": "Naive day",

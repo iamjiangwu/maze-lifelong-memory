@@ -133,8 +133,16 @@ def route_panel(bundle, size):
         ax.legend(frameon=False, fontsize=4.6, loc="lower center", bbox_to_anchor=(.5, 1), handlelength=1.6)
         p = numbers[(numbers.group == group) & (numbers.item == "port minus elsewhere")].iloc[0].q_BH
         star = "***" if p < .001 else "**" if p < .01 else "*" if p < .05 else "n.s."
-        ax.text(float(g.loc[g.bin.eq(21), "mean"].iloc[0])+.03, 1.4, star, ha="left", va="center",
-                fontsize=6.2, fontweight="bold", color="#202020")
+        mark = ax.text(float(g.loc[g.bin.eq(21), "mean"].iloc[0])+.03, 1.4, star, ha="left", va="center",
+                       fontsize=6.2, fontweight="bold", color="#202020")
+        # If the mark would reach the right axis line, move it left until its box ends
+        # 1 pt before the line. Marks that already clear it are unchanged.
+        renderer = fig.canvas.get_renderer()
+        right = ax.get_window_extent(renderer).x1 - fig.dpi / 72
+        box = mark.get_window_extent(renderer)
+        if box.x1 > right:
+            per_unit = ax.transData.transform((1, 0))[0] - ax.transData.transform((0, 0))[0]
+            mark.set_x(mark.get_position()[0] - (box.x1 - right) / per_unit)
     cax = fig.add_axes([.955, .34, .008, .4])
     cb = fig.colorbar(im, cax=cax)
     cb.set_label("Peak-normalized activity", fontsize=5, labelpad=2)

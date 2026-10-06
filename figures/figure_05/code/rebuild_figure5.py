@@ -142,12 +142,21 @@ def rebuild(inputs: Path, output: Path) -> list[Path]:
         fig.subplots_adjust(left=.16, right=.965, bottom=.22, top=.94)
         return fig
 
+    def render_exploration(size):
+        fig = native_renderers["f"](size)
+        # Keep the 0.0 floor when autoscaling would start the axis above zero.
+        axis = fig.axes[0]
+        bottom, top = axis.get_ylim()
+        if bottom > 0:
+            axis.set_ylim(0.0, top)
+        return fig
+
     module.PANEL_RENDERERS = {
         "a": native_renderers["a"],
         "b": lambda size: module._render_panel_e(size, refined_order_path=order, refined_order_sha256=sha(order)),
         "c": render_pv,
         "d": render_density,
-        "e": native_renderers["f"],
+        "e": render_exploration,
     }
     positions = {"a": (.03, .05, 3.37, 2.58), "b": (3.44, .05, 5.20, 2.58),
                  "c": (.03, 3.05, 2.72, 2.62), "d": (2.86, 3.05, 2.51, 2.62),
@@ -230,7 +239,7 @@ def rebuild(inputs: Path, output: Path) -> list[Path]:
         "input_manifest_sha256":sha(inputs/"SOURCE_INPUTS.json"),
         "builder_sha256":sha(Path(__file__).resolve()),
         "output_size_mm":[180,height_mm], "outputs":{p.relative_to(output).as_posix():info(p) for p in outputs},
-        "scientific_changes":"None; panels are exchanged without changing estimands, cohorts, numerical values or statistics.",
+        "scientific_changes":"Panel e: regress later exploration efficiency on neural level stability; transpose axes and recompute line, 5,000-animal-bootstrap band and CR1 slope test. Same 36 pairs, 14 animals, Pearson r and R-squared; other panels unchanged.",
         "records_and_manuscript_modified":False,
     })
     (output/"README.md").write_text(
