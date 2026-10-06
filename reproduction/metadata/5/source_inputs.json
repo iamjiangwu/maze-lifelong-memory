@@ -14,12 +14,12 @@
       "bytes": 2282
     },
     "source_code/render_main_figs_v3_publication.py": {
-      "sha256": "77dfda67dfd5e6daa151d00ba333a420e381b65f4127e979dc355e8655c2e3b7",
-      "bytes": 5766
+      "sha256": "ecdaedf40199f1dcbf4c0efb6382db5d9600e985f2a74d86036cc0f427592595",
+      "bytes": 5730
     },
     "source_code/frozen_main_rebuild_runtime.py": {
-      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
-      "bytes": 14780
+      "sha256": "eb4b4a842107cf7fe48d271d71c20d1dc5209fa52daf2ff191086eaa8072ceff",
+      "bytes": 14756
     },
     "source_data/figure5_bundle/plot_data_cell228_level.npz": {
       "sha256": "9a222da8654d6b0ad439080901c646ecebceec55569057491dcfdfd430a1e1cb",

@@ -1,7 +1,7 @@
 {
   "schema": "reader-layout/v1",
   "snapshot_manifest": "reproduction/snapshot/RELEASE_MANIFEST.json",
-  "snapshot_manifest_sha256": "b4812dce8544657d8971433f0380e624588b0ed67b27790d4c223942903938a0",
+  "snapshot_manifest_sha256": "431dfaaa7de95d32d85cecb2bd706b8cd14c59e26b7d6bba992f2881e3b04f5f",
   "artifacts": [
     {
       "artifact_id": "main_figure_1",
@@ -1279,8 +1279,8 @@
     {
       "snapshot_path": "main_figure_1/source/frozen_source/source_code/build_figure1_layout_alternatives.py",
       "repository_path": "figures/figure_01/code/build_figure1_layout_alternatives.py",
-      "sha256": "8e501278c0acd7669c8aff0b344c1da16250d88f6e64059ff1bfb73f09b62aa2",
-      "bytes": 25357
+      "sha256": "1568d918358385fe11dcbfc7662a1345fc5017058a0e2ce8aa5e8ba301326a15",
+      "bytes": 25341
     },
     {
       "snapshot_path": "main_figure_1/source/frozen_source/source_code/figure_panels.py",
@@ -1327,7 +1327,7 @@
     {
       "snapshot_path": "main_figure_1/source/frozen_source/SOURCE_INPUTS.csv",
       "repository_path": "reproduction/metadata/1/source_inputs.csv",
-      "sha256": "70636963477dd937f867447f96aa1b0fcc7f1a81fda4b94ef3ea8db4878f44cf",
+      "sha256": "58df2a831ce152d2212fce09822ccaf6e4f03a5037fb7011072f456b924549b0",
       "bytes": 2451
     },
     {
@@ -1393,8 +1393,8 @@
     {
       "snapshot_path": "main_figure_2/source/source_code/render_main_figs_v3_publication.py",
       "repository_path": "figures/figure_02/code/render_main_figs_v3_publication.py",
-      "sha256": "a99417028604023005fb354e57194936fc4f60936fc00544ff8cef1eb3b4fea3",
-      "bytes": 81815
+      "sha256": "d3b4576fae53daa3a13839bb6d63bb2eb713566631e97580d8000eb9a8b9c8bf",
+      "bytes": 81779
     },
     {
       "snapshot_path": "main_figure_2/source/source_data/consecutive_gap/consecutive_gap_clean_long_gap_corrected_points.csv",
@@ -1519,8 +1519,8 @@
     {
       "snapshot_path": "main_figure_3/source/frozen_source/source_code/render_main_figs_v3_publication.py",
       "repository_path": "figures/figure_03/code/render_main_figs_v3_publication.py",
-      "sha256": "a47925328af6a78069af8322eb32087ce2436320ad67d4942d858cef04719dda",
-      "bytes": 94319
+      "sha256": "e9feececd2991c604d97b4abc0691e6179304f701c560d31a36ccb67a0a63779",
+      "bytes": 94283
     },
     {
       "snapshot_path": "main_figure_3/source/frozen_source/source_data/example/451-3day1_to_451-6day1__row0161_A190_B267.npz",
@@ -1573,19 +1573,19 @@
     {
       "snapshot_path": "main_figure_3/source/source_code/rebuild_current_main_figures.py",
       "repository_path": "reproduction/snapshot/shared/rebuild_current_main_figures.py",
-      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
-      "bytes": 14780
+      "sha256": "eb4b4a842107cf7fe48d271d71c20d1dc5209fa52daf2ff191086eaa8072ceff",
+      "bytes": 14756
     },
     {
       "snapshot_path": "main_figure_3/source/SOURCE_INPUTS.json",
       "repository_path": "reproduction/metadata/3/source_inputs.json",
-      "sha256": "00f72d78ca695cbffe261866634d7eae3b6d6f2fa7196311a6dcf29b0200ffc0",
+      "sha256": "eebca2935dd91e6c87bd391afe03f00b379de4f0b0d2f3097e9f62216759c6a4",
       "bytes": 1846
     },
     {
       "snapshot_path": "main_figure_4/source/INPUT_HASHES.json",
       "repository_path": "reproduction/metadata/4/input_hashes.json",
-      "sha256": "49c0d4e7e6b115dd4030d85d0b8b4773c2503a7936d8b7e1da955de61faa8142",
+      "sha256": "158cc36eddc7308929bb1355b4f5b773a97e0295f18f8e689df852acefb84d3c",
       "bytes": 2447
     },
     {
@@ -1699,8 +1699,8 @@
     {
       "snapshot_path": "main_figure_4/source/source_code/rebuild_current_main_figures.py",
       "repository_path": "reproduction/snapshot/shared/rebuild_current_main_figures.py",
-      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
-      "bytes": 14780
+      "sha256": "eb4b4a842107cf7fe48d271d71c20d1dc5209fa52daf2ff191086eaa8072ceff",
+      "bytes": 14756
     },
     {
       "snapshot_path": "main_figure_5/source/source_code/figure_panels.py",
@@ -1711,8 +1711,8 @@
     {
       "snapshot_path": "main_figure_5/source/source_code/frozen_main_rebuild_runtime.py",
       "repository_path": "reproduction/snapshot/shared/rebuild_current_main_figures.py",
-      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
-      "bytes": 14780
+      "sha256": "eb4b4a842107cf7fe48d271d71c20d1dc5209fa52daf2ff191086eaa8072ceff",
+      "bytes": 14756
     },
     {
       "snapshot_path": "main_figure_5/source/source_code/level_heatmap_utils.py",
@@ -1735,8 +1735,8 @@
     {
       "snapshot_path": "main_figure_5/source/source_code/render_main_figs_v3_publication.py",
       "repository_path": "figures/figure_05/code/export_figure.py",
-      "sha256": "77dfda67dfd5e6daa151d00ba333a420e381b65f4127e979dc355e8655c2e3b7",
-      "bytes": 5766
+      "sha256": "ecdaedf40199f1dcbf4c0efb6382db5d9600e985f2a74d86036cc0f427592595",
+      "bytes": 5730
     },
     {
       "snapshot_path": "main_figure_5/source/source_data/figure5_bundle/level_map_vs_exploration_efficiency_primary_clean_rows.csv",
@@ -1783,7 +1783,7 @@
     {
       "snapshot_path": "main_figure_5/source/SOURCE_INPUTS.json",
       "repository_path": "reproduction/metadata/5/source_inputs.json",
-      "sha256": "98674d36c8f0409d110dceb8ef7875fdeb05b13e2d602cf28d96b903fc5c3d4c",
+      "sha256": "871ac603c4ee802040b39e34484a45ff4710d82ff43ff6deb9f75432d4bc5c8f",
       "bytes": 2280
     },
     {
@@ -1819,8 +1819,8 @@
     {
       "snapshot_path": "shared/rebuild_current_main_figures.py",
       "repository_path": "reproduction/snapshot/shared/rebuild_current_main_figures.py",
-      "sha256": "7c444487c09e8acae826d67d1575a04a4f4d0b5cc14ce2691cbd992e54f7cf40",
-      "bytes": 14780
+      "sha256": "eb4b4a842107cf7fe48d271d71c20d1dc5209fa52daf2ff191086eaa8072ceff",
+      "bytes": 14756
     },
     {
       "snapshot_path": "shared/source_data_release_guard.py",
@@ -1897,7 +1897,7 @@
     {
       "snapshot_path": "RELEASE_MANIFEST.json",
       "repository_path": "reproduction/snapshot/RELEASE_MANIFEST.json",
-      "sha256": "b4812dce8544657d8971433f0380e624588b0ed67b27790d4c223942903938a0",
+      "sha256": "431dfaaa7de95d32d85cecb2bd706b8cd14c59e26b7d6bba992f2881e3b04f5f",
       "bytes": 78471
     },
     {

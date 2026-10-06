@@ -24,7 +24,7 @@ def main():
             html, pdf = folder/'test.html', folder/'test.pdf'
             html.write_text('<!doctype html><html><body>Maze export check</body></html>', encoding='utf-8')
             command = [str(executable), *browser['platform_headless_flags'](),
-                       '--headless=new', '--disable-gpu', '--no-sandbox',
+                       '--headless=new', '--disable-gpu',
                        '--no-pdf-header-footer', f'--user-data-dir={folder / "profile"}',
                        f'--print-to-pdf={pdf}', html.as_uri()]
             row = dict(browser=str(executable))

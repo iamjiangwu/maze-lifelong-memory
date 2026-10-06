@@ -672,7 +672,6 @@ def _export_svg_with_chrome(
                     "--headless=new",
                     "--disable-gpu",
                     "--hide-scrollbars",
-                    "--no-sandbox",
                     "--run-all-compositor-stages-before-draw",
                     "--virtual-time-budget=1000",
                     f"--user-data-dir={profile_dir}",

@@ -460,7 +460,7 @@ def export(svg, stem):
                     "</style></head><body>" + svg.read_text(encoding="utf-8") + "</body></html>", encoding="utf-8")
     with tempfile.TemporaryDirectory(prefix="fig1_pdf_") as profile:
         fresh_pdf = Path(profile) / "fresh_export.pdf"
-        command = [str(rebuilder._find_chrome()), "--headless=new", "--disable-gpu", "--no-sandbox", "--disable-software-rasterizer", "--no-pdf-header-footer", "--print-to-pdf-no-header", f"--user-data-dir={Path(profile)/'browser'}", f"--print-to-pdf={fresh_pdf}", html.resolve().as_uri()]
+        command = [str(rebuilder._find_chrome()), "--headless=new", "--disable-gpu", "--disable-software-rasterizer", "--no-pdf-header-footer", "--print-to-pdf-no-header", f"--user-data-dir={Path(profile)/'browser'}", f"--print-to-pdf={fresh_pdf}", html.resolve().as_uri()]
         command[1:1] = platform_headless_flags()
         run_browser(command, check=True, capture_output=True, text=True, timeout=120)
         rebuilder._wait_for_file(fresh_pdf)
