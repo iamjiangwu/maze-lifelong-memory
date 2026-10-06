@@ -17,7 +17,7 @@ Animal/session IDs identify the observations. In column names, `policy` refers t
 
 Each `data/README.md` identifies panel inputs and the observation unit. CSV empty numeric cells and numerical `NaN` values denote unavailable or undefined values, not zero. Explicit support/inclusion columns determine which observations enter each plot or test; do not replace excluded values with zero or treat every row as eligible. `n_pairs`, `n_animals` and neuron/bin counts are different denominators. Correlations, probabilities and efficiency ratios are dimensionless; time, distance and speed units are specified in the local guide or column name.
 
-Session identifiers and selection hashes record provenance. Within one observation table, preserve animal identifiers when recalculating tests with standard errors clustered by animal. Numeric `q_*` columns store adjusted p values; columns ending `_family`, such as `q_bh4_family`, can instead contain the family's text identifier. The [statistics guide](STATISTICS.md) identifies the reported tests and families.
+Session identifiers record provenance. Within one observation table, preserve animal identifiers when recalculating tests with standard errors clustered by animal. Numeric `q_*` columns store adjusted p values; columns ending `_family`, such as `q_bh4_family`, can instead contain the family's text identifier. The [statistics guide](STATISTICS.md) identifies the reported tests and families.
 
 ## Source labels
 

@@ -14,7 +14,9 @@ Reward-location and route controls. Current display letters are mapped below bec
 
 Decoder errors are Euclidean distance in 15 × 15 spatial bins. Internal `reward_proxy` fields denote reward decoding error. In route data, `port` means the reward-location region, `away` its comparison region, and their difference is reward enrichment. `*_sh` are neuron-ID-shuffled counterparts. `group` distinguishes direction or control route; `bin` is standardized route position. PV/map correlations and reliability ratios are dimensionless.
 
-Route analyses first average pairs within animal; matched paired displays require both values to be finite. In particular, reliability displays use the same 13 animals for both markers in each direction. A missing ratio is undefined, not zero. Panel c retains pair-level observations and inference with standard errors clustered by animal. Saved route tests are exact sign-flip tests on animal-mean effects; see the numerical statistics fields for each correction family.
+Route analyses first average pairs within animal; matched paired displays require both values to be finite. In particular, reliability displays use the same 13 animals for both markers in each direction. A missing ratio is undefined, not zero. Panel c retains pair-level observations and inference with standard errors clustered by animal. Saved route tests are exact sign-flip tests on animal-mean effects; see the numerical statistics fields for each correction family. `route_statistics.csv` lists the ten route tests drawn in panels e, f, g, i and j: estimate, 95% interval, exact p, correction family, adjusted p and the drawn mark. `display_panel` gives the displayed letter and `analysis_panel` the source-analysis letter used in the other files.
+
+When a mouse value or its 95% interval reaches the significance bracket in panels e, f or i, the renderer raises the bracket and the upper axis limit together in steps of 5% of the axis range.
 
 | File | Format |
 |---|---|
@@ -27,6 +29,7 @@ Route analyses first average pairs within animal; matched paired displays requir
 | [candidate_paired_display_summary.csv](candidate_paired_display_summary.csv) | .csv |
 | [replication_day2_numbers.csv](replication_day2_numbers.csv) | .csv |
 | [replication_day2_pairs.csv](replication_day2_pairs.csv) | .csv |
+| [route_statistics.csv](route_statistics.csv) | .csv |
 | [signal_comparison_primary_numbers.csv](signal_comparison_primary_numbers.csv) | .csv |
 | [signal_comparison_primary_pairs.csv](signal_comparison_primary_pairs.csv) | .csv |
 | [strength_checks_numbers.csv](strength_checks_numbers.csv) | .csv |

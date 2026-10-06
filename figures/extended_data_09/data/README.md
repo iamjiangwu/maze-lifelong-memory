@@ -6,7 +6,7 @@ Level-code persistence, controls and experience trends. The mappings use the cur
 |---|---|
 | a–c | `plot_data.npz` contains level-PV observations and shuffle histogram; `null_draws.csv` contains cohort-mean PV null draws; `mean_null.npz` contains the level-map mean null. `pair_summary.csv` and `summary.json` describe their support and weighting. |
 | d | `decoder_points.csv`: observed/shuffled decoding accuracy per session pair; `decoder_summary.csv` and `decoder_stats.json` contain summaries and the paired test. |
-| e–f | `transition.csv`, `shift.csv`: preferred-level transition/shift distributions. `preferred_level_pair_observations.csv` and its statistics file supply pair-level inputs and tests. |
+| e–f | `transition.csv`, `shift.csv`: preferred-level transition/shift distributions. The panel f null error bar is (97.5th − 2.5th percentile) / 3.92 from `null_ci95_low_fraction_shifted` and `null_ci95_high_fraction_shifted`. `preferred_level_pair_observations.csv` and its statistics file supply pair-level inputs and tests. |
 | g–h | `maze_cells.csv`/`maze_walls.csv`: partition schematic; `pair_values.csv`, `paired_contrasts.csv`, `statistics.csv`: horizontal/vertical eight-bin map correlations, seven-level map correlations and their contrasts per session pair. |
 | i | `joint_cloud.csv`: one neuron pair's place-map and level-map correlation. |
 | j | `within_level_pairs.csv` retains the 36 pair-level observed/null correlations used by the paired plot and test. `within_level_nulls.csv` supplies 1,000 cohort-mean null draws for the histogram; `within_level_stats.csv` records the test. |
@@ -22,9 +22,7 @@ For panel m, the renderer first retains rows passing `passes_support_mask`, then
 
 Panels n/o show 95% fitted-mean bands from the animal-level sandwich covariance with the finite-sample adjustment and t(G−1) reference; they are not the ordinary least-squares bands used in Figure 3. Panel d uses a nominal one-sided observed-minus-shuffled accuracy test. Panel h uses BH2 over one-sided level-minus-horizontal/vertical contrasts; panel j uses a nominal one-sided observed-minus-within-level-shuffle test. These tests use session-pair effects with standard errors clustered by animal. [All correction families](../../../docs/STATISTICS.md).
 
-Shared observation files for l/n/o contain all relevant neural metrics; the ED9 renderer selects `metric=level_map_correlation`. For l, the final observations are rewarded session chains; the same rows supply the point cloud and trend line. For o, `pair_key` is formed from `src` and `dst`. No duplicate copies of these observations are needed in this folder.
-
-`source_bundles` in the learning summaries identifies the preprocessing cohorts contributing to each row; semicolon-separated labels mark pooled cohorts. See [source-label definitions](../../../docs/DATA.md#source-labels).
+Shared observation files for l/n/o contain all relevant neural metrics; the ED9 renderer selects `metric=level_map_correlation`. For l, the same rows supply the point cloud, the binned trend line and the BH4 statistic; the trend uses every chain. For o, `pair_key` is formed from `src` and `dst`. No duplicate copies of these observations are needed in this folder.
 
 | File | Format |
 |---|---|
