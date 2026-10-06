@@ -1,7 +1,7 @@
 {
   "schema": "reader-layout/v1",
   "snapshot_manifest": "reproduction/snapshot/RELEASE_MANIFEST.json",
-  "snapshot_manifest_sha256": "8c07fb31940b0b5974209e42ca4cbafe722316a8727c2e5d0627b8dc2cd23c31",
+  "snapshot_manifest_sha256": "8d4e16157f76ec45d1b860f3891548ae71c8a54d5691d0c927bcdf0dd4b37f65",
   "artifacts": [
     {
       "artifact_id": "main_figure_1",
@@ -143,17 +143,17 @@
       "outputs": [
         {
           "name": "ed01_version_record.pdf",
-          "sha256": "b97af064560ac75356fe42c45a8ff55b2febc4ef3928decb3fe74cc743e5ced8",
+          "sha256": "18766aefbbe653ff2bc5a45bca6de93e71d43adb902a84d03c44d7d2156e8b29",
           "rebuilt_path": "extended_data_figure1_source_rebuild_round24.pdf"
         },
         {
           "name": "ed01_version_record.svg",
-          "sha256": "eb474e36d511bb4d17d8ac847d183e2762e3e0dda0c122416e1176ad2ea0ab79",
+          "sha256": "7cfedb9b4a871124170a4d654940e50524eef516734655a599015aaaa3a13d34",
           "rebuilt_path": "extended_data_figure1_source_rebuild_round24.svg"
         },
         {
           "name": "ed01_version_record_600dpi.png",
-          "sha256": "e7c4ef6e7f0cdcf26f41d9a76be589487492df28aad0383ef2e530587cf4fda7",
+          "sha256": "1c86509ae4af205d4998066421606a943a2fd25b4f86897fddb6c0301709c786",
           "rebuilt_path": "extended_data_figure1_source_rebuild_round24.png"
         }
       ]
@@ -370,19 +370,19 @@
       "outputs": [
         {
           "name": "ed10_absolute_heatmap.pdf",
-          "sha256": "8a161e56f6e986b37dff286e37dd432bd55856b3e4d7e13c3c80932e35d0c33c"
+          "sha256": "21dd9c8fd79b534679ff142e201a203d0d1c17ce78a58c64183f907190944ca4"
         },
         {
           "name": "ed10_absolute_heatmap.svg",
-          "sha256": "6fe36552dfd1249d693fba482132adbe8b7e981c0214e8a08f48c317aa09f4cf"
+          "sha256": "32622b337bf24751c8843d52bac4606926b2150fcfe117501486321032d32fee"
         },
         {
           "name": "ed10_absolute_heatmap_600dpi.png",
-          "sha256": "4f5ec58a323a95deb896e8c7d78b52bc0d0fdf9cd49646a46a20619840cc71f9"
+          "sha256": "2cb3c7486722bf309545f6f38d5ed1c2ac622e1a7143ca6ddc83e80e2ef50085"
         },
         {
           "name": "ed10_absolute_heatmap_600dpi.tiff",
-          "sha256": "376333607d3c8f9cd3c4697d9ff0dd09d6e6c3dd6f8ac9375d773ac773f01ede"
+          "sha256": "01832881a4196e853668f7afcbe07ba7f480e175aa3111cffc53c666922307ef"
         }
       ]
     },
@@ -475,14 +475,14 @@
     {
       "snapshot_path": "extended_data_figure_1/source/plot_ready/ed01_panel_h_first30_group_summary_cap60.csv",
       "repository_path": "figures/extended_data_01/data/panel_h_first30_group_summary_cap60.csv",
-      "sha256": "429f65658df2644dd3e388350b58e3b792affb676f6aa55b377a23f5ea0afe55",
-      "bytes": 2247
+      "sha256": "f15054ab6969298f28fb5eb8c6360173b6d73e1e7bcd6a0f19253352a270aa4d",
+      "bytes": 2244
     },
     {
       "snapshot_path": "extended_data_figure_1/source/plot_ready/ed01_panel_h_first30_session_rows_cap60.csv",
       "repository_path": "figures/extended_data_01/data/panel_h_first30_session_rows_cap60.csv",
-      "sha256": "f54bdd0364872de7e7f75fc72fb69e88d56a1c5a97992a13b47c311f037be692",
-      "bytes": 54998
+      "sha256": "f3132dbf585c81dd4005e3a606d52f9a13732ff565109fab10753a258452c3f6",
+      "bytes": 49907
     },
     {
       "snapshot_path": "extended_data_figure_1/source/plot_ready/ed02_tile_time_loglog_rows_current153.csv",
@@ -511,8 +511,8 @@
     {
       "snapshot_path": "extended_data_figure_10/source/frozen_source/extended_data_fig10_round18_inputs/plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv",
       "repository_path": "figures/extended_data_10/data/neural_behavior_pair_rows.csv",
-      "sha256": "6e805ae25af2bdf4300b19c321f022f91fd318885920d3fe1ebdc8c798ef2c0f",
-      "bytes": 11205
+      "sha256": "77a87d6ead7f9847f66c9ab635846219c71d9f5e66431dc68331ce41c86b82b6",
+      "bytes": 11206
     },
     {
       "snapshot_path": "extended_data_figure_10/source/frozen_source/extended_data_fig10_round18_inputs/plot_ready/level_policy_bridge_join_corrected36.csv",
@@ -529,8 +529,8 @@
     {
       "snapshot_path": "extended_data_figure_10/source/frozen_source/extended_data_fig10_round18_inputs/plot_ready/POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv",
       "repository_path": "figures/extended_data_10/data/neural_behavior_correlation_statistics.csv",
-      "sha256": "0e1938894b17dd780e8c2dacc0f944eccb81958dce51b13dff0288cf4e352bf3",
-      "bytes": 2870
+      "sha256": "72ece8027b747cda66a986321fcb6de02b3c3ddbbc25f34d94f79a33b221945c",
+      "bytes": 2872
     },
     {
       "snapshot_path": "extended_data_figure_10/source/frozen_source/extended_data_fig10_round18_inputs/plot_ready/REWARD_LEVEL_COMMONALITY.csv",
@@ -547,8 +547,8 @@
     {
       "snapshot_path": "extended_data_figure_10/source/frozen_source/extended_data_fig10_round18_inputs/source_code/render_ed10_slide12_powerpoint_matched.py",
       "repository_path": "figures/extended_data_10/code/render_ed10_slide12_powerpoint_matched.py",
-      "sha256": "4ec39d95ab307ca9ad1e70a55df8cd74f955feb47ed7cfe1b5f65e2a1cde323a",
-      "bytes": 62897
+      "sha256": "a423f2623fa67511f430904681d1487dd5a3964aa5d44f70d7cfbfed9b029b9b",
+      "bytes": 62895
     },
     {
       "snapshot_path": "extended_data_figure_10/source/rebuild_figure.py",
@@ -565,14 +565,14 @@
     {
       "snapshot_path": "extended_data_figure_10/source/SOURCE_INPUTS.json",
       "repository_path": "reproduction/metadata/ed10/source_inputs.json",
-      "sha256": "3ce9cc362aa3a8e9033b5a65edd8641c4c2c81e6c99befe597bffb3d67a417d4",
+      "sha256": "aae97e09061c8a2c73858a3f4b91afff6696f701e1bd16f7e48ae4ad68359819",
       "bytes": 1686
     },
     {
       "snapshot_path": "extended_data_figure_10/source/statistical_inputs/panel_a_expected_multiplicity.csv",
       "repository_path": "figures/extended_data_10/data/panel_a_expected_multiplicity.csv",
-      "sha256": "c827dadf5637e440889a4499daa54e83793f77193ccd289d8682bcc32e99794e",
-      "bytes": 7042
+      "sha256": "c65cd772886a6352af5f4525f4be8967bd37ea10c17822bd476bb2fa48071e17",
+      "bytes": 7038
     },
     {
       "snapshot_path": "extended_data_figure_10/source/statistical_inputs/profile_helpers.py",
@@ -1897,7 +1897,7 @@
     {
       "snapshot_path": "RELEASE_MANIFEST.json",
       "repository_path": "reproduction/snapshot/RELEASE_MANIFEST.json",
-      "sha256": "8c07fb31940b0b5974209e42ca4cbafe722316a8727c2e5d0627b8dc2cd23c31",
+      "sha256": "8d4e16157f76ec45d1b860f3891548ae71c8a54d5691d0c927bcdf0dd4b37f65",
       "bytes": 78470
     },
     {

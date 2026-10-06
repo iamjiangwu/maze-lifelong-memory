@@ -1,6 +1,6 @@
 # Extended Data Figure 1. Additional reward and exploration measures for lifelong spatial memory
 
-Cumulative rewards and long bouts, maze time and tile transitions, center of mass speed, and repeated coverage rounds and exploration efficiency.
+Cumulative rewards and long bouts, maze time and tile transitions, nose speed, and repeated coverage rounds and exploration efficiency.
 
 ## Reproduce
 

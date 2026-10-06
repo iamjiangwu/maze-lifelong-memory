@@ -1173,7 +1173,7 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         validate="one_to_one",
     )
     if not (
-        int(multiplicity_audit["cr1_nominal_star"].ne("").sum()) == 14
+        int(multiplicity_audit["cr1_nominal_star"].ne("").sum()) == 13
         and int(multiplicity_audit["cr1_bh3_star"].ne("").sum()) == 13
     ):
         raise AssertionError("ED10 panel-a Pearson/CR1/BH significance counts drifted")
@@ -1345,7 +1345,7 @@ def main(*, output_root: Path | None = None, output_round: str | None = None) ->
         bh3_cr1_stars = audit["panel_a_star_contract"]
         if not (
             [row["text"] for row in bh3_cr1_stars]
-            == ["*", "**", "*", "**", "**", "**", "**", "**", "***", "*", "***", "*", "*"]
+            == ["**", "*", "*", "**", "**", "*", "**", "***", "*", "***", "*", "*", "*"]
             and all(row["color"] == "#000000" for row in bh3_cr1_stars)
             and all(row["fontweight"] == "bold" for row in bh3_cr1_stars)
             and all(float(row["horizontal_clearance_from_r_px"]) >= 2.0 for row in bh3_cr1_stars)

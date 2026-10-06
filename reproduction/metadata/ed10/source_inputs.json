@@ -3,7 +3,7 @@
   "files": [
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv",
-      "sha256": "0e1938894b17dd780e8c2dacc0f944eccb81958dce51b13dff0288cf4e352bf3"
+      "sha256": "72ece8027b747cda66a986321fcb6de02b3c3ddbbc25f34d94f79a33b221945c"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/REWARD_LEVEL_COMMONALITY.csv",
@@ -15,7 +15,7 @@
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv",
-      "sha256": "6e805ae25af2bdf4300b19c321f022f91fd318885920d3fe1ebdc8c798ef2c0f"
+      "sha256": "77a87d6ead7f9847f66c9ab635846219c71d9f5e66431dc68331ce41c86b82b6"
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/plot_ready/level_policy_bridge_join_corrected36.csv",
@@ -27,7 +27,7 @@
     },
     {
       "path": "frozen_source/extended_data_fig10_round18_inputs/source_code/render_ed10_slide12_powerpoint_matched.py",
-      "sha256": "4ec39d95ab307ca9ad1e70a55df8cd74f955feb47ed7cfe1b5f65e2a1cde323a"
+      "sha256": "a423f2623fa67511f430904681d1487dd5a3964aa5d44f70d7cfbfed9b029b9b"
     },
     {
       "path": "source_code/rebuild_current_extended_data_figures.py",
