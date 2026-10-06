@@ -172,6 +172,6 @@ Figure 5,figures/figure_05/data/level_map_neuron_vectors.csv,"columns: variant,g
 Figure 5,figures/figure_05/data/level_pv_matrix.csv,"columns: train_depth,0,1,2,3,4,5,6"
 Figure 5,figures/figure_05/data/level_pv_pair_matrices.csv,"columns: pair_key,animal_id,src_session,dst_session,experience,transition,n_neurons,n_depths,source_reward_condition,target_reward_condition,train_depth,test_depth,supported,pearson_r"
 Figure 5,figures/figure_05/data/neuron_display_order.npy,"shape (16902,), dtype int64"
-Supplementary Table 1,tables/table_01/data/current_rows.json,"keys: schema_version,source_boundary,title,headers,rows,authority"
+Supplementary Table 1,tables/table_01/data/current_rows.json,"keys: schema_version,source_boundary,title,headers,rows,authority,footnote"
 Supplementary Table 2,tables/table_02/data/publication_notes.json,list: 4 items
 Supplementary Table 2,tables/table_02/data/recording_intervals.csv,"columns: Animal ID,Return month,Previous nominal month,Preceding Day i session,Preceding Day i+1 session,Preceding Day i+1 date,Return Day i session,Return Day i date,Interval (d),Fixed-month behavior return roster,Maintained calcium imaging,Pair key,Schedule note"

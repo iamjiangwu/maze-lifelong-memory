@@ -1,2 +1,2 @@
 file,format,columns_or_shape,sha256
-current_rows.json,.json,"keys: schema_version,source_boundary,title,headers,rows,authority",e9cc0dee5460a3db407e4b518e39710cf04d28276611aa85f44e35e9e52fd84f
+current_rows.json,.json,"keys: schema_version,source_boundary,title,headers,rows,authority,footnote",384f318b35cf779d7e61c27728c7fa664b0ee048b90b94e7e8055a9440853857

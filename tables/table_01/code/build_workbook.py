@@ -56,6 +56,14 @@ def build(output, source_data):
         lines = max(wraps(row['analysis'], 38), wraps(row['panels'], 25), wraps(row['note'], 59),
                     0 if shared else wraps(', '.join(row['mice']), 40) + 1)
         sheet.row_dimensions[index + 4].height = max(31, lines * 10.5 + 8)
+    footnote = source.get('footnote', '')
+    if footnote:
+        footnote_row = len(source['rows']) + 5
+        sheet.merge_cells(f'A{footnote_row}:D{footnote_row}')
+        cell = sheet.cell(footnote_row, 1, footnote)
+        cell.font = Font(name='Arial', size=8, italic=True, color='FF222222')
+        cell.alignment = Alignment(wrap_text=True, vertical='top')
+        sheet.row_dimensions[footnote_row].height = max(21, wraps(footnote, 190) * 10.5 + 8)
     output.mkdir(parents=True, exist_ok=True)
     path = output / 'Supplementary_Table_S1_Mouse_Cohorts_by_Analysis.xlsx'
     book.save(path)

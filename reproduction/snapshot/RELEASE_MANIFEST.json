@@ -1,6 +1,6 @@
 {
   "schema": "source-data-release/v1",
-  "date": "2026-10-05",
+  "date": "2026-10-06",
   "source_boundary": "maintained derived numerical data and fixed illustrative assets; no raw acquisition",
   "accepted_artwork_is_input": false,
   "artifacts": [
@@ -364,11 +364,11 @@
       "accepted_outputs": [
         {
           "name": "Supplementary_Table_S1_Mouse_Cohorts_by_Analysis.pdf",
-          "sha256": "33595564a2645b89788bcc3a4b57f597cbb4e5e6bd998e99f2e75af1a7048dbe"
+          "sha256": "032381f40faec6ad13cb701d641a73918bf279ef1b7d0394986fe846aa7518e1"
         },
         {
           "name": "Supplementary_Table_S1_Mouse_Cohorts_by_Analysis.xlsx",
-          "sha256": "7d2d65a21583ccc89c2f3b690e8bcb7e028b3bfa7b0bedcca4a1fede5d7c7fbc"
+          "sha256": "c3cb11512b6fe698c0caba212a99bd51c4f3efe8d7cbdc42a9c26976c0cd56cf"
         }
       ],
       "panels": 0
@@ -1815,20 +1815,20 @@
     },
     {
       "path": "supplementary_table_1/source/source_code/build_pdf.py",
-      "sha256": "9bd61af95859511da6a8a26116b3006e9f72c5cf3232468b5629247721f07e8e",
-      "bytes": 4808,
+      "sha256": "3cb6cfc3593b1c38de7ada063de6747ec32f971ab2c4850f05dcb3d0104c0dc9",
+      "bytes": 6901,
       "role": "source_or_code"
     },
     {
       "path": "supplementary_table_1/source/source_code/build_workbook.py",
-      "sha256": "40676ff1e3eeef7521a603fba14b0da74275a902be18b7101ed559268fcb025c",
-      "bytes": 3707,
+      "sha256": "de20858be555e385cbe30b9c88ac486ab7414dabd22f592516f1de4faed21ced",
+      "bytes": 4166,
       "role": "source_or_code"
     },
     {
       "path": "supplementary_table_1/source/source_data/current_rows.json",
-      "sha256": "e9cc0dee5460a3db407e4b518e39710cf04d28276611aa85f44e35e9e52fd84f",
-      "bytes": 12295,
+      "sha256": "384f318b35cf779d7e61c27728c7fa664b0ee048b90b94e7e8055a9440853857",
+      "bytes": 15497,
       "role": "source_or_code"
     },
     {

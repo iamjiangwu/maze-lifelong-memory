@@ -79,7 +79,7 @@
         "1616",
         "1632"
       ],
-      "note": "Samples during reward directed behavior were unavailable in 418RRday1, 618day1 and 628day1. Mice 15, 202, 628, 1603 and 1608 had no matched Day 2 session."
+      "note": "In 418day1, 618day1 and 628day1, mice made no direct run to the water port within the first 30 min, so these sessions contributed exploration speed but no reward-directed speed. Mice 15, 202, 628, 1603 and 1608 had no matched Day 2 session."
     },
     {
       "analysis": "Exploration efficiency, junction turning biases and biased walk simulations",
@@ -115,7 +115,7 @@
         "1616",
         "1632"
       ],
-      "note": "Session 646-9day2 did not reach 32 distinct end nodes. Depth-specific stemward exit probabilities used at least 10 qualifying events per depth range to avoid estimates based on very sparse sampling; 640day1 had 2 shallow events."
+      "note": "Session 646-9day2 did not reach 32 distinct end nodes, so its exploration efficiency was undefined and was set to zero in the comparisons with simulations (ED Fig. 2f,i). Depth-specific stemward exit probabilities used at least 10 qualifying events per depth range to avoid estimates based on very sparse sampling; 640day1 had 2 shallow events and was therefore excluded from the depth-specific analyses (ED Fig. 2g to i)."
     },
     {
       "analysis": "Latent learning and first visit route choices",
@@ -155,7 +155,7 @@
         "1632",
         "1636"
       ],
-      "note": ""
+      "note": "The latent day2 group did not include 422day2, because the latent day1 maze of mouse 422 had a dry water port instead of a wall."
     },
     {
       "analysis": "Junction dwell during exploration and reward directed approaches",
@@ -187,7 +187,7 @@
     },
     {
       "analysis": "Field of view, place map and spatial decoding examples",
-      "panels": "Fig. 2a,b; Fig. 3a; Fig. 4a,c; ED Fig. 4a,b; ED Fig. 5a",
+      "panels": "Fig. 2a,b; Fig. 3a; Fig. 4c; ED Fig. 4a,b; ED Fig. 5a",
       "mice": [
         "418",
         "422",
@@ -201,7 +201,7 @@
         "842",
         "862"
       ],
-      "note": "Illustrative examples only. Fields of view: mice 418 and 422; decoding-error map (Fig. 4c): mouse 579; spatial-decoding illustration (Fig. 4a): mouse 837."
+      "note": "Illustrative examples only. The fields of view come from mouse 422 (Fig. 2a) and mouse 418 (ED Fig. 4a,b), and the decoding-error map (Fig. 4c) from mouse 579."
     },
     {
       "analysis": "Long gap neural stability, decoding, cell registration and associations with age and behavior",
@@ -222,7 +222,7 @@
         "862",
         "1616"
       ],
-      "note": "The 14-day pair from mouse 1616 was omitted from the fixed-month analyses; its other long-gap pairs remain included. Level population vectors had 248 supported level comparisons across all 36 pairs; level 6 lacked support in one pair each from mice 418, 422, 837 and 839."
+      "note": "The 14-day pair from mouse 1616 was omitted from the fixed-month analyses; its other long-gap pairs remain included. In the level PV analyses (Fig. 5c; ED Fig. 9a,b), a level was compared only when the mouse occupied it in both sessions. Level 6 did not meet this in four pairs (418-6day1 to 418-9day1, 422-3day1 to 422-6day1, 837-9day1 to 837-12day1 and 839-9day1 to 839-12day1), leaving 248 of 252 level comparisons."
     },
     {
       "analysis": "PV, place map, level map and ensemble rate correlations across session intervals",
@@ -285,7 +285,7 @@
         "862",
         "1616"
       ],
-      "note": "Reward-experienced Day i sources: 30 pairs from 14 mice; six pairs from mice 422, 837, 838, 839, 842 and 862 were omitted. ED8b,c Day i+1 sources: 36 pairs. ED8b required at least 20 frames per location in both sessions, with no visit minimum; control bin 133 was omitted for 451-6day2 to 451-9day1 and 468Lday2 to 468-3day1."
+      "note": "Day i sources with reward experience gave 30 pairs from 14 mice. Six pairs (422day1, 837day1, 838day1, 839day1, 842day1 and 862day1, each to its 3-month session) were omitted because their Day i source was a latent day1 session in which no water was available. ED Fig. 8b,c also used Day i+1 sources (36 pairs). In ED Fig. 8b, a location was included only if it had at least 20 retained frames in both sessions, to avoid decoding errors estimated from very few frames; there was no minimum number of visits. In two Day i+1 pairs (451-6day2 to 451-9day1 and 468day2 to 468-3day1), one of the three control locations did not meet this criterion, and the comparison used the other two."
     },
     {
       "analysis": "Standardized route PV correlation, second-day comparisons and equal-frame controls",
@@ -306,7 +306,7 @@
         "862",
         "1616"
       ],
-      "note": "For each direction, both sessions required at least five traversals. Home to reward: 28 pairs, 13 mice (excluding 434); reward to home: 27 pairs, all 14 mice. The second-day comparison had the same counts."
+      "note": "Route analyses used the 30 pairs with a rewarded Day i source. A pair entered a direction only if both sessions had at least five complete traversals in that direction. Home to reward excluded 434day1 to 434-3day1 (3 traversals in 434-3day1) and 468day1 to 468-3day1 (2 in 468day1). Reward to home excluded 468day1 to 468-3day1 (1 in 468day1), and 451day1 to 451-3day1 and 451-3day1 to 451-6day1 (4 in 451-3day1). The second-day comparison repeated the included pairs one day later and therefore omitted the same pairs; every Day i+1 session had at least five traversals. The equal-frame control used the same pairs."
     },
     {
       "analysis": "Standardized PV correlation along node 2 and node 3 routes",
@@ -327,7 +327,7 @@
         "862",
         "1616"
       ],
-      "note": "Node 2 routes: 30 pairs; node 3 routes: 29 pairs, with all 14 mice in each direction. Day i sources required reward experience and sufficient route-specific traversals."
+      "note": "Node routes used the same 30 pairs and the same five-traversal rule. Node 2 routes kept all 30 pairs in both directions. Node 3 routes excluded 418day1 to 418-3day1 in both directions (3 node 3 to reward and 2 reward to node 3 traversals in 418day1)."
     },
     {
       "analysis": "Standardized route PV correlation relative to within-day reliability",
@@ -347,7 +347,7 @@
         "862",
         "1616"
       ],
-      "note": "Both location ratios had to be defined: 13 mice in each direction (28 approach and 26 departure pairs). Mouse 434 lacked a supported approach pair; its departure ratio was undefined because the target-session within-day reward correlation was nonpositive."
+      "note": "Pairs as in Fig. 4e. This panel divides each across-gap correlation by a within-day reliability. The reliability is the geometric mean of two correlations, one per session, each between that session's odd and even runs. Values were averaged within each mouse, and a mouse was included only if both its reward and its elsewhere values could be adjusted. Mouse 434 had no home to reward pair. Its only reward to home pair, 434day1 to 434-3day1, could not be adjusted. In 434-3day1 the mouse made only five reward to home runs, and its odd and even runs did not agree at the reward bin (correlation −0.02). A geometric mean of a positive and a negative correlation does not exist, so this pair has no adjusted value. The panel therefore includes 13 mice in each direction, with 28 home to reward pairs and 26 reward to home pairs."
     },
     {
       "analysis": "Standardized route PV correlation between approach and departure",
@@ -367,7 +367,7 @@
         "862",
         "1616"
       ],
-      "note": "Only pairs supported in both directions: 26 pairs from 13 mice, excluding mouse 434. The same matched neurons contributed to all curves."
+      "note": "Only pairs included in both directions were used. These are the 30 pairs above without 468day1 to 468-3day1 (excluded in both directions), 434day1 to 434-3day1 (no home to reward) and 451day1 to 451-3day1 and 451-3day1 to 451-6day1 (no reward to home), leaving 26 pairs from 13 mice. The same matched neurons contributed to all curves."
     },
     {
       "analysis": "Recurrence of neural correlations across consecutive long gaps",
@@ -414,7 +414,7 @@
         "1637",
         "1639"
       ],
-      "note": "Within-cycle analyses, including comparisons of adjacent nonoverlapping windows (ED Fig. 6d,f,h), used 59 Day i/Day i+1 pairs from 22 mice."
+      "note": "All 59 Day i/Day i+1 pairs from the 22 mice were used; none was excluded."
     },
     {
       "analysis": "Age and early within-cycle neural correlations",
@@ -462,8 +462,9 @@
         "862",
         "1616"
       ],
-      "note": "Each session required at least five traversals of each outcome: 25 pairs from 12 mice. Mice 422 and 434 had no eligible pair; other unsupported pairs were omitted."
+      "note": "This comparison needed at least five rewarded and five timeout home to reward approaches in both sessions of a pair. Of the 36 long-gap pairs, 25 pairs from 12 mice qualified. The six pairs whose Day i source was a latent day1 session were excluded because that session had no rewarded approaches (422day1, 837day1, 838day1, 839day1, 842day1 and 862day1, each paired with its 3-month session). Five other pairs had too few approaches of one outcome. 434day1 to 434-3day1 was excluded because 434-3day1 had 3 rewarded and no timeout approaches. 468day1 to 468-3day1 was excluded because 468day1 had 2 rewarded and no timeout approaches and 468-3day1 had 1 timeout approach. 468-3day1 to 468-6day1 was excluded because 468-3day1 had 1 timeout approach. 422-3day1 to 422-6day1 was excluded because 422-6day1 had 4 timeout approaches. 488-3day1 to 488-6day1 was excluded because 488-6day1 had 4 rewarded approaches. Mice 422 and 434 therefore had no eligible pair."
     }
   ],
-  "authority": "Current 15 figures uploaded on 2026-09-28; task-local independent panel and source-cohort audits; route cohort counts updated on 2026-10-05 from the corrected outputs after latent day1 source sessions were excluded from the home-route analyses."
+  "authority": "Current 15 figures uploaded on 2026-09-28; task-local independent panel and source-cohort audits; route cohort counts updated on 2026-10-05 from the corrected outputs after latent day1 source sessions were excluded from the home-route analyses; notes rewritten on 2026-10-06 at the author's request.",
+  "footnote": "Session names give the mouse, the recording cycle and the day. For example, 646-9day2 is mouse 646 on Day 2 of the recording cycle 9 months after its first cycle, and 640day1 is mouse 640 on Day 1 of its first cycle."
 }
