@@ -39,7 +39,7 @@
       "title": "The reward location anchors selective place stability",
       "description": "Cross-session spatial decoding and standardized route PV correlations; reward decoding error paired with first long bout time in the later session.",
       "builder": "derived",
-      "publication_pdf_sha256": "03bff19441b57125e80e2a2dc49c06e5c321173987f42e9543b3af3b320570b5"
+      "publication_pdf_sha256": "f582e1da3e939ca321bd5c0664a894209bc8eb32d5063b712ef6fc26293f38bc"
     },
     {
       "artifact_id": "main_figure_5",
@@ -59,7 +59,7 @@
       "title": "Additional reward and exploration measures for lifelong spatial memory",
       "description": "Cumulative rewards and long bouts, maze time and steps in the maze, nose speed, and repeated coverage rounds and exploration efficiency.",
       "builder": "derived",
-      "publication_pdf_sha256": "7a738041d379ff9acb960a7f0ec47b2f5b7e703c493d4563835cb1f2e6fca61c"
+      "publication_pdf_sha256": "29a1acb58b722047f339b8f4fcf2ebad022b8e7c11c227262260d9726dfad45b"
     },
     {
       "artifact_id": "extended_data_figure_2",
@@ -210,8 +210,8 @@
     },
     {
       "repository_path": "figures/extended_data_01/code/drawing.py",
-      "sha256": "6bc196f7f69b142d4be9741db3e9fc9904b9a16a460c9538da39a000f01cd8db",
-      "bytes": 33479
+      "sha256": "e005809fb7d2de76f5076ea114989779b7bec9f29f3b795773b7ce62ca08d50c",
+      "bytes": 36895
     },
     {
       "repository_path": "figures/extended_data_01/code/inference.py",
@@ -1211,8 +1211,8 @@
     },
     {
       "repository_path": "figures/figure_04/code/drawing.py",
-      "sha256": "f75bc85ec42f77aa253e1ce5a493270b3ce8d79ef3a63d3a1d934f7ad6aa8361",
-      "bytes": 29042
+      "sha256": "68de9052c5a63255ca834ea7fae71f84ebc6597317a6de26da3690badbe01cac",
+      "bytes": 30386
     },
     {
       "repository_path": "figures/figure_04/code/inference.py",

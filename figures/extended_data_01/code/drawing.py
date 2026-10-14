@@ -7,6 +7,8 @@ import pandas as pd
 from release_rendering.statistics import sem, significance_stars, cr1_ols, linear_contrast, benjamini_hochberg
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
+from matplotlib.font_manager import FontProperties
+from matplotlib.textpath import TextPath
 from release_rendering.plotting import with_figure_font, savefig_reproducibly
 MONTH_ORDER = ("0mo", "3mo", "6mo", "9mo", "12mo", "experienced_day2")
 
@@ -165,12 +167,13 @@ def _draw_record_acquisition_grid(
                 axis.scatter(
                     x_position + rng.uniform(-0.13, 0.13, values.size),
                     values,
-                    s=3.2,
-                    facecolor="none",
-                    edgecolor=_GROUP_COLORS[group_key],
+                    s=5.5,
+                    facecolor=_GROUP_COLORS[group_key],
+                    edgecolor="none",
                     linewidth=0.35,
-                    alpha=0.55,
+                    alpha=0.72,
                     zorder=2,
+                    clip_on=False,
                 )
                 mean_value = float(np.mean(values))
                 error = sem(values)
@@ -178,8 +181,10 @@ def _draw_record_acquisition_grid(
                     x_position,
                     mean_value,
                     width=0.55,
-                    color=_GROUP_COLORS[group_key],
-                    alpha=0.55,
+                    facecolor="none",
+                    edgecolor=_GROUP_COLORS[group_key],
+                    linewidth=0.8,
+                    alpha=1.0,
                     zorder=1,
                 )
                 axis.errorbar(
@@ -252,6 +257,56 @@ def _draw_record_acquisition_grid(
         for row_axis in row_axes:
             row_axis.set_ylim(0, row_top)
     return axes
+
+def _compact_acquisition_annotations(axes: Sequence[plt.Axes]) -> None:
+    """Keep the saved comparisons, but place stars within compact split lines."""
+    # Fractions were checked against the unchanged observations and SEM bars.
+    # They occupy clear gaps rather than reserving a tall stack above all data.
+    heights = ((.56017, .65546, .75075), (.55163, .78304, .87833),
+               (.65192, .78109, .87638), (.65192, .74721, .84250),
+               (.56230, .73558, .83087), (.56657, .66186, .75715))
+    for index, axis in enumerate(axes):
+        brackets = [line for line in axis.lines if len(line.get_xdata()) == 4
+                    and line.get_xdata()[0] == line.get_xdata()[1]
+                    and line.get_xdata()[2] == line.get_xdata()[3]]
+        labels = [text for text in axis.texts if text.get_text().strip("*") == ""]
+        assert len(brackets) == len(labels) == 3
+        comparisons = [(float(line.get_xdata()[0]), float(line.get_xdata()[2]), label.get_text())
+                       for line, label in zip(brackets, labels)]
+        for artist in [*brackets, *labels]:
+            artist.remove()
+        # Each endpoint uses its own zero-based range; explicit ticks disclose
+        # the independent scales while the first column retains the row units.
+        upper_limits = (5000, 8000, 4800, 4800, 13000, 8500)
+        tick_values = ((0, 2000, 4000), (0, 4000, 8000), (0, 2000, 4000),
+                       (0, 2000, 4000), (0, 6000, 12000), (0, 4000, 8000))
+        upper = upper_limits[index]
+        axis.set_ylim(0, upper)
+        axis.set_yticks(tick_values[index])
+        axis.tick_params(axis="y", labelleft=True, pad=1.0)
+        axis.figure.canvas.draw()
+        pixels_per_mm = axis.figure.dpi / 25.4
+        box = axis.get_window_extent()
+        width_mm, height_mm = box.width / pixels_per_mm, box.height / pixels_per_mm
+        span_x = np.diff(axis.get_xlim())[0]
+        for number, (left, right, label) in enumerate(comparisons):
+            glyph = TextPath((0, 0), label, size=6.5,
+                             prop=FontProperties(family="Arial", weight="bold")).get_extents()
+            center = (left + right) / 2
+            gap = (glyph.width / (72 / 25.4) / 2 + .25) / width_mm * span_x
+            cap = .20 / height_mm
+            height = heights[index][number]
+            axis.plot([left, left, center-gap], [height-cap, height, height],
+                      transform=axis.get_xaxis_transform(), color="black", linewidth=.6,
+                      clip_on=False, zorder=5, gid=f"compact_{index}_{number}_left")
+            axis.plot([center+gap, right, right], [height, height, height-cap],
+                      transform=axis.get_xaxis_transform(), color="black", linewidth=.6,
+                      clip_on=False, zorder=5, gid=f"compact_{index}_{number}_right")
+            baseline = height - (glyph.y0+glyph.height/2) / (72/25.4) / height_mm
+            axis.text(center, baseline, label, transform=axis.get_xaxis_transform(),
+                      ha="center", va="baseline", fontsize=6.5, fontweight="bold",
+                      color="black", clip_on=False, zorder=6)
+
 
 def _draw_record_long_bout_relation(
     axis: plt.Axes,
@@ -907,6 +962,7 @@ def compose_behavior_learning_overview(
 
         for axis in figure.axes:
             axis.grid(False)
+        _compact_acquisition_annotations(acquisition_axes)
         _add_record_panel_letters(figure, panel_axes)
         # Retain physical artist positions while removing the unused top/right canvas.
         figure.canvas.draw()

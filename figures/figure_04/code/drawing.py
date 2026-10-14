@@ -19,8 +19,10 @@ import matplotlib.pyplot as plt
 import matplotlib.patheffects as path_effects
 from matplotlib.collections import LineCollection
 from matplotlib.figure import Figure
+from matplotlib.font_manager import FontProperties
 from matplotlib.lines import Line2D
 from matplotlib.patches import FancyArrowPatch, Polygon, Rectangle
+from matplotlib.textpath import TextPath
 from matplotlib.colors import Normalize
 from scipy.ndimage import gaussian_filter
 from PIL import Image
@@ -436,7 +438,7 @@ def _draw_paired_decoder_comparison(
     left_label: str,
     right_label: str,
 ) -> None:
-    """Draw accepted bars, paired observations, and clustered significance."""
+    """Draw outline bars and paired observations with compact significance."""
 
     left = values[left_column].to_numpy(float)
     right = values[right_column].to_numpy(float)
@@ -453,18 +455,18 @@ def _draw_paired_decoder_comparison(
     axis.scatter(
         jitter,
         left,
-        s=9,
+        s=11,
         color=_RECORD_COLOR,
-        alpha=0.68,
+        alpha=0.72,
         edgecolors="none",
         zorder=3,
     )
     axis.scatter(
         1 + jitter,
         right,
-        s=9,
+        s=11,
         color=_RECORD_REFERENCE_COLOR,
-        alpha=0.68,
+        alpha=0.72,
         edgecolors="none",
         zorder=3,
     )
@@ -477,32 +479,57 @@ def _draw_paired_decoder_comparison(
             float(np.mean(observations)),
             yerr=float(stats.sem(observations)),
             width=0.68,
-            color=color,
-            edgecolor="none",
-            alpha=0.78,
+            facecolor="none",
+            edgecolor=color,
+            alpha=1.0,
+            linewidth=0.8,
             capsize=2.0,
+            error_kw={"zorder": 4},
             zorder=2,
         )
     p_value = float(values["stat_cluster_p"].iloc[0])
-    bracket_y = 15.0 * 0.92
+    axis.set_xticks((0, 1), (left_label, right_label))
+    axis.set_ylabel("Decoding error (bins)", labelpad=0.0)
+    # Keep both decoder comparisons on the same scale. The highest displayed
+    # observation is 10.897 bins, so a limit of 10 would hide a control value.
+    axis.set(xlim=(-0.55, 1.45), ylim=(0.0, 11.5))
+    axis.set_yticks((0.0, 5.0, 10.0))
+    bracket_y = 11.32 / 11.5
+    width_mm, height_mm = axis.get_window_extent().size / axis.figure.dpi * 25.4
+    glyph = TextPath((0, 0), _significance_mark(p_value), size=6.5,
+                     prop=FontProperties(family="Arial", weight="bold")).get_extents()
+    points_per_mm = 72.0 / 25.4
+    half_gap = (glyph.width / points_per_mm / 2 + 0.25) / width_mm * 2.0
+    cap = 0.20 / height_mm
+    assert bracket_y * height_mm + glyph.height / points_per_mm / 2 < height_mm
+    # A real gap in the line leaves the star legible without masking data.
     axis.plot(
-        (0, 0, 1, 1),
-        (bracket_y * 0.98, bracket_y, bracket_y, bracket_y * 0.98),
+        (0, 0, 0.5-half_gap),
+        (bracket_y-cap, bracket_y, bracket_y),
+        transform=axis.get_xaxis_transform(),
         color="black",
-        linewidth=0.65,
+        linewidth=0.6,
+        gid=f"decoder_comparison_{left_column}_left",
+    )
+    axis.plot(
+        (0.5+half_gap, 1, 1),
+        (bracket_y, bracket_y, bracket_y-cap),
+        transform=axis.get_xaxis_transform(),
+        color="black",
+        linewidth=0.6,
+        gid=f"decoder_comparison_{left_column}_right",
     )
     axis.text(
         0.5,
-        bracket_y * 1.015,
+        bracket_y - (glyph.y0 + glyph.height/2) / points_per_mm / height_mm,
         _significance_mark(p_value),
+        transform=axis.get_xaxis_transform(),
         ha="center",
-        va="bottom",
-        fontsize=5.4,
+        va="baseline",
+        fontsize=6.5,
+        fontweight="bold",
+        gid=f"decoder_comparison_{left_column}_star",
     )
-    axis.set_xticks((0, 1), (left_label, right_label))
-    axis.set_ylabel("Decoding error (bins)", labelpad=0.0)
-    axis.set(xlim=(-0.55, 1.45), ylim=(0.0, 15.0))
-    axis.set_yticks((0.0, 5.0, 10.0, 15.0))
     despine(axis)
     axis.tick_params(direction="out", pad=1.2)
 
