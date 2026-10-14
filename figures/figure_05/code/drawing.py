@@ -171,6 +171,8 @@ def draw_tree_depth_schematic() -> tuple[Figure, pd.DataFrame]:
         level: to_hex(color_map(level / (level_count - 1)))
         for level in range(level_count)
     }
+    # Distinguish level 1 on the tree and maze without changing the heatmap palette.
+    level_colors[1] = "#442067"
     cell_colors = {
         int(cell): level_colors[
             int(np.floor(np.log2(int(maze.run_for_cell[int(cell)]) + 1)))
@@ -179,6 +181,8 @@ def draw_tree_depth_schematic() -> tuple[Figure, pd.DataFrame]:
     }
     panel_size = (_RECORD_PANEL_SLOTS["a"][2], _RECORD_PANEL_SLOTS["a"][3])
     row_scale = panel_size[1] / 4.4
+    # Native panel points, decreasing from root (0) to terminal level (6).
+    branch_widths = [3.20, 2.60, 2.00, 1.40, 0.95, 0.65, 0.50]
     positions = _horizontal_tree_positions(
         depth=level_count,
         tree_width=12.55,
@@ -201,7 +205,7 @@ def draw_tree_depth_schematic() -> tuple[Figure, pd.DataFrame]:
                         [parent_point[0], child_point[0]],
                         [parent_point[1], child_point[1]],
                         color=level_colors[level + 1],
-                        linewidth=2.0 * row_scale,
+                        linewidth=branch_widths[level + 1],
                         solid_capstyle="round",
                     )
         leaf_points = np.asarray(
@@ -214,7 +218,7 @@ def draw_tree_depth_schematic() -> tuple[Figure, pd.DataFrame]:
         tree_axis.scatter(
             leaf_points[:, 0],
             leaf_points[:, 1],
-            s=17.0 * row_scale,
+            s=2.0 * row_scale,
             color=level_colors[level_count - 1],
             zorder=4,
         )
@@ -223,7 +227,7 @@ def draw_tree_depth_schematic() -> tuple[Figure, pd.DataFrame]:
             [root_x - 1.15, root_x],
             [root_y, root_y],
             color=level_colors[0],
-            linewidth=2.0 * row_scale,
+            linewidth=branch_widths[0],
             solid_capstyle="round",
         )
         label_size = 12.0 * row_scale

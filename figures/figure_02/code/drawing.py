@@ -21,6 +21,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from matplotlib.font_manager import FontProperties
+from matplotlib.lines import Line2D
 from matplotlib.patches import Polygon, Rectangle
 from matplotlib.textpath import TextPath
 from matplotlib.ticker import FormatStrFormatter, MaxNLocator
@@ -251,6 +252,17 @@ def _render_matched_neurons(data: MatchedNeuronExamples) -> plt.Figure:
         axis.add_patch(Rectangle((-0.5, -0.5), 15.0, 15.0, fill=False, edgecolor="black", linewidth=1.15, joinstyle="miter", capstyle="butt", zorder=5, clip_on=False))
         axis.set_xlim(-0.5, 14.5)
         axis.set_ylim(-0.5, 14.5)
+    # Connect the matched squares only across the inter-session gap. Use the
+    # same line width as their outlines without moving either square.
+    for column in range(axes.shape[1]):
+        upper = axes[0, column].get_position()
+        lower = axes[1, column].get_position()
+        center_x = (upper.x0 + upper.x1) / 2.0
+        figure.add_artist(Line2D(
+            (center_x, center_x), (lower.y1, upper.y0),
+            transform=figure.transFigure, color="black", linewidth=1.15,
+            solid_capstyle="butt", zorder=5, clip_on=False,
+        ))
     return figure
 
 
@@ -355,7 +367,7 @@ def _render_metric_schematic(values: pd.DataFrame, metric: str, size: tuple[floa
             cell_height = matrix_height / matrix.shape[0]
             for row, column in np.ndindex(matrix.shape):
                 axis.add_patch(Rectangle((x_start + column * cell_width, matrix_y + (matrix.shape[0] - row - 1) * cell_height), cell_width, cell_height, facecolor=plt.cm.Greys(1.0 - matrix[row, column]), edgecolor="#D2D5D6", linewidth=0.45))
-            axis.text(x_start + matrix_width / 2.0, 0.93, f"Session {session_index}", ha="center", va="center", fontsize=5.4)
+            axis.text(x_start + matrix_width / 2.0, 0.93, f"Session {'ab'[session_index - 1]}", ha="center", va="center", fontsize=5.4)
             axis.annotate("", xy=(x_start + matrix_width, 0.27), xytext=(x_start, 0.27), arrowprops={"arrowstyle": "-|>", "color": "#34383A", "linewidth": 0.75, "mutation_scale": 7.0, "shrinkA": 0.0, "shrinkB": 0.0})
             axis.text(x_start + matrix_width / 2.0, 0.10, "Position", ha="center", va="center", fontsize=5.4)
             if metric == "place":
@@ -376,7 +388,7 @@ def _render_metric_schematic(values: pd.DataFrame, metric: str, size: tuple[floa
             for row, value in enumerate(vector):
                 axis.add_patch(Rectangle((x_start, vector_y + (len(vector) - row - 1) * cell_height), vector_width, cell_height, facecolor=plt.cm.Greys(1.0 - value), edgecolor="#D2D5D6", linewidth=0.45))
             axis.add_patch(Rectangle((x_start, vector_y), vector_width, vector_height, fill=False, edgecolor=color, linewidth=1.05))
-            axis.text(x_start + vector_width / 2.0, 0.93, f"Session {session_index}", ha="center", va="center", fontsize=5.4)
+            axis.text(x_start + vector_width / 2.0, 0.93, f"Session {'ab'[session_index - 1]}", ha="center", va="center", fontsize=5.4)
             axis.text(x_start + vector_width / 2.0, 0.12, "Mean rate", ha="center", va="center", fontsize=5.4)
         axis.text(0.510, vector_y + vector_height / 2.0, "vs", ha="center", va="center", fontsize=5.4, color="#6C7072")
         axis.annotate("", xy=(0.155, vector_y + vector_height), xytext=(0.155, vector_y), arrowprops={"arrowstyle": "-|>", "color": "#34383A", "linewidth": 0.75, "mutation_scale": 7.0, "shrinkA": 0.0, "shrinkB": 0.0})

@@ -715,6 +715,17 @@ def _draw_method_definition(axis: plt.Axes, semantic_definition: str) -> None:
             fontsize=4.7,
             color=colors["ink"],
         )
+        # Identify the first pair without crossing its curved comparison
+        # arrow or moving either label or rectangle.
+        for start, end in (
+            ((first_position - 0.010, 0.605), (first_position, bar_y + bar_height)),
+            ((first_position + 0.150, 0.605), (first_position + 2.0 * bar_width + gap, bar_y + bar_height)),
+        ):
+            axis.plot(
+                [start[0], end[0]], [start[1], end[1]],
+                color=colors["ink"], linewidth=0.45,
+                solid_capstyle="butt", zorder=4,
+            )
     axis.text(
         0.5,
         0.10,

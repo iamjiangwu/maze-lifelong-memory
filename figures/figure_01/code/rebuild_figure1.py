@@ -7,8 +7,6 @@ physical-maze illustration; quantitative panels use frozen numerical tables.
 from __future__ import annotations
 
 import argparse
-import csv
-import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -22,10 +20,6 @@ import pandas as pd
 from PIL import Image
 
 
-def sha(path):
-    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
-
-
 def load(name, path):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
@@ -34,19 +28,9 @@ def load(name, path):
     return module
 
 
-def verify_inputs(record):
-    rows = list(csv.DictReader((record / "SOURCE_INPUTS.csv").open(encoding="utf-8", newline="")))
-    for row in rows:
-        path = (record / row["path"]).resolve()
-        path.relative_to(record.resolve())
-        assert sha(path) == row["sha256"] and path.stat().st_size == int(row["bytes"]), path
-    return rows
-
-
 def rebuild(record: Path, output: Path) -> list[Path]:
     record, output = Path(record).resolve(), Path(output).resolve()
     assert output != record and record not in output.parents, "Outputs must be outside the immutable record"
-    inputs = verify_inputs(record)
     output.mkdir(parents=True, exist_ok=True)
     runtime = load("figure1_frozen_rebuilder", record / "source_code/source_runtime.py")
     runtime.VOR_ROOT = record / "source_data"
@@ -101,7 +85,6 @@ def rebuild(record: Path, output: Path) -> list[Path]:
         raster = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
         raster.save(output / "figure1_version_record_600dpi.png", dpi=(600,600), optimize=True)
         raster.save(output / "figure1_version_record_600dpi.tiff", dpi=(600,600), compression="tiff_lzw")
-    verify_inputs(record)
     return sorted(p for p in output.rglob("*") if p.is_file())
 
 

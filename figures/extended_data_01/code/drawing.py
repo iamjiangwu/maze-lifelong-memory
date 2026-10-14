@@ -32,13 +32,13 @@ _MONTH_COLORS = {
     "6mo": "#E77D72",
     "9mo": "#C84B44",
     "12mo": "#8E2C2A",
-    "experienced_day2": "#5B8C5A",
+    "experienced_day2": "#5B6B7A",
 }
 
 _GROUP_COLORS = {
     "naive": "#78ADD2",
     "return": "#C84B44",
-    "experienced_day2": "#5B8C5A",
+    "experienced_day2": "#5B6B7A",
 }
 
 _AXIS_COLOR = "#303030"

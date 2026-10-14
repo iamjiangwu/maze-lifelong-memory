@@ -15,9 +15,9 @@ def load(name, path):
     return module
 
 
-def build(output):
+def build(output, *, source):
     output = Path(output).resolve()
-    source = output / "frozen_source"
+    source = Path(source).resolve()
     if not source.is_dir():
         raise FileNotFoundError("Run Figure 1 through reproduce.py to supply its inputs")
     entrypoint = load("figure1_source_entrypoint", source / "source_code/rebuild_figure1.py")

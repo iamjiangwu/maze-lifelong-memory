@@ -2,7 +2,7 @@
 from __future__ import annotations
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
-from matplotlib.colors import Normalize
+from matplotlib.colors import Normalize, LinearSegmentedColormap
 from matplotlib.patches import Ellipse, PathPatch, Polygon, Rectangle
 from matplotlib.path import Path as MplPath
 import numpy as np
@@ -55,6 +55,15 @@ def _draw_water_drop_icon(ax) -> None:
                          zorder=8.1, clip_on=False))
 
 
+# Preserve viridis hues, gently darkening its bright end for thin lines on white.
+_color_position = np.linspace(0.0, 1.0, 256)
+_trajectory_colors = plt.get_cmap("viridis")(_color_position)
+_trajectory_colors[:, :3] *= (1.0 - 0.22 * _color_position**2)[:, None]
+TRAJECTORY_CMAP = LinearSegmentedColormap.from_list(
+    "viridis_muted_yellow", _trajectory_colors
+)
+
+
 def draw_trajectory(
     ax: plt.Axes,
     data: pd.DataFrame,
@@ -81,9 +90,9 @@ def draw_trajectory(
     keep = data["draw_to_next"].iloc[:-1].astype(bool).to_numpy()
     collection = LineCollection(
         segments[keep],
-        cmap=plt.get_cmap("viridis"),
+        cmap=TRAJECTORY_CMAP,
         norm=norm,
-        linewidths=0.42,
+        linewidths=0.55,
         alpha=0.86,
         capstyle="round",
         joinstyle="round",

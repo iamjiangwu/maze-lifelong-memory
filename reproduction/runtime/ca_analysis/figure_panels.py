@@ -996,24 +996,19 @@ def _add_timeline_water_drop_icon(ax, xy_axes, marker_spec: dict):
 
 def _add_timeline_no_water_marker(ax, xy_axes, marker_spec: dict):
     size = float(marker_spec.get("size", 18.0))
-    color = marker_spec.get("color", "#D62728")
-    linewidth = float(marker_spec.get("linewidth", 2.2))
+    color = "#000000"
+    linewidth = 1.0
     zorder = float(marker_spec.get("zorder", 12))
     pad = size * 0.24
     drawing = DrawingArea(size, size, 0, 0)
+    drawing.add_artist(patches.Circle(
+        (size / 2, size / 2), size * 0.24,
+        facecolor="none", edgecolor=color, linewidth=linewidth,
+    ))
     drawing.add_artist(
         Line2D(
             [pad, size - pad],
             [pad, size - pad],
-            color=color,
-            linewidth=linewidth,
-            solid_capstyle="round",
-        )
-    )
-    drawing.add_artist(
-        Line2D(
-            [pad, size - pad],
-            [size - pad, pad],
             color=color,
             linewidth=linewidth,
             solid_capstyle="round",

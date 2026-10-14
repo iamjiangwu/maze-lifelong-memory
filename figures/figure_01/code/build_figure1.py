@@ -4,7 +4,6 @@ import argparse
 import csv
 import importlib.util
 import io
-import shutil
 import sys
 import xml.etree.ElementTree as ET
 
@@ -42,8 +41,7 @@ def tree_source(output):
 
 def build(output):
     output=output.resolve();output.mkdir(parents=True,exist_ok=True)
-    frozen=output/"frozen_source"
-    if not frozen.exists():shutil.copytree(BASE/"frozen_source",frozen)
+    frozen=BASE/"frozen_source"
     geometry,positions,edges=tree_source(output)
     base=load("tree_preview_ij_base",BASE/"source_code/configure_panel_geometry.py")
     original_load=base.load
@@ -111,7 +109,7 @@ def build(output):
                         assert len(set(slots.values()))==127
                         display_positions={node:(.8*positions[slot][0],-positions[slot][1]) for node,slot in slots.items()}
                         route_xy=np.array([display_positions[node] for node in route])
-                        ax.plot(route_xy[:,0],route_xy[:,1],color="#2789cf",lw=1.0,solid_capstyle="round",solid_joinstyle="round",zorder=5)
+                        ax.plot(route_xy[:,0],route_xy[:,1],color="#2789cf",lw=1.8,solid_capstyle="round",solid_joinstyle="round",zorder=5)
                         ax.scatter(*route_xy[-1],s=2.5,color="#2789cf",edgecolors="none",zorder=6)
                         m.add_standard_water_drop(ax,tuple(route_xy[-1]),ax.transData,"tree_reward",offset=(4.5,0))
                         terminal=maze_model.ru[94][-1]
@@ -149,7 +147,7 @@ def build(output):
                             ax.set_ylim(14.6,-.6);ax.set_title(title,fontsize=6.5,pad=2)
                             counts[session]=int(rows.draw_to_next.iloc[:-1].sum())
                         cax=fig.add_axes([97.05/width,(height-44)/height,1.1/width,39.8/height])
-                        cb=fig.colorbar(plt.cm.ScalarMappable(norm=norm,cmap="viridis"),cax=cax,orientation="vertical")
+                        cb=fig.colorbar(plt.cm.ScalarMappable(norm=norm,cmap=ed.TRAJECTORY_CMAP),cax=cax,orientation="vertical")
                         cb.solids.set_rasterized(False);cb.set_ticks([0,norm.vmax]);cb.set_ticklabels(["0",f"{norm.vmax:.0f}"])
                         cb.ax.tick_params(labelsize=6.5,length=1.5,pad=1.5);cb.outline.set_linewidth(.4)
                         cb.set_label("Time in maze (min)",fontsize=6.5,labelpad=-8.5)
@@ -160,7 +158,7 @@ def build(output):
             module.load=native
         return module
     base.load=scoped_load
-    base.build(output)
+    base.build(output, source=frozen)
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument("--output-dir",type=Path,default=DEFAULT)

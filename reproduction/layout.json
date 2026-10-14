@@ -9,7 +9,7 @@
       "title": "Lifelong memory of a complex navigation task",
       "description": "Maze trajectories and end node visits; first long bout time, exploration efficiency and first visit route score across naive, return, second day and latent day2 sessions.",
       "builder": "staged",
-      "publication_pdf_sha256": "6ed8a407ef7ffd2db5b97b08768bafa2c46c2b817c6dfc23879acd094e19bc59"
+      "publication_pdf_sha256": "80f201e1cb4469233166a22cc7044be5ee154a1965497e7a6ed513446004cdf9"
     },
     {
       "artifact_id": "main_figure_2",
@@ -19,7 +19,7 @@
       "title": "CA1 retains a persistent trace after long periods without maze experience",
       "description": "Place map, population vector (PV) and ensemble rate correlations across long gaps, days apart and successive gaps, with matched neuron examples and neuron ID shuffles.",
       "builder": "derived",
-      "publication_pdf_sha256": "49bbd37cefcfd9e8a12a9f783341d8427cba66d17e1e215920eb0f70aeaf7d43"
+      "publication_pdf_sha256": "ba4602f03e5237b464d67d78750c1a1711df9499e2aa51a7558fc8aebb3fef58"
     },
     {
       "artifact_id": "main_figure_3",
@@ -29,7 +29,7 @@
       "title": "Experience makes spatial representations more stable",
       "description": "PV, place map and ensemble rate convergence toward the full second day reference; early alignment and recurrence across recording cycles.",
       "builder": "derived",
-      "publication_pdf_sha256": "1d027771e28e145e32efb8edecb012437cbc712fee351b4146cf0c48d2d35e8e"
+      "publication_pdf_sha256": "5d28ef64f2fec64ea10122db02e2db44cb02db08985b8b0a6c095148fc1bf508"
     },
     {
       "artifact_id": "main_figure_4",
@@ -39,7 +39,7 @@
       "title": "The reward location anchors selective place stability",
       "description": "Cross-session spatial decoding and standardized route PV correlations; reward decoding error paired with first long bout time in the later session.",
       "builder": "derived",
-      "publication_pdf_sha256": "ada9a1325234494350fd59c286ee322be56a382a2f9a32a8b0563b61034a4cb0"
+      "publication_pdf_sha256": "03bff19441b57125e80e2a2dc49c06e5c321173987f42e9543b3af3b320570b5"
     },
     {
       "artifact_id": "main_figure_5",
@@ -49,7 +49,7 @@
       "title": "A compact structural code predicts memory guided exploration",
       "description": "Level maps and level PV correlations across a long gap, and the relationship between preserved level map correlation and exploration efficiency on return (panel e).",
       "builder": "derived",
-      "publication_pdf_sha256": "e5118eff92fe72517409b0f0327c745d81edb89ce605e312d69df263fabcfa39"
+      "publication_pdf_sha256": "467e2d22edc6215c9b81653cd4d15e52724aae7a755e6245f0114d99e3f5b43b"
     },
     {
       "artifact_id": "extended_data_figure_1",
@@ -59,7 +59,7 @@
       "title": "Additional reward and exploration measures for lifelong spatial memory",
       "description": "Cumulative rewards and long bouts, maze time and steps in the maze, nose speed, and repeated coverage rounds and exploration efficiency.",
       "builder": "derived",
-      "publication_pdf_sha256": "6dbf637dedd44a7071d3fe85b5193502042f6426ceabbe24a1780f2c364b9d4b"
+      "publication_pdf_sha256": "7a738041d379ff9acb960a7f0ec47b2f5b7e703c493d4563835cb1f2e6fca61c"
     },
     {
       "artifact_id": "extended_data_figure_2",
@@ -69,7 +69,7 @@
       "title": "Junction turning biases and biased walk models of exploration efficiency",
       "description": "Measured PSF, PSA, PBF and PBS turning biases and biased walk models explaining the improvement in exploration efficiency, including the depth dependence of PBS.",
       "builder": "staged",
-      "publication_pdf_sha256": "509a56b71624f42348fc134441dd2b38fc35a0689896387d6bde55accd7954e4"
+      "publication_pdf_sha256": "e19853b6d7820de7c0c3bc26e8a8ea366f25be8644c6e2a8b6b592d923df9df0"
     },
     {
       "artifact_id": "extended_data_figure_3",
@@ -79,7 +79,7 @@
       "title": "Reward path fluency and first visit route choices",
       "description": "Junction dwell before and after reward in latent day2 and return sessions, and first choices at the six reward path decision nodes.",
       "builder": "staged",
-      "publication_pdf_sha256": "c0cbc296fe92313d940219c11f02ee74ec2204f5eb662e3b5169f181a755626d"
+      "publication_pdf_sha256": "e38213bf1de3ffcfffa340da08995a6ed675108deb0f698ca6b8726c3d24b437"
     },
     {
       "artifact_id": "extended_data_figure_4",
@@ -210,7 +210,7 @@
     },
     {
       "repository_path": "figures/extended_data_01/code/drawing.py",
-      "sha256": "f1e8627e7fdcbbe5a9abe247da78173b24aeb688cb5fe21ebaff7dab11325d99",
+      "sha256": "6bc196f7f69b142d4be9741db3e9fc9904b9a16a460c9538da39a000f01cd8db",
       "bytes": 33479
     },
     {
@@ -288,8 +288,8 @@
     },
     {
       "repository_path": "figures/extended_data_02/code/ed2_panels.py",
-      "sha256": "591833d74c585d36cfb25695aa86c05a919124731cb7859fc92f6c437678f463",
-      "bytes": 74410,
+      "sha256": "78f179f8d6df6d9b4b1604b1816d3cece3e39a150b27b654ae21de32d5703c69",
+      "bytes": 74404,
       "loader_paths": [
         "extended_data_figure_2/source/source_code/ed2_panels.py"
       ]
@@ -406,7 +406,7 @@
     },
     {
       "repository_path": "figures/extended_data_03/code/render_ed03_reward_path_fluency_assembly.py",
-      "sha256": "5280d12c0979c6c1a3e150f2c87fec44888459f17ad2b2d41b728e1e4c434885",
+      "sha256": "bbf9302fd266618b16c71753031cbe9936a3701b8ca9fcd402ee7e647b8bdd91",
       "bytes": 30469,
       "loader_paths": [
         "extended_data_figure_3/source/source_code/render_ed03_reward_path_fluency_assembly.py"
@@ -861,7 +861,7 @@
     },
     {
       "repository_path": "figures/figure_01/code/behavior_panels.py",
-      "sha256": "ef9f011e179b537b65742f5803daac35d6d82bea67940064552d91f14e04546e",
+      "sha256": "4de18570bd0c6e0cd205ef889bc0a7c63af7b0e9307865d9216031131c0d2849",
       "bytes": 24897,
       "loader_paths": [
         "main_figure_1/source/frozen_source/source_code/behavior_panels.py"
@@ -869,16 +869,16 @@
     },
     {
       "repository_path": "figures/figure_01/code/build_figure1.py",
-      "sha256": "37e0a8fc5d74a08ad7f14756c07fa76d81431249c69be172094fc3b4ae57012c",
-      "bytes": 10590,
+      "sha256": "62f00aaf26ec0df03d656a620cf886425f923855d78e33e16d4f3f7ea1f33f51",
+      "bytes": 10526,
       "loader_paths": [
         "main_figure_1/source/source_code/build_figure1.py"
       ]
     },
     {
       "repository_path": "figures/figure_01/code/configure_panel_geometry.py",
-      "sha256": "98a58970f8e370d0bbb8d4a47f3afc7ba786f5aeba34bf9cf2589d67a21ce547",
-      "bytes": 1161,
+      "sha256": "784f5ddbb42cf332368105b384a5d914867d01c32f2657ce986121e30481eec7",
+      "bytes": 1170,
       "loader_paths": [
         "main_figure_1/source/source_code/configure_panel_geometry.py"
       ]
@@ -893,8 +893,8 @@
     },
     {
       "repository_path": "figures/figure_01/code/rebuild_figure1.py",
-      "sha256": "795140f7b562d54fb4b985742a7db1ef52135a4ae204efd5a82cba7590b0f423",
-      "bytes": 5563,
+      "sha256": "cbebafdcf83b7df38459fd25726a92c200bad1829ef40c087ddb8f6b7ba86211",
+      "bytes": 5047,
       "loader_paths": [
         "main_figure_1/source/frozen_source/source_code/rebuild_figure1.py"
       ]
@@ -909,8 +909,8 @@
     },
     {
       "repository_path": "figures/figure_01/code/trajectory_panel.py",
-      "sha256": "d7a512632d97afc3d4b6222b62da9036c3d87cfedf00796780f9a173c6454203",
-      "bytes": 4276,
+      "sha256": "aa32e283d430e9e25873669d3fe6fa2b9072664d757aa30d77b7110618f91386",
+      "bytes": 4667,
       "loader_paths": [
         "main_figure_1/source/frozen_source/source_code/trajectory_panel.py"
       ]
@@ -1056,8 +1056,8 @@
     },
     {
       "repository_path": "figures/figure_02/code/drawing.py",
-      "sha256": "b98616bc72ec5a73c4d55e1bcee9d547915666b8bff1440621d0fe439e4ab568",
-      "bytes": 41548
+      "sha256": "1f54d0ac8e01ba7184fbe1b2736b0ddf8cae228f1fc3e634dac28ecc64888b6d",
+      "bytes": 42178
     },
     {
       "repository_path": "figures/figure_02/code/inference.py",
@@ -1161,8 +1161,8 @@
     },
     {
       "repository_path": "figures/figure_03/code/drawing.py",
-      "sha256": "c0df6b9f82c08b788691f931009f36f35bb20ae8ba2944591b5ea00eaccd4d14",
-      "bytes": 37733
+      "sha256": "11f05fd1364648550471a7d0c05be63801423a590d20c0aa649090c9c904ba91",
+      "bytes": 38287
     },
     {
       "repository_path": "figures/figure_03/code/inference.py",
@@ -1211,8 +1211,8 @@
     },
     {
       "repository_path": "figures/figure_04/code/drawing.py",
-      "sha256": "f19a7a9c3701499c63f6a5f4bdf4381127fda8bb547a3d65acabab44082e87b3",
-      "bytes": 28811
+      "sha256": "f75bc85ec42f77aa253e1ce5a493270b3ce8d79ef3a63d3a1d934f7ad6aa8361",
+      "bytes": 29042
     },
     {
       "repository_path": "figures/figure_04/code/inference.py",
@@ -1271,8 +1271,8 @@
     },
     {
       "repository_path": "figures/figure_05/code/drawing.py",
-      "sha256": "f275e43384cc0f634c0d3e9a868d1a1594fbf46702d57b17794a20f7541e63ca",
-      "bytes": 26350
+      "sha256": "1368b2a0384574e9d4726f8be40adca0c7c9f7b1728386e65838d54f6eba11f0",
+      "bytes": 26618
     },
     {
       "repository_path": "figures/figure_05/code/inference.py",
@@ -1363,8 +1363,8 @@
     },
     {
       "repository_path": "reproduction/runtime/ca_analysis/figure_panels.py",
-      "sha256": "7de63bade344a367d7bfd845d39ba133cd4b1e7fb283f5c32f214f9c654a3615",
-      "bytes": 70716,
+      "sha256": "4cc3bc12cfb1539d2d031029e93af56fd6fe398d0d5b56e74da9f3d40f8a5464",
+      "bytes": 70594,
       "loader_paths": [
         "main_figure_1/source/frozen_source/source_code/figure_panels.py",
         "shared/runtime/ca_analysis/figure_panels.py"

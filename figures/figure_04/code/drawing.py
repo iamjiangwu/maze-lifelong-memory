@@ -142,8 +142,8 @@ def _draw_decoder_schematic(
 
     axis.set(xlim=(0, 1), ylim=(0, 1))
     axis.axis("off")
-    title_font = 4.32
-    tiny_font = 3.35
+    title_font = 6.0
+    tiny_font = 4.5
     maze = build_maze(6)
     map_cmap = plt.get_cmap("cividis").copy()
     map_cmap.set_bad("#f4f4f4")
@@ -320,9 +320,10 @@ def _draw_decoder_schematic(
         [data.decoded_xy[0]],
         [data.decoded_xy[1]],
         s=2.8,
-        marker="x",
-        linewidths=0.32,
-        color="#00A6D6",
+        marker="o",
+        facecolor="none",
+        edgecolor="#00A6D6",
+        linewidths=0.65,
         zorder=5,
     )
     posterior_axis.scatter(
@@ -332,7 +333,7 @@ def _draw_decoder_schematic(
         marker="o",
         facecolor="none",
         edgecolor="#F04E37",
-        linewidths=0.32,
+        linewidths=0.65,
         zorder=5,
     )
     posterior_axis.set(xlim=(-0.5, 14.5), ylim=(14.5, -0.5))
@@ -364,9 +365,10 @@ def _draw_decoder_schematic(
         [posterior_x + 0.030],
         [legend_y],
         s=4.0,
-        marker="x",
-        linewidths=0.42,
-        color="#00A6D6",
+        marker="o",
+        facecolor="none",
+        edgecolor="#00A6D6",
+        linewidths=0.65,
         transform=axis.transAxes,
         clip_on=False,
     )
@@ -374,7 +376,8 @@ def _draw_decoder_schematic(
         posterior_x + 0.042,
         legend_y,
         "Decoded",
-        fontsize=tiny_font,
+        fontsize=5.0,
+        fontweight="bold",
         color="#00A6D6",
         va="center",
     )
@@ -385,7 +388,7 @@ def _draw_decoder_schematic(
         marker="o",
         facecolor="none",
         edgecolor="#F04E37",
-        linewidths=0.42,
+        linewidths=0.65,
         transform=axis.transAxes,
         clip_on=False,
     )
@@ -393,7 +396,8 @@ def _draw_decoder_schematic(
         posterior_x + 0.162,
         legend_y,
         "Real",
-        fontsize=tiny_font,
+        fontsize=5.0,
+        fontweight="bold",
         color="#F04E37",
         va="center",
     )
@@ -629,7 +633,8 @@ def _draw_standardized_route_results(
                 [str(b) for b in bins],
                 fontsize=4.8,
             )
-            axis.set_xlabel(title, fontsize=5)
+            # Two short lines keep the enlarged labels inside each map's width.
+            axis.set_xlabel(title.rsplit(" ", 1)[0] + "\n" + title.rsplit(" ", 1)[1], fontsize=6)
             axis.tick_params(labelsize=4.8, pad=1)
         axes[0].set_ylabel("Neurons", fontsize=5.2)
         axes[1].tick_params(labelleft=False)
@@ -657,7 +662,7 @@ def _draw_standardized_route_results(
         axis.set_yticks([21, 0], ["Home", "Reward"], fontsize=4.8)
         axis.yaxis.tick_right()
         axis.tick_params(axis="y", length=0, pad=1.5)
-        axis.set_xlabel("Standardized PV\ncorrelation", fontsize=5)
+        axis.set_xlabel("Standardized PV\ncorrelation", fontsize=6)
         axis.spines[["top", "left"]].set_visible(False)
         axis.legend(
             frameon=False,

@@ -70,7 +70,7 @@ AXES_LINEWIDTH = MAIN_AXES_LINEWIDTH * FONT_SCALE
 # Condition palette, taken from Main Figure 1 and applied to every panel. The maintained
 # ED4 fluency renderer ships condition defaults; the shared palette below is applied to every panel.
 FIGURE1_NAIVE_COLOR = "#8BBDEB"
-FIGURE1_SECOND_DAY_COLOR = "#5F8C62"
+FIGURE1_SECOND_DAY_COLOR = "#5B6B7A"
 FIGURE1_LATENT_DAY2_COLOR = "#B3A99B"
 
 # Main Figure 1 uses #DA2323 for Return day. In this figure it reads too red: at saturation
