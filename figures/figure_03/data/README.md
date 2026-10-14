@@ -18,8 +18,6 @@ The renderer first independently smooths `mean` and `sem` across the supplied cu
 
 The point/statistics files also contain the level-map measure shown in ED9n/o, which belongs to the same BH4 families. Second-column animal observations and third-column pair observations are both needed for their tests with standard errors clustered by animal. The first-column curves only require their plotted summaries and support.
 
-`source_bundles` identifies sorted-neuron cohorts and original-neuron naïve fallbacks; semicolon-separated labels mark pooled cohorts. See [source-label definitions](../../../docs/DATA.md#source-labels).
-
 The successive-cycle points in g/j/m include mouse 1616's 14-day interval. Thus the file's `long_gap` name does not mean that every included interval is approximately 90 days; this cohort differs from the 36-pair long-gap cohort in Figure 2.
 
 The example NPZ contains displayed geometry only. For each session side, `*_traj_x`/`*_traj_y` contain the trajectory; `*_px`/`*_py` and `*_ex`/`*_ey` give body and nose coordinates for each displayed activity arrow. Coordinates use maze-grid units with the displayed y orientation. Upstream arrow selection used activity above five times the Welch noise estimate and collapsed events within four frames. No neural traces are included, and reproduction does not reselect activity events.

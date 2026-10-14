@@ -7,7 +7,6 @@ then calls the rendering/statistics engine. No raw-data processing runs.
 from __future__ import annotations
 
 import argparse
-import csv
 from datetime import datetime
 import hashlib
 import json
@@ -21,23 +20,6 @@ import uuid
 
 
 REPOSITORY = Path(__file__).resolve().parent
-
-# Only these inspected checksum inventories are projected in disposable stages.
-# Their scientific settings and all retained entries remain unchanged.
-HASH_INVENTORIES = {
-    'main_figure_1/source/frozen_source/SOURCE_INPUTS.csv': ('csv', ''),
-    'main_figure_3/source/SOURCE_INPUTS.json': ('files', ''),
-    'main_figure_4/source/INPUT_HASHES.json': ('hashes', ''),
-    'main_figure_5/source/SOURCE_INPUTS.json': ('sources', ''),
-    'extended_data_figure_8/source/INPUT_MANIFEST.json': ('files_frozen', ''),
-    'extended_data_figure_9/source/SOURCE_INPUTS.json': ('frozen_files', 'source_data/frozen'),
-    'extended_data_figure_9/source/source_data/level_comparison/MANIFEST.json': ('outputs', ''),
-    'extended_data_figure_9/source/source_data/first30_addition/manifest.json': ('outputs', ''),
-    'extended_data_figure_9/source/source_data/population_vector_shuffle/manifest.json': ('outputs', ''),
-    'extended_data_figure_9/source/source_data/population_vector_distribution/OUTPUT_HASHES.json': ('hashes', ''),
-    'extended_data_figure_10/source/SOURCE_INPUTS.json': ('files', ''),
-}
-
 
 def inside(root: Path, relative: str) -> Path:
     """Resolve a catalog path without allowing it to escape its root."""
@@ -88,7 +70,6 @@ def source_catalog(layout: dict, repository: Path = REPOSITORY) -> tuple[dict, d
         raise ValueError('Duplicate original source path in relocation map')
     required = {'RELEASE_MANIFEST.json', 'reproduce.py', 'recompute_statistics.py'}
     required.update(path for path in expected if path.startswith('shared/'))
-    required.update(path for path in HASH_INVENTORIES if path in expected)
     if not required.issubset(mapped):
         raise ValueError('Required reproduction machinery is missing: ' + ', '.join(sorted(required-set(mapped))))
     for artifact in originals:
@@ -121,63 +102,8 @@ def verify_sources(layout: dict, repository: Path = REPOSITORY) -> dict:
             'original_source_paths': len(mapped), 'retained_source_files': len(checked)}
 
 
-def project_input_inventories(stage: Path, retained: set[str]) -> list[dict]:
-    """Drop omitted checksum entries only; preserve the original source metadata."""
-    projections = []
-    retained_paths = {inside(stage, name) for name in retained}
-    for relative, (kind, base) in HASH_INVENTORIES.items():
-        if relative not in retained:
-            continue
-        path = inside(stage, relative)
-        original_hash = checksum(path)
-        root = path.parent / base
-
-        def keep(name: str) -> bool:
-            target = inside(root.resolve(), name.replace('\\', '/'))
-            return target in retained_paths
-
-        if kind == 'csv':
-            with path.open(encoding='utf-8', newline='') as stream:
-                reader = csv.DictReader(stream)
-                fields, rows = reader.fieldnames, list(reader)
-            selected = [row for row in rows if keep(row['path'])]
-            if selected == rows:
-                continue
-            with path.open('w', encoding='utf-8', newline='') as stream:
-                writer = csv.DictWriter(stream, fieldnames=fields)
-                writer.writeheader()
-                writer.writerows(selected)
-            dropped = len(rows)-len(selected)
-        else:
-            payload = json.loads(path.read_text(encoding='utf-8'))
-            if kind == 'frozen_files':
-                selected = [row for row in payload if keep(row['frozen_file'])]
-                dropped = len(payload)-len(selected)
-                payload = selected
-            elif kind in ('files', 'files_frozen'):
-                rows = payload['files']
-                key = 'frozen' if kind == 'files_frozen' else 'path'
-                selected = [row for row in rows if keep(row[key])]
-                dropped = len(rows)-len(selected)
-                payload['files'] = selected
-            else:
-                rows = payload if kind == 'hashes' else payload[kind]
-                selected = {name: row for name, row in rows.items() if keep(name)}
-                dropped = len(rows)-len(selected)
-                if kind == 'hashes':
-                    payload = selected
-                else:
-                    payload[kind] = selected
-            if not dropped:
-                continue
-            path.write_text(json.dumps(payload, indent=2)+'\n', encoding='utf-8')
-        projections.append({'path': relative, 'original_sha256': original_hash,
-                            'staged_sha256': checksum(path), 'omitted_entries': dropped})
-    return projections
-
-
 def stage_snapshot(layout: dict, stage: Path, repository: Path = REPOSITORY):
-    """Stage retained originals and disposable inventories for the unchanged engine."""
+    """Copy authenticated inputs without rewriting their loader inventories."""
     manifest, mapped = source_catalog(layout, repository)
     for row in layout['files']:
         source = inside(repository, row['repository_path'])
@@ -186,16 +112,10 @@ def stage_snapshot(layout: dict, stage: Path, repository: Path = REPOSITORY):
         shutil.copy2(source, destination)
         if (checksum(destination), destination.stat().st_size) != (row['sha256'], int(row['bytes'])):
             raise ValueError('Staged source differs from original: ' + row['snapshot_path'])
-    projections = project_input_inventories(stage, set(mapped))
-    projected = {row['path'] for row in projections}
     staged = dict(manifest)
     staged['files'] = [dict(row) for row in manifest['files'] if row['path'] in mapped]
-    for row in staged['files']:
-        if row['path'] in projected:
-            path = inside(stage, row['path'])
-            row.update(sha256=checksum(path), bytes=path.stat().st_size)
     staged['staging'] = {'original_manifest_sha256': layout['snapshot_manifest_sha256'],
-                         'retained_source_paths': len(mapped), 'checksum_inventory_projections': projections}
+                         'retained_source_paths': len(mapped)}
     (stage/'RELEASE_MANIFEST.json').write_text(json.dumps(staged, indent=2)+'\n', encoding='utf-8')
     return staged
 

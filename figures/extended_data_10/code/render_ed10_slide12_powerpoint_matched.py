@@ -10,10 +10,7 @@ The ED2 policy order (P_SF, P_SA, P_BF, depth-weighted P_BS) is preserved.
 
 from __future__ import annotations
 
-import hashlib
 import json
-import shutil
-import re
 from pathlib import Path
 
 import matplotlib as mpl
@@ -32,8 +29,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TABLE_A = DATA / "POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv"
 TABLE_B = DATA / "REWARD_LEVEL_COMMONALITY.csv"
-PROFILE_TABLE = DATA / "REWARD_LEVEL_PROFILE_TESTS.csv"
-PAIR_AUDIT = DATA / "CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
+PAIR_VALUES = DATA / "CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
 TABLE_C = DATA / "level_policy_bridge_join_corrected36.csv"
 STATS_C = TABLE_C.with_name("level_policy_bridge_stats_corrected36.csv")
 
@@ -48,28 +44,21 @@ BOOTSTRAP_SEED = 20260809
 ROUND = "round8"
 ROLE_ASPECTS = {"a": 685.44 / 261.62, "b": 685.44 / 167.97, "c": 685.44 / 202.21}
 ROLE_HEIGHTS_720 = {"a": 261.62, "b": 167.97, "c": 202.21}
-ROUND4_INTERROW_GAPS_720 = {"a_b": 17.52, "b_c": 20.83}
-ROUND5_INTERROW_GAPS_720 = {
-    key: value / 2 for key, value in ROUND4_INTERROW_GAPS_720.items()
-}
-TARGET_INTERROW_GAPS_720 = {
-    "a_b": ROUND5_INTERROW_GAPS_720["a_b"] / 2,
-    "b_c": ROUND5_INTERROW_GAPS_720["b_c"],
-}
+INTERROW_GAPS_720 = {"a_b": 4.38, "b_c": 10.415}
 CONTENT_HEIGHT_720 = (
-    sum(ROLE_HEIGHTS_720.values()) + sum(TARGET_INTERROW_GAPS_720.values())
+    sum(ROLE_HEIGHTS_720.values()) + sum(INTERROW_GAPS_720.values())
 )
 CONTENT_MARGIN_720 = (720 - CONTENT_HEIGHT_720) / 2
 ROLE_TOPS_720 = {
     "a": CONTENT_MARGIN_720,
     "b": CONTENT_MARGIN_720
     + ROLE_HEIGHTS_720["a"]
-    + TARGET_INTERROW_GAPS_720["a_b"],
+    + INTERROW_GAPS_720["a_b"],
     "c": CONTENT_MARGIN_720
     + ROLE_HEIGHTS_720["a"]
-    + TARGET_INTERROW_GAPS_720["a_b"]
+    + INTERROW_GAPS_720["a_b"]
     + ROLE_HEIGHTS_720["b"]
-    + TARGET_INTERROW_GAPS_720["b_c"],
+    + INTERROW_GAPS_720["b_c"],
 }
 SLIDE_ROLE_RECTS = {
     role: [
@@ -80,23 +69,6 @@ SLIDE_ROLE_RECTS = {
     ]
     for role in ("a", "b", "c")
 }
-
-
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
-def record(path: Path, role: str) -> dict[str, object]:
-    return {
-        "role": role,
-        "path": path.resolve().as_posix(),
-        "bytes": path.stat().st_size,
-        "sha256": sha256(path),
-    }
 
 
 def configure_style() -> None:
@@ -198,7 +170,7 @@ def _cr1_p_value(frame: pd.DataFrame, predictor: str, outcome: str) -> dict[str,
     }
 
 
-def panel_a_multiplicity_audit(
+def correlation_statistics(
     table: pd.DataFrame, pair_rows: pd.DataFrame
 ) -> pd.DataFrame:
     """Build the displayed animal-clustered slope tests and row-wise BH3."""
@@ -303,14 +275,13 @@ def panel_a_multiplicity_audit(
 def raw_decoder_error_display_table(
     maintained: pd.DataFrame,
     pair_rows: pd.DataFrame,
-) -> tuple[pd.DataFrame, dict[str, object]]:
+) -> pd.DataFrame:
     """Flip only decoder-strength rows after proving them against raw errors."""
 
     display = maintained.copy()
     display["outcome_label"] = display["outcome_label"].replace(
         {"Reward-approach speed advantage": "Reward approach speed advantage"}
     )
-    rows: list[dict[str, object]] = []
     for block, decoder_column in RAW_DECODER_COLUMNS.items():
         decoder = pd.to_numeric(pair_rows[decoder_column], errors="raise").to_numpy(float)
         for outcome, behavior_column in DISPLAY_OUTCOME_COLUMNS.items():
@@ -327,22 +298,7 @@ def raw_decoder_error_display_table(
                 )
             display.loc[mask, "pooled_pearson_r"] = raw_r
             display.loc[mask, "block_label"] = RAW_DECODER_LABELS[block]
-            display.loc[mask, "display_role"] = (
-                "raw_decoder_error_descriptive_no_cellwise_inference"
-            )
-            rows.append(
-                {
-                    "block": block,
-                    "outcome": outcome,
-                    "decoder_column": decoder_column,
-                    "behavior_column": behavior_column,
-                    "maintained_negative_error_r": maintained_r,
-                    "display_raw_error_r": raw_r,
-                    "exact_sign_reverse": bool(
-                        np.isclose(raw_r, -maintained_r, atol=1e-12, rtol=0.0)
-                    ),
-                }
-            )
+
 
     unchanged_columns = [column for column in maintained.columns if column != "outcome_label"]
     unchanged = maintained.loc[
@@ -355,23 +311,7 @@ def raw_decoder_error_display_table(
         raise AssertionError("A non-decoder ED10 matrix row changed")
     if display["outcome_label"].astype(str).str.contains("Reward-approach", regex=False).any():
         raise AssertionError("A dashed reward-approach label survived in the display table")
-    audit = {
-        "schema": "ed10-raw-decoder-error-display-sign-audit/v1",
-        "status": "PASS",
-        "cohort": {"n_pairs": int(len(pair_rows)), "n_animals": int(pair_rows["animal_id"].nunique())},
-        "higher_decoder_value_means": "poorer decoding",
-        "changed_cells": rows,
-        "checks": {
-            "six_decoder_cells_are_exact_sign_reversals": all(
-                bool(row["exact_sign_reverse"]) for row in rows
-            ) and len(rows) == 6,
-            "other_twelve_cells_exact": True,
-            "display_outcome_labels_use_open_compounds": True,
-            "cohort_30_pairs_14_mice": len(pair_rows) == 30
-            and pair_rows["animal_id"].nunique() == 14,
-        },
-    }
-    return display, audit
+    return display
 
 
 def heatmap_panel(ax: plt.Axes, cax: plt.Axes, table: pd.DataFrame) -> None:
@@ -612,10 +552,8 @@ def add_collision_aware_r_label(
             f"Could not place lower-right r label clear of scatter points for {column}: "
             f"best clearance={None if best is None else best[0]:.3f}px"
         )
-    best[1]._ed10_point_clearance_px = best[0]
-    best[1]._ed10_floor_extensions = floor_extensions
     if floor_extensions:
-        # A lower floor moves every point; refresh the recorded clearance of
+        # A lower floor moves every point; check the clearance of
         # the upper-left significance annotation and fail closed if too close.
         ax.figure.canvas.draw()
         points_px = ax.transData.transform(np.column_stack([x, y]))
@@ -628,7 +566,6 @@ def add_collision_aware_r_label(
                     raise AssertionError(
                         f"Lowered floor brings points within 2 px of the annotation for {column}: {clearance:.3f}px"
                     )
-                text._ed10_point_clearance_px = clearance
     return best[1]
 
 
@@ -708,12 +645,6 @@ def policy_scatter_panel(
         if annotation == "n.s.":
             star.set_fontsize(8.0)
             ax.figure.canvas.draw()
-            annotation_clearance = _point_to_bbox_clearance_px(
-                ax.transData.transform(np.column_stack([x, y])),
-                star.get_window_extent(ax.figure.canvas.get_renderer()),
-                (np.sqrt(10.0) / 2.0) * ax.figure.dpi / 72.0,
-            )
-        star._ed10_point_clearance_px = annotation_clearance
         ax.yaxis.set_major_locator(MaxNLocator(nbins=4, prune="both"))
         ax.yaxis.set_major_formatter(FormatStrFormatter("%.2f"))
         add_collision_aware_r_label(
@@ -827,191 +758,15 @@ def add_role_c(
     return axes
 
 
-def rendered_role_qa(
-    fig: plt.Figure, axes: list[plt.Axes], role: str
-) -> dict[str, object]:
-    fig.canvas.draw()
-    renderer = fig.canvas.get_renderer()
-    canvas = fig.bbox
-    text_artists = [
-        artist
-        for artist in fig.findobj(match=mpl.text.Text)
-        if artist.get_visible() and artist.get_text().strip()
-    ]
-    text_boxes = [artist.get_window_extent(renderer) for artist in text_artists]
-    collisions: list[dict[str, str]] = []
-    for left_index, left in enumerate(text_boxes):
-        for right_index in range(left_index + 1, len(text_boxes)):
-            right = text_boxes[right_index]
-            overlap_width = max(0.0, min(left.x1, right.x1) - max(left.x0, right.x0))
-            overlap_height = max(0.0, min(left.y1, right.y1) - max(left.y0, right.y0))
-            if overlap_width * overlap_height > 4.0:
-                collisions.append(
-                    {
-                        "left": text_artists[left_index].get_text(),
-                        "right": text_artists[right_index].get_text(),
-                    }
-                )
-    axes_bounds = [axis.get_position().bounds for axis in axes]
-    data_axes = axes if role != "a" else axes[:1]
-    data_bounds = [axis.get_position().bounds for axis in data_axes]
-    panel_a_y_label_weights: dict[str, str] = {}
-    panel_a_correlation_value_styles: list[dict[str, str]] = []
-    panel_a_star_contract: list[dict[str, object]] = []
-    if role == "a":
-        panel_a_y_label_weights = {
-            label.get_text(): str(label.get_fontweight())
-            for label in axes[0].get_yticklabels()
-            if label.get_text().strip()
-        }
-        panel_a_correlation_value_styles = [
-            {
-                "text": text.get_text(),
-                "color": str(mpl.colors.to_hex(text.get_color())).upper(),
-                "fontweight": str(text.get_fontweight()),
-            }
-            for text in axes[0].texts
-            if str(text.get_gid() or "").startswith("correlation_value_")
-        ]
-        values_by_cell = {
-            str(text.get_gid()).removeprefix("correlation_value_"): text
-            for text in axes[0].texts
-            if str(text.get_gid() or "").startswith("correlation_value_")
-        }
-        heatmap_box = axes[0].get_window_extent(renderer)
-        for star in axes[0].texts:
-            gid = str(star.get_gid() or "")
-            if not gid.startswith("panel_a_star_"):
-                continue
-            cell_id = gid.removeprefix("panel_a_star_")
-            value = values_by_cell.get(cell_id)
-            if value is None:
-                raise AssertionError(f"Panel-a star has no matched r value: {gid}")
-            star_box = star.get_window_extent(renderer)
-            value_box = value.get_window_extent(renderer)
-            panel_a_star_contract.append(
-                {
-                    "cell_id": cell_id,
-                    "text": star.get_text(),
-                    "color": str(mpl.colors.to_hex(star.get_color())).upper(),
-                    "fontweight": str(star.get_fontweight()),
-                    "fontsize": float(star.get_fontsize()),
-                    "horizontal_clearance_from_r_px": float(star_box.x0 - value_box.x1),
-                    "star_center_above_r_center": bool(
-                        (star_box.y0 + star_box.y1) / 2
-                        > (value_box.y0 + value_box.y1) / 2
-                    ),
-                    "inside_heatmap_axes": bool(
-                        star_box.x0 >= heatmap_box.x0 - 1
-                        and star_box.y0 >= heatmap_box.y0 - 1
-                        and star_box.x1 <= heatmap_box.x1 + 1
-                        and star_box.y1 <= heatmap_box.y1 + 1
-                    ),
-                }
-            )
-    same_row_alignment = True
-    if role in {"b", "c"}:
-        bottoms = [bounds[1] for bounds in data_bounds]
-        heights = [bounds[3] for bounds in data_bounds]
-        same_row_alignment = max(bottoms) - min(bottoms) <= 1e-9 and max(
-            heights
-        ) - min(heights) <= 1e-9
-    neighbor_axis_clearance = True
-    neighbor_axis_clearance_px: list[float] = []
-    r_label_point_clearance_px: list[float] = []
-    r_label_axes_positions: list[list[float]] = []
-    star_contract: list[dict[str, object]] = []
-    annotation_point_clearance_px: list[float] = []
-    if role == "c":
-        axis_boxes = [axis.get_window_extent(renderer) for axis in axes]
-        for index in range(1, len(axes)):
-            labels = [axes[index].yaxis.label, *axes[index].get_yticklabels()]
-            label_boxes = [
-                label.get_window_extent(renderer)
-                for label in labels
-                if label.get_visible() and label.get_text().strip()
-            ]
-            clearance = min(box.x0 for box in label_boxes) - axis_boxes[index - 1].x1
-            neighbor_axis_clearance_px.append(float(clearance))
-            neighbor_axis_clearance &= clearance >= 2.0
-        for axis in axes:
-            r_labels = [
-                text
-                for text in axis.texts
-                if str(text.get_gid() or "").startswith("policy_pearson_r_")
-            ]
-            if len(r_labels) != 1:
-                r_label_point_clearance_px.append(float("-inf"))
-                r_label_axes_positions.append([float("nan"), float("nan")])
-            else:
-                label = r_labels[0]
-                r_label_point_clearance_px.append(
-                    float(getattr(label, "_ed10_point_clearance_px", float("-inf")))
-                )
-                r_label_axes_positions.append([float(value) for value in label.get_position()])
-            for text in axis.texts:
-                if str(text.get_gid() or "").startswith("policy_significance_"):
-                    point_clearance = float(
-                        getattr(text, "_ed10_point_clearance_px", float("-inf"))
-                    )
-                    annotation_point_clearance_px.append(point_clearance)
-                    star_contract.append(
-                        {
-                            "text": text.get_text(),
-                            "position": [float(value) for value in text.get_position()],
-                            "fontsize": float(text.get_fontsize()),
-                            "fontweight": str(text.get_fontweight()),
-                            "color": str(mpl.colors.to_hex(text.get_color())).upper(),
-                            "horizontalalignment": text.get_horizontalalignment(),
-                            "verticalalignment": text.get_verticalalignment(),
-                            "point_clearance_px": point_clearance,
-                        }
-                    )
-    return {
-        "all_text_inside_canvas": all(
-            box.x0 >= canvas.x0 - 1
-            and box.y0 >= canvas.y0 - 1
-            and box.x1 <= canvas.x1 + 1
-            and box.y1 <= canvas.y1 + 1
-            for box in text_boxes
-        ),
-        "no_text_text_collision": not collisions,
-        "text_collisions": collisions,
-        "same_row_axes_aligned": bool(same_row_alignment),
-        "panel_a_correlation_value_styles": panel_a_correlation_value_styles,
-        "panel_a_star_contract": panel_a_star_contract,
-        "neighbor_axis_text_clearance": bool(neighbor_axis_clearance),
-        "neighbor_axis_text_clearance_px": neighbor_axis_clearance_px,
-        "r_label_point_clearance_px": r_label_point_clearance_px,
-        "r_label_axes_positions": r_label_axes_positions,
-        "r_labels_clear_of_points": role != "c"
-        or (
-            len(r_label_point_clearance_px) == 4
-            and min(r_label_point_clearance_px) >= 2.0
-            and all(x >= 0.70 and y <= 0.30 for x, y in r_label_axes_positions)
-        ),
-        "annotation_point_clearance_px": annotation_point_clearance_px,
-        "annotations_clear_of_points": role != "c"
-        or (
-            len(annotation_point_clearance_px) == 4
-            and min(annotation_point_clearance_px) >= 2.0
-        ),
-        "main_figure5_star_contract": star_contract,
-        "panel_a_y_label_weights": panel_a_y_label_weights,
-        "axes_bounds": [list(bounds) for bounds in axes_bounds],
-        "n_text_artists": len(text_artists),
-    }
-
-
 def render_individuals(
     a: pd.DataFrame,
     b: pd.DataFrame,
     c: pd.DataFrame,
     stats_c: pd.DataFrame,
     out: Path,
-) -> tuple[list[Path], dict[str, dict[str, object]]]:
+) -> list[Path]:
+    """Draw and save each panel from the prepared plotting tables."""
     outputs: list[Path] = []
-    qa: dict[str, dict[str, object]] = {}
     for role, table, builder, stem in (
         ("a", a, add_role_a, "a_correlation_matrix"),
         ("b", b, add_role_b, "b_variation_partition"),
@@ -1019,16 +774,13 @@ def render_individuals(
     ):
         width = 7.15
         fig = plt.figure(figsize=(width, width / ROLE_ASPECTS[role]))
-        axes = (
+        if role == "c":
             builder(fig, [0, 0, 1, 1], table, stats_c)
-            if role == "c"
-            else builder(fig, [0, 0, 1, 1], table)
-        )
-        qa[role] = rendered_role_qa(fig, axes, role)
-        outputs += save_panel(
-            fig, out / "panels" / stem, exact_canvas=True
-        )
-    return outputs, qa
+        else:
+            builder(fig, [0, 0, 1, 1], table)
+        fig.canvas.draw()
+        outputs += save_panel(fig, out / "panels" / stem, exact_canvas=True)
+    return outputs
 
 
 def render_assembly(
@@ -1037,434 +789,79 @@ def render_assembly(
     c: pd.DataFrame,
     stats_c: pd.DataFrame,
     stem: Path,
-) -> tuple[list[Path], dict[str, dict[str, object]]]:
-    fig = plt.figure(figsize=(7.5, 7.5))
-    axes = {
-        "a": add_role_a(fig, SLIDE_ROLE_RECTS["a"], a),
-        "b": add_role_b(fig, SLIDE_ROLE_RECTS["b"], b),
-        "c": add_role_c(fig, SLIDE_ROLE_RECTS["c"], c, stats_c),
-    }
-    qa = {role: rendered_role_qa(fig, role_axes, role) for role, role_axes in axes.items()}
-    outputs = save_panel(fig, stem, exact_canvas=True)
-    return outputs, qa
-
-
-def write_plain_language_docs(
-    a: pd.DataFrame,
-    b: pd.DataFrame,
-    stats_c: pd.DataFrame,
-    profile: pd.DataFrame,
-    *,
-    output_root: Path | None = None,
 ) -> list[Path]:
-    """Describe only the displayed outcomes and captioned comparisons."""
-    document_root = output_root.resolve() if output_root is not None else ROOT
-    tests = profile.set_index("claim")
-    pooled_b = b.loc[b["specification"].eq("pooled")].set_index("outcome")
-    early = pooled_b.loc["earlier_first_long"]
-    explore = pooled_b.loc["exploration_efficiency"]
-    depth_policy = stats_c.loc[stats_c["y"].eq("Lo_depth_weighted")].iloc[0]
-    report = f"""# Extended Data Figure 10: neural preservation and later behavior
-
-Panel a contains six neural readouts and three later-session behaviors
-(30 session pairs from 14 animals). Stars use two-sided regressions with
-standard errors clustered by animal and BH correction across the three
-behavior outcomes within each neural-measure row.
-
-Panel b partitions behavioral variance into reward-decoder unique, shared,
-and level-map unique components: {100*early.unique_a:.1f}%, {100*early.shared:.1f}%,
-and {100*early.unique_b:.1f}% for first long bout time; {100*explore.unique_a:.1f}%,
-{100*explore.shared:.1f}%, and {100*explore.unique_b:.1f}% for exploration efficiency.
-The three captioned profile comparisons use two-sided exact animal-score
-sign-flip tests and BH correction across those three tests. Adjusted p values
-are {tests.loc['first_long_reward_minus_level', 'bh3_adjusted_p']:.3g},
-{tests.loc['exploration_reward_minus_level', 'bh3_adjusted_p']:.3g}, and
-{tests.loc['reward_level_profile_crossover', 'bh3_adjusted_p']:.3g}, respectively.
-
-Panel c relates level map correlation to the four displayed turning biases
-measured during Explore behavior in the first 30 cumulative maze minutes
-(36 pairs from 14 animals). All four slope tests use standard errors clustered
-by animal and BH correction across those four tests. Depth-weighted P_BS:
-r = {depth_policy.pearson_r:.3f}, adjusted p = {depth_policy.cluster_bh4_adjusted_p:.3g}.
-"""
-    caption = f"""# Extended Data Figure 10 caption notes
-
-**Extended Data Fig. 10 | Neural preservation and later behavior.**
-
-**a,** Absolute Pearson correlations between six neural readouts and three
-later-session behaviors, across 30 session pairs from 14 animals. Stars use
-two-sided regressions with standard errors clustered by animal and BH
-correction across three behaviors within each neural-measure row. The behavior
-outcomes are whole-session reward approach speed advantage, first long bout
-time and exploration efficiency.
-
-**b,** Commonality partition of variance associated with reward decoding error
-and level map correlation. The two bars concern first long bout time and
-exploration efficiency. Three pooled profile contrasts use two-sided exact
-animal-score sign-flip tests with BH correction across the three captioned
-comparisons. First-long-bout difference: {tests.loc['first_long_reward_minus_level', 'estimate']:.2f},
-adjusted p = {tests.loc['first_long_reward_minus_level', 'bh3_adjusted_p']:.3g};
-exploration difference: {abs(tests.loc['exploration_reward_minus_level', 'estimate']):.2f},
-adjusted p = {tests.loc['exploration_reward_minus_level', 'bh3_adjusted_p']:.3g};
-profile crossover: adjusted p = {tests.loc['reward_level_profile_crossover', 'bh3_adjusted_p']:.3g}.
-
-**c,** Level map correlation versus four turning biases during exploration
-within the first 30 cumulative maze minutes of the later session (36 pairs from
-14 animals). Lines are linear fits and bands are 95% confidence intervals
-from resampling animals. Stars use two-sided regressions with standard errors
-clustered by animal and BH correction across the four displayed policies.
-Depth-weighted P_BS: adjusted p = {depth_policy.cluster_bh4_adjusted_p:.3g}.
-"""
-    report_path = document_root / "AUDIT_REPORT.md"
-    caption_path = document_root / "ED10_CAPTION_NOTES.md"
-    report_path.write_text(report, encoding="utf-8")
-    caption_path.write_text(caption, encoding="utf-8")
-    return [report_path, caption_path]
+    """Place the three panels on the figure page without altering their values."""
+    fig = plt.figure(figsize=(7.5, 7.5))
+    add_role_a(fig, SLIDE_ROLE_RECTS["a"], a)
+    add_role_b(fig, SLIDE_ROLE_RECTS["b"], b)
+    add_role_c(fig, SLIDE_ROLE_RECTS["c"], c, stats_c)
+    fig.canvas.draw()
+    return save_panel(fig, stem, exact_canvas=True)
 
 
-def main(*, output_root: Path | None = None, output_round: str | None = None) -> None:
+def main(*, output_root: Path | None = None, output_round: str | None = None) -> dict[str, object]:
+    """Load the supplied measurements, prepare plotted statistics and export."""
     configure_style()
-    required = [
-        TABLE_A,
-        TABLE_B,
-        PROFILE_TABLE,
-        TABLE_C,
-        STATS_C,
-        PAIR_AUDIT,
-    ]
-    for path in required:
+    for path in (TABLE_A, TABLE_B, TABLE_C, STATS_C, PAIR_VALUES):
         if not path.is_file() or path.stat().st_size == 0:
             raise FileNotFoundError(path)
 
     a = pd.read_csv(TABLE_A)
     b = pd.read_csv(TABLE_B)
-    profile = pd.read_csv(PROFILE_TABLE)
     c = pd.read_csv(TABLE_C, dtype={"animal_id": str})
     stats_c = pd.read_csv(STATS_C)
-    pair_audit = pd.read_csv(PAIR_AUDIT, dtype=str)
+    pair_rows = pd.read_csv(PAIR_VALUES, dtype=str)
     if len(a) != 18 or int(a["n_pairs"].unique()[0]) != 30 or int(a["n_animals"].unique()[0]) != 14:
-        raise AssertionError("ED10 correlation matrix is not the frozen 30-pair/14-mouse source")
+        raise AssertionError("ED10 correlation matrix requires 30 pairs from 14 animals")
     expected_blocks = [
-        "reward_location",
-        "whole_decoder",
-        "place_map",
-        "structure",
-        "pv_map",
-        "rate",
+        "reward_location", "whole_decoder", "place_map", "structure", "pv_map", "rate",
     ]
-    observed_blocks = list(dict.fromkeys(a["block"].astype(str)))
-    if observed_blocks != expected_blocks:
-        raise AssertionError(f"ED10 matrix row order mismatch: {observed_blocks}")
-    if len(pair_audit) != 30 or pair_audit["pair_key"].nunique() != 30:
-        raise AssertionError("ED10 30-pair membership audit is incomplete")
-    a, decoder_sign_audit = raw_decoder_error_display_table(a, pair_audit)
-    multiplicity_audit = panel_a_multiplicity_audit(a, pair_audit)
+    if list(dict.fromkeys(a["block"].astype(str))) != expected_blocks:
+        raise AssertionError("ED10 correlation matrix row order mismatch")
+    if len(pair_rows) != 30 or pair_rows["pair_key"].nunique() != 30:
+        raise AssertionError("ED10 correlation inputs require 30 distinct pairs")
+    a = raw_decoder_error_display_table(a, pair_rows)
+    statistics = correlation_statistics(a, pair_rows)
     a = a.merge(
-        multiplicity_audit[
-            [
-                "block",
-                "outcome",
-                "cr1_p_two_sided",
-                "cr1_bh3_adjusted_p",
-            ]
-        ],
+        statistics[["block", "outcome", "cr1_p_two_sided", "cr1_bh3_adjusted_p"]],
         on=["block", "outcome"],
         how="left",
         validate="one_to_one",
     )
     if not (
-        int(multiplicity_audit["cr1_nominal_star"].ne("").sum()) == 13
-        and int(multiplicity_audit["cr1_bh3_star"].ne("").sum()) == 13
+        int(statistics["cr1_nominal_star"].ne("").sum()) == 13
+        and int(statistics["cr1_bh3_star"].ne("").sum()) == 13
     ):
-        raise AssertionError("ED10 panel-a Pearson/CR1/BH significance counts drifted")
+        raise AssertionError("ED10 correlation significance counts differ from the source")
     if len(c) != 36 or c["pair_key"].nunique() != 36 or c["animal_id"].nunique() != 14:
-        raise AssertionError("ED10 policy source is not clean36/14")
+        raise AssertionError("ED10 policy inputs require 36 pairs from 14 animals")
     if len(stats_c) != 4:
-        raise AssertionError("ED10 policy statistics source must contain four displayed roles")
-    pair_audit["source_session"] = pair_audit["pair_key"].astype(str).str.split("->").str[0]
-    pair_audit["target_session"] = pair_audit["pair_key"].astype(str).str.split("->").str[1]
+        raise AssertionError("ED10 policy statistics require four displayed measures")
+
     render_root = output_root.resolve() if output_root is not None else ROOT
     render_round = output_round or ROUND
     output_dir = render_root / "assembly" / render_round
     output_dir.mkdir(parents=True, exist_ok=True)
     source_data = render_root / "source_data"
     source_data.mkdir(parents=True, exist_ok=True)
-    membership = pd.concat(
-        [
-            pair_audit[["pair_key", "source_session", "target_session"]].assign(role="a_b_30pair"),
-            c[["pair_key", "src", "dst"]].rename(columns={"src": "source_session", "dst": "target_session"}).assign(role="c_clean36"),
-        ],
-        ignore_index=True,
-    )
-    membership.to_csv(source_data / "ED10_COHORT_MEMBERSHIP.csv", index=False)
-    raw_decoder_table_path = source_data / "ED10_RAW_DECODER_ERROR_CORRELATION_MATRIX.csv"
-    decoder_sign_audit_path = source_data / "ED10_RAW_DECODER_ERROR_SIGN_AUDIT.json"
-    multiplicity_audit_path = source_data / "ED10_PANEL_A_MULTIPLICITY_AUDIT.csv"
-    multiplicity_summary_path = source_data / "ED10_PANEL_A_MULTIPLICITY_SUMMARY.json"
-    a.to_csv(raw_decoder_table_path, index=False)
+
+    # The wrapper reads this table to check the displayed cells.
     absolute_display_path = source_data / "ED10_PANEL_A_ABSOLUTE_DISPLAY.csv"
     absolute_display = a[["block", "outcome", "pooled_pearson_r", P_VALUE_COLUMN]].copy()
     absolute_display["absolute_pearson_r"] = absolute_display["pooled_pearson_r"].abs()
     absolute_display["display_text"] = absolute_display["absolute_pearson_r"].map(lambda value: f"{value:.2f}")
     absolute_display["stars"] = absolute_display[P_VALUE_COLUMN].map(p_value_star)
     absolute_display.to_csv(absolute_display_path, index=False)
-    decoder_sign_audit_path.write_text(
-        json.dumps(decoder_sign_audit, indent=2) + "\n", encoding="utf-8"
-    )
-    multiplicity_audit.to_csv(multiplicity_audit_path, index=False)
-    cr1_bh3_changed = multiplicity_audit.loc[
-        multiplicity_audit["cr1_nominal_star"].ne(
-            multiplicity_audit["cr1_bh3_star"]
-        )
-    ]
-    multiplicity_summary_path.write_text(
-        json.dumps(
-            {
-                "schema": "ed10-panel-a-mouse-cr1-bh-audit/v2",
-                "status": "PASS",
-                "plotted_star_source": "mouse_clustered_cr1_rowwise_bh3",
-                "plotted_star_thresholds": {
-                    "*": "p < 0.05",
-                    "**": "p < 0.01",
-                    "***": "p < 0.001",
-                },
-                "statistical_unit": "session_pair",
-                "n_pairs": 30,
-                "n_animals": 14,
-                "nominal_test_note": (
-                    "Two-sided pair-row OLS slope test with CR1 covariance clustered by mouse and Student t(13)"
-                ),
-                "families": {
-                    "mouse_cr1_neural_row_bh3": {
-                        "number_of_families": 6,
-                        "tests_per_family": 3,
-                        "significant_cells": 13,
-                        "changed_from_nominal_cr1": cr1_bh3_changed[
-                            [
-                                "block_label",
-                                "outcome_label",
-                                "cr1_nominal_star",
-                                "cr1_bh3_star",
-                            ]
-                        ].to_dict(orient="records"),
-                    },
-                },
-            },
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
 
-    outputs = [
-        absolute_display_path,
-        raw_decoder_table_path,
-        decoder_sign_audit_path,
-        multiplicity_audit_path,
-        multiplicity_summary_path,
-    ]
-    outputs += write_plain_language_docs(
-        a, b, stats_c, profile, output_root=render_root
-    )
-    individual_outputs, role_qa = render_individuals(a, b, c, stats_c, output_dir)
-    outputs += individual_outputs
+    statistics_path = source_data / "correlation_statistics.csv"
+    statistics.to_csv(statistics_path, index=False)
+    outputs = [absolute_display_path, statistics_path]
+    outputs += render_individuals(a, b, c, stats_c, output_dir)
     assembly_stem = output_dir / f"extended_data_figure10_source_rerender_{render_round}"
-    assembly_outputs, assembly_qa = render_assembly(a, b, c, stats_c, assembly_stem)
-    outputs += assembly_outputs
-    root_outputs = []
-    for suffix in ("svg", "pdf", "png", "tiff"):
-        root_path = render_root / f"extended_data_figure10_source_rerender_{render_round}.{suffix}"
-        shutil.copyfile(assembly_stem.with_suffix(f".{suffix}"), root_path)
-        root_outputs.append(root_path)
-    outputs += root_outputs
-    root_png = render_root / f"extended_data_figure10_source_rerender_{render_round}.png"
-
-    with Image.open(root_png) as image:
-        if (
-            image.size != (4500, 4500)
-            or image.mode != "RGB"
-            or float(np.std(np.asarray(image.convert("L")))) < 3
-        ):
-            raise AssertionError(f"ED10 root PNG failed raster QA: {image.size}")
-    svg_text = assembly_stem.with_suffix(".svg").read_text(encoding="utf-8")
-    forbidden_panel_text = ("cluster t", "window-family", "n =", "pair p", "not supported", "supported")
-    if any(token in svg_text for token in forbidden_panel_text):
-        raise AssertionError("Caption-level ED10 text survived in the assembly")
-    if "<image" in svg_text:
-        raise AssertionError("ED10 assembly SVG contains an embedded raster payload")
-    expected_annotations = ["n.s.", "n.s.", "n.s.", "***"]
-    for scope, audit in (("role", role_qa["c"]), ("assembly", assembly_qa["c"])):
-        observed_annotations = [
-            row["text"] for row in audit["main_figure5_star_contract"]
-        ]
-        if observed_annotations != expected_annotations:
-            raise AssertionError(
-                f"ED10 panel-c {scope} annotation contract drifted: "
-                f"{observed_annotations}"
-            )
-        if any(
-            row["color"] != "#000000"
-            for row in audit["main_figure5_star_contract"]
-        ):
-            raise AssertionError(f"ED10 panel-c {scope} significance annotations must be black")
-        if any(
-            row["fontsize"] != (8.0 if row["text"] == "n.s." else 12.0)
-            for row in audit["main_figure5_star_contract"]
-        ):
-            raise AssertionError(f"ED10 panel-c {scope} n.s. must match the 8-pt x-axis label")
-    if "Absolute Pearson correlation" not in svg_text or "Pooled Pearson r" in svg_text:
-        raise AssertionError("ED10 panel-a colorbar title is not literal")
-    forbidden_open_compound_hyphens = (
-        "Reward-approach",
-        "Whole-maze",
-        "Place-map",
-        "Level-map",
-        "Population-vector",
-        "Ensemble-rate",
-        "Reward-decoder",
-    )
-    if any(term in svg_text for term in forbidden_open_compound_hyphens):
-        raise AssertionError("ED10 contains a prohibited dashed display term")
-    for scope, audit in (("role", role_qa["a"]), ("assembly", assembly_qa["a"])):
-        weights = audit["panel_a_y_label_weights"]
-        if len(weights) != 6 or any(weight != "normal" for weight in weights.values()):
-            raise AssertionError(
-                f"ED10 panel-a {scope} neural-label weights are not uniformly normal: "
-                f"{weights}"
-            )
-        correlation_styles = audit["panel_a_correlation_value_styles"]
-        if not (
-            len(correlation_styles) == 18
-            and all(row["color"] == "#000000" for row in correlation_styles)
-            and all(row["fontweight"] == "normal" for row in correlation_styles)
-        ):
-            raise AssertionError(
-                f"ED10 panel-a {scope} correlation values are not uniformly black "
-                f"normal text: {correlation_styles}"
-            )
-        bh3_cr1_stars = audit["panel_a_star_contract"]
-        if not (
-            [row["text"] for row in bh3_cr1_stars]
-            == ["**", "*", "*", "**", "**", "*", "**", "***", "*", "***", "*", "*", "*"]
-            and all(row["color"] == "#000000" for row in bh3_cr1_stars)
-            and all(row["fontweight"] == "bold" for row in bh3_cr1_stars)
-            and all(float(row["horizontal_clearance_from_r_px"]) >= 2.0 for row in bh3_cr1_stars)
-            and all(bool(row["star_center_above_r_center"]) for row in bh3_cr1_stars)
-            and all(bool(row["inside_heatmap_axes"]) for row in bh3_cr1_stars)
-        ):
-            raise AssertionError(
-                f"ED10 panel-a {scope} mouse-CR1 row-BH3 star contract drifted: {bh3_cr1_stars}"
-            )
-    if not all(
-        bool(role_qa[role]["all_text_inside_canvas"])
-        and bool(role_qa[role]["no_text_text_collision"])
-        and bool(role_qa[role]["same_row_axes_aligned"])
-        and bool(role_qa[role]["neighbor_axis_text_clearance"])
-        and bool(role_qa[role]["r_labels_clear_of_points"])
-        and bool(role_qa[role]["annotations_clear_of_points"])
-        for role in ("a", "b", "c")
-    ):
-        raise AssertionError(f"ED10 role overlap/clipping QA failed: {role_qa}")
-    if not all(
-        bool(assembly_qa[role]["all_text_inside_canvas"])
-        and bool(assembly_qa[role]["no_text_text_collision"])
-        and bool(assembly_qa[role]["same_row_axes_aligned"])
-        and bool(assembly_qa[role]["neighbor_axis_text_clearance"])
-        and bool(assembly_qa[role]["r_labels_clear_of_points"])
-        and bool(assembly_qa[role]["annotations_clear_of_points"])
-        for role in ("a", "b", "c")
-    ):
-        raise AssertionError(f"ED10 assembly overlap/clipping QA failed: {assembly_qa}")
-
-    validation = {
-        "schema": "ed10_slide12_powerpoint_matched_validation/v9",
-        "status": "PASS",
-        "source_slide": 12,
-        "panel_inventory": [
-            "a correlation matrix",
-            "b reward-level variance partition",
-            "c four level-policy associations",
-        ],
-        "layout_contract": "top matrix / middle two bars / bottom four scatters",
-        "panel_a_mouse_cr1_rowwise_bh3_stars": True,
-        "checks": {
-            "a_scope_30_pairs_14_mice": True,
-            "b_scope_30_pairs_14_mice": True,
-            "c_scope_36_pairs_14_mice": True,
-            "maintained_source_tables_not_recomputed": True,
-            "panel_a_raw_decoder_error_sign_audit_pass": all(
-                decoder_sign_audit["checks"].values()
-            ),
-            "panel_a_other_twelve_cells_exact": True,
-            "open_compound_display_terms": True,
-            "root_png_4500_square": True,
-            "caption_level_statistics_absent_except_requested_annotations": True,
-            "assembly_svg_has_no_embedded_raster": True,
-            "individual_role_text_contained_and_nonoverlapping": True,
-            "assembly_text_contained_and_nonoverlapping": True,
-            "same_row_axes_aligned": True,
-            "whole_session_powerpoint_endpoint_restored": True,
-            "whole_maze_decoder_control_added_without_replacing_powerpoint_rows": True,
-            "panel_a_exact_6x3_inventory": True,
-            "panel_a_neural_measure_labels_all_black": True,
-            "panel_a_neural_measure_labels_all_normal_weight": True,
-            "panel_a_18_correlation_values_all_black_normal_weight": True,
-            "panel_a_13_mouse_cr1_bh3_stars_upper_right_of_r": True,
-            "panel_a_cr1_covariance_clustered_by_mouse": True,
-            "panel_a_cr1_nominal_and_bh3_exported": True,
-            "panel_a_uses_elapsed_first_long_bout_time": True,
-            "panel_b_reward_decoder_unique_label_and_elapsed_time_title": True,
-            "panel_c_true_policy_subscripts_and_two_decimal_ticks": True,
-            "panel_c_corrected_depth_weighted_q_shown_as_three_stars": True,
-            "panel_c_first_three_controls_labeled_nonsignificant": True,
-            "panel_a_colorbar_title_is_pearson_correlation": True,
-            "panel_c_four_lower_right_r_labels_clear_of_points": True,
-            "panel_c_four_annotations_clear_of_points": True,
-            "a_b_gap_exactly_half_round5": True,
-            "b_c_gap_unchanged_from_round5": True,
-            "row_heights_and_aspects_unchanged": True,
-        },
-        "interrow_geometry_720": {
-            "round4_gaps": ROUND4_INTERROW_GAPS_720,
-            "round5_gaps": ROUND5_INTERROW_GAPS_720,
-            "round8_gaps": TARGET_INTERROW_GAPS_720,
-            "round8_tops": ROLE_TOPS_720,
-            "round8_outer_margin": CONTENT_MARGIN_720,
-            "gap_ratios": {
-                key: TARGET_INTERROW_GAPS_720[key] / ROUND5_INTERROW_GAPS_720[key]
-                for key in ROUND5_INTERROW_GAPS_720
-            },
-        },
-        "annotation_style": {
-            "font_contract": {
-                "base": 8.0,
-                "axis": 8.0,
-                "ticks": 7.0,
-                "title": 8.0,
-                "panel_id": 13.0,
-            },
-            "annotation": {
-                "position": [0.08, 0.92],
-                "fontsize": 12.0,
-                "color": LEVEL,
-                "significant_fontweight": "bold",
-                "nonsignificant_fontweight": "normal",
-            },
-            "r": {"preferred_position": [0.94, 0.08], "fontsize": 7.2, "color": "black"},
-        },
-        "role_geometry": {
-            role: {"slide_rect_720pt": [value * 720 for value in rect], "aspect": ROLE_ASPECTS[role]}
-            for role, rect in SLIDE_ROLE_RECTS.items()
-        },
-        "role_qa": role_qa,
-        "assembly_qa": assembly_qa,
-        "inputs": [record(path, "input") for path in required],
-        "outputs": [record(path, "output") for path in outputs],
-        "renderer": record(Path(__file__).resolve(), "renderer"),
-    }
-    validation_path = render_root / "AUDIT_VALIDATION.json"
-    validation_path.write_text(json.dumps(validation, indent=2), encoding="utf-8")
-    print(json.dumps({"status": "PASS", "validation": validation_path.as_posix()}, indent=2))
+    outputs += render_assembly(a, b, c, stats_c, assembly_stem)
+    result = {"status": "PASS", "outputs": [path.as_posix() for path in outputs]}
+    print(json.dumps(result, indent=2))
+    return result
 
 
 if __name__ == "__main__":

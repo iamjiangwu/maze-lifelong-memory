@@ -383,13 +383,10 @@ def render_ed10(record: Path, output: Path, stage: Path) -> dict[str, Any]:
     m = load_module(stage / "scripts/render_ed10_slide12_powerpoint_matched.py", "ed10_source_rebuild")
     m.TABLE_A = record / "plot_ready/POWERPOINT_WHOLE_SESSION_CORRELATION_MATRIX.csv"
     m.TABLE_B = record / "plot_ready/REWARD_LEVEL_COMMONALITY.csv"
-    m.PROFILE_TABLE = record / "plot_ready/REWARD_LEVEL_PROFILE_TESTS.csv"
-    m.PAIR_AUDIT = record / "plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
+    m.PAIR_VALUES = record / "plot_ready/CURRENT_FIXED_NEURON_PAIR_ROWS.csv"
     m.TABLE_C = record / "plot_ready/level_policy_bridge_join_corrected36.csv"
     m.STATS_C = record / "plot_ready/level_policy_bridge_stats_corrected36.csv"
     round_match = re.search(r"_(round\d+)(?:_|$)", record.name)
     if round_match is None:
         raise RuntimeError(f"Cannot derive ED10 output round from record name: {record.name}")
-    m.main(output_root=output, output_round=round_match.group(1))
-    validation = json.loads((output / "AUDIT_VALIDATION.json").read_text(encoding="utf-8"))
-    return {"status": validation["status"], "validation": validation}
+    return m.main(output_root=output, output_round=round_match.group(1))

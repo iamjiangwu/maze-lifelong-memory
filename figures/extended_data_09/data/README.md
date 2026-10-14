@@ -1,6 +1,6 @@
 # Extended Data Figure 9: data
 
-Level-code persistence, controls and experience trends. The mappings use the current 15-panel a–o layout. [Column and array index](index.csv).
+Level-code persistence, controls and experience trends. The mappings use the current 15-panel a–o layout. [Column and array index](index.csv). The seven tree levels are numbered 0–6 in the data and 1–7 on the figure.
 
 Level maps use denoised calcium `C`; neuron eligibility is determined separately from deconvolved activity `S`. The recurrence comparison in l retains neurons whose summed `S` reaches 0.1 per retained minute in all three linked sessions. The fixed reference measurements in m/n apply the threshold on both days; the successive cycle comparison in o applies it in both registered sessions. These choices are already reflected in the supplied measurements, which this repository plots without repeating neuron selection.
 

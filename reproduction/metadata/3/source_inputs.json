@@ -14,7 +14,7 @@
     },
     {
       "path": "frozen_source/source_data/first30/combined_first30_points_all_metrics.csv",
-      "sha256": "051c3c811d7cb0ccdafab04347cf0acbae822bfc308956f9cf08c7f77744913f"
+      "sha256": "c15e48953585e75e5876121dab10ad7650b5411dc50404f95f8b01b0e7e29f3a"
     },
     {
       "path": "frozen_source/source_data/first30/combined_first30_stats_all_metrics.csv",
@@ -22,7 +22,7 @@
     },
     {
       "path": "frozen_source/source_data/first30/day2_template_group_curve_summary.csv",
-      "sha256": "2e9e6d2b499e41c18fe481e2a1a8f3572eae5f6d28b0d38af277096b7f5e5307"
+      "sha256": "86776d5cadbf0cd2e19c55c9631847dd890ca29a75a91ecd1dcda9716067c2f7"
     },
     {
       "path": "frozen_source/source_data/long_gap/main3_experience_trend_clustered_stats_no_manual_mask.csv",

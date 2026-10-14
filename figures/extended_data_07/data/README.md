@@ -17,7 +17,7 @@ The fitted models weight the included observations equally and use standard erro
 
 The fourth lower-family member, the level-map age association, is tabulated in `long_gap_age_transition_fixed_models.csv` but not plotted in ED7: slope −0.00102 per 30 days, raw p = 0.894, BH4-adjusted p = 0.894. It remains in BH4; the ensemble-rate adjusted p is 0.092. This differs from Figure 3/ED9n's early-alignment **experience** family, which includes level maps; age and experience tests are not interchangeable.
 
-`source_bundles` identifies sorted-neuron cohorts or original-neuron naïve fallbacks; it is a label for readers, not a renderer input. See [source-label definitions](../../../docs/DATA.md#source-labels).
+Early alignment compares selected movement samples from the first 30 cumulative maze minutes of Day 1 (0 ≤ maze time < 1,800 s) with the full Day 2 reference. The two days share a fitted neuron basis. Place maps describe each neuron's tuning on the 15 × 15 grid; population vectors compare neurons at a spatial bin; ensemble rates compare the neurons' duration normalized `C` values. Reward condition is not a covariate in these age models.
 
 | File | Format |
 |---|---|

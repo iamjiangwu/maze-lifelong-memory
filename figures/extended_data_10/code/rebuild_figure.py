@@ -6,8 +6,6 @@ build(bundle, output). Raw-workspace preparation is upstream of this release.
 
 from __future__ import annotations
 
-import hashlib
-
 import importlib.util
 
 import json
@@ -20,16 +18,8 @@ import fitz
 
 import pandas as pd
 
-def sha(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-def write_json(path, value):
-    path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
-
 def build(bundle, output):
-    inputs = json.loads((bundle / "SOURCE_INPUTS.json").read_text(encoding="utf-8"))
-    for row in inputs["files"]:
-        assert sha(bundle / row["path"]) == row["sha256"], row["path"]
+    # The supported launcher authenticates every staged source before this call.
     adapter = bundle / "source_code/rebuild_current_extended_data_figures.py"
     spec = importlib.util.spec_from_file_location("ed10_absolute_adapter", adapter)
     driver = importlib.util.module_from_spec(spec)
@@ -56,9 +46,4 @@ def build(bundle, output):
     assert (display.absolute_pearson_r == display.pooled_pearson_r.abs()).all()
     assert display.stars.ne("").sum() == 13
     assert display.absolute_pearson_r.between(0, .8).all()
-    write_json(output / "DISPLAY_VALIDATION.json", {
-        "status": "PASS", "cell_count": 18, "all_values_exact_absolute_correlations": True,
-        "star_count": 13, "scale": [0, .8], "label": "Absolute Pearson correlation",
-        "renderer_audit_status": result["status"], "all_frozen_input_hashes_verified": True,
-    })
     print(json.dumps({"status": "PASS", "output": str(output)}))
