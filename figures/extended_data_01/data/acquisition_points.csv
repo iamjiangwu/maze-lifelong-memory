@@ -1,0 +1,919 @@
+session,animal_id,endpoint_key,endpoint_label,axis_key,group_key,value
+15strday1,15.0,first_reward,First reward,maze_time_s,naive,575.64
+15strday1,15.0,first_reward,First reward,maze_tiles,naive,1197.0
+15strday1,15.0,tenth_reward,Tenth reward,maze_time_s,naive,2854.2
+15strday1,15.0,tenth_reward,Tenth reward,maze_tiles,naive,5304.0
+15strday1,15.0,first_long_bout,First long bout onset,maze_time_s,naive,997.28
+15strday1,15.0,first_long_bout,First long bout onset,maze_tiles,naive,1912.0
+1603,1603.0,first_reward,First reward,maze_time_s,naive,1021.92
+1603,1603.0,first_reward,First reward,maze_tiles,naive,2137.0
+1603,1603.0,tenth_reward,Tenth reward,maze_time_s,naive,3187.2
+1603,1603.0,tenth_reward,Tenth reward,maze_tiles,naive,5783.0
+1603,1603.0,first_long_bout,First long bout onset,maze_time_s,naive,4410.6
+1603,1603.0,first_long_bout,First long bout onset,maze_tiles,naive,8160.0
+1608,1608.0,first_reward,First reward,maze_time_s,naive,559.0
+1608,1608.0,first_reward,First reward,maze_tiles,naive,1255.0
+1608,1608.0,tenth_reward,Tenth reward,maze_time_s,naive,2003.84
+1608,1608.0,tenth_reward,Tenth reward,maze_tiles,naive,3894.0
+1608,1608.0,first_long_bout,First long bout onset,maze_time_s,naive,663.28
+1608,1608.0,first_long_bout,First long bout onset,maze_tiles,naive,1460.0
+1616day1,1616.0,first_reward,First reward,maze_time_s,naive,1399.24
+1616day1,1616.0,first_reward,First reward,maze_tiles,naive,2339.0
+1616day1,1616.0,tenth_reward,Tenth reward,maze_time_s,naive,2655.04
+1616day1,1616.0,tenth_reward,Tenth reward,maze_tiles,naive,4244.0
+1616day1,1616.0,first_long_bout,First long bout onset,maze_time_s,naive,1591.2
+1616day1,1616.0,first_long_bout,First long bout onset,maze_tiles,naive,2605.0
+1616day2,1616.0,first_reward,First reward,maze_time_s,experienced_day2,100.32
+1616day2,1616.0,first_reward,First reward,maze_tiles,experienced_day2,168.0
+1616day2,1616.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1132.92
+1616day2,1616.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1514.0
+1616day2,1616.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,723.24
+1616day2,1616.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,902.0
+163RLday1,163.0,first_reward,First reward,maze_time_s,naive,184.72
+163RLday1,163.0,first_reward,First reward,maze_tiles,naive,468.0
+163RLday1,163.0,tenth_reward,Tenth reward,maze_time_s,naive,2987.04
+163RLday1,163.0,tenth_reward,Tenth reward,maze_tiles,naive,5702.0
+163RLday1,163.0,first_long_bout,First long bout onset,maze_time_s,naive,3483.4
+163RLday1,163.0,first_long_bout,First long bout onset,maze_tiles,naive,6771.0
+163RLday2,163.0,first_reward,First reward,maze_time_s,experienced_day2,53.88
+163RLday2,163.0,first_reward,First reward,maze_tiles,experienced_day2,121.0
+163RLday2,163.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1089.52
+163RLday2,163.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2255.0
+163RLday2,163.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,167.48
+163RLday2,163.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,383.0
+1632Lday1,1632.0,first_reward,First reward,maze_time_s,naive,54.92
+1632Lday1,1632.0,first_reward,First reward,maze_tiles,naive,112.0
+1632Lday1,1632.0,tenth_reward,Tenth reward,maze_time_s,naive,2359.12
+1632Lday1,1632.0,tenth_reward,Tenth reward,maze_tiles,naive,3994.0
+1632Lday1,1632.0,first_long_bout,First long bout onset,maze_time_s,naive,87.56
+1632Lday1,1632.0,first_long_bout,First long bout onset,maze_tiles,naive,198.0
+1632Lday2,1632.0,first_reward,First reward,maze_time_s,experienced_day2,37.56
+1632Lday2,1632.0,first_reward,First reward,maze_tiles,experienced_day2,81.0
+1632Lday2,1632.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,968.84
+1632Lday2,1632.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1904.0
+1632Lday2,1632.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,69.44
+1632Lday2,1632.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,142.0
+202Lday1,202.0,first_reward,First reward,maze_time_s,naive,1372.16
+202Lday1,202.0,first_reward,First reward,maze_tiles,naive,2268.0
+202Lday1,202.0,tenth_reward,Tenth reward,maze_time_s,naive,3648.32
+202Lday1,202.0,tenth_reward,Tenth reward,maze_tiles,naive,5197.0
+202Lday1,202.0,first_long_bout,First long bout onset,maze_time_s,naive,1355.88
+202Lday1,202.0,first_long_bout,First long bout onset,maze_tiles,naive,2245.0
+355RLday1,355.0,first_reward,First reward,maze_time_s,naive,616.12
+355RLday1,355.0,first_reward,First reward,maze_tiles,naive,1372.0
+355RLday1,355.0,tenth_reward,Tenth reward,maze_time_s,naive,2577.48
+355RLday1,355.0,tenth_reward,Tenth reward,maze_tiles,naive,4878.0
+355RLday1,355.0,first_long_bout,First long bout onset,maze_time_s,naive,892.6
+355RLday1,355.0,first_long_bout,First long bout onset,maze_tiles,naive,1738.0
+355RLday2,355.0,first_reward,First reward,maze_time_s,experienced_day2,184.76
+355RLday2,355.0,first_reward,First reward,maze_tiles,experienced_day2,383.0
+355RLday2,355.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1211.76
+355RLday2,355.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2236.0
+355RLday2,355.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,163.8
+355RLday2,355.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,363.0
+418-12day1,418.0,first_reward,First reward,maze_time_s,return,184.96
+418-12day1,418.0,first_reward,First reward,maze_tiles,return,511.0
+418-12day1,418.0,tenth_reward,Tenth reward,maze_time_s,return,1501.76
+418-12day1,418.0,tenth_reward,Tenth reward,maze_tiles,return,3271.0
+418-12day1,418.0,first_long_bout,First long bout onset,maze_time_s,return,176.96
+418-12day1,418.0,first_long_bout,First long bout onset,maze_tiles,return,495.0
+418-12day2,418.0,first_reward,First reward,maze_time_s,experienced_day2,45.8
+418-12day2,418.0,first_reward,First reward,maze_tiles,experienced_day2,110.0
+418-12day2,418.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1016.16
+418-12day2,418.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2315.0
+418-12day2,418.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,32.68
+418-12day2,418.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,76.0
+418-3day1,418.0,first_reward,First reward,maze_time_s,return,387.04
+418-3day1,418.0,first_reward,First reward,maze_tiles,return,849.0
+418-3day1,418.0,tenth_reward,Tenth reward,maze_time_s,return,1743.4
+418-3day1,418.0,tenth_reward,Tenth reward,maze_tiles,return,3556.0
+418-3day1,418.0,first_long_bout,First long bout onset,maze_time_s,return,368.6
+418-3day1,418.0,first_long_bout,First long bout onset,maze_tiles,return,821.0
+418-3day2,418.0,first_reward,First reward,maze_time_s,experienced_day2,25.52
+418-3day2,418.0,first_reward,First reward,maze_tiles,experienced_day2,47.0
+418-3day2,418.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,794.44
+418-3day2,418.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1288.0
+418-3day2,418.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,16.64
+418-3day2,418.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,34.0
+418-6day1,418.0,first_reward,First reward,maze_time_s,return,235.92
+418-6day1,418.0,first_reward,First reward,maze_tiles,return,591.0
+418-6day1,418.0,tenth_reward,Tenth reward,maze_time_s,return,1396.44
+418-6day1,418.0,tenth_reward,Tenth reward,maze_tiles,return,2985.0
+418-6day1,418.0,first_long_bout,First long bout onset,maze_time_s,return,899.52
+418-6day1,418.0,first_long_bout,First long bout onset,maze_tiles,return,1944.0
+418-6day2,418.0,first_reward,First reward,maze_time_s,experienced_day2,56.64
+418-6day2,418.0,first_reward,First reward,maze_tiles,experienced_day2,121.0
+418-6day2,418.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1046.4
+418-6day2,418.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2247.0
+418-6day2,418.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,47.16
+418-6day2,418.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,108.0
+418-9day1,418.0,first_reward,First reward,maze_time_s,return,99.6
+418-9day1,418.0,first_reward,First reward,maze_tiles,return,180.0
+418-9day1,418.0,tenth_reward,Tenth reward,maze_time_s,return,1178.68
+418-9day1,418.0,tenth_reward,Tenth reward,maze_tiles,return,2424.0
+418-9day1,418.0,first_long_bout,First long bout onset,maze_time_s,return,349.2
+418-9day1,418.0,first_long_bout,First long bout onset,maze_tiles,return,726.0
+418-9day2,418.0,first_reward,First reward,maze_time_s,experienced_day2,33.04
+418-9day2,418.0,first_reward,First reward,maze_tiles,experienced_day2,61.0
+418-9day2,418.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1140.32
+418-9day2,418.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2077.0
+418-9day2,418.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,26.24
+418-9day2,418.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,48.0
+418RRday1,418.0,first_reward,First reward,maze_time_s,naive,2145.12
+418RRday1,418.0,first_reward,First reward,maze_tiles,naive,3814.0
+418RRday1,418.0,tenth_reward,Tenth reward,maze_time_s,naive,5036.64
+418RRday1,418.0,tenth_reward,Tenth reward,maze_tiles,naive,8948.0
+418RRday1,418.0,first_long_bout,First long bout onset,maze_time_s,naive,2321.76
+418RRday1,418.0,first_long_bout,First long bout onset,maze_tiles,naive,4031.0
+418RRday2,418.0,first_reward,First reward,maze_time_s,experienced_day2,144.6
+418RRday2,418.0,first_reward,First reward,maze_tiles,experienced_day2,294.0
+418RRday2,418.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1159.36
+418RRday2,418.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1692.0
+418RRday2,418.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,129.96
+418RRday2,418.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,265.0
+422-3day1,422.0,first_reward,First reward,maze_time_s,return,42.76
+422-3day1,422.0,first_reward,First reward,maze_tiles,return,96.0
+422-3day1,422.0,tenth_reward,Tenth reward,maze_time_s,return,1311.84
+422-3day1,422.0,tenth_reward,Tenth reward,maze_tiles,return,2164.0
+422-3day1,422.0,first_long_bout,First long bout onset,maze_time_s,return,436.56
+422-3day1,422.0,first_long_bout,First long bout onset,maze_tiles,return,846.0
+422-3day2,422.0,first_reward,First reward,maze_time_s,experienced_day2,13.64
+422-3day2,422.0,first_reward,First reward,maze_tiles,experienced_day2,27.0
+422-3day2,422.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,882.2
+422-3day2,422.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1264.0
+422-3day2,422.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,45.32
+422-3day2,422.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,80.0
+422-6day1,422.0,first_reward,First reward,maze_time_s,return,835.08
+422-6day1,422.0,first_reward,First reward,maze_tiles,return,1495.0
+422-6day1,422.0,tenth_reward,Tenth reward,maze_time_s,return,2434.72
+422-6day1,422.0,tenth_reward,Tenth reward,maze_tiles,return,4705.0
+422-6day1,422.0,first_long_bout,First long bout onset,maze_time_s,return,822.96
+422-6day1,422.0,first_long_bout,First long bout onset,maze_tiles,return,1476.0
+422-6day2,422.0,first_reward,First reward,maze_time_s,experienced_day2,154.52
+422-6day2,422.0,first_reward,First reward,maze_tiles,experienced_day2,451.0
+422-6day2,422.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1174.84
+422-6day2,422.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2715.0
+422-6day2,422.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,143.92
+422-6day2,422.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,420.0
+434-3day1,434.0,first_reward,First reward,maze_time_s,return,367.16
+434-3day1,434.0,first_reward,First reward,maze_tiles,return,749.0
+434-3day1,434.0,tenth_reward,Tenth reward,maze_time_s,return,2160.72
+434-3day1,434.0,tenth_reward,Tenth reward,maze_tiles,return,4006.0
+434-3day1,434.0,first_long_bout,First long bout onset,maze_time_s,return,357.56
+434-3day1,434.0,first_long_bout,First long bout onset,maze_tiles,return,729.0
+434-3day2,434.0,first_reward,First reward,maze_time_s,experienced_day2,93.84
+434-3day2,434.0,first_reward,First reward,maze_tiles,experienced_day2,247.0
+434-3day2,434.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1078.4
+434-3day2,434.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2051.0
+434-3day2,434.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,158.56
+434-3day2,434.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,374.0
+434-6day1,434.0,first_reward,First reward,maze_time_s,return,465.08
+434-6day1,434.0,first_reward,First reward,maze_tiles,return,1204.0
+434-6day1,434.0,tenth_reward,Tenth reward,maze_time_s,return,1741.52
+434-6day1,434.0,tenth_reward,Tenth reward,maze_tiles,return,3955.0
+434-6day1,434.0,first_long_bout,First long bout onset,maze_time_s,return,452.84
+434-6day1,434.0,first_long_bout,First long bout onset,maze_tiles,return,1187.0
+434-6day2,434.0,first_reward,First reward,maze_time_s,experienced_day2,157.56
+434-6day2,434.0,first_reward,First reward,maze_tiles,experienced_day2,427.0
+434-6day2,434.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1112.68
+434-6day2,434.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2317.0
+434-6day2,434.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,193.84
+434-6day2,434.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,476.0
+434RRday1,434.0,first_reward,First reward,maze_time_s,naive,961.72
+434RRday1,434.0,first_reward,First reward,maze_tiles,naive,2049.0
+434RRday1,434.0,tenth_reward,Tenth reward,maze_time_s,naive,2743.04
+434RRday1,434.0,tenth_reward,Tenth reward,maze_tiles,naive,5593.0
+434RRday1,434.0,first_long_bout,First long bout onset,maze_time_s,naive,1026.92
+434RRday1,434.0,first_long_bout,First long bout onset,maze_tiles,naive,2185.0
+434RRday2,434.0,first_reward,First reward,maze_time_s,experienced_day2,23.96
+434RRday2,434.0,first_reward,First reward,maze_tiles,experienced_day2,59.0
+434RRday2,434.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,861.04
+434RRday2,434.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1585.0
+434RRday2,434.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,12.92
+434RRday2,434.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,29.0
+451-12day1,451.0,first_reward,First reward,maze_time_s,return,153.88
+451-12day1,451.0,first_reward,First reward,maze_tiles,return,456.0
+451-12day1,451.0,tenth_reward,Tenth reward,maze_time_s,return,1168.08
+451-12day1,451.0,tenth_reward,Tenth reward,maze_tiles,return,2756.0
+451-12day1,451.0,first_long_bout,First long bout onset,maze_time_s,return,206.28
+451-12day1,451.0,first_long_bout,First long bout onset,maze_tiles,return,566.0
+451-12day2,451.0,first_reward,First reward,maze_time_s,experienced_day2,76.12
+451-12day2,451.0,first_reward,First reward,maze_tiles,experienced_day2,204.0
+451-12day2,451.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,993.0
+451-12day2,451.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2498.0
+451-12day2,451.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,232.16
+451-12day2,451.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,619.0
+451-3day1,451.0,first_reward,First reward,maze_time_s,return,40.0
+451-3day1,451.0,first_reward,First reward,maze_tiles,return,113.0
+451-3day1,451.0,tenth_reward,Tenth reward,maze_time_s,return,1278.32
+451-3day1,451.0,tenth_reward,Tenth reward,maze_tiles,return,2825.0
+451-3day1,451.0,first_long_bout,First long bout onset,maze_time_s,return,30.4
+451-3day1,451.0,first_long_bout,First long bout onset,maze_tiles,return,94.0
+451-3day2,451.0,first_reward,First reward,maze_time_s,experienced_day2,72.52
+451-3day2,451.0,first_reward,First reward,maze_tiles,experienced_day2,165.0
+451-3day2,451.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1171.04
+451-3day2,451.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1870.0
+451-3day2,451.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,181.04
+451-3day2,451.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,277.0
+451-6day1,451.0,first_reward,First reward,maze_time_s,return,152.96
+451-6day1,451.0,first_reward,First reward,maze_tiles,return,501.0
+451-6day1,451.0,tenth_reward,Tenth reward,maze_time_s,return,1134.2
+451-6day1,451.0,tenth_reward,Tenth reward,maze_tiles,return,2802.0
+451-6day1,451.0,first_long_bout,First long bout onset,maze_time_s,return,141.32
+451-6day1,451.0,first_long_bout,First long bout onset,maze_tiles,return,462.0
+451-6day2,451.0,first_reward,First reward,maze_time_s,experienced_day2,42.24
+451-6day2,451.0,first_reward,First reward,maze_tiles,experienced_day2,107.0
+451-6day2,451.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,846.88
+451-6day2,451.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1625.0
+451-6day2,451.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,55.64
+451-6day2,451.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,125.0
+451-9day1,451.0,first_reward,First reward,maze_time_s,return,29.28
+451-9day1,451.0,first_reward,First reward,maze_tiles,return,79.0
+451-9day1,451.0,tenth_reward,Tenth reward,maze_time_s,return,1166.16
+451-9day1,451.0,tenth_reward,Tenth reward,maze_tiles,return,3027.0
+451-9day1,451.0,first_long_bout,First long bout onset,maze_time_s,return,206.36
+451-9day1,451.0,first_long_bout,First long bout onset,maze_tiles,return,621.0
+451-9day2,451.0,first_reward,First reward,maze_time_s,experienced_day2,12.96
+451-9day2,451.0,first_reward,First reward,maze_tiles,experienced_day2,30.0
+451-9day2,451.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,877.6
+451-9day2,451.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1746.0
+451-9day2,451.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,124.32
+451-9day2,451.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,252.0
+451Rday1,451.0,first_reward,First reward,maze_time_s,naive,1777.68
+451Rday1,451.0,first_reward,First reward,maze_tiles,naive,3519.0
+451Rday1,451.0,tenth_reward,Tenth reward,maze_time_s,naive,3230.36
+451Rday1,451.0,tenth_reward,Tenth reward,maze_tiles,naive,4836.0
+451Rday1,451.0,first_long_bout,First long bout onset,maze_time_s,naive,1763.0
+451Rday1,451.0,first_long_bout,First long bout onset,maze_tiles,naive,3500.0
+451Rday2,451.0,first_reward,First reward,maze_time_s,experienced_day2,38.0
+451Rday2,451.0,first_reward,First reward,maze_tiles,experienced_day2,96.0
+451Rday2,451.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,934.44
+451Rday2,451.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1578.0
+451Rday2,451.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,24.32
+451Rday2,451.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,59.0
+468-12day1,468.0,first_reward,First reward,maze_time_s,return,71.08
+468-12day1,468.0,first_reward,First reward,maze_tiles,return,209.0
+468-12day1,468.0,tenth_reward,Tenth reward,maze_time_s,return,1059.56
+468-12day1,468.0,tenth_reward,Tenth reward,maze_tiles,return,2632.0
+468-12day1,468.0,first_long_bout,First long bout onset,maze_time_s,return,61.24
+468-12day1,468.0,first_long_bout,First long bout onset,maze_tiles,return,179.0
+468-12day2,468.0,first_reward,First reward,maze_time_s,experienced_day2,123.08
+468-12day2,468.0,first_reward,First reward,maze_tiles,experienced_day2,249.0
+468-12day2,468.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,928.24
+468-12day2,468.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2112.0
+468-12day2,468.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,113.88
+468-12day2,468.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,235.0
+468-3day1,468.0,first_reward,First reward,maze_time_s,return,538.8
+468-3day1,468.0,first_reward,First reward,maze_tiles,return,1410.0
+468-3day1,468.0,tenth_reward,Tenth reward,maze_time_s,return,2378.44
+468-3day1,468.0,tenth_reward,Tenth reward,maze_tiles,return,4874.0
+468-3day1,468.0,first_long_bout,First long bout onset,maze_time_s,return,825.88
+468-3day1,468.0,first_long_bout,First long bout onset,maze_tiles,return,2051.0
+468-3day2,468.0,first_reward,First reward,maze_time_s,experienced_day2,32.76
+468-3day2,468.0,first_reward,First reward,maze_tiles,experienced_day2,69.0
+468-3day2,468.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1070.84
+468-3day2,468.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1624.0
+468-3day2,468.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,19.44
+468-3day2,468.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,39.0
+468-6day1,468.0,first_reward,First reward,maze_time_s,return,481.08
+468-6day1,468.0,first_reward,First reward,maze_tiles,return,1168.0
+468-6day1,468.0,tenth_reward,Tenth reward,maze_time_s,return,1553.8
+468-6day1,468.0,tenth_reward,Tenth reward,maze_tiles,return,3319.0
+468-6day1,468.0,first_long_bout,First long bout onset,maze_time_s,return,466.8
+468-6day1,468.0,first_long_bout,First long bout onset,maze_tiles,return,1145.0
+468-6day2,468.0,first_reward,First reward,maze_time_s,experienced_day2,21.08
+468-6day2,468.0,first_reward,First reward,maze_tiles,experienced_day2,44.0
+468-6day2,468.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,879.2
+468-6day2,468.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1849.0
+468-6day2,468.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,14.88
+468-6day2,468.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,31.0
+468-9day1,468.0,first_reward,First reward,maze_time_s,return,15.84
+468-9day1,468.0,first_reward,First reward,maze_tiles,return,27.0
+468-9day1,468.0,tenth_reward,Tenth reward,maze_time_s,return,1446.72
+468-9day1,468.0,tenth_reward,Tenth reward,maze_tiles,return,3660.0
+468-9day1,468.0,first_long_bout,First long bout onset,maze_time_s,return,210.16
+468-9day1,468.0,first_long_bout,First long bout onset,maze_tiles,return,635.0
+468-9day2,468.0,first_reward,First reward,maze_time_s,experienced_day2,37.96
+468-9day2,468.0,first_reward,First reward,maze_tiles,experienced_day2,80.0
+468-9day2,468.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,895.88
+468-9day2,468.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1771.0
+468-9day2,468.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,89.32
+468-9day2,468.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,175.0
+468Lday1,468.0,first_reward,First reward,maze_time_s,naive,4808.2
+468Lday1,468.0,first_reward,First reward,maze_tiles,naive,4372.0
+468Lday1,468.0,tenth_reward,Tenth reward,maze_time_s,naive,5817.4
+468Lday1,468.0,tenth_reward,Tenth reward,maze_tiles,naive,4887.0
+468Lday1,468.0,first_long_bout,First long bout onset,maze_time_s,naive,898.84
+468Lday1,468.0,first_long_bout,First long bout onset,maze_tiles,naive,1418.0
+468Lday2,468.0,first_reward,First reward,maze_time_s,experienced_day2,104.04
+468Lday2,468.0,first_reward,First reward,maze_tiles,experienced_day2,176.0
+468Lday2,468.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1072.4
+468Lday2,468.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1261.0
+468Lday2,468.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,86.56
+468Lday2,468.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,146.0
+488-3day1,488.0,first_reward,First reward,maze_time_s,return,81.12
+488-3day1,488.0,first_reward,First reward,maze_tiles,return,133.0
+488-3day1,488.0,tenth_reward,Tenth reward,maze_time_s,return,2131.52
+488-3day1,488.0,tenth_reward,Tenth reward,maze_tiles,return,4350.0
+488-3day1,488.0,first_long_bout,First long bout onset,maze_time_s,return,821.44
+488-3day1,488.0,first_long_bout,First long bout onset,maze_tiles,return,1958.0
+488-3day2,488.0,first_reward,First reward,maze_time_s,experienced_day2,39.84
+488-3day2,488.0,first_reward,First reward,maze_tiles,experienced_day2,80.0
+488-3day2,488.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1022.0
+488-3day2,488.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1642.0
+488-3day2,488.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,27.48
+488-3day2,488.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,42.0
+488-6day1,488.0,first_reward,First reward,maze_time_s,return,337.2
+488-6day1,488.0,first_reward,First reward,maze_tiles,return,796.0
+488-6day1,488.0,tenth_reward,Tenth reward,maze_time_s,return,1795.68
+488-6day1,488.0,tenth_reward,Tenth reward,maze_tiles,return,3607.0
+488-6day1,488.0,first_long_bout,First long bout onset,maze_time_s,return,777.16
+488-6day1,488.0,first_long_bout,First long bout onset,maze_tiles,return,1651.0
+488-6day2,488.0,first_reward,First reward,maze_time_s,experienced_day2,23.4
+488-6day2,488.0,first_reward,First reward,maze_tiles,experienced_day2,46.0
+488-6day2,488.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,932.52
+488-6day2,488.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1690.0
+488-6day2,488.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,8.96
+488-6day2,488.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,19.0
+488-9day1,488.0,first_reward,First reward,maze_time_s,return,367.72
+488-9day1,488.0,first_reward,First reward,maze_tiles,return,880.0
+488-9day1,488.0,tenth_reward,Tenth reward,maze_time_s,return,1768.32
+488-9day1,488.0,tenth_reward,Tenth reward,maze_tiles,return,3904.0
+488-9day1,488.0,first_long_bout,First long bout onset,maze_time_s,return,522.08
+488-9day1,488.0,first_long_bout,First long bout onset,maze_tiles,return,1203.0
+488-9day2,488.0,first_reward,First reward,maze_time_s,experienced_day2,12.6
+488-9day2,488.0,first_reward,First reward,maze_tiles,experienced_day2,23.0
+488-9day2,488.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,949.72
+488-9day2,488.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2361.0
+488-9day2,488.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,42.64
+488-9day2,488.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,100.0
+488Rday1,488.0,first_reward,First reward,maze_time_s,naive,1521.88
+488Rday1,488.0,first_reward,First reward,maze_tiles,naive,2547.0
+488Rday1,488.0,tenth_reward,Tenth reward,maze_time_s,naive,3199.24
+488Rday1,488.0,tenth_reward,Tenth reward,maze_tiles,naive,4852.0
+488Rday1,488.0,first_long_bout,First long bout onset,maze_time_s,naive,2808.0
+488Rday1,488.0,first_long_bout,First long bout onset,maze_tiles,naive,4243.0
+488Rday2,488.0,first_reward,First reward,maze_time_s,experienced_day2,30.56
+488Rday2,488.0,first_reward,First reward,maze_tiles,experienced_day2,46.0
+488Rday2,488.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1006.44
+488Rday2,488.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1894.0
+488Rday2,488.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,104.64
+488Rday2,488.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,202.0
+489-3day1,489.0,first_reward,First reward,maze_time_s,return,178.24
+489-3day1,489.0,first_reward,First reward,maze_tiles,return,359.0
+489-3day1,489.0,tenth_reward,Tenth reward,maze_time_s,return,1552.04
+489-3day1,489.0,tenth_reward,Tenth reward,maze_tiles,return,2531.0
+489-3day1,489.0,first_long_bout,First long bout onset,maze_time_s,return,731.52
+489-3day1,489.0,first_long_bout,First long bout onset,maze_tiles,return,1513.0
+489-3day2,489.0,first_reward,First reward,maze_time_s,experienced_day2,76.28
+489-3day2,489.0,first_reward,First reward,maze_tiles,experienced_day2,180.0
+489-3day2,489.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1079.28
+489-3day2,489.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2089.0
+489-3day2,489.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,108.32
+489-3day2,489.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,244.0
+489-6day1,489.0,first_reward,First reward,maze_time_s,return,87.64
+489-6day1,489.0,first_reward,First reward,maze_tiles,return,158.0
+489-6day1,489.0,tenth_reward,Tenth reward,maze_time_s,return,1651.56
+489-6day1,489.0,tenth_reward,Tenth reward,maze_tiles,return,2653.0
+489-6day1,489.0,first_long_bout,First long bout onset,maze_time_s,return,444.56
+489-6day1,489.0,first_long_bout,First long bout onset,maze_tiles,return,610.0
+489-6day2,489.0,first_reward,First reward,maze_time_s,experienced_day2,59.16
+489-6day2,489.0,first_reward,First reward,maze_tiles,experienced_day2,142.0
+489-6day2,489.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,955.04
+489-6day2,489.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1599.0
+489-6day2,489.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,167.44
+489-6day2,489.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,340.0
+489Lday1,489.0,first_reward,First reward,maze_time_s,naive,1106.04
+489Lday1,489.0,first_reward,First reward,maze_tiles,naive,1619.0
+489Lday1,489.0,tenth_reward,Tenth reward,maze_time_s,naive,2665.08
+489Lday1,489.0,tenth_reward,Tenth reward,maze_tiles,naive,3420.0
+489Lday1,489.0,first_long_bout,First long bout onset,maze_time_s,naive,1141.16
+489Lday1,489.0,first_long_bout,First long bout onset,maze_tiles,naive,1675.0
+489Lday2,489.0,first_reward,First reward,maze_time_s,experienced_day2,79.48
+489Lday2,489.0,first_reward,First reward,maze_tiles,experienced_day2,134.0
+489Lday2,489.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1183.8
+489Lday2,489.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1608.0
+489Lday2,489.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,310.96
+489Lday2,489.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,558.0
+579-3day1,579.0,first_reward,First reward,maze_time_s,return,185.28
+579-3day1,579.0,first_reward,First reward,maze_tiles,return,500.0
+579-3day1,579.0,tenth_reward,Tenth reward,maze_time_s,return,2649.44
+579-3day1,579.0,tenth_reward,Tenth reward,maze_tiles,return,6046.0
+579-3day1,579.0,first_long_bout,First long bout onset,maze_time_s,return,145.96
+579-3day1,579.0,first_long_bout,First long bout onset,maze_tiles,return,388.0
+579-3day2,579.0,first_reward,First reward,maze_time_s,experienced_day2,60.72
+579-3day2,579.0,first_reward,First reward,maze_tiles,experienced_day2,131.0
+579-3day2,579.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1024.24
+579-3day2,579.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2110.0
+579-3day2,579.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,103.68
+579-3day2,579.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,210.0
+579-6day1,579.0,first_reward,First reward,maze_time_s,return,81.52
+579-6day1,579.0,first_reward,First reward,maze_tiles,return,129.0
+579-6day1,579.0,tenth_reward,Tenth reward,maze_time_s,return,1249.24
+579-6day1,579.0,tenth_reward,Tenth reward,maze_tiles,return,1319.0
+579-6day1,579.0,first_long_bout,First long bout onset,maze_time_s,return,64.52
+579-6day1,579.0,first_long_bout,First long bout onset,maze_tiles,return,109.0
+579-6day2,579.0,first_reward,First reward,maze_time_s,experienced_day2,48.68
+579-6day2,579.0,first_reward,First reward,maze_tiles,experienced_day2,65.0
+579-6day2,579.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1131.8
+579-6day2,579.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1262.0
+579-6day2,579.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,257.92
+579-6day2,579.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,152.0
+579-9day1,579.0,first_reward,First reward,maze_time_s,return,71.2
+579-9day1,579.0,first_reward,First reward,maze_tiles,return,134.0
+579-9day1,579.0,tenth_reward,Tenth reward,maze_time_s,return,976.84
+579-9day1,579.0,tenth_reward,Tenth reward,maze_tiles,return,1628.0
+579-9day1,579.0,first_long_bout,First long bout onset,maze_time_s,return,60.64
+579-9day1,579.0,first_long_bout,First long bout onset,maze_tiles,return,120.0
+579-9day2,579.0,first_reward,First reward,maze_time_s,experienced_day2,165.96
+579-9day2,579.0,first_reward,First reward,maze_tiles,experienced_day2,325.0
+579-9day2,579.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,906.32
+579-9day2,579.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1311.0
+579-9day2,579.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,217.08
+579-9day2,579.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,380.0
+579RLday1,579.0,first_reward,First reward,maze_time_s,naive,469.28
+579RLday1,579.0,first_reward,First reward,maze_tiles,naive,1130.0
+579RLday1,579.0,tenth_reward,Tenth reward,maze_time_s,naive,7537.64
+579RLday1,579.0,tenth_reward,Tenth reward,maze_tiles,naive,12538.0
+579RLday1,579.0,first_long_bout,First long bout onset,maze_time_s,naive,521.28
+579RLday1,579.0,first_long_bout,First long bout onset,maze_tiles,naive,1280.0
+579RLday2,579.0,first_reward,First reward,maze_time_s,experienced_day2,163.68
+579RLday2,579.0,first_reward,First reward,maze_tiles,experienced_day2,403.0
+579RLday2,579.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1075.04
+579RLday2,579.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1840.0
+579RLday2,579.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,181.88
+579RLday2,579.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,430.0
+597day1,597.0,first_reward,First reward,maze_time_s,naive,1769.8
+597day1,597.0,first_reward,First reward,maze_tiles,naive,2126.0
+597day1,597.0,tenth_reward,Tenth reward,maze_time_s,naive,5529.96
+597day1,597.0,tenth_reward,Tenth reward,maze_tiles,naive,5400.0
+597day1,597.0,first_long_bout,First long bout onset,maze_time_s,naive,1757.92
+597day1,597.0,first_long_bout,First long bout onset,maze_tiles,naive,2112.0
+597day2,597.0,first_reward,First reward,maze_time_s,experienced_day2,35.96
+597day2,597.0,first_reward,First reward,maze_tiles,experienced_day2,55.0
+597day2,597.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1560.84
+597day2,597.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1886.0
+597day2,597.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,299.92
+597day2,597.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,478.0
+609day1,609.0,first_reward,First reward,maze_time_s,naive,205.48
+609day1,609.0,first_reward,First reward,maze_tiles,naive,484.0
+609day1,609.0,tenth_reward,Tenth reward,maze_time_s,naive,2404.52
+609day1,609.0,tenth_reward,Tenth reward,maze_tiles,naive,4409.0
+609day1,609.0,first_long_bout,First long bout onset,maze_time_s,naive,2090.4
+609day1,609.0,first_long_bout,First long bout onset,maze_tiles,naive,3895.0
+609day2,609.0,first_reward,First reward,maze_time_s,experienced_day2,15.6
+609day2,609.0,first_reward,First reward,maze_tiles,experienced_day2,25.0
+609day2,609.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1117.8
+609day2,609.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1977.0
+609day2,609.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,133.48
+609day2,609.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,252.0
+618-12day1,618.0,first_reward,First reward,maze_time_s,return,172.24
+618-12day1,618.0,first_reward,First reward,maze_tiles,return,429.0
+618-12day1,618.0,tenth_reward,Tenth reward,maze_time_s,return,1296.0
+618-12day1,618.0,tenth_reward,Tenth reward,maze_tiles,return,2482.0
+618-12day1,618.0,first_long_bout,First long bout onset,maze_time_s,return,257.76
+618-12day1,618.0,first_long_bout,First long bout onset,maze_tiles,return,613.0
+618-12day2,618.0,first_reward,First reward,maze_time_s,experienced_day2,15.76
+618-12day2,618.0,first_reward,First reward,maze_tiles,experienced_day2,27.0
+618-12day2,618.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,730.0
+618-12day2,618.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1633.0
+618-12day2,618.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,78.28
+618-12day2,618.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,158.0
+618-3day1,618.0,first_reward,First reward,maze_time_s,return,65.68
+618-3day1,618.0,first_reward,First reward,maze_tiles,return,116.0
+618-3day1,618.0,tenth_reward,Tenth reward,maze_time_s,return,1172.44
+618-3day1,618.0,tenth_reward,Tenth reward,maze_tiles,return,2421.0
+618-3day1,618.0,first_long_bout,First long bout onset,maze_time_s,return,55.04
+618-3day1,618.0,first_long_bout,First long bout onset,maze_tiles,return,95.0
+618-3day2,618.0,first_reward,First reward,maze_time_s,experienced_day2,9.6
+618-3day2,618.0,first_reward,First reward,maze_tiles,experienced_day2,23.0
+618-3day2,618.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,922.52
+618-3day2,618.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2203.0
+618-3day2,618.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,47.76
+618-3day2,618.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,105.0
+618-6day1,618.0,first_reward,First reward,maze_time_s,return,122.24
+618-6day1,618.0,first_reward,First reward,maze_tiles,return,288.0
+618-6day1,618.0,tenth_reward,Tenth reward,maze_time_s,return,1552.56
+618-6day1,618.0,tenth_reward,Tenth reward,maze_tiles,return,2624.0
+618-6day1,618.0,first_long_bout,First long bout onset,maze_time_s,return,155.8
+618-6day1,618.0,first_long_bout,First long bout onset,maze_tiles,return,336.0
+618-6day2,618.0,first_reward,First reward,maze_time_s,experienced_day2,12.72
+618-6day2,618.0,first_reward,First reward,maze_tiles,experienced_day2,31.0
+618-6day2,618.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1074.96
+618-6day2,618.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1397.0
+618-6day2,618.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,34.48
+618-6day2,618.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,75.0
+618day1,618.0,first_reward,First reward,maze_time_s,naive,1883.48
+618day1,618.0,first_reward,First reward,maze_tiles,naive,2899.0
+618day1,618.0,tenth_reward,Tenth reward,maze_time_s,naive,3649.6
+618day1,618.0,tenth_reward,Tenth reward,maze_tiles,naive,4927.0
+618day1,618.0,first_long_bout,First long bout onset,maze_time_s,naive,2048.12
+618day1,618.0,first_long_bout,First long bout onset,maze_tiles,naive,3037.0
+618day2,618.0,first_reward,First reward,maze_time_s,experienced_day2,93.08
+618day2,618.0,first_reward,First reward,maze_tiles,experienced_day2,135.0
+618day2,618.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1402.56
+618day2,618.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2065.0
+618day2,618.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,161.2
+618day2,618.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,238.0
+624day1,624.0,first_reward,First reward,maze_time_s,naive,492.24
+624day1,624.0,first_reward,First reward,maze_tiles,naive,828.0
+624day1,624.0,tenth_reward,Tenth reward,maze_time_s,naive,3927.32
+624day1,624.0,tenth_reward,Tenth reward,maze_tiles,naive,4126.0
+624day1,624.0,first_long_bout,First long bout onset,maze_time_s,naive,4177.84
+624day1,624.0,first_long_bout,First long bout onset,maze_tiles,naive,4417.0
+624day2,624.0,first_reward,First reward,maze_time_s,experienced_day2,15.04
+624day2,624.0,first_reward,First reward,maze_tiles,experienced_day2,27.0
+624day2,624.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1765.4
+624day2,624.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1850.0
+624day2,624.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,192.56
+624day2,624.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,299.0
+628day1,628.0,first_reward,First reward,maze_time_s,naive,2506.2
+628day1,628.0,first_reward,First reward,maze_tiles,naive,4406.0
+628day1,628.0,tenth_reward,Tenth reward,maze_time_s,naive,3884.0
+628day1,628.0,tenth_reward,Tenth reward,maze_tiles,naive,6553.0
+628day1,628.0,first_long_bout,First long bout onset,maze_time_s,naive,2490.4
+628day1,628.0,first_long_bout,First long bout onset,maze_tiles,naive,4376.0
+640-12day1,640.0,first_reward,First reward,maze_time_s,return,35.36
+640-12day1,640.0,first_reward,First reward,maze_tiles,return,93.0
+640-12day1,640.0,tenth_reward,Tenth reward,maze_time_s,return,1541.76
+640-12day1,640.0,tenth_reward,Tenth reward,maze_tiles,return,2205.0
+640-12day1,640.0,first_long_bout,First long bout onset,maze_time_s,return,15.24
+640-12day1,640.0,first_long_bout,First long bout onset,maze_tiles,return,35.0
+640-12day2,640.0,first_reward,First reward,maze_time_s,experienced_day2,33.0
+640-12day2,640.0,first_reward,First reward,maze_tiles,experienced_day2,75.0
+640-12day2,640.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,669.2
+640-12day2,640.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1720.0
+640-12day2,640.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,23.32
+640-12day2,640.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,46.0
+640-3day1,640.0,first_reward,First reward,maze_time_s,return,293.96
+640-3day1,640.0,first_reward,First reward,maze_tiles,return,590.0
+640-3day1,640.0,tenth_reward,Tenth reward,maze_time_s,return,1630.92
+640-3day1,640.0,tenth_reward,Tenth reward,maze_tiles,return,2892.0
+640-3day1,640.0,first_long_bout,First long bout onset,maze_time_s,return,841.6
+640-3day1,640.0,first_long_bout,First long bout onset,maze_tiles,return,1535.0
+640-3day2,640.0,first_reward,First reward,maze_time_s,experienced_day2,12.8
+640-3day2,640.0,first_reward,First reward,maze_tiles,experienced_day2,23.0
+640-3day2,640.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,848.52
+640-3day2,640.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1916.0
+640-3day2,640.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,59.88
+640-3day2,640.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,91.0
+640-6day1,640.0,first_reward,First reward,maze_time_s,return,270.52
+640-6day1,640.0,first_reward,First reward,maze_tiles,return,712.0
+640-6day1,640.0,tenth_reward,Tenth reward,maze_time_s,return,1777.36
+640-6day1,640.0,tenth_reward,Tenth reward,maze_tiles,return,2693.0
+640-6day1,640.0,first_long_bout,First long bout onset,maze_time_s,return,262.0
+640-6day1,640.0,first_long_bout,First long bout onset,maze_tiles,return,696.0
+640-6day2,640.0,first_reward,First reward,maze_time_s,experienced_day2,25.72
+640-6day2,640.0,first_reward,First reward,maze_tiles,experienced_day2,64.0
+640-6day2,640.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,909.72
+640-6day2,640.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2226.0
+640-6day2,640.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,17.16
+640-6day2,640.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,44.0
+640-9day1,640.0,first_reward,First reward,maze_time_s,return,316.16
+640-9day1,640.0,first_reward,First reward,maze_tiles,return,914.0
+640-9day1,640.0,tenth_reward,Tenth reward,maze_time_s,return,1642.52
+640-9day1,640.0,tenth_reward,Tenth reward,maze_tiles,return,3194.0
+640-9day1,640.0,first_long_bout,First long bout onset,maze_time_s,return,309.0
+640-9day1,640.0,first_long_bout,First long bout onset,maze_tiles,return,898.0
+640-9day2,640.0,first_reward,First reward,maze_time_s,experienced_day2,8.4
+640-9day2,640.0,first_reward,First reward,maze_tiles,experienced_day2,25.0
+640-9day2,640.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,753.08
+640-9day2,640.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2114.0
+640-9day2,640.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,41.48
+640-9day2,640.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,76.0
+640day1,640.0,first_reward,First reward,maze_time_s,naive,61.24
+640day1,640.0,first_reward,First reward,maze_tiles,naive,110.0
+640day1,640.0,tenth_reward,Tenth reward,maze_time_s,naive,998.48
+640day1,640.0,tenth_reward,Tenth reward,maze_tiles,naive,958.0
+640day1,640.0,first_long_bout,First long bout onset,maze_time_s,naive,2851.84
+640day1,640.0,first_long_bout,First long bout onset,maze_tiles,naive,2611.0
+640day2,640.0,first_reward,First reward,maze_time_s,experienced_day2,81.84
+640day2,640.0,first_reward,First reward,maze_tiles,experienced_day2,156.0
+640day2,640.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1067.76
+640day2,640.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1843.0
+640day2,640.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,61.96
+640day2,640.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,118.0
+644-12day1,644.0,first_reward,First reward,maze_time_s,return,141.08
+644-12day1,644.0,first_reward,First reward,maze_tiles,return,333.0
+644-12day1,644.0,tenth_reward,Tenth reward,maze_time_s,return,1470.56
+644-12day1,644.0,tenth_reward,Tenth reward,maze_tiles,return,1945.0
+644-12day1,644.0,first_long_bout,First long bout onset,maze_time_s,return,131.88
+644-12day1,644.0,first_long_bout,First long bout onset,maze_tiles,return,319.0
+644-12day2,644.0,first_reward,First reward,maze_time_s,experienced_day2,12.6
+644-12day2,644.0,first_reward,First reward,maze_tiles,experienced_day2,31.0
+644-12day2,644.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,857.12
+644-12day2,644.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2064.0
+644-12day2,644.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,58.04
+644-12day2,644.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,117.0
+644-3day1,644.0,first_reward,First reward,maze_time_s,return,449.96
+644-3day1,644.0,first_reward,First reward,maze_tiles,return,1110.0
+644-3day1,644.0,tenth_reward,Tenth reward,maze_time_s,return,2804.88
+644-3day1,644.0,tenth_reward,Tenth reward,maze_tiles,return,5709.0
+644-3day1,644.0,first_long_bout,First long bout onset,maze_time_s,return,718.6
+644-3day1,644.0,first_long_bout,First long bout onset,maze_tiles,return,1681.0
+644-3day2,644.0,first_reward,First reward,maze_time_s,experienced_day2,30.92
+644-3day2,644.0,first_reward,First reward,maze_tiles,experienced_day2,79.0
+644-3day2,644.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1447.84
+644-3day2,644.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2383.0
+644-3day2,644.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,162.28
+644-3day2,644.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,324.0
+644-6day1,644.0,first_reward,First reward,maze_time_s,return,67.72
+644-6day1,644.0,first_reward,First reward,maze_tiles,return,167.0
+644-6day1,644.0,tenth_reward,Tenth reward,maze_time_s,return,1667.24
+644-6day1,644.0,tenth_reward,Tenth reward,maze_tiles,return,3620.0
+644-6day1,644.0,first_long_bout,First long bout onset,maze_time_s,return,61.64
+644-6day1,644.0,first_long_bout,First long bout onset,maze_tiles,return,156.0
+644-6day2,644.0,first_reward,First reward,maze_time_s,experienced_day2,12.68
+644-6day2,644.0,first_reward,First reward,maze_tiles,experienced_day2,27.0
+644-6day2,644.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,956.16
+644-6day2,644.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2057.0
+644-6day2,644.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,51.88
+644-6day2,644.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,135.0
+644-9day1,644.0,first_reward,First reward,maze_time_s,return,203.56
+644-9day1,644.0,first_reward,First reward,maze_tiles,return,489.0
+644-9day1,644.0,tenth_reward,Tenth reward,maze_time_s,return,1262.96
+644-9day1,644.0,tenth_reward,Tenth reward,maze_tiles,return,2301.0
+644-9day1,644.0,first_long_bout,First long bout onset,maze_time_s,return,189.2
+644-9day1,644.0,first_long_bout,First long bout onset,maze_tiles,return,463.0
+644-9day2,644.0,first_reward,First reward,maze_time_s,experienced_day2,13.76
+644-9day2,644.0,first_reward,First reward,maze_tiles,experienced_day2,29.0
+644-9day2,644.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,912.72
+644-9day2,644.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1674.0
+644-9day2,644.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,29.92
+644-9day2,644.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,63.0
+644day1,644.0,first_reward,First reward,maze_time_s,naive,80.04
+644day1,644.0,first_reward,First reward,maze_tiles,naive,125.0
+644day1,644.0,tenth_reward,Tenth reward,maze_time_s,naive,2535.68
+644day1,644.0,tenth_reward,Tenth reward,maze_tiles,naive,4643.0
+644day1,644.0,first_long_bout,First long bout onset,maze_time_s,naive,372.12
+644day1,644.0,first_long_bout,First long bout onset,maze_tiles,naive,713.0
+644day2,644.0,first_reward,First reward,maze_time_s,experienced_day2,38.52
+644day2,644.0,first_reward,First reward,maze_tiles,experienced_day2,73.0
+644day2,644.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,962.88
+644day2,644.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1947.0
+644day2,644.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,105.2
+644day2,644.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,203.0
+646-12day1,646.0,first_reward,First reward,maze_time_s,return,135.2
+646-12day1,646.0,first_reward,First reward,maze_tiles,return,346.0
+646-12day1,646.0,tenth_reward,Tenth reward,maze_time_s,return,1616.92
+646-12day1,646.0,tenth_reward,Tenth reward,maze_tiles,return,2573.0
+646-12day1,646.0,first_long_bout,First long bout onset,maze_time_s,return,327.72
+646-12day1,646.0,first_long_bout,First long bout onset,maze_tiles,return,793.0
+646-12day2,646.0,first_reward,First reward,maze_time_s,experienced_day2,97.64
+646-12day2,646.0,first_reward,First reward,maze_tiles,experienced_day2,237.0
+646-12day2,646.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,974.72
+646-12day2,646.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1260.0
+646-12day2,646.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,85.4
+646-12day2,646.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,208.0
+646-3day1,646.0,first_reward,First reward,maze_time_s,return,321.12
+646-3day1,646.0,first_reward,First reward,maze_tiles,return,836.0
+646-3day1,646.0,tenth_reward,Tenth reward,maze_time_s,return,2130.12
+646-3day1,646.0,tenth_reward,Tenth reward,maze_tiles,return,4291.0
+646-3day1,646.0,first_long_bout,First long bout onset,maze_time_s,return,311.92
+646-3day1,646.0,first_long_bout,First long bout onset,maze_tiles,return,817.0
+646-3day2,646.0,first_reward,First reward,maze_time_s,experienced_day2,36.56
+646-3day2,646.0,first_reward,First reward,maze_tiles,experienced_day2,77.0
+646-3day2,646.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1198.4
+646-3day2,646.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2392.0
+646-3day2,646.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,23.4
+646-3day2,646.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,41.0
+646-6day1,646.0,first_reward,First reward,maze_time_s,return,297.68
+646-6day1,646.0,first_reward,First reward,maze_tiles,return,764.0
+646-6day1,646.0,tenth_reward,Tenth reward,maze_time_s,return,1354.4
+646-6day1,646.0,tenth_reward,Tenth reward,maze_tiles,return,2424.0
+646-6day1,646.0,first_long_bout,First long bout onset,maze_time_s,return,345.84
+646-6day1,646.0,first_long_bout,First long bout onset,maze_tiles,return,842.0
+646-6day2,646.0,first_reward,First reward,maze_time_s,experienced_day2,12.2
+646-6day2,646.0,first_reward,First reward,maze_tiles,experienced_day2,25.0
+646-6day2,646.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,809.08
+646-6day2,646.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1595.0
+646-6day2,646.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,40.44
+646-6day2,646.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,80.0
+646-9day1,646.0,first_reward,First reward,maze_time_s,return,22.2
+646-9day1,646.0,first_reward,First reward,maze_tiles,return,41.0
+646-9day1,646.0,tenth_reward,Tenth reward,maze_time_s,return,1069.68
+646-9day1,646.0,tenth_reward,Tenth reward,maze_tiles,return,1525.0
+646-9day1,646.0,first_long_bout,First long bout onset,maze_time_s,return,11.72
+646-9day1,646.0,first_long_bout,First long bout onset,maze_tiles,return,21.0
+646-9day2,646.0,first_reward,First reward,maze_time_s,experienced_day2,26.48
+646-9day2,646.0,first_reward,First reward,maze_tiles,experienced_day2,63.0
+646-9day2,646.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,893.2
+646-9day2,646.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1194.0
+646-9day2,646.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,12.0
+646-9day2,646.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,29.0
+646day1,646.0,first_reward,First reward,maze_time_s,naive,1127.76
+646day1,646.0,first_reward,First reward,maze_tiles,naive,1818.0
+646day1,646.0,tenth_reward,Tenth reward,maze_time_s,naive,2024.36
+646day1,646.0,tenth_reward,Tenth reward,maze_tiles,naive,2531.0
+646day1,646.0,first_long_bout,First long bout onset,maze_time_s,naive,1518.68
+646day1,646.0,first_long_bout,First long bout onset,maze_tiles,naive,2177.0
+646day2,646.0,first_reward,First reward,maze_time_s,experienced_day2,21.04
+646day2,646.0,first_reward,First reward,maze_tiles,experienced_day2,29.0
+646day2,646.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1333.08
+646day2,646.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2522.0
+646day2,646.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,51.36
+646day2,646.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,71.0
+837-12day1,837.0,first_reward,First reward,maze_time_s,return,225.36
+837-12day1,837.0,first_reward,First reward,maze_tiles,return,549.0
+837-12day1,837.0,tenth_reward,Tenth reward,maze_time_s,return,933.28
+837-12day1,837.0,tenth_reward,Tenth reward,maze_tiles,return,2135.0
+837-12day1,837.0,first_long_bout,First long bout onset,maze_time_s,return,410.44
+837-12day1,837.0,first_long_bout,First long bout onset,maze_tiles,return,946.0
+837-12day2,837.0,first_reward,First reward,maze_time_s,experienced_day2,49.84
+837-12day2,837.0,first_reward,First reward,maze_tiles,experienced_day2,147.0
+837-12day2,837.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,686.28
+837-12day2,837.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1498.0
+837-12day2,837.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,91.52
+837-12day2,837.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,237.0
+837-3day1,837.0,first_reward,First reward,maze_time_s,return,514.16
+837-3day1,837.0,first_reward,First reward,maze_tiles,return,1437.0
+837-3day1,837.0,tenth_reward,Tenth reward,maze_time_s,return,1811.24
+837-3day1,837.0,tenth_reward,Tenth reward,maze_tiles,return,3759.0
+837-3day1,837.0,first_long_bout,First long bout onset,maze_time_s,return,489.92
+837-3day1,837.0,first_long_bout,First long bout onset,maze_tiles,return,1400.0
+837-3day2,837.0,first_reward,First reward,maze_time_s,experienced_day2,22.96
+837-3day2,837.0,first_reward,First reward,maze_tiles,experienced_day2,48.0
+837-3day2,837.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,906.72
+837-3day2,837.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2001.0
+837-3day2,837.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,9.48
+837-3day2,837.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,19.0
+837-6day1,837.0,first_reward,First reward,maze_time_s,return,181.48
+837-6day1,837.0,first_reward,First reward,maze_tiles,return,492.0
+837-6day1,837.0,tenth_reward,Tenth reward,maze_time_s,return,1082.36
+837-6day1,837.0,tenth_reward,Tenth reward,maze_tiles,return,2558.0
+837-6day1,837.0,first_long_bout,First long bout onset,maze_time_s,return,168.0
+837-6day1,837.0,first_long_bout,First long bout onset,maze_tiles,return,466.0
+837-6day2,837.0,first_reward,First reward,maze_time_s,experienced_day2,39.76
+837-6day2,837.0,first_reward,First reward,maze_tiles,experienced_day2,125.0
+837-6day2,837.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1068.72
+837-6day2,837.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2320.0
+837-6day2,837.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,93.6
+837-6day2,837.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,220.0
+837-9day1,837.0,first_reward,First reward,maze_time_s,return,41.44
+837-9day1,837.0,first_reward,First reward,maze_tiles,return,135.0
+837-9day1,837.0,tenth_reward,Tenth reward,maze_time_s,return,1265.4
+837-9day1,837.0,tenth_reward,Tenth reward,maze_tiles,return,3368.0
+837-9day1,837.0,first_long_bout,First long bout onset,maze_time_s,return,94.36
+837-9day1,837.0,first_long_bout,First long bout onset,maze_tiles,return,314.0
+837-9day2,837.0,first_reward,First reward,maze_time_s,experienced_day2,105.28
+837-9day2,837.0,first_reward,First reward,maze_tiles,experienced_day2,275.0
+837-9day2,837.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,776.92
+837-9day2,837.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1623.0
+837-9day2,837.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,152.32
+837-9day2,837.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,346.0
+838-12day1,838.0,first_reward,First reward,maze_time_s,return,115.76
+838-12day1,838.0,first_reward,First reward,maze_tiles,return,342.0
+838-12day1,838.0,tenth_reward,Tenth reward,maze_time_s,return,1142.28
+838-12day1,838.0,tenth_reward,Tenth reward,maze_tiles,return,2847.0
+838-12day1,838.0,first_long_bout,First long bout onset,maze_time_s,return,481.92
+838-12day1,838.0,first_long_bout,First long bout onset,maze_tiles,return,1280.0
+838-12day2,838.0,first_reward,First reward,maze_time_s,experienced_day2,66.8
+838-12day2,838.0,first_reward,First reward,maze_tiles,experienced_day2,186.0
+838-12day2,838.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,780.04
+838-12day2,838.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2083.0
+838-12day2,838.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,138.96
+838-12day2,838.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,345.0
+838-3day1,838.0,first_reward,First reward,maze_time_s,return,123.8
+838-3day1,838.0,first_reward,First reward,maze_tiles,return,309.0
+838-3day1,838.0,tenth_reward,Tenth reward,maze_time_s,return,1828.92
+838-3day1,838.0,tenth_reward,Tenth reward,maze_tiles,return,4351.0
+838-3day1,838.0,first_long_bout,First long bout onset,maze_time_s,return,117.56
+838-3day1,838.0,first_long_bout,First long bout onset,maze_tiles,return,296.0
+838-3day2,838.0,first_reward,First reward,maze_time_s,experienced_day2,17.72
+838-3day2,838.0,first_reward,First reward,maze_tiles,experienced_day2,27.0
+838-3day2,838.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,938.32
+838-3day2,838.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2651.0
+838-3day2,838.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,43.56
+838-3day2,838.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,97.0
+838-6day1,838.0,first_reward,First reward,maze_time_s,return,145.52
+838-6day1,838.0,first_reward,First reward,maze_tiles,return,465.0
+838-6day1,838.0,tenth_reward,Tenth reward,maze_time_s,return,1628.84
+838-6day1,838.0,tenth_reward,Tenth reward,maze_tiles,return,4321.0
+838-6day1,838.0,first_long_bout,First long bout onset,maze_time_s,return,500.88
+838-6day1,838.0,first_long_bout,First long bout onset,maze_tiles,return,1508.0
+838-6day2,838.0,first_reward,First reward,maze_time_s,experienced_day2,73.48
+838-6day2,838.0,first_reward,First reward,maze_tiles,experienced_day2,206.0
+838-6day2,838.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,697.48
+838-6day2,838.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2006.0
+838-6day2,838.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,65.88
+838-6day2,838.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,174.0
+838-9day1,838.0,first_reward,First reward,maze_time_s,return,163.12
+838-9day1,838.0,first_reward,First reward,maze_tiles,return,504.0
+838-9day1,838.0,tenth_reward,Tenth reward,maze_time_s,return,1194.24
+838-9day1,838.0,tenth_reward,Tenth reward,maze_tiles,return,3168.0
+838-9day1,838.0,first_long_bout,First long bout onset,maze_time_s,return,346.56
+838-9day1,838.0,first_long_bout,First long bout onset,maze_tiles,return,972.0
+838-9day2,838.0,first_reward,First reward,maze_time_s,experienced_day2,63.04
+838-9day2,838.0,first_reward,First reward,maze_tiles,experienced_day2,196.0
+838-9day2,838.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,792.36
+838-9day2,838.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1855.0
+838-9day2,838.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,77.08
+838-9day2,838.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,230.0
+839-12day1,839.0,first_reward,First reward,maze_time_s,return,239.08
+839-12day1,839.0,first_reward,First reward,maze_tiles,return,557.0
+839-12day1,839.0,tenth_reward,Tenth reward,maze_time_s,return,1273.64
+839-12day1,839.0,tenth_reward,Tenth reward,maze_tiles,return,2085.0
+839-12day1,839.0,first_long_bout,First long bout onset,maze_time_s,return,407.6
+839-12day1,839.0,first_long_bout,First long bout onset,maze_tiles,return,804.0
+839-12day2,839.0,first_reward,First reward,maze_time_s,experienced_day2,32.76
+839-12day2,839.0,first_reward,First reward,maze_tiles,experienced_day2,69.0
+839-12day2,839.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,894.28
+839-12day2,839.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,997.0
+839-12day2,839.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,60.72
+839-12day2,839.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,113.0
+839-3day1,839.0,first_reward,First reward,maze_time_s,return,737.64
+839-3day1,839.0,first_reward,First reward,maze_tiles,return,1452.0
+839-3day1,839.0,tenth_reward,Tenth reward,maze_time_s,return,2905.92
+839-3day1,839.0,tenth_reward,Tenth reward,maze_tiles,return,4888.0
+839-3day1,839.0,first_long_bout,First long bout onset,maze_time_s,return,1549.0
+839-3day1,839.0,first_long_bout,First long bout onset,maze_tiles,return,2766.0
+839-3day2,839.0,first_reward,First reward,maze_time_s,experienced_day2,111.24
+839-3day2,839.0,first_reward,First reward,maze_tiles,experienced_day2,224.0
+839-3day2,839.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,885.6
+839-3day2,839.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1842.0
+839-3day2,839.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,96.16
+839-3day2,839.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,192.0
+839-6day1,839.0,first_reward,First reward,maze_time_s,return,381.04
+839-6day1,839.0,first_reward,First reward,maze_tiles,return,868.0
+839-6day1,839.0,tenth_reward,Tenth reward,maze_time_s,return,1158.28
+839-6day1,839.0,tenth_reward,Tenth reward,maze_tiles,return,2242.0
+839-6day1,839.0,first_long_bout,First long bout onset,maze_time_s,return,450.8
+839-6day1,839.0,first_long_bout,First long bout onset,maze_tiles,return,984.0
+839-6day2,839.0,first_reward,First reward,maze_time_s,experienced_day2,34.88
+839-6day2,839.0,first_reward,First reward,maze_tiles,experienced_day2,105.0
+839-6day2,839.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,864.56
+839-6day2,839.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,968.0
+839-6day2,839.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,188.48
+839-6day2,839.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,300.0
+839-9day1,839.0,first_reward,First reward,maze_time_s,return,32.32
+839-9day1,839.0,first_reward,First reward,maze_tiles,return,74.0
+839-9day1,839.0,tenth_reward,Tenth reward,maze_time_s,return,1363.88
+839-9day1,839.0,tenth_reward,Tenth reward,maze_tiles,return,2955.0
+839-9day1,839.0,first_long_bout,First long bout onset,maze_time_s,return,252.8
+839-9day1,839.0,first_long_bout,First long bout onset,maze_tiles,return,692.0
+839-9day2,839.0,first_reward,First reward,maze_time_s,experienced_day2,100.0
+839-9day2,839.0,first_reward,First reward,maze_tiles,experienced_day2,288.0
+839-9day2,839.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,883.44
+839-9day2,839.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1442.0
+839-9day2,839.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,89.68
+839-9day2,839.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,258.0
+842-3day1,842.0,first_reward,First reward,maze_time_s,return,78.8
+842-3day1,842.0,first_reward,First reward,maze_tiles,return,222.0
+842-3day1,842.0,tenth_reward,Tenth reward,maze_time_s,return,1659.52
+842-3day1,842.0,tenth_reward,Tenth reward,maze_tiles,return,3421.0
+842-3day1,842.0,first_long_bout,First long bout onset,maze_time_s,return,1115.12
+842-3day1,842.0,first_long_bout,First long bout onset,maze_tiles,return,2382.0
+842-3day2,842.0,first_reward,First reward,maze_time_s,experienced_day2,80.32
+842-3day2,842.0,first_reward,First reward,maze_tiles,experienced_day2,187.0
+842-3day2,842.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,1049.88
+842-3day2,842.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2154.0
+842-3day2,842.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,72.64
+842-3day2,842.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,163.0
+842-6day1,842.0,first_reward,First reward,maze_time_s,return,395.84
+842-6day1,842.0,first_reward,First reward,maze_tiles,return,978.0
+842-6day1,842.0,tenth_reward,Tenth reward,maze_time_s,return,1294.72
+842-6day1,842.0,tenth_reward,Tenth reward,maze_tiles,return,3025.0
+842-6day1,842.0,first_long_bout,First long bout onset,maze_time_s,return,388.04
+842-6day1,842.0,first_long_bout,First long bout onset,maze_tiles,return,964.0
+842-6day2,842.0,first_reward,First reward,maze_time_s,experienced_day2,13.08
+842-6day2,842.0,first_reward,First reward,maze_tiles,experienced_day2,25.0
+842-6day2,842.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,818.36
+842-6day2,842.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,1919.0
+842-6day2,842.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,35.0
+842-6day2,842.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,78.0
+842-9day1,842.0,first_reward,First reward,maze_time_s,return,27.56
+842-9day1,842.0,first_reward,First reward,maze_tiles,return,37.0
+842-9day1,842.0,tenth_reward,Tenth reward,maze_time_s,return,1324.24
+842-9day1,842.0,tenth_reward,Tenth reward,maze_tiles,return,3183.0
+842-9day1,842.0,first_long_bout,First long bout onset,maze_time_s,return,44.28
+842-9day1,842.0,first_long_bout,First long bout onset,maze_tiles,return,66.0
+842-9day2,842.0,first_reward,First reward,maze_time_s,experienced_day2,20.6
+842-9day2,842.0,first_reward,First reward,maze_tiles,experienced_day2,44.0
+842-9day2,842.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,976.56
+842-9day2,842.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2350.0
+842-9day2,842.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,59.84
+842-9day2,842.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,130.0
+862-3day1,862.0,first_reward,First reward,maze_time_s,return,954.32
+862-3day1,862.0,first_reward,First reward,maze_tiles,return,2243.0
+862-3day1,862.0,tenth_reward,Tenth reward,maze_time_s,return,2339.12
+862-3day1,862.0,tenth_reward,Tenth reward,maze_tiles,return,5295.0
+862-3day1,862.0,first_long_bout,First long bout onset,maze_time_s,return,940.28
+862-3day1,862.0,first_long_bout,First long bout onset,maze_tiles,return,2224.0
+862-3day2,862.0,first_reward,First reward,maze_time_s,experienced_day2,23.72
+862-3day2,862.0,first_reward,First reward,maze_tiles,experienced_day2,53.0
+862-3day2,862.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,982.76
+862-3day2,862.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2587.0
+862-3day2,862.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,10.16
+862-3day2,862.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,22.0
+862-6day1,862.0,first_reward,First reward,maze_time_s,return,225.08
+862-6day1,862.0,first_reward,First reward,maze_tiles,return,693.0
+862-6day1,862.0,tenth_reward,Tenth reward,maze_time_s,return,1450.4
+862-6day1,862.0,tenth_reward,Tenth reward,maze_tiles,return,3445.0
+862-6day1,862.0,first_long_bout,First long bout onset,maze_time_s,return,216.08
+862-6day1,862.0,first_long_bout,First long bout onset,maze_tiles,return,669.0
+862-6day2,862.0,first_reward,First reward,maze_time_s,experienced_day2,44.36
+862-6day2,862.0,first_reward,First reward,maze_tiles,experienced_day2,95.0
+862-6day2,862.0,tenth_reward,Tenth reward,maze_time_s,experienced_day2,956.16
+862-6day2,862.0,tenth_reward,Tenth reward,maze_tiles,experienced_day2,2243.0
+862-6day2,862.0,first_long_bout,First long bout onset,maze_time_s,experienced_day2,77.24
+862-6day2,862.0,first_long_bout,First long bout onset,maze_tiles,experienced_day2,183.0

@@ -1,33 +1,16 @@
-# Figure 3: data
+# Figure 3 source data
 
-Day-2-reference curves and the observations used in experience-trend fits. [Column and array index](index.csv).
+| File | Purpose |
+| --- | --- |
+| example_coordinates.npz | Four displayed trajectories and event-marker endpoints, in 15-by-15 maze coordinates. Prefixes A, A2, B and B2 follow session order in example_sessions.csv. |
+| example_sessions.csv | Session and neuron identities, observation counts and C_raw-based display thresholds for the example. |
+| convergence_curves.csv | Plot-ready group means, uncertainty and support masks for the three moving-window curves. |
+| first_window_observations.csv | One first-30-minute correlation per recording cycle and measure, including animal IDs and cycle index; four measures form the BH4 family. |
+| successive_cycle_observations.csv | One correlation per registered pair and measure, with animal IDs and experience index; four measures form the BH4 family. |
+| convergence_cycle_slopes.csv | Cycle slopes for three measures and four window definitions, supporting the complete BH12 family. |
 
-Place maps and population vectors are calculated from denoised calcium `C`. Their fixed reference comparisons retain neurons whose summed deconvolved activity `S` reaches 0.1 per retained minute on both days. Successive cycle comparisons apply the same threshold in both registered sessions. The fixed reference ensemble rate uses every neuron in the shared component basis; successive cycle ensemble rates use finite matched rates, excluding only neurons with zero rate in both sessions. Ensemble rates do not apply the `S` threshold. The supplied measurements already include these choices.
-
-| Panels | Inputs and observation unit |
-|---|---|
-| a | The neuron-example NPZ supplies one registered neuron across four sessions: A = Day i, A2 = Day i+1, B = Day i+90, B2 = Day i+91. |
-| b–d | Analysis schematics drawn by code; no biological measurements are required. |
-| e, h, k (first column) | `day2_template_group_curve_summary.csv` supplies mean, s.e.m. and animal count at each curve position; `day2_template_curve_support.csv` supplies one support threshold per metric/experience curve. Individual moving-window curves are not included. |
-| f, i, l (second column) | `combined_first30_points_all_metrics.csv`: one animal × experience × metric observation for alignment of the first 30 minutes with that cycle's full Day-2 representation. The associated statistics file records the fits. |
-| g, j, m (third column) | `long_gap_experience_points.csv`: one session-pair × metric correlation across successive recording cycles; `long_gap_experience_statistics.csv` records the fits. |
-
-Metrics are dimensionless correlations. `experience_index`/`experience` identifies the recording cycle; it is not calendar age. For time curves, `x_value` is cumulative maze time at the end of each moving window, in seconds (`x_unit=sec`), and is displayed in minutes; `window_size=30` is minutes. `mean` and `sem` summarize pairs within animal in each source cohort, then pool cohort moments. For each curve, `half_max_threshold = max(3, ceil(max_n_animals_for_curve / 2))`: the minimum is three animals, including for the 12-month curves whose maximum is four. The renderer compares the curve's own `n_animals` values with that threshold and applies the displayed time limits; it does not join a pointwise mask by time. NaN support fields can be inapplicable to a metric, not failed measurements.
-
-The renderer first independently smooths `mean` and `sem` across the supplied curve rows with a centred five-point moving average (partial windows at edges; missing s.e.m. filled with zero), then applies the support and time masks. This order differs from ED9m, which filters its support mask before smoothing. The band is smoothed mean ± smoothed s.e.m., not a recalculated s.e.m. of smoothed animal trajectories. The second- and third-column shaded bands are ordinary least-squares 95% intervals with n−2 degrees of freedom, treating rows as independent; their stars separately use tests with standard errors clustered by animal and BH4.
-
-The point/statistics files also contain the level-map measure shown in ED9n/o, which belongs to the same BH4 families. Second-column animal observations and third-column pair observations are both needed for their tests with standard errors clustered by animal. The first-column curves only require their plotted summaries and support.
-
-The successive-cycle points in g/j/m include mouse 1616's 14-day interval. Thus the file's `long_gap` name does not mean that every included interval is approximately 90 days; this cohort differs from the 36-pair long-gap cohort in Figure 2.
-
-The example NPZ contains displayed geometry only. For each session side, `*_traj_x`/`*_traj_y` contain the trajectory; `*_px`/`*_py` and `*_ex`/`*_ey` give body and nose coordinates for each displayed activity arrow. Coordinates use maze-grid units with the displayed y orientation. Upstream arrow selection used activity above five times the Welch noise estimate and collapsed events within four frames. No neural traces are included, and reproduction does not reselect activity events.
-
-| File | Format |
-|---|---|
-| [451-3day1_to_451-6day1__row0161_a190_b267.npz](451-3day1_to_451-6day1__row0161_a190_b267.npz) | .npz |
-| [combined_first30_points_all_metrics.csv](combined_first30_points_all_metrics.csv) | .csv |
-| [combined_first30_stats_all_metrics.csv](combined_first30_stats_all_metrics.csv) | .csv |
-| [day2_template_curve_support.csv](day2_template_curve_support.csv) | .csv |
-| [day2_template_group_curve_summary.csv](day2_template_group_curve_summary.csv) | .csv |
-| [long_gap_experience_points.csv](long_gap_experience_points.csv) | .csv |
-| [long_gap_experience_statistics.csv](long_gap_experience_statistics.csv) | .csv |
+Map values use S smoothed with Gaussian half-width at half-maximum 1 s.
+Map comparisons require 0.066 summed stored S units per retained minute on both
+days. Within-cycle ensemble rates use all components; registered ensemble
+rates retain finite matched rates and exclude only neurons silent in both
+intervals. Activity-marker positions are illustrative display observations.

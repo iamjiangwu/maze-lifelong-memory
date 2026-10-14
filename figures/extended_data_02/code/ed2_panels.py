@@ -66,7 +66,7 @@ RANDOM_REFERENCE = {'Bf': 0.6666666666666666, 'Ba': 0.5, 'Lf': 0.666666666666666
 
 REFERENCE = '#6F6F6F'
 
-GROUP_COLOR = {'naive': '#1F90D5', 'LTM': '#D82929', 'experienced': '#5F8C62'}
+GROUP_COLOR = {'naive': '#1F90D5', 'LTM': '#D82929', 'experienced': '#5B6B7A'}
 
 POLICY_LABEL = {'Bf': '$P_{SF}$', 'Ba': '$P_{SA}$', 'Lf': '$P_{BF}$', 'Lo': '$P_{BS}$'}
 
@@ -127,9 +127,9 @@ CROP_BBOX_IN = {'a': (0.323611, 0.168611, 1.4630560000000001, 1.724722),
 
 FORMATS = ('svg', 'pdf', 'png', 'tiff')
 
-PANEL_D_NEUTRAL = '#68737D'
+PANEL_D_NEUTRAL = '#000000'
 
-FOUR = '#69737F'
+FOUR = '#000000'
 
 DEPTH = '#D26A3A'
 
@@ -1756,7 +1756,7 @@ def _draw_reconstruction_gap(renderer: Any, frame: pd.DataFrame) -> tuple[plt.Fi
     rows["delta_simulated_ci_high"] = rows["delta_real"] * rows["fraction_ci_high"]
 
     fig, ax = plt.subplots(figsize=PANEL_SIZE_IN["h"])
-    ax.axvline(observed, color=renderer.INK, linewidth=1.0)
+    ax.axvline(observed, color="#000000", linewidth=1.0)
     ax.text(
         observed,
         1.38,
@@ -1764,7 +1764,7 @@ def _draw_reconstruction_gap(renderer: Any, frame: pd.DataFrame) -> tuple[plt.Fi
         ha="right",
         va="bottom",
         fontsize=5.0,
-        color=renderer.INK,
+        color="#000000",
     )
     labels = ("Four policy", r"Depth $P_{BS}$")
     colors = (renderer.FOUR, renderer.DEPTH)

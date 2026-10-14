@@ -3,7 +3,6 @@ from __future__ import annotations
 from importlib import import_module
 
 _SUBMODULES = {
-    'spatial',
     'maze',
     'figure_panels',
 }

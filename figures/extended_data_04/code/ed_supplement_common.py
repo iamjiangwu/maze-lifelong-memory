@@ -1,19 +1,4 @@
-"""Shared display contract for the renumbered Extended Data supplement rebuild.
-
-Layout authority is ``sup-figs-v2.pptx``. The deck merges ED2 into ED1 and ED8 into
-ED7, so slide numbers and figure numbers differ; see
-``docs/figure_version_records/CURRENT_EXTENDED_DATA_FIGURES.md``.
-
-The contract implemented here was settled across the Main Figure 1-4 and Extended Data
-Figure 3 review rounds:
-
-* typography matches the main figures **at printed size**, so a 7.5-inch Extended Data
-  canvas draws at 0.75x Main Figure 1's point sizes for a shared 180 mm export;
-* Main Figure 1 condition palette and labels, with Return day softened;
-* Main Figure 1 bar-plus-scatter grammar and bracket-and-star significance;
-* no background grid lines, no rotated x tick labels;
-* exact P/q values, session and mouse counts and mean/SEM notes belong in the caption.
-"""
+"""Canvas, typography and export checks for the registration-quality figure."""
 
 from __future__ import annotations
 
@@ -29,12 +14,6 @@ import numpy as np
 from PIL import Image
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-REBUILD_ROOT = (
-    REPO_ROOT / "docs" / "extended_data_supplement_v2_rebuild_2026-08-05"
-)
-DECK_LAYOUT_MANIFEST = (
-    REPO_ROOT / "tmp" / "extended_data_deck_layout_2026-08-05" / "deck_layout_manifest.json"
-)
 
 FORMATS = ("svg", "pdf", "png", "tiff")
 EXPORT_WIDTH_MM = 180.0
@@ -49,8 +28,7 @@ MAIN_PANEL_ID_SIZE = 13.0
 MAIN_AXES_LINEWIDTH = 0.8
 
 # Main Figure 1 condition palette. Return day is softened from Figure 1's #DA2323, which
-# sits at saturation 0.84 / luminance 74 against 0.13-0.41 / 127-182 for its palette-mates
-# and reads too hot as large filled bars. Documented deviation, not drift.
+# is represented here by a muted red for filled bars.
 NAIVE_COLOR = "#8BBDEB"
 SECOND_DAY_COLOR = "#5F8C62"
 LATENT_DAY2_COLOR = "#B3A99B"

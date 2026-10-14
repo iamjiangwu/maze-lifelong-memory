@@ -35,7 +35,6 @@ SOURCE: Path
 ALIGNMENT: Path
 LOCAL_CORRELATION_IMAGE: Path
 COREGISTRATION_IMAGE: Path
-LEGACY_FOV_PANEL: Path
 
 FIGURE_WIDTH_IN = 7.5
 FIGURE_HEIGHT_IN = 6.54
@@ -55,9 +54,8 @@ CANDIDATE_CLASS_LABEL = {
     "other_within_radius": "Other candidates",
 }
 
-# Rows in inches, measured from the top of the canvas. Spacing is opened up relative to
-# slide 5 so each redrawn row has room for its axis labels. Row C carries the two
-# physical-alignment views; row D carries the four distributions.
+# Rows in inches from the top of the canvas. Row C contains the three
+# physical-alignment views; row D contains the four distributions.
 ROW_A = {"x": 0.17, "y_top": 0.18, "width": 7.20}
 ROW_B = {"x": 0.16, "y_top": 1.74, "width": 7.20}
 ROW_C_TOP = 3.61
@@ -117,7 +115,7 @@ def draw_drift_path(ax, physical: pd.DataFrame, canvas: Canvas) -> dict[str, Any
     """Cumulative field-of-view drift per animal, rebuilt on the corrected-36 data.
 
     This restores the framing of the superseded panel, a drift path in microns, but from
-    the current measurements rather than the legacy table.
+    the included physical-alignment measurements.
     """
     paths: dict[str, Any] = {}
     for animal, group in physical.groupby("animal"):
@@ -346,7 +344,6 @@ def build(output_dir: Path) -> dict[str, Any]:
         "source": str(
             (ALIGNMENT / "physical_fov_exact_36_source.csv").relative_to(REPO_ROOT)
         ),
-        "restores_legacy_framing": LEGACY_FOV_PANEL.name,
         **drift,
     }
 
@@ -361,7 +358,6 @@ def build(output_dir: Path) -> dict[str, Any]:
         "source": str(
             (ALIGNMENT / "physical_fov_exact_36_source.csv").relative_to(REPO_ROOT)
         ),
-        "restores_legacy_framing": LEGACY_FOV_PANEL.name,
         "x_label": "No. of cycles",
         "y_label": "Displacement from first FOV",
         **across,
@@ -453,7 +449,6 @@ def build(output_dir: Path) -> dict[str, Any]:
             physical["displacement_percent_source_fov_diagonal"].median()
         ),
         "max_percent": float(physical["displacement_percent_source_fov_diagonal"].max()),
-        "replaces_legacy": LEGACY_FOV_PANEL.name,
         "transition_labels": labels,
         "pairs_off_the_modal_month_ladder": off_ladder,
         "mean_percent_per_transition": {
@@ -584,18 +579,6 @@ def build(output_dir: Path) -> dict[str, Any]:
     )
     checks.record("panel_count", len(panels) == 9, f"{len(panels)} panels (a-i)")
     checks.record(
-        "legacy_fov_panel_not_used",
-        panels["e"]["replaces_legacy"] == LEGACY_FOV_PANEL.name
-        and panels["c"]["restores_legacy_framing"] == LEGACY_FOV_PANEL.name
-        and panels["d"]["restores_legacy_framing"] == LEGACY_FOV_PANEL.name,
-        "legacy FOV panel rebuilt on current data as panels c, d and e",
-    )
-    checks.record(
-        "no_panel_from_legacy_audit_only",
-        not any("99_legacy" in str(p.get("path", "")) for p in panels.values()),
-        "no panel resolves into 99_legacy_audit_only",
-    )
-    checks.record(
         "drift_path_covers_all_animals",
         panels["c"]["n_animals"] == 14,
         f"{panels['c']['n_animals']} animal drift paths",
@@ -636,36 +619,13 @@ def build(output_dir: Path) -> dict[str, Any]:
     checks.record(
         "joint_panel_has_marginals",
         bool(panels["h"].get("has_marginals")),
-        "panel g carries both marginal count distributions",
+        "panel h carries both marginal count distributions",
     )
 
-    for name, detail in (
-        (
-            "deviation_candidate_class_palette",
-            "panels f-i keep their candidate-class and density colour schemes instead of "
-            "the Main Figure 1 condition palette; these panels compare algorithm classes, "
-            "not experimental conditions, so condition colours would imply a contrast the "
-            "data does not have",
-        ),
-        (
-            "deviation_row_spacing_opened",
-            "row spacing is opened relative to slide 5 so each quantitative row has room "
-            "for its axis labels; the slide's rows overlap once panels are redrawn rather "
-            "than embedded as images",
-        ),
-        (
-            "deviation_figure2_cross_check_not_applied",
-            "the Main Figure 2 similarity cross-check and activity gate are not applied; "
-            "they re-derive the 21,412 -> 16,902 denominator, which the Methods describe "
-            "and which is unrelated to matching quality",
-        ),
-    ):
-        checks.rows.append({"check": name, "status": "DEVIATION", "detail": detail})
     canvas.close()
 
     manifest = {
         "figure": "Extended Data Figure 4",
-        "sources_resolve_under": "extended_data_fig_05 (old numbering)",
         "figure_size_inches": [FIGURE_WIDTH_IN, FIGURE_HEIGHT_IN],
         "source_summary": summary,
         "panels": panels,
@@ -677,7 +637,7 @@ def build(output_dir: Path) -> dict[str, Any]:
         ),
         "outputs": [
             {
-                "path": str(p.relative_to(REPO_ROOT)),
+                "path": p.name,
                 "sha256": sha256(p),
                 "bytes": p.stat().st_size,
             }

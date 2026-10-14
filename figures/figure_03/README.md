@@ -1,13 +1,15 @@
-# Figure 3. Experience makes spatial representations more stable
+# Figure 3
 
-PV, place map and ensemble rate convergence toward the full second day reference; early alignment and recurrence across recording cycles.
+Rebuild the figure with `python figures/figure_03/build.py` from the repository root.
+The included observations reproduce within-cycle alignment and successive-cycle
+similarity from Gaussian-smoothed S activity (1 s half-width at half-maximum).
 
-## Reproduce
+`code/derived_panels.py` loads the included data, recalculates inference and
+draws the complete page. `statistics(output_dir)` recomputes two four-test
+experience families and the 12-test convergence family. No recording files
+or upstream activity processing are required.
 
-Run from the repository root:
-
-```powershell
-python figures/figure_03/build.py --output-dir outputs/3
-```
-
-[Data files](data/README.md) · [Build code](code/README.md) · [Software requirements](../../docs/REPRODUCING.md) · [Statistics](../../docs/STATISTICS.md)
+The first-window observations include 59 cycles from 22 animals; successive-cycle
+observations include 37 pairs from 14 animals. Animal IDs define the repeated
+observation clusters. The level-map rows are retained because they belong to
+the four-test correction families, although this figure displays three measures.

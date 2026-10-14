@@ -1,15 +1,9 @@
-# Extended Data Figure 10: code
+# Reproduce Extended Data Figure 10
 
-See the [code reading map](../../../docs/CODE.md) for the wrapper, drawing functions and statistical entry points.
+`derived_panels.py` loads derived observations, recalculates declared test families and draws the figure. Its public functions are `statistics(output_dir)` and `render(output_dir)`.
 
-The supported entry point is [../build.py](../build.py), run from the repository root. `rebuild_figure.py` configures the input package; `render_ed10_slide12_powerpoint_matched.py` draws the three panels and `profile_helpers.py` calculates commonality components and profile tests. No slide deck is required. See the [data guide](../data/README.md) for readout transformations and correction families.
+`current_science.py` contains the mathematical and drawing functions required by this figure. Shared `release_rendering` provides plotting, statistics and maze geometry. Page dimensions, palette, annotations and arrangement are explicit in code.
 
-`correlation_statistics` calculates the correlation matrix's animal clustered tests and BH3 correction. The renderer saves those statistics and the displayed correlation values beside the artwork. Source checksums are verified by the launcher before rendering.
+Matrix cells show Pearson r; significance uses animal-clustered CR1 slopes and BH3 across three outcomes within each neural row. Current values yield 12 significant cells. Commonality partitions pooled two-predictor OLS R². Three profile claims use exact animal-score sign flips with BH3. Policies use animal-clustered CR1 slopes and BH4; saved bootstrap bands are descriptive.
 
-These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
-
-- [profile_helpers.py](profile_helpers.py)
-- [rebuild_figure.py](rebuild_figure.py)
-- [render_ed10_slide12_powerpoint_matched.py](render_ed10_slide12_powerpoint_matched.py)
-- [Shared runtime source](../../../reproduction/runtime/)
-- [rebuild_current_extended_data_figures.py](../../../reproduction/snapshot/shared/rebuild_current_extended_data_figures.py)
+Raw recordings, neural map estimation and decoder training are outside this release. Saved null draws and descriptive curve/band coordinates are Source Data.

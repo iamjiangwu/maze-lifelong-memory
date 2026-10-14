@@ -1,11 +1,9 @@
-# Extended Data Figure 6: code
+# Reproduce Extended Data Figure 6
 
-See the [code reading map](../../../docs/CODE.md) for the wrapper, drawing functions and statistical entry points.
+`derived_panels.py` loads derived observations, recalculates declared test families and draws the figure. Its public functions are `statistics(output_dir)` and `render(output_dir)`.
 
-The supported entry point is [../build.py](../build.py), run from the repository root. `render_ed06_within_session_convergence_assembly.py` assembles fixed-reference and sliding-pivot curves from saved summaries and support masks. `fixed_stats_helpers.py` supplies fixed-reference statistical helpers and `ed_supplement_common.py` the drawing utilities. Pair-level slope/variability inputs are described in the [data guide](../data/README.md).
+`current_science.py` contains the mathematical and drawing functions required by this figure. Shared `release_rendering` provides plotting, statistics and maze geometry. Page dimensions, palette, annotations and arrangement are explicit in code.
 
-These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
+The observational unit is a recording-cycle pair; the inference cluster is the animal. Fixed-reference slopes use BH12. Sliding-pivot SD differences and the two day-specific slopes each use BH3 across the three metrics. Displays average pairs within animal before group means and SEM.
 
-- [ed_supplement_common.py](ed_supplement_common.py)
-- [fixed_stats_helpers.py](fixed_stats_helpers.py)
-- [render_ed06_within_session_convergence_assembly.py](render_ed06_within_session_convergence_assembly.py)
+Raw recordings, neural map estimation and decoder training are outside this release. Saved null draws and descriptive curve/band coordinates are Source Data.

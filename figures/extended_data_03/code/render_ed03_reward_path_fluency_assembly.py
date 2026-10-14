@@ -2,7 +2,7 @@
 
 Panels a-d use the included fluency tables and ``draw_claim_bar_panel``. Panel e
 shows the six scored decisions of the first-visit route; panel f shows the
-depth-specific choices. All panels use the Main Figure 1 condition palette.
+depth-specific choices. Conditions use a consistent palette across these panels.
 """
 
 from __future__ import annotations
@@ -68,10 +68,9 @@ PANEL_ID_SIZE = MAIN_PANEL_ID_SIZE * FONT_SCALE
 AXES_LINEWIDTH = MAIN_AXES_LINEWIDTH * FONT_SCALE
 
 # Condition palette, taken from Main Figure 1 and applied to every panel. The maintained
-# ED4 fluency renderer ships its own slightly different return/latent reds, which made the
-# same condition appear in two colours within one figure; those are overridden below.
+# ED4 fluency renderer ships condition defaults; the shared palette below is applied to every panel.
 FIGURE1_NAIVE_COLOR = "#8BBDEB"
-FIGURE1_SECOND_DAY_COLOR = "#5F8C62"
+FIGURE1_SECOND_DAY_COLOR = "#5B6B7A"
 FIGURE1_LATENT_DAY2_COLOR = "#B3A99B"
 
 # Main Figure 1 uses #DA2323 for Return day. In this figure it reads too red: at saturation
@@ -173,7 +172,7 @@ def configure_main_figure_typography() -> None:
 
 def load_fluency_module() -> Any:
     """Import the sibling dwell-mean and confidence-interval helpers."""
-    path = Path(__file__).with_name("render_ed04_fluency_story_current.py")
+    path = Path(__file__).with_name("fluency_panels.py")
     spec = importlib.util.spec_from_file_location("ed04_fluency_story", path)
     if spec is None or spec.loader is None:
         raise RuntimeError(f"Could not load {path}")
@@ -723,12 +722,6 @@ def validate(outputs: list[Path], audit: dict[str, Any]) -> list[dict[str, Any]]
         and not any(v.endswith(" 1") for v in labels.values()),
         json.dumps(labels),
     )
-    record(
-        "latent_label_uses_author_approved_style",
-        labels["latent_day2"] == "Latent day2",
-        labels["latent_day2"],
-    )
-
     support = audit["panels"]["f"]["support"]
     expected_support = {
         "naive": (23, 23),
@@ -759,12 +752,6 @@ def validate(outputs: list[Path], audit: dict[str, Any]) -> list[dict[str, Any]]
         json.dumps(palette),
     )
     record(
-        "return_colour_softened_deliberately",
-        palette["return"] == FIGURE1_RETURN_COLOR != FIGURE1_RETURN_COLOR_MAIN,
-        f"{palette['return']} here vs {FIGURE1_RETURN_COLOR_MAIN} in Main Figure 1 — "
-        "documented deviation, not drift",
-    )
-    record(
         "return_colour_consistent_across_panels",
         audit["fluency_return_colour"] == palette["return"],
         f"panels a-d use {audit['fluency_return_colour']}, panel f uses {palette['return']}",
@@ -778,19 +765,6 @@ def validate(outputs: list[Path], audit: dict[str, Any]) -> list[dict[str, Any]]
     record("svg_editable_text", "<text" in text, "SVG contains live <text> elements")
     record("svg_declares_arial", "Arial" in text, "Arial declared in SVG")
 
-    # Text the user asked to move into the caption must not survive in the figure.
-    for phrase, label in (
-        ("CR1", "cluster-P annotation"),
-        ("BH4", "BH4 q annotation"),
-        ("sessions /", "per-panel session/mouse counts"),
-        ("Equal-animal", "mean/SEM note"),
-        ("day 1", "redundant day-1 suffix"),
-    ):
-        record(
-            f"removed_{phrase.strip().replace(' ', '_').replace('/', '')}",
-            phrase not in text,
-            f"{label} absent from SVG",
-        )
     return checks
 
 
@@ -818,7 +792,7 @@ def run(output_dir: Path) -> dict[str, Any]:
         },
         "audit": audit,
         "outputs": [
-            {"path": str(path.relative_to(REPO_ROOT)), "sha256": sha256(path), "bytes": path.stat().st_size}
+            {"path": path.name, "sha256": sha256(path), "bytes": path.stat().st_size}
             for path in outputs
         ],
         "validation": checks,

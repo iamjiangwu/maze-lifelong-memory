@@ -51,12 +51,9 @@ jobs:
           name: reproduction-reports-${{ matrix.os }}
           retention-days: 7
           path: |
-            outputs/reproduction/BUILD_SOURCE_AUTHORITY.json
-            outputs/reproduction/REPRODUCTION_REPORT.json
-            outputs/reproduction/*/BUILD.log
-            outputs/reproduction/statistics/STATISTICS_REPORT.json
-            outputs/statistics-only/BUILD_SOURCE_AUTHORITY.json
-            outputs/statistics-only/statistics/STATISTICS_REPORT.json
+            outputs/reproduction/BUILD_REPORT.json
+            outputs/statistics-only/BUILD_REPORT.json
+            outputs/statistics-only/**/*.csv
             outputs/reproduction/main_figure_1/figure1_version_record_600dpi.png
             outputs/reproduction/extended_data_figure_2/composite/ed02_version_record_600dpi.png
-            outputs/reproduction/extended_data_figure_8/ed8_standardized_pv_300dpi.png
+            outputs/reproduction/extended_data_figure_8/Extended_Data_Figure_8_300dpi.png
