@@ -38,7 +38,7 @@
         },
         {
           "term": "Exploration",
-          "meaning": "Maze behavior outside direct travel to the water port or home. Exploration efficiency and turning biases are measured during this behavioral mode."
+          "meaning": "Trajectory segments not classified as reward-directed or home-directed travel. These modes follow direct routes to the water port (in rewarded sessions) or home with all correct turns. Exploration efficiency and turning biases are measured during exploration."
         },
         {
           "term": "Long bout",
@@ -50,7 +50,7 @@
         },
         {
           "term": "Exploration efficiency",
-          "meaning": "32/N32, where N32 is the number of end-node visits needed to reach 32 distinct end nodes during exploration. Higher values mean fewer repeated visits."
+          "meaning": "32/N32, where N32 is the number of end node visits needed to reach 32 distinct end nodes during exploration. Higher values mean fewer repeated visits."
         },
         {
           "term": "Turning biases",

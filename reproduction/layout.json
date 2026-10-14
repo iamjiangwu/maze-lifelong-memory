@@ -159,7 +159,7 @@
       "title": "Mouse cohorts by analysis",
       "description": "Mouse identifiers, analysis membership, figure panels and exclusions or support limitations.",
       "builder": "staged",
-      "publication_pdf_sha256": "032381f40faec6ad13cb701d641a73918bf279ef1b7d0394986fe846aa7518e1"
+      "publication_pdf_sha256": "b5f98ea9e8f21407dd17b2f3b32ca828f9dbd8ec016435cc9991e8a022ea4d29"
     },
     {
       "artifact_id": "supplementary_table_2",
@@ -179,7 +179,7 @@
       "title": "Glossary of behavioral and neural measures",
       "description": "Definitions of the 23 behavioral and neural measures used in the paper.",
       "builder": "glossary",
-      "publication_pdf_sha256": "e1c76626dbf9e03cdebcc31f8464abb79ffef06e090e65515868756745e39798"
+      "publication_pdf_sha256": "2d9581fdb8c0553d89129952dc407a44b7bd47c7a49137c2307577a4e4e78565"
     }
   ],
   "files": [
@@ -1456,7 +1456,7 @@
     },
     {
       "repository_path": "tables/table_01/data/current_rows.json",
-      "sha256": "384f318b35cf779d7e61c27728c7fa664b0ee048b90b94e7e8055a9440853857",
+      "sha256": "c1a179bc4413759000055553f676fc4d3ca532bd3360aec61d827ceff07ba128",
       "bytes": 15497,
       "loader_paths": [
         "supplementary_table_1/source/source_data/current_rows.json"
@@ -1527,8 +1527,8 @@
     },
     {
       "repository_path": "tables/table_03/data/glossary.json",
-      "sha256": "2ffd8567de0d25cf2efaab2219e5ec2b579be9a9e1d3de1a06214f21349c4b37",
-      "bytes": 5532
+      "sha256": "db0b6111d16cf0f61a82b2365f269f93ce2a759b39e3ca4053fcd57d142ac8f2",
+      "bytes": 5645
     },
     {
       "repository_path": "tests/browser_smoke.py",
