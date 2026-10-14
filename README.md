@@ -2,6 +2,11 @@
 
 Source Data and reproduction code for the manuscript by **Jiang Wu, Markus Meister and Carlos Lois**.
 
+Use this repository to rebuild the figures, tables and reported statistics from
+the included derived measurements. To calculate those measurements from neural
+recordings and behavioral trajectories, use the separate `Maze_lifelong_memory`
+raw data notebook repository and its accompanying data bundle.
+
 ## Background
 
 The study asks what remains of a spatial memory in hippocampal CA1 after months without experience, and how prior experience shapes representations when animals return. Mice freely navigate a binary-tree maze in darkness, with six branch decisions, 64 end nodes and a fixed water port. Two-day recording cycles recur approximately every 90 days over as much as a year.

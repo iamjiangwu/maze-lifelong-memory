@@ -2,6 +2,8 @@
 
 Day-2-reference curves and the observations used in experience-trend fits. [Column and array index](index.csv).
 
+Place maps and population vectors are calculated from denoised calcium `C`. Their fixed reference comparisons retain neurons whose summed deconvolved activity `S` reaches 0.1 per retained minute on both days. Successive cycle comparisons apply the same threshold in both registered sessions. The fixed reference ensemble rate uses every neuron in the shared component basis; successive cycle ensemble rates use finite matched rates, excluding only neurons with zero rate in both sessions. Ensemble rates do not apply the `S` threshold. The supplied measurements already include these choices.
+
 | Panels | Inputs and observation unit |
 |---|---|
 | a | The neuron-example NPZ supplies one registered neuron across four sessions: A = Day i, A2 = Day i+1, B = Day i+90, B2 = Day i+91. |
@@ -15,8 +17,6 @@ Metrics are dimensionless correlations. `experience_index`/`experience` identifi
 The renderer first independently smooths `mean` and `sem` across the supplied curve rows with a centred five-point moving average (partial windows at edges; missing s.e.m. filled with zero), then applies the support and time masks. This order differs from ED9m, which filters its support mask before smoothing. The band is smoothed mean ± smoothed s.e.m., not a recalculated s.e.m. of smoothed animal trajectories. The second- and third-column shaded bands are ordinary least-squares 95% intervals with n−2 degrees of freedom, treating rows as independent; their stars separately use tests with standard errors clustered by animal and BH4.
 
 The point/statistics files also contain the level-map measure shown in ED9n/o, which belongs to the same BH4 families. Second-column animal observations and third-column pair observations are both needed for their tests with standard errors clustered by animal. The first-column curves only require their plotted summaries and support.
-
-`source_bundles` identifies sorted-neuron cohorts and original-neuron naïve fallbacks; semicolon-separated labels mark pooled cohorts. See [source-label definitions](../../../docs/DATA.md#source-labels).
 
 The successive-cycle points in g/j/m include mouse 1616's 14-day interval. Thus the file's `long_gap` name does not mean that every included interval is approximately 90 days; this cohort differs from the 36-pair long-gap cohort in Figure 2.
 
