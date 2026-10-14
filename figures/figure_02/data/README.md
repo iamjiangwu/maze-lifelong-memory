@@ -12,6 +12,8 @@ Long-gap neural correlations, saved neuron-ID null distributions and example neu
 
 All correlation values are dimensionless. Distribution observations have different units from cohort means: the latter equally weight session-pair means. Pair and triplet identifiers are supplied with their measurements. BH4 also includes the displayed level-map association in ED9l.
 
+Place maps and population vectors use denoised calcium `C`. Neuron eligibility is determined separately from deconvolved activity `S`: summed `S` must reach 0.1 per retained minute in both sessions for pair comparisons, and in all three sessions for the recurrence comparisons in g and l. Ensemble rate panels n–q do not apply this `S` threshold; they retain matched neurons with finite `C` rates, excluding only neurons with zero rate in both intervals. These choices are already reflected in the supplied measurements; this repository does not repeat neuron selection.
+
 In neuron-example NPZs, A/B identify source/target sessions. `*_traj_x`/`*_traj_y` contain the displayed trajectory; `*_px`/`*_py` and `*_ex`/`*_ey` give body and nose coordinates for each displayed activity arrow. Coordinates use maze-grid units with the displayed y orientation. `place_r` is the displayed 15 × 15 place-map correlation. Upstream arrow selection used activity above five times the Welch noise estimate and collapsed events within four frames. The files contain no neural traces, and reproduction does not reselect activity events.
 
 | File | Format |

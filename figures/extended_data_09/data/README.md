@@ -2,6 +2,8 @@
 
 Level-code persistence, controls and experience trends. The mappings use the current 15-panel a–o layout. [Column and array index](index.csv).
 
+Level maps use denoised calcium `C`; neuron eligibility is determined separately from deconvolved activity `S`. The recurrence comparison in l retains neurons whose summed `S` reaches 0.1 per retained minute in all three linked sessions. The fixed reference measurements in m/n apply the threshold on both days; the successive cycle comparison in o applies it in both registered sessions. These choices are already reflected in the supplied measurements, which this repository plots without repeating neuron selection.
+
 | Panels | Inputs and observation unit |
 |---|---|
 | a–c | `plot_data.npz` contains level-PV observations and shuffle histogram; `null_draws.csv` contains cohort-mean PV null draws; `mean_null.npz` contains the level-map mean null. `pair_summary.csv` and `summary.json` describe their support and weighting. |

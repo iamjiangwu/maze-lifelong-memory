@@ -2,6 +2,8 @@
 
 Day-2-reference curves and the observations used in experience-trend fits. [Column and array index](index.csv).
 
+Place maps and population vectors are calculated from denoised calcium `C`. Their fixed reference comparisons retain neurons whose summed deconvolved activity `S` reaches 0.1 per retained minute on both days. Successive cycle comparisons apply the same threshold in both registered sessions. The fixed reference ensemble rate uses every neuron in the shared component basis; successive cycle ensemble rates use finite matched rates, excluding only neurons with zero rate in both sessions. Ensemble rates do not apply the `S` threshold. The supplied measurements already include these choices.
+
 | Panels | Inputs and observation unit |
 |---|---|
 | a | The neuron-example NPZ supplies one registered neuron across four sessions: A = Day i, A2 = Day i+1, B = Day i+90, B2 = Day i+91. |

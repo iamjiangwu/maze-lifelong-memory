@@ -2,6 +2,8 @@
 
 Fixed Day-2-reference and sliding-pivot correlations. [Column and format index](index.csv).
 
+Maps and population vectors use denoised calcium `C`, with neuron eligibility determined from deconvolved activity `S`. Fixed reference comparisons in c/e retain neurons whose summed `S` reaches 0.1 per retained minute on both days. Sliding pivot comparisons in d/f apply that threshold separately within each day, so the retained neurons may differ between days. Ensemble rate panels g/h use every neuron, with no `S` threshold. These choices are already reflected in the supplied values.
+
 | Panels | Inputs and observation unit |
 |---|---|
 | a–b | Fixed-reference and sliding-pivot schematics drawn by code. |

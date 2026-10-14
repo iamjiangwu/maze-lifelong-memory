@@ -2,6 +2,8 @@
 
 Age associations conditioned on recording experience. [Column and format index](index.csv).
 
+The early alignment measurements in a/b use the same neuron eligibility as Figure 3: summed deconvolved activity `S` must reach 0.1 per retained minute on both days, while the maps use denoised calcium `C`. The long gap map measurements in d/e apply that threshold in both registered sessions. Ensemble rate measurements in c/f do not apply the `S` threshold. These choices are already reflected in the supplied observations.
+
 | Panels | Inputs and observation unit |
 |---|---|
 | a–c | `first30_plot_ready.csv`: one animal/recording-cycle × metric's first-30-min alignment to its Day-2 reference, with age and cycle index. `first30_age_models.csv` contains fitted age coefficients. |
