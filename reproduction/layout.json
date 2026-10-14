@@ -9,7 +9,7 @@
       "title": "Lifelong memory of a complex navigation task",
       "description": "Maze trajectories and end node visits; first long bout time, exploration efficiency and first visit route score across naive, return, second day and latent day2 sessions.",
       "builder": "staged",
-      "publication_pdf_sha256": "80f201e1cb4469233166a22cc7044be5ee154a1965497e7a6ed513446004cdf9"
+      "publication_pdf_sha256": "4f5f198999eed092de6f697f9c4968f8018f3a75d0a353850744160f5e0549d5"
     },
     {
       "artifact_id": "main_figure_2",
@@ -861,8 +861,8 @@
     },
     {
       "repository_path": "figures/figure_01/code/behavior_panels.py",
-      "sha256": "4de18570bd0c6e0cd205ef889bc0a7c63af7b0e9307865d9216031131c0d2849",
-      "bytes": 24897,
+      "sha256": "08087e59ea6bd2dab2e28bf352bd65dc57590c270adf640ca2bc557c3535de62",
+      "bytes": 25071,
       "loader_paths": [
         "main_figure_1/source/frozen_source/source_code/behavior_panels.py"
       ]
@@ -885,8 +885,8 @@
     },
     {
       "repository_path": "figures/figure_01/code/panel_layout.py",
-      "sha256": "b05dfed7bf12e036116b24433ebf6880097351f672ce3f2d04ae832cd443dee3",
-      "bytes": 22527,
+      "sha256": "39abd3bbdf332a9d5ff018b6f8643e718e463dbbaf70a7afe22ef75b9a2aa567",
+      "bytes": 23724,
       "loader_paths": [
         "main_figure_1/source/frozen_source/source_code/panel_layout.py"
       ]
