@@ -1,9 +1,9 @@
-# Extended Data Figure 9: code
+# Reproduce Extended Data Figure 9
 
-See the [code reading map](../../../docs/CODE.md) for the wrapper, drawing functions and statistical entry points.
+`derived_panels.py` loads derived observations, recalculates declared test families and draws the figure. Its public functions are `statistics(output_dir)` and `render(output_dir)`.
 
-The supported entry point is [../build.py](../build.py), run from the repository root. `rebuild_ed9.py` draws the 15-panel a–o figure from level-code measurements, saved null draws and summary curves. Its `CROSSWALK` and the [data guide](../data/README.md) map current panel letters to their inputs. Maps and decoders are not refitted.
+`current_science.py` contains the mathematical and drawing functions required by this figure. Shared `release_rendering` provides plotting, statistics and maze geometry. Page dimensions, palette, annotations and arrangement are explicit in code.
 
-These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
+Pair-level tests use animal-clustered CR1 uncertainty. Preferred-level and partition comparisons each use BH2. Recurrence and both experience analyses retain full four-metric observation families in companion tables and recompute BH4. Null distributions are saved derived draws.
 
-- [rebuild_ed9.py](rebuild_ed9.py)
+Raw recordings, neural map estimation and decoder training are outside this release. Saved null draws and descriptive curve/band coordinates are Source Data.

@@ -1,13 +1,11 @@
-# Extended Data Figure 1. Additional reward and exploration measures for lifelong spatial memory
+# Extended Data Figure 1
 
-Cumulative rewards and long bouts, maze time and tile transitions, nose speed, and repeated coverage rounds and exploration efficiency.
+Behavioral learning across initial, return, and second-day maze sessions.
+Run `python reproduce.py --figure ed1 --output-dir <directory>` from the repository root.
+The figure uses derived session observations and saved descriptive curve summaries;
+no trajectories or raw recordings are required.
 
-## Reproduce
-
-Run from the repository root:
-
-```powershell
-python figures/extended_data_01/build.py --output-dir outputs/ed1
-```
-
-[Data files](data/README.md) · [Build code](code/README.md) · [Software requirements](../../docs/REPRODUCING.md) · [Statistics](../../docs/STATISTICS.md)
+Steps in maze count retained transitions between maze tiles, not elapsed time.
+Acquisition comparisons use log outcomes with animal-clustered standard errors and
+BH correction across all 18 contrasts. The time-versus-steps regression also clusters
+by animal. Means and SEM in these panels summarize sessions.

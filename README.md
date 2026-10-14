@@ -3,9 +3,9 @@
 Source Data and reproduction code for the manuscript by **Jiang Wu, Markus Meister and Carlos Lois**.
 
 Use this repository to rebuild the figures, tables and reported statistics from
-the included derived measurements. To calculate those measurements from neural
-recordings and behavioral trajectories, use the separate `Maze_lifelong_memory`
-raw data notebook repository and its accompanying data bundle.
+the included derived measurements. All inputs required for these plots and
+statistics are included. The raw recordings and the separate raw data analysis
+repository are not part of this public release.
 
 ## Background
 
@@ -15,12 +15,12 @@ Behavioral analyses measure first long bout time, exploration efficiency, first 
 
 ## Contents
 
-The repository contains **5 main figures, 10 Extended Data figures and 2 supplementary tables**, organized as:
+The repository contains **5 main figures, 10 Extended Data figures and 3 supplementary tables**, organized as:
 
 ```text
 figures/figure_01/ ... figure_05/
 figures/extended_data_01/ ... extended_data_10/
-tables/table_01/ ... table_02/
+tables/table_01/ ... table_03/
 ```
 
 Each folder has a guide, a `build.py`, `data/` and `code/`. Data include derived neuron, session, pair and animal measurements; plotted summaries; example maps; and saved simulation/shuffle values. Formats are CSV, compressed CSV, numerical arrays and JSON. [Data guide](docs/DATA.md).
@@ -64,6 +64,7 @@ Run `python reproduce.py` for all figures, tables and statistics. Use a new outp
 | [ED10](figures/extended_data_10/README.md) | Neural preservation and later behavior |
 | [Table 1](tables/table_01/README.md) | Mouse cohorts by analysis |
 | [Table 2](tables/table_02/README.md) | Intervals between successive recording cycles |
+| [Table 3](tables/table_03/README.md) | Glossary of behavioral and neural measures |
 
 ## License
 

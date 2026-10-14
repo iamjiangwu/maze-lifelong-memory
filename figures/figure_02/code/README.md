@@ -1,11 +1,11 @@
-# Figure 2: code
+# Figure 2 code
 
-See the [code reading map](../../../docs/CODE.md) for the wrapper, drawing functions and statistical entry points.
+`derived_panels.py` loads the examples and metric tables.
+`inference.py` fits successive gap associations with animal clustered
+standard errors and applies BH4; it also prepares the descriptive curves.
+The saved shuffle means are compared with the observed pair mean.
+`drawing.py` renders the examples, distributions, days apart curves and
+recurrence plots, then assembles the published page.
 
-The supported entry point is [../build.py](../build.py), run from the repository root. `render_main_figs_v3_publication.py` assembles the example, correlation distributions, null means, Days-apart curves and consecutive-gap fits; `preview_figure2_assembly.py` and shared panel functions supply its component plots. The [data guide](../data/README.md) distinguishes neuron, bin, pair and triplet inputs.
-
-These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
-
-- [preview_figure2_assembly.py](preview_figure2_assembly.py)
-- [render_main_figs_v3_publication.py](render_main_figs_v3_publication.py)
-- [figure_panels.py](../../../reproduction/runtime/ca_analysis/figure_panels.py)
+Run `python figures/figure_02/build.py --output-dir outputs/figure2`
+from the repository root.

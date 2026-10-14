@@ -1,4 +1,0 @@
-metric,metric_key,window_size_min,x_min,x_max_common_supported,day1_max_supported,day2_max_supported,y_min_shared_days,y_max_shared_days,x_limit_policy,y_limit_policy
-place_map_correlation,place,30.0,30.0,137.0,176.0,137.0,0.0,0.8,minimum of the two day-specific supported maxima,canonical ED7 range shared across local-pivot and fixed-template panels for this metric
-pv_correlation,pv,30.0,30.0,137.0,176.0,137.0,0.2,0.9,minimum of the two day-specific supported maxima,canonical ED7 range shared across local-pivot and fixed-template panels for this metric
-ensemble_rate_correlation,ensemble_rate,30.0,30.0,137.0,176.0,137.0,0.4,1.0,minimum of the two day-specific supported maxima,canonical ED7 range shared across local-pivot and fixed-template panels for this metric

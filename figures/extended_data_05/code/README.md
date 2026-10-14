@@ -1,12 +1,9 @@
-# Extended Data Figure 5: code
+# Reproduce Extended Data Figure 5
 
-See the [code reading map](../../../docs/CODE.md) for the wrapper, drawing functions and statistical entry points.
+`derived_panels.py` loads derived observations, recalculates declared test families and draws the figure. Its public functions are `statistics(output_dir)` and `render(output_dir)`.
 
-The supported entry point is [../build.py](../build.py), run from the repository root. `render_ed05_example_place_maps_assembly.py` draws the examples and comparisons. `recompute_ed05_pair_weighted_day_combinations.py` recalculates the equal-pair means, uncertainty and day-combination tests. `ed05_gallery_plotting.py` draws the supplied 32 examples from their saved normalized map arrays; it does not select neurons or reconstruct maps from recordings. See the [15 × 15 analysis versus 45 × 45 display distinction](../data/README.md).
+`current_science.py` contains the mathematical and drawing functions required by this figure. Shared `release_rendering` provides plotting, statistics and maze geometry. Page dimensions, palette, annotations and arrangement are explicit in code.
 
-These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
+Pairs receive equal weight; repeated pairs are clustered by animal. Each metric has six paired day-combination contrasts. Exact animal sign flips and CR1 inference each receive BH6 within that metric. Panel e uses one animal-clustered maze-minus-outside comparison.
 
-- [ed05_gallery_plotting.py](ed05_gallery_plotting.py)
-- [ed_supplement_common.py](ed_supplement_common.py)
-- [recompute_ed05_pair_weighted_day_combinations.py](recompute_ed05_pair_weighted_day_combinations.py)
-- [render_ed05_example_place_maps_assembly.py](render_ed05_example_place_maps_assembly.py)
+Raw recordings, neural map estimation and decoder training are outside this release. Saved null draws and descriptive curve/band coordinates are Source Data.

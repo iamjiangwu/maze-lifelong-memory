@@ -1,27 +1,7 @@
-# Extended Data Figure 7: data
+# Source Data for Extended Data Figure 7
 
-Age associations conditioned on recording experience. [Column and format index](index.csv).
+a–c: 59 within-cycle observations per metric; d–f: 36 long-gap observations per metric; level_age_family_points.csv: the fourth long-gap correction-family member.
 
-The early alignment measurements in a/b use the same neuron eligibility as Figure 3: summed deconvolved activity `S` must reach 0.1 per retained minute on both days, while the maps use denoised calcium `C`. The long gap map measurements in d/e apply that threshold in both registered sessions. Ensemble rate measurements in c/f do not apply the `S` threshold. These choices are already reflected in the supplied observations.
+OLS uses age per 30 days, categorical adjustments, animal-clustered CR1 uncertainty and t(G−1) inference. The within-cycle family contains three metrics; long-gap BH4 also includes level maps, whose observations are retained in level_age_family_points.csv.
 
-| Panels | Inputs and observation unit |
-|---|---|
-| a–c | `first30_plot_ready.csv`: one animal/recording-cycle × metric's first-30-min alignment to its Day-2 reference, with age and cycle index. `first30_age_models.csv` contains fitted age coefficients. |
-| d–f | `long_gap_age_joined.csv`: one long-gap session pair × metric with source/target ages and transition. `long_gap_age_transition_fixed_models.csv` contains the transition-adjusted fits. |
-
-`age_day1_days`, `age_src_days` and `age_dst_days` are calendar age in days; `experience_index` and `transition` are recording-experience categories, not age. The upper panels use Day-1 age, the lower panels destination-session age. `value` is a dimensionless neural correlation. `beta_per_30d` is the correlation change per 30 days of age after controlling for experience/transition.
-
-The upper panels test age associations in three early-alignment measures—place maps, PVs and ensemble rates—with BH3. The lower panels belong to the four-measure long-gap age analysis, which adds level maps and uses BH4. No level-map early-alignment age model is supplied. These are separate families with different scopes, not a common six-panel correction.
-
-The fitted models weight the included observations equally and use standard errors clustered by animal; they do not first average all of an animal's pairs into one point. `age_control_included`, exclusions and model specification fields record eligibility.
-
-The fourth lower-family member, the level-map age association, is tabulated in `long_gap_age_transition_fixed_models.csv` but not plotted in ED7: slope −0.00102 per 30 days, raw p = 0.894, BH4-adjusted p = 0.894. It remains in BH4; the ensemble-rate adjusted p is 0.092. This differs from Figure 3/ED9n's early-alignment **experience** family, which includes level maps; age and experience tests are not interchangeable.
-
-Early alignment compares selected movement samples from the first 30 cumulative maze minutes of Day 1 (0 ≤ maze time < 1,800 s) with the full Day 2 reference. The two days share a fitted neuron basis. Place maps describe each neuron's tuning on the 15 × 15 grid; population vectors compare neurons at a spatial bin; ensemble rates compare the neurons' duration normalized `C` values. Reward condition is not a covariate in these age models.
-
-| File | Format |
-|---|---|
-| [first30_age_models.csv](first30_age_models.csv) | .csv |
-| [first30_plot_ready.csv](first30_plot_ready.csv) | .csv |
-| [long_gap_age_joined.csv](long_gap_age_joined.csv) | .csv |
-| [long_gap_age_transition_fixed_models.csv](long_gap_age_transition_fixed_models.csv) | .csv |
+`record_type` (or `row_type`) identifies observations, display summaries and inference rows. IDs identify animals, sessions, pairs, neurons or chains. Correlations and policy probabilities are dimensionless; decoder error is in bins. Undefined values are empty cells. Descriptive coordinates are supplied directly; statistical tests are recalculated from observations.

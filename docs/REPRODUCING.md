@@ -1,75 +1,70 @@
-# Reproduce figures, tables or statistics
+# Reproduce the figures and tables
 
-Run the commands below from the repository root. The launcher checks the source checksums and uses only the included derived Source Data; finished reference artwork is not required.
+Run these commands from the repository root. All numerical inputs are included;
+no external analysis repository or finished reference figure is needed.
 
-## Software first
+## Install
 
-Use **Python 3.10** with [requirements-lock.txt](../requirements-lock.txt), which pins the Python packages. [requirements.txt](../requirements.txt) lists direct dependencies; the [environment record](../reproduction/snapshot/RUNTIME_ENVIRONMENT.json) describes export requirements.
-
-The complete build—15 figures, 2 tables and all 53 statistical groups—has passed on **Windows, macOS and Linux** using GitHub-hosted runners and the locked Python environment. The [reproduction workflow](../.github/workflows/reproduce.yml) checks all three platforms. Statistical agreement is tested numerically; identical artwork pixels across operating systems or fonts are not promised.
-
-Figure vector exports require an installed **Google Chrome, Chromium or Microsoft Edge** from a native application/package installer. Snap and Flatpak browsers are unsupported because their confinement can hide the temporary export files. The shared browser helper checks `PATH` and standard application locations, or uses an explicit `MAZE_BROWSER` executable path. The scripts do not download a browser. The manuscript artwork uses Arial; font substitution can change text geometry. Supplementary tables use **openpyxl** for editable XLSX files and the included Python PDF renderers.
-
-A plain Python installation alone is not enough for every export. These are software requirements; no external scientific-data drive is needed.
-
-After downloading or cloning the repository, open a terminal in its root folder. On Windows with Python 3.10 installed:
+Use Python 3.10:
 
 ```powershell
-py -3.10 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install --upgrade pip
-.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
-.\.venv\Scripts\python.exe reproduce.py --check-only
-.\.venv\Scripts\python.exe reproduce.py --figure 2 --output-dir outputs/figure2
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements-lock.txt
 ```
 
-On macOS or Linux, the equivalent commands are:
+On macOS or Linux, use `.venv/bin/python` instead. In the commands below,
+replace `python` with that environment's executable if it is not activated.
 
-```bash
-python3.10 -m venv .venv
-.venv/bin/python -m pip install --upgrade pip
-.venv/bin/python -m pip install -r requirements-lock.txt
-.venv/bin/python reproduce.py --check-only
-.venv/bin/python reproduce.py --figure 2 --output-dir outputs/figure2
-```
+Chrome, Chromium or Microsoft Edge is needed for browser based page exports.
+The builders discover standard installations on Windows, macOS and Linux.
+To select a particular browser, set both `MAZE_BROWSER` and
+`MAZE_LIFELONG_MEMORY_BROWSER` to its executable path. The former serves the
+behavioral renderers, the latter the neural renderers. Statistics require no
+browser.
 
-Activation is optional. In subsequent commands, substitute your environment's Python executable for `python`. If a browser is not discovered, set `MAZE_BROWSER` to its executable path; it can also select one browser consistently for all figures. For example, after installing native Google Chrome on Linux, use `export MAZE_BROWSER=/usr/bin/google-chrome` if that is its installed path. Avoid Ubuntu's Snap-backed Chromium launcher. An invalid override produces an error rather than silently choosing another browser. Statistical replay (`--statistics-only`) does not require a browser or Arial.
+Arial gives the published typography. The neural renderers fall back to an
+available sans serif font when Arial is absent. Font availability and the
+FreeType version can affect text placement or rasterization without changing
+numerical values. Some behavioral exports require Arial; install it before
+requesting those pages.
 
-Small text-rasterization or layout differences can occur between Matplotlib binary distributions, even at the same version. The original exports used Matplotlib 3.7.0 with FreeType 2.12.1; the tested PyPI wheel bundles FreeType 2.6.1. The statistical results are checked numerically, independently of image pixels.
-
-## Choose what to build
+## Run
 
 | Task | Command |
 |---|---|
-| Everything: 15 figures, 2 tables and statistical replay | `python reproduce.py --output-dir outputs/all` |
+| List all 18 artifacts | `python reproduce.py --list` |
+| Check installation inputs without analysis | `python reproduce.py --check-only` |
 | Figure 2 | `python reproduce.py --figure 2 --output-dir outputs/figure2` |
 | Extended Data Figure 10 | `python reproduce.py --figure ed10 --output-dir outputs/ed10` |
-| Supplementary Table 2 | `python reproduce.py --figure table2 --output-dir outputs/table2` |
-| All statistical groups, without artwork | `python reproduce.py --statistics-only --output-dir outputs/statistics` |
-| Input integrity only | `python reproduce.py --check-only` |
-| Available figure/table names | `python reproduce.py --list` |
+| Supplementary Table 3 | `python reproduce.py --figure table3 --output-dir outputs/table3` |
+| One figure's statistics | `python reproduce.py --figure ed5 --statistics-only --output-dir outputs/ed5_stats` |
+| All statistical calculations | `python reproduce.py --statistics-only --output-dir outputs/statistics` |
+| All figures, three tables and statistics | `python reproduce.py --output-dir outputs/all` |
 
-The same build entry point is available in every figure/table folder. For example:
+Each figure or table also has a `build.py` entry point. Use a new output
+directory for each run. Source Data builds do not depend on notebook order:
+the required derived observations are already included.
 
-```powershell
-python figures/figure_02/build.py --output-dir outputs/figure2
-```
+Most statistics take seconds; exact resampling tests and large vector exports
+can take several minutes. The full set of high resolution pages takes longer.
+No raw imaging analysis, neural map fitting, decoder fitting or long simulation
+is performed.
 
-Use these launchers rather than running individual files in `code/` directly: the launchers arrange the bundled inputs and shared imports those modules expect.
+## Outputs and checks
 
-The PowerShell alternative is `.\reproduce.ps1 -Figure 2 -OutputDir outputs/figure2`.
+Outputs are grouped by artifact, such as `main_figure_2/`. Figures produce
+PDF, SVG and PNG, with TIFF where supported. Tables 1 and 2 also produce XLSX;
+Table 3 produces a two page PDF from editable definitions.
 
-Use a **new or empty output directory** each time. If omitted, the launcher creates a uniquely named folder under `outputs/`. It will not write into the source-data, code or documentation folders.
+`BUILD_REPORT.json` records input verification and command completion.
+PASS means the requested builders completed, not that the command independently
+validated their scientific methods or compared artwork pixels. Statistics
+tables contain newly calculated estimates, confidence intervals and p values.
+Validation evidence and reference artwork are maintained outside this package.
 
-## What gets produced
+The updated package has been checked on Windows. The workflow includes Windows,
+macOS and Linux jobs, but the previous release's cross platform results do not
+certify this revision. Numerical results do not depend on installed fonts.
 
-Figures produce their original PNG, PDF, SVG and TIFF exports. Table builders produce PDF and editable XLSX files plus their numerical ledgers. Artifact outputs are grouped by the original identifier, such as `main_figure_2/` or `supplementary_table_2/`, inside the selected output folder.
-
-Every build has a `BUILD.log` and `REPRODUCTION_VALIDATION.json`; the enclosing folder has `REPRODUCTION_REPORT.json`. For artwork, **PASS means that the verified inputs were accepted and the builder completed its checks successfully**. The public build does not compare the generated artwork with a reference image or establish pixel-identical rendering.
-
-Statistical verification is separate: `statistics/STATISTICS_REPORT.json` reports numerical comparisons between recalculated results and the supplied statistical tables. A single-figure build does not automatically rerun all statistics; use `--statistics-only` for those comparisons, or build everything. Table summary counts/intervals are recalculated by the table builders themselves. See [analysis definitions](STATISTICS.md) for what each calculation tests.
-
-## Where the computation starts
-
-This repository starts from derived session/neuron/pair/mouse observations, fitted map/decoder measurements, saved null/simulator draws and example assets. It rebuilds figures, tables and statistics, not recording extraction, tracking, neuron registration, map fitting or decoder fitting.
-
-The public folder layout is organized for reading. The launcher restores the required input names and import paths in a temporary directory. [Technical provenance](PROVENANCE.md) records that mapping; readers do not need to navigate it to find data or run a figure.
+See [data definitions](DATA.md), [statistical methods](STATISTICS.md) and
+[code entry points](CODE.md).

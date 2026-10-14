@@ -13,4 +13,4 @@ if ($StatisticsOnly) { $buildArguments += "--statistics-only" }
 if ($FiguresOnly) { $buildArguments += "--figures-only" }
 if ($CheckOnly) { $buildArguments += "--check-only" }
 & $Python @buildArguments
-if ($LASTEXITCODE -ne 0) { throw "Reproduction failed; inspect the output BUILD.log." }
+if ($LASTEXITCODE -ne 0) { throw "Reproduction failed; inspect the console error and BUILD_REPORT.json in the output folder." }

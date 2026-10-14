@@ -1,3 +1,0 @@
-metric,effect_definition,estimate,se_cr1,ci95_low,ci95_high,t,cluster_df,p_directional,n_pairs,n_mice,q_bh_two_preferred_level_metrics
-adjacent_shift_enrichment,observed adjacent-shift fraction minus within-pair destination-ID null,0.06754014135398097,0.008407430874193433,0.04937699121201086,0.08570329149595107,8.03338646069575,13,1.0682157337430584e-06,36,14,2.1364314674861168e-06
-shorter_shift_distance,null mean shift distance minus observed mean shift distance,0.1930707641617633,0.0271733684526354,0.1343662706662233,0.2517752576573033,7.105146514989325,13,3.9949105638080575e-06,36,14,3.9949105638080575e-06

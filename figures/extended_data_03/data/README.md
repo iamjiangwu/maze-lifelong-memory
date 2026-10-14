@@ -18,5 +18,5 @@ Reward-path dwell and first-visit route choices. [Column and format index](index
 | [fluency_plot_rows.csv](fluency_plot_rows.csv) | .csv |
 | [fluency_statistics.csv](fluency_statistics.csv) | .csv |
 | [route_definition.csv](route_definition.csv) | .csv |
-| [route_stats.csv](route_stats.csv) | .csv |
+| [route_stats.csv](../../figure_01/data/route_stats.csv) | .csv; shared with Figure 1 |
 | [session_route.csv](session_route.csv) | .csv |

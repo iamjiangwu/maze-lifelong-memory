@@ -1,7 +1,6 @@
 {
   "src_session": "837day1",
   "dst_session": "837-3day1",
-  "n_matched_neurons": 677,
   "selected_train_ids": [
     117,
     12,
@@ -16,20 +15,7 @@
     752,
     1234
   ],
-  "selected_match_indices": [
-    103,
-    10,
-    8,
-    21,
-    62
-  ],
-  "trace_start_index": 88299,
-  "trace_stop_index": 93299,
   "vline_idx": 4443,
-  "posterior_index": 92742,
-  "posterior_frame": 206744,
-  "posterior_decoded_label": 48,
-  "posterior_true_label": 49,
   "posterior_decoded_xy": [
     3,
     3
@@ -37,13 +23,5 @@
   "posterior_true_xy": [
     4,
     3
-  ],
-  "n_bins_x": 15,
-  "n_bins_y": 15,
-  "posterior_n_bins_x": 15,
-  "posterior_n_bins_y": 15,
-  "dt": 0.04,
-  "template_source": "source-session C matrix averaged in 15x15 position bins",
-  "activity_source": "target-session C activity traces at matched-neuron ids",
-  "posterior_source": "real 15x15 Poisson decoder posterior recomputed from source-session S tuning and target-session S activity"
+  ]
 }

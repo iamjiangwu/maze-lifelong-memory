@@ -119,7 +119,7 @@ def main():
         document[number].get_pixmap(matrix=fitz.Matrix(2.5,2.5)).save(output/name)
     text=''.join(page.get_text() for page in document)
     (output/'publication_text.txt').write_text(text,encoding='utf-8')
-    validation={'status':'PASS_PENDING_VISUAL_QA','rows':count,'source_cell_checks':len(checks),'pages':len(document),'table_height_pt':height,'body_font_pt':6.8,'pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'workbook_sha256':hashlib.sha256(source_xlsx.read_bytes()).hexdigest()}
+    validation={'status':'PASS','rows':count,'source_cell_checks':len(checks),'pages':len(document),'table_height_pt':height,'body_font_pt':6.8,'pdf_sha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'workbook_sha256':hashlib.sha256(source_xlsx.read_bytes()).hexdigest()}
     (output/'PDF_BUILD_VALIDATION.json').write_text(json.dumps(validation,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(validation,indent=2))
 

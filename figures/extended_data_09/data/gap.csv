@@ -1,6 +1,0 @@
-metric,metric_label,metric_version,time_order,time_days,time_label,gap_months,observed_mean,observed_ci95_low,observed_ci95_high,shuffle_mean,shuffle_available,n_animals,n_pairs,source_scope,inferential_role,same_stage_mean_source,long_gap_mean_source
-level,Level-map correlation,raw,0,1.0,D1-D2,,0.6422842941642,0.61774842409448,0.6668201642339199,0.0421611101521116,True,14,51,all_exp0_3,same_stage_observed_anchor,pair,
-level,Level-map correlation,raw,1,90.0,3 mo,3.0,0.24681952365199372,0.2078584132136736,0.28578063409031385,0.03481639368786432,True,14,36,all_lag_gap_summary,inferential,,pair
-level,Level-map correlation,raw,2,180.0,6 mo,6.0,0.18495166685438338,0.13280363597199565,0.23709969773677111,0.028877714969765548,True,11,22,all_lag_gap_summary,inferential,,pair
-level,Level-map correlation,raw,3,270.0,9 mo,9.0,0.1978771470351379,0.10814837711929669,0.2876059169509791,0.03452670795308743,True,7,11,all_lag_gap_summary,inferential,,pair
-level,Level-map correlation,raw,4,360.0,12 mo,12.0,0.08319722101773433,-0.03586465607538819,0.20225909811085685,0.019534294746055465,True,4,4,all_lag_gap_summary,inferential,,pair

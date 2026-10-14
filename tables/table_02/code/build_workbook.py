@@ -211,7 +211,7 @@ def build(output, source, notes_source):
     check.close()
     (output / 'Supplementary_Table_2_Long_Gap_Intervals.csv').write_bytes(source_path.read_bytes())
     (output / 'manuscript_sentence.tex').write_text(SENTENCE + '\n', encoding='utf-8')
-    report = {'status': 'PASS', 'builder': 'openpyxl', 'displayed_intervals': 58, 'displayed_mice': 18, 'formula_count': sum(map(len, caches.values())), 'approximately_3_month_summary': {'n': 56, 'mean_days': statistics.mean(days), 'sample_sd_days': statistics.stdev(days), 'minimum_days': min(days), 'maximum_days': max(days)}, 'formula_cache_policy': 'Table-specific source-ledger calculation; Excel recalculates on opening', 'preview': 'Use the unchanged publication PDF renderer; openpyxl does not render worksheets.'}
+    report = {'status': 'PASS', 'builder': 'openpyxl', 'displayed_intervals': 58, 'displayed_mice': 18, 'formula_count': sum(map(len, caches.values())), 'approximately_3_month_summary': {'n': 56, 'mean_days': statistics.mean(days), 'sample_sd_days': statistics.stdev(days), 'minimum_days': min(days), 'maximum_days': max(days)}, 'formula_cache_policy': 'Table-specific source-ledger calculation; Excel recalculates on opening', 'preview': 'The accompanying PDF renderer exports the table; openpyxl writes the workbook.'}
     (output / 'MANIFEST.json').write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
     return path
 

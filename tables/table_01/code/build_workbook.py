@@ -69,7 +69,7 @@ def build(output, source_data):
     book.save(path)
     (output / 'WORKBOOK_BUILD.json').write_text(json.dumps({
         'status': 'PASS', 'builder': 'openpyxl', 'rows': len(source['rows']), 'merges': merges,
-        'formula_errors': 0, 'preview': 'Use the unchanged source-backed publication PDF builder.'
+        'formula_errors': 0, 'preview': 'The accompanying PDF builder renders the table.'
     }, indent=2) + '\n', encoding='utf-8')
     return path
 

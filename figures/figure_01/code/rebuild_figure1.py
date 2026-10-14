@@ -52,18 +52,18 @@ def rebuild(record: Path, output: Path) -> list[Path]:
     runtime.VOR_ROOT = record / "source_data"
     runtime.REPO_ROOT = record
     frozen_panels = runtime._install_frozen_panel_modules(record)
-    preview = runtime._load_module("record_local_main1_preview", record / "source_code/preview_figure1_assembly.py")
+    preview = runtime._load_module("record_local_main1_preview", record / "source_code/behavior_panels.py")
     names = {
-        "FIGURE1_REWARD_ACQUISITION_POINTS": "reward_acquisition_day1_month_points_current_plus_new12.csv",
-        "FIGURE1_REWARD_ACQUISITION_SUMMARY": "reward_acquisition_day1_month_summary_current_plus_new12.csv",
-        "FIGURE1_REWARD_ACQUISITION_CONTRASTS": "reward_acquisition_day1_month_clustered_contrasts_current_plus_new12.csv",
-        "FIGURE1_EXPLORATION_POINTS": "exploration_first_chunk_current_plus_new_points.csv",
-        "FIGURE1_LONG_BOUT_POINTS": "long_bout_group_points_current_plus_new12.csv",
-        "FIGURE1_LONG_BOUT_SUMMARY": "long_bout_group_summary_current_plus_new12.csv",
-        "FIGURE1_LONG_BOUT_CONTRASTS": "long_bout_group_clustered_contrasts_current_plus_new12.csv",
-        "FIGURE1_ROUTE_SCORE_POINTS": "ed04_session_route_current_plus_new12.csv",
-        "FIGURE1_ROUTE_SCORE_SUMMARY": "ed04_route_group_stats_current_plus_new12.csv",
-        "FIGURE1_ROUTE_SCORE_CONTRASTS": "ed04_route_stats_current_plus_new12.csv",
+        "FIGURE1_REWARD_ACQUISITION_POINTS": "reward_acquisition_day1_month_points.csv",
+        "FIGURE1_REWARD_ACQUISITION_SUMMARY": "reward_acquisition_day1_month_summary.csv",
+        "FIGURE1_REWARD_ACQUISITION_CONTRASTS": "reward_acquisition_day1_month_clustered_contrasts.csv",
+        "FIGURE1_EXPLORATION_POINTS": "exploration_first_chunk.csv",
+        "FIGURE1_LONG_BOUT_POINTS": "long_bout_group_points.csv",
+        "FIGURE1_LONG_BOUT_SUMMARY": "long_bout_group_summary.csv",
+        "FIGURE1_LONG_BOUT_CONTRASTS": "long_bout_group_clustered_contrasts.csv",
+        "FIGURE1_ROUTE_SCORE_POINTS": "session_route.csv",
+        "FIGURE1_ROUTE_SCORE_SUMMARY": "route_group_stats.csv",
+        "FIGURE1_ROUTE_SCORE_CONTRASTS": "route_stats.csv",
     }
     for name, filename in names.items():
         setattr(preview, name, record / "plot_ready" / filename)
@@ -75,10 +75,9 @@ def rebuild(record: Path, output: Path) -> list[Path]:
         return rows.endnode.to_numpy(int), rows.time_in_maze_s.to_numpy(float)
 
     frozen_panels.extract_endnode_timeline = extract
-    builder = load("figure1_approved_layout", record / "source_code/build_figure1_layout_alternatives.py")
+    builder = load("figure1_panel_layout", record / "source_code/panel_layout.py")
     builder.MAIN = record
-    audit = {}
-    preview, panels = builder.native_panels(runtime, output, audit)
+    preview, panels = builder.native_panels(runtime, output)
     panels["b"], timeline_rows = builder.session_timeline(preview)
     ed = load("figure1_frozen_trajectory_panel", record / "source_code/trajectory_panel.py")
     trajectory_data = pd.read_csv(record / "source_data/trajectory_examples.csv.gz")
@@ -102,17 +101,6 @@ def rebuild(record: Path, output: Path) -> list[Path]:
         raster = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
         raster.save(output / "figure1_version_record_600dpi.png", dpi=(600,600), optimize=True)
         raster.save(output / "figure1_version_record_600dpi.tiff", dpi=(600,600), compression="tiff_lzw")
-    metadata = {
-        "status":"PASS", "schema":"figure1_ten_panel_native_rebuild/v1",
-        "source_inputs":inputs,
-        "panel_letters":list("abcdefghij"), "geometry":geometry,
-        "axes":builder.AXES_MM, "panel_slots":builder.SLOTS_MM,
-        "quantitative_display_adjustments":builder.DISPLAY_ADJUSTMENTS,
-        "significance_layout":builder.SIGNIFICANCE_AUDIT,
-        "drawn_segments":segment_counts, "timeline_labels":timeline_rows,
-        "no_master_artwork_read":True, "fixed_illustration":"source_data/maze_3d_original.png",
-    }
-    (output / "NATIVE_REBUILD.json").write_text(json.dumps(metadata, indent=2)+"\n", encoding="utf-8")
     verify_inputs(record)
     return sorted(p for p in output.rglob("*") if p.is_file())
 

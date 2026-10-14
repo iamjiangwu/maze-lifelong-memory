@@ -6,7 +6,7 @@ First-30-minute junction turning biases and saved biased-walk results. `window_m
 |---|---|
 | a | Turning-bias definitions drawn by code. |
 | b–c | `primary_30min_strict_joint_equal_junction_policy_rows.csv` and `primary_30min_strict_joint_policy_cluster_stats.csv`: session probabilities and group contrasts on the joint supported set. |
-| d, h | `matched_counterfactual_session_rows.csv` and the `primary_30min_strict_joint_*contribution*`/`*gap_recapitulation*` summaries: matched return/naïve simulations, one-bias contributions and reconstructed efficiency gaps. The shorter `panel_d_*`/`panel_h_*` files supply the corresponding display summaries. |
+| d, h | `matched_counterfactual_session_rows.csv` and the `primary_30min_strict_joint_*contribution*`/`*gap_recapitulation*` summaries: matched return/naïve simulations, one-bias contributions and reconstructed efficiency gaps. Panel d uses the same contribution summary; `panel_h_four_vs_depth_gap.csv` supplies panel h's display summary. |
 | e, g | `fixed_time_policy_rows.csv`: natural-support session probabilities; `equal_junction_depth_group_cluster_stats.csv` supplies depth contrasts. |
 | f, i | `equal_junction_simulation_session_rows.csv` and `equal_junction_calibration_summary.csv`: measured and simulated efficiency per session for four-bias and depth-varying walks. |
 
@@ -22,7 +22,6 @@ Support flags and event counts (`n_Bf`, etc.) define estimability. Use the joint
 | [equal_junction_simulation_session_rows.csv](equal_junction_simulation_session_rows.csv) | .csv |
 | [fixed_time_policy_rows.csv](fixed_time_policy_rows.csv) | .csv |
 | [matched_counterfactual_session_rows.csv](matched_counterfactual_session_rows.csv) | .csv |
-| [panel_d_policy_contributions.csv](panel_d_policy_contributions.csv) | .csv |
 | [panel_h_four_vs_depth_gap.csv](panel_h_four_vs_depth_gap.csv) | .csv |
 | [primary_30min_strict_joint_equal_junction_policy_rows.csv](primary_30min_strict_joint_equal_junction_policy_rows.csv) | .csv |
 | [primary_30min_strict_joint_gap_recapitulation_summary.csv](primary_30min_strict_joint_gap_recapitulation_summary.csv) | .csv |

@@ -1,31 +1,7 @@
-# Extended Data Figure 5: data
+# Source Data for Extended Data Figure 5
 
-Registered-neuron examples and session-pair comparisons across the long gap. [Column and array index](index.csv).
+`gallery_maps.npz` contains 64 normalized 45 × 45 display maps. `gallery_examples.csv` maps each array to its visual rank, session, neuron, correlation, scale and highlighted status. Panels b–d contain 144 pair observations per metric; e contains 36 context observations. Ensemble-rate and context comparisons retain finite rate vectors, exclude both-zero pairs and do not apply the place/PV activity gate.
 
-| Panels | Inputs and observation unit |
-|---|---|
-| a | `selected_maps_fields_45_shortlist32.npz` and `selected_32.csv`: 32 neuron examples, their displayed maps, identities and correlation labels. |
-| b–d | `place_`, `pv_` and `rate_pair_summary_all_variants.csv`: one session pair × day combination per neural metric. The builder combines these measurements into a long-format table; descriptive and contrast CSVs supply the resulting means, intervals and tests. |
-| e | `ed05e_context_only_all_outside_pair_rows.csv` and `ed05e_context_only_all_outside_clustered_stats.csv`: equal-sample maze-versus-outside ensemble-rate comparisons for Day i versus Day i+90. The latter's `maze` and `outside` rows supply condition means; `maze_minus_outside` supplies their contrast. |
+Pairs receive equal weight; repeated pairs are clustered by animal. Each metric has six paired day-combination contrasts. Exact animal sign flips and CR1 inference each receive BH6 within that metric. Panel e uses one animal-clustered maze-minus-outside comparison.
 
-Day codes `d1–d1`, `d1–d2`, `d2–d1`, `d2–d2` mean Day i/i+90, i/i+91, i+1/i+90 and i+1/i+91. Correlations are dimensionless. Panel-a maps are displayed at 45 × 45 resolution, but their labels use the **15 × 15 place-map correlation** (`place_r_15_analysis`) matching Figure 2. The NPZ contains `candidate_id`, `normalized_a` and `normalized_b`; each map is already normalized by its within-map 99th percentile. The matching CSV supplies labels, animal/session identities and zero-based neuron indices. `fixed_main_fig2b` identifies the four examples outlined in red; `visual_rank` links table rows to the stored map order before display sorting.
-
-The three pair tables use `place_map_mean_all`, `data_mean` and `pearson_raw_r` for place-map, PV and ensemble-rate correlation, respectively. Session and animal identifiers link the four day combinations.
-
-The ensemble-rate correlation uses the primary ensemble-rate population. It retains registered neurons with finite mean calcium activity in both sessions, including neurons silent on one visit, and excludes neurons silent on both; no deconvolved-activity rate gate is applied. Place-map and PV comparisons keep their deconvolved-activity selection.
-
-The panel e comparison of maze and outside activity starts from the same registered neurons, with finite calcium means and exclusion only of neurons silent in both visits. All 21,412 registered pair-neuron observations have finite activity and none is silent in both visits, so the retained population is the same for the outside vector and all 20 matched-count maze draws. `neuron_population`, `outside_used`, `maze_used_min`, `maze_used_max`, `outside_both_zero` and `outside_one_session_zero` in the pair-row table record this population. Frame selection, draw seeds, the 36 session pairs and the 14 animal clusters define the comparison.
-
-Panels b–d equally weight session-pair values for cohort means. Confidence intervals use standard errors clustered by animal; the three contrasts within each metric use exact sign-flips with every pair of an animal flipped together, then BH3. Their plotted p values are `p_bh3_within_metric_exact_cluster_signflip`, not the separately recorded regression p values. `feasible` and frame counts describe equal-sampling support in panel e; only the displayed day combination enters its test.
-
-| File | Format |
-|---|---|
-| [day_combination_session_pair_contrasts_cr1_bh3.csv](day_combination_session_pair_contrasts_cr1_bh3.csv) | .csv |
-| [day_combination_session_pair_descriptive_cr1.csv](day_combination_session_pair_descriptive_cr1.csv) | .csv |
-| [ed05e_context_only_all_outside_clustered_stats.csv](ed05e_context_only_all_outside_clustered_stats.csv) | .csv |
-| [ed05e_context_only_all_outside_pair_rows.csv](ed05e_context_only_all_outside_pair_rows.csv) | .csv |
-| [place_pair_summary_all_variants.csv](place_pair_summary_all_variants.csv) | .csv |
-| [pv_pair_summary_all_variants.csv](pv_pair_summary_all_variants.csv) | .csv |
-| [rate_pair_summary_all_variants.csv](rate_pair_summary_all_variants.csv) | .csv |
-| [selected_32.csv](selected_32.csv) | .csv |
-| [selected_maps_fields_45_shortlist32.npz](selected_maps_fields_45_shortlist32.npz) | .npz |
+`record_type` (or `row_type`) identifies observations, display summaries and inference rows. IDs identify animals, sessions, pairs, neurons or chains. Correlations and policy probabilities are dimensionless; decoder error is in bins. Undefined values are empty cells. Descriptive coordinates are supplied directly; statistical tests are recalculated from observations.

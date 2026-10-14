@@ -88,12 +88,6 @@ def _install_frozen_panel_modules(record: Path):
             del sys.modules[name]
     ca_analysis = importlib.import_module("ca_analysis")
 
-    # Prefer the figure-local heatmap helper when one is included.
-    for stem in ("level_heatmap_utils",):
-        frozen = record / "source_code" / f"{stem}.py"
-        if frozen.is_file():
-            loaded = _load_module(f"ca_analysis.{stem}", frozen)
-            setattr(ca_analysis, stem, loaded)
     frozen_panels = _load_module(
         "ca_analysis.figure_panels",
         record / "source_code" / "figure_panels.py",

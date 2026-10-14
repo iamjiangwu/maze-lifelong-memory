@@ -1,9 +1,9 @@
-# Extended Data Figure 7: code
+# Reproduce Extended Data Figure 7
 
-See the [code reading map](../../../docs/CODE.md) for the wrapper, drawing functions and statistical entry points.
+`derived_panels.py` loads derived observations, recalculates declared test families and draws the figure. Its public functions are `statistics(output_dir)` and `render(output_dir)`.
 
-The supported entry point is [../build.py](../build.py), run from the repository root. `render_ed07_slide9_powerpoint_matched.py` draws and exports the six age-association panels from included observations and saved model coefficients; no slide deck or upstream analysis module is required. The shared launcher supplies the tables and palettes. The [data guide](../data/README.md) distinguishes age in days from recording experience and describes the model units.
+`current_science.py` contains the mathematical and drawing functions required by this figure. Shared `release_rendering` provides plotting, statistics and maze geometry. Page dimensions, palette, annotations and arrangement are explicit in code.
 
-These are implementation modules called by the launcher, not independent raw-data pipelines. To recompute the figure's inferential results together with the other recorded analyses, use `python reproduce.py --statistics-only --output-dir outputs/statistics`. [Environment/setup](../../../docs/REPRODUCING.md).
+OLS uses age per 30 days, categorical adjustments, animal-clustered CR1 uncertainty and t(G−1) inference. The within-cycle family contains three metrics; long-gap BH4 also includes level maps, whose observations are retained in level_age_family_points.csv.
 
-- [render_ed07_slide9_powerpoint_matched.py](render_ed07_slide9_powerpoint_matched.py)
+Raw recordings, neural map estimation and decoder training are outside this release. Saved null draws and descriptive curve/band coordinates are Source Data.

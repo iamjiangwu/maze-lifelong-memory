@@ -3,6 +3,8 @@ figures/** -text
 tables/** -text
 reproduction/** -text
 /requirements.txt -text
+/requirements-lock.txt -text
+/.github/** -text
 # Repository-facing documentation can use normal text handling.
 /README.md text eol=lf
 /reproduce.py text eol=lf

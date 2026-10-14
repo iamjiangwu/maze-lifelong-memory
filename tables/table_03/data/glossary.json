@@ -1,0 +1,107 @@
+{
+  "title": "Supplementary Table 3. Glossary of recurring terms",
+  "pages": [
+    {
+      "heading": "Maze, sessions and behavior",
+      "entries": [
+        {
+          "term": "Recording cycle",
+          "meaning": "Two sessions starting 24 h apart, labeled Day i and Day i+1. Successive cycles were separated by a long gap of about 90 days without maze experience."
+        },
+        {
+          "term": "Naive day, return day and second day",
+          "meaning": "The naive day is the first maze exposure. A return day begins a later recording cycle. The second day is Day i+1 of any cycle."
+        },
+        {
+          "term": "Latent controls",
+          "meaning": "Mice that explored without a water port on latent day1. The port was installed for latent day2, when they had prior maze exposure but no prior reward experience."
+        },
+        {
+          "term": "Session pair",
+          "meaning": "Two recordings from the same animal compared in an analysis."
+        },
+        {
+          "term": "Time in maze",
+          "meaning": "Time spent inside the maze during a session, summed across maze entries."
+        },
+        {
+          "term": "Maze tile and tile step",
+          "meaning": "A tile is one position on the 15-by-15 maze grid and is also the spatial bin for neural maps and decoding. A tile step is movement between adjacent tiles."
+        },
+        {
+          "term": "Node, end node and node step",
+          "meaning": "Nodes are junctions and maze ends (end nodes). A node step joins adjacent nodes and can span several tiles. At a junction, the stem leads toward the entrance and the two branches lead away."
+        },
+        {
+          "term": "Tree level (depth)",
+          "meaning": "The number of branch choices from the entrance, ranging from 0 at the entrance to 6 at the end nodes. Locations at the same depth belong to the same level."
+        },
+        {
+          "term": "Exploration",
+          "meaning": "Maze behavior outside direct travel to the water port or home. Exploration efficiency and turning biases are measured during this behavioral mode."
+        },
+        {
+          "term": "Long bout",
+          "meaning": "A run ending at the water port after more than six consecutive node steps, each reducing the remaining path to it."
+        },
+        {
+          "term": "First long bout time",
+          "meaning": "Time in maze before the start of the first long bout."
+        },
+        {
+          "term": "Exploration efficiency",
+          "meaning": "32/N32, where N32 is the number of end-node visits needed to reach 32 distinct end nodes during exploration. Higher values mean fewer repeated visits."
+        },
+        {
+          "term": "Turning biases",
+          "meaning": "Probabilities of continuing, reversing or choosing between exits at a junction during exploration."
+        }
+      ]
+    },
+    {
+      "heading": "Neural activity and representations",
+      "entries": [
+        {
+          "term": "Deconvolved activity",
+          "meaning": "The nonnegative estimate of neuronal activity obtained by deconvolving the recorded fluorescence. Activity in the neural analyses refers to this estimate."
+        },
+        {
+          "term": "Frame",
+          "meaning": "One image in the 25 Hz behavioral recording, corresponding to a 40 ms time step in the aligned data."
+        },
+        {
+          "term": "Matched neuron (registered neuron)",
+          "meaning": "A neuron identified as the same cell in different recordings."
+        },
+        {
+          "term": "Place map and place field",
+          "meaning": "A place map gives one neuron's mean activity at each maze position. Regions of high activity are its place fields. Place map correlation compares the maps between sessions."
+        },
+        {
+          "term": "Population vector (PV)",
+          "meaning": "A vector containing one mean activity value per matched neuron at a given maze position or tree level. PV correlation compares these vectors between sessions."
+        },
+        {
+          "term": "Ensemble rate correlation",
+          "meaning": "Correlation across matched neurons between their mean activity in two sessions. It measures whether the relatively active neurons remain relatively active."
+        },
+        {
+          "term": "Level map",
+          "meaning": "One neuron's mean activity at each of the seven tree levels, pooling locations at the same depth. Its peak marks the preferred level. Level map correlation compares these maps between sessions."
+        },
+        {
+          "term": "Standardized PV correlation",
+          "meaning": "PV correlation along a route to or from the water port, after subtracting each neuron's mean activity along the route and dividing by its standard deviation. This compares the neurons' relative preference for each route position."
+        },
+        {
+          "term": "Neuron-ID shuffle",
+          "meaning": "Random reassignment of neuron identities in one session, breaking the correspondence between matched cells while preserving their activity."
+        },
+        {
+          "term": "Decoding error and reward decoding error",
+          "meaning": "A decoder trained on the earlier (source) session estimates position in the later (target) session. Decoding error is the mean straight-line distance, in tiles, between decoded and observed positions. Reward decoding error is measured in the tile next to the rewarded end node."
+        }
+      ]
+    }
+  ]
+}

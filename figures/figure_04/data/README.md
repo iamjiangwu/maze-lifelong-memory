@@ -1,32 +1,18 @@
-# Figure 4: data
+# Figure 4 source data
 
-Position-decoder results, route correlations and the behavioral association. [Column and array index](index.csv).
+| File | Purpose |
+| --- | --- |
+| spatial_decoder_example.npz and spatial_decoder_example.json | Five illustrative maps and traces, one posterior, neuron identities and displayed coordinates for panel a. |
+| whole_maze_pairs.csv | Observed and mean neuron-identity-shuffled decoding errors for 36 registered pairs from 14 animals. |
+| example_error_map.csv | Mean error and sample count per occupied maze tile for the mouse 579 example. |
+| reward_control_pairs.csv | Reward and three control-bin errors for 30 rewarded-source pairs, with animal IDs. |
+| route_heatmaps.npz | Four peak-normalized display matrices in the source-session peak order; normalization affects display only. |
+| route_pair_profiles.csv | Observed and mean shuffled standardized route PV profiles for each pair and route bin. |
+| decoder_behavior_pairs.csv | Matched 181-neuron decoder means and later first-long-bout onset time for 30 pairs from 14 animals. |
 
-| Panel | Inputs and observation unit |
-|---|---|
-| a | `spatial_decoder_example.npz` and its JSON metadata: five example place maps, target activity and a saved position posterior. |
-| b | `figure4b_neuron_id_shuffle_pair_summary.csv`: observed and neuron-ID-shuffled mean errors for each source/target session pair; the JSON contains the paired inference. |
-| c | `panel_c_example_map_rows.csv`: mean decoding error and frame count in each target spatial bin. |
-| d | `panel_d_native_reference_rows.csv`: reward/control decoding errors per eligible session pair and source-day variant; `day_source_statistics.csv` contains the comparisons. |
-| e | `panel_e_heatmaps.npz`, `panel_e_pair_profiles.csv`, `panel_e_animal_profiles.csv`, `panel_e_curve.csv` and `panel_e_statistics.csv`: neuron heatmaps, pair/bin and animal/bin route PV profiles, cohort curves and route tests. |
-| f | `panel_f_matched_pair_means.csv`: reward decoding error and first long bout time for each matched neural-behavior pair. |
-
-Decoding error is Euclidean distance in 15 × 15 spatial bins. First long bout time is cumulative maze time in seconds to the qualifying path's onset, as defined in the [Figure 1 data guide](../../figure_01/data/README.md). Reward maze node 94, the physical water port and decoder bin 103 are distinct identifiers. Internal `reward_proxy`/`d1_reward_proxy_error` fields are the plotted **reward decoding error**, not an additional proxy outcome. Control bins are 91, 121 and 133.
-
-`group` distinguishes home-to-reward and reward-to-home routes; `bin` uses the same spatial orientation for both directions: 0 at home and 21 at the reward end. The departure heatmap reverses this order for display. `pv` and `pv_sh` are observed and neuron-ID-shuffled correlations. Route profiles average pairs within animal before across-animal summaries. For each animal, reward enrichment is the correlation at bin 21 minus the mean correlation over bins 0–20; the two direction tests compare these animal effects with zero. Pair eligibility and reward/control support flags must be preserved. Panel f uses the ED10a fit definition, with an uncorrected p value rather than ED10a's row-wise BH3.
-
-| File | Format |
-|---|---|
-| [day_source_statistics.csv](day_source_statistics.csv) | .csv |
-| [figure4b_neuron_id_shuffle_pair_summary.csv](figure4b_neuron_id_shuffle_pair_summary.csv) | .csv |
-| [figure4b_neuron_id_shuffle_statistics.json](figure4b_neuron_id_shuffle_statistics.json) | .json |
-| [panel_c_example_map_rows.csv](panel_c_example_map_rows.csv) | .csv |
-| [panel_d_native_reference_rows.csv](panel_d_native_reference_rows.csv) | .csv |
-| [panel_e_animal_profiles.csv](panel_e_animal_profiles.csv) | .csv |
-| [panel_e_curve.csv](panel_e_curve.csv) | .csv |
-| [panel_e_heatmaps.npz](panel_e_heatmaps.npz) | .npz |
-| [panel_e_pair_profiles.csv](panel_e_pair_profiles.csv) | .csv |
-| [panel_e_statistics.csv](panel_e_statistics.csv) | .csv |
-| [panel_f_matched_pair_means.csv](panel_f_matched_pair_means.csv) | .csv |
-| [spatial_decoder_example.json](spatial_decoder_example.json) | .json |
-| [spatial_decoder_example.npz](spatial_decoder_example.npz) | .npz |
+Decoder errors are Euclidean distances in maze tiles. The target is grid bin
+103, adjacent to physical reward node 94. Route bins are 3.8 cm wide over the
+83.6 cm route; profiles are oriented with reward in the last bin. Each mouse
+receives equal weight after its pairs are averaged. Panel f fits behavior on
+decoding error and uses an animal-clustered nominal test and a 5,000-draw
+whole-animal bootstrap band.

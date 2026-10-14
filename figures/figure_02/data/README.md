@@ -1,45 +1,24 @@
-# Figure 2: data
+# Figure 2 inputs
 
-Long-gap neural correlations, saved neuron-ID null distributions and example neurons. [Column and array index](index.csv).
+Panel a uses the two local correlation image arrays and their color maps.
+Panel b uses four matched neuron examples: `matched_neurons.csv` identifies
+the sessions, neurons and displayed correlations; the compressed array holds
+only their plotted trajectories and activity direction markers.
 
-| Panels | Inputs and observation unit |
-|---|---|
-| a–c, h, m | `*_corr.npz` supplies example local-correlation images; the four neuron-example NPZs supply displayed trajectories and activity-arrow coordinates. Representation schematics are drawn by code. |
-| d, i, n | `*_distribution.npz`: PV correlations per spatial bin in d, place-map correlations per matched neuron in i, and ensemble-rate correlations per session pair in n, with saved shuffle histograms/values. |
-| e, j, o | `*_shuffle_mean.npz`: null draws of the cohort mean and the observed mean; `pair_metric_summary.csv` and `metric_summary.csv` give the pair/cohort summaries. |
-| f, k, p | `gap_with_day1_day2_curve_data.csv` contains means and 95% intervals by Days apart. `same_stage_*`, `long_gap_pair_rows.csv` and the ensemble-rate pair tables supply the corresponding observations. |
-| g, l, q | `consecutive_gap_points.csv` contains one preceding/following gap comparison per spatial bin within a three-session chain for g, and per matched neuron within a chain for l. The canonical ensemble-rate consecutive-gap table has one observation per chain for q. Statistics and `displayed_estimand_bh4.csv` supply the fitted tests, with standard errors clustered by animal. |
+The three metric prefixes are `pv` (population vector), `place` (place map)
+and `rate` (ensemble rate). Each has a schematic table, histogram counts and
+densities, pair means and saved shuffle draws, and a days apart summary.
+Saved shuffle draws are not regenerated.
 
-All correlation values are dimensionless. Distribution observations have different units from cohort means: the latter equally weight session-pair means. Pair and triplet identifiers are supplied with their measurements. BH4 also includes the displayed level-map association in ED9l.
+`recurrence_points.csv` contains individual observations from successive
+gaps, including the level map observations displayed in ED9l. All four metrics
+are needed to recalculate their shared BH4 correction. Neurons or positions
+are nested within animals; inference clusters observations by animal.
+The rate relationship uses one observation per session chain.
 
-Place maps and population vectors use denoised calcium `C`. Neuron eligibility is determined separately from deconvolved activity `S`: summed `S` must reach 0.1 per retained minute in both sessions for pair comparisons, and in all three sessions for the recurrence comparisons in g and l. Ensemble rate panels n–q do not apply this `S` threshold; they retain matched neurons with finite `C` rates, excluding only neurons with zero rate in both intervals. These choices are already reflected in the supplied measurements; this repository does not repeat neuron selection.
+The supplied neural measurements use deconvolved S smoothed in time with a
+Gaussian half width at half maximum of 1 second. Map analyses apply the
+specified S activity gate; ensemble rate retains its ungated definition.
+The Source Data builder starts at these measurements, not neural sessions.
 
-In neuron-example NPZs, A/B identify source/target sessions. `*_traj_x`/`*_traj_y` contain the displayed trajectory; `*_px`/`*_py` and `*_ex`/`*_ey` give body and nose coordinates for each displayed activity arrow. Coordinates use maze-grid units with the displayed y orientation. `place_r` is the displayed 15 × 15 place-map correlation. Upstream arrow selection used activity above five times the Welch noise estimate and collapsed events within four frames. The files contain no neural traces, and reproduction does not reselect activity events.
-
-| File | Format |
-|---|---|
-| [418-3day1_to_418-6day1__row0062_a83_b794.npz](418-3day1_to_418-6day1__row0062_a83_b794.npz) | .npz |
-| [422-3_corr.npz](422-3_corr.npz) | Local-correlation image, coordinates and color metadata |
-| [422_corr.npz](422_corr.npz) | Local-correlation image, coordinates and color metadata |
-| [451-6day1_to_451-9day1__row0305_a402_b408.npz](451-6day1_to_451-9day1__row0305_a402_b408.npz) | .npz |
-| [837-6day1_to_837-9day1__row0175_a187_b131.npz](837-6day1_to_837-9day1__row0175_a187_b131.npz) | .npz |
-| [837-6day1_to_837-9day1__row0588_a674_b683.npz](837-6day1_to_837-9day1__row0588_a674_b683.npz) | .npz |
-| [adjacent_day_ensemble_rate_pair_values.csv](adjacent_day_ensemble_rate_pair_values.csv) | .csv |
-| [canonical_ensemble_rate_all_gap_pair_values.csv](canonical_ensemble_rate_all_gap_pair_values.csv) | .csv |
-| [consecutive_gap_points.csv](consecutive_gap_points.csv) | .csv |
-| [consecutive_gap_statistics.csv](consecutive_gap_statistics.csv) | .csv |
-| [displayed_estimand_bh4.csv](displayed_estimand_bh4.csv) | .csv |
-| [ensemble_rate_distribution.npz](ensemble_rate_distribution.npz) | .npz |
-| [ensemble_rate_shuffle_mean.npz](ensemble_rate_shuffle_mean.npz) | .npz |
-| [gap_with_day1_day2_curve_data.csv](gap_with_day1_day2_curve_data.csv) | .csv |
-| [long_gap_pair_rows.csv](long_gap_pair_rows.csv) | .csv |
-| [metric_summary.csv](metric_summary.csv) | .csv |
-| [pair_metric_summary.csv](pair_metric_summary.csv) | .csv |
-| [place_map_distribution.npz](place_map_distribution.npz) | .npz |
-| [place_map_shuffle_mean.npz](place_map_shuffle_mean.npz) | .npz |
-| [population_vector_distribution.npz](population_vector_distribution.npz) | .npz |
-| [population_vector_shuffle_mean.npz](population_vector_shuffle_mean.npz) | .npz |
-| [same_stage_correlations.csv](same_stage_correlations.csv) | .csv |
-| [same_stage_shuffle.csv](same_stage_shuffle.csv) | .csv |
-| [session_pair_rate_consecutive_gap_points_canonical.csv](session_pair_rate_consecutive_gap_points_canonical.csv) | .csv |
-| [session_pair_rate_consecutive_gap_stats_canonical.csv](session_pair_rate_consecutive_gap_stats_canonical.csv) | .csv |
+See [index.csv](index.csv) for array shapes and table columns.

@@ -1,6 +1,6 @@
 # Source Data
 
-Each figure or table has a `data/` folder with the inputs used by its current builder and statistical analysis. [DATA_CATALOG.csv](DATA_CATALOG.csv) lists files across the repository; each `data/index.csv` records columns or array formats and checksums.
+Each figure or table has a `data/` folder with the inputs used by its builder and statistical analysis. [DATA_CATALOG.csv](DATA_CATALOG.csv) lists the files; each `data/index.csv` records columns or array formats. Input checksums are in [layout.json](../reproduction/layout.json).
 
 The package includes derived observations, plotted summaries, example maps and saved shuffle or simulation values—not raw recordings. Individual neuron, session-pair or animal values are retained for displayed observations and statistical tests. Figure 3's first-column curves use saved means, s.e.m. and support counts; its second- and third-column fits retain their individual observations. The package does not recalculate every descriptive curve from upstream measurements.
 
