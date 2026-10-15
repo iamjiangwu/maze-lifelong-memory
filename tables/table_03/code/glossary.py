@@ -10,7 +10,6 @@ from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
-from reportlab.pdfgen.canvas import Canvas
 from reportlab.platypus import (
     PageBreak,
     Paragraph,
@@ -104,14 +103,5 @@ def render_glossary(glossary: dict, output: Path) -> Path:
         story.append(table)
         story.append(Spacer(1, 3 * mm))
 
-    def footer(canvas: Canvas, doc: SimpleDocTemplate) -> None:
-        canvas.saveState()
-        canvas.setFont("Helvetica", 8)
-        canvas.setFillColor(colors.HexColor("#555555"))
-        canvas.drawRightString(A4[0] - 17 * mm, 9 * mm, f"{doc.page} of {len(pages)}")
-        canvas.restoreState()
-
-    document.build(
-        story, onFirstPage=footer, onLaterPages=footer,
-    )
+    document.build(story)
     return output

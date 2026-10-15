@@ -38,7 +38,7 @@
         },
         {
           "term": "Exploration",
-          "meaning": "Maze behavior outside direct travel to the water port or home. Exploration efficiency and turning biases are measured during this behavioral mode."
+          "meaning": "Trajectory segments not classified as reward-directed or home-directed travel. Reward-directed travel follows direct routes to the water port with all correct turns in rewarded sessions; home-directed travel follows direct routes home with all correct turns. Exploration efficiency and turning biases are measured during exploration."
         },
         {
           "term": "Long bout",
@@ -50,7 +50,7 @@
         },
         {
           "term": "Exploration efficiency",
-          "meaning": "32/N32, where N32 is the number of end-node visits needed to reach 32 distinct end nodes during exploration. Higher values mean fewer repeated visits."
+          "meaning": "32/N32, where N32 is the number of end node visits needed to reach 32 distinct end nodes during exploration. Higher values mean fewer repeated visits."
         },
         {
           "term": "Turning biases",
@@ -63,7 +63,7 @@
       "entries": [
         {
           "term": "Deconvolved activity",
-          "meaning": "The nonnegative estimate of neuronal activity obtained by deconvolving the recorded fluorescence. Activity in the neural analyses refers to this estimate."
+          "meaning": "The nonnegative estimate of neuronal activity obtained by deconvolving the recorded fluorescence using an exponential-decay model of calcium indicator dynamics. Activity in the neural analyses refers to this estimate."
         },
         {
           "term": "Frame",
@@ -99,7 +99,7 @@
         },
         {
           "term": "Decoding error and reward decoding error",
-          "meaning": "A decoder trained on the earlier (source) session estimates position in the later (target) session. Decoding error is the mean straight-line distance, in tiles, between decoded and observed positions. Reward decoding error is measured in the tile next to the rewarded end node."
+          "meaning": "A decoder trained on the earlier (source) session estimates position in the later (target) session. Decoding error is the mean Euclidean distance, in tiles, between decoded and observed positions. Reward decoding error is measured in the tile next to the rewarded end node."
         }
       ]
     }

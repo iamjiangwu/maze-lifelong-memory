@@ -30,6 +30,8 @@ from matplotlib.path import Path as MatplotlibPath
 from matplotlib.ticker import FuncFormatter, FormatStrFormatter, MaxNLocator
 from matplotlib.legend_handler import HandlerTuple
 from matplotlib.lines import Line2D
+from matplotlib.font_manager import FontProperties
+from matplotlib.textpath import TextPath
 from PIL import Image
 from release_rendering.plotting import *
 from release_rendering.statistics import *
@@ -411,29 +413,26 @@ def _draw_record_bracket(
     height: float,
     text: str,
 ) -> None:
-    """Draw one compact comparison bracket above plotted values."""
-
-    lower = height - 0.018 * np.ptp(axis.get_ylim())
-    axis.plot(
-        [left, left, right, right],
-        [lower, height, height, lower],
-        color="#202020",
-        linewidth=0.8,
-        clip_on=False,
-        zorder=10,
-    )
-    axis.text(
-        (left + right) / 2.0,
-        height + 0.012 * np.ptp(axis.get_ylim()),
-        text,
-        ha="center",
-        va="bottom",
-        fontsize=7.0,
-        fontweight="bold",
-        color="#202020",
-        clip_on=False,
-        zorder=11,
-    )
+    """Center the unchanged comparison token in a compact physical-size gap."""
+    bounds=axis.get_window_extent()
+    width_mm,height_mm=np.array([bounds.width,bounds.height])/axis.figure.dpi*25.4
+    low,high=axis.get_ylim()
+    y=(height-low)/(high-low)
+    weight="normal" if text=="n.s." else "bold"
+    fontsize=6.5 if text=="n.s." else 10.0
+    glyph=TextPath((0,0),text,size=fontsize,prop=FontProperties(family="Arial",weight=weight)).get_extents()
+    mm_per_pt=25.4/72.0
+    half_gap=(glyph.width*mm_per_pt/2+.25)/width_mm*np.ptp(axis.get_xlim())
+    center=(left+right)/2
+    cap=.20/height_mm
+    key=f"paired_compact_{left:g}_{right:g}"
+    axis.plot([left,left,center-half_gap],[y-cap,y,y],transform=axis.get_xaxis_transform(),
+              color="black",lw=.6,clip_on=False,zorder=10,gid=key+"_left")
+    axis.plot([center+half_gap,right,right],[y,y,y-cap],transform=axis.get_xaxis_transform(),
+              color="black",lw=.6,clip_on=False,zorder=10,gid=key+"_right")
+    baseline=y-(glyph.y0+glyph.height/2)*mm_per_pt/height_mm
+    axis.text(center,baseline,text,transform=axis.get_xaxis_transform(),ha="center",va="baseline",
+              fontsize=fontsize,fontweight=weight,color="black",clip_on=False,zorder=11,gid=key+"_text")
 
 
 def _draw_record_partition(axis: Axes, representation: str, title: str) -> None:
@@ -553,7 +552,7 @@ def _draw_preferred_level_distance_axis(
         values.distance["shift_distance"].between(1, 6)
     ].sort_values("shift_distance")
     x_values = shown["shift_distance"].to_numpy(dtype=float)
-    axis.plot(
+    observed_line, = axis.plot(
         x_values,
         shown["observed_fraction"],
         color=_LEVEL_COLOR,
@@ -567,7 +566,7 @@ def _draw_preferred_level_distance_axis(
         shown["shuffle_ci_high"].to_numpy(dtype=float)
         - shown["shuffle_ci_low"].to_numpy(dtype=float)
     ) / (2.0 * 1.96)
-    axis.errorbar(
+    null_errors = axis.errorbar(
         x_values,
         shown["shuffle_fraction"],
         yerr=shuffle_error,
@@ -588,6 +587,9 @@ def _draw_preferred_level_distance_axis(
     axis.xaxis.label.set_x(0.45625)
     axis.set_ylabel("Fraction of shifted cells")
     axis.legend(
+        # Keep the plotted error bars; show only the series line in the key.
+        handles=[observed_line, null_errors.lines[0]],
+        labels=["Observed", "ID null"],
         frameon=False,
         fontsize=5.8,
         loc="upper right",
@@ -919,7 +921,7 @@ def _draw_recurrence_axis(
         ha="left",
         va="top",
         color="black",
-        fontsize=8.0,
+        fontsize=13.0,
         fontweight="bold",
     )
     _style_record_axis(axis)
@@ -998,8 +1000,16 @@ def _draw_experience_axis(
     y_values = points["value"].to_numpy(dtype=float)
     # Match the source's cycle colors and deterministic point separation.
     colors=('#BDB9D6','#A19CC3','#8A85B2','#6F6B99','#4E4A75')
-    keys=(points['pair_key'].astype(str) if 'pair_key' in points
-          else points['animal_id'].astype(str)+'|'+points['experience'].astype(int).astype(str))
+    if 'pair_key' in points:
+        keys=points['pair_key'].astype(str)
+    else:
+        # CSV columns with missing values load integral animal IDs as floats.
+        # Canonicalize only the display-jitter key, so 418 and 418.0 separate
+        # points identically without changing any observation or statistic.
+        animal_keys=points['animal_id'].map(
+            lambda value: str(int(value)) if float(value).is_integer() else str(value)
+        )
+        keys=animal_keys+'|'+points['experience'].astype(int).astype(str)
     offsets=_record_jitter(keys,.07)
     for experience in sorted(set(x_values.astype(int))):
         mask=x_values==experience
@@ -1043,7 +1053,7 @@ def _draw_experience_axis(
         ha="left",
         va="top",
         color="black",
-        fontsize=8.0,
+        fontsize=13.0,
         fontweight="bold",
     )
     _style_record_axis(axis)
@@ -1085,11 +1095,28 @@ def _draw_level_decoder(axis: Axes, values: pd.DataFrame, inference: Mapping[str
     for i,column in enumerate(('observed_accuracy','shuffle_accuracy')):
         y=values[column].to_numpy(float)
         color=_LEVEL_COLOR if i==0 else '#8a8a8a'
-        axis.bar(i,y.mean(),width=.66,color=color,edgecolor='none',alpha=.78,zorder=2)
-        axis.scatter(np.full(len(y),i)+_record_jitter(values.pair_key,.045),y,s=13,color=color,edgecolors='none',alpha=.65,zorder=3)
+        axis.bar(i,y.mean(),width=.66,facecolor='none',edgecolor=color,linewidth=.8,alpha=1.,zorder=2)
+        axis.scatter(np.full(len(y),i)+_record_jitter(values.pair_key,.045),y,s=11,color=color,edgecolors='none',alpha=.72,zorder=3)
     p=float(inference['p_greater'])
-    _draw_record_bracket(axis,0,1,.61,_significance_marks(p))
-    axis.set(xticks=[0,1],xticklabels=['Data','Shuffle'],ylabel='Decoding accuracy',ylim=(0,.66),yticks=[0,.2,.4,.6],xlim=(-.5,1.5))
+    axis.set(xticks=[0,1],xticklabels=['Data','Shuffle'],ylabel='Decoding accuracy',ylim=(0,.62),yticks=[0,.2,.4,.6],xlim=(-.5,1.5))
+    # Keep the same comparison and stars; only their physical arrangement changes.
+    stars = _significance_marks(p)
+    fontsize = 6.5 if stars == "n.s." else 10.0
+    bounds = axis.get_window_extent()
+    width_mm, height_mm = np.array([bounds.width,bounds.height]) / axis.figure.dpi * 25.4
+    glyph = TextPath((0,0),stars,size=fontsize,
+                     prop=FontProperties(family='Arial',weight='bold')).get_extents()
+    mm_per_pt = 25.4/72.
+    half_gap = (glyph.width*mm_per_pt/2+.25)/width_mm*np.ptp(axis.get_xlim())
+    y, cap = .585/.62, .20/height_mm
+    axis.plot([0,0,.5-half_gap],[y-cap,y,y],transform=axis.get_xaxis_transform(),
+              color='black',lw=.6,clip_on=False,zorder=10,gid='decoder_compact_left')
+    axis.plot([.5+half_gap,1,1],[y,y,y-cap],transform=axis.get_xaxis_transform(),
+              color='black',lw=.6,clip_on=False,zorder=10,gid='decoder_compact_right')
+    baseline = y-(glyph.y0+glyph.height/2)*mm_per_pt/height_mm
+    axis.text(.5,baseline,stars,transform=axis.get_xaxis_transform(),ha='center',
+              va='baseline',fontsize=fontsize,fontweight='bold',color='black',clip_on=False,
+              zorder=11,gid='decoder_compact_stars')
 
 
 def render_tree_depth_control_summary(

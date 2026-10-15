@@ -41,6 +41,7 @@ ContextImages = MatchedNeuronExamples = SimpleNamespace
 _CANVAS_SIZE_INCHES = (6.08, 7.058683289588801)
 _EXPORT_WIDTH_MM = 180.0
 _TOP_ROW_SHIFT_INCHES = 7.0 / 300.0
+_EXAMPLE_HEADER_INCHES = 0.12
 _TOP_SLOTS = {
     "context": (0.048486439195100615, 0.04500218722659668 + _TOP_ROW_SHIFT_INCHES, 1.4323129921259843, 2.1070395888014),
     "example_labels": (1.4199792213473317, _TOP_ROW_SHIFT_INCHES, 0.125, 2.3166218285214346),
@@ -53,7 +54,7 @@ _EXAMPLE_SLOT = (
     _TOP_SLOTS["example_labels"][0],
     _TOP_SLOTS["example_labels"][1],
     _TOP_SLOTS["example_4"][0] + _TOP_SLOTS["example_4"][2] - _TOP_SLOTS["example_labels"][0],
-    _TOP_SLOTS["example_4"][3],
+    _TOP_SLOTS["example_4"][3] + _EXAMPLE_HEADER_INCHES,
 )
 _ORIGINAL_LOWER_COLUMNS = {
     0: (0.060494313210848645, 1.5728860454943132),
@@ -225,7 +226,9 @@ def _draw_direction_marker(
 def _render_matched_neurons(data: MatchedNeuronExamples) -> plt.Figure:
     """Draw the four accepted matched-neuron trajectory examples."""
 
-    figure, axes = plt.subplots(2, 4, figsize=(_EXAMPLE_SLOT[2], _EXAMPLE_SLOT[3]), squeeze=False)
+    # Start at the accepted size so the eight maps retain their exact width,
+    # height and inter-session spacing; add only a header strip afterwards.
+    figure, axes = plt.subplots(2, 4, figsize=(_EXAMPLE_SLOT[2], _EXAMPLE_SLOT[3] - _EXAMPLE_HEADER_INCHES), squeeze=False)
     figure.subplots_adjust(left=0.038, right=0.999, top=0.996, bottom=0.070, wspace=-0.005, hspace=0.010)
     for column, (source, target, correlation, _support) in enumerate(data.examples):
         for axis, arrows in zip(axes[:, column], (source, target), strict=True):
@@ -239,7 +242,8 @@ def _render_matched_neurons(data: MatchedNeuronExamples) -> plt.Figure:
             axis.set_yticks([])
             for spine in axis.spines.values():
                 spine.set_visible(False)
-        axes[1, column].text(0.5, -0.075, f"{correlation:.2f}", transform=axes[1, column].transAxes, ha="center", va="top", fontsize=6.2, clip_on=False)
+        correlation_label = f"Place map correlation: {correlation:.2f}" if column == 0 else f"{correlation:.2f}"
+        axes[1, column].text(0.98, -0.075, correlation_label, transform=axes[1, column].transAxes, ha="right", va="top", fontsize=6.2, clip_on=False)
     axes[0, 0].set_ylabel("Day i", fontsize=8.0, labelpad=2)
     axes[1, 0].set_ylabel("Day i+90", fontsize=8.0, labelpad=2)
     for axis in axes[1, :]:
@@ -252,6 +256,19 @@ def _render_matched_neurons(data: MatchedNeuronExamples) -> plt.Figure:
         axis.add_patch(Rectangle((-0.5, -0.5), 15.0, 15.0, fill=False, edgecolor="black", linewidth=1.15, joinstyle="miter", capstyle="butt", zorder=5, clip_on=False))
         axis.set_xlim(-0.5, 14.5)
         axis.set_ylim(-0.5, 14.5)
+    # Preserve physical map dimensions while using the existing whitespace
+    # below b to accommodate its new column headers, without moving other panels.
+    original_height = figure.get_size_inches()[1]
+    positions = [axis.get_position().bounds for axis in axes.flat]
+    figure.set_size_inches(figure.get_size_inches()[0], original_height + _EXAMPLE_HEADER_INCHES)
+    height_ratio = original_height / figure.get_size_inches()[1]
+    for axis, (x, y, width, height) in zip(axes.flat, positions, strict=True):
+        axis.set_position((x, y * height_ratio, width, height * height_ratio))
+    for column in range(axes.shape[1]):
+        position = axes[0, column].get_position()
+        figure.text((position.x0 + position.x1) / 2.0,
+                    position.y1 + 0.012 / figure.get_size_inches()[1],
+                    f"Neuron {column + 1}", ha="center", va="bottom", fontsize=6.2)
     # Connect the matched squares only across the inter-session gap. Use the
     # same line width as their outlines without moving either square.
     for column in range(axes.shape[1]):

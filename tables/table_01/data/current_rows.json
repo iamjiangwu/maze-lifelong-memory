@@ -46,7 +46,7 @@
       "note": "Mouse 1616 followed a special recording sequence outside the fixed month groups; both special return sessions were included in the pooled ED2 analyses."
     },
     {
-      "analysis": "Speed during exploration and reward directed behavior",
+      "analysis": "Speed during exploration and reward-directed behavior",
       "panels": "ED Fig. 1g",
       "mice": [
         "15",
@@ -158,7 +158,7 @@
       "note": "The latent day2 group did not include 422day2, because the latent day1 maze of mouse 422 had a dry water port instead of a wall."
     },
     {
-      "analysis": "Junction dwell during exploration and reward directed approaches",
+      "analysis": "Junction dwell during exploration and reward-directed approaches",
       "panels": "ED Fig. 3a to d",
       "mice": [
         "325",

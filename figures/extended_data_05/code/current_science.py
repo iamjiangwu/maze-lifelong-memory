@@ -30,6 +30,8 @@ from matplotlib.path import Path as MatplotlibPath
 from matplotlib.ticker import FuncFormatter, FormatStrFormatter, MaxNLocator
 from matplotlib.legend_handler import HandlerTuple
 from matplotlib.lines import Line2D
+from matplotlib.font_manager import FontProperties
+from matplotlib.textpath import TextPath
 from PIL import Image
 from release_rendering.plotting import *
 from release_rendering.statistics import *
@@ -296,15 +298,15 @@ _ACCEPTED_GALLERY_REGION_IN = (
 _ACCEPTED_DAY_COMBINATION_REGION_IN = (
     0.020001093613298337,
     0.08000000000000007,
-    3.75,
+    3.95,
     1.2129024496937884,
 )
 
 
 _ACCEPTED_CONTEXT_REGION_IN = (
-    3.8533333333333335,
+    4.053333333333334,
     0.08000000000000007,
-    1.1309820647419073,
+    0.9309820647419073,
     1.2129024496937884,
 )
 
@@ -629,7 +631,9 @@ def _draw_day_combination_comparisons(
     )
     shifted_left = region_left + 8.0 * _ACCEPTED_FONT_SCALE / 72.0
     ylabel_inset = 0.18
-    comparison_gap = 0.06
+    # Separate numeric y ticks need additional space between the axes. Keep
+    # each b-d plotting width unchanged by using the space released by e.
+    comparison_gap = 0.16
     usable_width = region_width - ylabel_inset - 0.02
     comparison_width = (usable_width - 2.0 * comparison_gap) / 3.0
     plot_bottom = region_bottom + 0.11
@@ -674,16 +678,17 @@ def _draw_day_combination_comparisons(
                 variant_index,
                 mean,
                 width=0.60,
-                color=color,
-                edgecolor="none",
-                alpha=0.78,
+                facecolor="none",
+                edgecolor=color,
+                linewidth=0.8,
+                alpha=1.0,
                 zorder=1,
             )
             axis.scatter(
                 np.full(values.size, variant_index, dtype=float)
                 + random_generator.normal(0.0, 0.06, values.size),
                 values,
-                s=15.0 * _ACCEPTED_FONT_SCALE**2,
+                s=11.0,
                 facecolor=color,
                 edgecolor="none",
                 alpha=0.72,
@@ -704,7 +709,15 @@ def _draw_day_combination_comparisons(
             range(len(VARIANT_ORDER)),
             [_ACCEPTED_VARIANT_LABELS[variant] for variant in VARIANT_ORDER],
         )
-        axis.set_ylim(0.0, 0.8)
+        # Separate scales make each distribution readable. The author-selected
+        # zero lower bounds intentionally leave small negative values off scale.
+        y_top, y_ticks = {
+            "pv_correlation": (0.65, [0.0, 0.2, 0.4, 0.6]),
+            "place_map_correlation": (0.50, [0.0, 0.2, 0.4]),
+            "ensemble_rate_correlation": (0.80, [0.0, 0.2, 0.4, 0.6, 0.8]),
+        }[metric]
+        axis.set_ylim(0.0, y_top)
+        axis.set_yticks(y_ticks)
         axis.tick_params(axis="both", length=2.0, pad=0.8)
         for tick_label in axis.get_xticklabels():
             tick_label.set_clip_on(False)
@@ -712,21 +725,17 @@ def _draw_day_combination_comparisons(
             spine.set_color("#202020")
         if metric_index == 0:
             axis.set_ylabel("correlation", labelpad=1.0)
-        else:
-            axis.tick_params(axis="y", labelleft=False)
 
         significant = _significant_pairs(statistics.loc[statistics["metric"].eq(metric)])
-        if metric == "ensemble_rate_correlation":
-            base_fraction = data_top / 0.8 + 0.045
-        else:
-            base_fraction = min(0.62, max(0.48, data_top / 0.8 + 0.022))
+        base_height = 0.756 if metric == "ensemble_rate_correlation" else 0.535
+        tier_step = 0.050 if metric == "ensemble_rate_correlation" else 0.040
         for tier, (start, stop, adjusted_p) in enumerate(significant):
-            _draw_accepted_significance_bracket(
+            _draw_compact_comparison_bracket(
                 axis,
                 float(start),
                 float(stop),
                 adjusted_p,
-                y_fraction=base_fraction + 0.075 * tier,
+                height=base_height + tier_step * tier,
             )
         _write_accepted_label(
             figure,
@@ -737,12 +746,42 @@ def _draw_day_combination_comparisons(
         )
 
 
+def _draw_compact_comparison_bracket(
+    axis: plt.Axes, left: float, right: float, adjusted_p: float, *, height: float,
+) -> None:
+    """Center unchanged stars in a gap, without masking observations."""
+    stars = significance_stars(adjusted_p, thresholds=_STAR_THRESHOLDS)
+    if stars == "n.s.":
+        return
+    bounds = axis.get_window_extent()
+    width_mm, height_mm = np.array([bounds.width, bounds.height]) / axis.figure.dpi * 25.4
+    low, high = axis.get_ylim()
+    y = (height - low) / (high - low)
+    glyph = TextPath((0, 0), stars, size=10.0,
+                     prop=FontProperties(family="Arial", weight="bold")).get_extents()
+    mm_per_pt = 25.4 / 72.0
+    half_gap = (glyph.width * mm_per_pt / 2.0 + 0.25) / width_mm * np.ptp(axis.get_xlim())
+    center = (left + right) / 2.0
+    cap = 0.20 / height_mm
+    key = f"compact_{left:g}_{right:g}"
+    for side, x, yy in (
+        ("left", [left, left, center-half_gap], [y-cap, y, y]),
+        ("right", [center+half_gap, right, right], [y, y, y-cap]),
+    ):
+        axis.plot(x, yy, transform=axis.get_xaxis_transform(), color="black",
+                  linewidth=0.6, clip_on=False, zorder=5, gid=f"{key}_{side}")
+    baseline = y - (glyph.y0 + glyph.height/2.0) * mm_per_pt / height_mm
+    axis.text(center, baseline, stars, transform=axis.get_xaxis_transform(),
+              ha="center", va="baseline", fontsize=10.0, fontweight="bold",
+              color="black", clip_on=False, zorder=6, gid=f"{key}_stars")
+
+
 def _draw_maze_context_comparison(
     figure: Figure,
     pair_values: pd.DataFrame,
     statistics: pd.DataFrame,
 ) -> None:
-    """Draw the accepted outside-versus-maze comparison on the shared scale."""
+    """Draw the saved outside-versus-maze comparison on its unchanged scale."""
 
     region_left, region_bottom, region_width, region_height = (
         _ACCEPTED_CONTEXT_REGION_IN
@@ -812,7 +851,7 @@ def _draw_maze_context_comparison(
         )
     axis.set_xticks([0.0, 1.0], ["Outside", "Maze"])
     axis.set_ylim(0.0, 0.8)
-    axis.tick_params(axis="y", labelleft=False)
+    axis.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8])
     axis.tick_params(axis="both", length=2.0, pad=0.8)
     for tick_label in axis.get_xticklabels():
         tick_label.set_clip_on(False)
@@ -824,13 +863,12 @@ def _draw_maze_context_comparison(
         & statistics["estimand"].eq("maze_minus_outside")
     ]
     if not test.empty:
-        data_top = float(max(np.max(outside), np.max(maze)))
-        _draw_accepted_significance_bracket(
+        _draw_compact_comparison_bracket(
             axis,
             0.0,
             1.0,
             float(test.iloc[0]["p_value"]),
-            y_fraction=min(0.96, data_top / 0.8 + 0.02),
+            height=0.80,
         )
     _write_accepted_label(
         figure,

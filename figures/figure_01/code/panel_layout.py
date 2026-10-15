@@ -22,7 +22,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
 from matplotlib.collections import PathCollection
-from matplotlib.container import ErrorbarContainer
+from matplotlib.container import BarContainer, ErrorbarContainer
 from matplotlib.font_manager import FontProperties
 from matplotlib.textpath import TextPath
 from matplotlib.offsetbox import AnnotationBbox, DrawingArea
@@ -149,6 +149,17 @@ def panel_at_final_size(preview, fig, letter):
     sx, sy, sw, sh = SLOTS_MM[letter]
     fig.set_layout_engine(None)
     fig.set_size_inches(sw / 25.4, sh / 25.4)
+    if letter in {"f", "i", "j"}:
+        # Empty bars retain the group color at full opacity; points stay at .72.
+        for ax in fig.axes:
+            for container in ax.containers:
+                if isinstance(container, BarContainer):
+                    for bar in container.patches:
+                        color = bar.get_facecolor()[:3]
+                        bar.set_facecolor("none")
+                        bar.set_edgecolor(color)
+                        bar.set_alpha(1.0)
+                        bar.set_linewidth(.8)
     for ax in fig.axes:
         for text in ax.texts:
             text.set_fontsize(6.5)
@@ -226,7 +237,7 @@ def panel_at_final_size(preview, fig, letter):
             "viewbox_width": sw*MM, "viewbox_height": sh*MM,
             "axes_final_mm": axes,
             "content_bounds_mm": [native_bounds.x0*25.4, native_bounds.y0*25.4, native_bounds.x1*25.4, native_bounds.y1*25.4],
-            "font_sizes_pt": {"axis_labels_and_titles": 6.5, "ticks_and_legend": 6.5, "stars": 6.5}}
+            "font_sizes_pt": {"axis_labels_and_titles": 6.5, "ticks_and_legend": 6.5, "stars": 10.0 if letter in {"f", "i", "j"} else 6.5}}
 
 
 def repack_significance(ax, letter, height_mm):
@@ -241,23 +252,38 @@ def repack_significance(ax, letter, height_mm):
     pairs = [(float(line.get_xdata()[0]), float(line.get_xdata()[2]), text.get_text()) for line, text in zip(brackets, stars)]
     for item in [*brackets, *stars]:
         item.remove()
-    ymin,ymax = (0,7500) if letter == "f" else ((0,6500) if letter == "i" else (.22,1.27))
+    ymin, ymax = (0, 4800) if letter in {"f", "i"} else (0, 1.15)
     ax.set_ylim(ymin, ymax)
-    ax.set_yticks([0, 2000, 4000, 6000] if letter != "j" else [.25,.5,.75,1.0])
-    maximum = max(float(np.asarray(c.get_offsets())[:, 1].max()) for c in ax.collections if len(c.get_offsets()) > 1)
-    first_height = (maximum-ymin) / (ymax-ymin) * height_mm + 1.35
+    ax.set_yticks([0, 2000, 4000] if letter != "j" else [0, .25, .5, .75, 1.0])
+    # Use clear gaps in the displayed observations; comparisons and stars are
+    # inherited unchanged from the saved statistical results above.
+    heights = {
+        "f": {(0, 1): 2660, (0, 2): 3150, (0, 3): 3840, (0, 4): 4650},
+        "i": {(0, 1): 2600, (0, 2): 3800, (1, 2): 1800},
+        "j": {(1, 2): .94, (2, 3): 1.055, (0, 2): 1.105},
+    }[letter]
+    ax.figure.canvas.draw()
+    axis_width_mm = ax.get_window_extent().width / ax.figure.dpi * 25.4
+    xspan = np.diff(ax.get_xlim())[0]
     for idx, (x1, x2, star) in enumerate(pairs):
-        line_mm = first_height + idx * 1.8
-        y = line_mm / height_mm
-        cap = .30 / height_mm
-        start, stop = x1, x2
-        ax.plot([start, start, stop, stop], [y-cap, y, y, y-cap], transform=ax.get_xaxis_transform(), color="black", lw=.65, clip_on=False, gid=f"sig_{letter}_bracket_{idx}")
-        glyph = TextPath((0, 0), star, size=6.5, prop=FontProperties(family="Arial", weight="bold")).get_extents()
-        # Position the visible asterisk glyph, not its empty font descent box.
-        baseline = y + (.30 - glyph.y0/MM)/height_mm
-        ax.text((x1+x2)/2, baseline, star, transform=ax.get_xaxis_transform(), ha="center", va="baseline", fontsize=6.5, fontweight="bold", color="black", clip_on=False, gid=f"sig_{letter}_star_{idx}")
-        glyph_top = line_mm + .30 + glyph.height/MM
-        assert glyph_top < height_mm, (letter, glyph_top, height_mm)
+        y = (heights[(int(x1), int(x2))] - ymin) / (ymax - ymin)
+        cap = .20 / height_mm
+        glyph = TextPath((0, 0), star, size=10.0, prop=FontProperties(family="Arial", weight="bold")).get_extents()
+        center = (x1 + x2) / 2
+        # Split the line around the visible glyphs instead of painting a white
+        # box over it; observations are never masked by the annotation.
+        half_gap = (glyph.width / MM / 2 + .25) / axis_width_mm * xspan
+        ax.plot([x1, x1, center-half_gap], [y-cap, y, y],
+                transform=ax.get_xaxis_transform(), color="black", lw=.6,
+                clip_on=False, gid=f"sig_{letter}_bracket_{idx}_left")
+        ax.plot([center+half_gap, x2, x2], [y, y, y-cap],
+                transform=ax.get_xaxis_transform(), color="black", lw=.6,
+                clip_on=False, gid=f"sig_{letter}_bracket_{idx}_right")
+        baseline = y - (glyph.y0 + glyph.height/2) / MM / height_mm
+        ax.text(center, baseline, star, transform=ax.get_xaxis_transform(),
+                ha="center", va="baseline", fontsize=10.0, fontweight="bold",
+                color="black", clip_on=False, gid=f"sig_{letter}_star_{idx}")
+        assert y * height_mm + glyph.height / MM / 2 < height_mm
 
 
 def native_panels(rebuilder, output):

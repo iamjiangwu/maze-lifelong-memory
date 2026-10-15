@@ -1704,7 +1704,7 @@ def _draw_policy_contributions(
             zorder=2,
         )
     ax.set_yticks(
-        y, [renderer.POLICY_LABEL[str(item)] for item in rows["parameter"]]
+        y, [UPRIGHT_TEXT[renderer.POLICY_LABEL[str(item)]] for item in rows["parameter"]]
     )
     ax.set_xlabel("Exploration efficiency\ndifference", labelpad=1.5)
     ax.set_xlim(-0.04, 0.096)

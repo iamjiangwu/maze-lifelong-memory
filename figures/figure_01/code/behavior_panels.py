@@ -114,6 +114,8 @@ FIGURE1_RETURN_COLOR = "#DA2323"
 FIGURE1_SECOND_DAY_COLOR = "#5B6B7A"
 FIGURE1_PATH_COLOR = "#D82929"
 FIGURE1_LATENT_DAY2_COLOR = "#B3A99B"
+# Use the same observation-marker area in the three bar-and-scatter panels.
+FIGURE1_BAR_SCATTER_AREA = 11.0
 FIGURE1_REWARD_PATH_RUNS = (0, 1, 4, 10, 22, 46, 94)
 # Round 2 scales the accepted round-1 circle diameter, outline, and numeral
 # size linearly by 1.4. Matplotlib scatter ``s`` is area, so it scales by 1.4^2.
@@ -277,7 +279,7 @@ def _render_panel_c(size: tuple[float, float]):
         "panel_size": size,
         "timeline_scatter_alpha": 1,
         "timeline_reference_alpha": 0.3,
-        "timeline_scatter_marker_size": 2.2,
+        "timeline_scatter_marker_size": 0.4,
         "grid_wspace": 0.10,
         "grid_hspace": 0.16,
     }
@@ -342,7 +344,7 @@ def _render_panel_d(size: tuple[float, float]):
             "bar_width": 0.6,
             "bar_alpha": 0.75,
             "bar_linewidth": 0.0,
-            "scatter_size": 15,
+            "scatter_size": FIGURE1_BAR_SCATTER_AREA,
             "scatter_alpha": 0.85,
             "scatter_jitter": 0.06,
             "scatter_seed": 260113,
@@ -472,7 +474,7 @@ def _render_panel_h(size: tuple[float, float]):
             "panel_size": size,
             "timeline_scatter_alpha": 1,
             "timeline_reference_alpha": 0.0,
-            "timeline_scatter_marker_size": 2.2,
+            "timeline_scatter_marker_size": 0.4,
             "grid_wspace": 0.10,
             "grid_hspace": 0.28,
         },
@@ -525,7 +527,7 @@ def _render_panel_i(size: tuple[float, float]):
             "bar_width": 0.6,
             "bar_alpha": 0.78,
             "bar_linewidth": 0.0,
-            "scatter_size": 15,
+            "scatter_size": FIGURE1_BAR_SCATTER_AREA,
             "scatter_alpha": 0.72,
             "scatter_jitter": 0.06,
             "scatter_seed": 260113,
@@ -642,7 +644,7 @@ def _render_panel_route_score(size: tuple[float, float]):
         ax.scatter(
             np.full(len(values), index, dtype=float) + jitter,
             values,
-            s=15,
+            s=FIGURE1_BAR_SCATTER_AREA,
             facecolor=point_colors[group],
             edgecolor="none",
             alpha=0.72,
