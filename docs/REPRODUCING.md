@@ -60,7 +60,6 @@ Table 3 produces a two page PDF from editable definitions.
 PASS means the requested builders completed, not that the command independently
 validated their scientific methods or compared artwork pixels. Statistics
 tables contain newly calculated estimates, confidence intervals and p values.
-Validation evidence and reference artwork are maintained outside this package.
 
 The updated package has been checked on Windows. The workflow includes Windows,
 macOS and Linux jobs, but the previous release's cross platform results do not

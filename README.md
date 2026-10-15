@@ -4,8 +4,7 @@ Source Data and reproduction code for the manuscript by **Jiang Wu, Markus Meist
 
 Use this repository to rebuild the figures, tables and reported statistics from
 the included derived measurements. All inputs required for these plots and
-statistics are included. The raw recordings and the separate raw data analysis
-repository are not part of this public release.
+statistics are included.
 
 ## Background
 
