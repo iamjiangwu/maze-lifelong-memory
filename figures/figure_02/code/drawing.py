@@ -547,7 +547,10 @@ def _draw_recurrence(
             axis.xaxis.set_major_formatter(FormatStrFormatter("%.1f"))
             axis.yaxis.set_major_formatter(FormatStrFormatter("%.1f"))
     q_value = float(statistic["p_bh4"])
-    axis.text(0.08, 0.91, _star_label(q_value), transform=axis.transAxes, ha="left", va="top", fontsize=11.745, color="black", fontweight="bold")
+    significance = _star_label(q_value)
+    # Match Figure 3's approximately 6.55 pt n.s. label after page scaling.
+    label_size = 5.62 if metric == "rate" and significance == "n.s." else 11.745
+    axis.text(0.08, 0.91, significance, transform=axis.transAxes, ha="left", va="top", fontsize=label_size, color="black", fontweight="bold")
     axis.set_xlim(*limits)
     axis.set_ylim(*limits)
     axis.set_xlabel("Previous gap correlation")
