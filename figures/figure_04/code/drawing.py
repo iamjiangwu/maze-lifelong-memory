@@ -69,7 +69,10 @@ _ARTIFACT = "main_figure_4"
 
 _RECORD_COLOR = "#e29957"
 
-_RECORD_REFERENCE_COLOR = "#C4C4C4"
+_RECORD_REFERENCE_COLOR = "#8DAFC0"
+
+# The same control color is used for bars, map outlines and shuffle references.
+_CONTROL_OUTLINE_COLOR = _RECORD_REFERENCE_COLOR
 
 _RECORD_FIGURE_SIZE = (7.50, 4.00)
 
@@ -580,9 +583,10 @@ def _draw_error_map(
                 1.10,
                 1.10,
                 fill=False,
-                edgecolor=_RECORD_REFERENCE_COLOR,
-                linewidth=1.45,
-                path_effects=[path_effects.Stroke(linewidth=2.25, foreground="white"), path_effects.Normal()],
+                edgecolor=_CONTROL_OUTLINE_COLOR,
+                linewidth=1.65,
+                path_effects=[path_effects.Stroke(linewidth=2.65, foreground="white"), path_effects.Normal()],
+                gid=f"control_bin_{int(row['bx'])}_{int(row['by'])}",
                 zorder=6,
             )
         )
@@ -671,6 +675,22 @@ def _draw_standardized_route_results(
             axis.tick_params(labelsize=4.8, pad=1)
         axes[0].set_ylabel("Neurons", fontsize=5.2)
         axes[1].tick_params(labelleft=False)
+        # Saved rows retain the Day-i peak order; physical bin 21 is the port.
+        # The departure view reverses columns only, never the row selection.
+        source = np.asarray(bundle.heatmaps[group][0])
+        if source.ndim != 2 or source.shape[1] != 22 or not np.isfinite(source).all():
+            raise ValueError("Reward markers require finite 22-bin Day-i maps")
+        reward_rows = np.argmax(source, axis=1) == 21
+        count = int(reward_rows.sum())
+        if not np.array_equal(reward_rows, np.arange(len(source)) < count):
+            raise ValueError("Day-i bin-21 peaks must form the existing bottom block")
+        if count:
+            axes[1].add_patch(Rectangle(
+                (-0.085 if reverse else 1.03, 0.0), 0.055, count / len(source),
+                transform=axes[1].transAxes, facecolor=plt.get_cmap("cividis")(1.0),
+                alpha=0.65, edgecolor="none", clip_on=False, zorder=1.5,
+                gid=f"{group}_day_i_bin21_rows",
+            ))
         axis = _axis_in_bounds(
             figure, bounds, (x0 + 2 * 0.130 + 0.009, 0.20, 0.100, 0.64)
         )
