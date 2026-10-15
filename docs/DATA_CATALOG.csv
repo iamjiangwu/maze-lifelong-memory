@@ -133,4 +133,4 @@ ed10,figures/extended_data_10/data/panel_c_values.csv,70538,"columns: record_typ
 table1,tables/table_01/data/current_rows.json,15497,"keys: schema_version,source_boundary,title,headers,rows,authority,footnote"
 table2,tables/table_02/data/publication_notes.json,754,list: 4 items
 table2,tables/table_02/data/recording_intervals.csv,6192,"columns: Animal ID,Return month,Previous nominal month,Preceding Day i session,Preceding Day i+1 session,Preceding Day i+1 date,Return Day i session,Return Day i date,Interval (d),Fixed-month behavior return roster,Maintained calcium imaging,Pair key,Schedule note"
-table3,tables/table_03/data/glossary.json,5645,"keys: title,pages"
+table3,tables/table_03/data/glossary.json,5778,"keys: title,pages"

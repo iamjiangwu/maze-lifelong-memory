@@ -38,7 +38,7 @@
         },
         {
           "term": "Exploration",
-          "meaning": "Trajectory segments not classified as reward-directed or home-directed travel. These modes follow direct routes to the water port (in rewarded sessions) or home with all correct turns. Exploration efficiency and turning biases are measured during exploration."
+          "meaning": "Trajectory segments not classified as reward-directed or home-directed travel. Reward-directed travel follows direct routes to the water port with all correct turns in rewarded sessions; home-directed travel follows direct routes home with all correct turns. Exploration efficiency and turning biases are measured during exploration."
         },
         {
           "term": "Long bout",
@@ -63,7 +63,7 @@
       "entries": [
         {
           "term": "Deconvolved activity",
-          "meaning": "The nonnegative estimate of neuronal activity obtained by deconvolving the recorded fluorescence. Activity in the neural analyses refers to this estimate."
+          "meaning": "The nonnegative estimate of neuronal activity obtained by deconvolving the recorded fluorescence using an exponential-decay model of calcium indicator dynamics. Activity in the neural analyses refers to this estimate."
         },
         {
           "term": "Frame",
@@ -99,7 +99,7 @@
         },
         {
           "term": "Decoding error and reward decoding error",
-          "meaning": "A decoder trained on the earlier (source) session estimates position in the later (target) session. Decoding error is the mean straight-line distance, in tiles, between decoded and observed positions. Reward decoding error is measured in the tile next to the rewarded end node."
+          "meaning": "A decoder trained on the earlier (source) session estimates position in the later (target) session. Decoding error is the mean Euclidean distance, in tiles, between decoded and observed positions. Reward decoding error is measured in the tile next to the rewarded end node."
         }
       ]
     }

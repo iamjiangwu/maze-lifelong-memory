@@ -179,7 +179,7 @@
       "title": "Glossary of behavioral and neural measures",
       "description": "Definitions of the 23 behavioral and neural measures used in the paper.",
       "builder": "glossary",
-      "publication_pdf_sha256": "2d9581fdb8c0553d89129952dc407a44b7bd47c7a49137c2307577a4e4e78565"
+      "publication_pdf_sha256": "7af8e2978d11457cfca332297c2a9558a3605612c641ba13de40c101555f4510"
     }
   ],
   "files": [
@@ -1522,13 +1522,13 @@
     },
     {
       "repository_path": "tables/table_03/code/glossary.py",
-      "sha256": "e7cdd61fb092d28e1ae7c3486049622acc0baf55d4f1801c254a6f75118ff004",
-      "bytes": 4251
+      "sha256": "c7e7cb869986f54964bbfd1ff1d1f05e004cc88b69b2ff217af332f53ac22408",
+      "bytes": 3848
     },
     {
       "repository_path": "tables/table_03/data/glossary.json",
-      "sha256": "db0b6111d16cf0f61a82b2365f269f93ce2a759b39e3ca4053fcd57d142ac8f2",
-      "bytes": 5645
+      "sha256": "d549dffc600ef01e7f34728f36a19a16bca9650ba70250d672e0351dc3771565",
+      "bytes": 5778
     },
     {
       "repository_path": "tests/browser_smoke.py",
