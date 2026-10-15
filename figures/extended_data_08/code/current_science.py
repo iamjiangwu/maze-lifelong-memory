@@ -439,10 +439,11 @@ def _draw_compact_tick(axis: Axes, left: float, right: float, height: float, tex
     low,high=axis.get_ylim()
     y=(height-low)/(high-low)
     weight="normal" if text=="n.s." else "bold"
-    # Preserve the page's existing annotation size: b's pairs are only 2.89mm wide.
-    glyph=TextPath((0,0),text,size=5.4,prop=FontProperties(family="Arial",weight=weight)).get_extents()
+    fontsize=5.4 if text=="n.s." else 10.0
+    padding_mm=.25
+    glyph=TextPath((0,0),text,size=fontsize,prop=FontProperties(family="Arial",weight=weight)).get_extents()
     mm_per_pt=25.4/72.0
-    half_gap=(glyph.width*mm_per_pt/2+.25)/width_mm*np.ptp(axis.get_xlim())
+    half_gap=(glyph.width*mm_per_pt/2+padding_mm)/width_mm*np.ptp(axis.get_xlim())
     assert half_gap < (right-left)/2, "Comparison span cannot contain its label"
     center=(left+right)/2
     cap=.20/height_mm
@@ -453,7 +454,7 @@ def _draw_compact_tick(axis: Axes, left: float, right: float, height: float, tex
               color="black",lw=.6,clip_on=False,zorder=8,gid=key+"_right")
     baseline=y-(glyph.y0+glyph.height/2)*mm_per_pt/height_mm
     axis.text(center,baseline,text,transform=axis.get_xaxis_transform(),ha="center",va="baseline",
-              fontsize=5.4,fontweight=weight,color="black",clip_on=False,zorder=9,gid=key+"_text")
+              fontsize=fontsize,fontweight=weight,color="black",clip_on=False,zorder=9,gid=key+"_text")
 
 
 def _draw_map_water_drop(axis: Axes, x: float, y: float, size: float) -> None:
@@ -602,7 +603,8 @@ def plot_balanced_decoder(values: pd.DataFrame) -> Figure:
             display_rows["source_variant"].eq(variant)
             & display_rows["balance_method"].eq(method)
         ]
-        reward_x, control_x = center - 0.11, center + 0.11
+        # More within-pair space fits 10 pt stars while group centers stay fixed.
+        reward_x, control_x = center - 0.20, center + 0.20
         for row in frame.itertuples(index=False):
             axis.plot(
                 [reward_x, control_x],

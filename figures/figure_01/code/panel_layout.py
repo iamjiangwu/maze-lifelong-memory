@@ -237,7 +237,7 @@ def panel_at_final_size(preview, fig, letter):
             "viewbox_width": sw*MM, "viewbox_height": sh*MM,
             "axes_final_mm": axes,
             "content_bounds_mm": [native_bounds.x0*25.4, native_bounds.y0*25.4, native_bounds.x1*25.4, native_bounds.y1*25.4],
-            "font_sizes_pt": {"axis_labels_and_titles": 6.5, "ticks_and_legend": 6.5, "stars": 6.5}}
+            "font_sizes_pt": {"axis_labels_and_titles": 6.5, "ticks_and_legend": 6.5, "stars": 10.0 if letter in {"f", "i", "j"} else 6.5}}
 
 
 def repack_significance(ax, letter, height_mm):
@@ -268,7 +268,7 @@ def repack_significance(ax, letter, height_mm):
     for idx, (x1, x2, star) in enumerate(pairs):
         y = (heights[(int(x1), int(x2))] - ymin) / (ymax - ymin)
         cap = .20 / height_mm
-        glyph = TextPath((0, 0), star, size=6.5, prop=FontProperties(family="Arial", weight="bold")).get_extents()
+        glyph = TextPath((0, 0), star, size=10.0, prop=FontProperties(family="Arial", weight="bold")).get_extents()
         center = (x1 + x2) / 2
         # Split the line around the visible glyphs instead of painting a white
         # box over it; observations are never masked by the annotation.
@@ -281,7 +281,7 @@ def repack_significance(ax, letter, height_mm):
                 clip_on=False, gid=f"sig_{letter}_bracket_{idx}_right")
         baseline = y - (glyph.y0 + glyph.height/2) / MM / height_mm
         ax.text(center, baseline, star, transform=ax.get_xaxis_transform(),
-                ha="center", va="baseline", fontsize=6.5, fontweight="bold",
+                ha="center", va="baseline", fontsize=10.0, fontweight="bold",
                 color="black", clip_on=False, gid=f"sig_{letter}_star_{idx}")
         assert y * height_mm + glyph.height / MM / 2 < height_mm
 

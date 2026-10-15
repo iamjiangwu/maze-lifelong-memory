@@ -496,12 +496,17 @@ def _draw_paired_decoder_comparison(
     axis.set_yticks((0.0, 5.0, 10.0))
     bracket_y = 11.32 / 11.5
     width_mm, height_mm = axis.get_window_extent().size / axis.figure.dpi * 25.4
-    glyph = TextPath((0, 0), _significance_mark(p_value), size=6.5,
+    glyph = TextPath((0, 0), _significance_mark(p_value), size=10.0,
                      prop=FontProperties(family="Arial", weight="bold")).get_extents()
     points_per_mm = 72.0 / 25.4
     half_gap = (glyph.width / points_per_mm / 2 + 0.25) / width_mm * 2.0
     cap = 0.20 / height_mm
-    assert bracket_y * height_mm + glyph.height / points_per_mm / 2 < height_mm
+    # The enlarged star extends slightly into the blank margin above the data axes.
+    # Keep the fixed axes/bracket geometry and check the containing page instead.
+    star_top = axis.get_window_extent().y0 + (
+        bracket_y * height_mm + glyph.height / points_per_mm / 2
+    ) / 25.4 * axis.figure.dpi
+    assert star_top < axis.figure.bbox.y1
     # A real gap in the line leaves the star legible without masking data.
     axis.plot(
         (0, 0, 0.5-half_gap),
@@ -526,8 +531,9 @@ def _draw_paired_decoder_comparison(
         transform=axis.get_xaxis_transform(),
         ha="center",
         va="baseline",
-        fontsize=6.5,
+        fontsize=10.0,
         fontweight="bold",
+        clip_on=False,
         gid=f"decoder_comparison_{left_column}_star",
     )
     despine(axis)

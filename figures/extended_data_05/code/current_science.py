@@ -728,7 +728,7 @@ def _draw_day_combination_comparisons(
 
         significant = _significant_pairs(statistics.loc[statistics["metric"].eq(metric)])
         base_height = 0.756 if metric == "ensemble_rate_correlation" else 0.535
-        tier_step = 0.020 if metric == "ensemble_rate_correlation" else 0.040
+        tier_step = 0.050 if metric == "ensemble_rate_correlation" else 0.040
         for tier, (start, stop, adjusted_p) in enumerate(significant):
             _draw_compact_comparison_bracket(
                 axis,
@@ -757,7 +757,7 @@ def _draw_compact_comparison_bracket(
     width_mm, height_mm = np.array([bounds.width, bounds.height]) / axis.figure.dpi * 25.4
     low, high = axis.get_ylim()
     y = (height - low) / (high - low)
-    glyph = TextPath((0, 0), stars, size=6.5,
+    glyph = TextPath((0, 0), stars, size=10.0,
                      prop=FontProperties(family="Arial", weight="bold")).get_extents()
     mm_per_pt = 25.4 / 72.0
     half_gap = (glyph.width * mm_per_pt / 2.0 + 0.25) / width_mm * np.ptp(axis.get_xlim())
@@ -772,7 +772,7 @@ def _draw_compact_comparison_bracket(
                   linewidth=0.6, clip_on=False, zorder=5, gid=f"{key}_{side}")
     baseline = y - (glyph.y0 + glyph.height/2.0) * mm_per_pt / height_mm
     axis.text(center, baseline, stars, transform=axis.get_xaxis_transform(),
-              ha="center", va="baseline", fontsize=6.5, fontweight="bold",
+              ha="center", va="baseline", fontsize=10.0, fontweight="bold",
               color="black", clip_on=False, zorder=6, gid=f"{key}_stars")
 
 

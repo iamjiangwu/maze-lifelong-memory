@@ -320,7 +320,8 @@ def draw_significance_bracket(
     box = ax.get_window_extent()
     width_mm, height_mm = box.width / ax.figure.dpi * 25.4, box.height / ax.figure.dpi * 25.4
     weight = "normal" if stars == "n.s." else "bold"
-    glyph = TextPath((0, 0), stars, size=6.5,
+    label_size = 6.5 if stars == "n.s." else 10.0
+    glyph = TextPath((0, 0), stars, size=label_size,
                      prop=FontProperties(family="Arial", weight=weight)).get_extents()
     center = (x_left + x_right) / 2
     half_gap = (glyph.width / (72 / 25.4) / 2 + .25) / width_mm * np.diff(ax.get_xlim())[0]
@@ -339,7 +340,7 @@ def draw_significance_bracket(
         transform=ax.get_xaxis_transform(),
         ha="center",
         va="baseline",
-        fontsize=6.5,
+        fontsize=label_size,
         fontweight=weight,
         color="black",
         clip_on=False,

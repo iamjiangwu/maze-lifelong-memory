@@ -290,7 +290,7 @@ def _compact_acquisition_annotations(axes: Sequence[plt.Axes]) -> None:
         width_mm, height_mm = box.width / pixels_per_mm, box.height / pixels_per_mm
         span_x = np.diff(axis.get_xlim())[0]
         for number, (left, right, label) in enumerate(comparisons):
-            glyph = TextPath((0, 0), label, size=6.5,
+            glyph = TextPath((0, 0), label, size=10.0,
                              prop=FontProperties(family="Arial", weight="bold")).get_extents()
             center = (left + right) / 2
             gap = (glyph.width / (72 / 25.4) / 2 + .25) / width_mm * span_x
@@ -304,7 +304,7 @@ def _compact_acquisition_annotations(axes: Sequence[plt.Axes]) -> None:
                       clip_on=False, zorder=5, gid=f"compact_{index}_{number}_right")
             baseline = height - (glyph.y0+glyph.height/2) / (72/25.4) / height_mm
             axis.text(center, baseline, label, transform=axis.get_xaxis_transform(),
-                      ha="center", va="baseline", fontsize=6.5, fontweight="bold",
+                      ha="center", va="baseline", fontsize=10.0, fontweight="bold",
                       color="black", clip_on=False, zorder=6)
 
 

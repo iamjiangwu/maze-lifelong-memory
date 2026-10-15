@@ -419,7 +419,8 @@ def _draw_record_bracket(
     low,high=axis.get_ylim()
     y=(height-low)/(high-low)
     weight="normal" if text=="n.s." else "bold"
-    glyph=TextPath((0,0),text,size=6.5,prop=FontProperties(family="Arial",weight=weight)).get_extents()
+    fontsize=6.5 if text=="n.s." else 10.0
+    glyph=TextPath((0,0),text,size=fontsize,prop=FontProperties(family="Arial",weight=weight)).get_extents()
     mm_per_pt=25.4/72.0
     half_gap=(glyph.width*mm_per_pt/2+.25)/width_mm*np.ptp(axis.get_xlim())
     center=(left+right)/2
@@ -431,7 +432,7 @@ def _draw_record_bracket(
               color="black",lw=.6,clip_on=False,zorder=10,gid=key+"_right")
     baseline=y-(glyph.y0+glyph.height/2)*mm_per_pt/height_mm
     axis.text(center,baseline,text,transform=axis.get_xaxis_transform(),ha="center",va="baseline",
-              fontsize=6.5,fontweight=weight,color="black",clip_on=False,zorder=11,gid=key+"_text")
+              fontsize=fontsize,fontweight=weight,color="black",clip_on=False,zorder=11,gid=key+"_text")
 
 
 def _draw_record_partition(axis: Axes, representation: str, title: str) -> None:
@@ -920,7 +921,7 @@ def _draw_recurrence_axis(
         ha="left",
         va="top",
         color="black",
-        fontsize=8.0,
+        fontsize=13.0,
         fontweight="bold",
     )
     _style_record_axis(axis)
@@ -1052,7 +1053,7 @@ def _draw_experience_axis(
         ha="left",
         va="top",
         color="black",
-        fontsize=8.0,
+        fontsize=13.0,
         fontweight="bold",
     )
     _style_record_axis(axis)
@@ -1100,9 +1101,10 @@ def _draw_level_decoder(axis: Axes, values: pd.DataFrame, inference: Mapping[str
     axis.set(xticks=[0,1],xticklabels=['Data','Shuffle'],ylabel='Decoding accuracy',ylim=(0,.62),yticks=[0,.2,.4,.6],xlim=(-.5,1.5))
     # Keep the same comparison and stars; only their physical arrangement changes.
     stars = _significance_marks(p)
+    fontsize = 6.5 if stars == "n.s." else 10.0
     bounds = axis.get_window_extent()
     width_mm, height_mm = np.array([bounds.width,bounds.height]) / axis.figure.dpi * 25.4
-    glyph = TextPath((0,0),stars,size=6.5,
+    glyph = TextPath((0,0),stars,size=fontsize,
                      prop=FontProperties(family='Arial',weight='bold')).get_extents()
     mm_per_pt = 25.4/72.
     half_gap = (glyph.width*mm_per_pt/2+.25)/width_mm*np.ptp(axis.get_xlim())
@@ -1113,7 +1115,7 @@ def _draw_level_decoder(axis: Axes, values: pd.DataFrame, inference: Mapping[str
               color='black',lw=.6,clip_on=False,zorder=10,gid='decoder_compact_right')
     baseline = y-(glyph.y0+glyph.height/2)*mm_per_pt/height_mm
     axis.text(.5,baseline,stars,transform=axis.get_xaxis_transform(),ha='center',
-              va='baseline',fontsize=6.5,fontweight='bold',color='black',clip_on=False,
+              va='baseline',fontsize=fontsize,fontweight='bold',color='black',clip_on=False,
               zorder=11,gid='decoder_compact_stars')
 
 
