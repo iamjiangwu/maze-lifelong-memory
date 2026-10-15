@@ -551,7 +551,7 @@ def _draw_preferred_level_distance_axis(
         values.distance["shift_distance"].between(1, 6)
     ].sort_values("shift_distance")
     x_values = shown["shift_distance"].to_numpy(dtype=float)
-    axis.plot(
+    observed_line, = axis.plot(
         x_values,
         shown["observed_fraction"],
         color=_LEVEL_COLOR,
@@ -565,7 +565,7 @@ def _draw_preferred_level_distance_axis(
         shown["shuffle_ci_high"].to_numpy(dtype=float)
         - shown["shuffle_ci_low"].to_numpy(dtype=float)
     ) / (2.0 * 1.96)
-    axis.errorbar(
+    null_errors = axis.errorbar(
         x_values,
         shown["shuffle_fraction"],
         yerr=shuffle_error,
@@ -586,6 +586,9 @@ def _draw_preferred_level_distance_axis(
     axis.xaxis.label.set_x(0.45625)
     axis.set_ylabel("Fraction of shifted cells")
     axis.legend(
+        # Keep the plotted error bars; show only the series line in the key.
+        handles=[observed_line, null_errors.lines[0]],
+        labels=["Observed", "ID null"],
         frameon=False,
         fontsize=5.8,
         loc="upper right",

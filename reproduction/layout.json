@@ -139,7 +139,7 @@
       "title": "Additional analyses of the persistent level code",
       "description": "Level PV and level map persistence, level decoding and preferred level changes; spatial partition and within-level shuffle comparisons; level map dynamics across gaps and experience.",
       "builder": "derived",
-      "publication_pdf_sha256": "e6f0398e588a085ce38553aff592c2e0742b449383853d5774c0b1633f219b74"
+      "publication_pdf_sha256": "774185151c8d0b6c9c6b1bea66b36727f57ad5c52d2bec44ee44b202b48bafe6"
     },
     {
       "artifact_id": "extended_data_figure_10",
@@ -736,8 +736,8 @@
     },
     {
       "repository_path": "figures/extended_data_09/code/current_science.py",
-      "sha256": "cad8034b603dd6da3b0a27001863db21ebf48f1e81fc255d4dd7d7b7624bfbdf",
-      "bytes": 48363
+      "sha256": "36d2917f308d273b680012d7b12e8efb8f01959fc0c2f716fa71149268c8604b",
+      "bytes": 48569
     },
     {
       "repository_path": "figures/extended_data_09/code/derived_panels.py",
