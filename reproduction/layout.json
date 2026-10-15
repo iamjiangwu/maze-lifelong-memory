@@ -19,7 +19,7 @@
       "title": "CA1 retains a persistent trace after long periods without maze experience",
       "description": "Place map, population vector (PV) and ensemble rate correlations across long gaps, days apart and successive gaps, with matched neuron examples and neuron ID shuffles.",
       "builder": "derived",
-      "publication_pdf_sha256": "c9254d86c77227937693149e5b2686d27ebe33694e909fbae64587d161786a98"
+      "publication_pdf_sha256": "72f0cdc1e68f7808df1202c8517c2f42eb20fea136bd876143bb748e9bfb68d1"
     },
     {
       "artifact_id": "main_figure_3",
@@ -1056,8 +1056,8 @@
     },
     {
       "repository_path": "figures/figure_02/code/drawing.py",
-      "sha256": "0c9e01211299312d38e9dcb6eebcb12510d320f00a986f2f952b737dbacc61f9",
-      "bytes": 43433
+      "sha256": "f6a923193fe98508cca1d75c5328674755b8a6983cb2094aeaf8a3cd298d74b5",
+      "bytes": 44378
     },
     {
       "repository_path": "figures/figure_02/code/inference.py",

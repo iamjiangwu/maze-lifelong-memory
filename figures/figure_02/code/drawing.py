@@ -42,8 +42,11 @@ _CANVAS_SIZE_INCHES = (6.08, 7.058683289588801)
 _EXPORT_WIDTH_MM = 180.0
 _TOP_ROW_SHIFT_INCHES = 7.0 / 300.0
 _EXAMPLE_HEADER_INCHES = 0.12
+# Align the two image-row centers with b while preserving image dimensions.
+_CONTEXT_IMAGE_SHIFT_INCHES = 0.0955
+_CONTEXT_IMAGE_GAP_INCHES = 0.0475
 _TOP_SLOTS = {
-    "context": (0.048486439195100615, 0.04500218722659668 + _TOP_ROW_SHIFT_INCHES, 1.4323129921259843, 2.1070395888014),
+    "context": (0.048486439195100615, 0.04500218722659668 + _TOP_ROW_SHIFT_INCHES + _CONTEXT_IMAGE_SHIFT_INCHES, 1.4323129921259843, 2.1070395888014 + _CONTEXT_IMAGE_GAP_INCHES),
     "example_labels": (1.4199792213473317, _TOP_ROW_SHIFT_INCHES, 0.125, 2.3166218285214346),
     "example_1": (1.5450, _TOP_ROW_SHIFT_INCHES, 1.0791458880139984, 2.3166218285214346),
     "example_2": (2.7072189413823273, _TOP_ROW_SHIFT_INCHES, 1.0791458880139984, 2.3166218285214346),
@@ -176,7 +179,8 @@ def _star_label(p_value: float) -> str:
 def _render_context_images(data: ContextImages) -> plt.Figure:
     """Draw the accepted two-session local-correlation example."""
 
-    figure = plt.figure(figsize=(_TOP_SLOTS["context"][2], _TOP_SLOTS["context"][3]), facecolor="none")
+    original_height = _TOP_SLOTS["context"][3] - _CONTEXT_IMAGE_GAP_INCHES
+    figure = plt.figure(figsize=(_TOP_SLOTS["context"][2], original_height), facecolor="none")
     axes = (
         figure.add_axes([0.055, 0.506, 0.940, 0.492]),
         figure.add_axes([0.055, 0.006, 0.940, 0.492]),
@@ -199,6 +203,15 @@ def _render_context_images(data: ContextImages) -> plt.Figure:
         axis.text(-0.060, 0.50, label, transform=axis.transAxes, rotation=90, ha="center", va="center", fontsize=8.0, clip_on=False)
     axes[1].plot((295.0, 355.0), (278.0, 278.0), color="white", linewidth=2.4, solid_capstyle="butt", clip_on=False)
     axes[1].text(312.0, 268.0, "100 µm", color="white", fontsize=6.4, ha="center", va="bottom", clip_on=False)
+    # Add space between rows, rather than stretching either image. The first
+    # row retains its distance from the top; the second sits slightly lower.
+    positions = [axis.get_position().bounds for axis in axes]
+    new_height = original_height + _CONTEXT_IMAGE_GAP_INCHES
+    figure.set_size_inches(figure.get_size_inches()[0], new_height)
+    for row, (axis, (x, y, width, height)) in enumerate(zip(axes, positions, strict=True)):
+        added_below = _CONTEXT_IMAGE_GAP_INCHES if row == 0 else 0.0
+        axis.set_position((x, (y * original_height + added_below) / new_height,
+                           width, height * original_height / new_height))
     return figure
 
 
