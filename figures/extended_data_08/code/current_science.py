@@ -35,6 +35,7 @@ from matplotlib.textpath import TextPath
 from PIL import Image
 from pypdf import PageObject, PdfReader, PdfWriter, Transformation
 from release_rendering.plotting import *
+from release_rendering.plotting import draw_water_port_icon
 from release_rendering.statistics import *
 from release_rendering.maze import build_maze, run_path_between
 from release_rendering.types import FigureAssemblyResult, PanelResult, RunMode
@@ -173,7 +174,7 @@ _ALTERNATIVE_ROUTE_BINS = {"2_to_water": 19, "3_to_water": 15}
 _PV_COLOR = "#E29957"
 
 
-_CONTROL_COLOR = "#C4C4C4"
+_CONTROL_COLOR = "#8DAFC0"
 
 
 _HOME_COLOR = "#587785"
@@ -457,24 +458,6 @@ def _draw_compact_tick(axis: Axes, left: float, right: float, height: float, tex
               fontsize=fontsize,fontweight=weight,color="black",clip_on=False,zorder=9,gid=key+"_text")
 
 
-def _draw_map_water_drop(axis: Axes, x: float, y: float, size: float) -> None:
-    """Draw the panel a drop in maze coordinates (inverted y axis, tip up), as released."""
-
-    vertices = np.asarray(
-        [(0.0, -1.0), (-0.9, 0.05), (-0.65, 0.9), (0.0, 0.9), (0.65, 0.9), (0.9, 0.05), (0.0, -1.0)]
-    ) * size + np.asarray([x, y])
-    codes = [MatplotlibPath.MOVETO] + [MatplotlibPath.CURVE4] * 6
-    axis.add_patch(
-        PathPatch(
-            MatplotlibPath(vertices, codes),
-            facecolor="#36A3FF",
-            edgecolor="none",
-            clip_on=False,
-            zorder=10,
-        )
-    )
-
-
 def _vor_route_polyline(route: str) -> FloatArray:
     """Return VOR display coordinates from E's canonical maze graph."""
 
@@ -490,7 +473,9 @@ def _vor_route_polyline(route: str) -> FloatArray:
     return np.asarray(points, dtype=float)
 
 
-def plot_decoder_error_map(values: pd.DataFrame) -> Figure:
+def plot_decoder_error_map(
+    values: pd.DataFrame, *, control_color: str = _CONTROL_COLOR
+) -> Figure:
     """Draw the equal-animal error map in the accepted maze-view grammar."""
     import matplotlib.patheffects as path_effects
 
@@ -539,8 +524,12 @@ def plot_decoder_error_map(values: pd.DataFrame) -> Figure:
                 outline_size,
                 outline_size,
                 fill=False,
-                edgecolor="#C4C4C4",
-                linewidth=1.45,
+                edgecolor=control_color,
+                linewidth=2.00,
+                path_effects=[
+                    path_effects.Stroke(linewidth=3.21, foreground="white"),
+                    path_effects.Normal(),
+                ],
                 zorder=7,
             )
         )
@@ -554,20 +543,24 @@ def plot_decoder_error_map(values: pd.DataFrame) -> Figure:
             outline_size,
             fill=False,
             edgecolor=_PV_COLOR,
-            linewidth=1.45,
+            linewidth=1.76,
+            path_effects=[
+                path_effects.Stroke(linewidth=2.73, foreground="white"),
+                path_effects.Normal(),
+            ],
             zorder=8,
         )
     )
     axis.set_xlim(-0.5, 14.5)
-    for patch in axis.patches:
-        patch.set_path_effects([
-            path_effects.Stroke(linewidth=patch.get_linewidth()+.8, foreground="white"),
-            path_effects.Normal(),
-        ])
     axis.set_ylim(14.5, -0.5)
     axis.set_aspect("equal")
     axis.axis("off")
-    _draw_map_water_drop(axis, 15.25, float(DECODER_TARGET_BIN // GRID_SIZE), 0.42)
+    reward_axes_y = axis.transAxes.inverted().transform(
+        axis.transData.transform(
+            (float(DECODER_TARGET_BIN % GRID_SIZE), float(DECODER_TARGET_BIN // GRID_SIZE))
+        )
+    )[1]
+    draw_water_port_icon(axis, y_axes=float(reward_axes_y))
     colorbar = figure.colorbar(artist, cax=color_axis, orientation="vertical")
     colorbar.set_ticks([2, 6, 10, 14])
     colorbar.set_label("Decoding error (bins)", fontsize=6.0, labelpad=1.0)
@@ -731,7 +724,7 @@ def plot_pv_recurrence(values: pd.DataFrame) -> Figure:
             axis.plot(
                 [0, 1],
                 row,
-                color=_CONTROL_COLOR,
+                color="#C4C4C4",
                 alpha=0.16,
                 lw=0.42,
                 ls="--",
@@ -1400,7 +1393,7 @@ def balanced_contrast_tests(animal: pd.DataFrame) -> pd.DataFrame:
     return result
 
 
-ORANGE, BROWN, GRAY = "#E29957", "#B96B2C", "#C4C4C4"
+ORANGE, BROWN, GRAY = "#E29957", "#B96B2C", _CONTROL_COLOR
 
 
 STYLE = {
@@ -1667,7 +1660,7 @@ def plot_reward_delivery_route_control(
             index="animal", columns="group", values="advantage"
         ).reset_index()
         _paired(
-            axis, rows, ("rewarded", "timeout"), (0, 1), (ORANGE, BROWN), ("o", "s")
+            axis, rows, ("rewarded", "timeout"), (0, 1), (ORANGE, ORANGE), ("o", "s")
         )
         axis.set(
             xlim=(-0.5, 1.5),

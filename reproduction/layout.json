@@ -39,7 +39,7 @@
       "title": "The reward location anchors selective place stability",
       "description": "Cross-session spatial decoding and standardized route PV correlations; reward decoding error paired with first long bout time in the later session.",
       "builder": "derived",
-      "publication_pdf_sha256": "db253a8326a141d6c64c760ce027829cbf3db228ebab635819f49534ddbec6d6"
+      "publication_pdf_sha256": "8b0f3084af5652ca62895cc2fde92a75294708112cd4b376a6bb12b53927a8da"
     },
     {
       "artifact_id": "main_figure_5",
@@ -49,7 +49,7 @@
       "title": "A compact structural code predicts memory guided exploration",
       "description": "Level maps and level PV correlations across a long gap, and the relationship between preserved level map correlation and exploration efficiency on return (panel e).",
       "builder": "derived",
-      "publication_pdf_sha256": "467e2d22edc6215c9b81653cd4d15e52724aae7a755e6245f0114d99e3f5b43b"
+      "publication_pdf_sha256": "e58b5d8f4978838be27ab8a3b88882e9e5fb85d58a306432e24cf0b5366a8e7c"
     },
     {
       "artifact_id": "extended_data_figure_1",
@@ -129,7 +129,7 @@
       "title": "Reward code stability across sampling and route controls",
       "description": "Reward and control location decoding and PV correlations; standardized route PV correlations with reliability, sampling, reward delivery, route and direction comparisons.",
       "builder": "derived",
-      "publication_pdf_sha256": "e96b381ca552f22475416c0676f8326988091c63688029c8d87a349790742031"
+      "publication_pdf_sha256": "53cdc4c9d168b6676054f2ae7fb9cef260e2bf6f8ffd533a295ec89bffa63076"
     },
     {
       "artifact_id": "extended_data_figure_9",
@@ -676,8 +676,8 @@
     },
     {
       "repository_path": "figures/extended_data_08/code/current_science.py",
-      "sha256": "cbf220a74329280900aca3aff38871ddb293f53cf55ece98989d96277d80cb38",
-      "bytes": 60610
+      "sha256": "a6c534125d22a13e403aa9f5a0148eca9df3492a79ae1265397245073a4e9b8b",
+      "bytes": 60402
     },
     {
       "repository_path": "figures/extended_data_08/code/derived_panels.py",
@@ -1211,8 +1211,8 @@
     },
     {
       "repository_path": "figures/figure_04/code/drawing.py",
-      "sha256": "d62202d5f3fe8200f274e590a30296177aec994495e805f460017a135822cf36",
-      "bytes": 30682
+      "sha256": "1fd8e9edf2393f6aa6ef29abe58326dc75ed28831a37d0665445d362ddb17258",
+      "bytes": 31876
     },
     {
       "repository_path": "figures/figure_04/code/inference.py",
@@ -1271,8 +1271,8 @@
     },
     {
       "repository_path": "figures/figure_05/code/drawing.py",
-      "sha256": "1368b2a0384574e9d4726f8be40adca0c7c9f7b1728386e65838d54f6eba11f0",
-      "bytes": 26618
+      "sha256": "0648f31a72f79490c9895e2c762aa8355c5ffdba1a4be28fddc20a1551fab2cf",
+      "bytes": 26625
     },
     {
       "repository_path": "figures/figure_05/code/inference.py",

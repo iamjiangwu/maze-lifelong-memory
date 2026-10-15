@@ -235,7 +235,7 @@ def draw_tree_depth_schematic() -> tuple[Figure, pd.DataFrame]:
         root_label_y = root_y - 0.40
         tree_axis.text(
             root_label_x,
-            root_label_y,
+            root_label_y - 0.18,
             "0",
             ha="center",
             va="center",
