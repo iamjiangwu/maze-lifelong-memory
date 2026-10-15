@@ -79,7 +79,7 @@
       "title": "Reward path fluency and first visit route choices",
       "description": "Junction dwell before and after reward in latent day2 and return sessions, and first choices at the six reward path decision nodes.",
       "builder": "staged",
-      "publication_pdf_sha256": "e38213bf1de3ffcfffa340da08995a6ed675108deb0f698ca6b8726c3d24b437"
+      "publication_pdf_sha256": "505fb17ae83fe3267f624a3d849fe20c9209500bd1ba521852b9742a88fae26d"
     },
     {
       "artifact_id": "extended_data_figure_4",
@@ -99,7 +99,7 @@
       "title": "Examples and controls for long gap neural stability",
       "description": "Matched place map examples; PV, place map and ensemble rate correlations across four day combinations; ensemble rate correlations inside and outside the maze with equal samples.",
       "builder": "derived",
-      "publication_pdf_sha256": "41050f89c992c7cf82106b474698e3308edfda38267ce0ea2e5b497aae91d227"
+      "publication_pdf_sha256": "104dfcdf346b20a693a3b985d4cc342155eb51af85d57712113d6c43d5fd934b"
     },
     {
       "artifact_id": "extended_data_figure_6",
@@ -129,7 +129,7 @@
       "title": "Reward code stability across sampling and route controls",
       "description": "Reward and control location decoding and PV correlations; standardized route PV correlations with reliability, sampling, reward delivery, route and direction comparisons.",
       "builder": "derived",
-      "publication_pdf_sha256": "829edc10b80e32d46d062842ed1817af845001a088ec13684968496bb9d4d162"
+      "publication_pdf_sha256": "e2f212c4c62b5e8bb9f66c3388f0fa07b676a26196503646bff15ce454dd7354"
     },
     {
       "artifact_id": "extended_data_figure_9",
@@ -139,7 +139,7 @@
       "title": "Additional analyses of the persistent level code",
       "description": "Level PV and level map persistence, level decoding and preferred level changes; spatial partition and within-level shuffle comparisons; level map dynamics across gaps and experience.",
       "builder": "derived",
-      "publication_pdf_sha256": "f6e6ad09704f10daf35a278a22a3e4f1d4b8d984221970088b30de0781f879b5"
+      "publication_pdf_sha256": "e6f0398e588a085ce38553aff592c2e0742b449383853d5774c0b1633f219b74"
     },
     {
       "artifact_id": "extended_data_figure_10",
@@ -406,8 +406,8 @@
     },
     {
       "repository_path": "figures/extended_data_03/code/render_ed03_reward_path_fluency_assembly.py",
-      "sha256": "bbf9302fd266618b16c71753031cbe9936a3701b8ca9fcd402ee7e647b8bdd91",
-      "bytes": 30469,
+      "sha256": "759d60bdb06c43de624c903baef68daec33d5cfb6ccb1823628a46af9b0f6b72",
+      "bytes": 31221,
       "loader_paths": [
         "extended_data_figure_3/source/source_code/render_ed03_reward_path_fluency_assembly.py"
       ]
@@ -536,8 +536,8 @@
     },
     {
       "repository_path": "figures/extended_data_05/code/current_science.py",
-      "sha256": "cda268acc349fa96bbc28fbf35d82f373bcfb0e150f30706c654d591d5519dba",
-      "bytes": 32516
+      "sha256": "3ae9df246fc50a302da046a23e5ae2656965e54974bc79256414ed51125eac5f",
+      "bytes": 34529
     },
     {
       "repository_path": "figures/extended_data_05/code/derived_panels.py",
@@ -676,8 +676,8 @@
     },
     {
       "repository_path": "figures/extended_data_08/code/current_science.py",
-      "sha256": "db9f1801e640dab8461a931d72cffef81e1c06846f366962c78824dbb2f504a7",
-      "bytes": 59660
+      "sha256": "395d5a20fd9b1624468a8a70f3e83d1c2f030f127522e8b9c0ed86330c850cb9",
+      "bytes": 60531
     },
     {
       "repository_path": "figures/extended_data_08/code/derived_panels.py",
@@ -736,8 +736,8 @@
     },
     {
       "repository_path": "figures/extended_data_09/code/current_science.py",
-      "sha256": "081db3d1f5b5ac491c862a8e0cd6efee58f802397817cd540ae34aa863f99823",
-      "bytes": 46170
+      "sha256": "cad8034b603dd6da3b0a27001863db21ebf48f1e81fc255d4dd7d7b7624bfbdf",
+      "bytes": 48363
     },
     {
       "repository_path": "figures/extended_data_09/code/derived_panels.py",

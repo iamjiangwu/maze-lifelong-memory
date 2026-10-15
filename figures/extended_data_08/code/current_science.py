@@ -30,6 +30,8 @@ from matplotlib.path import Path as MatplotlibPath
 from matplotlib.ticker import FuncFormatter, FormatStrFormatter, MaxNLocator
 from matplotlib.legend_handler import HandlerTuple
 from matplotlib.lines import Line2D
+from matplotlib.font_manager import FontProperties
+from matplotlib.textpath import TextPath
 from PIL import Image
 from pypdf import PageObject, PdfReader, PdfWriter, Transformation
 from release_rendering.plotting import *
@@ -426,29 +428,32 @@ def _draw_significance_tick(
     height: float,
     p_value: float,
 ) -> None:
-    """Draw the accepted compact comparison bracket."""
+    """Keep the comparison height and token, centered in a compact gap."""
+    _draw_compact_tick(axis,x1,x2,y+height,_significance_text(p_value))
 
-    text = _significance_text(p_value)
-    axis.plot(
-        [x1, x1, x2, x2],
-        [y, y + height, y + height, y],
-        color="#111111",
-        linewidth=0.55,
-        clip_on=False,
-        zorder=8,
-    )
-    axis.text(
-        (x1 + x2) / 2.0,
-        y + height * 1.18,
-        text,
-        ha="center",
-        va="bottom",
-        fontsize=5.4,
-        fontweight="bold" if text != "n.s." else "normal",
-        color="#111111",
-        clip_on=False,
-        zorder=9,
-    )
+
+def _draw_compact_tick(axis: Axes, left: float, right: float, height: float, text: str) -> None:
+    """Short physical caps and a true text gap never mask observations."""
+    bounds=axis.get_window_extent()
+    width_mm,height_mm=np.array([bounds.width,bounds.height])/axis.figure.dpi*25.4
+    low,high=axis.get_ylim()
+    y=(height-low)/(high-low)
+    weight="normal" if text=="n.s." else "bold"
+    # Preserve the page's existing annotation size: b's pairs are only 2.89mm wide.
+    glyph=TextPath((0,0),text,size=5.4,prop=FontProperties(family="Arial",weight=weight)).get_extents()
+    mm_per_pt=25.4/72.0
+    half_gap=(glyph.width*mm_per_pt/2+.25)/width_mm*np.ptp(axis.get_xlim())
+    assert half_gap < (right-left)/2, "Comparison span cannot contain its label"
+    center=(left+right)/2
+    cap=.20/height_mm
+    key=f"compact_{left:g}_{right:g}"
+    axis.plot([left,left,center-half_gap],[y-cap,y,y],transform=axis.get_xaxis_transform(),
+              color="black",lw=.6,clip_on=False,zorder=8,gid=key+"_left")
+    axis.plot([center+half_gap,right,right],[y,y,y-cap],transform=axis.get_xaxis_transform(),
+              color="black",lw=.6,clip_on=False,zorder=8,gid=key+"_right")
+    baseline=y-(glyph.y0+glyph.height/2)*mm_per_pt/height_mm
+    axis.text(center,baseline,text,transform=axis.get_xaxis_transform(),ha="center",va="baseline",
+              fontsize=5.4,fontweight=weight,color="black",clip_on=False,zorder=9,gid=key+"_text")
 
 
 def _draw_map_water_drop(axis: Axes, x: float, y: float, size: float) -> None:
@@ -580,6 +585,9 @@ def plot_balanced_decoder(values: pd.DataFrame) -> Figure:
     display_rows = values.loc[values["row_type"].eq("display_summary")]
     figure = plt.figure(figsize=(2.75, 1.95), facecolor="white")
     axis = _axes_in_inches(figure, left=.40, bottom=.30, width=2.25, height=1.35)
+    # Set the unchanged final limits before laying out physical-size brackets.
+    axis.set_xlim(-0.55, 3.80)
+    axis.set_ylim(0.0, 13.1)
     order = (
         ("day_i", "equal_frames", 0.0, "Day i\nequal frames"),
         ("day_i", "equal_visits", 1.0, "Day i\nequal visits"),
@@ -1433,23 +1441,7 @@ def _axis(
 def _bracket(
     axis: Axes, left: float, right: float, height: float, probability: float
 ) -> None:
-    offset = np.diff(axis.get_ylim())[0] * 0.023
-    axis.plot(
-        [left, left, right, right],
-        [height - offset, height, height, height - offset],
-        color="#202020",
-        lw=0.6,
-        clip_on=False,
-    )
-    axis.text(
-        (left + right) / 2,
-        height + offset * 0.2,
-        significance_text(probability),
-        ha="center",
-        va="bottom",
-        fontsize=5.4,
-        fontweight="bold" if probability < 0.05 else "normal",
-    )
+    _draw_compact_tick(axis,left,right,height,significance_text(probability))
 
 
 def _paired(

@@ -18,6 +18,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
+from matplotlib.textpath import TextPath
 import numpy as np
 import pandas as pd
 
@@ -246,15 +248,16 @@ def draw_claim_bar_panel(
             index,
             mean,
             width=0.60,
-            color=colors[condition],
-            edgecolor="none",
-            alpha=0.78,
+            facecolor="none",
+            edgecolor=colors[condition],
+            linewidth=0.8,
+            alpha=1.0,
             zorder=1,
         )
         ax.scatter(
             np.full(len(values), index, dtype=float) + rng.normal(0.0, 0.06, len(values)),
             values,
-            s=15.0 * FONT_SCALE**2,
+            s=11.0,
             facecolor=colors[condition],
             edgecolor="none",
             alpha=0.72,
@@ -311,29 +314,34 @@ def significance_stars(q_value: float) -> str:
 def draw_significance_bracket(
     ax: plt.Axes, x_left: float, x_right: float, q_value: float
 ) -> None:
-    """Draw the Main Figure 1 bracket-and-star over a pairwise comparison."""
-    low, high = ax.get_ylim()
-    span = high - low
-    y_base = low + 0.86 * span
-    tick = 0.022 * span
-    ax.plot(
-        [x_left, x_left, x_right, x_right],
-        [y_base, y_base + tick, y_base + tick, y_base],
-        color=AXIS_COLOR,
-        linewidth=0.7,
-        clip_on=False,
-        zorder=5,
-    )
+    """Put the saved significance label in a gap within its comparison line."""
     stars = significance_stars(q_value)
+    ax.figure.canvas.draw()
+    box = ax.get_window_extent()
+    width_mm, height_mm = box.width / ax.figure.dpi * 25.4, box.height / ax.figure.dpi * 25.4
+    weight = "normal" if stars == "n.s." else "bold"
+    glyph = TextPath((0, 0), stars, size=6.5,
+                     prop=FontProperties(family="Arial", weight=weight)).get_extents()
+    center = (x_left + x_right) / 2
+    half_gap = (glyph.width / (72 / 25.4) / 2 + .25) / width_mm * np.diff(ax.get_xlim())[0]
+    y, cap = .95, .20 / height_mm
+    for side, xs, ys in (
+        ("left", [x_left, x_left, center-half_gap], [y-cap, y, y]),
+        ("right", [center+half_gap, x_right, x_right], [y, y, y-cap]),
+    ):
+        ax.plot(xs, ys, transform=ax.get_xaxis_transform(), color="black",
+                linewidth=.6, clip_on=False, zorder=5, gid="compact_"+side)
+    baseline = y - (glyph.y0 + glyph.height/2) / (72/25.4) / height_mm
     ax.text(
-        (x_left + x_right) / 2.0,
-        y_base + tick * 1.1,
+        center,
+        baseline,
         stars,
+        transform=ax.get_xaxis_transform(),
         ha="center",
-        va="bottom",
-        fontsize=BASE_FONT_SIZE if stars == "n.s." else MAIN_BASE_FONT_SIZE * FONT_SCALE * 1.15,
-        fontweight="normal" if stars == "n.s." else "bold",
-        color=AXIS_COLOR,
+        va="baseline",
+        fontsize=6.5,
+        fontweight=weight,
+        color="black",
         clip_on=False,
         zorder=6,
     )
@@ -540,7 +548,10 @@ def build_figure(
         draw_claim_bar_panel(ax, subset, claim, fluency, rng)
 
         low, high = ax.get_ylim()
-        ax.set_ylim(low, high + 0.16 * (high - low))
+        ax.set_ylim(low, high + 0.04 * (high - low))
+        if index == 0:
+            # Retain the original half-second tick spacing after tightening.
+            ax.set_yticks([0, .5, 1, 1.5, 2])
         draw_significance_bracket(
             ax, 0, 1, float(statistic["q_bh4_displayed_story"])
         )
