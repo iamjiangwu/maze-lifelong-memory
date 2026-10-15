@@ -19,7 +19,7 @@
       "title": "CA1 retains a persistent trace after long periods without maze experience",
       "description": "Place map, population vector (PV) and ensemble rate correlations across long gaps, days apart and successive gaps, with matched neuron examples and neuron ID shuffles.",
       "builder": "derived",
-      "publication_pdf_sha256": "ba4602f03e5237b464d67d78750c1a1711df9499e2aa51a7558fc8aebb3fef58"
+      "publication_pdf_sha256": "c9254d86c77227937693149e5b2686d27ebe33694e909fbae64587d161786a98"
     },
     {
       "artifact_id": "main_figure_3",
@@ -69,7 +69,7 @@
       "title": "Junction turning biases and biased walk models of exploration efficiency",
       "description": "Measured PSF, PSA, PBF and PBS turning biases and biased walk models explaining the improvement in exploration efficiency, including the depth dependence of PBS.",
       "builder": "staged",
-      "publication_pdf_sha256": "e19853b6d7820de7c0c3bc26e8a8ea366f25be8644c6e2a8b6b592d923df9df0"
+      "publication_pdf_sha256": "08227f300c18ef851df73c50683d3b190a5e1bbcacc6553fe21c7d8333b22003"
     },
     {
       "artifact_id": "extended_data_figure_3",
@@ -288,8 +288,8 @@
     },
     {
       "repository_path": "figures/extended_data_02/code/ed2_panels.py",
-      "sha256": "78f179f8d6df6d9b4b1604b1816d3cece3e39a150b27b654ae21de32d5703c69",
-      "bytes": 74404,
+      "sha256": "338716dd2e4f780403880d23aa7e439eb80a4fba0b67e672481c4b79e73057cf",
+      "bytes": 74418,
       "loader_paths": [
         "extended_data_figure_2/source/source_code/ed2_panels.py"
       ]
@@ -1056,8 +1056,8 @@
     },
     {
       "repository_path": "figures/figure_02/code/drawing.py",
-      "sha256": "1f54d0ac8e01ba7184fbe1b2736b0ddf8cae228f1fc3e634dac28ecc64888b6d",
-      "bytes": 42178
+      "sha256": "0c9e01211299312d38e9dcb6eebcb12510d320f00a986f2f952b737dbacc61f9",
+      "bytes": 43433
     },
     {
       "repository_path": "figures/figure_02/code/inference.py",
