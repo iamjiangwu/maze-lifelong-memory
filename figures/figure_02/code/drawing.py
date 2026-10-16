@@ -297,7 +297,7 @@ def _render_matched_neurons(data: MatchedNeuronExamples) -> plt.Figure:
 
 
 def _schematic_values(metric: str) -> tuple[np.ndarray, np.ndarray]:
-    """Return the two small arrays drawn in a metric schematic."""
+    """Return the two synthetic arrays used to illustrate a metric."""
 
     first = np.asarray(
         [
@@ -311,19 +311,18 @@ def _schematic_values(metric: str) -> tuple[np.ndarray, np.ndarray]:
     )
     second = np.asarray(
         [
-            [0.06, 0.33, 0.78, 0.96, 0.99, 1.00],
-            [0.91, 0.56, 0.13, 0.79, 0.95, 0.99],
-            [0.98, 0.84, 0.60, 0.20, 0.71, 0.89],
-            [1.00, 0.98, 0.90, 0.65, 0.15, 0.69],
-            [1.00, 1.00, 0.98, 0.88, 0.61, 0.10],
-            [1.00, 1.00, 1.00, 0.94, 0.86, 0.52],
+            [0.06, 0.33, 0.78, 0.93, 0.99, 1.00],
+            [0.91, 0.56, 0.13, 0.03, 0.95, 0.99],
+            [0.03, 0.84, 0.60, 0.20, 0.03, 0.89],
+            [1.00, 0.98, 0.90, 0.03, 0.15, 0.69],
+            [1.00, 1.00, 0.98, 0.82, 0.61, 0.98],
+            [1.00, 0.03, 1.00, 0.94, 0.86, 0.52],
         ]
     )
-    second[:, 3] = (0.93, 0.76, 0.20, 0.65, 0.82, 0.94)
     if metric == "rate":
         return (
             np.asarray((0.08, 0.47, 0.62, 0.78, 0.90, 0.55)),
-            np.asarray((0.11, 0.42, 0.67, 0.73, 0.85, 0.60)),
+            np.asarray((0.11, 0.98, 0.67, 0.73, 0.85, 0.60)),
         )
     return first, second
 
