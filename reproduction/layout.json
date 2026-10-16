@@ -19,7 +19,7 @@
       "title": "CA1 retains a persistent trace after long periods without maze experience",
       "description": "Place map, population vector (PV) and ensemble rate correlations across long gaps, days apart and successive gaps, with matched neuron examples and neuron ID shuffles.",
       "builder": "derived",
-      "publication_pdf_sha256": "595be186be0f154be50a2e6a46e4bd5240a3637e4fbac6515259d8bed08f92e1"
+      "publication_pdf_sha256": "64ba606dc26d30064e2975ca7cdcd483f689c0650873b9ea6bf62ebc30a717d2"
     },
     {
       "artifact_id": "main_figure_3",
@@ -1056,8 +1056,8 @@
     },
     {
       "repository_path": "figures/figure_02/code/drawing.py",
-      "sha256": "8a3a948e4c1c49db2fdda6e96f2c108515e0208779d212895ccd1d015aa22cde",
-      "bytes": 44574
+      "sha256": "9e97c8d0f38034b1ccb8e72025d84d1e688b51e0b954d5a51bd1e06385b47697",
+      "bytes": 44521
     },
     {
       "repository_path": "figures/figure_02/code/inference.py",
@@ -1101,8 +1101,8 @@
     },
     {
       "repository_path": "figures/figure_02/data/place_schematic.csv",
-      "sha256": "0d8bd7734a492673534578975ccef772ab117a043d74924a5f2575c0d3800dae",
-      "bytes": 1347
+      "sha256": "7e850be25c06dccb574c4af27dd4e51b832f197bab0004b2088dea2d0cdd92ad",
+      "bytes": 1349
     },
     {
       "repository_path": "figures/figure_02/data/pv_distribution.csv",
@@ -1121,8 +1121,8 @@
     },
     {
       "repository_path": "figures/figure_02/data/pv_schematic.csv",
-      "sha256": "f43b4d9418bba1b7dff409f1a6b2f740f738a7e81a1d6edd51b35c587ede5eca",
-      "bytes": 1347
+      "sha256": "018562ab6656f35ba873203cfe7abcee3d55afc4b01a34d930a0e9972945f3bf",
+      "bytes": 1349
     },
     {
       "repository_path": "figures/figure_02/data/rate_distribution.csv",
@@ -1141,7 +1141,7 @@
     },
     {
       "repository_path": "figures/figure_02/data/rate_schematic.csv",
-      "sha256": "8c2fee05955e906b1f295e79305e81a410c32ba4f996b89594a3f57bd59153cd",
+      "sha256": "738bc8ed496a74e3c58b383d8fa39751449231ea08b047a7a129c4ed14136b70",
       "bytes": 271
     },
     {
