@@ -1038,6 +1038,7 @@ def present_return_session_reconstruction(
         presentation = plt.figure(
             figsize=_PRESENTATION_SIZE_INCHES,
             facecolor="white",
+            dpi=raster_dpi,
         )
         _draw_registered_activity_presentation(presentation, registered_activity)
         for semantic_definition in (
