@@ -9,7 +9,7 @@
       "title": "Lifelong memory of a complex navigation task",
       "description": "Maze trajectories and end node visits; first long bout time, exploration efficiency and first visit route score across naive, return, second day and latent day2 sessions.",
       "builder": "staged",
-      "publication_pdf_sha256": "658a95acc2296396d60641bedd1490d3346659528a743095cc78ce47692b0fa9"
+      "publication_pdf_sha256": "146a93cdfb703b17cc3213cbaebf194e6d0bd91d89424baaef657d856244017c"
     },
     {
       "artifact_id": "main_figure_2",
@@ -29,7 +29,7 @@
       "title": "Experience makes spatial representations more stable",
       "description": "PV, place map and ensemble rate convergence toward the full second day reference; early alignment and recurrence across recording cycles.",
       "builder": "derived",
-      "publication_pdf_sha256": "5d28ef64f2fec64ea10122db02e2db44cb02db08985b8b0a6c095148fc1bf508"
+      "publication_pdf_sha256": "1f664bb4057a4f8b5374a57b17656dc909eed8e0004a9803930296418c4a2b48"
     },
     {
       "artifact_id": "main_figure_4",
@@ -861,8 +861,8 @@
     },
     {
       "repository_path": "figures/figure_01/code/behavior_panels.py",
-      "sha256": "08087e59ea6bd2dab2e28bf352bd65dc57590c270adf640ca2bc557c3535de62",
-      "bytes": 25071,
+      "sha256": "9b3997c4665106e7cef65173bc44d6942d81bdf39006414b0c613ecd035e6802",
+      "bytes": 25180,
       "loader_paths": [
         "main_figure_1/source/frozen_source/source_code/behavior_panels.py"
       ]
@@ -1161,8 +1161,8 @@
     },
     {
       "repository_path": "figures/figure_03/code/drawing.py",
-      "sha256": "11f05fd1364648550471a7d0c05be63801423a590d20c0aa649090c9c904ba91",
-      "bytes": 38287
+      "sha256": "d36ac71bee5044a79a94cb3eea40383f519db50101620d8ff97c07b8fea45198",
+      "bytes": 38315
     },
     {
       "repository_path": "figures/figure_03/code/inference.py",
