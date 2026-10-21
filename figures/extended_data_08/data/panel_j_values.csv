@@ -1,1145 +1,1146 @@
-measure,animal,bin,pv
-cross direction across gap,1616,0,0.2486253238955261
-cross direction across gap,1616,1,0.0772964055520915
-cross direction across gap,1616,2,0.1084739670831588
-cross direction across gap,1616,3,0.0910938415706084
-cross direction across gap,1616,4,0.1824873814165903
-cross direction across gap,1616,5,0.0439221058869385
-cross direction across gap,1616,6,0.0940687462397924
-cross direction across gap,1616,7,-0.0380578401671222
-cross direction across gap,1616,8,0.1039851654379363
-cross direction across gap,1616,9,0.1640556994085411
-cross direction across gap,1616,10,0.1399868688708139
-cross direction across gap,1616,11,0.0164716690109216
-cross direction across gap,1616,12,-0.0211060654773645
-cross direction across gap,1616,13,-0.0491251468386556
-cross direction across gap,1616,14,0.0015232496397821
-cross direction across gap,1616,15,0.0376839742931024
-cross direction across gap,1616,16,-0.0136074975012292
-cross direction across gap,1616,17,-0.0051525450144341
-cross direction across gap,1616,18,-0.0345428819058135
-cross direction across gap,1616,19,0.0468910718718729
-cross direction across gap,1616,20,0.0908958551975491
-cross direction across gap,1616,21,0.2639699723867875
-cross direction across gap,418,0,0.1633940771257548
-cross direction across gap,418,1,-0.0211374331725641
-cross direction across gap,418,2,-0.0509162532506701
-cross direction across gap,418,3,-0.0894484933721269
-cross direction across gap,418,4,-0.0485613700997513
-cross direction across gap,418,5,-0.0086550024062385
-cross direction across gap,418,6,-0.022110681218385
-cross direction across gap,418,7,0.0532419966755151
-cross direction across gap,418,8,-0.0344115102177801
-cross direction across gap,418,9,0.0466486512768242
-cross direction across gap,418,10,-0.0142548968165903
-cross direction across gap,418,11,0.038347181004429
-cross direction across gap,418,12,-0.0314854827904747
-cross direction across gap,418,13,-0.0349532530557574
-cross direction across gap,418,14,0.0113366865883905
-cross direction across gap,418,15,0.0211120199899408
-cross direction across gap,418,16,0.0944287689088743
-cross direction across gap,418,17,0.0378304113731981
-cross direction across gap,418,18,0.0710797949205882
-cross direction across gap,418,19,-0.003055544614011
-cross direction across gap,418,20,0.016180844176539
-cross direction across gap,418,21,-0.0295531057286127
-cross direction across gap,422,0,-0.0930299734800325
-cross direction across gap,422,1,-0.0654415765359332
-cross direction across gap,422,2,0.113463785322046
-cross direction across gap,422,3,0.0202212119275778
-cross direction across gap,422,4,0.0038773487732944
-cross direction across gap,422,5,-0.0273331132310619
-cross direction across gap,422,6,0.0116445189786989
-cross direction across gap,422,7,0.0140534197660317
-cross direction across gap,422,8,-0.0225170882851633
-cross direction across gap,422,9,-0.1243872792991264
-cross direction across gap,422,10,-0.0655483375749179
-cross direction across gap,422,11,0.1613621902707257
-cross direction across gap,422,12,0.1714796070386729
-cross direction across gap,422,13,-0.0541669484181324
-cross direction across gap,422,14,-0.0378524767040771
-cross direction across gap,422,15,-0.0016934170095876
-cross direction across gap,422,16,-0.1165733596879205
-cross direction across gap,422,17,-0.0327574988088108
-cross direction across gap,422,18,-0.140497305904226
-cross direction across gap,422,19,-0.0992173746556086
-cross direction across gap,422,20,0.0858860996405023
-cross direction across gap,422,21,0.420580684254351
-cross direction across gap,451,0,0.04119214782685
-cross direction across gap,451,1,0.1314394248878241
-cross direction across gap,451,2,0.1631574824834608
-cross direction across gap,451,3,0.0613681332709972
-cross direction across gap,451,4,-0.084096358351183
-cross direction across gap,451,5,-0.0692000616754153
-cross direction across gap,451,6,0.044390263071883
-cross direction across gap,451,7,-0.0174373882630417
-cross direction across gap,451,8,0.0973364010827339
-cross direction across gap,451,9,0.1295446410964846
-cross direction across gap,451,10,-0.0605804920282255
-cross direction across gap,451,11,-0.1015404374717935
-cross direction across gap,451,12,-0.0769775670655469
-cross direction across gap,451,13,-0.0599678287385149
-cross direction across gap,451,14,-0.0723273535238798
-cross direction across gap,451,15,-0.0793620352580322
-cross direction across gap,451,16,-0.1352156038902625
-cross direction across gap,451,17,0.0304647361833625
-cross direction across gap,451,18,-0.0065098951238744
-cross direction across gap,451,19,-0.0171159320135649
-cross direction across gap,451,20,-0.0420859626578844
-cross direction across gap,451,21,0.4182238563351677
-cross direction across gap,468,0,0.0804739894963801
-cross direction across gap,468,1,0.0327610661057081
-cross direction across gap,468,2,0.2821299054394809
-cross direction across gap,468,3,-0.0186661845224386
-cross direction across gap,468,4,0.0707868716908709
-cross direction across gap,468,5,0.0858400874580761
-cross direction across gap,468,6,0.0207872060014906
-cross direction across gap,468,7,-0.0342237232639013
-cross direction across gap,468,8,0.0032015387056591
-cross direction across gap,468,9,0.0189017706212824
-cross direction across gap,468,10,-0.0285414816329181
-cross direction across gap,468,11,0.0841892180409137
-cross direction across gap,468,12,0.1591877727121428
-cross direction across gap,468,13,0.0876083293672455
-cross direction across gap,468,14,-0.0373774582352183
-cross direction across gap,468,15,0.1037560910031635
-cross direction across gap,468,16,0.1523168106833562
-cross direction across gap,468,17,-0.0483553607879709
-cross direction across gap,468,18,-0.0164634249622378
-cross direction across gap,468,19,-0.0243776265425583
-cross direction across gap,468,20,0.1562301262943556
-cross direction across gap,468,21,0.3046203426933878
-cross direction across gap,488,0,0.0146009754123349
-cross direction across gap,488,1,0.008613338843541
-cross direction across gap,488,2,-0.0088357218206863
-cross direction across gap,488,3,-0.0080556339431212
-cross direction across gap,488,4,0.1137937670697345
-cross direction across gap,488,5,0.0662870586544228
-cross direction across gap,488,6,-0.0815582608259001
-cross direction across gap,488,7,-0.0733144877089511
-cross direction across gap,488,8,0.0518603270881654
-cross direction across gap,488,9,0.0523371336295505
-cross direction across gap,488,10,-0.1121810419823865
-cross direction across gap,488,11,0.0151554275840373
-cross direction across gap,488,12,-0.1079579552640645
-cross direction across gap,488,13,0.0663458346628328
-cross direction across gap,488,14,0.0170073188065306
-cross direction across gap,488,15,-0.0821588888100861
-cross direction across gap,488,16,-0.0036829029963288
-cross direction across gap,488,17,-0.0163914852547646
-cross direction across gap,488,18,-0.0706663117413361
-cross direction across gap,488,19,-0.0591907220403215
-cross direction across gap,488,20,-0.0799364171722918
-cross direction across gap,488,21,-0.0967346234697111
-cross direction across gap,489,0,0.3626495297935616
-cross direction across gap,489,1,-0.0960885445821674
-cross direction across gap,489,2,-0.0118860317926324
-cross direction across gap,489,3,0.0719833811419494
-cross direction across gap,489,4,-0.1560976241606375
-cross direction across gap,489,5,-0.043520444492175
-cross direction across gap,489,6,0.045278549535302
-cross direction across gap,489,7,0.0106576770452015
-cross direction across gap,489,8,0.0614313206657444
-cross direction across gap,489,9,0.0214103998931138
-cross direction across gap,489,10,-0.0351772258680829
-cross direction across gap,489,11,0.1321901310500746
-cross direction across gap,489,12,-0.0307291751670376
-cross direction across gap,489,13,0.1552908354923342
-cross direction across gap,489,14,0.0659371458161072
-cross direction across gap,489,15,0.0079791602633598
-cross direction across gap,489,16,-0.0817817469510205
-cross direction across gap,489,17,-0.0829910140704825
-cross direction across gap,489,18,0.0945719676275652
-cross direction across gap,489,19,0.0563719683572221
-cross direction across gap,489,20,0.0061671059532521
-cross direction across gap,489,21,0.027289814182532
-cross direction across gap,579,0,0.1480082038741292
-cross direction across gap,579,1,0.0276876630948916
-cross direction across gap,579,2,-0.0612394138578471
-cross direction across gap,579,3,-0.0126572726160483
-cross direction across gap,579,4,0.1054058541848199
-cross direction across gap,579,5,0.0140868256025641
-cross direction across gap,579,6,0.0244809763820901
-cross direction across gap,579,7,-0.1128387141829242
-cross direction across gap,579,8,0.0574884141571645
-cross direction across gap,579,9,-0.024181647375848
-cross direction across gap,579,10,0.1515124779626721
-cross direction across gap,579,11,-0.0346232969801982
-cross direction across gap,579,12,-0.0264489946948389
-cross direction across gap,579,13,-0.0745478236142231
-cross direction across gap,579,14,0.1214957980161086
-cross direction across gap,579,15,-0.0507367913532635
-cross direction across gap,579,16,-0.0828069943055774
-cross direction across gap,579,17,-0.0154411548119598
-cross direction across gap,579,18,-0.0980738044180104
-cross direction across gap,579,19,0.0753986711774757
-cross direction across gap,579,20,0.166583304166152
-cross direction across gap,579,21,0.2146991548000856
-cross direction across gap,837,0,0.2140954726851998
-cross direction across gap,837,1,0.2086611240446972
-cross direction across gap,837,2,0.1257792299409781
-cross direction across gap,837,3,0.0922602459634269
-cross direction across gap,837,4,0.0917532590882813
-cross direction across gap,837,5,0.0268663792592391
-cross direction across gap,837,6,0.0044874157848888
-cross direction across gap,837,7,0.0778138448021448
-cross direction across gap,837,8,0.0090559533406208
-cross direction across gap,837,9,0.0485468590056305
-cross direction across gap,837,10,0.0470295215634725
-cross direction across gap,837,11,0.0212933842509393
-cross direction across gap,837,12,0.0543145106733305
-cross direction across gap,837,13,0.0464934094999873
-cross direction across gap,837,14,-0.0231142935349927
-cross direction across gap,837,15,0.0062548988948839
-cross direction across gap,837,16,0.0226301893686027
-cross direction across gap,837,17,0.0256321717780051
-cross direction across gap,837,18,0.0166276352275393
-cross direction across gap,837,19,0.0187251695552342
-cross direction across gap,837,20,0.0918334353436579
-cross direction across gap,837,21,0.3282627077994413
-cross direction across gap,838,0,-0.0026796224395249
-cross direction across gap,838,1,0.0309283481464435
-cross direction across gap,838,2,0.0322638537426297
-cross direction across gap,838,3,0.0153091912720044
-cross direction across gap,838,4,0.0162926227009519
-cross direction across gap,838,5,-0.0097749649232809
-cross direction across gap,838,6,-0.0202062154904811
-cross direction across gap,838,7,-0.011429317264918
-cross direction across gap,838,8,-0.0219552872747037
-cross direction across gap,838,9,-0.0112390193690118
-cross direction across gap,838,10,0.0032990305681582
-cross direction across gap,838,11,-0.0118613703025534
-cross direction across gap,838,12,0.0132114830887831
-cross direction across gap,838,13,0.0071550088782192
-cross direction across gap,838,14,0.0413941375793511
-cross direction across gap,838,15,0.0206871397174364
-cross direction across gap,838,16,0.0173497019526877
-cross direction across gap,838,17,0.0019464488719457
-cross direction across gap,838,18,-0.0114430960151662
-cross direction across gap,838,19,0.0035026959092555
-cross direction across gap,838,20,0.0310936710393507
-cross direction across gap,838,21,0.0707217362101363
-cross direction across gap,839,0,0.0084031698732195
-cross direction across gap,839,1,-0.0156235890561882
-cross direction across gap,839,2,-0.0072380876159955
-cross direction across gap,839,3,-0.0126664982089179
-cross direction across gap,839,4,-0.0080121700132695
-cross direction across gap,839,5,0.016922950179911
-cross direction across gap,839,6,0.0240509699240161
-cross direction across gap,839,7,-0.0161366869393097
-cross direction across gap,839,8,-0.0250661032821151
-cross direction across gap,839,9,-0.007754947206888
-cross direction across gap,839,10,0.0244707954815831
-cross direction across gap,839,11,-0.014102287832573
-cross direction across gap,839,12,0.0195743489259075
-cross direction across gap,839,13,0.0452359641760256
-cross direction across gap,839,14,0.0195758531545869
-cross direction across gap,839,15,0.0415391999668086
-cross direction across gap,839,16,-0.0105475906746062
-cross direction across gap,839,17,0.0125564087175251
-cross direction across gap,839,18,-0.0088301946579291
-cross direction across gap,839,19,0.0319009266390967
-cross direction across gap,839,20,0.024660661844418
-cross direction across gap,839,21,0.0982166168492258
-cross direction across gap,842,0,0.125940512159339
-cross direction across gap,842,1,0.1897096139806026
-cross direction across gap,842,2,0.0439746018549937
-cross direction across gap,842,3,0.039091158734791
-cross direction across gap,842,4,0.1029723137785532
-cross direction across gap,842,5,0.0441879897379895
-cross direction across gap,842,6,0.0299419304792657
-cross direction across gap,842,7,0.0913832317383532
-cross direction across gap,842,8,0.0849540329074399
-cross direction across gap,842,9,0.0021837110763906
-cross direction across gap,842,10,0.052687907453805
-cross direction across gap,842,11,0.0674373738924081
-cross direction across gap,842,12,0.038717965540696
-cross direction across gap,842,13,-0.0214608457248395
-cross direction across gap,842,14,-0.0099360722918067
-cross direction across gap,842,15,-0.0121873851518584
-cross direction across gap,842,16,0.0362770739172203
-cross direction across gap,842,17,-0.0208455473840488
-cross direction across gap,842,18,0.0497119227205053
-cross direction across gap,842,19,0.0671430385227183
-cross direction across gap,842,20,0.0780600204632959
-cross direction across gap,842,21,0.2107246220639735
-cross direction across gap,862,0,0.109241023268143
-cross direction across gap,862,1,0.0903383065391102
-cross direction across gap,862,2,0.0900796861017261
-cross direction across gap,862,3,0.0665507831534999
-cross direction across gap,862,4,-0.0153821731748542
-cross direction across gap,862,5,-0.0852882669767888
-cross direction across gap,862,6,-0.0597083159059558
-cross direction across gap,862,7,-0.0134394240079179
-cross direction across gap,862,8,-0.1017780941206392
-cross direction across gap,862,9,-0.067849901463815
-cross direction across gap,862,10,-0.0386583596518717
-cross direction across gap,862,11,0.0090339928496267
-cross direction across gap,862,12,0.0831183290035319
-cross direction across gap,862,13,0.0578771003404659
-cross direction across gap,862,14,0.0068409606850757
-cross direction across gap,862,15,0.0472677049130822
-cross direction across gap,862,16,-0.0308458297303289
-cross direction across gap,862,17,0.0803694475369786
-cross direction across gap,862,18,-0.0703520113554915
-cross direction across gap,862,19,0.0476862793976861
-cross direction across gap,862,20,-0.0294278469758748
-cross direction across gap,862,21,0.1435032437494211
-"cross direction across gap, shuffle",1616,0,0.001192254670248
-"cross direction across gap, shuffle",1616,1,-0.0013245168258284
-"cross direction across gap, shuffle",1616,2,0.0017980356359349
-"cross direction across gap, shuffle",1616,3,-0.0028795665636777
-"cross direction across gap, shuffle",1616,4,0.0012939589605647
-"cross direction across gap, shuffle",1616,5,0.0009710344777116
-"cross direction across gap, shuffle",1616,6,-0.0100422677743152
-"cross direction across gap, shuffle",1616,7,-0.003110750549528
-"cross direction across gap, shuffle",1616,8,-0.0021993842711207
-"cross direction across gap, shuffle",1616,9,-0.0048677981371839
-"cross direction across gap, shuffle",1616,10,-0.0048370598401918
-"cross direction across gap, shuffle",1616,11,-0.0081851437221677
-"cross direction across gap, shuffle",1616,12,-0.0071875036084365
-"cross direction across gap, shuffle",1616,13,-0.0007250651700363
-"cross direction across gap, shuffle",1616,14,-0.0001712976941283
-"cross direction across gap, shuffle",1616,15,-0.0012179845613629
-"cross direction across gap, shuffle",1616,16,-0.0027331834025499
-"cross direction across gap, shuffle",1616,17,-0.0020249198662274
-"cross direction across gap, shuffle",1616,18,-0.0056442093670921
-"cross direction across gap, shuffle",1616,19,0.0023602115697442
-"cross direction across gap, shuffle",1616,20,-0.0040259478675401
-"cross direction across gap, shuffle",1616,21,-0.004304717756858
-"cross direction across gap, shuffle",418,0,-0.0038559458709392
-"cross direction across gap, shuffle",418,1,0.0007792649501356
-"cross direction across gap, shuffle",418,2,0.00275871229786
-"cross direction across gap, shuffle",418,3,0.0058557782235983
-"cross direction across gap, shuffle",418,4,0.0003457924515039
-"cross direction across gap, shuffle",418,5,0.0050484161144945
-"cross direction across gap, shuffle",418,6,-0.0035151580052885
-"cross direction across gap, shuffle",418,7,0.0107234734814758
-"cross direction across gap, shuffle",418,8,-0.000973535940326
-"cross direction across gap, shuffle",418,9,0.0019908544678694
-"cross direction across gap, shuffle",418,10,-0.0023158671481388
-"cross direction across gap, shuffle",418,11,0.0041291554848425
-"cross direction across gap, shuffle",418,12,0.0050480754023572
-"cross direction across gap, shuffle",418,13,-0.0029995325115556
-"cross direction across gap, shuffle",418,14,-0.0053520657416124
-"cross direction across gap, shuffle",418,15,0.0069151666055141
-"cross direction across gap, shuffle",418,16,-0.0008699377992246
-"cross direction across gap, shuffle",418,17,-0.0069341966342264
-"cross direction across gap, shuffle",418,18,-0.0014068873497222
-"cross direction across gap, shuffle",418,19,-0.0032773604799883
-"cross direction across gap, shuffle",418,20,-0.0047074746178225
-"cross direction across gap, shuffle",418,21,-0.0014026939368574
-"cross direction across gap, shuffle",422,0,-0.019078379545498
-"cross direction across gap, shuffle",422,1,-0.0246939990218068
-"cross direction across gap, shuffle",422,2,0.0023888329544587
-"cross direction across gap, shuffle",422,3,-0.0044975828823897
-"cross direction across gap, shuffle",422,4,-0.0182808005523502
-"cross direction across gap, shuffle",422,5,0.0048679539267731
-"cross direction across gap, shuffle",422,6,-0.0009621092811413
-"cross direction across gap, shuffle",422,7,-0.0135997461794473
-"cross direction across gap, shuffle",422,8,0.0046000421236326
-"cross direction across gap, shuffle",422,9,-0.0033549476596664
-"cross direction across gap, shuffle",422,10,-0.0156175458542601
-"cross direction across gap, shuffle",422,11,-0.0025431121995325
-"cross direction across gap, shuffle",422,12,-0.0110943597727699
-"cross direction across gap, shuffle",422,13,-0.0011299013107184
-"cross direction across gap, shuffle",422,14,0.0076500009971994
-"cross direction across gap, shuffle",422,15,0.0105952425191403
-"cross direction across gap, shuffle",422,16,-0.0088301288764832
-"cross direction across gap, shuffle",422,17,0.0054823472925819
-"cross direction across gap, shuffle",422,18,-0.0033018788006807
-"cross direction across gap, shuffle",422,19,-0.0174246212541636
-"cross direction across gap, shuffle",422,20,0.0207668955429914
-"cross direction across gap, shuffle",422,21,0.0079645577524394
-"cross direction across gap, shuffle",451,0,-0.0085540514865836
-"cross direction across gap, shuffle",451,1,0.0070414213582155
-"cross direction across gap, shuffle",451,2,-0.0094906214427824
-"cross direction across gap, shuffle",451,3,-0.0070431592923951
-"cross direction across gap, shuffle",451,4,-0.0016660967775466
-"cross direction across gap, shuffle",451,5,-0.0076561920967331
-"cross direction across gap, shuffle",451,6,-0.0037572827403309
-"cross direction across gap, shuffle",451,7,-0.0019780582203697
-"cross direction across gap, shuffle",451,8,-0.0023684083608248
-"cross direction across gap, shuffle",451,9,-0.0095526405781424
-"cross direction across gap, shuffle",451,10,0.0080331065645822
-"cross direction across gap, shuffle",451,11,0.0056602879408664
-"cross direction across gap, shuffle",451,12,-0.004613083681025
-"cross direction across gap, shuffle",451,13,-0.006703129040918
-"cross direction across gap, shuffle",451,14,-0.0044312464831492
-"cross direction across gap, shuffle",451,15,-0.002718950590741
-"cross direction across gap, shuffle",451,16,-0.0098286581495083
-"cross direction across gap, shuffle",451,17,-0.0037985370504111
-"cross direction across gap, shuffle",451,18,0.0030069144639947
-"cross direction across gap, shuffle",451,19,0.0134255097209233
-"cross direction across gap, shuffle",451,20,0.0005186558311086
-"cross direction across gap, shuffle",451,21,-0.0031723865924649
-"cross direction across gap, shuffle",468,0,0.0124111505859362
-"cross direction across gap, shuffle",468,1,-0.0046439253494466
-"cross direction across gap, shuffle",468,2,0.0054113992247715
-"cross direction across gap, shuffle",468,3,-0.0012809075893095
-"cross direction across gap, shuffle",468,4,0.0030708239870122
-"cross direction across gap, shuffle",468,5,0.0031144717808627
-"cross direction across gap, shuffle",468,6,0.004068096556854
-"cross direction across gap, shuffle",468,7,0.0006526948245219
-"cross direction across gap, shuffle",468,8,-0.0063205144971318
-"cross direction across gap, shuffle",468,9,0.0045710690396965
-"cross direction across gap, shuffle",468,10,-0.0029208330295562
-"cross direction across gap, shuffle",468,11,-0.0036333842818771
-"cross direction across gap, shuffle",468,12,-0.0051383763718423
-"cross direction across gap, shuffle",468,13,-0.0004448995967779
-"cross direction across gap, shuffle",468,14,0.0071162166640672
-"cross direction across gap, shuffle",468,15,0.0068563188144116
-"cross direction across gap, shuffle",468,16,0.008001039311773
-"cross direction across gap, shuffle",468,17,-0.0135381615433891
-"cross direction across gap, shuffle",468,18,-0.0076276606837123
-"cross direction across gap, shuffle",468,19,-0.0042007953860254
-"cross direction across gap, shuffle",468,20,-0.0033481858371164
-"cross direction across gap, shuffle",468,21,-0.006742060752509
-"cross direction across gap, shuffle",488,0,0.0109964224632429
-"cross direction across gap, shuffle",488,1,0.0020651832733962
-"cross direction across gap, shuffle",488,2,0.0029426689025962
-"cross direction across gap, shuffle",488,3,0.0112586549421017
-"cross direction across gap, shuffle",488,4,0.0153352452120024
-"cross direction across gap, shuffle",488,5,0.0019938583597119
-"cross direction across gap, shuffle",488,6,-0.0110463089888525
-"cross direction across gap, shuffle",488,7,-0.0023436724208084
-"cross direction across gap, shuffle",488,8,-0.0049468639387867
-"cross direction across gap, shuffle",488,9,0.0014445606557599
-"cross direction across gap, shuffle",488,10,0.0153190930286538
-"cross direction across gap, shuffle",488,11,0.0068909536729256
-"cross direction across gap, shuffle",488,12,0.0139171559733808
-"cross direction across gap, shuffle",488,13,-0.0013369959923407
-"cross direction across gap, shuffle",488,14,0.0007686602785854
-"cross direction across gap, shuffle",488,15,-0.0060664294641582
-"cross direction across gap, shuffle",488,16,-0.0142581160417987
-"cross direction across gap, shuffle",488,17,0.0015955687228406
-"cross direction across gap, shuffle",488,18,-0.0123047465866791
-"cross direction across gap, shuffle",488,19,-0.0069655632019428
-"cross direction across gap, shuffle",488,20,0.0021121520853321
-"cross direction across gap, shuffle",488,21,-0.0082425027837295
-"cross direction across gap, shuffle",489,0,0.0018947022366621
-"cross direction across gap, shuffle",489,1,-0.0097790348797045
-"cross direction across gap, shuffle",489,2,-0.008335725019766
-"cross direction across gap, shuffle",489,3,0.0140907733961166
-"cross direction across gap, shuffle",489,4,0.0121811387185847
-"cross direction across gap, shuffle",489,5,-0.0002375386458621
-"cross direction across gap, shuffle",489,6,-0.0055954601080864
-"cross direction across gap, shuffle",489,7,0.0060732683904028
-"cross direction across gap, shuffle",489,8,0.0112613774426931
-"cross direction across gap, shuffle",489,9,0.0168609346199835
-"cross direction across gap, shuffle",489,10,-0.0047964751665077
-"cross direction across gap, shuffle",489,11,0.001471270928
-"cross direction across gap, shuffle",489,12,-0.0038822885249417
-"cross direction across gap, shuffle",489,13,-0.0070462902809999
-"cross direction across gap, shuffle",489,14,0.0062294786519803
-"cross direction across gap, shuffle",489,15,-0.024802783369763
-"cross direction across gap, shuffle",489,16,0.0057679052436832
-"cross direction across gap, shuffle",489,17,-0.0153859657275232
-"cross direction across gap, shuffle",489,18,-0.022096333418731
-"cross direction across gap, shuffle",489,19,-0.0046605403656785
-"cross direction across gap, shuffle",489,20,-0.0124693330394042
-"cross direction across gap, shuffle",489,21,-0.001399198644177
-"cross direction across gap, shuffle",579,0,0.0104676639176067
-"cross direction across gap, shuffle",579,1,0.0002552744059575
-"cross direction across gap, shuffle",579,2,0.0030049509869075
-"cross direction across gap, shuffle",579,3,0.0079025516458156
-"cross direction across gap, shuffle",579,4,0.0021801879806938
-"cross direction across gap, shuffle",579,5,-0.013177596499687
-"cross direction across gap, shuffle",579,6,-0.0020029743846783
-"cross direction across gap, shuffle",579,7,-0.002192490360616
-"cross direction across gap, shuffle",579,8,0.0065748405433056
-"cross direction across gap, shuffle",579,9,0.0052793629543243
-"cross direction across gap, shuffle",579,10,-0.0015736974794253
-"cross direction across gap, shuffle",579,11,-0.0024300667558675
-"cross direction across gap, shuffle",579,12,0.0036382637984282
-"cross direction across gap, shuffle",579,13,0.0106082664687569
-"cross direction across gap, shuffle",579,14,-0.0073337248587793
-"cross direction across gap, shuffle",579,15,-0.0178028873905782
-"cross direction across gap, shuffle",579,16,-0.0033982637215402
-"cross direction across gap, shuffle",579,17,0.0169566573140177
-"cross direction across gap, shuffle",579,18,0.0092202402683764
-"cross direction across gap, shuffle",579,19,-0.0018998861896642
-"cross direction across gap, shuffle",579,20,-0.0038669003813479
-"cross direction across gap, shuffle",579,21,0.003166640884503
-"cross direction across gap, shuffle",837,0,-0.0009841250239049
-"cross direction across gap, shuffle",837,1,-0.001291045796061
-"cross direction across gap, shuffle",837,2,-0.0017656005098114
-"cross direction across gap, shuffle",837,3,-0.0020133162692879
-"cross direction across gap, shuffle",837,4,-0.0023352764153051
-"cross direction across gap, shuffle",837,5,-0.0025019248064551
-"cross direction across gap, shuffle",837,6,-0.0009258608066993
-"cross direction across gap, shuffle",837,7,-0.0023474556262616
-"cross direction across gap, shuffle",837,8,-0.0028727064289678
-"cross direction across gap, shuffle",837,9,-0.0010826710498878
-"cross direction across gap, shuffle",837,10,-0.0008867859886386
-"cross direction across gap, shuffle",837,11,0.000963599885853
-"cross direction across gap, shuffle",837,12,0.0032990981716613
-"cross direction across gap, shuffle",837,13,-0.0024729324836029
-"cross direction across gap, shuffle",837,14,0.0008377551431912
-"cross direction across gap, shuffle",837,15,-0.0009462421162865
-"cross direction across gap, shuffle",837,16,0.0003531609928219
-"cross direction across gap, shuffle",837,17,-0.0029517630357421
-"cross direction across gap, shuffle",837,18,0.0017231959238864
-"cross direction across gap, shuffle",837,19,0.0014707939480805
-"cross direction across gap, shuffle",837,20,-0.0020931912592983
-"cross direction across gap, shuffle",837,21,0.0009994991229851
-"cross direction across gap, shuffle",838,0,-0.0001637009955108
-"cross direction across gap, shuffle",838,1,0.0001299831856249
-"cross direction across gap, shuffle",838,2,0.0008785372202484
-"cross direction across gap, shuffle",838,3,0.0001006106335133
-"cross direction across gap, shuffle",838,4,-0.0020959668755127
-"cross direction across gap, shuffle",838,5,-0.0026199925566815
-"cross direction across gap, shuffle",838,6,-0.0002401604602784
-"cross direction across gap, shuffle",838,7,0.0025577112169637
-"cross direction across gap, shuffle",838,8,0.001439600144351
-"cross direction across gap, shuffle",838,9,0.0025668483990184
-"cross direction across gap, shuffle",838,10,0.0014879937032475
-"cross direction across gap, shuffle",838,11,0.0010257816230716
-"cross direction across gap, shuffle",838,12,-0.001081004486587
-"cross direction across gap, shuffle",838,13,0.001886829282545
-"cross direction across gap, shuffle",838,14,-0.0015803725140482
-"cross direction across gap, shuffle",838,15,0.0032902720448447
-"cross direction across gap, shuffle",838,16,-0.0009820976712599
-"cross direction across gap, shuffle",838,17,-0.0047014632838459
-"cross direction across gap, shuffle",838,18,0.0002289536731735
-"cross direction across gap, shuffle",838,19,-0.0024998067475459
-"cross direction across gap, shuffle",838,20,-0.0040146109604718
-"cross direction across gap, shuffle",838,21,-0.0007621987392255
-"cross direction across gap, shuffle",839,0,0.0003119921941124
-"cross direction across gap, shuffle",839,1,-0.0032383031052356
-"cross direction across gap, shuffle",839,2,-0.0019633819210697
-"cross direction across gap, shuffle",839,3,-0.000589662705819
-"cross direction across gap, shuffle",839,4,0.0020115145472458
-"cross direction across gap, shuffle",839,5,0.0022055424435142
-"cross direction across gap, shuffle",839,6,0.0029321119761036
-"cross direction across gap, shuffle",839,7,-0.0016982963741725
-"cross direction across gap, shuffle",839,8,-0.0009035673002324
-"cross direction across gap, shuffle",839,9,0.0006097433889752
-"cross direction across gap, shuffle",839,10,0.0032592470798111
-"cross direction across gap, shuffle",839,11,0.0056510778807882
-"cross direction across gap, shuffle",839,12,0.0027923079368254
-"cross direction across gap, shuffle",839,13,0.0002111654575626
-"cross direction across gap, shuffle",839,14,0.0013714014874148
-"cross direction across gap, shuffle",839,15,0.0017197241180713
-"cross direction across gap, shuffle",839,16,0.0014307051155999
-"cross direction across gap, shuffle",839,17,0.0001017024216782
-"cross direction across gap, shuffle",839,18,-0.0009754766403627
-"cross direction across gap, shuffle",839,19,-0.000348326714976
-"cross direction across gap, shuffle",839,20,-0.0034008563546477
-"cross direction across gap, shuffle",839,21,0.0006004257820174
-"cross direction across gap, shuffle",842,0,-0.0037342441536507
-"cross direction across gap, shuffle",842,1,0.0007031725240875
-"cross direction across gap, shuffle",842,2,0.0035734171657716
-"cross direction across gap, shuffle",842,3,0.0064257141814987
-"cross direction across gap, shuffle",842,4,-0.0022553357539026
-"cross direction across gap, shuffle",842,5,-0.0002589403440388
-"cross direction across gap, shuffle",842,6,-0.0022397470161351
-"cross direction across gap, shuffle",842,7,-0.0011240970877806
-"cross direction across gap, shuffle",842,8,-0.0030147336244767
-"cross direction across gap, shuffle",842,9,-0.000401329564515
-"cross direction across gap, shuffle",842,10,-0.0034003168790048
-"cross direction across gap, shuffle",842,11,-0.0032600794372022
-"cross direction across gap, shuffle",842,12,-0.0059916514863578
-"cross direction across gap, shuffle",842,13,-0.0020144015609784
-"cross direction across gap, shuffle",842,14,0.0041377978455166
-"cross direction across gap, shuffle",842,15,-0.0019460606584066
-"cross direction across gap, shuffle",842,16,-0.0002148019510037
-"cross direction across gap, shuffle",842,17,-0.0008793515141246
-"cross direction across gap, shuffle",842,18,0.005431897972733
-"cross direction across gap, shuffle",842,19,0.001348801831186
-"cross direction across gap, shuffle",842,20,0.0014072779306193
-"cross direction across gap, shuffle",842,21,-0.0029806387704915
-"cross direction across gap, shuffle",862,0,0.0136256666485887
-"cross direction across gap, shuffle",862,1,0.0014169117600994
-"cross direction across gap, shuffle",862,2,0.0026487123932301
-"cross direction across gap, shuffle",862,3,-0.0037795369082308
-"cross direction across gap, shuffle",862,4,-0.0005457675668465
-"cross direction across gap, shuffle",862,5,-0.000122790227326
-"cross direction across gap, shuffle",862,6,0.0025355779505882
-"cross direction across gap, shuffle",862,7,0.0007939867683756
-"cross direction across gap, shuffle",862,8,0.0107619722316942
-"cross direction across gap, shuffle",862,9,-0.0071773662516831
-"cross direction across gap, shuffle",862,10,0.0042536437710471
-"cross direction across gap, shuffle",862,11,0.0110947529018891
-"cross direction across gap, shuffle",862,12,-0.0050119886887713
-"cross direction across gap, shuffle",862,13,-0.0034786459599502
-"cross direction across gap, shuffle",862,14,0.0009853351143135
-"cross direction across gap, shuffle",862,15,-0.0048355554211738
-"cross direction across gap, shuffle",862,16,-0.0086809353261251
-"cross direction across gap, shuffle",862,17,-0.0026818116599587
-"cross direction across gap, shuffle",862,18,0.0130150115227089
-"cross direction across gap, shuffle",862,19,0.0078598366604653
-"cross direction across gap, shuffle",862,20,0.0039853582270362
-"cross direction across gap, shuffle",862,21,-8.174886797125497e-05
-same direction across gap: home to reward,1616,0,0.198595975811225
-same direction across gap: home to reward,1616,1,0.0143696839796168
-same direction across gap: home to reward,1616,2,0.2161613919048995
-same direction across gap: home to reward,1616,3,0.1548432230991896
-same direction across gap: home to reward,1616,4,0.1712187202115797
-same direction across gap: home to reward,1616,5,0.2261044629110231
-same direction across gap: home to reward,1616,6,0.4038218067013897
-same direction across gap: home to reward,1616,7,0.1972260090715124
-same direction across gap: home to reward,1616,8,0.4155023045321167
-same direction across gap: home to reward,1616,9,0.2518925631506623
-same direction across gap: home to reward,1616,10,0.161078770848922
-same direction across gap: home to reward,1616,11,0.1321300523919328
-same direction across gap: home to reward,1616,12,0.1233384750721931
-same direction across gap: home to reward,1616,13,0.1672919841144331
-same direction across gap: home to reward,1616,14,0.012000725222776
-same direction across gap: home to reward,1616,15,0.243896609535733
-same direction across gap: home to reward,1616,16,0.3197274652622956
-same direction across gap: home to reward,1616,17,0.2187620970177648
-same direction across gap: home to reward,1616,18,0.1377759173783498
-same direction across gap: home to reward,1616,19,0.1419356419898309
-same direction across gap: home to reward,1616,20,0.2458445338146062
-same direction across gap: home to reward,1616,21,0.330504658601756
-same direction across gap: home to reward,418,0,-0.0256252092061488
-same direction across gap: home to reward,418,1,-0.0203425042395124
-same direction across gap: home to reward,418,2,-0.0145032703219849
-same direction across gap: home to reward,418,3,-0.0813494797087081
-same direction across gap: home to reward,418,4,0.0973180143704902
-same direction across gap: home to reward,418,5,0.0836604213861834
-same direction across gap: home to reward,418,6,-0.0198797496296007
-same direction across gap: home to reward,418,7,0.0501496425550897
-same direction across gap: home to reward,418,8,-0.0137876469420947
-same direction across gap: home to reward,418,9,-0.0281669907380949
-same direction across gap: home to reward,418,10,-0.0876440992710832
-same direction across gap: home to reward,418,11,0.0884676785614426
-same direction across gap: home to reward,418,12,0.2383865188514272
-same direction across gap: home to reward,418,13,0.1212452299724931
-same direction across gap: home to reward,418,14,0.0434295382514321
-same direction across gap: home to reward,418,15,0.0567738209319474
-same direction across gap: home to reward,418,16,-0.0008774038028652
-same direction across gap: home to reward,418,17,-0.0989559564087927
-same direction across gap: home to reward,418,18,-0.1110884455195757
-same direction across gap: home to reward,418,19,0.0344644857843896
-same direction across gap: home to reward,418,20,0.0683659250336832
-same direction across gap: home to reward,418,21,0.0082857782974683
-same direction across gap: home to reward,422,0,-0.0103534582971924
-same direction across gap: home to reward,422,1,0.0061460953697142
-same direction across gap: home to reward,422,2,-0.0719463919751868
-same direction across gap: home to reward,422,3,-0.1439441187055923
-same direction across gap: home to reward,422,4,-0.1769448851068056
-same direction across gap: home to reward,422,5,0.1474505167289051
-same direction across gap: home to reward,422,6,0.5076918958205211
-same direction across gap: home to reward,422,7,0.1846428781083917
-same direction across gap: home to reward,422,8,0.4715656255140427
-same direction across gap: home to reward,422,9,0.0849797806299064
-same direction across gap: home to reward,422,10,0.3090223122966251
-same direction across gap: home to reward,422,11,0.5236305330227653
-same direction across gap: home to reward,422,12,0.2308928487876044
-same direction across gap: home to reward,422,13,0.3319493643024802
-same direction across gap: home to reward,422,14,0.3373729172154027
-same direction across gap: home to reward,422,15,-0.0899033962717777
-same direction across gap: home to reward,422,16,-0.1073427693716364
-same direction across gap: home to reward,422,17,0.2779237453777192
-same direction across gap: home to reward,422,18,0.5741899696256888
-same direction across gap: home to reward,422,19,0.3894527030772949
-same direction across gap: home to reward,422,20,0.4237069902640512
-same direction across gap: home to reward,422,21,0.5953100328773793
-same direction across gap: home to reward,451,0,0.2065075131817307
-same direction across gap: home to reward,451,1,0.1354694329254434
-same direction across gap: home to reward,451,2,0.2094066330951221
-same direction across gap: home to reward,451,3,0.3007224507843787
-same direction across gap: home to reward,451,4,0.2187289073156963
-same direction across gap: home to reward,451,5,0.100747976613994
-same direction across gap: home to reward,451,6,0.1138352043037517
-same direction across gap: home to reward,451,7,0.1798658792690792
-same direction across gap: home to reward,451,8,0.1622361471287239
-same direction across gap: home to reward,451,9,0.324072085305128
-same direction across gap: home to reward,451,10,-0.0069277667763171
-same direction across gap: home to reward,451,11,0.2384932101686824
-same direction across gap: home to reward,451,12,0.3539632907828458
-same direction across gap: home to reward,451,13,0.3894447514937729
-same direction across gap: home to reward,451,14,0.1733795425251621
-same direction across gap: home to reward,451,15,0.0495571615285219
-same direction across gap: home to reward,451,16,0.2381703456597702
-same direction across gap: home to reward,451,17,0.2675913734404259
-same direction across gap: home to reward,451,18,0.049892489567699
-same direction across gap: home to reward,451,19,0.5011917418372666
-same direction across gap: home to reward,451,20,-0.0235861826441635
-same direction across gap: home to reward,451,21,0.6058513264414093
-same direction across gap: home to reward,468,0,0.2946872969517599
-same direction across gap: home to reward,468,1,0.2674064140214447
-same direction across gap: home to reward,468,2,0.2120330580174871
-same direction across gap: home to reward,468,3,0.1657437865551469
-same direction across gap: home to reward,468,4,0.0806026851666514
-same direction across gap: home to reward,468,5,0.1071348601289422
-same direction across gap: home to reward,468,6,-0.0844783996071828
-same direction across gap: home to reward,468,7,0.2448779088230423
-same direction across gap: home to reward,468,8,-0.0142735844413943
-same direction across gap: home to reward,468,9,0.2167668830362195
-same direction across gap: home to reward,468,10,0.1456620406382164
-same direction across gap: home to reward,468,11,0.3121210875176894
-same direction across gap: home to reward,468,12,0.3479783555947464
-same direction across gap: home to reward,468,13,0.2604394204493289
-same direction across gap: home to reward,468,14,-0.0164947512685112
-same direction across gap: home to reward,468,15,0.1355173533920954
-same direction across gap: home to reward,468,16,0.3370643655786282
-same direction across gap: home to reward,468,17,0.5602433713364342
-same direction across gap: home to reward,468,18,0.0155064442084185
-same direction across gap: home to reward,468,19,0.3565047827082169
-same direction across gap: home to reward,468,20,0.3333324824082865
-same direction across gap: home to reward,468,21,0.3350409287036108
-same direction across gap: home to reward,488,0,0.1330673677985943
-same direction across gap: home to reward,488,1,-0.0784893164314444
-same direction across gap: home to reward,488,2,-0.0942797322870706
-same direction across gap: home to reward,488,3,-0.1312498752216785
-same direction across gap: home to reward,488,4,-0.0659653571931358
-same direction across gap: home to reward,488,5,-0.0504172042582142
-same direction across gap: home to reward,488,6,-0.1256378501696427
-same direction across gap: home to reward,488,7,0.1447219615856037
-same direction across gap: home to reward,488,8,-0.0602755724756758
-same direction across gap: home to reward,488,9,0.0843143799826929
-same direction across gap: home to reward,488,10,0.2003835800875618
-same direction across gap: home to reward,488,11,0.0223714768173888
-same direction across gap: home to reward,488,12,0.043979071041542
-same direction across gap: home to reward,488,13,-0.0533069317524378
-same direction across gap: home to reward,488,14,0.4385697420259875
-same direction across gap: home to reward,488,15,-0.0978145463752483
-same direction across gap: home to reward,488,16,0.0424874432943983
-same direction across gap: home to reward,488,17,-0.1319613025347377
-same direction across gap: home to reward,488,18,-0.13143430381636
-same direction across gap: home to reward,488,19,-0.1155811702251595
-same direction across gap: home to reward,488,20,-0.0940891921869272
-same direction across gap: home to reward,488,21,0.1028362803760068
-same direction across gap: home to reward,489,0,0.0229256717353365
-same direction across gap: home to reward,489,1,0.1801330016640336
-same direction across gap: home to reward,489,2,-0.0233018042894425
-same direction across gap: home to reward,489,3,-0.0691466273112953
-same direction across gap: home to reward,489,4,0.2999019733485683
-same direction across gap: home to reward,489,5,0.1187684024090256
-same direction across gap: home to reward,489,6,0.0999323611783032
-same direction across gap: home to reward,489,7,0.2416034323862521
-same direction across gap: home to reward,489,8,-0.0202679664812313
-same direction across gap: home to reward,489,9,-0.1298477522416945
-same direction across gap: home to reward,489,10,0.2700583586628957
-same direction across gap: home to reward,489,11,-0.0172243790972249
-same direction across gap: home to reward,489,12,-0.1054074044275167
-same direction across gap: home to reward,489,13,-0.0146319721943323
-same direction across gap: home to reward,489,14,-0.1316782994721358
-same direction across gap: home to reward,489,15,-0.000518587254286
-same direction across gap: home to reward,489,16,0.0719519295020131
-same direction across gap: home to reward,489,17,0.0629301166521956
-same direction across gap: home to reward,489,18,0.0239181386409366
-same direction across gap: home to reward,489,19,0.0356769379817629
-same direction across gap: home to reward,489,20,0.0733423591481746
-same direction across gap: home to reward,489,21,0.2155927682718874
-same direction across gap: home to reward,579,0,0.0248862675791248
-same direction across gap: home to reward,579,1,0.4546350694178488
-same direction across gap: home to reward,579,2,-0.0743790284550836
-same direction across gap: home to reward,579,3,0.1488596497963674
-same direction across gap: home to reward,579,4,0.3335417547382236
-same direction across gap: home to reward,579,5,-0.0700903618550525
-same direction across gap: home to reward,579,6,-0.0563239874384502
-same direction across gap: home to reward,579,7,0.0100913706192336
-same direction across gap: home to reward,579,8,0.3459359889603127
-same direction across gap: home to reward,579,9,0.0526570087790011
-same direction across gap: home to reward,579,10,0.2563468762961565
-same direction across gap: home to reward,579,11,-0.1140988172949354
-same direction across gap: home to reward,579,12,-0.1009826936227393
-same direction across gap: home to reward,579,13,-0.0623019895184248
-same direction across gap: home to reward,579,14,-0.1380370239901405
-same direction across gap: home to reward,579,15,0.1556505864891611
-same direction across gap: home to reward,579,16,-0.0979534128766472
-same direction across gap: home to reward,579,17,-0.0177486264877642
-same direction across gap: home to reward,579,18,-0.0609736747770425
-same direction across gap: home to reward,579,19,0.3160770754061781
-same direction across gap: home to reward,579,20,0.1032813552716609
-same direction across gap: home to reward,579,21,0.1645888110728483
-same direction across gap: home to reward,837,0,0.3438455137013563
-same direction across gap: home to reward,837,1,0.3278837111834827
-same direction across gap: home to reward,837,2,0.3004758725159058
-same direction across gap: home to reward,837,3,0.3209100287647671
-same direction across gap: home to reward,837,4,0.2194436119523247
-same direction across gap: home to reward,837,5,0.1389587007613074
-same direction across gap: home to reward,837,6,0.1755408970941611
-same direction across gap: home to reward,837,7,0.1310896657111759
-same direction across gap: home to reward,837,8,0.2511881899844806
-same direction across gap: home to reward,837,9,0.3746143739833374
-same direction across gap: home to reward,837,10,0.3170303067054403
-same direction across gap: home to reward,837,11,0.3278529046180434
-same direction across gap: home to reward,837,12,0.3511593304425557
-same direction across gap: home to reward,837,13,0.2062106965332437
-same direction across gap: home to reward,837,14,0.2129462136807013
-same direction across gap: home to reward,837,15,0.2482646064841223
-same direction across gap: home to reward,837,16,0.306580566094912
-same direction across gap: home to reward,837,17,0.2361569665267392
-same direction across gap: home to reward,837,18,0.3488178889548882
-same direction across gap: home to reward,837,19,0.2840994480327696
-same direction across gap: home to reward,837,20,0.2833874689981358
-same direction across gap: home to reward,837,21,0.4212429339547272
-same direction across gap: home to reward,838,0,0.0836420960725478
-same direction across gap: home to reward,838,1,-0.0254604781411617
-same direction across gap: home to reward,838,2,-0.0158992528083731
-same direction across gap: home to reward,838,3,-0.0190943762868513
-same direction across gap: home to reward,838,4,0.0260138571318865
-same direction across gap: home to reward,838,5,0.0362073087041881
-same direction across gap: home to reward,838,6,-0.0112118955966571
-same direction across gap: home to reward,838,7,-0.0179525483211025
-same direction across gap: home to reward,838,8,0.0145250084483283
-same direction across gap: home to reward,838,9,-0.0259215633785697
-same direction across gap: home to reward,838,10,0.0153966333393311
-same direction across gap: home to reward,838,11,-0.058911729319667
-same direction across gap: home to reward,838,12,-0.0394255927596486
-same direction across gap: home to reward,838,13,-0.0352400996541949
-same direction across gap: home to reward,838,14,-0.0219215985540662
-same direction across gap: home to reward,838,15,-0.0131662722008233
-same direction across gap: home to reward,838,16,-0.0324685402548803
-same direction across gap: home to reward,838,17,0.0231952668469058
-same direction across gap: home to reward,838,18,-0.0369533503298379
-same direction across gap: home to reward,838,19,0.0200584959955179
-same direction across gap: home to reward,838,20,0.0281020908640124
-same direction across gap: home to reward,838,21,0.1116227125559908
-same direction across gap: home to reward,839,0,0.060803691422923
-same direction across gap: home to reward,839,1,0.0091584177926585
-same direction across gap: home to reward,839,2,-0.0402712297515599
-same direction across gap: home to reward,839,3,0.0040085237077295
-same direction across gap: home to reward,839,4,0.0158893544203937
-same direction across gap: home to reward,839,5,-0.0124404165609474
-same direction across gap: home to reward,839,6,-0.0111513563942776
-same direction across gap: home to reward,839,7,-0.0484623512805199
-same direction across gap: home to reward,839,8,-0.0352624368950722
-same direction across gap: home to reward,839,9,-0.0086301724626268
-same direction across gap: home to reward,839,10,-0.0267925866989664
-same direction across gap: home to reward,839,11,-0.0502206872852597
-same direction across gap: home to reward,839,12,0.0543868512273796
-same direction across gap: home to reward,839,13,0.0037087700051768
-same direction across gap: home to reward,839,14,-0.0331493682402868
-same direction across gap: home to reward,839,15,-0.000429792297511
-same direction across gap: home to reward,839,16,-0.007289047456371
-same direction across gap: home to reward,839,17,-0.0112952779636763
-same direction across gap: home to reward,839,18,0.0225634982102362
-same direction across gap: home to reward,839,19,0.0118116175358271
-same direction across gap: home to reward,839,20,0.0100480547461882
-same direction across gap: home to reward,839,21,0.0900907024755753
-same direction across gap: home to reward,842,0,0.1517580305556956
-same direction across gap: home to reward,842,1,0.1714126230807868
-same direction across gap: home to reward,842,2,0.1203921688633925
-same direction across gap: home to reward,842,3,0.0034906341379517
-same direction across gap: home to reward,842,4,0.0938113129176839
-same direction across gap: home to reward,842,5,0.1462817129260632
-same direction across gap: home to reward,842,6,0.1550787046300835
-same direction across gap: home to reward,842,7,0.1464028460129012
-same direction across gap: home to reward,842,8,0.1577910091560449
-same direction across gap: home to reward,842,9,0.1885107050936782
-same direction across gap: home to reward,842,10,0.3663899379876482
-same direction across gap: home to reward,842,11,0.2033280392009733
-same direction across gap: home to reward,842,12,0.2102152218715629
-same direction across gap: home to reward,842,13,0.3103033578057283
-same direction across gap: home to reward,842,14,0.2302372539410946
-same direction across gap: home to reward,842,15,0.0788578891715798
-same direction across gap: home to reward,842,16,0.0683741860954612
-same direction across gap: home to reward,842,17,0.0559028969803649
-same direction across gap: home to reward,842,18,0.2732083023438221
-same direction across gap: home to reward,842,19,0.3489322039919721
-same direction across gap: home to reward,842,20,0.2598074780786362
-same direction across gap: home to reward,842,21,0.2693084789756337
-same direction across gap: home to reward,862,0,0.1592134049506761
-same direction across gap: home to reward,862,1,0.0665837470300437
-same direction across gap: home to reward,862,2,0.1688898972268392
-same direction across gap: home to reward,862,3,-0.0009758735986767
-same direction across gap: home to reward,862,4,-0.0381293353243956
-same direction across gap: home to reward,862,5,0.0718200928945425
-same direction across gap: home to reward,862,6,0.1777677003581889
-same direction across gap: home to reward,862,7,0.0478422878790502
-same direction across gap: home to reward,862,8,0.1305085492285639
-same direction across gap: home to reward,862,9,0.07442485594695
-same direction across gap: home to reward,862,10,0.0280595110480815
-same direction across gap: home to reward,862,11,0.1093910420750206
-same direction across gap: home to reward,862,12,-0.087984008409671
-same direction across gap: home to reward,862,13,0.0590186632787307
-same direction across gap: home to reward,862,14,-0.0117738523151571
-same direction across gap: home to reward,862,15,-0.0812921806248893
-same direction across gap: home to reward,862,16,0.0034409008175866
-same direction across gap: home to reward,862,17,0.0390274515220696
-same direction across gap: home to reward,862,18,-0.0095776848441984
-same direction across gap: home to reward,862,19,-0.0818686775502227
-same direction across gap: home to reward,862,20,-0.1094265873725412
-same direction across gap: home to reward,862,21,0.207105343281563
-same direction across gap: reward to home,1616,0,0.1269741774092559
-same direction across gap: reward to home,1616,1,0.3375698294446738
-same direction across gap: reward to home,1616,2,0.1948310994664842
-same direction across gap: reward to home,1616,3,0.1371688506999751
-same direction across gap: reward to home,1616,4,0.158386001176296
-same direction across gap: reward to home,1616,5,0.3538924807331225
-same direction across gap: reward to home,1616,6,0.3035925592884563
-same direction across gap: reward to home,1616,7,0.3520292816296921
-same direction across gap: reward to home,1616,8,0.3582759972612095
-same direction across gap: reward to home,1616,9,0.3449194926595804
-same direction across gap: reward to home,1616,10,0.4891676854168694
-same direction across gap: reward to home,1616,11,0.0513999154264531
-same direction across gap: reward to home,1616,12,0.2615943060168467
-same direction across gap: reward to home,1616,13,0.1713356881454934
-same direction across gap: reward to home,1616,14,0.1166636051519154
-same direction across gap: reward to home,1616,15,0.0763996988850769
-same direction across gap: reward to home,1616,16,0.0354143916314823
-same direction across gap: reward to home,1616,17,0.117480206923515
-same direction across gap: reward to home,1616,18,0.2703160006329065
-same direction across gap: reward to home,1616,19,0.344961881561745
-same direction across gap: reward to home,1616,20,0.2780337350279322
-same direction across gap: reward to home,1616,21,0.3920974183689649
-same direction across gap: reward to home,418,0,0.0746979087485079
-same direction across gap: reward to home,418,1,-0.1134560371889453
-same direction across gap: reward to home,418,2,-0.0858089571364895
-same direction across gap: reward to home,418,3,-0.0642013874902986
-same direction across gap: reward to home,418,4,-0.0530281877765967
-same direction across gap: reward to home,418,5,0.1619680207218758
-same direction across gap: reward to home,418,6,-0.0508001019260131
-same direction across gap: reward to home,418,7,-0.0942449043472225
-same direction across gap: reward to home,418,8,-0.1521635548038356
-same direction across gap: reward to home,418,9,-0.0959234086425993
-same direction across gap: reward to home,418,10,-0.0431813234621268
-same direction across gap: reward to home,418,11,-0.0467435940637479
-same direction across gap: reward to home,418,12,-0.0541443540856814
-same direction across gap: reward to home,418,13,-0.0650713645422141
-same direction across gap: reward to home,418,14,-0.0281860666858832
-same direction across gap: reward to home,418,15,-0.0781630124170162
-same direction across gap: reward to home,418,16,-0.0390607418351994
-same direction across gap: reward to home,418,17,-0.0839803941588925
-same direction across gap: reward to home,418,18,0.1119065586020851
-same direction across gap: reward to home,418,19,-0.0304394519478098
-same direction across gap: reward to home,418,20,0.0568540661459546
-same direction across gap: reward to home,418,21,-0.1095285423833622
-same direction across gap: reward to home,422,0,0.0325001965074334
-same direction across gap: reward to home,422,1,0.1315218900014756
-same direction across gap: reward to home,422,2,0.4074483021246705
-same direction across gap: reward to home,422,3,0.2749460850077753
-same direction across gap: reward to home,422,4,-0.0717480887377401
-same direction across gap: reward to home,422,5,0.1325988537134677
-same direction across gap: reward to home,422,6,0.1601898361088356
-same direction across gap: reward to home,422,7,0.1375052801330207
-same direction across gap: reward to home,422,8,-0.0500779382177809
-same direction across gap: reward to home,422,9,-0.0632558206279049
-same direction across gap: reward to home,422,10,-0.1391820628434024
-same direction across gap: reward to home,422,11,-0.0359680218512193
-same direction across gap: reward to home,422,12,0.1689545835852398
-same direction across gap: reward to home,422,13,0.3943747947923572
-same direction across gap: reward to home,422,14,0.1106997407321619
-same direction across gap: reward to home,422,15,0.0774306237646242
-same direction across gap: reward to home,422,16,0.1980312700842877
-same direction across gap: reward to home,422,17,-0.0743536343379683
-same direction across gap: reward to home,422,18,0.0421824113450521
-same direction across gap: reward to home,422,19,-0.0698045960292872
-same direction across gap: reward to home,422,20,0.189804075184516
-same direction across gap: reward to home,422,21,0.2798810908606254
-same direction across gap: reward to home,451,0,0.166457113956622
-same direction across gap: reward to home,451,1,0.2685224464863763
-same direction across gap: reward to home,451,2,0.4088531362534769
-same direction across gap: reward to home,451,3,0.1339395662441326
-same direction across gap: reward to home,451,4,0.0053703801309452
-same direction across gap: reward to home,451,5,0.4363596135540005
-same direction across gap: reward to home,451,6,0.3514095129682994
-same direction across gap: reward to home,451,7,0.5453364474471998
-same direction across gap: reward to home,451,8,0.5471580802551244
-same direction across gap: reward to home,451,9,0.2199421530629191
-same direction across gap: reward to home,451,10,0.2703992117203285
-same direction across gap: reward to home,451,11,0.1867397321711872
-same direction across gap: reward to home,451,12,0.1182055481842206
-same direction across gap: reward to home,451,13,0.0290365624757265
-same direction across gap: reward to home,451,14,0.1865612543011097
-same direction across gap: reward to home,451,15,-0.0555098275955665
-same direction across gap: reward to home,451,16,0.2320348120156583
-same direction across gap: reward to home,451,17,0.1086439811096416
-same direction across gap: reward to home,451,18,0.2732663952770441
-same direction across gap: reward to home,451,19,0.1339418832671413
-same direction across gap: reward to home,451,20,0.2472290508262217
-same direction across gap: reward to home,451,21,0.5260656509138818
-same direction across gap: reward to home,468,0,0.1215525402307768
-same direction across gap: reward to home,468,1,0.0598361367010856
-same direction across gap: reward to home,468,2,0.1437157163108954
-same direction across gap: reward to home,468,3,0.2960124116647734
-same direction across gap: reward to home,468,4,0.1887600133165775
-same direction across gap: reward to home,468,5,0.2268247803816149
-same direction across gap: reward to home,468,6,0.3281638717824099
-same direction across gap: reward to home,468,7,0.2660160543764092
-same direction across gap: reward to home,468,8,0.1052556433395973
-same direction across gap: reward to home,468,9,0.2645438624612347
-same direction across gap: reward to home,468,10,0.3146638367981616
-same direction across gap: reward to home,468,11,0.3364112580891114
-same direction across gap: reward to home,468,12,0.1740557124339454
-same direction across gap: reward to home,468,13,0.3884512726198109
-same direction across gap: reward to home,468,14,0.2529885692650982
-same direction across gap: reward to home,468,15,0.13893962439238
-same direction across gap: reward to home,468,16,0.4442469375419415
-same direction across gap: reward to home,468,17,0.4192943158744777
-same direction across gap: reward to home,468,18,0.2070424633870057
-same direction across gap: reward to home,468,19,0.0248814684687315
-same direction across gap: reward to home,468,20,0.451428899287739
-same direction across gap: reward to home,468,21,0.2457429626531454
-same direction across gap: reward to home,488,0,-0.0777389895116156
-same direction across gap: reward to home,488,1,-0.0936494123876637
-same direction across gap: reward to home,488,2,-0.131432237123383
-same direction across gap: reward to home,488,3,-0.0827561984939955
-same direction across gap: reward to home,488,4,0.0937895230795899
-same direction across gap: reward to home,488,5,0.006788733905228
-same direction across gap: reward to home,488,6,0.0313676760501099
-same direction across gap: reward to home,488,7,0.1798999752653213
-same direction across gap: reward to home,488,8,0.2158487940910343
-same direction across gap: reward to home,488,9,0.1837856407170827
-same direction across gap: reward to home,488,10,-0.0271694251212668
-same direction across gap: reward to home,488,11,-0.062463499903574
-same direction across gap: reward to home,488,12,0.0602542799364599
-same direction across gap: reward to home,488,13,-0.1411301230007877
-same direction across gap: reward to home,488,14,-0.0613355448106779
-same direction across gap: reward to home,488,15,-0.0638634033596197
-same direction across gap: reward to home,488,16,0.2751801626185232
-same direction across gap: reward to home,488,17,0.0495659967776538
-same direction across gap: reward to home,488,18,-0.0290761712101511
-same direction across gap: reward to home,488,19,0.2568476991451783
-same direction across gap: reward to home,488,20,-0.0036334090817878
-same direction across gap: reward to home,488,21,-0.008777407155579
-same direction across gap: reward to home,489,0,0.0081386525707948
-same direction across gap: reward to home,489,1,-0.0297236297848309
-same direction across gap: reward to home,489,2,0.1105047864257892
-same direction across gap: reward to home,489,3,0.166894073051907
-same direction across gap: reward to home,489,4,0.0144202705525264
-same direction across gap: reward to home,489,5,-0.1479326996534252
-same direction across gap: reward to home,489,6,-0.0072501724390333
-same direction across gap: reward to home,489,7,0.0206258056384292
-same direction across gap: reward to home,489,8,0.1194981181107222
-same direction across gap: reward to home,489,9,0.1549506904045549
-same direction across gap: reward to home,489,10,0.0336135427957005
-same direction across gap: reward to home,489,11,0.1527560293583304
-same direction across gap: reward to home,489,12,0.208695739457925
-same direction across gap: reward to home,489,13,0.1837315521970607
-same direction across gap: reward to home,489,14,0.3781504850767699
-same direction across gap: reward to home,489,15,0.4691770533334887
-same direction across gap: reward to home,489,16,0.2978291558204826
-same direction across gap: reward to home,489,17,0.246196351642237
-same direction across gap: reward to home,489,18,0.1408245791466376
-same direction across gap: reward to home,489,19,-0.0640157897703568
-same direction across gap: reward to home,489,20,0.1622846240264906
-same direction across gap: reward to home,489,21,0.1886858531859079
-same direction across gap: reward to home,579,0,0.0487486777262168
-same direction across gap: reward to home,579,1,-0.0778969588968191
-same direction across gap: reward to home,579,2,-0.0064822812157455
-same direction across gap: reward to home,579,3,0.3254933099054266
-same direction across gap: reward to home,579,4,0.1887607115239239
-same direction across gap: reward to home,579,5,-0.0268003426106412
-same direction across gap: reward to home,579,6,-0.1175953850871989
-same direction across gap: reward to home,579,7,-0.0354744746454529
-same direction across gap: reward to home,579,8,-0.0358304225287155
-same direction across gap: reward to home,579,9,0.6103669244823834
-same direction across gap: reward to home,579,10,0.0608900872043196
-same direction across gap: reward to home,579,11,-0.077940887512392
-same direction across gap: reward to home,579,12,-0.0439381954398417
-same direction across gap: reward to home,579,13,-0.0614501044048842
-same direction across gap: reward to home,579,14,0.4878433109220776
-same direction across gap: reward to home,579,15,0.8273482333316098
-same direction across gap: reward to home,579,16,-0.0532761136614701
-same direction across gap: reward to home,579,17,0.1113165723874769
-same direction across gap: reward to home,579,18,0.3109328032256125
-same direction across gap: reward to home,579,19,0.4573137961243164
-same direction across gap: reward to home,579,20,0.2407141110659019
-same direction across gap: reward to home,579,21,0.3159034247513191
-same direction across gap: reward to home,837,0,0.3026798690192043
-same direction across gap: reward to home,837,1,0.3265404092407041
-same direction across gap: reward to home,837,2,0.3369258822806938
-same direction across gap: reward to home,837,3,0.2560073765319345
-same direction across gap: reward to home,837,4,0.2130966187029868
-same direction across gap: reward to home,837,5,0.265589713323105
-same direction across gap: reward to home,837,6,0.2769251999779233
-same direction across gap: reward to home,837,7,0.3555777810368017
-same direction across gap: reward to home,837,8,0.4369710225014658
-same direction across gap: reward to home,837,9,0.3981047583370569
-same direction across gap: reward to home,837,10,0.3025576163385463
-same direction across gap: reward to home,837,11,0.3816182439367453
-same direction across gap: reward to home,837,12,0.3534005421189463
-same direction across gap: reward to home,837,13,0.1267722732125664
-same direction across gap: reward to home,837,14,0.2341207604822902
-same direction across gap: reward to home,837,15,0.2746754201185227
-same direction across gap: reward to home,837,16,0.3015138989793253
-same direction across gap: reward to home,837,17,0.1833290483836784
-same direction across gap: reward to home,837,18,0.1044167147892466
-same direction across gap: reward to home,837,19,0.23093681752946
-same direction across gap: reward to home,837,20,0.3967917810089843
-same direction across gap: reward to home,837,21,0.4682167021250278
-same direction across gap: reward to home,838,0,0.0370866239797726
-same direction across gap: reward to home,838,1,0.0724837352765829
-same direction across gap: reward to home,838,2,0.0422440636743243
-same direction across gap: reward to home,838,3,8.301960998854478e-05
-same direction across gap: reward to home,838,4,0.0092154977126713
-same direction across gap: reward to home,838,5,0.0107866976823939
-same direction across gap: reward to home,838,6,-0.0134110042824354
-same direction across gap: reward to home,838,7,0.0107629864952447
-same direction across gap: reward to home,838,8,-0.0171618358842832
-same direction across gap: reward to home,838,9,-0.0326104748948102
-same direction across gap: reward to home,838,10,0.0162033118490342
-same direction across gap: reward to home,838,11,-0.0401601307206935
-same direction across gap: reward to home,838,12,-0.0121209175194656
-same direction across gap: reward to home,838,13,-0.0297065544236328
-same direction across gap: reward to home,838,14,-0.0240925516296131
-same direction across gap: reward to home,838,15,-0.0031019499441218
-same direction across gap: reward to home,838,16,0.0210901897370458
-same direction across gap: reward to home,838,17,-0.0032924786320557
-same direction across gap: reward to home,838,18,0.0644534101988199
-same direction across gap: reward to home,838,19,0.043273238465543
-same direction across gap: reward to home,838,20,0.0070593843376633
-same direction across gap: reward to home,838,21,0.1123502172777207
-same direction across gap: reward to home,839,0,0.0305106654048138
-same direction across gap: reward to home,839,1,-0.0095791811216808
-same direction across gap: reward to home,839,2,-0.0208199681784694
-same direction across gap: reward to home,839,3,0.0061315777038746
-same direction across gap: reward to home,839,4,0.0120026201664288
-same direction across gap: reward to home,839,5,0.0028472785506934
-same direction across gap: reward to home,839,6,0.0172850355674202
-same direction across gap: reward to home,839,7,-0.0427141703000927
-same direction across gap: reward to home,839,8,-0.002582070546079
-same direction across gap: reward to home,839,9,0.0318698013544977
-same direction across gap: reward to home,839,10,-0.0433798168047012
-same direction across gap: reward to home,839,11,-0.0307396628558128
-same direction across gap: reward to home,839,12,0.0119076172064471
-same direction across gap: reward to home,839,13,0.0323407183437373
-same direction across gap: reward to home,839,14,0.0404626811048396
-same direction across gap: reward to home,839,15,0.0018274944411524
-same direction across gap: reward to home,839,16,0.0055890374693816
-same direction across gap: reward to home,839,17,0.0079616311976496
-same direction across gap: reward to home,839,18,0.0333312269992828
-same direction across gap: reward to home,839,19,0.0533158347995235
-same direction across gap: reward to home,839,20,0.0669460392462625
-same direction across gap: reward to home,839,21,0.1721364870838706
-same direction across gap: reward to home,842,0,0.0438516395295932
-same direction across gap: reward to home,842,1,0.2042240696442905
-same direction across gap: reward to home,842,2,0.1224930092477639
-same direction across gap: reward to home,842,3,0.0730014208930544
-same direction across gap: reward to home,842,4,0.1809108776334556
-same direction across gap: reward to home,842,5,0.0950545049975978
-same direction across gap: reward to home,842,6,0.0840278437990879
-same direction across gap: reward to home,842,7,0.1901677764779763
-same direction across gap: reward to home,842,8,0.171674906521954
-same direction across gap: reward to home,842,9,0.2664157226021842
-same direction across gap: reward to home,842,10,0.1715110351408147
-same direction across gap: reward to home,842,11,0.1889518076066657
-same direction across gap: reward to home,842,12,0.070665627998611
-same direction across gap: reward to home,842,13,0.0238229562626763
-same direction across gap: reward to home,842,14,-0.019739295824115
-same direction across gap: reward to home,842,15,-0.0058107712808954
-same direction across gap: reward to home,842,16,0.2216046902030576
-same direction across gap: reward to home,842,17,0.1709904445713489
-same direction across gap: reward to home,842,18,0.0906370629110838
-same direction across gap: reward to home,842,19,0.1002071260661763
-same direction across gap: reward to home,842,20,0.2167757179235714
-same direction across gap: reward to home,842,21,0.203455730568764
-same direction across gap: reward to home,862,0,0.3636566369380683
-same direction across gap: reward to home,862,1,0.0465825175395545
-same direction across gap: reward to home,862,2,0.1251168286770947
-same direction across gap: reward to home,862,3,-0.118065675073718
-same direction across gap: reward to home,862,4,-0.0928807336204859
-same direction across gap: reward to home,862,5,-0.1073853580103009
-same direction across gap: reward to home,862,6,-0.034934760360336
-same direction across gap: reward to home,862,7,0.1168185713257941
-same direction across gap: reward to home,862,8,-0.1313312820049491
-same direction across gap: reward to home,862,9,-0.1304319542959556
-same direction across gap: reward to home,862,10,-0.0025244605506682
-same direction across gap: reward to home,862,11,0.0955711434531004
-same direction across gap: reward to home,862,12,-0.0836957937275103
-same direction across gap: reward to home,862,13,-0.1255204777287218
-same direction across gap: reward to home,862,14,0.0014955333720834
-same direction across gap: reward to home,862,15,0.0078135084066883
-same direction across gap: reward to home,862,16,0.043907311533548
-same direction across gap: reward to home,862,17,0.0190529153006905
-same direction across gap: reward to home,862,18,0.2651667008674727
-same direction across gap: reward to home,862,19,0.1903434195821434
-same direction across gap: reward to home,862,20,0.351930175741058
-same direction across gap: reward to home,862,21,0.3789869992485015
+measure,animal,bin,pv,record_type,group,mean,n_mice,p_exact
+cross direction across gap,1616,0.0,0.2486253238955261,animal,,,,
+cross direction across gap,1616,1.0,0.0772964055520915,animal,,,,
+cross direction across gap,1616,2.0,0.1084739670831588,animal,,,,
+cross direction across gap,1616,3.0,0.09109384157060849,animal,,,,
+cross direction across gap,1616,4.0,0.18248738141659035,animal,,,,
+cross direction across gap,1616,5.0,0.04392210588693853,animal,,,,
+cross direction across gap,1616,6.0,0.09406874623979247,animal,,,,
+cross direction across gap,1616,7.0,-0.03805784016712229,animal,,,,
+cross direction across gap,1616,8.0,0.10398516543793637,animal,,,,
+cross direction across gap,1616,9.0,0.16405569940854114,animal,,,,
+cross direction across gap,1616,10.0,0.1399868688708139,animal,,,,
+cross direction across gap,1616,11.0,0.016471669010921654,animal,,,,
+cross direction across gap,1616,12.0,-0.021106065477364554,animal,,,,
+cross direction across gap,1616,13.0,-0.04912514683865565,animal,,,,
+cross direction across gap,1616,14.0,0.0015232496397821023,animal,,,,
+cross direction across gap,1616,15.0,0.03768397429310242,animal,,,,
+cross direction across gap,1616,16.0,-0.01360749750122927,animal,,,,
+cross direction across gap,1616,17.0,-0.00515254501443415,animal,,,,
+cross direction across gap,1616,18.0,-0.03454288190581359,animal,,,,
+cross direction across gap,1616,19.0,0.046891071871872955,animal,,,,
+cross direction across gap,1616,20.0,0.09089585519754918,animal,,,,
+cross direction across gap,1616,21.0,0.26396997238678754,animal,,,,
+cross direction across gap,418,0.0,0.16339407712575485,animal,,,,
+cross direction across gap,418,1.0,-0.021137433172564116,animal,,,,
+cross direction across gap,418,2.0,-0.05091625325067011,animal,,,,
+cross direction across gap,418,3.0,-0.08944849337212696,animal,,,,
+cross direction across gap,418,4.0,-0.04856137009975134,animal,,,,
+cross direction across gap,418,5.0,-0.008655002406238557,animal,,,,
+cross direction across gap,418,6.0,-0.02211068121838509,animal,,,,
+cross direction across gap,418,7.0,0.053241996675515164,animal,,,,
+cross direction across gap,418,8.0,-0.034411510217780196,animal,,,,
+cross direction across gap,418,9.0,0.04664865127682425,animal,,,,
+cross direction across gap,418,10.0,-0.01425489681659039,animal,,,,
+cross direction across gap,418,11.0,0.03834718100442905,animal,,,,
+cross direction across gap,418,12.0,-0.0314854827904747,animal,,,,
+cross direction across gap,418,13.0,-0.03495325305575744,animal,,,,
+cross direction across gap,418,14.0,0.0113366865883905,animal,,,,
+cross direction across gap,418,15.0,0.021112019989940885,animal,,,,
+cross direction across gap,418,16.0,0.09442876890887437,animal,,,,
+cross direction across gap,418,17.0,0.03783041137319816,animal,,,,
+cross direction across gap,418,18.0,0.0710797949205882,animal,,,,
+cross direction across gap,418,19.0,-0.00305554461401103,animal,,,,
+cross direction across gap,418,20.0,0.016180844176539002,animal,,,,
+cross direction across gap,418,21.0,-0.029553105728612795,animal,,,,
+cross direction across gap,422,0.0,-0.09302997348003257,animal,,,,
+cross direction across gap,422,1.0,-0.06544157653593323,animal,,,,
+cross direction across gap,422,2.0,0.11346378532204607,animal,,,,
+cross direction across gap,422,3.0,0.020221211927577892,animal,,,,
+cross direction across gap,422,4.0,0.0038773487732944867,animal,,,,
+cross direction across gap,422,5.0,-0.027333113231061912,animal,,,,
+cross direction across gap,422,6.0,0.011644518978698972,animal,,,,
+cross direction across gap,422,7.0,0.014053419766031763,animal,,,,
+cross direction across gap,422,8.0,-0.022517088285163384,animal,,,,
+cross direction across gap,422,9.0,-0.12438727929912644,animal,,,,
+cross direction across gap,422,10.0,-0.0655483375749179,animal,,,,
+cross direction across gap,422,11.0,0.16136219027072574,animal,,,,
+cross direction across gap,422,12.0,0.17147960703867296,animal,,,,
+cross direction across gap,422,13.0,-0.054166948418132424,animal,,,,
+cross direction across gap,422,14.0,-0.03785247670407714,animal,,,,
+cross direction across gap,422,15.0,-0.001693417009587618,animal,,,,
+cross direction across gap,422,16.0,-0.1165733596879205,animal,,,,
+cross direction across gap,422,17.0,-0.03275749880881083,animal,,,,
+cross direction across gap,422,18.0,-0.140497305904226,animal,,,,
+cross direction across gap,422,19.0,-0.09921737465560868,animal,,,,
+cross direction across gap,422,20.0,0.08588609964050231,animal,,,,
+cross direction across gap,422,21.0,0.420580684254351,animal,,,,
+cross direction across gap,451,0.0,0.04119214782685002,animal,,,,
+cross direction across gap,451,1.0,0.1314394248878241,animal,,,,
+cross direction across gap,451,2.0,0.16315748248346088,animal,,,,
+cross direction across gap,451,3.0,0.06136813327099724,animal,,,,
+cross direction across gap,451,4.0,-0.08409635835118304,animal,,,,
+cross direction across gap,451,5.0,-0.06920006167541531,animal,,,,
+cross direction across gap,451,6.0,0.04439026307188301,animal,,,,
+cross direction across gap,451,7.0,-0.017437388263041753,animal,,,,
+cross direction across gap,451,8.0,0.09733640108273395,animal,,,,
+cross direction across gap,451,9.0,0.12954464109648464,animal,,,,
+cross direction across gap,451,10.0,-0.06058049202822553,animal,,,,
+cross direction across gap,451,11.0,-0.10154043747179357,animal,,,,
+cross direction across gap,451,12.0,-0.07697756706554698,animal,,,,
+cross direction across gap,451,13.0,-0.05996782873851493,animal,,,,
+cross direction across gap,451,14.0,-0.07232735352387983,animal,,,,
+cross direction across gap,451,15.0,-0.07936203525803227,animal,,,,
+cross direction across gap,451,16.0,-0.1352156038902625,animal,,,,
+cross direction across gap,451,17.0,0.030464736183362595,animal,,,,
+cross direction across gap,451,18.0,-0.006509895123874496,animal,,,,
+cross direction across gap,451,19.0,-0.01711593201356498,animal,,,,
+cross direction across gap,451,20.0,-0.04208596265788448,animal,,,,
+cross direction across gap,451,21.0,0.4182238563351677,animal,,,,
+cross direction across gap,468,0.0,0.08047398949638017,animal,,,,
+cross direction across gap,468,1.0,0.03276106610570816,animal,,,,
+cross direction across gap,468,2.0,0.2821299054394809,animal,,,,
+cross direction across gap,468,3.0,-0.01866618452243866,animal,,,,
+cross direction across gap,468,4.0,0.07078687169087094,animal,,,,
+cross direction across gap,468,5.0,0.0858400874580761,animal,,,,
+cross direction across gap,468,6.0,0.020787206001490685,animal,,,,
+cross direction across gap,468,7.0,-0.034223723263901336,animal,,,,
+cross direction across gap,468,8.0,0.0032015387056591876,animal,,,,
+cross direction across gap,468,9.0,0.018901770621282437,animal,,,,
+cross direction across gap,468,10.0,-0.028541481632918187,animal,,,,
+cross direction across gap,468,11.0,0.08418921804091373,animal,,,,
+cross direction across gap,468,12.0,0.15918777271214285,animal,,,,
+cross direction across gap,468,13.0,0.08760832936724554,animal,,,,
+cross direction across gap,468,14.0,-0.037377458235218396,animal,,,,
+cross direction across gap,468,15.0,0.10375609100316359,animal,,,,
+cross direction across gap,468,16.0,0.1523168106833562,animal,,,,
+cross direction across gap,468,17.0,-0.04835536078797093,animal,,,,
+cross direction across gap,468,18.0,-0.016463424962237846,animal,,,,
+cross direction across gap,468,19.0,-0.024377626542558307,animal,,,,
+cross direction across gap,468,20.0,0.15623012629435565,animal,,,,
+cross direction across gap,468,21.0,0.3046203426933878,animal,,,,
+cross direction across gap,488,0.0,0.014600975412334918,animal,,,,
+cross direction across gap,488,1.0,0.008613338843541027,animal,,,,
+cross direction across gap,488,2.0,-0.008835721820686314,animal,,,,
+cross direction across gap,488,3.0,-0.008055633943121275,animal,,,,
+cross direction across gap,488,4.0,0.11379376706973454,animal,,,,
+cross direction across gap,488,5.0,0.06628705865442282,animal,,,,
+cross direction across gap,488,6.0,-0.08155826082590018,animal,,,,
+cross direction across gap,488,7.0,-0.07331448770895119,animal,,,,
+cross direction across gap,488,8.0,0.05186032708816547,animal,,,,
+cross direction across gap,488,9.0,0.05233713362955054,animal,,,,
+cross direction across gap,488,10.0,-0.11218104198238651,animal,,,,
+cross direction across gap,488,11.0,0.01515542758403739,animal,,,,
+cross direction across gap,488,12.0,-0.10795795526406454,animal,,,,
+cross direction across gap,488,13.0,0.06634583466283282,animal,,,,
+cross direction across gap,488,14.0,0.017007318806530655,animal,,,,
+cross direction across gap,488,15.0,-0.08215888881008612,animal,,,,
+cross direction across gap,488,16.0,-0.0036829029963288545,animal,,,,
+cross direction across gap,488,17.0,-0.016391485254764682,animal,,,,
+cross direction across gap,488,18.0,-0.07066631174133617,animal,,,,
+cross direction across gap,488,19.0,-0.05919072204032157,animal,,,,
+cross direction across gap,488,20.0,-0.07993641717229186,animal,,,,
+cross direction across gap,488,21.0,-0.09673462346971118,animal,,,,
+cross direction across gap,489,0.0,0.3626495297935616,animal,,,,
+cross direction across gap,489,1.0,-0.09608854458216744,animal,,,,
+cross direction across gap,489,2.0,-0.011886031792632448,animal,,,,
+cross direction across gap,489,3.0,0.0719833811419494,animal,,,,
+cross direction across gap,489,4.0,-0.1560976241606375,animal,,,,
+cross direction across gap,489,5.0,-0.04352044449217504,animal,,,,
+cross direction across gap,489,6.0,0.04527854953530201,animal,,,,
+cross direction across gap,489,7.0,0.010657677045201548,animal,,,,
+cross direction across gap,489,8.0,0.06143132066574442,animal,,,,
+cross direction across gap,489,9.0,0.021410399893113823,animal,,,,
+cross direction across gap,489,10.0,-0.035177225868082945,animal,,,,
+cross direction across gap,489,11.0,0.13219013105007463,animal,,,,
+cross direction across gap,489,12.0,-0.0307291751670376,animal,,,,
+cross direction across gap,489,13.0,0.15529083549233422,animal,,,,
+cross direction across gap,489,14.0,0.06593714581610721,animal,,,,
+cross direction across gap,489,15.0,0.00797916026335984,animal,,,,
+cross direction across gap,489,16.0,-0.08178174695102051,animal,,,,
+cross direction across gap,489,17.0,-0.08299101407048251,animal,,,,
+cross direction across gap,489,18.0,0.09457196762756528,animal,,,,
+cross direction across gap,489,19.0,0.05637196835722211,animal,,,,
+cross direction across gap,489,20.0,0.006167105953252101,animal,,,,
+cross direction across gap,489,21.0,0.027289814182532048,animal,,,,
+cross direction across gap,579,0.0,0.14800820387412927,animal,,,,
+cross direction across gap,579,1.0,0.02768766309489169,animal,,,,
+cross direction across gap,579,2.0,-0.06123941385784716,animal,,,,
+cross direction across gap,579,3.0,-0.012657272616048383,animal,,,,
+cross direction across gap,579,4.0,0.10540585418481999,animal,,,,
+cross direction across gap,579,5.0,0.014086825602564197,animal,,,,
+cross direction across gap,579,6.0,0.02448097638209012,animal,,,,
+cross direction across gap,579,7.0,-0.11283871418292422,animal,,,,
+cross direction across gap,579,8.0,0.05748841415716452,animal,,,,
+cross direction across gap,579,9.0,-0.024181647375848013,animal,,,,
+cross direction across gap,579,10.0,0.15151247796267214,animal,,,,
+cross direction across gap,579,11.0,-0.03462329698019821,animal,,,,
+cross direction across gap,579,12.0,-0.026448994694838954,animal,,,,
+cross direction across gap,579,13.0,-0.07454782361422313,animal,,,,
+cross direction across gap,579,14.0,0.12149579801610863,animal,,,,
+cross direction across gap,579,15.0,-0.0507367913532635,animal,,,,
+cross direction across gap,579,16.0,-0.08280699430557745,animal,,,,
+cross direction across gap,579,17.0,-0.015441154811959838,animal,,,,
+cross direction across gap,579,18.0,-0.09807380441801045,animal,,,,
+cross direction across gap,579,19.0,0.07539867117747572,animal,,,,
+cross direction across gap,579,20.0,0.16658330416615205,animal,,,,
+cross direction across gap,579,21.0,0.2146991548000856,animal,,,,
+cross direction across gap,837,0.0,0.21409547268519982,animal,,,,
+cross direction across gap,837,1.0,0.20866112404469728,animal,,,,
+cross direction across gap,837,2.0,0.1257792299409781,animal,,,,
+cross direction across gap,837,3.0,0.09226024596342693,animal,,,,
+cross direction across gap,837,4.0,0.09175325908828132,animal,,,,
+cross direction across gap,837,5.0,0.026866379259239143,animal,,,,
+cross direction across gap,837,6.0,0.004487415784888809,animal,,,,
+cross direction across gap,837,7.0,0.07781384480214484,animal,,,,
+cross direction across gap,837,8.0,0.009055953340620865,animal,,,,
+cross direction across gap,837,9.0,0.0485468590056305,animal,,,,
+cross direction across gap,837,10.0,0.047029521563472544,animal,,,,
+cross direction across gap,837,11.0,0.02129338425093939,animal,,,,
+cross direction across gap,837,12.0,0.05431451067333056,animal,,,,
+cross direction across gap,837,13.0,0.04649340949998734,animal,,,,
+cross direction across gap,837,14.0,-0.02311429353499279,animal,,,,
+cross direction across gap,837,15.0,0.006254898894883981,animal,,,,
+cross direction across gap,837,16.0,0.022630189368602713,animal,,,,
+cross direction across gap,837,17.0,0.025632171778005156,animal,,,,
+cross direction across gap,837,18.0,0.016627635227539392,animal,,,,
+cross direction across gap,837,19.0,0.018725169555234265,animal,,,,
+cross direction across gap,837,20.0,0.09183343534365791,animal,,,,
+cross direction across gap,837,21.0,0.3282627077994413,animal,,,,
+cross direction across gap,838,0.0,-0.0026796224395249043,animal,,,,
+cross direction across gap,838,1.0,0.030928348146443536,animal,,,,
+cross direction across gap,838,2.0,0.03226385374262976,animal,,,,
+cross direction across gap,838,3.0,0.015309191272004419,animal,,,,
+cross direction across gap,838,4.0,0.01629262270095197,animal,,,,
+cross direction across gap,838,5.0,-0.009774964923280966,animal,,,,
+cross direction across gap,838,6.0,-0.020206215490481117,animal,,,,
+cross direction across gap,838,7.0,-0.011429317264918032,animal,,,,
+cross direction across gap,838,8.0,-0.021955287274703705,animal,,,,
+cross direction across gap,838,9.0,-0.011239019369011859,animal,,,,
+cross direction across gap,838,10.0,0.0032990305681582905,animal,,,,
+cross direction across gap,838,11.0,-0.011861370302553484,animal,,,,
+cross direction across gap,838,12.0,0.01321148308878318,animal,,,,
+cross direction across gap,838,13.0,0.007155008878219256,animal,,,,
+cross direction across gap,838,14.0,0.041394137579351106,animal,,,,
+cross direction across gap,838,15.0,0.020687139717436433,animal,,,,
+cross direction across gap,838,16.0,0.01734970195268773,animal,,,,
+cross direction across gap,838,17.0,0.0019464488719457853,animal,,,,
+cross direction across gap,838,18.0,-0.011443096015166215,animal,,,,
+cross direction across gap,838,19.0,0.0035026959092555776,animal,,,,
+cross direction across gap,838,20.0,0.031093671039350734,animal,,,,
+cross direction across gap,838,21.0,0.07072173621013639,animal,,,,
+cross direction across gap,839,0.0,0.008403169873219535,animal,,,,
+cross direction across gap,839,1.0,-0.015623589056188214,animal,,,,
+cross direction across gap,839,2.0,-0.00723808761599556,animal,,,,
+cross direction across gap,839,3.0,-0.012666498208917965,animal,,,,
+cross direction across gap,839,4.0,-0.008012170013269598,animal,,,,
+cross direction across gap,839,5.0,0.01692295017991108,animal,,,,
+cross direction across gap,839,6.0,0.024050969924016105,animal,,,,
+cross direction across gap,839,7.0,-0.016136686939309777,animal,,,,
+cross direction across gap,839,8.0,-0.025066103282115115,animal,,,,
+cross direction across gap,839,9.0,-0.007754947206888035,animal,,,,
+cross direction across gap,839,10.0,0.02447079548158317,animal,,,,
+cross direction across gap,839,11.0,-0.014102287832573087,animal,,,,
+cross direction across gap,839,12.0,0.0195743489259075,animal,,,,
+cross direction across gap,839,13.0,0.045235964176025635,animal,,,,
+cross direction across gap,839,14.0,0.019575853154586962,animal,,,,
+cross direction across gap,839,15.0,0.041539199966808646,animal,,,,
+cross direction across gap,839,16.0,-0.010547590674606255,animal,,,,
+cross direction across gap,839,17.0,0.012556408717525164,animal,,,,
+cross direction across gap,839,18.0,-0.008830194657929119,animal,,,,
+cross direction across gap,839,19.0,0.03190092663909675,animal,,,,
+cross direction across gap,839,20.0,0.02466066184441808,animal,,,,
+cross direction across gap,839,21.0,0.09821661684922588,animal,,,,
+cross direction across gap,842,0.0,0.12594051215933905,animal,,,,
+cross direction across gap,842,1.0,0.1897096139806026,animal,,,,
+cross direction across gap,842,2.0,0.043974601854993786,animal,,,,
+cross direction across gap,842,3.0,0.03909115873479109,animal,,,,
+cross direction across gap,842,4.0,0.10297231377855327,animal,,,,
+cross direction across gap,842,5.0,0.04418798973798953,animal,,,,
+cross direction across gap,842,6.0,0.029941930479265765,animal,,,,
+cross direction across gap,842,7.0,0.09138323173835328,animal,,,,
+cross direction across gap,842,8.0,0.08495403290743991,animal,,,,
+cross direction across gap,842,9.0,0.0021837110763906226,animal,,,,
+cross direction across gap,842,10.0,0.05268790745380503,animal,,,,
+cross direction across gap,842,11.0,0.06743737389240814,animal,,,,
+cross direction across gap,842,12.0,0.03871796554069603,animal,,,,
+cross direction across gap,842,13.0,-0.021460845724839517,animal,,,,
+cross direction across gap,842,14.0,-0.009936072291806763,animal,,,,
+cross direction across gap,842,15.0,-0.01218738515185843,animal,,,,
+cross direction across gap,842,16.0,0.036277073917220314,animal,,,,
+cross direction across gap,842,17.0,-0.0208455473840488,animal,,,,
+cross direction across gap,842,18.0,0.04971192272050536,animal,,,,
+cross direction across gap,842,19.0,0.06714303852271837,animal,,,,
+cross direction across gap,842,20.0,0.0780600204632959,animal,,,,
+cross direction across gap,842,21.0,0.21072462206397352,animal,,,,
+cross direction across gap,862,0.0,0.109241023268143,animal,,,,
+cross direction across gap,862,1.0,0.09033830653911026,animal,,,,
+cross direction across gap,862,2.0,0.09007968610172613,animal,,,,
+cross direction across gap,862,3.0,0.06655078315349998,animal,,,,
+cross direction across gap,862,4.0,-0.015382173174854245,animal,,,,
+cross direction across gap,862,5.0,-0.08528826697678882,animal,,,,
+cross direction across gap,862,6.0,-0.05970831590595588,animal,,,,
+cross direction across gap,862,7.0,-0.013439424007917984,animal,,,,
+cross direction across gap,862,8.0,-0.10177809412063926,animal,,,,
+cross direction across gap,862,9.0,-0.06784990146381505,animal,,,,
+cross direction across gap,862,10.0,-0.03865835965187171,animal,,,,
+cross direction across gap,862,11.0,0.009033992849626776,animal,,,,
+cross direction across gap,862,12.0,0.08311832900353193,animal,,,,
+cross direction across gap,862,13.0,0.05787710034046599,animal,,,,
+cross direction across gap,862,14.0,0.006840960685075732,animal,,,,
+cross direction across gap,862,15.0,0.047267704913082256,animal,,,,
+cross direction across gap,862,16.0,-0.030845829730328976,animal,,,,
+cross direction across gap,862,17.0,0.08036944753697867,animal,,,,
+cross direction across gap,862,18.0,-0.07035201135549154,animal,,,,
+cross direction across gap,862,19.0,0.047686279397686174,animal,,,,
+cross direction across gap,862,20.0,-0.02942784697587485,animal,,,,
+cross direction across gap,862,21.0,0.14350324374942117,animal,,,,
+"cross direction across gap, shuffle",1616,0.0,0.0011922546702480968,animal,,,,
+"cross direction across gap, shuffle",1616,1.0,-0.001324516825828449,animal,,,,
+"cross direction across gap, shuffle",1616,2.0,0.001798035635934976,animal,,,,
+"cross direction across gap, shuffle",1616,3.0,-0.0028795665636777417,animal,,,,
+"cross direction across gap, shuffle",1616,4.0,0.0012939589605647287,animal,,,,
+"cross direction across gap, shuffle",1616,5.0,0.0009710344777116634,animal,,,,
+"cross direction across gap, shuffle",1616,6.0,-0.010042267774315255,animal,,,,
+"cross direction across gap, shuffle",1616,7.0,-0.0031107505495280713,animal,,,,
+"cross direction across gap, shuffle",1616,8.0,-0.002199384271120783,animal,,,,
+"cross direction across gap, shuffle",1616,9.0,-0.004867798137183912,animal,,,,
+"cross direction across gap, shuffle",1616,10.0,-0.0048370598401918045,animal,,,,
+"cross direction across gap, shuffle",1616,11.0,-0.008185143722167753,animal,,,,
+"cross direction across gap, shuffle",1616,12.0,-0.007187503608436518,animal,,,,
+"cross direction across gap, shuffle",1616,13.0,-0.0007250651700363434,animal,,,,
+"cross direction across gap, shuffle",1616,14.0,-0.00017129769412836484,animal,,,,
+"cross direction across gap, shuffle",1616,15.0,-0.0012179845613629712,animal,,,,
+"cross direction across gap, shuffle",1616,16.0,-0.002733183402549919,animal,,,,
+"cross direction across gap, shuffle",1616,17.0,-0.0020249198662274297,animal,,,,
+"cross direction across gap, shuffle",1616,18.0,-0.005644209367092176,animal,,,,
+"cross direction across gap, shuffle",1616,19.0,0.0023602115697442284,animal,,,,
+"cross direction across gap, shuffle",1616,20.0,-0.004025947867540154,animal,,,,
+"cross direction across gap, shuffle",1616,21.0,-0.00430471775685807,animal,,,,
+"cross direction across gap, shuffle",418,0.0,-0.0038559458709392304,animal,,,,
+"cross direction across gap, shuffle",418,1.0,0.0007792649501356877,animal,,,,
+"cross direction across gap, shuffle",418,2.0,0.0027587122978600764,animal,,,,
+"cross direction across gap, shuffle",418,3.0,0.00585577822359835,animal,,,,
+"cross direction across gap, shuffle",418,4.0,0.0003457924515039724,animal,,,,
+"cross direction across gap, shuffle",418,5.0,0.005048416114494583,animal,,,,
+"cross direction across gap, shuffle",418,6.0,-0.0035151580052885183,animal,,,,
+"cross direction across gap, shuffle",418,7.0,0.010723473481475872,animal,,,,
+"cross direction across gap, shuffle",418,8.0,-0.0009735359403260294,animal,,,,
+"cross direction across gap, shuffle",418,9.0,0.0019908544678694366,animal,,,,
+"cross direction across gap, shuffle",418,10.0,-0.0023158671481388854,animal,,,,
+"cross direction across gap, shuffle",418,11.0,0.004129155484842534,animal,,,,
+"cross direction across gap, shuffle",418,12.0,0.005048075402357277,animal,,,,
+"cross direction across gap, shuffle",418,13.0,-0.00299953251155563,animal,,,,
+"cross direction across gap, shuffle",418,14.0,-0.005352065741612476,animal,,,,
+"cross direction across gap, shuffle",418,15.0,0.006915166605514116,animal,,,,
+"cross direction across gap, shuffle",418,16.0,-0.0008699377992246437,animal,,,,
+"cross direction across gap, shuffle",418,17.0,-0.006934196634226433,animal,,,,
+"cross direction across gap, shuffle",418,18.0,-0.0014068873497222597,animal,,,,
+"cross direction across gap, shuffle",418,19.0,-0.0032773604799883147,animal,,,,
+"cross direction across gap, shuffle",418,20.0,-0.004707474617822536,animal,,,,
+"cross direction across gap, shuffle",418,21.0,-0.0014026939368574274,animal,,,,
+"cross direction across gap, shuffle",422,0.0,-0.019078379545498084,animal,,,,
+"cross direction across gap, shuffle",422,1.0,-0.024693999021806853,animal,,,,
+"cross direction across gap, shuffle",422,2.0,0.0023888329544587534,animal,,,,
+"cross direction across gap, shuffle",422,3.0,-0.0044975828823897055,animal,,,,
+"cross direction across gap, shuffle",422,4.0,-0.01828080055235027,animal,,,,
+"cross direction across gap, shuffle",422,5.0,0.0048679539267731525,animal,,,,
+"cross direction across gap, shuffle",422,6.0,-0.000962109281141333,animal,,,,
+"cross direction across gap, shuffle",422,7.0,-0.013599746179447343,animal,,,,
+"cross direction across gap, shuffle",422,8.0,0.0046000421236326895,animal,,,,
+"cross direction across gap, shuffle",422,9.0,-0.0033549476596664457,animal,,,,
+"cross direction across gap, shuffle",422,10.0,-0.015617545854260126,animal,,,,
+"cross direction across gap, shuffle",422,11.0,-0.0025431121995325608,animal,,,,
+"cross direction across gap, shuffle",422,12.0,-0.011094359772769992,animal,,,,
+"cross direction across gap, shuffle",422,13.0,-0.0011299013107184037,animal,,,,
+"cross direction across gap, shuffle",422,14.0,0.00765000099719942,animal,,,,
+"cross direction across gap, shuffle",422,15.0,0.010595242519140373,animal,,,,
+"cross direction across gap, shuffle",422,16.0,-0.008830128876483283,animal,,,,
+"cross direction across gap, shuffle",422,17.0,0.005482347292581996,animal,,,,
+"cross direction across gap, shuffle",422,18.0,-0.0033018788006807316,animal,,,,
+"cross direction across gap, shuffle",422,19.0,-0.017424621254163643,animal,,,,
+"cross direction across gap, shuffle",422,20.0,0.02076689554299147,animal,,,,
+"cross direction across gap, shuffle",422,21.0,0.007964557752439405,animal,,,,
+"cross direction across gap, shuffle",451,0.0,-0.008554051486583624,animal,,,,
+"cross direction across gap, shuffle",451,1.0,0.007041421358215505,animal,,,,
+"cross direction across gap, shuffle",451,2.0,-0.009490621442782432,animal,,,,
+"cross direction across gap, shuffle",451,3.0,-0.0070431592923951855,animal,,,,
+"cross direction across gap, shuffle",451,4.0,-0.0016660967775466904,animal,,,,
+"cross direction across gap, shuffle",451,5.0,-0.007656192096733155,animal,,,,
+"cross direction across gap, shuffle",451,6.0,-0.003757282740330986,animal,,,,
+"cross direction across gap, shuffle",451,7.0,-0.0019780582203697762,animal,,,,
+"cross direction across gap, shuffle",451,8.0,-0.002368408360824881,animal,,,,
+"cross direction across gap, shuffle",451,9.0,-0.00955264057814241,animal,,,,
+"cross direction across gap, shuffle",451,10.0,0.008033106564582204,animal,,,,
+"cross direction across gap, shuffle",451,11.0,0.005660287940866486,animal,,,,
+"cross direction across gap, shuffle",451,12.0,-0.004613083681025057,animal,,,,
+"cross direction across gap, shuffle",451,13.0,-0.0067031290409180185,animal,,,,
+"cross direction across gap, shuffle",451,14.0,-0.004431246483149215,animal,,,,
+"cross direction across gap, shuffle",451,15.0,-0.002718950590741018,animal,,,,
+"cross direction across gap, shuffle",451,16.0,-0.009828658149508307,animal,,,,
+"cross direction across gap, shuffle",451,17.0,-0.003798537050411195,animal,,,,
+"cross direction across gap, shuffle",451,18.0,0.0030069144639947804,animal,,,,
+"cross direction across gap, shuffle",451,19.0,0.013425509720923361,animal,,,,
+"cross direction across gap, shuffle",451,20.0,0.0005186558311086178,animal,,,,
+"cross direction across gap, shuffle",451,21.0,-0.0031723865924649973,animal,,,,
+"cross direction across gap, shuffle",468,0.0,0.012411150585936235,animal,,,,
+"cross direction across gap, shuffle",468,1.0,-0.004643925349446676,animal,,,,
+"cross direction across gap, shuffle",468,2.0,0.00541139922477157,animal,,,,
+"cross direction across gap, shuffle",468,3.0,-0.0012809075893095263,animal,,,,
+"cross direction across gap, shuffle",468,4.0,0.003070823987012207,animal,,,,
+"cross direction across gap, shuffle",468,5.0,0.003114471780862729,animal,,,,
+"cross direction across gap, shuffle",468,6.0,0.004068096556854007,animal,,,,
+"cross direction across gap, shuffle",468,7.0,0.0006526948245219894,animal,,,,
+"cross direction across gap, shuffle",468,8.0,-0.006320514497131874,animal,,,,
+"cross direction across gap, shuffle",468,9.0,0.004571069039696503,animal,,,,
+"cross direction across gap, shuffle",468,10.0,-0.0029208330295562705,animal,,,,
+"cross direction across gap, shuffle",468,11.0,-0.0036333842818771812,animal,,,,
+"cross direction across gap, shuffle",468,12.0,-0.0051383763718423625,animal,,,,
+"cross direction across gap, shuffle",468,13.0,-0.0004448995967779202,animal,,,,
+"cross direction across gap, shuffle",468,14.0,0.007116216664067231,animal,,,,
+"cross direction across gap, shuffle",468,15.0,0.006856318814411687,animal,,,,
+"cross direction across gap, shuffle",468,16.0,0.008001039311773064,animal,,,,
+"cross direction across gap, shuffle",468,17.0,-0.013538161543389103,animal,,,,
+"cross direction across gap, shuffle",468,18.0,-0.007627660683712329,animal,,,,
+"cross direction across gap, shuffle",468,19.0,-0.004200795386025482,animal,,,,
+"cross direction across gap, shuffle",468,20.0,-0.0033481858371164352,animal,,,,
+"cross direction across gap, shuffle",468,21.0,-0.006742060752509077,animal,,,,
+"cross direction across gap, shuffle",488,0.0,0.01099642246324292,animal,,,,
+"cross direction across gap, shuffle",488,1.0,0.0020651832733962917,animal,,,,
+"cross direction across gap, shuffle",488,2.0,0.002942668902596297,animal,,,,
+"cross direction across gap, shuffle",488,3.0,0.011258654942101789,animal,,,,
+"cross direction across gap, shuffle",488,4.0,0.015335245212002418,animal,,,,
+"cross direction across gap, shuffle",488,5.0,0.001993858359711956,animal,,,,
+"cross direction across gap, shuffle",488,6.0,-0.011046308988852588,animal,,,,
+"cross direction across gap, shuffle",488,7.0,-0.0023436724208084525,animal,,,,
+"cross direction across gap, shuffle",488,8.0,-0.0049468639387867394,animal,,,,
+"cross direction across gap, shuffle",488,9.0,0.0014445606557599256,animal,,,,
+"cross direction across gap, shuffle",488,10.0,0.015319093028653814,animal,,,,
+"cross direction across gap, shuffle",488,11.0,0.006890953672925645,animal,,,,
+"cross direction across gap, shuffle",488,12.0,0.013917155973380812,animal,,,,
+"cross direction across gap, shuffle",488,13.0,-0.0013369959923407648,animal,,,,
+"cross direction across gap, shuffle",488,14.0,0.0007686602785854533,animal,,,,
+"cross direction across gap, shuffle",488,15.0,-0.0060664294641582335,animal,,,,
+"cross direction across gap, shuffle",488,16.0,-0.01425811604179874,animal,,,,
+"cross direction across gap, shuffle",488,17.0,0.0015955687228406826,animal,,,,
+"cross direction across gap, shuffle",488,18.0,-0.012304746586679143,animal,,,,
+"cross direction across gap, shuffle",488,19.0,-0.006965563201942873,animal,,,,
+"cross direction across gap, shuffle",488,20.0,0.002112152085332143,animal,,,,
+"cross direction across gap, shuffle",488,21.0,-0.0082425027837295,animal,,,,
+"cross direction across gap, shuffle",489,0.0,0.001894702236662125,animal,,,,
+"cross direction across gap, shuffle",489,1.0,-0.009779034879704584,animal,,,,
+"cross direction across gap, shuffle",489,2.0,-0.008335725019766,animal,,,,
+"cross direction across gap, shuffle",489,3.0,0.014090773396116665,animal,,,,
+"cross direction across gap, shuffle",489,4.0,0.012181138718584738,animal,,,,
+"cross direction across gap, shuffle",489,5.0,-0.0002375386458621741,animal,,,,
+"cross direction across gap, shuffle",489,6.0,-0.005595460108086406,animal,,,,
+"cross direction across gap, shuffle",489,7.0,0.006073268390402825,animal,,,,
+"cross direction across gap, shuffle",489,8.0,0.011261377442693109,animal,,,,
+"cross direction across gap, shuffle",489,9.0,0.016860934619983566,animal,,,,
+"cross direction across gap, shuffle",489,10.0,-0.004796475166507726,animal,,,,
+"cross direction across gap, shuffle",489,11.0,0.0014712709280000212,animal,,,,
+"cross direction across gap, shuffle",489,12.0,-0.003882288524941775,animal,,,,
+"cross direction across gap, shuffle",489,13.0,-0.007046290280999924,animal,,,,
+"cross direction across gap, shuffle",489,14.0,0.006229478651980327,animal,,,,
+"cross direction across gap, shuffle",489,15.0,-0.02480278336976305,animal,,,,
+"cross direction across gap, shuffle",489,16.0,0.005767905243683298,animal,,,,
+"cross direction across gap, shuffle",489,17.0,-0.015385965727523206,animal,,,,
+"cross direction across gap, shuffle",489,18.0,-0.02209633341873109,animal,,,,
+"cross direction across gap, shuffle",489,19.0,-0.004660540365678589,animal,,,,
+"cross direction across gap, shuffle",489,20.0,-0.012469333039404285,animal,,,,
+"cross direction across gap, shuffle",489,21.0,-0.0013991986441770406,animal,,,,
+"cross direction across gap, shuffle",579,0.0,0.010467663917606727,animal,,,,
+"cross direction across gap, shuffle",579,1.0,0.0002552744059575212,animal,,,,
+"cross direction across gap, shuffle",579,2.0,0.0030049509869075346,animal,,,,
+"cross direction across gap, shuffle",579,3.0,0.007902551645815685,animal,,,,
+"cross direction across gap, shuffle",579,4.0,0.0021801879806938847,animal,,,,
+"cross direction across gap, shuffle",579,5.0,-0.013177596499687081,animal,,,,
+"cross direction across gap, shuffle",579,6.0,-0.0020029743846783836,animal,,,,
+"cross direction across gap, shuffle",579,7.0,-0.0021924903606160284,animal,,,,
+"cross direction across gap, shuffle",579,8.0,0.006574840543305613,animal,,,,
+"cross direction across gap, shuffle",579,9.0,0.005279362954324335,animal,,,,
+"cross direction across gap, shuffle",579,10.0,-0.001573697479425312,animal,,,,
+"cross direction across gap, shuffle",579,11.0,-0.002430066755867526,animal,,,,
+"cross direction across gap, shuffle",579,12.0,0.003638263798428221,animal,,,,
+"cross direction across gap, shuffle",579,13.0,0.010608266468756945,animal,,,,
+"cross direction across gap, shuffle",579,14.0,-0.007333724858779323,animal,,,,
+"cross direction across gap, shuffle",579,15.0,-0.017802887390578274,animal,,,,
+"cross direction across gap, shuffle",579,16.0,-0.0033982637215402155,animal,,,,
+"cross direction across gap, shuffle",579,17.0,0.016956657314017715,animal,,,,
+"cross direction across gap, shuffle",579,18.0,0.009220240268376473,animal,,,,
+"cross direction across gap, shuffle",579,19.0,-0.0018998861896642938,animal,,,,
+"cross direction across gap, shuffle",579,20.0,-0.0038669003813479293,animal,,,,
+"cross direction across gap, shuffle",579,21.0,0.0031666408845030776,animal,,,,
+"cross direction across gap, shuffle",837,0.0,-0.0009841250239049399,animal,,,,
+"cross direction across gap, shuffle",837,1.0,-0.0012910457960610367,animal,,,,
+"cross direction across gap, shuffle",837,2.0,-0.0017656005098114517,animal,,,,
+"cross direction across gap, shuffle",837,3.0,-0.00201331626928792,animal,,,,
+"cross direction across gap, shuffle",837,4.0,-0.002335276415305188,animal,,,,
+"cross direction across gap, shuffle",837,5.0,-0.0025019248064551236,animal,,,,
+"cross direction across gap, shuffle",837,6.0,-0.0009258608066993625,animal,,,,
+"cross direction across gap, shuffle",837,7.0,-0.0023474556262616394,animal,,,,
+"cross direction across gap, shuffle",837,8.0,-0.002872706428967879,animal,,,,
+"cross direction across gap, shuffle",837,9.0,-0.0010826710498878062,animal,,,,
+"cross direction across gap, shuffle",837,10.0,-0.0008867859886386213,animal,,,,
+"cross direction across gap, shuffle",837,11.0,0.0009635998858530966,animal,,,,
+"cross direction across gap, shuffle",837,12.0,0.0032990981716613187,animal,,,,
+"cross direction across gap, shuffle",837,13.0,-0.0024729324836029543,animal,,,,
+"cross direction across gap, shuffle",837,14.0,0.0008377551431912536,animal,,,,
+"cross direction across gap, shuffle",837,15.0,-0.0009462421162865887,animal,,,,
+"cross direction across gap, shuffle",837,16.0,0.0003531609928219149,animal,,,,
+"cross direction across gap, shuffle",837,17.0,-0.0029517630357421,animal,,,,
+"cross direction across gap, shuffle",837,18.0,0.001723195923886415,animal,,,,
+"cross direction across gap, shuffle",837,19.0,0.0014707939480805329,animal,,,,
+"cross direction across gap, shuffle",837,20.0,-0.0020931912592983674,animal,,,,
+"cross direction across gap, shuffle",837,21.0,0.000999499122985124,animal,,,,
+"cross direction across gap, shuffle",838,0.0,-0.0001637009955108066,animal,,,,
+"cross direction across gap, shuffle",838,1.0,0.0001299831856249974,animal,,,,
+"cross direction across gap, shuffle",838,2.0,0.0008785372202484071,animal,,,,
+"cross direction across gap, shuffle",838,3.0,0.00010061063351335372,animal,,,,
+"cross direction across gap, shuffle",838,4.0,-0.0020959668755127364,animal,,,,
+"cross direction across gap, shuffle",838,5.0,-0.0026199925566815483,animal,,,,
+"cross direction across gap, shuffle",838,6.0,-0.0002401604602784226,animal,,,,
+"cross direction across gap, shuffle",838,7.0,0.0025577112169637337,animal,,,,
+"cross direction across gap, shuffle",838,8.0,0.0014396001443510078,animal,,,,
+"cross direction across gap, shuffle",838,9.0,0.0025668483990184295,animal,,,,
+"cross direction across gap, shuffle",838,10.0,0.0014879937032475003,animal,,,,
+"cross direction across gap, shuffle",838,11.0,0.0010257816230716409,animal,,,,
+"cross direction across gap, shuffle",838,12.0,-0.0010810044865870265,animal,,,,
+"cross direction across gap, shuffle",838,13.0,0.0018868292825450076,animal,,,,
+"cross direction across gap, shuffle",838,14.0,-0.00158037251404827,animal,,,,
+"cross direction across gap, shuffle",838,15.0,0.003290272044844769,animal,,,,
+"cross direction across gap, shuffle",838,16.0,-0.0009820976712599007,animal,,,,
+"cross direction across gap, shuffle",838,17.0,-0.0047014632838459,animal,,,,
+"cross direction across gap, shuffle",838,18.0,0.0002289536731735803,animal,,,,
+"cross direction across gap, shuffle",838,19.0,-0.002499806747545974,animal,,,,
+"cross direction across gap, shuffle",838,20.0,-0.004014610960471856,animal,,,,
+"cross direction across gap, shuffle",838,21.0,-0.0007621987392255197,animal,,,,
+"cross direction across gap, shuffle",839,0.0,0.00031199219411246637,animal,,,,
+"cross direction across gap, shuffle",839,1.0,-0.0032383031052356658,animal,,,,
+"cross direction across gap, shuffle",839,2.0,-0.001963381921069722,animal,,,,
+"cross direction across gap, shuffle",839,3.0,-0.0005896627058190944,animal,,,,
+"cross direction across gap, shuffle",839,4.0,0.002011514547245885,animal,,,,
+"cross direction across gap, shuffle",839,5.0,0.0022055424435142718,animal,,,,
+"cross direction across gap, shuffle",839,6.0,0.002932111976103656,animal,,,,
+"cross direction across gap, shuffle",839,7.0,-0.001698296374172522,animal,,,,
+"cross direction across gap, shuffle",839,8.0,-0.0009035673002324939,animal,,,,
+"cross direction across gap, shuffle",839,9.0,0.0006097433889752117,animal,,,,
+"cross direction across gap, shuffle",839,10.0,0.003259247079811128,animal,,,,
+"cross direction across gap, shuffle",839,11.0,0.005651077880788239,animal,,,,
+"cross direction across gap, shuffle",839,12.0,0.002792307936825489,animal,,,,
+"cross direction across gap, shuffle",839,13.0,0.00021116545756265254,animal,,,,
+"cross direction across gap, shuffle",839,14.0,0.001371401487414817,animal,,,,
+"cross direction across gap, shuffle",839,15.0,0.0017197241180713799,animal,,,,
+"cross direction across gap, shuffle",839,16.0,0.0014307051155999792,animal,,,,
+"cross direction across gap, shuffle",839,17.0,0.0001017024216782152,animal,,,,
+"cross direction across gap, shuffle",839,18.0,-0.000975476640362738,animal,,,,
+"cross direction across gap, shuffle",839,19.0,-0.0003483267149760234,animal,,,,
+"cross direction across gap, shuffle",839,20.0,-0.003400856354647729,animal,,,,
+"cross direction across gap, shuffle",839,21.0,0.0006004257820174248,animal,,,,
+"cross direction across gap, shuffle",842,0.0,-0.003734244153650788,animal,,,,
+"cross direction across gap, shuffle",842,1.0,0.0007031725240875926,animal,,,,
+"cross direction across gap, shuffle",842,2.0,0.0035734171657716683,animal,,,,
+"cross direction across gap, shuffle",842,3.0,0.006425714181498773,animal,,,,
+"cross direction across gap, shuffle",842,4.0,-0.0022553357539026693,animal,,,,
+"cross direction across gap, shuffle",842,5.0,-0.0002589403440388302,animal,,,,
+"cross direction across gap, shuffle",842,6.0,-0.002239747016135135,animal,,,,
+"cross direction across gap, shuffle",842,7.0,-0.001124097087780681,animal,,,,
+"cross direction across gap, shuffle",842,8.0,-0.003014733624476711,animal,,,,
+"cross direction across gap, shuffle",842,9.0,-0.0004013295645150833,animal,,,,
+"cross direction across gap, shuffle",842,10.0,-0.003400316879004845,animal,,,,
+"cross direction across gap, shuffle",842,11.0,-0.003260079437202277,animal,,,,
+"cross direction across gap, shuffle",842,12.0,-0.005991651486357815,animal,,,,
+"cross direction across gap, shuffle",842,13.0,-0.002014401560978439,animal,,,,
+"cross direction across gap, shuffle",842,14.0,0.00413779784551669,animal,,,,
+"cross direction across gap, shuffle",842,15.0,-0.0019460606584066288,animal,,,,
+"cross direction across gap, shuffle",842,16.0,-0.0002148019510037659,animal,,,,
+"cross direction across gap, shuffle",842,17.0,-0.0008793515141246511,animal,,,,
+"cross direction across gap, shuffle",842,18.0,0.005431897972733009,animal,,,,
+"cross direction across gap, shuffle",842,19.0,0.0013488018311860438,animal,,,,
+"cross direction across gap, shuffle",842,20.0,0.0014072779306193181,animal,,,,
+"cross direction across gap, shuffle",842,21.0,-0.0029806387704915077,animal,,,,
+"cross direction across gap, shuffle",862,0.0,0.013625666648588785,animal,,,,
+"cross direction across gap, shuffle",862,1.0,0.001416911760099438,animal,,,,
+"cross direction across gap, shuffle",862,2.0,0.0026487123932301742,animal,,,,
+"cross direction across gap, shuffle",862,3.0,-0.003779536908230889,animal,,,,
+"cross direction across gap, shuffle",862,4.0,-0.0005457675668465759,animal,,,,
+"cross direction across gap, shuffle",862,5.0,-0.00012279022732600772,animal,,,,
+"cross direction across gap, shuffle",862,6.0,0.0025355779505882325,animal,,,,
+"cross direction across gap, shuffle",862,7.0,0.000793986768375612,animal,,,,
+"cross direction across gap, shuffle",862,8.0,0.010761972231694238,animal,,,,
+"cross direction across gap, shuffle",862,9.0,-0.007177366251683181,animal,,,,
+"cross direction across gap, shuffle",862,10.0,0.004253643771047151,animal,,,,
+"cross direction across gap, shuffle",862,11.0,0.011094752901889193,animal,,,,
+"cross direction across gap, shuffle",862,12.0,-0.005011988688771366,animal,,,,
+"cross direction across gap, shuffle",862,13.0,-0.003478645959950223,animal,,,,
+"cross direction across gap, shuffle",862,14.0,0.0009853351143135668,animal,,,,
+"cross direction across gap, shuffle",862,15.0,-0.004835555421173846,animal,,,,
+"cross direction across gap, shuffle",862,16.0,-0.008680935326125105,animal,,,,
+"cross direction across gap, shuffle",862,17.0,-0.0026818116599587392,animal,,,,
+"cross direction across gap, shuffle",862,18.0,0.013015011522708992,animal,,,,
+"cross direction across gap, shuffle",862,19.0,0.00785983666046532,animal,,,,
+"cross direction across gap, shuffle",862,20.0,0.0039853582270362505,animal,,,,
+"cross direction across gap, shuffle",862,21.0,-8.174886797125497e-05,animal,,,,
+same direction across gap: home to reward,1616,0.0,0.19859597581122507,animal,,,,
+same direction across gap: home to reward,1616,1.0,0.014369683979616884,animal,,,,
+same direction across gap: home to reward,1616,2.0,0.2161613919048995,animal,,,,
+same direction across gap: home to reward,1616,3.0,0.1548432230991896,animal,,,,
+same direction across gap: home to reward,1616,4.0,0.17121872021157972,animal,,,,
+same direction across gap: home to reward,1616,5.0,0.22610446291102318,animal,,,,
+same direction across gap: home to reward,1616,6.0,0.4038218067013897,animal,,,,
+same direction across gap: home to reward,1616,7.0,0.19722600907151241,animal,,,,
+same direction across gap: home to reward,1616,8.0,0.41550230453211673,animal,,,,
+same direction across gap: home to reward,1616,9.0,0.2518925631506623,animal,,,,
+same direction across gap: home to reward,1616,10.0,0.161078770848922,animal,,,,
+same direction across gap: home to reward,1616,11.0,0.13213005239193285,animal,,,,
+same direction across gap: home to reward,1616,12.0,0.12333847507219318,animal,,,,
+same direction across gap: home to reward,1616,13.0,0.16729198411443313,animal,,,,
+same direction across gap: home to reward,1616,14.0,0.012000725222776095,animal,,,,
+same direction across gap: home to reward,1616,15.0,0.243896609535733,animal,,,,
+same direction across gap: home to reward,1616,16.0,0.3197274652622956,animal,,,,
+same direction across gap: home to reward,1616,17.0,0.21876209701776483,animal,,,,
+same direction across gap: home to reward,1616,18.0,0.1377759173783498,animal,,,,
+same direction across gap: home to reward,1616,19.0,0.14193564198983094,animal,,,,
+same direction across gap: home to reward,1616,20.0,0.2458445338146062,animal,,,,
+same direction across gap: home to reward,1616,21.0,0.33050465860175604,animal,,,,
+same direction across gap: home to reward,418,0.0,-0.025625209206148886,animal,,,,
+same direction across gap: home to reward,418,1.0,-0.020342504239512404,animal,,,,
+same direction across gap: home to reward,418,2.0,-0.014503270321984965,animal,,,,
+same direction across gap: home to reward,418,3.0,-0.08134947970870815,animal,,,,
+same direction across gap: home to reward,418,4.0,0.09731801437049027,animal,,,,
+same direction across gap: home to reward,418,5.0,0.08366042138618342,animal,,,,
+same direction across gap: home to reward,418,6.0,-0.01987974962960072,animal,,,,
+same direction across gap: home to reward,418,7.0,0.05014964255508974,animal,,,,
+same direction across gap: home to reward,418,8.0,-0.013787646942094778,animal,,,,
+same direction across gap: home to reward,418,9.0,-0.028166990738094904,animal,,,,
+same direction across gap: home to reward,418,10.0,-0.08764409927108323,animal,,,,
+same direction across gap: home to reward,418,11.0,0.08846767856144261,animal,,,,
+same direction across gap: home to reward,418,12.0,0.23838651885142728,animal,,,,
+same direction across gap: home to reward,418,13.0,0.12124522997249315,animal,,,,
+same direction across gap: home to reward,418,14.0,0.04342953825143214,animal,,,,
+same direction across gap: home to reward,418,15.0,0.05677382093194743,animal,,,,
+same direction across gap: home to reward,418,16.0,-0.0008774038028652545,animal,,,,
+same direction across gap: home to reward,418,17.0,-0.09895595640879275,animal,,,,
+same direction across gap: home to reward,418,18.0,-0.11108844551957575,animal,,,,
+same direction across gap: home to reward,418,19.0,0.0344644857843896,animal,,,,
+same direction across gap: home to reward,418,20.0,0.0683659250336832,animal,,,,
+same direction across gap: home to reward,418,21.0,0.008285778297468316,animal,,,,
+same direction across gap: home to reward,422,0.0,-0.010353458297192447,animal,,,,
+same direction across gap: home to reward,422,1.0,0.006146095369714289,animal,,,,
+same direction across gap: home to reward,422,2.0,-0.07194639197518686,animal,,,,
+same direction across gap: home to reward,422,3.0,-0.14394411870559234,animal,,,,
+same direction across gap: home to reward,422,4.0,-0.17694488510680564,animal,,,,
+same direction across gap: home to reward,422,5.0,0.1474505167289051,animal,,,,
+same direction across gap: home to reward,422,6.0,0.5076918958205211,animal,,,,
+same direction across gap: home to reward,422,7.0,0.18464287810839172,animal,,,,
+same direction across gap: home to reward,422,8.0,0.47156562551404274,animal,,,,
+same direction across gap: home to reward,422,9.0,0.0849797806299064,animal,,,,
+same direction across gap: home to reward,422,10.0,0.30902231229662513,animal,,,,
+same direction across gap: home to reward,422,11.0,0.5236305330227653,animal,,,,
+same direction across gap: home to reward,422,12.0,0.23089284878760447,animal,,,,
+same direction across gap: home to reward,422,13.0,0.3319493643024802,animal,,,,
+same direction across gap: home to reward,422,14.0,0.3373729172154027,animal,,,,
+same direction across gap: home to reward,422,15.0,-0.08990339627177779,animal,,,,
+same direction across gap: home to reward,422,16.0,-0.10734276937163645,animal,,,,
+same direction across gap: home to reward,422,17.0,0.2779237453777192,animal,,,,
+same direction across gap: home to reward,422,18.0,0.5741899696256888,animal,,,,
+same direction across gap: home to reward,422,19.0,0.3894527030772949,animal,,,,
+same direction across gap: home to reward,422,20.0,0.42370699026405123,animal,,,,
+same direction across gap: home to reward,422,21.0,0.5953100328773793,animal,,,,
+same direction across gap: home to reward,451,0.0,0.2065075131817307,animal,,,,
+same direction across gap: home to reward,451,1.0,0.13546943292544342,animal,,,,
+same direction across gap: home to reward,451,2.0,0.20940663309512214,animal,,,,
+same direction across gap: home to reward,451,3.0,0.30072245078437876,animal,,,,
+same direction across gap: home to reward,451,4.0,0.21872890731569633,animal,,,,
+same direction across gap: home to reward,451,5.0,0.10074797661399407,animal,,,,
+same direction across gap: home to reward,451,6.0,0.11383520430375178,animal,,,,
+same direction across gap: home to reward,451,7.0,0.17986587926907924,animal,,,,
+same direction across gap: home to reward,451,8.0,0.16223614712872397,animal,,,,
+same direction across gap: home to reward,451,9.0,0.324072085305128,animal,,,,
+same direction across gap: home to reward,451,10.0,-0.0069277667763171106,animal,,,,
+same direction across gap: home to reward,451,11.0,0.23849321016868244,animal,,,,
+same direction across gap: home to reward,451,12.0,0.3539632907828458,animal,,,,
+same direction across gap: home to reward,451,13.0,0.38944475149377294,animal,,,,
+same direction across gap: home to reward,451,14.0,0.17337954252516216,animal,,,,
+same direction across gap: home to reward,451,15.0,0.04955716152852191,animal,,,,
+same direction across gap: home to reward,451,16.0,0.2381703456597702,animal,,,,
+same direction across gap: home to reward,451,17.0,0.2675913734404259,animal,,,,
+same direction across gap: home to reward,451,18.0,0.049892489567699046,animal,,,,
+same direction across gap: home to reward,451,19.0,0.5011917418372666,animal,,,,
+same direction across gap: home to reward,451,20.0,-0.02358618264416358,animal,,,,
+same direction across gap: home to reward,451,21.0,0.6058513264414093,animal,,,,
+same direction across gap: home to reward,468,0.0,0.2946872969517599,animal,,,,
+same direction across gap: home to reward,468,1.0,0.26740641402144477,animal,,,,
+same direction across gap: home to reward,468,2.0,0.21203305801748717,animal,,,,
+same direction across gap: home to reward,468,3.0,0.16574378655514696,animal,,,,
+same direction across gap: home to reward,468,4.0,0.08060268516665149,animal,,,,
+same direction across gap: home to reward,468,5.0,0.1071348601289422,animal,,,,
+same direction across gap: home to reward,468,6.0,-0.08447839960718288,animal,,,,
+same direction across gap: home to reward,468,7.0,0.24487790882304236,animal,,,,
+same direction across gap: home to reward,468,8.0,-0.014273584441394352,animal,,,,
+same direction across gap: home to reward,468,9.0,0.2167668830362195,animal,,,,
+same direction across gap: home to reward,468,10.0,0.1456620406382164,animal,,,,
+same direction across gap: home to reward,468,11.0,0.31212108751768947,animal,,,,
+same direction across gap: home to reward,468,12.0,0.34797835559474644,animal,,,,
+same direction across gap: home to reward,468,13.0,0.26043942044932894,animal,,,,
+same direction across gap: home to reward,468,14.0,-0.016494751268511243,animal,,,,
+same direction across gap: home to reward,468,15.0,0.13551735339209545,animal,,,,
+same direction across gap: home to reward,468,16.0,0.33706436557862823,animal,,,,
+same direction across gap: home to reward,468,17.0,0.5602433713364342,animal,,,,
+same direction across gap: home to reward,468,18.0,0.015506444208418515,animal,,,,
+same direction across gap: home to reward,468,19.0,0.3565047827082169,animal,,,,
+same direction across gap: home to reward,468,20.0,0.33333248240828656,animal,,,,
+same direction across gap: home to reward,468,21.0,0.33504092870361085,animal,,,,
+same direction across gap: home to reward,488,0.0,0.1330673677985943,animal,,,,
+same direction across gap: home to reward,488,1.0,-0.07848931643144447,animal,,,,
+same direction across gap: home to reward,488,2.0,-0.09427973228707062,animal,,,,
+same direction across gap: home to reward,488,3.0,-0.13124987522167852,animal,,,,
+same direction across gap: home to reward,488,4.0,-0.06596535719313586,animal,,,,
+same direction across gap: home to reward,488,5.0,-0.05041720425821429,animal,,,,
+same direction across gap: home to reward,488,6.0,-0.12563785016964277,animal,,,,
+same direction across gap: home to reward,488,7.0,0.1447219615856037,animal,,,,
+same direction across gap: home to reward,488,8.0,-0.06027557247567588,animal,,,,
+same direction across gap: home to reward,488,9.0,0.08431437998269292,animal,,,,
+same direction across gap: home to reward,488,10.0,0.20038358008756188,animal,,,,
+same direction across gap: home to reward,488,11.0,0.02237147681738888,animal,,,,
+same direction across gap: home to reward,488,12.0,0.04397907104154207,animal,,,,
+same direction across gap: home to reward,488,13.0,-0.05330693175243785,animal,,,,
+same direction across gap: home to reward,488,14.0,0.43856974202598753,animal,,,,
+same direction across gap: home to reward,488,15.0,-0.0978145463752483,animal,,,,
+same direction across gap: home to reward,488,16.0,0.04248744329439833,animal,,,,
+same direction across gap: home to reward,488,17.0,-0.13196130253473776,animal,,,,
+same direction across gap: home to reward,488,18.0,-0.13143430381636007,animal,,,,
+same direction across gap: home to reward,488,19.0,-0.11558117022515953,animal,,,,
+same direction across gap: home to reward,488,20.0,-0.09408919218692721,animal,,,,
+same direction across gap: home to reward,488,21.0,0.1028362803760068,animal,,,,
+same direction across gap: home to reward,489,0.0,0.02292567173533652,animal,,,,
+same direction across gap: home to reward,489,1.0,0.1801330016640336,animal,,,,
+same direction across gap: home to reward,489,2.0,-0.023301804289442528,animal,,,,
+same direction across gap: home to reward,489,3.0,-0.06914662731129538,animal,,,,
+same direction across gap: home to reward,489,4.0,0.29990197334856833,animal,,,,
+same direction across gap: home to reward,489,5.0,0.11876840240902564,animal,,,,
+same direction across gap: home to reward,489,6.0,0.09993236117830329,animal,,,,
+same direction across gap: home to reward,489,7.0,0.24160343238625212,animal,,,,
+same direction across gap: home to reward,489,8.0,-0.020267966481231345,animal,,,,
+same direction across gap: home to reward,489,9.0,-0.12984775224169456,animal,,,,
+same direction across gap: home to reward,489,10.0,0.27005835866289574,animal,,,,
+same direction across gap: home to reward,489,11.0,-0.017224379097224983,animal,,,,
+same direction across gap: home to reward,489,12.0,-0.10540740442751671,animal,,,,
+same direction across gap: home to reward,489,13.0,-0.014631972194332321,animal,,,,
+same direction across gap: home to reward,489,14.0,-0.13167829947213583,animal,,,,
+same direction across gap: home to reward,489,15.0,-0.0005185872542860168,animal,,,,
+same direction across gap: home to reward,489,16.0,0.0719519295020131,animal,,,,
+same direction across gap: home to reward,489,17.0,0.06293011665219567,animal,,,,
+same direction across gap: home to reward,489,18.0,0.02391813864093662,animal,,,,
+same direction across gap: home to reward,489,19.0,0.03567693798176298,animal,,,,
+same direction across gap: home to reward,489,20.0,0.07334235914817464,animal,,,,
+same direction across gap: home to reward,489,21.0,0.21559276827188747,animal,,,,
+same direction across gap: home to reward,579,0.0,0.02488626757912486,animal,,,,
+same direction across gap: home to reward,579,1.0,0.45463506941784887,animal,,,,
+same direction across gap: home to reward,579,2.0,-0.07437902845508368,animal,,,,
+same direction across gap: home to reward,579,3.0,0.14885964979636743,animal,,,,
+same direction across gap: home to reward,579,4.0,0.3335417547382236,animal,,,,
+same direction across gap: home to reward,579,5.0,-0.07009036185505257,animal,,,,
+same direction across gap: home to reward,579,6.0,-0.05632398743845022,animal,,,,
+same direction across gap: home to reward,579,7.0,0.010091370619233635,animal,,,,
+same direction across gap: home to reward,579,8.0,0.34593598896031275,animal,,,,
+same direction across gap: home to reward,579,9.0,0.05265700877900118,animal,,,,
+same direction across gap: home to reward,579,10.0,0.2563468762961565,animal,,,,
+same direction across gap: home to reward,579,11.0,-0.11409881729493547,animal,,,,
+same direction across gap: home to reward,579,12.0,-0.10098269362273936,animal,,,,
+same direction across gap: home to reward,579,13.0,-0.06230198951842487,animal,,,,
+same direction across gap: home to reward,579,14.0,-0.13803702399014053,animal,,,,
+same direction across gap: home to reward,579,15.0,0.15565058648916116,animal,,,,
+same direction across gap: home to reward,579,16.0,-0.09795341287664724,animal,,,,
+same direction across gap: home to reward,579,17.0,-0.017748626487764242,animal,,,,
+same direction across gap: home to reward,579,18.0,-0.06097367477704259,animal,,,,
+same direction across gap: home to reward,579,19.0,0.3160770754061781,animal,,,,
+same direction across gap: home to reward,579,20.0,0.10328135527166098,animal,,,,
+same direction across gap: home to reward,579,21.0,0.16458881107284834,animal,,,,
+same direction across gap: home to reward,837,0.0,0.34384551370135635,animal,,,,
+same direction across gap: home to reward,837,1.0,0.32788371118348275,animal,,,,
+same direction across gap: home to reward,837,2.0,0.3004758725159058,animal,,,,
+same direction across gap: home to reward,837,3.0,0.32091002876476715,animal,,,,
+same direction across gap: home to reward,837,4.0,0.21944361195232473,animal,,,,
+same direction across gap: home to reward,837,5.0,0.13895870076130745,animal,,,,
+same direction across gap: home to reward,837,6.0,0.17554089709416118,animal,,,,
+same direction across gap: home to reward,837,7.0,0.13108966571117597,animal,,,,
+same direction across gap: home to reward,837,8.0,0.25118818998448067,animal,,,,
+same direction across gap: home to reward,837,9.0,0.37461437398333747,animal,,,,
+same direction across gap: home to reward,837,10.0,0.3170303067054403,animal,,,,
+same direction across gap: home to reward,837,11.0,0.32785290461804345,animal,,,,
+same direction across gap: home to reward,837,12.0,0.3511593304425557,animal,,,,
+same direction across gap: home to reward,837,13.0,0.20621069653324373,animal,,,,
+same direction across gap: home to reward,837,14.0,0.21294621368070132,animal,,,,
+same direction across gap: home to reward,837,15.0,0.2482646064841223,animal,,,,
+same direction across gap: home to reward,837,16.0,0.306580566094912,animal,,,,
+same direction across gap: home to reward,837,17.0,0.2361569665267392,animal,,,,
+same direction across gap: home to reward,837,18.0,0.34881788895488824,animal,,,,
+same direction across gap: home to reward,837,19.0,0.28409944803276965,animal,,,,
+same direction across gap: home to reward,837,20.0,0.2833874689981358,animal,,,,
+same direction across gap: home to reward,837,21.0,0.4212429339547272,animal,,,,
+same direction across gap: home to reward,838,0.0,0.08364209607254781,animal,,,,
+same direction across gap: home to reward,838,1.0,-0.025460478141161726,animal,,,,
+same direction across gap: home to reward,838,2.0,-0.015899252808373177,animal,,,,
+same direction across gap: home to reward,838,3.0,-0.0190943762868513,animal,,,,
+same direction across gap: home to reward,838,4.0,0.026013857131886527,animal,,,,
+same direction across gap: home to reward,838,5.0,0.03620730870418815,animal,,,,
+same direction across gap: home to reward,838,6.0,-0.011211895596657159,animal,,,,
+same direction across gap: home to reward,838,7.0,-0.017952548321102574,animal,,,,
+same direction across gap: home to reward,838,8.0,0.014525008448328325,animal,,,,
+same direction across gap: home to reward,838,9.0,-0.02592156337856974,animal,,,,
+same direction across gap: home to reward,838,10.0,0.015396633339331148,animal,,,,
+same direction across gap: home to reward,838,11.0,-0.05891172931966706,animal,,,,
+same direction across gap: home to reward,838,12.0,-0.039425592759648624,animal,,,,
+same direction across gap: home to reward,838,13.0,-0.035240099654194904,animal,,,,
+same direction across gap: home to reward,838,14.0,-0.021921598554066224,animal,,,,
+same direction across gap: home to reward,838,15.0,-0.013166272200823398,animal,,,,
+same direction across gap: home to reward,838,16.0,-0.03246854025488032,animal,,,,
+same direction across gap: home to reward,838,17.0,0.023195266846905857,animal,,,,
+same direction across gap: home to reward,838,18.0,-0.036953350329837986,animal,,,,
+same direction across gap: home to reward,838,19.0,0.020058495995517907,animal,,,,
+same direction across gap: home to reward,838,20.0,0.028102090864012483,animal,,,,
+same direction across gap: home to reward,838,21.0,0.11162271255599088,animal,,,,
+same direction across gap: home to reward,839,0.0,0.06080369142292306,animal,,,,
+same direction across gap: home to reward,839,1.0,0.009158417792658574,animal,,,,
+same direction across gap: home to reward,839,2.0,-0.040271229751559945,animal,,,,
+same direction across gap: home to reward,839,3.0,0.004008523707729506,animal,,,,
+same direction across gap: home to reward,839,4.0,0.015889354420393794,animal,,,,
+same direction across gap: home to reward,839,5.0,-0.012440416560947494,animal,,,,
+same direction across gap: home to reward,839,6.0,-0.01115135639427769,animal,,,,
+same direction across gap: home to reward,839,7.0,-0.04846235128051992,animal,,,,
+same direction across gap: home to reward,839,8.0,-0.035262436895072274,animal,,,,
+same direction across gap: home to reward,839,9.0,-0.008630172462626819,animal,,,,
+same direction across gap: home to reward,839,10.0,-0.026792586698966493,animal,,,,
+same direction across gap: home to reward,839,11.0,-0.050220687285259726,animal,,,,
+same direction across gap: home to reward,839,12.0,0.05438685122737966,animal,,,,
+same direction across gap: home to reward,839,13.0,0.0037087700051768265,animal,,,,
+same direction across gap: home to reward,839,14.0,-0.03314936824028685,animal,,,,
+same direction across gap: home to reward,839,15.0,-0.00042979229751104187,animal,,,,
+same direction across gap: home to reward,839,16.0,-0.007289047456371022,animal,,,,
+same direction across gap: home to reward,839,17.0,-0.011295277963676395,animal,,,,
+same direction across gap: home to reward,839,18.0,0.022563498210236288,animal,,,,
+same direction across gap: home to reward,839,19.0,0.01181161753582713,animal,,,,
+same direction across gap: home to reward,839,20.0,0.010048054746188239,animal,,,,
+same direction across gap: home to reward,839,21.0,0.09009070247557538,animal,,,,
+same direction across gap: home to reward,842,0.0,0.15175803055569567,animal,,,,
+same direction across gap: home to reward,842,1.0,0.1714126230807868,animal,,,,
+same direction across gap: home to reward,842,2.0,0.12039216886339257,animal,,,,
+same direction across gap: home to reward,842,3.0,0.003490634137951709,animal,,,,
+same direction across gap: home to reward,842,4.0,0.09381131291768394,animal,,,,
+same direction across gap: home to reward,842,5.0,0.1462817129260632,animal,,,,
+same direction across gap: home to reward,842,6.0,0.15507870463008355,animal,,,,
+same direction across gap: home to reward,842,7.0,0.14640284601290127,animal,,,,
+same direction across gap: home to reward,842,8.0,0.15779100915604494,animal,,,,
+same direction across gap: home to reward,842,9.0,0.18851070509367823,animal,,,,
+same direction across gap: home to reward,842,10.0,0.3663899379876482,animal,,,,
+same direction across gap: home to reward,842,11.0,0.20332803920097334,animal,,,,
+same direction across gap: home to reward,842,12.0,0.21021522187156294,animal,,,,
+same direction across gap: home to reward,842,13.0,0.3103033578057283,animal,,,,
+same direction across gap: home to reward,842,14.0,0.23023725394109468,animal,,,,
+same direction across gap: home to reward,842,15.0,0.07885788917157985,animal,,,,
+same direction across gap: home to reward,842,16.0,0.06837418609546125,animal,,,,
+same direction across gap: home to reward,842,17.0,0.05590289698036491,animal,,,,
+same direction across gap: home to reward,842,18.0,0.27320830234382215,animal,,,,
+same direction across gap: home to reward,842,19.0,0.3489322039919721,animal,,,,
+same direction across gap: home to reward,842,20.0,0.25980747807863624,animal,,,,
+same direction across gap: home to reward,842,21.0,0.26930847897563376,animal,,,,
+same direction across gap: home to reward,862,0.0,0.15921340495067612,animal,,,,
+same direction across gap: home to reward,862,1.0,0.06658374703004379,animal,,,,
+same direction across gap: home to reward,862,2.0,0.1688898972268392,animal,,,,
+same direction across gap: home to reward,862,3.0,-0.0009758735986767862,animal,,,,
+same direction across gap: home to reward,862,4.0,-0.03812933532439565,animal,,,,
+same direction across gap: home to reward,862,5.0,0.07182009289454254,animal,,,,
+same direction across gap: home to reward,862,6.0,0.17776770035818898,animal,,,,
+same direction across gap: home to reward,862,7.0,0.04784228787905028,animal,,,,
+same direction across gap: home to reward,862,8.0,0.13050854922856392,animal,,,,
+same direction across gap: home to reward,862,9.0,0.07442485594695,animal,,,,
+same direction across gap: home to reward,862,10.0,0.028059511048081597,animal,,,,
+same direction across gap: home to reward,862,11.0,0.10939104207502066,animal,,,,
+same direction across gap: home to reward,862,12.0,-0.08798400840967108,animal,,,,
+same direction across gap: home to reward,862,13.0,0.05901866327873077,animal,,,,
+same direction across gap: home to reward,862,14.0,-0.011773852315157117,animal,,,,
+same direction across gap: home to reward,862,15.0,-0.08129218062488935,animal,,,,
+same direction across gap: home to reward,862,16.0,0.0034409008175866197,animal,,,,
+same direction across gap: home to reward,862,17.0,0.03902745152206966,animal,,,,
+same direction across gap: home to reward,862,18.0,-0.009577684844198499,animal,,,,
+same direction across gap: home to reward,862,19.0,-0.08186867755022277,animal,,,,
+same direction across gap: home to reward,862,20.0,-0.10942658737254127,animal,,,,
+same direction across gap: home to reward,862,21.0,0.20710534328156302,animal,,,,
+same direction across gap: reward to home,1616,0.0,0.1269741774092559,animal,,,,
+same direction across gap: reward to home,1616,1.0,0.3375698294446738,animal,,,,
+same direction across gap: reward to home,1616,2.0,0.1948310994664842,animal,,,,
+same direction across gap: reward to home,1616,3.0,0.13716885069997511,animal,,,,
+same direction across gap: reward to home,1616,4.0,0.158386001176296,animal,,,,
+same direction across gap: reward to home,1616,5.0,0.3538924807331225,animal,,,,
+same direction across gap: reward to home,1616,6.0,0.30359255928845635,animal,,,,
+same direction across gap: reward to home,1616,7.0,0.3520292816296921,animal,,,,
+same direction across gap: reward to home,1616,8.0,0.3582759972612095,animal,,,,
+same direction across gap: reward to home,1616,9.0,0.3449194926595804,animal,,,,
+same direction across gap: reward to home,1616,10.0,0.48916768541686945,animal,,,,
+same direction across gap: reward to home,1616,11.0,0.05139991542645314,animal,,,,
+same direction across gap: reward to home,1616,12.0,0.2615943060168467,animal,,,,
+same direction across gap: reward to home,1616,13.0,0.1713356881454934,animal,,,,
+same direction across gap: reward to home,1616,14.0,0.1166636051519154,animal,,,,
+same direction across gap: reward to home,1616,15.0,0.07639969888507693,animal,,,,
+same direction across gap: reward to home,1616,16.0,0.03541439163148231,animal,,,,
+same direction across gap: reward to home,1616,17.0,0.11748020692351506,animal,,,,
+same direction across gap: reward to home,1616,18.0,0.2703160006329065,animal,,,,
+same direction across gap: reward to home,1616,19.0,0.34496188156174507,animal,,,,
+same direction across gap: reward to home,1616,20.0,0.27803373502793227,animal,,,,
+same direction across gap: reward to home,1616,21.0,0.3920974183689649,animal,,,,
+same direction across gap: reward to home,418,0.0,0.07469790874850797,animal,,,,
+same direction across gap: reward to home,418,1.0,-0.11345603718894537,animal,,,,
+same direction across gap: reward to home,418,2.0,-0.08580895713648955,animal,,,,
+same direction across gap: reward to home,418,3.0,-0.06420138749029865,animal,,,,
+same direction across gap: reward to home,418,4.0,-0.05302818777659677,animal,,,,
+same direction across gap: reward to home,418,5.0,0.1619680207218758,animal,,,,
+same direction across gap: reward to home,418,6.0,-0.050800101926013176,animal,,,,
+same direction across gap: reward to home,418,7.0,-0.0942449043472225,animal,,,,
+same direction across gap: reward to home,418,8.0,-0.15216355480383562,animal,,,,
+same direction across gap: reward to home,418,9.0,-0.0959234086425993,animal,,,,
+same direction across gap: reward to home,418,10.0,-0.04318132346212689,animal,,,,
+same direction across gap: reward to home,418,11.0,-0.04674359406374796,animal,,,,
+same direction across gap: reward to home,418,12.0,-0.054144354085681475,animal,,,,
+same direction across gap: reward to home,418,13.0,-0.06507136454221413,animal,,,,
+same direction across gap: reward to home,418,14.0,-0.028186066685883273,animal,,,,
+same direction across gap: reward to home,418,15.0,-0.07816301241701629,animal,,,,
+same direction across gap: reward to home,418,16.0,-0.03906074183519942,animal,,,,
+same direction across gap: reward to home,418,17.0,-0.08398039415889254,animal,,,,
+same direction across gap: reward to home,418,18.0,0.1119065586020851,animal,,,,
+same direction across gap: reward to home,418,19.0,-0.0304394519478098,animal,,,,
+same direction across gap: reward to home,418,20.0,0.05685406614595464,animal,,,,
+same direction across gap: reward to home,418,21.0,-0.10952854238336224,animal,,,,
+same direction across gap: reward to home,422,0.0,0.03250019650743348,animal,,,,
+same direction across gap: reward to home,422,1.0,0.13152189000147566,animal,,,,
+same direction across gap: reward to home,422,2.0,0.4074483021246705,animal,,,,
+same direction across gap: reward to home,422,3.0,0.27494608500777534,animal,,,,
+same direction across gap: reward to home,422,4.0,-0.07174808873774012,animal,,,,
+same direction across gap: reward to home,422,5.0,0.13259885371346777,animal,,,,
+same direction across gap: reward to home,422,6.0,0.1601898361088356,animal,,,,
+same direction across gap: reward to home,422,7.0,0.1375052801330207,animal,,,,
+same direction across gap: reward to home,422,8.0,-0.05007793821778093,animal,,,,
+same direction across gap: reward to home,422,9.0,-0.06325582062790495,animal,,,,
+same direction across gap: reward to home,422,10.0,-0.1391820628434024,animal,,,,
+same direction across gap: reward to home,422,11.0,-0.03596802185121939,animal,,,,
+same direction across gap: reward to home,422,12.0,0.16895458358523982,animal,,,,
+same direction across gap: reward to home,422,13.0,0.3943747947923572,animal,,,,
+same direction across gap: reward to home,422,14.0,0.11069974073216196,animal,,,,
+same direction across gap: reward to home,422,15.0,0.07743062376462422,animal,,,,
+same direction across gap: reward to home,422,16.0,0.1980312700842877,animal,,,,
+same direction across gap: reward to home,422,17.0,-0.0743536343379683,animal,,,,
+same direction across gap: reward to home,422,18.0,0.04218241134505215,animal,,,,
+same direction across gap: reward to home,422,19.0,-0.06980459602928725,animal,,,,
+same direction across gap: reward to home,422,20.0,0.18980407518451609,animal,,,,
+same direction across gap: reward to home,422,21.0,0.2798810908606254,animal,,,,
+same direction across gap: reward to home,451,0.0,0.16645711395662202,animal,,,,
+same direction across gap: reward to home,451,1.0,0.2685224464863763,animal,,,,
+same direction across gap: reward to home,451,2.0,0.40885313625347697,animal,,,,
+same direction across gap: reward to home,451,3.0,0.1339395662441326,animal,,,,
+same direction across gap: reward to home,451,4.0,0.005370380130945257,animal,,,,
+same direction across gap: reward to home,451,5.0,0.43635961355400055,animal,,,,
+same direction across gap: reward to home,451,6.0,0.3514095129682994,animal,,,,
+same direction across gap: reward to home,451,7.0,0.5453364474471998,animal,,,,
+same direction across gap: reward to home,451,8.0,0.5471580802551244,animal,,,,
+same direction across gap: reward to home,451,9.0,0.2199421530629191,animal,,,,
+same direction across gap: reward to home,451,10.0,0.27039921172032855,animal,,,,
+same direction across gap: reward to home,451,11.0,0.18673973217118725,animal,,,,
+same direction across gap: reward to home,451,12.0,0.1182055481842206,animal,,,,
+same direction across gap: reward to home,451,13.0,0.029036562475726564,animal,,,,
+same direction across gap: reward to home,451,14.0,0.18656125430110979,animal,,,,
+same direction across gap: reward to home,451,15.0,-0.05550982759556658,animal,,,,
+same direction across gap: reward to home,451,16.0,0.23203481201565837,animal,,,,
+same direction across gap: reward to home,451,17.0,0.10864398110964164,animal,,,,
+same direction across gap: reward to home,451,18.0,0.27326639527704416,animal,,,,
+same direction across gap: reward to home,451,19.0,0.13394188326714135,animal,,,,
+same direction across gap: reward to home,451,20.0,0.24722905082622176,animal,,,,
+same direction across gap: reward to home,451,21.0,0.5260656509138818,animal,,,,
+same direction across gap: reward to home,468,0.0,0.12155254023077681,animal,,,,
+same direction across gap: reward to home,468,1.0,0.059836136701085674,animal,,,,
+same direction across gap: reward to home,468,2.0,0.1437157163108954,animal,,,,
+same direction across gap: reward to home,468,3.0,0.2960124116647734,animal,,,,
+same direction across gap: reward to home,468,4.0,0.18876001331657757,animal,,,,
+same direction across gap: reward to home,468,5.0,0.2268247803816149,animal,,,,
+same direction across gap: reward to home,468,6.0,0.32816387178240997,animal,,,,
+same direction across gap: reward to home,468,7.0,0.26601605437640924,animal,,,,
+same direction across gap: reward to home,468,8.0,0.10525564333959732,animal,,,,
+same direction across gap: reward to home,468,9.0,0.2645438624612347,animal,,,,
+same direction across gap: reward to home,468,10.0,0.3146638367981616,animal,,,,
+same direction across gap: reward to home,468,11.0,0.33641125808911143,animal,,,,
+same direction across gap: reward to home,468,12.0,0.17405571243394544,animal,,,,
+same direction across gap: reward to home,468,13.0,0.3884512726198109,animal,,,,
+same direction across gap: reward to home,468,14.0,0.2529885692650982,animal,,,,
+same direction across gap: reward to home,468,15.0,0.13893962439238,animal,,,,
+same direction across gap: reward to home,468,16.0,0.44424693754194156,animal,,,,
+same direction across gap: reward to home,468,17.0,0.41929431587447774,animal,,,,
+same direction across gap: reward to home,468,18.0,0.20704246338700574,animal,,,,
+same direction across gap: reward to home,468,19.0,0.024881468468731505,animal,,,,
+same direction across gap: reward to home,468,20.0,0.45142889928773905,animal,,,,
+same direction across gap: reward to home,468,21.0,0.24574296265314546,animal,,,,
+same direction across gap: reward to home,488,0.0,-0.07773898951161562,animal,,,,
+same direction across gap: reward to home,488,1.0,-0.09364941238766374,animal,,,,
+same direction across gap: reward to home,488,2.0,-0.13143223712338306,animal,,,,
+same direction across gap: reward to home,488,3.0,-0.08275619849399557,animal,,,,
+same direction across gap: reward to home,488,4.0,0.09378952307958999,animal,,,,
+same direction across gap: reward to home,488,5.0,0.0067887339052280175,animal,,,,
+same direction across gap: reward to home,488,6.0,0.03136767605010993,animal,,,,
+same direction across gap: reward to home,488,7.0,0.17989997526532137,animal,,,,
+same direction across gap: reward to home,488,8.0,0.21584879409103438,animal,,,,
+same direction across gap: reward to home,488,9.0,0.18378564071708275,animal,,,,
+same direction across gap: reward to home,488,10.0,-0.02716942512126685,animal,,,,
+same direction across gap: reward to home,488,11.0,-0.062463499903574006,animal,,,,
+same direction across gap: reward to home,488,12.0,0.06025427993645993,animal,,,,
+same direction across gap: reward to home,488,13.0,-0.14113012300078775,animal,,,,
+same direction across gap: reward to home,488,14.0,-0.061335544810677975,animal,,,,
+same direction across gap: reward to home,488,15.0,-0.06386340335961971,animal,,,,
+same direction across gap: reward to home,488,16.0,0.2751801626185232,animal,,,,
+same direction across gap: reward to home,488,17.0,0.049565996777653804,animal,,,,
+same direction across gap: reward to home,488,18.0,-0.02907617121015111,animal,,,,
+same direction across gap: reward to home,488,19.0,0.25684769914517835,animal,,,,
+same direction across gap: reward to home,488,20.0,-0.0036334090817878957,animal,,,,
+same direction across gap: reward to home,488,21.0,-0.008777407155579044,animal,,,,
+same direction across gap: reward to home,489,0.0,0.008138652570794883,animal,,,,
+same direction across gap: reward to home,489,1.0,-0.02972362978483098,animal,,,,
+same direction across gap: reward to home,489,2.0,0.11050478642578926,animal,,,,
+same direction across gap: reward to home,489,3.0,0.166894073051907,animal,,,,
+same direction across gap: reward to home,489,4.0,0.01442027055252644,animal,,,,
+same direction across gap: reward to home,489,5.0,-0.1479326996534252,animal,,,,
+same direction across gap: reward to home,489,6.0,-0.007250172439033302,animal,,,,
+same direction across gap: reward to home,489,7.0,0.020625805638429275,animal,,,,
+same direction across gap: reward to home,489,8.0,0.11949811811072224,animal,,,,
+same direction across gap: reward to home,489,9.0,0.15495069040455497,animal,,,,
+same direction across gap: reward to home,489,10.0,0.03361354279570055,animal,,,,
+same direction across gap: reward to home,489,11.0,0.15275602935833046,animal,,,,
+same direction across gap: reward to home,489,12.0,0.20869573945792505,animal,,,,
+same direction across gap: reward to home,489,13.0,0.18373155219706075,animal,,,,
+same direction across gap: reward to home,489,14.0,0.37815048507676996,animal,,,,
+same direction across gap: reward to home,489,15.0,0.4691770533334887,animal,,,,
+same direction across gap: reward to home,489,16.0,0.29782915582048264,animal,,,,
+same direction across gap: reward to home,489,17.0,0.24619635164223702,animal,,,,
+same direction across gap: reward to home,489,18.0,0.14082457914663768,animal,,,,
+same direction across gap: reward to home,489,19.0,-0.0640157897703568,animal,,,,
+same direction across gap: reward to home,489,20.0,0.16228462402649063,animal,,,,
+same direction across gap: reward to home,489,21.0,0.18868585318590794,animal,,,,
+same direction across gap: reward to home,579,0.0,0.04874867772621681,animal,,,,
+same direction across gap: reward to home,579,1.0,-0.07789695889681914,animal,,,,
+same direction across gap: reward to home,579,2.0,-0.006482281215745509,animal,,,,
+same direction across gap: reward to home,579,3.0,0.3254933099054266,animal,,,,
+same direction across gap: reward to home,579,4.0,0.18876071152392393,animal,,,,
+same direction across gap: reward to home,579,5.0,-0.02680034261064123,animal,,,,
+same direction across gap: reward to home,579,6.0,-0.1175953850871989,animal,,,,
+same direction across gap: reward to home,579,7.0,-0.035474474645452954,animal,,,,
+same direction across gap: reward to home,579,8.0,-0.03583042252871551,animal,,,,
+same direction across gap: reward to home,579,9.0,0.6103669244823834,animal,,,,
+same direction across gap: reward to home,579,10.0,0.060890087204319626,animal,,,,
+same direction across gap: reward to home,579,11.0,-0.07794088751239209,animal,,,,
+same direction across gap: reward to home,579,12.0,-0.04393819543984173,animal,,,,
+same direction across gap: reward to home,579,13.0,-0.061450104404884236,animal,,,,
+same direction across gap: reward to home,579,14.0,0.48784331092207767,animal,,,,
+same direction across gap: reward to home,579,15.0,0.8273482333316098,animal,,,,
+same direction across gap: reward to home,579,16.0,-0.0532761136614701,animal,,,,
+same direction across gap: reward to home,579,17.0,0.11131657238747693,animal,,,,
+same direction across gap: reward to home,579,18.0,0.31093280322561256,animal,,,,
+same direction across gap: reward to home,579,19.0,0.4573137961243164,animal,,,,
+same direction across gap: reward to home,579,20.0,0.24071411106590193,animal,,,,
+same direction across gap: reward to home,579,21.0,0.31590342475131916,animal,,,,
+same direction across gap: reward to home,837,0.0,0.30267986901920435,animal,,,,
+same direction across gap: reward to home,837,1.0,0.3265404092407041,animal,,,,
+same direction across gap: reward to home,837,2.0,0.3369258822806938,animal,,,,
+same direction across gap: reward to home,837,3.0,0.25600737653193456,animal,,,,
+same direction across gap: reward to home,837,4.0,0.21309661870298682,animal,,,,
+same direction across gap: reward to home,837,5.0,0.26558971332310505,animal,,,,
+same direction across gap: reward to home,837,6.0,0.27692519997792336,animal,,,,
+same direction across gap: reward to home,837,7.0,0.3555777810368017,animal,,,,
+same direction across gap: reward to home,837,8.0,0.43697102250146586,animal,,,,
+same direction across gap: reward to home,837,9.0,0.39810475833705694,animal,,,,
+same direction across gap: reward to home,837,10.0,0.30255761633854633,animal,,,,
+same direction across gap: reward to home,837,11.0,0.3816182439367453,animal,,,,
+same direction across gap: reward to home,837,12.0,0.35340054211894634,animal,,,,
+same direction across gap: reward to home,837,13.0,0.12677227321256648,animal,,,,
+same direction across gap: reward to home,837,14.0,0.23412076048229027,animal,,,,
+same direction across gap: reward to home,837,15.0,0.2746754201185227,animal,,,,
+same direction across gap: reward to home,837,16.0,0.3015138989793253,animal,,,,
+same direction across gap: reward to home,837,17.0,0.18332904838367847,animal,,,,
+same direction across gap: reward to home,837,18.0,0.10441671478924669,animal,,,,
+same direction across gap: reward to home,837,19.0,0.23093681752946008,animal,,,,
+same direction across gap: reward to home,837,20.0,0.3967917810089843,animal,,,,
+same direction across gap: reward to home,837,21.0,0.46821670212502786,animal,,,,
+same direction across gap: reward to home,838,0.0,0.037086623979772644,animal,,,,
+same direction across gap: reward to home,838,1.0,0.07248373527658299,animal,,,,
+same direction across gap: reward to home,838,2.0,0.04224406367432435,animal,,,,
+same direction across gap: reward to home,838,3.0,8.301960998854478e-05,animal,,,,
+same direction across gap: reward to home,838,4.0,0.009215497712671319,animal,,,,
+same direction across gap: reward to home,838,5.0,0.010786697682393999,animal,,,,
+same direction across gap: reward to home,838,6.0,-0.013411004282435406,animal,,,,
+same direction across gap: reward to home,838,7.0,0.010762986495244773,animal,,,,
+same direction across gap: reward to home,838,8.0,-0.01716183588428322,animal,,,,
+same direction across gap: reward to home,838,9.0,-0.032610474894810296,animal,,,,
+same direction across gap: reward to home,838,10.0,0.016203311849034212,animal,,,,
+same direction across gap: reward to home,838,11.0,-0.04016013072069358,animal,,,,
+same direction across gap: reward to home,838,12.0,-0.01212091751946566,animal,,,,
+same direction across gap: reward to home,838,13.0,-0.029706554423632837,animal,,,,
+same direction across gap: reward to home,838,14.0,-0.024092551629613105,animal,,,,
+same direction across gap: reward to home,838,15.0,-0.0031019499441218845,animal,,,,
+same direction across gap: reward to home,838,16.0,0.021090189737045805,animal,,,,
+same direction across gap: reward to home,838,17.0,-0.0032924786320557534,animal,,,,
+same direction across gap: reward to home,838,18.0,0.0644534101988199,animal,,,,
+same direction across gap: reward to home,838,19.0,0.043273238465543096,animal,,,,
+same direction across gap: reward to home,838,20.0,0.007059384337663369,animal,,,,
+same direction across gap: reward to home,838,21.0,0.11235021727772077,animal,,,,
+same direction across gap: reward to home,839,0.0,0.030510665404813852,animal,,,,
+same direction across gap: reward to home,839,1.0,-0.009579181121680828,animal,,,,
+same direction across gap: reward to home,839,2.0,-0.020819968178469424,animal,,,,
+same direction across gap: reward to home,839,3.0,0.006131577703874642,animal,,,,
+same direction across gap: reward to home,839,4.0,0.01200262016642887,animal,,,,
+same direction across gap: reward to home,839,5.0,0.0028472785506934973,animal,,,,
+same direction across gap: reward to home,839,6.0,0.017285035567420243,animal,,,,
+same direction across gap: reward to home,839,7.0,-0.04271417030009272,animal,,,,
+same direction across gap: reward to home,839,8.0,-0.0025820705460790905,animal,,,,
+same direction across gap: reward to home,839,9.0,0.03186980135449776,animal,,,,
+same direction across gap: reward to home,839,10.0,-0.043379816804701245,animal,,,,
+same direction across gap: reward to home,839,11.0,-0.030739662855812866,animal,,,,
+same direction across gap: reward to home,839,12.0,0.011907617206447119,animal,,,,
+same direction across gap: reward to home,839,13.0,0.03234071834373732,animal,,,,
+same direction across gap: reward to home,839,14.0,0.040462681104839644,animal,,,,
+same direction across gap: reward to home,839,15.0,0.00182749444115247,animal,,,,
+same direction across gap: reward to home,839,16.0,0.0055890374693816315,animal,,,,
+same direction across gap: reward to home,839,17.0,0.007961631197649652,animal,,,,
+same direction across gap: reward to home,839,18.0,0.03333122699928287,animal,,,,
+same direction across gap: reward to home,839,19.0,0.05331583479952353,animal,,,,
+same direction across gap: reward to home,839,20.0,0.06694603924626255,animal,,,,
+same direction across gap: reward to home,839,21.0,0.17213648708387064,animal,,,,
+same direction across gap: reward to home,842,0.0,0.04385163952959323,animal,,,,
+same direction across gap: reward to home,842,1.0,0.20422406964429057,animal,,,,
+same direction across gap: reward to home,842,2.0,0.12249300924776399,animal,,,,
+same direction across gap: reward to home,842,3.0,0.07300142089305445,animal,,,,
+same direction across gap: reward to home,842,4.0,0.18091087763345562,animal,,,,
+same direction across gap: reward to home,842,5.0,0.0950545049975978,animal,,,,
+same direction across gap: reward to home,842,6.0,0.08402784379908794,animal,,,,
+same direction across gap: reward to home,842,7.0,0.19016777647797634,animal,,,,
+same direction across gap: reward to home,842,8.0,0.171674906521954,animal,,,,
+same direction across gap: reward to home,842,9.0,0.26641572260218427,animal,,,,
+same direction across gap: reward to home,842,10.0,0.17151103514081475,animal,,,,
+same direction across gap: reward to home,842,11.0,0.18895180760666574,animal,,,,
+same direction across gap: reward to home,842,12.0,0.07066562799861106,animal,,,,
+same direction across gap: reward to home,842,13.0,0.02382295626267638,animal,,,,
+same direction across gap: reward to home,842,14.0,-0.019739295824115093,animal,,,,
+same direction across gap: reward to home,842,15.0,-0.005810771280895445,animal,,,,
+same direction across gap: reward to home,842,16.0,0.22160469020305762,animal,,,,
+same direction across gap: reward to home,842,17.0,0.17099044457134893,animal,,,,
+same direction across gap: reward to home,842,18.0,0.09063706291108381,animal,,,,
+same direction across gap: reward to home,842,19.0,0.1002071260661763,animal,,,,
+same direction across gap: reward to home,842,20.0,0.21677571792357142,animal,,,,
+same direction across gap: reward to home,842,21.0,0.203455730568764,animal,,,,
+same direction across gap: reward to home,862,0.0,0.3636566369380683,animal,,,,
+same direction across gap: reward to home,862,1.0,0.046582517539554544,animal,,,,
+same direction across gap: reward to home,862,2.0,0.12511682867709473,animal,,,,
+same direction across gap: reward to home,862,3.0,-0.11806567507371805,animal,,,,
+same direction across gap: reward to home,862,4.0,-0.09288073362048595,animal,,,,
+same direction across gap: reward to home,862,5.0,-0.10738535801030097,animal,,,,
+same direction across gap: reward to home,862,6.0,-0.03493476036033603,animal,,,,
+same direction across gap: reward to home,862,7.0,0.11681857132579417,animal,,,,
+same direction across gap: reward to home,862,8.0,-0.1313312820049491,animal,,,,
+same direction across gap: reward to home,862,9.0,-0.13043195429595564,animal,,,,
+same direction across gap: reward to home,862,10.0,-0.002524460550668239,animal,,,,
+same direction across gap: reward to home,862,11.0,0.09557114345310042,animal,,,,
+same direction across gap: reward to home,862,12.0,-0.08369579372751033,animal,,,,
+same direction across gap: reward to home,862,13.0,-0.1255204777287218,animal,,,,
+same direction across gap: reward to home,862,14.0,0.001495533372083422,animal,,,,
+same direction across gap: reward to home,862,15.0,0.007813508406688398,animal,,,,
+same direction across gap: reward to home,862,16.0,0.043907311533548064,animal,,,,
+same direction across gap: reward to home,862,17.0,0.0190529153006905,animal,,,,
+same direction across gap: reward to home,862,18.0,0.26516670086747274,animal,,,,
+same direction across gap: reward to home,862,19.0,0.19034341958214349,animal,,,,
+same direction across gap: reward to home,862,20.0,0.35193017574105806,animal,,,,
+same direction across gap: reward to home,862,21.0,0.3789869992485015,animal,,,,
+,,,,statistic,cross direction across gap,0.16250272911434704,13.0,0.003173828125

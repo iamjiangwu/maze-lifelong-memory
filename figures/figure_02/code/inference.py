@@ -13,6 +13,37 @@ FloatArray = NDArray[np.float64]
 MINIMUM_CORRELATION_SUPPORT = 3
 
 
+def gap_shuffle_statistics(points: pd.DataFrame) -> pd.DataFrame:
+    """Compare pair correlations with their saved null means, with BH5 by metric.
+
+    Session pairs receive equal weight; uncertainty is clustered by animal.
+    The five days-apart groups constitute one correction family per metric.
+    """
+    points = points.loc[points.record_type.eq("pair")]
+    rows = []
+    for (metric, time_days), group in points.groupby(["metric", "time_days"], sort=True):
+        difference = (group.observed - group.shuffle_mean).to_numpy(float)
+        keep = np.isfinite(difference)
+        group, difference = group.loc[keep], difference[keep]
+        fit = cr1_ols(difference, np.ones((len(difference), 1)),
+                      group.animal_id.astype(str).tolist())
+        test = linear_contrast(fit, [1.0])
+        rows.append({
+            "record_type": "shuffle_test", "metric": metric, "time_days": time_days,
+            "mean_observed_minus_shuffle": test.estimate,
+            "n_pairs": len(group), "n_animals": group.animal_id.nunique(),
+            "cluster_se": test.standard_error, "cluster_t": test.t_value,
+            "cluster_df": test.degrees_of_freedom, "cluster_p": test.p_two_sided,
+        })
+    result = pd.DataFrame(rows)
+    for indices in result.groupby("metric").groups.values():
+        if len(indices) != 5:
+            raise ValueError("Each metric must include the five displayed days-apart groups")
+        result.loc[indices, "p_bh_within_metric"] = benjamini_hochberg(
+            result.loc[indices, "cluster_p"].to_numpy(float))
+    return result
+
+
 def pearson_between_vectors(left: FloatArray, right: FloatArray) -> float:
     """Pearson correlation between two finite vectors with support >= 3."""
 

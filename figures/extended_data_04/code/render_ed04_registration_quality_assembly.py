@@ -1,8 +1,9 @@
 """Assemble Extended Data Figure 4 (cross-session neuron-matching quality).
 
-Panels a and b use the included field-of-view images. Panels c-e use the
-physical-alignment table; panels f-i read saved histogram bins and counts. Cumulative drift is in
-microns; alignment displacement is a percentage of the source FOV diagonal.
+Panels a and b use the included field-of-view images. Panels c-e read saved
+paths, plotted pair coordinates, means and standard errors; panels f-i read
+saved histogram bins and counts. Cumulative drift is in microns; alignment
+displacement is a percentage of the source FOV diagonal.
 
 Formatting follows the main figures for typography only -- family, sizes, weights,
 spacing, spines, panel letters. Each panel keeps its own colour scheme, because these
@@ -112,16 +113,13 @@ def step_histogram(
 
 
 def draw_drift_path(ax, physical: pd.DataFrame, canvas: Canvas) -> dict[str, Any]:
-    """Cumulative field-of-view drift per animal, rebuilt on the corrected-36 data.
-
-    This restores the framing of the superseded panel, a drift path in microns, but from
-    the included physical-alignment measurements.
-    """
+    """Draw the saved cumulative field-of-view coordinates for each animal."""
     paths: dict[str, Any] = {}
-    for animal, group in physical.groupby("animal"):
+    observations = physical.loc[physical["record_type"].eq("cumulative_path")]
+    for animal, group in observations.groupby("animal", sort=False):
         ordered = group.sort_values("experience")
-        x = np.concatenate([[0.0], np.cumsum(ordered["dx_um"].to_numpy(float))])
-        y = np.concatenate([[0.0], np.cumsum(ordered["dy_um"].to_numpy(float))])
+        x = ordered["cumulative_dx_um"].to_numpy(float)
+        y = ordered["cumulative_dy_um"].to_numpy(float)
         ax.plot(
             x,
             y,
@@ -141,7 +139,7 @@ def draw_drift_path(ax, physical: pd.DataFrame, canvas: Canvas) -> dict[str, Any
             zorder=3,
         )
         paths[str(animal)] = {
-            "n_transitions": int(ordered.shape[0]),
+            "n_transitions": int(ordered["experience"].gt(0).sum()),
             "final_x_um": float(x[-1]),
             "final_y_um": float(y[-1]),
         }
@@ -155,6 +153,8 @@ def draw_drift_path(ax, physical: pd.DataFrame, canvas: Canvas) -> dict[str, Any
     )
     ax.axhline(0.0, color="#C8C8C8", linewidth=0.5, zorder=1)
     ax.axvline(0.0, color="#C8C8C8", linewidth=0.5, zorder=1)
+    ax.set_xticks([-300, -200, -100, 0, 100])
+    ax.set_yticks([-300, -200, -100, 0])
     ax.set_xlabel("Cumulative x shift (" + MICRON + ")")
     ax.set_ylabel("Cumulative y shift (" + MICRON + ")")
     ax.set_aspect("equal", adjustable="datalim")
@@ -162,43 +162,34 @@ def draw_drift_path(ax, physical: pd.DataFrame, canvas: Canvas) -> dict[str, Any
 
 
 def draw_displacement_across_experience(ax, physical, canvas):
-    """Cumulative displacement from the first footprint against experience index.
-
-    This is the second view carried by the superseded FOV panel, rebuilt on the
-    corrected-36 data. It differs from the per-transition percentage: here the quantity
-    accumulates from a fixed baseline, so it reports how far the field of view has moved
-    overall rather than the size of each individual step.
-    """
-    curves = []
-    for animal, group in physical.groupby("animal"):
+    """Draw animal curves and the saved mean/SEM from the first field of view."""
+    observations = physical.loc[physical["record_type"].eq("cumulative_path")]
+    summary = physical.loc[
+        physical["record_type"].eq("displacement_summary")
+    ].sort_values("experience")
+    for animal, group in observations.groupby("animal", sort=False):
         ordered = group.sort_values("experience")
         steps = ordered["experience"].to_numpy(int)
-        cx = np.cumsum(ordered["dx_um"].to_numpy(float))
-        cy = np.cumsum(ordered["dy_um"].to_numpy(float))
-        magnitude = np.hypot(cx, cy)
+        magnitude = ordered["displacement_from_first_um"].to_numpy(float)
         ax.plot(
-            np.concatenate([[0], steps]),
-            np.concatenate([[0.0], magnitude]),
+            steps,
+            magnitude,
             color=NEUTRAL_COLOR,
             linewidth=0.5,
             alpha=0.38,
             zorder=2,
         )
-        curves.append({int(a): float(b) for a, b in zip(steps, magnitude)})
-
-    levels = sorted({level for curve in curves for level in curve})
-    means, sems, support = [], [], {}
-    for level in levels:
-        values = np.array([c[level] for c in curves if level in c], dtype=float)
-        means.append(float(values.mean()))
-        sems.append(
-            float(values.std(ddof=1) / np.sqrt(values.size)) if values.size > 1 else 0.0
-        )
-        support[int(level)] = int(values.size)
+    levels = summary["experience"].astype(int).tolist()
+    means = summary["displacement_from_first_um"].to_numpy(float)
+    sems = summary["sem_um"].fillna(0.0).to_numpy(float)
+    support = {
+        int(row.experience): int(row.support_animals)
+        for row in summary.itertuples() if row.experience > 0
+    }
     ax.errorbar(
-        [0] + levels,
-        [0.0] + means,
-        yerr=[0.0] + sems,
+        levels,
+        means,
+        yerr=sems,
         color="#202020",
         marker="o",
         markersize=2.6 * canvas.font_scale / 0.75,
@@ -207,13 +198,14 @@ def draw_displacement_across_experience(ax, physical, canvas):
         elinewidth=0.9 * canvas.font_scale / 0.75,
         zorder=4,
     )
-    ax.set_xticks([0] + levels)
+    ax.set_xticks(levels)
+    ax.set_yticks([0, 100, 200, 300])
     ax.set_xlim(-0.25, max(levels) + 0.25)
     ax.set_ylim(bottom=0)
     ax.set_xlabel("No. of cycles")
     ax.set_ylabel("Displacement from\nfirst FOV (" + MICRON + ")")
     return {
-        "n_animals": len(curves),
+        "n_animals": int(observations["animal"].nunique()),
         "support_per_index": support,
         "mean_per_index": {int(l): float(m) for l, m in zip(levels, means)},
     }
@@ -252,6 +244,8 @@ def draw_joint_with_marginals(
     )
     ax.set_xlim(0, 14)
     ax.set_ylim(0, 1)
+    ax.set_xticks([0, 5, 10])
+    ax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
     ax.set_xlabel("Centroid distance (" + MICRON + ")")
     ax.set_ylabel("Spatial footprint\ncorrelation (r)")
 
@@ -267,6 +261,7 @@ def draw_joint_with_marginals(
     ax_top.set_xlim(0, 14)
     ax_top.set_ylim(bottom=0)
     ax_top.set_xticks([])
+    ax_top.set_yticks([0, 2000])
     ax_top.tick_params(axis="y", labelsize=canvas.tick_label * 0.85, pad=1.0)
     ax_top.set_ylabel("Count", fontsize=canvas.tick_label * 0.9, labelpad=1.5)
     ax_top.locator_params(axis="y", nbins=2)
@@ -283,6 +278,7 @@ def draw_joint_with_marginals(
     ax_right.set_ylim(0, 1)
     ax_right.set_xlim(left=0)
     ax_right.set_yticks([])
+    ax_right.set_xticks([0, 5000])
     ax_right.tick_params(axis="x", labelsize=canvas.tick_label * 0.85, pad=1.0)
     ax_right.set_xlabel("Count", fontsize=canvas.tick_label * 0.9, labelpad=1.5)
     ax_right.locator_params(axis="x", nbins=2)
@@ -367,51 +363,27 @@ def build(output_dir: Path) -> dict[str, Any]:
     ax = canvas.axes(
         ROW_C_COLUMNS[2], y_bottom(ROW_C_TOP, ROW_C_HEIGHT), ROW_C_WIDTHS[2], ROW_C_HEIGHT
     )
-    order = sorted(physical["experience"].unique())
-    # Label by the modal destination month per transition ordinal. The mapping is not
-    # strictly one-to-one: the composed pair 1616bday1->1616b-3day1 sits at experience 2
-    # with destination month 3, so any single row would mislabel the axis.
-    month = physical.groupby("experience")["destination_month"].agg(
-        lambda values: int(values.mode().iloc[0])
+    pair_rows = physical.loc[physical["record_type"].eq("transition_pair")]
+    summary_rows = physical.loc[
+        physical["record_type"].eq("transition_summary")
+    ].sort_values("experience")
+    order = summary_rows["experience"].astype(int).tolist()
+    ax.scatter(
+        pair_rows["plot_x"],
+        pair_rows["displacement_percent_source_fov_diagonal"],
+        s=13.0 * canvas.font_scale**2 / 0.5625,
+        facecolor=NEUTRAL_COLOR,
+        edgecolor="none",
+        alpha=0.75,
+        zorder=2,
     )
-    labels = {int(e): f"{int(month[e]) - 3}{ARROW}{int(month[e])}" for e in order}
-    off_ladder = physical.loc[
-        physical.apply(
-            lambda row: int(row["destination_month"]) != int(month[row["experience"]]),
-            axis=1,
-        ),
-        "pair_label",
-    ].tolist()
-    rng = np.random.default_rng(20260806)
-    for experience in order:
-        values = physical.loc[
-            physical["experience"].eq(experience),
-            "displacement_percent_source_fov_diagonal",
-        ].to_numpy(float)
-        ax.scatter(
-            np.full(len(values), float(experience))
-            + rng.normal(0.0, 0.055, len(values)),
-            values,
-            s=13.0 * canvas.font_scale**2 / 0.5625,
-            facecolor=NEUTRAL_COLOR,
-            edgecolor="none",
-            alpha=0.75,
-            zorder=2,
-        )
-    # Mean with SEM across pairs at each transition, drawn in the same grammar as the
-    # experience curve in panel d so the two alignment views read together.
-    transition_mean, transition_sem, transition_support = [], [], {}
-    for experience in order:
-        values = physical.loc[
-            physical["experience"].eq(experience),
-            "displacement_percent_source_fov_diagonal",
-        ].to_numpy(float)
-        values = values[np.isfinite(values)]
-        transition_mean.append(float(values.mean()))
-        transition_sem.append(
-            float(values.std(ddof=1) / np.sqrt(values.size)) if values.size > 1 else 0.0
-        )
-        transition_support[int(experience)] = int(values.size)
+    # Saved means, SEMs and x jitter are drawn directly, never recomputed.
+    transition_mean = summary_rows["summary_mean_percent"].to_numpy(float)
+    transition_sem = summary_rows["summary_sem_percent"].to_numpy(float)
+    transition_support = {
+        int(row.experience): int(row.summary_support_pairs)
+        for row in summary_rows.itertuples()
+    }
     ax.errorbar(
         [int(e) for e in order],
         transition_mean,
@@ -425,6 +397,7 @@ def build(output_dir: Path) -> dict[str, Any]:
         zorder=4,
     )
     ax.set_xticks([int(e) for e in order])
+    ax.set_yticks([0, 2, 4, 6, 8, 10, 12])
     # Tick values mean the same session index as in panel d, but the axis starts at the
     # first session that has a preceding one; padding out to 0 would only add dead space.
     ax.set_xlim(
@@ -434,7 +407,7 @@ def build(output_dir: Path) -> dict[str, Any]:
         0,
         max(
             12.0,
-            float(physical["displacement_percent_source_fov_diagonal"].max()) * 1.12,
+            float(pair_rows["displacement_percent_source_fov_diagonal"].max()) * 1.12,
         ),
     )
     ax.set_xlabel("No. of cycles")
@@ -444,13 +417,7 @@ def build(output_dir: Path) -> dict[str, Any]:
         "source": str(
             (ALIGNMENT / "physical_fov_exact_36_source.csv").relative_to(REPO_ROOT)
         ),
-        "n_pairs": int(physical.shape[0]),
-        "median_percent": float(
-            physical["displacement_percent_source_fov_diagonal"].median()
-        ),
-        "max_percent": float(physical["displacement_percent_source_fov_diagonal"].max()),
-        "transition_labels": labels,
-        "pairs_off_the_modal_month_ladder": off_ladder,
+        "n_pairs": int(pair_rows.shape[0]),
         "mean_percent_per_transition": {
             int(e): round(m, 3) for e, m in zip(order, transition_mean)
         },
@@ -459,7 +426,6 @@ def build(output_dir: Path) -> dict[str, Any]:
         "x_positions": [int(e) for e in order],
         "x_label": "No. of cycles",
         "y_label": "Displacement from previous FOV",
-        "month_ranges_for_caption": labels,
     }
 
     # -- f, g: candidate-feature separation ---------------------------------
@@ -470,6 +436,8 @@ def build(output_dir: Path) -> dict[str, Any]:
         ax, candidates, "centroid_distance_um", canvas
     )
     ax.set_xlabel("Centroid distance (" + MICRON + ")")
+    ax.set_xticks([0, 5, 10])
+    ax.set_yticks([0, 1000, 2000, 3000, 4000, 5000])
     ax.legend(
         frameon=False,
         loc="upper right",

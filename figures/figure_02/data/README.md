@@ -9,6 +9,10 @@ The three metric prefixes are `pv` (population vector), `place` (place map)
 and `rate` (ensemble rate). Each has a schematic table, histogram counts and
 densities, pair means and saved shuffle draws, and a days apart summary.
 Saved shuffle draws are not regenerated.
+The `*_gap.csv` files also contain five saved `shuffle_test` rows per metric.
+These compare each pair's observed correlation with its neuron-ID shuffle mean,
+using standard errors clustered by animal and BH correction across the five
+displayed days-apart groups. The statistics command reproduces these tests.
 
 `recurrence_points.csv` contains individual observations from successive
 gaps, including the level map observations displayed in ED9l. All four metrics

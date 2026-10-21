@@ -8,5 +8,10 @@
     "n_scored": 21412,
     "n_negative_excluded": 3,
     "median": 0.9973310792417146
+  },
+  "example_image_calibration": {
+    "microns_per_pixel": 1.66,
+    "scale_bar_microns": 100,
+    "scale_bar_image_pixels": 60.24096385542169
   }
 }

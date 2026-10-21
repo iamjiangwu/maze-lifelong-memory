@@ -13,14 +13,21 @@ _spec.loader.exec_module(science)
 def panel(letter):
     return pd.read_csv(DATA/f'panel_{letter}_values.csv',low_memory=False)
 
+def observations(letter):
+    """Keep animal observations separate from saved reported test rows."""
+    values = panel(letter)
+    if "record_type" in values.columns:
+        return values.loc[values.record_type.eq("animal")].copy()
+    return values
+
 def calculate():
     balanced = panel('b'); balanced = science.summarize_balanced_decoder_pairs(balanced.loc[balanced.row_type.eq('pair')])
     recurrence = panel('c'); recurrence = science.summarize_pv_recurrence_pairs(recurrence.loc[recurrence.row_type.eq('pair')])
-    family = pd.concat([panel(letter).assign(group=lambda x: prefix+':'+x.group) for letter,prefix in [('e','reliability'),('f','equal_frame'),('i','node')]],ignore_index=True)
+    family = pd.concat([observations(letter).assign(group=lambda x: prefix+':'+x.group) for letter,prefix in [('e','reliability'),('f','equal_frame'),('i','node')]],ignore_index=True)
     route_tests = science.summarize_reward_contrasts(family)
-    outcome = panel('g').pivot(index='animal',columns='group',values='advantage').dropna()
+    outcome = observations('g').pivot(index='animal',columns='group',values='advantage').dropna()
     outcome_test = pd.DataFrame([{'group':'rewarded minus timeout','p_exact':science.exact_sign_flip((outcome.rewarded-outcome.timeout).to_numpy())}])
-    cross = panel('j').query("measure == 'cross direction across gap'").pivot(index='animal',columns='bin',values='pv')
+    cross = observations('j').query("measure == 'cross direction across gap'").pivot(index='animal',columns='bin',values='pv')
     cross_test = pd.DataFrame([{'group':'cross direction across gap','p_exact':science.exact_sign_flip((cross[21]-cross.loc[:,range(21)].mean(axis=1)).to_numpy())}])
     return balanced, recurrence, route_tests, outcome_test, cross_test
 
@@ -45,14 +52,14 @@ def render(output_dir):
       'b':science.plot_balanced_decoder(balanced),
       'c':science.plot_pv_recurrence(recurrence),
       'd':science.plot_day_pair_route_advantages(day.loc[day.day.eq('first')],day.loc[day.day.eq('second')]),
-      'g':science.plot_reward_delivery_route_control(panel('g'),outcome),
+      'g':science.plot_reward_delivery_route_control(observations('g'),outcome),
       'h':science.draw_route_schematic()[0],
-      'j':science.plot_cross_direction_route_profiles(panel('j'),cross),
+      'j':science.plot_cross_direction_route_profiles(observations('j'),cross),
     }
     for letter,prefix,function in [('e','reliability',science.plot_reliability_adjusted_routes),('f','equal_frame',science.plot_equal_frame_route_control),('i','node',science.plot_node_route_controls)]:
         tests = routes.loc[routes.group.str.startswith(prefix+':')].copy()
         tests['group'] = tests.group.str.removeprefix(prefix+':')
-        figures[letter] = function(panel(letter),tests)
+        figures[letter] = function(observations(letter),tests)
     sources = {}
     for letter,figure in figures.items():
         paths = science.save_figure(figure,destination/f'extended_data_figure_8_panel_{letter}',formats=('svg','pdf','png'),raster_dpi=600,transparent=True,preserve_canvas=True)
