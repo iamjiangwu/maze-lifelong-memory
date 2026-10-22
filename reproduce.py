@@ -163,6 +163,9 @@ def main(argv=None) -> int:
         if len(selected)!=1 or args.output_dir is None:
             parser.error('A worker requires one artifact and an output directory')
         validate_output_folder(args.output_dir.resolve(), parser)
+        if not args.statistics_only:
+            from release_rendering.plotting import register_arial_substitute
+            register_arial_substitute()
         build_one(layout,selected[0],args.output_dir.resolve(),args.statistics_only)
         return 0
     verification = verify_sources(layout)

@@ -35,13 +35,17 @@ def _mean_shuffle(metric: str) -> tuple[pd.DataFrame, dict]:
 
 
 def statistics(output_dir: Path) -> dict[str, pd.DataFrame]:
-    """Recalculate recurrence CR1 tests, BH4, and the three shuffle tests."""
+    """Recalculate recurrence, mean-shuffle and days-apart shuffle tests."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     inference = _module('inference')
     recurrence = inference.summarize_recurrence_points(_read('recurrence_points.csv'))
     shuffle = pd.DataFrame([_mean_shuffle(metric)[1] for metric in ('pv','place','rate')])
-    results = {'recurrence_statistics':recurrence, 'mean_shuffle_statistics':shuffle}
+    gaps = pd.concat([_read(f'{metric}_gap.csv').assign(metric=metric)
+                      for metric in ('pv', 'place', 'rate')], ignore_index=True)
+    gap_tests = inference.gap_shuffle_statistics(gaps)
+    results = {'recurrence_statistics':recurrence, 'mean_shuffle_statistics':shuffle,
+               'gap_shuffle_statistics':gap_tests}
     for name, frame in results.items():
         frame.to_csv(output_dir/f'{name}.csv', index=False)
     return results

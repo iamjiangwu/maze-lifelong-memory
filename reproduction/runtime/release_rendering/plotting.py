@@ -14,6 +14,7 @@ Three groups of helpers here keep the figure files portable and repeatable:
 
 from __future__ import annotations
 
+import dataclasses
 import functools
 import os
 import re
@@ -239,6 +240,35 @@ def with_figure_font(settings: Mapping[str, object]) -> dict[str, object]:
         if key.startswith(("font.", "mathtext.")):
             resolved[key] = substitute(value)
     return resolved
+
+
+def register_arial_substitute() -> str | None:
+    """Let figure code that names Arial use a metric substitute when Arial is missing.
+
+    Several figure scripts name Arial directly. Without Arial, Matplotlib falls
+    back to DejaVu Sans, which is wider, so measured stars and labels no longer
+    fit their panels. When Liberation Sans or Arimo is installed, its font files
+    are also registered under the family name Arial, the substitution that
+    fontconfig makes on Linux, and the font notice is printed. Returns the
+    substitute, or None when Arial is installed or no substitute is.
+    """
+
+    if font_is_installed(VERSION_RECORD_FONT_FAMILY):
+        return None
+    family = figure_font_family()
+    if family not in ARIAL_METRIC_SUBSTITUTES:
+        return None
+    entries = [
+        entry
+        for entry in font_manager.fontManager.ttflist
+        if entry.name.casefold() == family.casefold()
+    ]
+    font_manager.fontManager.ttflist.extend(
+        dataclasses.replace(entry, name=VERSION_RECORD_FONT_FAMILY)
+        for entry in entries
+    )
+    font_manager.fontManager._findfont_cached.cache_clear()
+    return family
 
 
 @contextmanager
@@ -936,6 +966,7 @@ __all__ = [
     "fix_pdf_dates",
     "font_is_installed",
     "publication_style",
+    "register_arial_substitute",
     "report_skipped_browser_export",
     "resolved_publication_font",
     "save_figure",

@@ -89,7 +89,9 @@ def ed2(source, output, analyses):
     contributions = pd.DataFrame([dict(parameter=p, delta_efficiency_mean=four['contribution_' + p].mean(), delta_efficiency_ci_low=np.percentile(condraw[:, j], 2.5), delta_efficiency_ci_high=np.percentile(condraw[:, j], 97.5)) for (j, p) in enumerate(parameters)])
     save_statistics('ed2_matched_policy_contributions', contributions, output, analyses)
     point = common[cols].mean().to_numpy(float)
-    gap = pd.DataFrame([dict(model=m, delta_real=point[0], delta_simulated=point[j], fraction_recapitulated=point[j] / point[0], fraction_ci_low=np.percentile(gapdraw[:, j + 2], 2.5), fraction_ci_high=np.percentile(gapdraw[:, j + 2], 97.5), delta_simulated_ci_low=np.percentile(gapdraw[:, j], 2.5), delta_simulated_ci_high=np.percentile(gapdraw[:, j], 97.5)) for (j, m) in [(1, 'four_bias'), (2, 'depth_stratified')]])
+    # Panel h displays the fraction interval on the observed point-gap scale.
+    # This is distinct from a percentile interval for the simulated gap itself.
+    gap = pd.DataFrame([dict(model=m, delta_real=point[0], delta_simulated=point[j], fraction_recapitulated=point[j] / point[0], fraction_ci_low=np.percentile(gapdraw[:, j + 2], 2.5), fraction_ci_high=np.percentile(gapdraw[:, j + 2], 97.5), delta_simulated_ci_low=point[0] * np.percentile(gapdraw[:, j + 2], 2.5), delta_simulated_ci_high=point[0] * np.percentile(gapdraw[:, j + 2], 97.5)) for (j, m) in [(1, 'four_bias'), (2, 'depth_stratified')]])
     save_statistics('ed2_matched_gap', gap, output, analyses)
 
 def ed3(source, output, analyses):

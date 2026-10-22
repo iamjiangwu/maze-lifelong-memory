@@ -7,6 +7,6 @@ long_bout_step_curve.csv,101807,"columns: group_key,maze_tile_transitions,mean,s
 long_bout_time_curve.csv,391267,"columns: group_key,time_minutes,mean,sem,n_sessions,n_sessions_observed_at_x,group_80pct_endpoint"
 reward_step_curve.csv,101752,"columns: group_key,maze_tile_transitions,mean,sem,n_sessions,n_sessions_observed_at_x,group_80pct_endpoint"
 reward_time_curve.csv,391783,"columns: group_key,time_minutes,mean,sem,n_sessions,n_sessions_observed_at_x,group_80pct_endpoint"
-speed_summary.csv,1193,"columns: analysis_mode,day,month,n_sessions,n_animals,speed_mean_cm_s,speed_sem_cm_s"
+speed_summary.csv,1174,"columns: analysis_mode,day,month,n_sessions,n_animals,speed_mean_cm_s,speed_sem_cm_s"
 step_efficiency.csv,2949,"columns: group_key,bin_index,completion_tile_transitions,mean,sem,n_sessions,n_animals,plotted,group_80pct_recording_endpoint"
 time_efficiency.csv,3298,"columns: group_key,bin_index,completion_time_min,mean,sem,n_sessions,n_animals,plotted,group_80pct_recording_endpoint"
