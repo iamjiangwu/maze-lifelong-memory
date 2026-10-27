@@ -360,7 +360,7 @@ def _draw_decoder_schematic(
     axis.text(
         colorbar_x + colorbar_width / 2.0,
         colorbar_y + 0.020,
-        "P(position)",
+        "P(location)",
         fontsize=tiny_font * 0.92,
         ha="center",
         va="bottom",
@@ -400,7 +400,7 @@ def _draw_decoder_schematic(
     axis.text(
         posterior_x + 0.162,
         legend_y,
-        "Real",
+        "Observed",
         fontsize=5.0,
         fontweight="bold",
         color="#F04E37",
@@ -409,7 +409,7 @@ def _draw_decoder_schematic(
     axis.text(
         posterior_x + posterior_width / 2.0,
         0.025,
-        "Decoded position",
+        "Decoded location",
         ha="center",
         va="bottom",
         fontsize=title_font,
@@ -492,7 +492,7 @@ def _draw_paired_decoder_comparison(
         )
     p_value = float(values["stat_cluster_p"].iloc[0])
     axis.set_xticks((0, 1), (left_label, right_label))
-    axis.set_ylabel("Decoding error (bins)", labelpad=0.0)
+    axis.set_ylabel("Decoding error (tiles)", labelpad=0.0)
     # Keep both decoder comparisons on the same scale. The highest displayed
     # observation is 10.897 bins, so a limit of 10 would hide a control value.
     axis.set(xlim=(-0.55, 1.45), ylim=(0.0, 11.5))
@@ -608,7 +608,7 @@ def _draw_error_map(
     map_axis.set_aspect("equal")
     map_axis.axis("off")
     colorbar = figure.colorbar(image, cax=colorbar_axis)
-    colorbar.set_label("Decoding error (bins)", labelpad=1.0)
+    colorbar.set_label("Decoding error (tiles)", labelpad=1.0)
     colorbar.set_ticks((2, 4, 6, 8, 10, 12, 14))
     colorbar_axis.yaxis.set_ticks_position("left")
     colorbar_axis.yaxis.set_label_position("left")
@@ -802,7 +802,7 @@ def _draw_reward_decoding_association(
         va="bottom",
         fontsize=5.4,
     )
-    axis.set_xlabel("Reward decoding error (bins)")
+    axis.set_xlabel("Reward decoding error (tiles)")
     axis.set_ylabel("First long bout time (s)", labelpad=1.0)
     # Start the error axis at 0 unless every error lies well away from it.
     x_low = 0.0 if x.min() <= 0.15 * x.max() else float(np.floor(x.min() - 0.05 * (x.max() - x.min())))

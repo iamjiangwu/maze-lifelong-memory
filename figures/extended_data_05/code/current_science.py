@@ -529,7 +529,7 @@ def _render_matched_map_gallery_image(payload: GalleryPayload) -> np.ndarray:
         labeltop=False,
         labelbottom=True,
     )
-    colorbar.set_label("Normalized rate", fontsize=7.0, labelpad=1.5)
+    colorbar.set_label("Normalized activity", fontsize=7.0, labelpad=1.5)
 
     canvas = FigureCanvasAgg(gallery_figure)
     canvas.draw()

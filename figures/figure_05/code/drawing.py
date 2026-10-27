@@ -368,7 +368,7 @@ def plot_level_heatmaps(values: pd.DataFrame) -> Figure:
         colorbar = figure.colorbar(
             image, ax=list(axes), location="right", fraction=0.028, pad=0.018
         )
-        colorbar.set_label("Normalized rate", fontsize=7.0)
+        colorbar.set_label("Normalized activity", fontsize=7.0)
         colorbar.set_ticks((0.0, 0.2, 0.4, 0.6, 0.8))
         colorbar.ax.tick_params(labelsize=6.5, length=2.0)
     return figure

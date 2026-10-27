@@ -79,7 +79,7 @@
         "1616",
         "1632"
       ],
-      "note": "In 418day1, 618day1 and 628day1, mice made no direct run to the water port within the first 30 min, so these sessions contributed exploration speed but no reward-directed speed. Mice 15, 202, 628, 1603 and 1608 had no matched Day 2 session."
+      "note": "In 418day1, 618day1 and 628day1, mice made no direct run to the water port within the first 30 min, so these sessions contributed exploration speed but no reward-directed speed. Mice 15, 202, 628, 1603 and 1608 had no matched Day i+1 session."
     },
     {
       "analysis": "Exploration efficiency, junction turning biases and biased walk simulations",
@@ -115,7 +115,7 @@
         "1616",
         "1632"
       ],
-      "note": "Session 646-9day2 did not reach 32 distinct end nodes, so its exploration efficiency was undefined and was set to zero in the comparisons with simulations (ED Fig. 2f,i). Depth-specific stemward exit probabilities used at least 10 qualifying events per depth range to avoid estimates based on very sparse sampling; 640day1 had 2 shallow events and was therefore excluded from the depth-specific analyses (ED Fig. 2g to i). Mouse 1616's two special return sessions were included in the pooled return analyses of ED Fig. 2."
+      "note": "Session 646-9day2 did not reach 32 distinct end nodes, so its exploration efficiency was undefined and was set to zero in the comparisons with simulations (ED Fig. 2f,i). Depth-specific stemward exit probabilities used at least 10 qualifying junction choices per depth range to avoid estimates based on very sparse sampling; 640day1 had 2 qualifying junction choices in the shallow depth group and was therefore excluded from the depth-specific analyses (ED Fig. 2g to i). Mouse 1616's two special return sessions were included in the pooled return analyses of ED Fig. 2."
     },
     {
       "analysis": "Latent learning and first visit route choices",

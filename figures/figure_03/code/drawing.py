@@ -465,7 +465,7 @@ def _draw_method_definition(axis: plt.Axes, semantic_definition: str) -> None:
     accepted_titles = {
         "moving_window_definition": "Moving 30-min windows",
         "early_alignment_definition": "First 30 min across cycles",
-        "successive_cycle_definition": "Day 1 across long gaps",
+        "successive_cycle_definition": "Day i across long gaps",
     }
     if semantic_definition not in accepted_titles:
         raise ValueError(f"Unknown method definition: {semantic_definition}")

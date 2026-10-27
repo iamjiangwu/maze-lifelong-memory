@@ -9,8 +9,8 @@
           "meaning": "Two sessions starting 24 h apart, labeled Day i and Day i+1. Successive cycles were separated by a long gap of about 90 days without maze experience."
         },
         {
-          "term": "Naive day, return day and second day",
-          "meaning": "The naive day is the first maze exposure. A return day begins a later recording cycle. The second day is Day i+1 of any cycle."
+          "term": "Day i and Day i+1",
+          "meaning": "Day i is the first session of a recording cycle: the naive day at initial maze exposure and a return day in later cycles. Day i+1 is the second day of the recording cycle; its session starts 24 h after the Day i session starts."
         },
         {
           "term": "Latent controls",
@@ -26,7 +26,7 @@
         },
         {
           "term": "Maze tile and tile step",
-          "meaning": "A tile is one position on the 15-by-15 maze grid and is also the spatial bin for neural maps and decoding. A tile step is movement between adjacent tiles."
+          "meaning": "A maze tile is one traversable square of the 15-by-15 maze grid and is also the spatial bin for neural maps and decoding. A tile step is movement between adjacent tiles."
         },
         {
           "term": "Node, end node and node step",
@@ -75,11 +75,11 @@
         },
         {
           "term": "Place map and place field",
-          "meaning": "A place map gives one neuron's mean activity at each maze position. Regions of high activity are its place fields. Place map correlation compares the maps between sessions."
+          "meaning": "A place map gives one neuron's mean activity at each maze location. Regions of high activity are its place fields. Place map correlation compares the maps between sessions."
         },
         {
           "term": "Population vector (PV)",
-          "meaning": "A vector containing one mean activity value per matched neuron at a given maze position or tree level. PV correlation compares these vectors between sessions."
+          "meaning": "A vector containing one mean activity value per matched neuron at a given maze location or tree level. PV correlation compares these vectors between sessions."
         },
         {
           "term": "Ensemble rate correlation",
@@ -87,7 +87,7 @@
         },
         {
           "term": "Level map",
-          "meaning": "One neuron's mean activity at each of the seven tree levels, pooling locations at the same depth. Its peak marks the preferred level. Level map correlation compares these maps between sessions."
+          "meaning": "One neuron's mean activity at each tree level, pooling locations at the same level. A unique peak identifies the preferred level. Level map correlation compares these maps between sessions."
         },
         {
           "term": "Standardized PV correlation",
@@ -99,7 +99,7 @@
         },
         {
           "term": "Decoding error and reward decoding error",
-          "meaning": "A decoder trained on the earlier (source) session estimates position in the later (target) session. Decoding error is the mean Euclidean distance, in tiles, between decoded and observed positions. Reward decoding error is measured in the tile next to the rewarded end node."
+          "meaning": "A decoder trained on the earlier (source) session estimates location in the later (target) session. Decoding error is the mean Euclidean distance, in tiles, between decoded and observed locations. Reward decoding error is measured in the tile next to the rewarded end node."
         }
       ]
     }
