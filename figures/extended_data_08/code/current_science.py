@@ -1763,7 +1763,7 @@ def plot_cross_direction_route_profiles(
             xlim=(-0.5, 22.5),
             ylim=(-0.08, 0.45),
             ylabel="Standardized PV correlation",
-            xlabel="Position along route",
+            xlabel="Location along route",
         )
         axis.set_xticks([0, 21], ["Home", "Reward"])
         axis.yaxis.label.set_fontsize(5.6)

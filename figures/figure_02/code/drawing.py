@@ -398,7 +398,7 @@ def _render_metric_schematic(values: pd.DataFrame, metric: str, size: tuple[floa
                 axis.add_patch(Rectangle((x_start + column * cell_width, matrix_y + (matrix.shape[0] - row - 1) * cell_height), cell_width, cell_height, facecolor=plt.cm.Greys(1.0 - matrix[row, column]), edgecolor="#D2D5D6", linewidth=0.45))
             axis.text(x_start + matrix_width / 2.0, 0.93, f"Session {'ab'[session_index - 1]}", ha="center", va="center", fontsize=5.4)
             axis.annotate("", xy=(x_start + matrix_width, 0.27), xytext=(x_start, 0.27), arrowprops={"arrowstyle": "-|>", "color": "#34383A", "linewidth": 0.75, "mutation_scale": 7.0, "shrinkA": 0.0, "shrinkB": 0.0})
-            axis.text(x_start + matrix_width / 2.0, 0.10, "Position", ha="center", va="center", fontsize=5.4)
+            axis.text(x_start + matrix_width / 2.0, 0.10, "Location", ha="center", va="center", fontsize=5.4)
             if metric == "place":
                 highlight = (x_start, matrix_y + 3 * cell_height, matrix_width, cell_height)
             else:

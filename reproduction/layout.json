@@ -19,7 +19,7 @@
       "title": "CA1 retains a persistent trace after long periods without maze experience",
       "description": "Place map, population vector (PV) and ensemble rate correlations across long gaps, days apart and successive gaps, with matched neuron examples and neuron ID shuffles.",
       "builder": "derived",
-      "publication_pdf_sha256": "64ba606dc26d30064e2975ca7cdcd483f689c0650873b9ea6bf62ebc30a717d2"
+      "publication_pdf_sha256": "e1da1bb92acee2709af59c1625997dc0281bcd7e53c5e4ab5cba2188386b0525"
     },
     {
       "artifact_id": "main_figure_3",
@@ -129,7 +129,7 @@
       "title": "Reward code stability across sampling and route controls",
       "description": "Reward and control location decoding and PV correlations; standardized route PV correlations with reliability, sampling, reward delivery, route and direction comparisons.",
       "builder": "derived",
-      "publication_pdf_sha256": "fb678e08e394d48ff1b97af9a7fbfceb80b032a3e4392eb439e429ed2ec9abbb"
+      "publication_pdf_sha256": "67e6b4f80ce987267f7d897ee25d4cc6af96695a087c72ed6cf9f3d541f3a58f"
     },
     {
       "artifact_id": "extended_data_figure_9",
@@ -676,7 +676,7 @@
     },
     {
       "repository_path": "figures/extended_data_08/code/current_science.py",
-      "sha256": "3131e8551c929cd1b32fe04fd8817b2dc9b8ac662d87326952932979022e0296",
+      "sha256": "49e7f36e837ee0f30ec718812c139fbdebc4b9bfba261bdb7669c071f4e9c81d",
       "bytes": 60404
     },
     {
@@ -1056,7 +1056,7 @@
     },
     {
       "repository_path": "figures/figure_02/code/drawing.py",
-      "sha256": "9e97c8d0f38034b1ccb8e72025d84d1e688b51e0b954d5a51bd1e06385b47697",
+      "sha256": "340099970afaa6fd1cf07cfe7321db6bd16399ecf4e1658e801b60ebe4f5212f",
       "bytes": 44521
     },
     {
