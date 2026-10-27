@@ -91,7 +91,7 @@
         },
         {
           "term": "Standardized PV correlation",
-          "meaning": "PV correlation along a route to or from the water port, after subtracting each neuron's mean activity along the route and dividing by its standard deviation. This compares the neurons' relative preference for each route position."
+          "meaning": "PV correlation along a route to or from the water port, after subtracting each neuron's mean activity along the route and dividing by its standard deviation. This compares the neurons' relative preference for each route location."
         },
         {
           "term": "Neuron-ID shuffle",
