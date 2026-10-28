@@ -215,8 +215,8 @@
     },
     {
       "repository_path": "figures/extended_data_01/code/inference.py",
-      "sha256": "bed93b520cbb59209e89abd08f16304f34deb205f77d526541639c800a4ba3ab",
-      "bytes": 7122
+      "sha256": "a552f779b4ae271e5ea487a11c587b16b628113878b0a71f0e10569af2905596",
+      "bytes": 7124
     },
     {
       "repository_path": "figures/extended_data_01/data/acquisition_points.csv",
