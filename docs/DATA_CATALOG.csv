@@ -130,7 +130,7 @@ ed9,figures/extended_data_09/data/panel_o_values.csv,15139,"columns: record_type
 ed9,figures/extended_data_09/data/recurrence_family_points.csv,1765776,"columns: metric,animal_id,chain_key,point_id,previous_correlation,next_correlation"
 ed10,figures/extended_data_10/data/panel_a_values.csv,72321,"columns: record_type,neural_readout,behavior_measure,pair_key,animal_id,neural_value,behavior_value,matched_neurons_per_draw,coordinated_draws"
 ed10,figures/extended_data_10/data/panel_c_values.csv,70538,"columns: record_type,pair_key,animal_id,source_session,target_session,policy_key,policy_label,policy_index,level_map_correlation,policy_value,fitted_policy_value,lower_95,upper_95"
-table1,tables/table_01/data/current_rows.json,15657,"keys: schema_version,source_boundary,title,headers,rows,authority,footnote"
+table1,tables/table_01/data/current_rows.json,15709,"keys: schema_version,source_boundary,title,headers,rows,authority,footnote"
 table2,tables/table_02/data/publication_notes.json,754,list: 4 items
 table2,tables/table_02/data/recording_intervals.csv,6192,"columns: Animal ID,Return month,Previous nominal month,Preceding Day i session,Preceding Day i+1 session,Preceding Day i+1 date,Return Day i session,Return Day i date,Interval (d),Fixed-month behavior return roster,Maintained calcium imaging,Pair key,Schedule note"
-table3,tables/table_03/data/glossary.json,5778,"keys: title,pages"
+table3,tables/table_03/data/glossary.json,5871,"keys: title,pages"

@@ -1,4 +1,4 @@
-# Persistent hippocampal trace of lifelong spatial memory
+# Persistent hippocampal traces of lifelong spatial memory
 
 Source Data and reproduction code for the manuscript by **Jiang Wu, Markus Meister and Carlos Lois**.
 
@@ -10,7 +10,7 @@ statistics are included.
 
 The study asks what remains of a spatial memory in hippocampal CA1 after months without experience, and how prior experience shapes representations when animals return. Mice freely navigate a binary-tree maze in darkness, with six branch decisions, 64 end nodes and a fixed water port. Two-day recording cycles recur approximately every 90 days over as much as a year.
 
-Behavioral analyses measure first long bout time, exploration efficiency, first visit route choices and junction turning biases. Biased walk models explain the exploration improvement. Longitudinal calcium imaging measures place maps, population vectors (PVs), ensemble rates, level maps and position decoding. A level map describes tuning to depth in the branching hierarchy. Neural-behavior analyses relate preserved reward coding to first long bout time and preserved level tuning to exploration efficiency.
+Behavioral analyses measure first long bout time, exploration efficiency, first visit route choices and junction turning biases. Biased walk models explain the exploration improvement. Longitudinal calcium imaging measures place maps, population vectors (PVs), ensemble rates, level maps and location decoding. A level map describes tuning to depth in the branching hierarchy. Neural-behavior analyses relate preserved reward coding to first long bout time and preserved level tuning to exploration efficiency.
 
 ## Contents
 
@@ -47,9 +47,9 @@ Run `python reproduce.py` for all figures, tables and statistics. Use a new outp
 | Figure | Manuscript title |
 |---|---|
 | [1](figures/figure_01/README.md) | Lifelong memory of a complex navigation task |
-| [2](figures/figure_02/README.md) | CA1 retains a persistent trace after long periods without maze experience |
+| [2](figures/figure_02/README.md) | Hippocampal area CA1 retains a persistent trace after long periods without maze experience |
 | [3](figures/figure_03/README.md) | Experience makes spatial representations more stable |
-| [4](figures/figure_04/README.md) | The reward location anchors selective place stability |
+| [4](figures/figure_04/README.md) | The reward location favors selective place stability |
 | [5](figures/figure_05/README.md) | A compact structural code predicts memory guided exploration |
 | [ED1](figures/extended_data_01/README.md) | Additional reward and exploration measures for lifelong spatial memory |
 | [ED2](figures/extended_data_02/README.md) | Junction turning biases and biased walk models of exploration efficiency |

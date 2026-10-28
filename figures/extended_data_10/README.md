@@ -1,4 +1,4 @@
-# Extended Data Figure 10. Coordinated neural–behavior associations
+# Extended Data Figure 10. Neural preservation and later behavior
 
 Panels a/b use 30 successive long-gap pairs from 14 animals, 50 coordinated draws of 181 matched neurons and the accepted flat-prior decoder. Panel c uses 36 pairs and policies from the first 30 cumulative maze minutes of the later session.
 

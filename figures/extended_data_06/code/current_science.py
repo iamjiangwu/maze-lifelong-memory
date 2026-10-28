@@ -414,7 +414,7 @@ _FIXED_DISPLAY_COLUMNS = (
         "tile_change",
         3000.0,
         "3,000-step window",
-        "Steps in maze",
+        "Maze tile steps",
         1000.0,
     ),
 )

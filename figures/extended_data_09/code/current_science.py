@@ -779,7 +779,8 @@ def _draw_eight_bin_controls_axis(
         )
     axis.set_xticks(
         range(3),
-        ["Horizontal\n8-bin", "Level", "Vertical\n8-bin"],
+        ["Horizontal:\n8 regions", "Level", "Vertical:\n8 regions"],
+        ha="center", multialignment="center",
     )
     axis.set_ylabel("Pair-mean r")
     axis.set_ylim(-0.23, 0.83)
@@ -1164,7 +1165,7 @@ def render_tree_depth_control_summary(
         colorbar.ax.set_yticklabels(['−0.1','0','0.1'])
         transition.set_title('Δ conditional probability',fontsize=6.5,pad=3)
         _draw_preferred_level_distance_axis(axis('f',165,10,16,26),preferred_level_values)
-        for x,rep,title in [(0.5,'horizontal_8','Horizontal 8-bin'),(28.5,'vertical_8','Vertical 8-bin')]:
+        for x,rep,title in [(0.5,'horizontal_8','Horizontal: 8 regions'),(28.5,'vertical_8','Vertical: 8 regions')]:
             _draw_record_partition(axis('g_'+rep,x,51,26,26),rep,title)
         adjusted=dict(zip(partition_statistics.contrast,partition_statistics.p_bh2))
         _draw_eight_bin_controls_axis(axis('h',64,51,25,26),partition_correlations,partition_display_summary,adjusted)

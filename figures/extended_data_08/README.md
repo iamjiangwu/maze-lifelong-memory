@@ -1,4 +1,4 @@
-# Extended Data Figure 8. Reward-location and route controls
+# Extended Data Figure 8. Reward code stability across sampling and route controls
 
 Panels a–c contain saved spatial-decoder and PV-location controls. Panels d–j show mouse-level direction, reliability, equal-frame, reward-delivery, alternate-start and cross-direction controls. Physical reward node 94 and decoder bin 103 are distinct.
 

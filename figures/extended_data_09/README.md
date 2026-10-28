@@ -1,4 +1,4 @@
-# Extended Data Figure 9. Tree-depth representations and controls
+# Extended Data Figure 9. Additional analyses of the persistent level code
 
 The fifteen panels show population-vector and mean-correlation nulls, decoding, preferred-level changes, alternative partitions, place/level associations, spatial nulls, gap curves, recurrence and experience effects.
 

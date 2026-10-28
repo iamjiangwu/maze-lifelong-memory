@@ -134,7 +134,7 @@ def _draw_record_acquisition_grid(
     )
     axes_to_draw = (
         ("maze_time_s", "Time in maze (s)"),
-        ("maze_tiles", "Steps in maze"),
+        ("maze_tiles", "Maze tile steps"),
     )
     for row_index, (axis_key, y_label) in enumerate(axes_to_draw):
         # The three columns share one y range because only the first column has
@@ -336,7 +336,7 @@ def _draw_record_long_bout_relation(
     axis.set_xscale("log")
     axis.set_yscale("log")
     axis.set_xlabel("First long bout time (s)")
-    axis.set_ylabel("Steps in maze")
+    axis.set_ylabel("Maze tile steps")
     axis.legend(
         loc="lower right",
         handletextpad=0.25,
@@ -416,11 +416,11 @@ def _draw_record_speed_axes(
                 handles=(
                     Line2D(
                         [0], [0], color=_AXIS_COLOR, marker="o", markersize=2.6,
-                        label="Day 1",
+                        label="Day i",
                     ),
                     Line2D(
                         [0], [0], color=_GROUP_COLORS["experienced_day2"],
-                        marker="o", markersize=2.6, label="Day 2",
+                        marker="o", markersize=2.6, label="Day i+1",
                     ),
                 ),
                 loc="lower right",
@@ -790,14 +790,14 @@ def compose_behavior_learning_overview(
             d_axis,
             reward_transition_curve,
             x_column="maze_tile_transitions",
-            x_label="Steps in maze",
+            x_label="Maze tile steps",
             y_label="Cumulative rewards",
         )
         _draw_record_cumulative_curve(
             e_axis,
             long_bout_transition_curve,
             x_column="maze_tile_transitions",
-            x_label="Steps in maze",
+            x_label="Maze tile steps",
             y_label="Cumulative long bouts",
         )
         panel_axes.update(
@@ -856,7 +856,7 @@ def compose_behavior_learning_overview(
             transition_axis,
             transition_efficiency_summary,
             x_column="completion_tile_transitions",
-            x_label="Steps in maze",
+            x_label="Maze tile steps",
             legend=False,
         )
         transition_axis.tick_params(axis="y", labelleft=False)

@@ -563,7 +563,7 @@ def plot_decoder_error_map(
     draw_water_port_icon(axis, y_axes=float(reward_axes_y))
     colorbar = figure.colorbar(artist, cax=color_axis, orientation="vertical")
     colorbar.set_ticks([2, 6, 10, 14])
-    colorbar.set_label("Decoding error (bins)", fontsize=6.0, labelpad=1.0)
+    colorbar.set_label("Decoding error (tiles)", fontsize=6.0, labelpad=1.0)
     colorbar.ax.tick_params(labelsize=5.4, width=0.55, length=1.8, pad=1.0)
     colorbar.ax.yaxis.set_ticks_position("left")
     colorbar.ax.yaxis.set_label_position("left")
@@ -654,7 +654,7 @@ def plot_balanced_decoder(values: pd.DataFrame) -> Figure:
     axis.set_xlim(-0.55, 3.80)
     axis.set_ylim(0.0, 13.1)
     axis.set_xticks([item[2] for item in order], [item[3] for item in order])
-    axis.set_ylabel("Decoding error (bins)", labelpad=2.0)
+    axis.set_ylabel("Decoding error (tiles)", labelpad=2.0)
     _style_vor_axis(axis)
     legend_handles = (
         Line2D(
@@ -1763,7 +1763,7 @@ def plot_cross_direction_route_profiles(
             xlim=(-0.5, 22.5),
             ylim=(-0.08, 0.45),
             ylabel="Standardized PV correlation",
-            xlabel="Position along route",
+            xlabel="Location along route",
         )
         axis.set_xticks([0, 21], ["Home", "Reward"])
         axis.yaxis.label.set_fontsize(5.6)

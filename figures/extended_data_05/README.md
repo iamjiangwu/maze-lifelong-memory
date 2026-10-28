@@ -1,4 +1,4 @@
-# Extended Data Figure 5. Examples and controls for long-gap neural stability
+# Extended Data Figure 5. Examples and controls for long gap neural stability
 
 Panel a contains 32 registered neuron-pair examples from saved normalized 45 × 45 maps; correlations were calculated on the 15 × 15 analysis grid. Panels b–d compare four day combinations for PV, place maps and ensemble rates. Panel e compares outside-maze activity with equal-frame maze samples.
 

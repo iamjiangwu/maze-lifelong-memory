@@ -7,4 +7,4 @@ The observational unit is a recording-cycle pair; the inference cluster is the a
 `bh12_slope_test` rows preserve the reported results. Each metric's four tests
 appear in its corresponding c/e/g table; together they form the 12-test family.
 
-`record_type` (or `row_type`) identifies observations, display summaries and inference rows. IDs identify animals, sessions, pairs, neurons or chains. Correlations and policy probabilities are dimensionless; decoder error is in bins. Undefined values are empty cells. Descriptive coordinates are supplied directly; statistical tests are recalculated from observations.
+`record_type` (or `row_type`) identifies observations, display summaries and inference rows. IDs identify animals, sessions, pairs, neurons or chains. Correlations and policy probabilities are dimensionless; decoder error is in maze tiles. Undefined values are empty cells. Descriptive coordinates are supplied directly; statistical tests are recalculated from observations.

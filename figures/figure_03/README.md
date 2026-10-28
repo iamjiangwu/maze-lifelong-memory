@@ -1,4 +1,4 @@
-# Figure 3
+# Figure 3. Experience makes spatial representations more stable
 
 Rebuild the figure with `python figures/figure_03/build.py` from the repository root.
 The included observations reproduce within-cycle alignment and successive-cycle

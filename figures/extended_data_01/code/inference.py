@@ -17,7 +17,7 @@ def _endpoint_statistics(endpoints: pd.DataFrame) -> pd.DataFrame:
     endpoint_order = ("first_reward", "tenth_reward", "first_long_bout")
     axis_specs = (
         ("maze_time_s", "Time in maze (s)"),
-        ("maze_tiles", "Steps in maze"),
+        ("maze_tiles", "Maze tile steps"),
     )
     pairs = (
         ("naive", "return"),
