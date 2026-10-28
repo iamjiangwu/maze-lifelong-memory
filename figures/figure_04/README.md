@@ -1,4 +1,4 @@
-# Figure 4
+# Figure 4. The reward location favors selective place stability
 
 Rebuild the figure with `python figures/figure_04/build.py` from the repository root.
 `code/derived_panels.py` recalculates statistical tests and draws the complete

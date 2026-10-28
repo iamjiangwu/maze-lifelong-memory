@@ -1,4 +1,4 @@
-# Extended Data Figure 1
+# Extended Data Figure 1. Additional reward and exploration measures for lifelong spatial memory
 
 Behavioral learning across initial, return, and second-day maze sessions.
 Run `python reproduce.py --figure ed1 --output-dir <directory>` from the repository root.

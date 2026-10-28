@@ -4,4 +4,4 @@
 
 Pairs receive equal weight; repeated pairs are clustered by animal. Each metric has six paired day-combination contrasts. Exact animal sign flips and CR1 inference each receive BH6 within that metric. Panel e uses one animal-clustered maze-minus-outside comparison.
 
-`record_type` (or `row_type`) identifies observations, display summaries and inference rows. IDs identify animals, sessions, pairs, neurons or chains. Correlations and policy probabilities are dimensionless; decoder error is in bins. Undefined values are empty cells. Descriptive coordinates are supplied directly; statistical tests are recalculated from observations.
+`record_type` (or `row_type`) identifies observations, display summaries and inference rows. IDs identify animals, sessions, pairs, neurons or chains. Correlations and policy probabilities are dimensionless; decoder error is in maze tiles. Undefined values are empty cells. Descriptive coordinates are supplied directly; statistical tests are recalculated from observations.

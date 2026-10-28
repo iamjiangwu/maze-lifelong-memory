@@ -1,4 +1,4 @@
-# Extended Data Figure 6. Within-session neural stability
+# Extended Data Figure 6. Convergence within recording cycles and local stability within sessions
 
 Fixed-reference columns compare moving Day i windows with the complete Day i+1 session. Sliding-pivot columns compare adjacent 30-minute windows within each day. Saved curves preserve support masks and gaps.
 

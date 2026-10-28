@@ -7,4 +7,4 @@ In o, `n_matched_neurons` counts neurons passing the activity gate;
 
 Pair-level tests use animal-clustered CR1 uncertainty. Preferred-level and partition comparisons each use BH2. Recurrence and both experience analyses retain full four-metric observation families in companion tables and recompute BH4. Null distributions are saved derived draws.
 
-`record_type` (or `row_type`) identifies observations, display summaries and inference rows. IDs identify animals, sessions, pairs, neurons or chains. Correlations and policy probabilities are dimensionless; decoder error is in bins. Undefined values are empty cells. Descriptive coordinates are supplied directly; statistical tests are recalculated from observations.
+`record_type` (or `row_type`) identifies observations, display summaries and inference rows. IDs identify animals, sessions, pairs, neurons or chains. Correlations and policy probabilities are dimensionless; decoder error is in maze tiles. Undefined values are empty cells. Descriptive coordinates are supplied directly; statistical tests are recalculated from observations.

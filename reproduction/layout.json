@@ -16,7 +16,7 @@
       "alias": "2",
       "directory": "figures/figure_02",
       "label": "Figure 2",
-      "title": "CA1 retains a persistent trace after long periods without maze experience",
+      "title": "Hippocampal area CA1 retains a persistent trace after long periods without maze experience",
       "description": "Place map, population vector (PV) and ensemble rate correlations across long gaps, days apart and successive gaps, with matched neuron examples and neuron ID shuffles.",
       "builder": "derived",
       "publication_pdf_sha256": "e1da1bb92acee2709af59c1625997dc0281bcd7e53c5e4ab5cba2188386b0525"
@@ -36,7 +36,7 @@
       "alias": "4",
       "directory": "figures/figure_04",
       "label": "Figure 4",
-      "title": "The reward location anchors selective place stability",
+      "title": "The reward location favors selective place stability",
       "description": "Cross-session spatial decoding and standardized route PV correlations; reward decoding error paired with first long bout time in the later session.",
       "builder": "derived",
       "publication_pdf_sha256": "ac73314393223b32fc91fb4356809721ab046e4321b1702cae031bbabe1c1a38"

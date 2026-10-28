@@ -1,4 +1,4 @@
-# Extended Data Figure 7. Age associations of neural stability
+# Extended Data Figure 7. Age associations with map stability
 
 The top row relates first-30-minute Day i similarity to Day i age. The bottom row relates long-gap similarity to destination-session age. Lines use a common age coefficient with separate categorical experience or transition intercepts.
 

@@ -1,4 +1,4 @@
-# Figure 2. CA1 retains a persistent trace after long periods without maze experience
+# Figure 2. Hippocampal area CA1 retains a persistent trace after long periods without maze experience
 
 Place map, population vector (PV) and ensemble rate correlations across long gaps, as a function of days apart and across successive gaps, with matched neuron examples and neuron ID shuffles.
 
